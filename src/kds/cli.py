@@ -7,6 +7,11 @@ from pathlib import Path
 from kds.audio.contracts import AudioPipelineError
 from kds.audio.pipeline import AudioPreparationPipeline
 from kds.data.assets import validate_assets
+from kds.data.consents import (
+    ConsentRegistryError,
+    load_consent_registry,
+    product_eligible_speaker_ids,
+)
 from kds.data.licenses import (
     LicenseLedgerError,
     TrainingProtocolError,
@@ -119,6 +124,28 @@ def _validate_training_protocol(arguments: argparse.Namespace) -> int:
     return 0
 
 
+def _validate_consent_registry(arguments: argparse.Namespace) -> int:
+    try:
+        entries = load_consent_registry(Path(arguments.path))
+        eligible_speaker_ids = product_eligible_speaker_ids(entries)
+    except ConsentRegistryError as error:
+        print(json.dumps({"status": "error", "issues": list(error.issues)}, ensure_ascii=False))
+        return 2
+    active_count = sum(entry.status == "active" for entry in entries)
+    print(
+        json.dumps(
+            {
+                "status": "ok",
+                "records": len(entries),
+                "active_speakers": active_count,
+                "product_eligible_speakers": len(eligible_speaker_ids),
+            },
+            ensure_ascii=False,
+        )
+    )
+    return 0
+
+
 def _assign_splits(arguments: argparse.Namespace) -> int:
     try:
         rows = load_manifest(Path(arguments.input_path))
@@ -179,6 +206,13 @@ def build_parser() -> argparse.ArgumentParser:
     protocol.add_argument("--license-ledger", required=True)
     protocol.add_argument("--purpose", choices=("research", "product"), required=True)
     protocol.set_defaults(handler=_validate_training_protocol)
+
+    consent_registry = subparsers.add_parser(
+        "validate-consent-registry",
+        help="Validate a local pseudonymous registry for consented product-corpus speakers",
+    )
+    consent_registry.add_argument("path", help="Local CSV; must never be committed to Git")
+    consent_registry.set_defaults(handler=_validate_consent_registry)
 
     assign = subparsers.add_parser(
         "assign-splits", help="Assign train/dev/test by connected group, speaker, and text"

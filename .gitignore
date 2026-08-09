@@ -20,6 +20,7 @@ mlruns/
 # Audio, model artifacts, and generated data must never enter Git.
 data/raw/
 data/processed/
+data/consents/
 data/augment_cache/
 /models/
 checkpoints/

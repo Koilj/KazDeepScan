@@ -39,6 +39,16 @@
   split-ами; выбранный режим и protocol report сохраняются в checkpoint.
 - Проект зафиксирован в Git: первый проверенный commit `fbd2a53` отправлен в
   `git@github.com:Koilj/KazDeepScan.git`, ветка `main` отслеживает `origin/main`.
+- Проведён повторный source review для product corpus. KazakhTTS2 — единственный
+  условно-пригодный казахский bona-fide component: у него пять явных speaker groups, 271.7 ч,
+  CC BY 4.0 и документированный consent process, но отсутствуют spoof class и достаточное
+  число speaker groups для независимого binary benchmark. Архивы 35.7 GB не скачивались.
+  MCSKL, YO-CPT-ru и SpeechFake не прошли source review для product use. Подробности —
+  `docs/product_corpus_source_review_2026-08-09.md`.
+- Добавлен `kds validate-consent-registry` для будущего собственного consented corpus. Он
+  принимает только локальный pseudonymous export без PII и требует active consent с явными
+  scopes на product training, synthetic derivatives и commercial deployment; `data/consents/`
+  исключён из Git.
 - Исправлен `GroupSplitter`: он назначает один split всей связной компоненте по
   `parent_group_id`, `speaker_pseudo_id` и `text_hash`, а не только по parent group. Это
   предотвращает text/speaker leakage при local re-split Common Voice.
@@ -182,6 +192,9 @@
 - реальная проверка нового gate на PyAra ready manifest: `--purpose research` прошёл
   (`train=376`, `dev=61`, `test=44`); `--purpose product` корректно остановлен из-за
   отсутствующего OOD, research-only/non-commercial policy и unknown speaker/voice provenance.
+- проверка после candidate review и consent-registry implementation: `ruff check src tests
+  scripts services`, `mypy src scripts services` (`47` source files) и `pytest -q` (`69`
+  tests) — успешно.
 - full RuASD integrity audit: `250/250` archive size и SHA-256 совпали с official pinned
   catalog; safe TAR walk подтвердил `585 353` exact JSON/WAV pairs, без extraction и без
   изменения файлов в `~/Downloads/RuASD`.
@@ -207,10 +220,12 @@ Common Voice Russian v24 разрешён владельцем проекта т
 2. Спроектировать speaker-disjoint target-language train/dev/test и channel-balanced OOD
    protocol. Не трактовать KSC `deviceID` как speaker ID; не подменять unknown `speakers` из
    полного RuASD источником groups; ML-DF и RuASD оставить изолированным OOD.
-3. Внести новый corpus в расширенный license ledger с explicit use policy и group provenance,
-   проверить `kds validate-training-protocol --purpose product`, затем повторить B0 и XLS-R +
-   SLS. До независимой evaluation и temperature calibration не создавать product release,
-   threshold или API scorer.
+3. Получить от rightsholder письменное уточнение scope для KazakhTTS2 **либо** собрать
+   собственный consented corpus по `docs/consented_product_corpus_v1.md`. После локальной
+   проверки архива внести только подтверждённый source в license ledger с explicit use policy и
+   group provenance, проверить `kds validate-training-protocol --purpose product`, затем
+   повторить B0 и XLS-R + SLS. До независимой evaluation и temperature calibration не создавать
+   product release, threshold или API scorer.
 
 Повторный preprocessing с документированным исключением QA/VAD-rejections возможен только
 так (каждый output и отчёт должны быть новыми):

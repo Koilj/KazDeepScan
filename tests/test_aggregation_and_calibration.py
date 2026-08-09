@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import pytest
 import torch
 
 from kds.eval import (
@@ -7,7 +8,9 @@ from kds.eval import (
     aggregate_global_logit,
     aggregate_peak_logit,
     brier_score,
+    classification_confidence_intervals,
     expected_calibration_error,
+    wilson_interval,
 )
 
 
@@ -46,3 +49,33 @@ def test_calibration_metrics_accept_valid_probabilities() -> None:
 
     assert brier_score(probabilities, labels) >= 0.0
     assert expected_calibration_error(probabilities, labels) >= 0.0
+
+
+def test_wilson_interval_is_stable_at_perfect_recall() -> None:
+    interval = wilson_interval(10, 10)
+
+    assert interval.confidence == 0.95
+    assert 0.69 < interval.lower < 0.73
+    assert interval.upper == 1.0
+
+
+def test_wilson_interval_rejects_invalid_counts_and_confidence() -> None:
+    with pytest.raises(ValueError, match="total"):
+        wilson_interval(0, 0)
+    with pytest.raises(ValueError, match="successes"):
+        wilson_interval(2, 1)
+    with pytest.raises(ValueError, match="confidence"):
+        wilson_interval(1, 2, confidence=1.0)
+
+
+def test_classification_intervals_omit_missing_class() -> None:
+    intervals = classification_confidence_intervals(
+        correct=8,
+        examples=10,
+        bonafide_correct=8,
+        bonafide_examples=10,
+        spoof_correct=0,
+        spoof_examples=0,
+    )
+
+    assert set(intervals) == {"accuracy", "bonafide_accuracy"}

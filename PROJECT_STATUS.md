@@ -175,6 +175,14 @@
   recall от `0.4681` до `0.7872`. Это подтвердило чувствительность к source/dev protocol;
   calibration, model release и API score по-прежнему запрещены. Полный отчёт —
   `docs/research_b0_source_mixed_v1.md`.
+- В B0 evaluation добавлены exact correct counts и 95% Wilson intervals для accuracy и
+  каждого class recall. Все три source-mixed checkpoint повторно оценены на ML-DF; interval
+  описывает только конечные 192 clips и не выдаётся за robustness claim.
+- Выполнен read-only audit LRLspoof revision `793f667a579756602193bb5b783ba16e80bcb7e6`:
+  он содержит 36 000 казахских spoof paths от четырёх записанных TTS directory, но является
+  spoof-only и доступен лишь как единый ~452 GB gzip/tar release. До локального предоставления
+  archive этот кандидат не скачан, не добавлен в ledger и не смешан с KSC. Подробности —
+  `docs/data_sources_lrlspoof_2026-08-10.md`.
 
 ## Проверено
 
@@ -241,6 +249,9 @@
 - повторно проверен старый RuASD-only checkpoint на том же ML-DF ready manifest: balanced
   accuracy `0.9262` (bona-fide recall `0.8830`, spoof recall `0.9694`). Это сохранено только
   как protocol comparison, не как общая product metric.
+- после добавления Wilson intervals: `ruff check src tests scripts services`, `mypy src
+  scripts services` (52 source files) и `pytest -q` (80 tests) — успешно; все три
+  source-mixed checkpoint переоценены с сохранением exact correct counts.
 
 Ранее успешно прошли CUDA smoke test B0, real M4A inspection и XLS-R + SLS GPU smoke test.
 
@@ -256,13 +267,15 @@ comparison; model/API score и calibration не включаются. Common Voi
 
 ## Дальше
 
-1. Собрать третий независимый русско- или казахскоязычный binary source для расширения matrix.
-   До этого не выдавать ML-DF за local-language test и не использовать `ruasd-000000`
-   fake-only shard как OOD после обучения на full RuASD.
+1. Собрать larger Kazakh derived research stress source из локального KSC и двух независимых
+   TTS-family (Piper multi-voice и MMS/VITS), только после artifact/license audit. Не выдавать
+   его за speaker-independent benchmark и не использовать его для calibration/API.
 2. После появления source повторить source-mixed B0 на заранее зафиксированных seeds и
    отчитываться по class recall/balanced accuracy каждого source отдельно. Не усреднять
    ML-DF, PyAra, KSC и within-source RuASD metrics в одну «общую accuracy».
-3. При необходимости добавить KazakhTTS2, MCSKL, YO-CPT-ru или SpeechFake только после
+3. LRLspoof не скачивать частично: его ~452 GB archive должен быть локально предоставлен
+   пользователем, затем потребуется отдельный spoof-only external protocol. При необходимости
+   добавить KazakhTTS2, MCSKL, YO-CPT-ru или SpeechFake только после
    отдельного local artifact/terms audit; personal-research scope не отменяет лицензию,
    provenance или ограничение конкретного source. Для каждого нового source обновить ledger и
    создать отдельный reproducible intake, а не смешивать файлы вручную.

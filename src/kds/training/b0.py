@@ -23,9 +23,12 @@ class AudioBatch:
 class EpochResult:
     loss: float
     accuracy: float
+    correct: int
     examples: int
     bonafide_examples: int
     spoof_examples: int
+    bonafide_correct: int
+    spoof_correct: int
     bonafide_accuracy: float | None
     spoof_accuracy: float | None
     balanced_accuracy: float | None
@@ -122,9 +125,12 @@ def _run_b0_epoch(
     return EpochResult(
         loss=total_loss / examples,
         accuracy=correct / examples,
+        correct=correct,
         examples=examples,
         bonafide_examples=bonafide_examples,
         spoof_examples=spoof_examples,
+        bonafide_correct=bonafide_correct,
+        spoof_correct=spoof_correct,
         bonafide_accuracy=bonafide_accuracy,
         spoof_accuracy=spoof_accuracy,
         balanced_accuracy=balanced_accuracy,

@@ -17,6 +17,7 @@ from kds.data.source_matrix import (
     select_matrix_rows,
     validate_source_mixed_research_matrix,
 )
+from kds.eval import classification_confidence_intervals
 from kds.models import B0Config, B0LogMelCnn
 from kds.training import EpochResult, evaluate_b0, make_audio_loader, train_b0_epoch
 
@@ -30,16 +31,30 @@ def _device(name: str) -> torch.device:
     return device
 
 
-def _metrics(result: EpochResult) -> dict[str, float | int | None]:
+def _metrics(result: EpochResult) -> dict[str, object]:
     return {
         "loss": result.loss,
         "accuracy": result.accuracy,
+        "correct": result.correct,
         "examples": result.examples,
         "bonafide_examples": result.bonafide_examples,
         "spoof_examples": result.spoof_examples,
         "bonafide_accuracy": result.bonafide_accuracy,
+        "bonafide_correct": result.bonafide_correct,
         "spoof_accuracy": result.spoof_accuracy,
+        "spoof_correct": result.spoof_correct,
         "balanced_accuracy": result.balanced_accuracy,
+        "confidence_intervals": {
+            name: asdict(interval)
+            for name, interval in classification_confidence_intervals(
+                correct=result.correct,
+                examples=result.examples,
+                bonafide_correct=result.bonafide_correct,
+                bonafide_examples=result.bonafide_examples,
+                spoof_correct=result.spoof_correct,
+                spoof_examples=result.spoof_examples,
+            ).items()
+        },
     }
 
 

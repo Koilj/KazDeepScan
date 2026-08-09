@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from dataclasses import asdict
 from pathlib import Path
 
 import torch
@@ -10,6 +11,7 @@ from kds.data.assets import require_valid_assets
 from kds.data.dataset import DatasetConfig, ManifestAudioDataset
 from kds.data.licenses import load_license_ledger, validate_manifest_licenses
 from kds.data.manifest import load_manifest, validate_manifest
+from kds.eval import classification_confidence_intervals
 from kds.models import B0Config, B0LogMelCnn
 from kds.training import evaluate_b0, make_audio_loader
 
@@ -69,6 +71,14 @@ def main() -> int:
     label_counts = {
         label: sum(row.label == label for row in rows) for label in ("bonafide", "spoof")
     }
+    confidence_intervals = classification_confidence_intervals(
+        correct=result.correct,
+        examples=result.examples,
+        bonafide_correct=result.bonafide_correct,
+        bonafide_examples=result.bonafide_examples,
+        spoof_correct=result.spoof_correct,
+        spoof_examples=result.spoof_examples,
+    )
     print(
         json.dumps(
             {
@@ -80,9 +90,15 @@ def main() -> int:
                 "label_counts": label_counts,
                 "loss": result.loss,
                 "accuracy": result.accuracy,
+                "correct": result.correct,
                 "bonafide_accuracy": result.bonafide_accuracy,
+                "bonafide_correct": result.bonafide_correct,
                 "spoof_accuracy": result.spoof_accuracy,
+                "spoof_correct": result.spoof_correct,
                 "balanced_accuracy": result.balanced_accuracy,
+                "confidence_intervals": {
+                    name: asdict(interval) for name, interval in confidence_intervals.items()
+                },
                 "calibrated": False,
             }
         )

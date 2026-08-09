@@ -31,14 +31,19 @@ KazDeepScan — локальный personal-research проект для исс�
   никогда не хранятся в Git.
 - B0 и XLS-R + SLS tensor/training foundations, record-level logit aggregation и temperature
   scaling;
+- explicit source-mixed research matrix и B0 runner, который не допускает overlap исходных
+  corpus между train/dev/final-test и проверяет обычный sample/SHA-256/group/text leakage поверх
+  этого;
 - FastAPI health/readiness/upload scaffold, который не выдаёт score без обученного,
   калиброванного model release.
 
-Есть personal-research B0 checkpoints на PyAra и full RuASD. Новый RuASD run имеет in-source
-balanced accuracy 88.08%, но на отдельном PyAra holdout spoof recall лишь 45.45%; оба источника
-не дают проверяемого speaker-disjoint split. Полный отчёт —
-[docs/research_b0_ruasd_full_2000.md](docs/research_b0_ruasd_full_2000.md). Поэтому ни модель,
-ни API не выдают вероятность риска или калиброванный score.
+Есть personal-research B0 checkpoints на PyAra, full RuASD и source-mixed матрице. На трёх
+зафиксированных seed source-mixed ML-DF cross-lingual test дал balanced accuracy от 73.40% до
+85.79%; наблюдались серьёзные ложные срабатывания на bona-fide речи. Ни один источник не даёт
+проверяемого speaker-disjoint binary split. Отчёты:
+[RuASD](docs/research_b0_ruasd_full_2000.md) и
+[source-mixed v1](docs/research_b0_source_mixed_v1.md). Поэтому ни модель, ни API не выдают
+вероятность риска или калиброванный score.
 
 ## Требования
 
@@ -117,6 +122,19 @@ kds validate-manifest data/manifests/ood.csv --require-ood-generator
 # Проверить, что полный manifest годится только для заявленной цели.
 kds validate-training-protocol data/manifests/slice.csv \
   --license-ledger data/licenses/license_ledger.csv --purpose research
+
+# Проверить, что train/dev/final test используют разные исходные corpus.
+# ML-DF остаётся отмеченным в своём manifest как OOD: это cross-lingual stress-test,
+# а не русскоязычная «общая accuracy».
+kds validate-source-matrix configs/research/source_mixed_v1.json \
+  --license-ledger data/licenses/license_ledger.csv
+
+# Обучить B0 с source-disjoint train/dev и один раз оценить final test после выбора epoch по dev.
+uv run python scripts/train_b0_matrix.py \
+  --matrix configs/research/source_mixed_v1.json \
+  --audio-root data \
+  --license-ledger data/licenses/license_ledger.csv \
+  --output models/b0-source-mixed-research-v1.pt --device cuda
 
 ```
 

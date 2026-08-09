@@ -1,6 +1,6 @@
 # KazDeepScan — статус проекта
 
-**Обновлено:** 9 августа 2026
+**Обновлено:** 10 августа 2026
 
 Этот файл — рабочая точка продолжения. После каждого завершённого этапа обновляйте разделы
 «Сделано», «Проверено», «Текущий этап» и «Дальше».
@@ -163,6 +163,18 @@
 - По явному указанию пользователя удалены старый oversized KSC archive из
   `data/raw/ksc_slr102/` и случайный неполный файл из `data/raw/ksc_slr102_clean/`.
   Проверенный archive в `~/Downloads` не перемещался и не изменялся.
+- Реализована versioned source-mixed research matrix: отдельный JSON contract и
+  `kds validate-source-matrix` требуют binary train/dev/test, непересекающиеся исходные
+  `source_name`, обычное отсутствие sample/SHA-256/group/text leakage и разрешённое usage из
+  ledger.
+  `scripts/train_b0_matrix.py` выбирает checkpoint только на dev и оценивает final test один
+  раз после этого. Реальная matrix v1: RuASD train (`1 417`), PyAra dev (`61`) и ML-DF OOD
+  final test (`192`); ML-DF остаётся cross-lingual OOD, а не меняет смысл своего manifest.
+- Обучены три B0 source-mixed checkpoints (seeds `20260810`–`20260812`). ML-DF final-test
+  balanced accuracy составила соответственно `0.7340`, `0.8460` и `0.8579`, с bona-fide
+  recall от `0.4681` до `0.7872`. Это подтвердило чувствительность к source/dev protocol;
+  calibration, model release и API score по-прежнему запрещены. Полный отчёт —
+  `docs/research_b0_source_mixed_v1.md`.
 
 ## Проверено
 
@@ -222,26 +234,34 @@
 - full RuASD integrity audit: `250/250` archive size и SHA-256 совпали с official pinned
   catalog; safe TAR walk подтвердил `585 353` exact JSON/WAV pairs, без extraction и без
   изменения файлов в `~/Downloads/RuASD`.
+- source-mixed matrix v1 прошла реальную CLI validation; checkpoint содержит source-matrix
+  report, seed, best dev loss и final-test class metrics;
+- после реализации matrix: `ruff check src tests scripts services`, `mypy src scripts
+  services` (`51` source files) и `pytest -q` (`77` tests) — успешно;
+- повторно проверен старый RuASD-only checkpoint на том же ML-DF ready manifest: balanced
+  accuracy `0.9262` (bona-fide recall `0.8830`, spoof recall `0.9694`). Это сохранено только
+  как protocol comparison, не как общая product metric.
 
 Ранее успешно прошли CUDA smoke test B0, real M4A inspection и XLS-R + SLS GPU smoke test.
 
 ## Текущий этап
 
-Русский PyAra research protocol, full RuASD binary protocol, KSC/Common Voice bona-fide layers
-и OOD layers подготовлены. Новый RuASD B0 заметно лучше прежнего PyAra-only smoke baseline, но
-PyAra spoof recall остаётся `0.4545`, а все RuASD metrics non-speaker-disjoint. Поэтому модель
-можно использовать только для воспроизводимого local research comparison; model/API score и
-calibration не включаются. Common Voice Russian v24 разрешён владельцем проекта только для
-личного исследования; сохраняются внешний запрет на идентификацию и re-hosting.
+Русский PyAra research protocol, full RuASD binary protocol, KSC/Common Voice bona-fide layers,
+OOD layers и source-mixed matrix v1 подготовлены. Новый matrix B0 не допускает corpus overlap,
+но final ML-DF result меняется от `0.7340` до `0.8579` на трёх seed и может ошибочно помечать
+значительную долю bona-fide речи. Модель годится только для воспроизводимого local research
+comparison; model/API score и calibration не включаются. Common Voice Russian v24 разрешён
+владельцем проекта только для личного исследования; сохраняются внешний запрет на
+идентификацию и re-hosting.
 
 ## Дальше
 
-1. Спроектировать explicit source-mixed research matrix: train/dev/test и evaluation source
-   должны быть disjoint по исходному corpus, а не только по sample ID. Не использовать
-   `ruasd-000000` fake-only shard как OOD после обучения на full RuASD.
-2. Повторить B0 на source-mixed protocol и отдельно сравнить class recall/balanced accuracy с
-   текущими single-source checkpoints. Не усреднять ML-DF, PyAra, KSC и within-source RuASD
-   metrics в одну «общую accuracy».
+1. Собрать третий независимый русско- или казахскоязычный binary source для расширения matrix.
+   До этого не выдавать ML-DF за local-language test и не использовать `ruasd-000000`
+   fake-only shard как OOD после обучения на full RuASD.
+2. После появления source повторить source-mixed B0 на заранее зафиксированных seeds и
+   отчитываться по class recall/balanced accuracy каждого source отдельно. Не усреднять
+   ML-DF, PyAra, KSC и within-source RuASD metrics в одну «общую accuracy».
 3. При необходимости добавить KazakhTTS2, MCSKL, YO-CPT-ru или SpeechFake только после
    отдельного local artifact/terms audit; personal-research scope не отменяет лицензию,
    provenance или ограничение конкретного source. Для каждого нового source обновить ledger и
@@ -262,10 +282,9 @@ calibration не включаются. Common Voice Russian v24 разрешён
 
 - PyAra допускает personal-research binary smoke baseline по `CC-BY-NC-SA-4.0`, но не даёт
   speaker IDs. Его local metrics не являются independent evaluation.
-- Независимые OOD результаты B0 слабые (ML-DF `0.5208`, RuASD fake-only `0.3800`), поэтому
-  прежнего PyAra-only checkpoint больше не являются current baseline. Новый RuASD checkpoint
-  всё ещё не даёт основания включать risk score, calibration или API inference: PyAra spoof
-  recall только `0.4545`, а RuASD OOD shard не независим от full RuASD training source.
+- Source-mixed B0 пока не даёт основания включать risk score, calibration или API inference:
+  ML-DF balanced accuracy имеет большой seed spread (`0.7340`–`0.8579`), а bona-fide recall
+  на первом запуске лишь `0.4681`. RuASD OOD shard не независим от full RuASD training source.
 - Полный RuASD (250 TAR artifacts, около 250 GB) находится в `~/Downloads/RuASD` и не
   перемещается. Он пригоден для personal-research binary training, но `speakers` неизвестен
   для raw bona-fide rows и spoof voice provenance unknown: split не speaker/voice-disjoint.

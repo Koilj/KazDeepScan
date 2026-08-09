@@ -23,6 +23,13 @@ from kds.data.manifest import (
     validate_manifest,
     write_manifest,
 )
+from kds.data.source_matrix import (
+    SourceMatrixError,
+    SourceMixedResearchMatrix,
+    SourceMixedResearchMatrixReport,
+    load_source_mixed_research_matrix,
+    validate_source_mixed_research_matrix,
+)
 from kds.data.split import GroupSplitter, SplitConfig
 
 __all__ = [
@@ -35,15 +42,20 @@ __all__ = [
     "ManifestError",
     "ManifestRow",
     "SplitConfig",
+    "SourceMatrixError",
+    "SourceMixedResearchMatrix",
+    "SourceMixedResearchMatrixReport",
     "TrainingProtocolError",
     "TrainingProtocolReport",
     "load_manifest",
+    "load_source_mixed_research_matrix",
     "load_consent_registry",
     "load_license_ledger",
     "validate_assets",
     "validate_manifest",
     "validate_manifest_licenses",
     "validate_training_protocol",
+    "validate_source_mixed_research_matrix",
     "product_eligible_speaker_ids",
     "write_manifest",
 ]

@@ -20,6 +20,11 @@ from kds.data.licenses import (
     validate_training_protocol,
 )
 from kds.data.manifest import ManifestError, load_manifest, validate_manifest, write_manifest
+from kds.data.source_matrix import (
+    SourceMatrixError,
+    load_source_mixed_research_matrix,
+    validate_source_mixed_research_matrix,
+)
 from kds.data.split import GroupSplitter, SplitConfig
 
 
@@ -146,6 +151,41 @@ def _validate_consent_registry(arguments: argparse.Namespace) -> int:
     return 0
 
 
+def _validate_source_mixed_research_matrix(arguments: argparse.Namespace) -> int:
+    try:
+        matrix = load_source_mixed_research_matrix(Path(arguments.path))
+        report = validate_source_mixed_research_matrix(
+            matrix, load_license_ledger(Path(arguments.license_ledger))
+        )
+    except (LicenseLedgerError, ManifestError, SourceMatrixError) as error:
+        issues = list(error.issues)
+        print(json.dumps({"status": "error", "issues": issues}, ensure_ascii=False))
+        return 2
+    print(
+        json.dumps(
+            {
+                "status": "ok",
+                "protocol_id": report.protocol_id,
+                "purpose": report.purpose,
+                "source_ids": report.source_ids,
+                "roles": [
+                    {
+                        "name": role.name,
+                        "manifest": role.manifest_path,
+                        "source_split": role.source_split,
+                        "rows": role.rows,
+                        "label_counts": role.label_counts,
+                        "source_ids": role.source_ids,
+                    }
+                    for role in report.roles
+                ],
+            },
+            ensure_ascii=False,
+        )
+    )
+    return 0
+
+
 def _assign_splits(arguments: argparse.Namespace) -> int:
     try:
         rows = load_manifest(Path(arguments.input_path))
@@ -213,6 +253,14 @@ def build_parser() -> argparse.ArgumentParser:
     )
     consent_registry.add_argument("path", help="Local CSV; must never be committed to Git")
     consent_registry.set_defaults(handler=_validate_consent_registry)
+
+    source_matrix = subparsers.add_parser(
+        "validate-source-matrix",
+        help="Validate an explicit source-disjoint personal-research train/dev/test matrix",
+    )
+    source_matrix.add_argument("path", help="Versioned JSON source matrix")
+    source_matrix.add_argument("--license-ledger", required=True)
+    source_matrix.set_defaults(handler=_validate_source_mixed_research_matrix)
 
     assign = subparsers.add_parser(
         "assign-splits", help="Assign train/dev/test by connected group, speaker, and text"

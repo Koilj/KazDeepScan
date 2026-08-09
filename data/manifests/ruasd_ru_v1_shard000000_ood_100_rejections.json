@@ -1,0 +1,5 @@
+{
+  "input_manifest": "data/manifests/ruasd_ru_v1_shard000000_ood_100.csv",
+  "published_rows": 100,
+  "rejected_rows": []
+}

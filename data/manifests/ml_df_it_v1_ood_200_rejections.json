@@ -1,0 +1,46 @@
+{
+  "input_manifest": "data/manifests/ml_df_it_v1_ood_200.csv",
+  "published_rows": 192,
+  "rejected_rows": [
+    {
+      "sample_id": "ml_df_it_v1:IT_4998_11418_000742_0_g",
+      "relative_path": "raw/ml_df_it_v1/slices/ood-200/dataset_IT/IT_4998_11418_000742_0_g.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ml_df_it_v1:IT_6807_7050_001383_2_g",
+      "relative_path": "raw/ml_df_it_v1/slices/ood-200/dataset_IT/IT_6807_7050_001383_2_g.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ml_df_it_v1:IT_6807_7050_000919_3_g",
+      "relative_path": "raw/ml_df_it_v1/slices/ood-200/dataset_IT/IT_6807_7050_000919_3_g.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ml_df_it_v1:IT_4998_3829_000489_3_g",
+      "relative_path": "raw/ml_df_it_v1/slices/ood-200/dataset_IT/IT_4998_3829_000489_3_g.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ml_df_it_v1:IT_4998_4125_000120_3_g",
+      "relative_path": "raw/ml_df_it_v1/slices/ood-200/dataset_IT/IT_4998_4125_000120_3_g.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ml_df_it_v1:IT_4998_6815_000216_2_g",
+      "relative_path": "raw/ml_df_it_v1/slices/ood-200/dataset_IT/IT_4998_6815_000216_2_g.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ml_df_it_v1:IT_11247_8906_000042_2_4998_DDDM-VC",
+      "relative_path": "raw/ml_df_it_v1/slices/ood-200/dataset_IT/IT_11247_8906_000042_2_4998_DDDM-VC.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ml_df_it_v1:IT_10179_9630_000008_7_6807_LVC-VC",
+      "relative_path": "raw/ml_df_it_v1/slices/ood-200/dataset_IT/IT_10179_9630_000008_7_6807_LVC-VC.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    }
+  ]
+}

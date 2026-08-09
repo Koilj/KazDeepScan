@@ -1,0 +1,101 @@
+{
+  "input_manifest": "data/manifests/ksc_first_250.csv",
+  "published_rows": 731,
+  "rejected_rows": [
+    {
+      "sample_id": "ksc_slr102:5f99318e171cf",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5f99318e171cf.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f61da8e27d84",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5f61da8e27d84.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f5e2a992d088",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5f5e2a992d088.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f58b96ac85ad",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5f58b96ac85ad.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f9806665789d",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5f9806665789d.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f61c7f6c6d05",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5f61c7f6c6d05.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f59cb7e988b6",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5f59cb7e988b6.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f55fabf12700",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5f55fabf12700.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f9f8eaa490c6",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5f9f8eaa490c6.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f58c84727b69",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5f58c84727b69.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f5f76c356782",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5f5f76c356782.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f61e3d6ea1d0",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5f61e3d6ea1d0.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f57989ae5028",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5f57989ae5028.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f87eda93d19d",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5f87eda93d19d.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f31b695593f8",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5f31b695593f8.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5ef6ce65a5ed2",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5ef6ce65a5ed2.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f16fb54d2182",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5f16fb54d2182.flac",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f2ec80b6556f",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5f2ec80b6556f.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5ef853bc4b390",
+      "relative_path": "raw/ksc_slr102/slices/first-250/Audios_flac/5ef853bc4b390.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    }
+  ]
+}

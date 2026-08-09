@@ -1,0 +1,9 @@
+seed: 20260808
+epochs: 5
+batch_size: 16
+learning_rate: 0.0001
+weight_decay: 0.0001
+device: cuda
+num_workers: 0
+selection_metric: dev_loss
+loss: BCEWithLogitsLoss

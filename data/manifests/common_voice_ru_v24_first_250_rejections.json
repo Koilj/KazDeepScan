@@ -1,0 +1,486 @@
+{
+  "input_manifest": "data/manifests/common_voice_ru_v24_first_250.csv",
+  "published_rows": 654,
+  "rejected_rows": [
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_21313431",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_21313431.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_37414133",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_37414133.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_22932848",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_22932848.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_22970981",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_22970981.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_30544318",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_30544318.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_29113547",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_29113547.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_21835333",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_21835333.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_30557681",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_30557681.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_30544271",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_30544271.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_37815196",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_37815196.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25944877",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_25944877.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20969192",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_20969192.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26323046",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_26323046.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_36977596",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_36977596.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_29261276",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_29261276.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_31919432",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_31919432.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28896843",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_28896843.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_30492309",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_30492309.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_24624533",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_24624533.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_38185383",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_38185383.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28906947",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_28906947.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_22849236",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_22849236.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19501931",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_19501931.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26840434",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_26840434.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28643650",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_28643650.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28876995",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_28876995.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28690634",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_28690634.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27266453",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_27266453.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20549037",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_20549037.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_31810963",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_31810963.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26086589",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_26086589.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25149812",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_25149812.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28221098",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_28221098.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_21292446",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_21292446.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27195089",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_27195089.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_30662631",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_30662631.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_37409282",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_37409282.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_37793845",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_37793845.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_29865064",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_29865064.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_40952288",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_40952288.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20186453",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_20186453.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_22954734",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_22954734.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_41118903",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_41118903.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26860297",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_26860297.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_21125768",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_21125768.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_29280137",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_29280137.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_23962931",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_23962931.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_38372239",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_38372239.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25915516",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_25915516.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_36406208",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_36406208.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26562061",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_26562061.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20293106",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_20293106.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_37603533",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_37603533.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_37548730",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_37548730.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26824611",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_26824611.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27399239",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_27399239.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27727109",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_27727109.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_30731112",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_30731112.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_33116244",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_33116244.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_29377404",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_29377404.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28782645",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_28782645.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_18868284",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_18868284.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_31491995",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_31491995.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_32233222",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_32233222.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_31424059",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_31424059.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_31054299",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_31054299.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_37757247",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_37757247.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_31852353",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_31852353.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_23761606",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_23761606.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_33650706",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_33650706.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_18912666",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_18912666.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_29377076",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_29377076.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_38256160",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_38256160.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_30676658",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_30676658.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_31912214",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_31912214.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_37904268",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_37904268.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_30558167",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_30558167.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28967949",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_28967949.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_36821917",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_36821917.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_23869751",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_23869751.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_30676588",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_30676588.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26420531",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_26420531.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_18879158",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_18879158.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19804781",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_19804781.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19458474",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_19458474.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_23406359",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_23406359.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_31331928",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_31331928.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_18926720",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_18926720.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_36724168",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_36724168.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_30135635",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_30135635.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_21564987",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_21564987.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_32369035",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_32369035.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_36723983",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_36723983.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26791004",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_26791004.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_36970341",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_36970341.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "common_voice_ru_v24:common_voice_ru_18853854",
+      "relative_path": "raw/common_voice_ru_v24/slices/first-250/clips/common_voice_ru_18853854.mp3",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    }
+  ]
+}

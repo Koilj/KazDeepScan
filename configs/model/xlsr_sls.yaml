@@ -1,0 +1,10 @@
+name: xlsr_sls
+encoder: facebook/wav2vec2-xls-r-300m
+sample_rate: 16000
+window_samples: 64600
+layer_mix: softmax_weighted_all_hidden_states
+pooling: attentive_mean_std
+attention_size: 128
+classifier_size: 256
+dropout: 0.2
+output: spoof_logit

@@ -1,0 +1,101 @@
+{
+  "input_manifest": "data/manifests/pyara_ru_v7_research_500.csv",
+  "published_rows": 481,
+  "rejected_rows": [
+    {
+      "sample_id": "pyara_ru_v7:alg_1_2926",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Fake/alg_1_2926.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_54598",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Real/real_54598.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_58342",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Real/real_58342.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_57464",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Real/real_57464.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_67557",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Real/real_67557.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_47512",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Real/real_47512.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_72720",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Real/real_72720.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_14693",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Real/real_14693.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_3386",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Real/real_3386.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_2236",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Real/real_2236.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_34440",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Real/real_34440.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_3107",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Real/real_3107.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_61534",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Real/real_61534.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_52841",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Real/real_52841.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_51588",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Real/real_51588.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_71131",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Real/real_71131.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_65424",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Real/real_65424.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_63289",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Real/real_63289.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_58434",
+      "relative_path": "raw/pyara_ru_v7/slices/research-500/Real/real_58434.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    }
+  ]
+}

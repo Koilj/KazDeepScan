@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.tools/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+coverage.xml
+htmlcov/
+
+# Secrets and local tooling
+.env
+.env.*
+!.env.example
+.dvc/cache/
+mlruns/
+
+# Audio, model artifacts, and generated data must never enter Git.
+data/raw/
+data/processed/
+data/augment_cache/
+/models/
+checkpoints/
+artifacts/
+*.wav
+*.flac
+*.mp3
+*.ogg
+*.m4a
+
+# OS/editor files
+.DS_Store
+.idea/
+.vscode/

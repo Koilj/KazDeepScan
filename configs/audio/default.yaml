@@ -1,0 +1,16 @@
+limits:
+  max_upload_bytes: 52428800
+  max_duration_seconds: 600.0
+  sample_rate: 16000
+  minimum_speech_seconds: 2.5
+quality:
+  min_rms_dbfs: -55.0
+  max_clipped_fraction: 0.02
+vad:
+  aggressiveness: 2
+  frame_duration_ms: 30
+  merge_gap_seconds: 0.18
+  min_segment_seconds: 0.12
+windows:
+  samples: 64600
+  hop_samples: 32000

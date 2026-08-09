@@ -1,0 +1,8 @@
+name: b0_logmel_cnn
+sample_rate: 16000
+n_fft: 512
+hop_length: 160
+n_mels: 80
+dropout: 0.2
+loss: BCEWithLogitsLoss
+output: spoof_logit

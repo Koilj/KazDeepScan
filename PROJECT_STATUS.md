@@ -32,6 +32,13 @@
   `owner_authorized_personal_research` допускает только личное обучение и не отменяет
   внешние ограничения источника; кандидаты без одобренного статуса не могут случайно попасть
   в processing или обучение.
+- Введён явный `kds validate-training-protocol` и обязательный `--purpose` для B0 training.
+  Policy ledger отделяет факт наличия pseudo-ID от проверяемой семантики speaker/voice group.
+  `product` жёстко требует commercial-clean verified sources, group provenance `verified`,
+  binary train/dev/test/OOD, unseen OOD generator и отсутствия повторного spoof voice между
+  split-ами; выбранный режим и protocol report сохраняются в checkpoint.
+- Проект зафиксирован в Git: первый проверенный commit `fbd2a53` отправлен в
+  `git@github.com:Koilj/KazDeepScan.git`, ветка `main` отслеживает `origin/main`.
 - Исправлен `GroupSplitter`: он назначает один split всей связной компоненте по
   `parent_group_id`, `speaker_pseudo_id` и `text_hash`, а не только по parent group. Это
   предотвращает text/speaker leakage при local re-split Common Voice.
@@ -169,8 +176,12 @@
 - `kds validate-manifest` и `kds validate-assets` с ledger прошли для ML-DF ready
   (`192/192`) и RuASD ready (`100/100`) manifest-ов;
 - `ffprobe` PyAra asset подтвердил mono `pcm_s16le`, `16 000` Гц;
-- проверка после full RuASD audit implementation: `ruff check src tests scripts services`,
-  `mypy src scripts services` (`46` source files) и `pytest -q` (`59` tests) — успешно.
+- проверка после protocol gate implementation: `ruff check src tests scripts services`,
+  `mypy src scripts services` (`46` source files) и `pytest -q` (`64` tests) — успешно;
+  все пять ready manifest-ов повторно прошли `kds validate-manifest --license-ledger`.
+- реальная проверка нового gate на PyAra ready manifest: `--purpose research` прошёл
+  (`train=376`, `dev=61`, `test=44`); `--purpose product` корректно остановлен из-за
+  отсутствующего OOD, research-only/non-commercial policy и unknown speaker/voice provenance.
 - full RuASD integrity audit: `250/250` archive size и SHA-256 совпали с official pinned
   catalog; safe TAR walk подтвердил `585 353` exact JSON/WAV pairs, без extraction и без
   изменения файлов в `~/Downloads/RuASD`.
@@ -196,8 +207,10 @@ Common Voice Russian v24 разрешён владельцем проекта т
 2. Спроектировать speaker-disjoint target-language train/dev/test и channel-balanced OOD
    protocol. Не трактовать KSC `deviceID` как speaker ID; не подменять unknown `speakers` из
    полного RuASD источником groups; ML-DF и RuASD оставить изолированным OOD.
-3. Повторить B0, затем XLS-R + SLS только на таком protocol. До независимой evaluation и
-   temperature calibration не создавать product release, threshold или API scorer.
+3. Внести новый corpus в расширенный license ledger с explicit use policy и group provenance,
+   проверить `kds validate-training-protocol --purpose product`, затем повторить B0 и XLS-R +
+   SLS. До независимой evaluation и temperature calibration не создавать product release,
+   threshold или API scorer.
 
 Повторный preprocessing с документированным исключением QA/VAD-rejections возможен только
 так (каждый output и отчёт должны быть новыми):
@@ -228,5 +241,5 @@ Common Voice Russian v24 разрешён владельцем проекта т
 - KSC — только bona-fide казахская речь; `deviceID` не является speaker ID, поэтому не может
   использоваться как surrogate для speaker-disjoint split.
 - Нельзя скачивать или использовать голоса, TTS-веса и corpus без записи лицензии/согласия.
-- Локальный Git-репозиторий не имеет первого commit или remote; проектные файлы сейчас
-  незафиксированы. Перед дальнейшими крупными изменениями нужно создать осмысленный commit.
+- Git-история и GitHub remote уже настроены; крупные завершённые этапы нужно фиксировать
+  отдельными проверенными commit-ами.

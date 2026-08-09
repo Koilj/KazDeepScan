@@ -38,7 +38,20 @@ unseen-generator сценарий.
 content между split-ами.
 
 `data/licenses/license_ledger.csv` — реестр источников до попадания их audio assets в
-processing или обучение. Запись с одобренным статусом `verified` либо
+processing или обучение. Помимо лицензии в нём обязательно фиксируется policy protocol:
+
+- `train_dev_test_use` и `ood_evaluation_use`: `product_allowed`, `research_only` либо
+  `prohibited`;
+- `bonafide_group_provenance` и `spoof_voice_group_provenance`: `verified`,
+  `source_provided`, `unknown` либо `not_applicable`.
+
+Идентификатор в поле `speaker_pseudo_id` не является достаточным доказательством группы:
+только значение `verified` в policy означает, что при source review подтверждена его семантика
+как speaker group. То же правило отдельно действует для `voice_id` spoof-записей. Поэтому
+`source_provided` (например, opaque client key) сохраняет полезную provenance, но не открывает
+product protocol.
+
+Запись с одобренным статусом `verified` либо
 `owner_authorized_personal_research` обязана содержать размер и SHA-256 проверенного
 archive. Второй статус фиксирует решение владельца проекта только для личного исследования;
 он не отменяет ограничений лицензии, datasheet, privacy law или contributor consent.
@@ -73,6 +86,31 @@ kds assign-splits data/manifests/input.csv data/manifests/slice.csv --seed 20260
 останавливается. После назначения обязательно проверить итоговый CSV через
 `validate-manifest`; сам split не заменяет отдельный OOD protocol для нового
 генератора/канала.
+
+Для нового product source с подтверждённым spoof voice group обязательно добавить
+`--include-voice-id`: тогда splitter включает непустой `voice_id` в ту же связную компоненту
+и не разделяет один voice между train/dev/test. Не включайте флаг для источника с
+`spoof_voice_group_provenance=unknown` (например, текущего PyAra): строка `voice_id=unknown`
+не является реальной группой и искусственно склеит несвязанные записи.
+
+## Явный training protocol
+
+Перед обучением B0 нужно явно назвать цель. Режим `research` допускает только источники с
+`research_only` или `product_allowed` policy и записывается в checkpoint. Режим `product`
+дополнительно требует все четыре binary split (`train`, `dev`, `test`, `ood`), оба класса в
+каждом из них, independent OOD generator family, `status=verified`,
+`usage_scope=commercial_clean`, product policy для соответствующей роли и `verified` group
+provenance для bona-fide и spoof rows. Он также запрещает одному verified spoof `voice_id`
+попадать в несколько split-ов.
+
+```bash
+kds validate-training-protocol data/manifests/protocol.csv \
+  --license-ledger data/licenses/license_ledger.csv --purpose product
+```
+
+Ни один текущий источник не проходит product gate: это ожидаемый и безопасный результат, а не
+сбой реализации. Для PyAra допустим только `--purpose research`; RuASD и ML-DF разрешены
+лишь как OOD evaluation в research protocol.
 
 ## Нормализация для обучения
 

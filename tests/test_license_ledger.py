@@ -4,16 +4,32 @@ from pathlib import Path
 
 import pytest
 
-from kds.data.licenses import LicenseLedgerError, load_license_ledger, validate_manifest_licenses
+from kds.data.licenses import (
+    LicenseLedgerError,
+    TrainingProtocolError,
+    load_license_ledger,
+    validate_manifest_licenses,
+    validate_training_protocol,
+)
 from kds.data.manifest import ManifestRow
 from tests.factories import manifest_mapping
 
 
-def _write_ledger(path: Path, status: str = "verified") -> None:
+def _write_ledger(
+    path: Path,
+    status: str = "verified",
+    train_dev_test_use: str = "product_allowed",
+    ood_evaluation_use: str = "product_allowed",
+    bonafide_group_provenance: str = "verified",
+    spoof_voice_group_provenance: str = "verified",
+) -> None:
     path.write_text(
-        "source_id,usage_scope,license,source_url,artifact_name,expected_size_bytes,"
+        "source_id,usage_scope,train_dev_test_use,ood_evaluation_use,"
+        "bonafide_group_provenance,spoof_voice_group_provenance,license,source_url,artifact_name,expected_size_bytes,"
         "last_modified_utc,sha256,rights_basis,status,notes\n"
-        "approved-source,commercial_clean,license-v1,https://example.test/source,source.tar,"
+        "approved-source,commercial_clean,"
+        f"{train_dev_test_use},{ood_evaluation_use},{bonafide_group_provenance},{spoof_voice_group_provenance},"
+        "license-v1,https://example.test/source,source.tar,"
         "1024,2026-08-09T00:00:00Z,"
         "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,"
         f"consent-001,{status},local test record\n",
@@ -63,3 +79,44 @@ def test_verified_ledger_entry_requires_archive_digest(tmp_path: Path) -> None:
 
     with pytest.raises(LicenseLedgerError, match="requires an archive SHA-256"):
         load_license_ledger(ledger_path)
+
+
+def test_training_protocol_requires_explicit_source_policy(tmp_path: Path) -> None:
+    ledger_path = tmp_path / "license_ledger.csv"
+    _write_ledger(ledger_path, train_dev_test_use="research_only")
+    ledger = load_license_ledger(ledger_path)
+    rows = [
+        ManifestRow.from_mapping(
+            manifest_mapping(
+                sample_id=f"{split}-{label}",
+                source_name="approved-source",
+                sha256=("a" if index % 2 else "b") * 63 + str(index % 10),
+                split=split,
+                label=label,
+                parent_group_id=f"parent-{split}-{label}",
+                speaker_pseudo_id=f"speaker-{split}-{label}",
+                text_id=f"text-{split}-{label}",
+                text_hash=f"text-hash-{split}-{label}",
+                generator_family=("ood-generator" if split == "ood" else "generator")
+                if label == "spoof"
+                else "",
+                generator_name=("ood-generator-v1" if split == "ood" else "generator-v1")
+                if label == "spoof"
+                else "",
+                generator_version="1" if label == "spoof" else "",
+                voice_id=f"voice-{split}" if label == "spoof" else "",
+            ),
+            row_number=index + 2,
+        )
+        for index, (split, label) in enumerate(
+            (split, label)
+            for split in ("train", "dev", "test", "ood")
+            for label in ("bonafide", "spoof")
+        )
+    ]
+
+    report = validate_training_protocol(rows, ledger, purpose="research")
+    assert report.split_counts == {"train": 2, "dev": 2, "test": 2}
+
+    with pytest.raises(TrainingProtocolError, match="not product-allowed"):
+        validate_training_protocol(rows, ledger, purpose="product")

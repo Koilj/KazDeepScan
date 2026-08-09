@@ -2,7 +2,14 @@
 
 from kds.data.assets import AssetValidationError, validate_assets
 from kds.data.ksc_slr102 import KscIngestionError
-from kds.data.licenses import LicenseLedgerError, load_license_ledger, validate_manifest_licenses
+from kds.data.licenses import (
+    LicenseLedgerError,
+    TrainingProtocolError,
+    TrainingProtocolReport,
+    load_license_ledger,
+    validate_manifest_licenses,
+    validate_training_protocol,
+)
 from kds.data.manifest import (
     ManifestError,
     ManifestRow,
@@ -20,10 +27,13 @@ __all__ = [
     "ManifestError",
     "ManifestRow",
     "SplitConfig",
+    "TrainingProtocolError",
+    "TrainingProtocolReport",
     "load_manifest",
     "load_license_ledger",
     "validate_assets",
     "validate_manifest",
     "validate_manifest_licenses",
+    "validate_training_protocol",
     "write_manifest",
 ]

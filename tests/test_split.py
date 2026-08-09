@@ -55,3 +55,42 @@ def test_group_splitter_keeps_shared_text_in_one_split() -> None:
     assigned = GroupSplitter(SplitConfig(seed="fixed")).assign_rows([first, second])
 
     assert assigned[0].split == assigned[1].split
+
+
+def test_group_splitter_can_keep_verified_spoof_voice_in_one_split() -> None:
+    first = ManifestRow.from_mapping(
+        manifest_mapping(
+            label="spoof",
+            parent_group_id="parent-1",
+            speaker_pseudo_id="speaker-1",
+            text_hash="text-hash-1",
+            generator_family="tts",
+            generator_name="tts-v1",
+            generator_version="1",
+            voice_id="verified-voice-1",
+        ),
+        row_number=2,
+    )
+    second = ManifestRow.from_mapping(
+        manifest_mapping(
+            sample_id="sample-2",
+            sha256="b" * 64,
+            relative_path="processed/ru/sample-2.wav",
+            label="spoof",
+            parent_group_id="parent-2",
+            speaker_pseudo_id="speaker-2",
+            text_id="text-2",
+            text_hash="text-hash-2",
+            generator_family="tts",
+            generator_name="tts-v1",
+            generator_version="1",
+            voice_id="verified-voice-1",
+        ),
+        row_number=3,
+    )
+
+    assigned = GroupSplitter(SplitConfig(seed="fixed", include_voice_id=True)).assign_rows(
+        [first, second]
+    )
+
+    assert assigned[0].split == assigned[1].split

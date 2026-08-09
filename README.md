@@ -25,6 +25,9 @@ KazDeepScan оценивает риск того, что запись русск
   full release не предоставляет проверяемые groups для speaker-disjoint protocol;
 - PyAra v7 personal-research intake с ZIP/TSV-WAV checks, text-leakage-safe binary slice и
   B0 smoke baseline; источник не даёт speaker IDs и не создаёт product benchmark;
+- явный training-protocol gate: перед запуском модели надо выбрать `research` или `product`;
+  product допускается только для commercial-clean sources с проверяемыми speaker/voice groups,
+  binary train/dev/test и independent OOD;
 - B0 и XLS-R + SLS tensor/training foundations, record-level logit aggregation и temperature
   scaling;
 - FastAPI health/readiness/upload scaffold, который не выдаёт score без обученного,
@@ -100,6 +103,10 @@ uv run python scripts/evaluate_b0.py \
 
 # Для финального OOD-набора потребовать целое семейство генератора вне train/dev/test.
 kds validate-manifest data/manifests/ood.csv --require-ood-generator
+
+# Проверить, что полный manifest годится только для заявленной цели.
+kds validate-training-protocol data/manifests/slice.csv \
+  --license-ledger data/licenses/license_ledger.csv --purpose research
 ```
 
 Все результаты CLI содержат только технические метаданные. Команды не отправляют аудио по

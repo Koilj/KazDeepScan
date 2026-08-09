@@ -8,11 +8,15 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 
-from kds.data.manifest import ManifestRow
+from kds.data.manifest import ManifestError, ManifestRow, validate_manifest
 
 LICENSE_LEDGER_FIELD_ORDER = (
     "source_id",
     "usage_scope",
+    "train_dev_test_use",
+    "ood_evaluation_use",
+    "bonafide_group_provenance",
+    "spoof_voice_group_provenance",
     "license",
     "source_url",
     "artifact_name",
@@ -27,9 +31,20 @@ LICENSE_LEDGER_REQUIRED_FIELDS = frozenset(LICENSE_LEDGER_FIELD_ORDER)
 # ``owner_authorized_personal_research`` is a project-scope decision. It never replaces
 # restrictions imposed by the source licence, datasheet, privacy law, or contributor consent.
 APPROVED_LICENSE_STATUSES = frozenset({"verified", "owner_authorized_personal_research"})
+PROTOCOL_USE_VALUES = frozenset({"product_allowed", "research_only", "prohibited"})
+GROUP_PROVENANCE_VALUES = frozenset({"verified", "source_provided", "unknown", "not_applicable"})
+TRAINING_PURPOSES = frozenset({"research", "product"})
+TRAINING_SPLITS = ("train", "dev", "test")
+PRODUCT_PROTOCOL_SPLITS = (*TRAINING_SPLITS, "ood")
 
 
 class LicenseLedgerError(ValueError):
+    def __init__(self, issues: Iterable[str]) -> None:
+        self.issues = tuple(issues)
+        super().__init__("\n".join(self.issues))
+
+
+class TrainingProtocolError(ValueError):
     def __init__(self, issues: Iterable[str]) -> None:
         self.issues = tuple(issues)
         super().__init__("\n".join(self.issues))
@@ -39,6 +54,10 @@ class LicenseLedgerError(ValueError):
 class LicenseLedgerEntry:
     source_id: str
     usage_scope: str
+    train_dev_test_use: str
+    ood_evaluation_use: str
+    bonafide_group_provenance: str
+    spoof_voice_group_provenance: str
     license: str
     source_url: str
     artifact_name: str
@@ -95,6 +114,21 @@ class LicenseLedgerEntry:
         ):
             issues.append(f"Ledger row {row_number}: sha256 must be a 64-character hex digest.")
 
+        for field_name in ("train_dev_test_use", "ood_evaluation_use"):
+            field_value = value(field_name).lower()
+            if field_value not in PROTOCOL_USE_VALUES:
+                issues.append(
+                    f"Ledger row {row_number}: {field_name} must be one of "
+                    f"{sorted(PROTOCOL_USE_VALUES)}."
+                )
+        for field_name in ("bonafide_group_provenance", "spoof_voice_group_provenance"):
+            field_value = value(field_name).lower()
+            if field_value not in GROUP_PROVENANCE_VALUES:
+                issues.append(
+                    f"Ledger row {row_number}: {field_name} must be one of "
+                    f"{sorted(GROUP_PROVENANCE_VALUES)}."
+                )
+
         status = value("status").lower()
         if status in APPROVED_LICENSE_STATUSES and not sha256:
             issues.append(
@@ -106,6 +140,10 @@ class LicenseLedgerEntry:
         return cls(
             source_id=value("source_id"),
             usage_scope=value("usage_scope"),
+            train_dev_test_use=value("train_dev_test_use").lower(),
+            ood_evaluation_use=value("ood_evaluation_use").lower(),
+            bonafide_group_provenance=value("bonafide_group_provenance").lower(),
+            spoof_voice_group_provenance=value("spoof_voice_group_provenance").lower(),
             license=value("license"),
             source_url=value("source_url"),
             artifact_name=value("artifact_name"),
@@ -169,3 +207,148 @@ def validate_manifest_licenses(
             )
     if issues:
         raise LicenseLedgerError(issues)
+
+
+@dataclass(frozen=True, slots=True)
+class TrainingProtocolReport:
+    """The explicit protocol classification recorded with a training checkpoint."""
+
+    purpose: str
+    split_counts: dict[str, int]
+    source_ids: tuple[str, ...]
+
+
+def validate_training_protocol(
+    rows: Iterable[ManifestRow],
+    ledger: Mapping[str, LicenseLedgerEntry],
+    *,
+    purpose: str,
+) -> TrainingProtocolReport:
+    """Reject an underspecified binary training protocol before model training starts.
+
+    A manifest field called ``speaker_pseudo_id`` is not proof that it represents a speaker.
+    The source policy in the ledger must declare provenance separately.  A product protocol also
+    needs an independent binary OOD split and verified spoof voice groups.
+    """
+
+    if purpose not in TRAINING_PURPOSES:
+        raise TrainingProtocolError(
+            [f"purpose must be one of {sorted(TRAINING_PURPOSES)}."]
+        )
+
+    rows = list(rows)
+    try:
+        validate_manifest(rows)
+    except ManifestError as error:
+        raise TrainingProtocolError(error.issues) from error
+    try:
+        validate_manifest_licenses(rows, ledger)
+    except LicenseLedgerError as error:
+        raise TrainingProtocolError(error.issues) from error
+
+    required_splits = PRODUCT_PROTOCOL_SPLITS if purpose == "product" else TRAINING_SPLITS
+    protocol_rows = [row for row in rows if row.split in required_splits]
+    split_counts = {
+        split: sum(row.split == split for row in protocol_rows) for split in required_splits
+    }
+    issues: list[str] = []
+    for split, count in split_counts.items():
+        if count == 0:
+            issues.append(f"Protocol requires at least one row in split={split!r}.")
+            continue
+        labels = {row.label for row in protocol_rows if row.split == split}
+        if labels != {"bonafide", "spoof"}:
+            issues.append(f"split={split!r} must include both bonafide and spoof rows.")
+
+    checked_use_keys: set[tuple[str, str]] = set()
+    checked_group_keys: set[tuple[str, str]] = set()
+    for row in protocol_rows:
+        entry = ledger[row.source_name]
+        use_field = "ood_evaluation_use" if row.split == "ood" else "train_dev_test_use"
+        declared_use = getattr(entry, use_field)
+        use_key = (row.source_name, use_field)
+        if use_key not in checked_use_keys:
+            checked_use_keys.add(use_key)
+            if purpose == "research":
+                if declared_use not in {"research_only", "product_allowed"}:
+                    issues.append(
+                        f"Source {row.source_name!r} is prohibited for {use_field} "
+                        "in a research protocol."
+                    )
+            else:
+                if declared_use != "product_allowed":
+                    issues.append(
+                        f"Source {row.source_name!r} is not product-allowed for {use_field} "
+                        f"(value={declared_use!r})."
+                    )
+                if entry.status != "verified":
+                    issues.append(
+                        f"Source {row.source_name!r} needs ledger status='verified' "
+                        "for product use."
+                    )
+                if entry.usage_scope != "commercial_clean":
+                    issues.append(
+                        f"Source {row.source_name!r} needs usage_scope='commercial_clean' "
+                        "for product use."
+                    )
+
+        if purpose != "product":
+            continue
+        group_key = (row.source_name, row.label)
+        if group_key in checked_group_keys:
+            continue
+        checked_group_keys.add(group_key)
+        provenance_field = (
+            "bonafide_group_provenance"
+            if row.label == "bonafide"
+            else "spoof_voice_group_provenance"
+        )
+        provenance = getattr(entry, provenance_field)
+        if provenance != "verified":
+            issues.append(
+                f"Source {row.source_name!r} has no verified {provenance_field} "
+                f"for label={row.label!r} (value={provenance!r})."
+            )
+
+    if purpose == "product":
+        ood_families = {
+            row.generator_family
+            for row in protocol_rows
+            if row.split == "ood" and row.label == "spoof"
+        }
+        if not ood_families:
+            issues.append("No spoof generator family is assigned to the ood split.")
+        seen_elsewhere = {
+            row.generator_family
+            for row in protocol_rows
+            if row.split != "ood" and row.label == "spoof"
+        }
+        overlapping_families = sorted(ood_families.intersection(seen_elsewhere))
+        if overlapping_families:
+            issues.append(
+                "OOD generator families also occur in train/dev/test: "
+                + ", ".join(overlapping_families)
+                + "."
+            )
+        voice_splits: dict[str, set[str]] = {}
+        for row in protocol_rows:
+            if (
+                row.label != "spoof"
+                or ledger[row.source_name].spoof_voice_group_provenance != "verified"
+            ):
+                continue
+            voice_splits.setdefault(row.voice_id, set()).add(row.split)
+        for voice_id, splits in sorted(voice_splits.items()):
+            if len(splits) > 1:
+                issues.append(
+                    "Leakage: spoof voice_id="
+                    f"{voice_id!r} appears in multiple splits: {', '.join(sorted(splits))}."
+                )
+
+    if issues:
+        raise TrainingProtocolError(issues)
+    return TrainingProtocolReport(
+        purpose=purpose,
+        split_counts=split_counts,
+        source_ids=tuple(sorted({row.source_name for row in protocol_rows})),
+    )

@@ -21,11 +21,17 @@ uv run python scripts/train_b0.py \
   --manifest data/manifests/slice.csv \
   --audio-root data \
   --license-ledger data/licenses/license_ledger.csv \
+  --purpose research \
   --output models/b0-slice.pt \
   --device cuda
 ```
 
-Скрипт до обучения требует для каждого источника одобренный статус в license ledger,
+`--purpose` обязателен: он не позволяет случайно представить research weights как product
+checkpoint. Режим `product` требует отдельного полного binary protocol с verified
+speaker/voice groups, legal commercial scope и independent OOD; текущие manifest-ы его не
+проходят. Скрипт сохраняет выбранную цель и protocol report в checkpoint.
+
+До обучения скрипт требует для каждого источника одобренный статус в license ledger,
 проверяет SHA-256 всех train/dev assets, требует оба класса в каждом split и отказывается
 перезаписать checkpoint. Статус `owner_authorized_personal_research` годится только для
 личного исследования и не отменяет внешние условия источника. Выбор по `dev_loss` нужен

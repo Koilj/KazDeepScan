@@ -7,7 +7,13 @@ from pathlib import Path
 from kds.audio.contracts import AudioPipelineError
 from kds.audio.pipeline import AudioPreparationPipeline
 from kds.data.assets import validate_assets
-from kds.data.licenses import LicenseLedgerError, load_license_ledger, validate_manifest_licenses
+from kds.data.licenses import (
+    LicenseLedgerError,
+    TrainingProtocolError,
+    load_license_ledger,
+    validate_manifest_licenses,
+    validate_training_protocol,
+)
 from kds.data.manifest import ManifestError, load_manifest, validate_manifest, write_manifest
 from kds.data.split import GroupSplitter, SplitConfig
 
@@ -87,6 +93,32 @@ def _validate_assets(arguments: argparse.Namespace) -> int:
     return 0 if report.is_valid else 2
 
 
+def _validate_training_protocol(arguments: argparse.Namespace) -> int:
+    try:
+        rows = load_manifest(Path(arguments.path))
+        report = validate_training_protocol(
+            rows,
+            load_license_ledger(Path(arguments.license_ledger)),
+            purpose=arguments.purpose,
+        )
+    except (LicenseLedgerError, ManifestError, TrainingProtocolError) as error:
+        issues = list(error.issues)
+        print(json.dumps({"status": "error", "issues": issues}, ensure_ascii=False))
+        return 2
+    print(
+        json.dumps(
+            {
+                "status": "ok",
+                "purpose": report.purpose,
+                "split_counts": report.split_counts,
+                "source_ids": report.source_ids,
+            },
+            ensure_ascii=False,
+        )
+    )
+    return 0
+
+
 def _assign_splits(arguments: argparse.Namespace) -> int:
     try:
         rows = load_manifest(Path(arguments.input_path))
@@ -96,6 +128,7 @@ def _assign_splits(arguments: argparse.Namespace) -> int:
             test_ratio=float(arguments.test_ratio),
             seed=str(arguments.seed),
             preserve_ood=not bool(arguments.reassign_ood),
+            include_voice_id=bool(arguments.include_voice_id),
         )
         assigned = GroupSplitter(config).assign_rows(rows)
         write_manifest(Path(arguments.output_path), assigned)
@@ -138,6 +171,15 @@ def build_parser() -> argparse.ArgumentParser:
     assets.add_argument("--skip-sha256", action="store_true")
     assets.set_defaults(handler=_validate_assets)
 
+    protocol = subparsers.add_parser(
+        "validate-training-protocol",
+        help="Check explicit research/product eligibility before binary model training",
+    )
+    protocol.add_argument("path", help="Full binary protocol manifest CSV")
+    protocol.add_argument("--license-ledger", required=True)
+    protocol.add_argument("--purpose", choices=("research", "product"), required=True)
+    protocol.set_defaults(handler=_validate_training_protocol)
+
     assign = subparsers.add_parser(
         "assign-splits", help="Assign train/dev/test by connected group, speaker, and text"
     )
@@ -147,6 +189,14 @@ def build_parser() -> argparse.ArgumentParser:
     assign.add_argument("--dev-ratio", type=float, default=0.1)
     assign.add_argument("--test-ratio", type=float, default=0.1)
     assign.add_argument("--seed", default="20260808")
+    assign.add_argument(
+        "--include-voice-id",
+        action="store_true",
+        help=(
+            "Keep a non-empty spoof voice_id in one split; required for a verified product "
+            "voice group."
+        ),
+    )
     assign.add_argument("--reassign-ood", action="store_true")
     assign.set_defaults(handler=_assign_splits)
     return parser

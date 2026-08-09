@@ -11,8 +11,8 @@ from torch.optim import AdamW
 
 from kds.data.assets import require_valid_assets
 from kds.data.dataset import DatasetConfig, ManifestAudioDataset
-from kds.data.licenses import load_license_ledger, validate_manifest_licenses
-from kds.data.manifest import ManifestRow, load_manifest, validate_manifest
+from kds.data.licenses import load_license_ledger, validate_training_protocol
+from kds.data.manifest import ManifestRow, load_manifest
 from kds.models import B0Config, B0LogMelCnn
 from kds.training import evaluate_b0, make_audio_loader, train_b0_epoch
 
@@ -43,6 +43,12 @@ def main() -> int:
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--audio-root", type=Path, required=True)
     parser.add_argument("--license-ledger", type=Path, required=True)
+    parser.add_argument(
+        "--purpose",
+        choices=("research", "product"),
+        required=True,
+        help="Explicit protocol intent; product requires verified groups and independent OOD.",
+    )
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--epochs", type=int, default=5)
     parser.add_argument("--batch-size", type=int, default=16)
@@ -65,8 +71,11 @@ def main() -> int:
     torch.manual_seed(int(arguments.seed))
     device = _device(arguments.device)
     manifest_rows = load_manifest(arguments.manifest)
-    validate_manifest(manifest_rows)
-    validate_manifest_licenses(manifest_rows, load_license_ledger(arguments.license_ledger))
+    protocol_report = validate_training_protocol(
+        manifest_rows,
+        load_license_ledger(arguments.license_ledger),
+        purpose=arguments.purpose,
+    )
     train_rows = _rows_for_split(manifest_rows, "train")
     dev_rows = _rows_for_split(manifest_rows, "dev")
     require_valid_assets([*train_rows, *dev_rows], arguments.audio_root)
@@ -123,6 +132,8 @@ def main() -> int:
         "model_name": "b0_logmel_cnn",
         "model_config": asdict(model.config),
         "training_seed": arguments.seed,
+        "training_purpose": protocol_report.purpose,
+        "training_protocol": asdict(protocol_report),
         "best_dev_loss": best_dev_loss,
         "state_dict": best_state,
     }
@@ -132,6 +143,7 @@ def main() -> int:
             {
                 "status": "ok",
                 "device": str(device),
+                "purpose": protocol_report.purpose,
                 "checkpoint": str(arguments.output),
                 "history": history,
             }

@@ -17,6 +17,7 @@ class SplitConfig:
     test_ratio: float = 0.1
     seed: str = "20260808"
     preserve_ood: bool = True
+    include_voice_id: bool = False
 
     def __post_init__(self) -> None:
         ratios = (self.train_ratio, self.dev_ratio, self.test_ratio)
@@ -45,6 +46,18 @@ class GroupSplitter:
             return "dev"
         return "test"
 
+    def _group_fields(self) -> tuple[str, ...]:
+        fields = ("parent_group_id", "speaker_pseudo_id", "text_hash")
+        return (*fields, "voice_id") if self.config.include_voice_id else fields
+
+    def _group_values(self, row: ManifestRow) -> tuple[tuple[str, str], ...]:
+        return tuple(
+            (field, value)
+            for field in self._group_fields()
+            for value in (getattr(row, field),)
+            if value
+        )
+
     def assign_rows(self, rows: list[ManifestRow]) -> list[ManifestRow]:
         assignable_indices = [
             index
@@ -71,16 +84,14 @@ class GroupSplitter:
         first_seen: dict[tuple[str, str], int] = {}
         for index in assignable_indices:
             row = rows[index]
-            for field in ("parent_group_id", "speaker_pseudo_id", "text_hash"):
-                key = (field, getattr(row, field))
+            for key in self._group_values(row):
                 previous = first_seen.setdefault(key, index)
                 union(previous, index)
 
         component_keys: dict[int, list[str]] = {}
         for index in assignable_indices:
             component_keys.setdefault(root(index), []).extend(
-                f"{field}:{getattr(rows[index], field)}"
-                for field in ("parent_group_id", "speaker_pseudo_id", "text_hash")
+                f"{field}:{value}" for field, value in self._group_values(rows[index])
             )
         assignments = {
             component_root: self.assign_group(min(keys))
@@ -93,8 +104,8 @@ class GroupSplitter:
             for index, row in enumerate(rows)
         ]
 
-    @staticmethod
     def _reject_ood_leakage(
+        self,
         rows: list[ManifestRow],
         assignable_indices: list[int],
         ood_indices: set[int],
@@ -102,16 +113,15 @@ class GroupSplitter:
         if not ood_indices:
             return
         ood_values = {
-            (field, getattr(rows[index], field))
+            value
             for index in ood_indices
-            for field in ("parent_group_id", "speaker_pseudo_id", "text_hash")
+            for value in self._group_values(rows[index])
         }
         overlaps = sorted(
-            (field, value)
+            value
             for index in assignable_indices
-            for field in ("parent_group_id", "speaker_pseudo_id", "text_hash")
-            for value in (getattr(rows[index], field),)
-            if (field, value) in ood_values
+            for value in self._group_values(rows[index])
+            if value in ood_values
         )
         if overlaps:
             field, value = overlaps[0]

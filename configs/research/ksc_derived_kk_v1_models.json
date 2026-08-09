@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "protocol_id": "ksc-derived-kk-research-v1",
+  "models": [
+    {
+      "model_id": "piper_kk_issai_high",
+      "destination": "piper_kk_issai_high",
+      "generator_family": "piper_neural_tts",
+      "generator_name": "Piper kk_KZ-issai-high",
+      "generator_version": "piper-tts-1.6.0; voices-revision-ea046e8458f6acd997706d6e6066a022b42f6fb1",
+      "license": "Piper voice model CC-BY-4.0; runtime piper-tts GPL-3.0-or-later",
+      "source_url": "https://huggingface.co/rhasspy/piper-voices/tree/ea046e8458f6acd997706d6e6066a022b42f6fb1/kk/kk_KZ/issai/high",
+      "runtime": {
+        "kind": "piper_cli",
+        "model_path": "kk_KZ-issai-high.onnx",
+        "config_path": "kk_KZ-issai-high.onnx.json",
+        "speaker_ids": {
+          "ISSAI_KazakhTTS2_M2": 0,
+          "ISSAI_KazakhTTS_M1_Iseke": 1,
+          "ISSAI_KazakhTTS2_F3": 2,
+          "ISSAI_KazakhTTS_F1_Raya": 3,
+          "ISSAI_KazakhTTS2_F1": 4,
+          "ISSAI_KazakhTTS2_F2": 5
+        }
+      },
+      "artifacts": [
+        {
+          "relative_path": "kk_KZ-issai-high.onnx",
+          "url": "https://huggingface.co/rhasspy/piper-voices/resolve/ea046e8458f6acd997706d6e6066a022b42f6fb1/kk/kk_KZ/issai/high/kk_KZ-issai-high.onnx",
+          "expected_size_bytes": 127864258,
+          "sha256": "4dee767c893e8535da821447d12cb030e3569e11254c14030a1da5d8b2222c16"
+        },
+        {
+          "relative_path": "kk_KZ-issai-high.onnx.json",
+          "url": "https://huggingface.co/rhasspy/piper-voices/resolve/ea046e8458f6acd997706d6e6066a022b42f6fb1/kk/kk_KZ/issai/high/kk_KZ-issai-high.onnx.json",
+          "expected_size_bytes": 4358,
+          "sha256": "eb145ac8712b87beda9f0266e95b98cad76acce89d4626cd8b1408234e9842f0"
+        },
+        {
+          "relative_path": "MODEL_CARD",
+          "url": "https://huggingface.co/rhasspy/piper-voices/resolve/ea046e8458f6acd997706d6e6066a022b42f6fb1/kk/kk_KZ/issai/high/MODEL_CARD",
+          "expected_size_bytes": 237,
+          "sha256": "1b0704348a17a5f84fba84caa20d14a116eea9953bb9bc147ada4234d18687a2"
+        }
+      ]
+    },
+    {
+      "model_id": "mms_tts_kaz",
+      "destination": "mms_tts_kaz",
+      "generator_family": "mms_vits_tts",
+      "generator_name": "Meta MMS-TTS Kazakh",
+      "generator_version": "transformers-5.14.1; mms-revision-5c8a1d86e6a952f78f9c5b0f5d3090c19d00ad63",
+      "license": "MMS-TTS model CC-BY-NC-4.0",
+      "source_url": "https://huggingface.co/facebook/mms-tts-kaz/tree/5c8a1d86e6a952f78f9c5b0f5d3090c19d00ad63",
+      "runtime": {
+        "kind": "transformers_vits",
+        "model_path": "model.safetensors",
+        "sampling_rate": 16000,
+        "voices": ["mms_tts_kaz_default"]
+      },
+      "artifacts": [
+        {
+          "relative_path": "model.safetensors",
+          "url": "https://huggingface.co/facebook/mms-tts-kaz/resolve/5c8a1d86e6a952f78f9c5b0f5d3090c19d00ad63/model.safetensors",
+          "expected_size_bytes": 145231352,
+          "sha256": "8fb53826f6c098615b00dc6966790987a3dd02e691ba8c109febee00d6ef2449"
+        },
+        {
+          "relative_path": "config.json",
+          "url": "https://huggingface.co/facebook/mms-tts-kaz/resolve/5c8a1d86e6a952f78f9c5b0f5d3090c19d00ad63/config.json",
+          "expected_size_bytes": 1641,
+          "sha256": "d0378ee0c78342b0e6ccaa43a2c7d93949ca93cd6e74ea5ede0937533c8d9b2a"
+        },
+        {
+          "relative_path": "tokenizer_config.json",
+          "url": "https://huggingface.co/facebook/mms-tts-kaz/resolve/5c8a1d86e6a952f78f9c5b0f5d3090c19d00ad63/tokenizer_config.json",
+          "expected_size_bytes": 288,
+          "sha256": "519af6d00d68718330130c4665458c7d05723e01fb2efa93a5b82368617c9ff0"
+        },
+        {
+          "relative_path": "special_tokens_map.json",
+          "url": "https://huggingface.co/facebook/mms-tts-kaz/resolve/5c8a1d86e6a952f78f9c5b0f5d3090c19d00ad63/special_tokens_map.json",
+          "expected_size_bytes": 48,
+          "sha256": "ae51f82546e75763a54b7d41f79b1f4b82364a3a7c517eaff79d78dff23c7721"
+        },
+        {
+          "relative_path": "vocab.json",
+          "url": "https://huggingface.co/facebook/mms-tts-kaz/resolve/5c8a1d86e6a952f78f9c5b0f5d3090c19d00ad63/vocab.json",
+          "expected_size_bytes": 507,
+          "sha256": "398cdac95e9c7b8a4e0db84b53fe86986dd498392bc26b7af1ddad0474be1478"
+        },
+        {
+          "relative_path": "README.md",
+          "url": "https://huggingface.co/facebook/mms-tts-kaz/resolve/5c8a1d86e6a952f78f9c5b0f5d3090c19d00ad63/README.md",
+          "expected_size_bytes": 3975,
+          "sha256": "1446e580d58191ab610dcf56c948a198c7646f7bc034691a9b968c133dd23d62"
+        }
+      ]
+    }
+  ]
+}

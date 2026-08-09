@@ -37,13 +37,15 @@ KazDeepScan — локальный personal-research проект для исс�
 - FastAPI health/readiness/upload scaffold, который не выдаёт score без обученного,
   калиброванного model release.
 
-Есть personal-research B0 checkpoints на PyAra, full RuASD и source-mixed матрице. На трёх
-зафиксированных seed source-mixed ML-DF cross-lingual test дал balanced accuracy от 73.40% до
-85.79%; наблюдались серьёзные ложные срабатывания на bona-fide речи. Ни один источник не даёт
-проверяемого speaker-disjoint binary split. Отчёты:
-[RuASD](docs/research_b0_ruasd_full_2000.md) и
-[source-mixed v1](docs/research_b0_source_mixed_v1.md). Поэтому ни модель, ни API не выдают
-вероятность риска или калиброванный score.
+Есть personal-research B0 checkpoints на PyAra, full RuASD и двух source-mixed matrix. На трёх
+зафиксированных seed source-mixed ML-DF cross-lingual test дал balanced accuracy 73.40–85.79%.
+Новый controlled Kazakh KSC-derived test дал 82.08–91.26%, но bona-fide recall только
+64.17–82.52%: это существенные ложные срабатывания и сильная source/seed sensitivity. Ни один
+источник не даёт проверяемый speaker-disjoint binary split. Отчёты:
+[RuASD](docs/research_b0_ruasd_full_2000.md),
+[source-mixed v1](docs/research_b0_source_mixed_v1.md) и
+[source-mixed v2 Kazakh](docs/research_b0_source_mixed_v2_kk.md). Поэтому ни модель, ни API
+не выдают вероятность риска или калиброванный score.
 
 ## Требования
 
@@ -135,6 +137,16 @@ uv run python scripts/train_b0_matrix.py \
   --audio-root data \
   --license-ledger data/licenses/license_ledger.csv \
   --output models/b0-source-mixed-research-v1.pt --device cuda
+
+# v2 использует тот же source-disjoint protocol, но frozen KSC-derived Kazakh final test.
+# Не использовать его для подбора epoch, threshold или calibration.
+kds validate-source-matrix configs/research/source_mixed_v2_kk.json \
+  --license-ledger data/licenses/license_ledger.csv
+uv run python scripts/train_b0_matrix.py \
+  --matrix configs/research/source_mixed_v2_kk.json \
+  --audio-root data \
+  --license-ledger data/licenses/license_ledger.csv \
+  --output models/b0-source-mixed-research-v2-kk.pt --device cuda
 
 ```
 

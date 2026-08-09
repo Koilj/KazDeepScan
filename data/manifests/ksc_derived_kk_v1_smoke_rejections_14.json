@@ -1,0 +1,5 @@
+{
+  "input_manifest": "data/manifests/ksc_derived_kk_v1_smoke_raw_14.csv",
+  "published_rows": 14,
+  "rejected_rows": []
+}

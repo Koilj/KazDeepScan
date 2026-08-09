@@ -10,8 +10,8 @@ import torch
 from kds.data.assets import require_valid_assets
 from kds.data.dataset import DatasetConfig, ManifestAudioDataset
 from kds.data.licenses import load_license_ledger, validate_manifest_licenses
-from kds.data.manifest import load_manifest, validate_manifest
-from kds.eval import classification_confidence_intervals
+from kds.data.manifest import ManifestRow, load_manifest, validate_manifest
+from kds.eval import classification_confidence_intervals, wilson_interval
 from kds.models import B0Config, B0LogMelCnn
 from kds.training import evaluate_b0, make_audio_loader
 
@@ -23,6 +23,59 @@ def _device(name: str) -> torch.device:
     if device.type == "cuda" and not torch.cuda.is_available():
         raise RuntimeError("CUDA was requested but is unavailable.")
     return device
+
+
+def _stratum_keys(row: ManifestRow) -> tuple[str, ...]:
+    if row.label == "bonafide":
+        return (f"bonafide_source:{row.source_name}",)
+    return (
+        f"spoof_generator_family:{row.generator_family}",
+        f"spoof_voice_id:{row.voice_id}",
+    )
+
+
+def _stratified_metrics(
+    model: B0LogMelCnn,
+    rows: list[ManifestRow],
+    *,
+    audio_root: Path,
+    batch_size: int,
+    seed: str,
+    device: torch.device,
+    num_workers: int,
+) -> dict[str, dict[str, object]]:
+    """Evaluate mutually readable source/generator strata without emitting a score API."""
+
+    row_by_sample_id = {row.sample_id: row for row in rows}
+    dataset = ManifestAudioDataset(
+        rows, DatasetConfig(audio_root=audio_root, mode="eval", seed=seed)
+    )
+    loader = make_audio_loader(
+        dataset, batch_size=batch_size, shuffle=False, num_workers=num_workers
+    )
+    counts: dict[str, list[int]] = {}
+    model.eval()
+    with torch.inference_mode():
+        for batch in loader:
+            predictions = model(batch.waveforms.to(device, non_blocking=True)) >= 0.0
+            for sample_id, predicted_spoof in zip(
+                batch.sample_ids, predictions.tolist(), strict=True
+            ):
+                row = row_by_sample_id[sample_id]
+                correct = bool(predicted_spoof) == (row.label == "spoof")
+                for key in _stratum_keys(row):
+                    bucket = counts.setdefault(key, [0, 0])
+                    bucket[0] += int(correct)
+                    bucket[1] += 1
+    return {
+        key: {
+            "correct": correct,
+            "examples": examples,
+            "accuracy": correct / examples,
+            "confidence_interval": asdict(wilson_interval(correct, examples)),
+        }
+        for key, (correct, examples) in sorted(counts.items())
+    }
 
 
 def main() -> int:
@@ -79,6 +132,15 @@ def main() -> int:
         spoof_correct=result.spoof_correct,
         spoof_examples=result.spoof_examples,
     )
+    stratified_metrics = _stratified_metrics(
+        model,
+        rows,
+        audio_root=arguments.audio_root,
+        batch_size=arguments.batch_size,
+        seed=arguments.seed,
+        device=device,
+        num_workers=arguments.num_workers,
+    )
     print(
         json.dumps(
             {
@@ -99,6 +161,7 @@ def main() -> int:
                 "confidence_intervals": {
                     name: asdict(interval) for name, interval in confidence_intervals.items()
                 },
+                "stratified_metrics": stratified_metrics,
                 "calibrated": False,
             }
         )

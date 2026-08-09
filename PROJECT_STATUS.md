@@ -183,6 +183,20 @@
   spoof-only и доступен лишь как единый ~452 GB gzip/tar release. До локального предоставления
   archive этот кандидат не скачан, не добавлен в ledger и не смешан с KSC. Подробности —
   `docs/data_sources_lrlspoof_2026-08-10.md`.
+- Реализован воспроизводимый KSC-derived Kazakh TTS stress source v1. Он берёт только KSC
+  `test` transcripts, фиксирует локальные Piper (шесть voice profiles) и MMS/VITS (один
+  profile) artifacts по revision/size/SHA-256, синтезирует только после проверки KSC text hash
+  и публикует raw/ready/rejection manifests без перезаписи существующих WAV. После QA и
+  безопасного exact-asset merge финальный paired test содержит `921` KSC bona-fide + `921`
+  synthetic clips: `475` MMS/VITS и `446` Piper. Это controlled personal-research source, не
+  speaker-independent corpus и не product/calibration data. Protocol —
+  `docs/data_sources_ksc_derived_kk_v1.md`.
+- Source-mixed matrix v2 использует RuASD train (`1 417`), PyAra dev (`61`) и этот
+  source-disjoint Kazakh final test (`1 842`). Три B0 запуска не ошиблись на synthetic часть
+  двух закреплённых family, но KSC bona-fide recall составил лишь `0.6417`, `0.7904`, `0.8252`
+  по seeds. Это фиксирует сильную чувствительность к bona-fide source; model release, score и
+  calibration по-прежнему запрещены. Полный отчёт —
+  `docs/research_b0_source_mixed_v2_kk.md`.
 
 ## Проверено
 
@@ -252,33 +266,40 @@
 - после добавления Wilson intervals: `ruff check src tests scripts services`, `mypy src
   scripts services` (52 source files) и `pytest -q` (80 tests) — успешно; все три
   source-mixed checkpoint переоценены с сохранением exact correct counts.
+- KSC-derived v1 final manifest прошёл `kds validate-manifest` и `kds validate-assets` с
+  ledger: `1 842/1 842` assets, ровно `921/921` labels и одна bona-fide/spoof пара на каждый
+  `text_id`; source-mixed v2 прошла `kds validate-source-matrix`. Все три v2 checkpoint
+  повторно оценены с class, generator-family и voice strata. После реализации `ruff check src
+  tests scripts services` и `mypy src scripts services` прошли для `58` source files, `pytest
+  -q` — `85` tests успешно.
 
 Ранее успешно прошли CUDA smoke test B0, real M4A inspection и XLS-R + SLS GPU smoke test.
 
 ## Текущий этап
 
 Русский PyAra research protocol, full RuASD binary protocol, KSC/Common Voice bona-fide layers,
-OOD layers и source-mixed matrix v1 подготовлены. Новый matrix B0 не допускает corpus overlap,
-но final ML-DF result меняется от `0.7340` до `0.8579` на трёх seed и может ошибочно помечать
-значительную долю bona-fide речи. Модель годится только для воспроизводимого local research
-comparison; model/API score и calibration не включаются. Common Voice Russian v24 разрешён
-владельцем проекта только для личного исследования; сохраняются внешний запрет на
-идентификацию и re-hosting.
+OOD layers, source-mixed v1 и controlled KSC-derived Kazakh v2 matrix подготовлены. Новый
+Kazakh test не имеет corpus overlap с train/dev, но результаты различаются по seed главным
+образом из-за KSC bona-fide recall (`0.6417`–`0.8252`), хотя two known synthetic family
+распознаны полностью. Модель годится только для воспроизводимого local research comparison;
+model/API score и calibration не включаются. Common Voice Russian v24 разрешён владельцем
+проекта только для личного исследования; сохраняются внешний запрет на идентификацию и
+re-hosting.
 
 ## Дальше
 
-1. Собрать larger Kazakh derived research stress source из локального KSC и двух независимых
-   TTS-family (Piper multi-voice и MMS/VITS), только после artifact/license audit. Не выдавать
-   его за speaker-independent benchmark и не использовать его для calibration/API.
-2. После появления source повторить source-mixed B0 на заранее зафиксированных seeds и
-   отчитываться по class recall/balanced accuracy каждого source отдельно. Не усреднять
-   ML-DF, PyAra, KSC и within-source RuASD metrics в одну «общую accuracy».
-3. LRLspoof не скачивать частично: его ~452 GB archive должен быть локально предоставлен
-   пользователем, затем потребуется отдельный spoof-only external protocol. При необходимости
-   добавить KazakhTTS2, MCSKL, YO-CPT-ru или SpeechFake только после
-   отдельного local artifact/terms audit; personal-research scope не отменяет лицензию,
-   provenance или ограничение конкретного source. Для каждого нового source обновить ledger и
-   создать отдельный reproducible intake, а не смешивать файлы вручную.
+1. Получить третий и последующие **независимые generator family**, а не только новые Piper
+   voices: цель 3–5 family по 300–500 QA-accepted clips на family и отдельный frozen
+   unseen-generator OOD. Повторить v2 на заранее зафиксированных seeds и отчитываться по
+   class/family/voice с intervals, не сводя ML-DF, PyAra, KSC и RuASD к одной «accuracy».
+2. LRLspoof не скачивать «по папке»: единственный ~452 GB gzip/tar archive не поддерживает
+   random access. Запросить у авторов per-language random-access shards с manifest/hashes или
+   дождаться локального предоставления полного archive и реализовать отдельный streaming
+   spoof-only intake. До этого не добавлять его в ledger и не смешивать вручную с KSC.
+3. Для независимого собственного corpus начать с consented bona-fide recording plan, заранее
+   изолировать people/texts/devices по split, затем создать synthetic derivatives с
+   pinned model hashes и полным QA/rejection ledger. Детальный практический protocol — в конце
+   `docs/research_b0_source_mixed_v2_kk.md`.
 
 Повторный preprocessing с документированным исключением QA/VAD-rejections возможен только
 так (каждый output и отчёт должны быть новыми):

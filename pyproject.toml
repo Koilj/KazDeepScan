@@ -31,6 +31,9 @@ ml = [
   "torchaudio>=2.7,<3",
   "transformers>=4.48,<6",
 ]
+synthesis = [
+  "piper-tts==1.6.0",
+]
 
 [project.scripts]
 kds = "kds.cli:main"

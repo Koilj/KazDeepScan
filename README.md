@@ -1,8 +1,8 @@
 # KazDeepScan
 
-KazDeepScan оценивает риск того, что запись русской, казахской или смешанной речи
-была синтезирована либо изменена. Это не идентификация говорящего и не доказательство
-мошенничества.
+KazDeepScan — локальный personal-research проект для исследования признаков
+синтезированности русской, казахской и смешанной речи. Это не идентификация говорящего,
+не доказательство мошенничества и не развёрнутый сервис оценки риска.
 
 Текущий реализованный этап — проверяемый фундамент для данных, аудио и безопасного intake:
 
@@ -18,27 +18,27 @@ KazDeepScan оценивает риск того, что запись русск
   leakage-safe split по связанным client/text группам;
 - ML-DF v1 Italian intake с archive/CRC/metadata whitelist и изолированным cross-lingual
   OOD manifest; он не используется как Russian/Kazakh training или calibration data;
-- RuASD Russian fake-only shard intake с SHA-256/TAR/JSON-WAV pairing checks и отдельным
-  OOD stress manifest; он не является binary training data;
+- RuASD: fake-only shard для OOD и full-release intake для personal-research binary slices;
+  оба проверяют SHA-256/TAR/JSON-WAV pairing, а full release берёт только raw recordings;
 - read-only audit полного локального RuASD release: pinned catalog всех 250 TAR artifacts,
   безопасная проверка JSON/WAV layout и контроль доступности source speaker/voice metadata;
   full release не предоставляет проверяемые groups для speaker-disjoint protocol;
 - PyAra v7 personal-research intake с ZIP/TSV-WAV checks, text-leakage-safe binary slice и
-  B0 smoke baseline; источник не даёт speaker IDs и не создаёт product benchmark;
-- явный training-protocol gate: перед запуском модели надо выбрать `research` или `product`;
-  product допускается только для commercial-clean sources с проверяемыми speaker/voice groups,
-  binary train/dev/test и independent OOD;
-- local consent-registry validator для будущего собственного product corpus; PII и сами
-  соглашения никогда не хранятся в Git.
+  B0 smoke baseline; источник не даёт speaker IDs;
+- явный training-protocol gate: текущий рабочий режим — `research`; строгая ветка `product`
+  остаётся только неактивным fail-closed validator для возможного будущего изменения scope;
+- local consent-registry validator сохранён как архивный инструмент; PII и сами соглашения
+  никогда не хранятся в Git.
 - B0 и XLS-R + SLS tensor/training foundations, record-level logit aggregation и temperature
   scaling;
 - FastAPI health/readiness/upload scaffold, который не выдаёт score без обученного,
   калиброванного model release.
 
-Есть только personal-research B0 smoke checkpoint, обученный на PyAra без проверяемого
-speaker-disjoint split. Он не обобщается на независимые ML-DF/RuASD OOD manifests и не
-является model release. Поэтому ни модель, ни API не выдают вероятность риска: любой такой
-результат сейчас был бы вводящим в заблуждение.
+Есть personal-research B0 checkpoints на PyAra и full RuASD. Новый RuASD run имеет in-source
+balanced accuracy 88.08%, но на отдельном PyAra holdout spoof recall лишь 45.45%; оба источника
+не дают проверяемого speaker-disjoint split. Полный отчёт —
+[docs/research_b0_ruasd_full_2000.md](docs/research_b0_ruasd_full_2000.md). Поэтому ни модель,
+ни API не выдают вероятность риска или калиброванный score.
 
 ## Требования
 
@@ -95,6 +95,14 @@ uv run python scripts/ingest_common_voice_ru_v24.py \
   --output-manifest data/manifests/common_voice_ru_v24_first_250.csv \
   --slice-name first-250 --limit-per-source-split 250
 
+# Создать сбалансированный personal-research binary slice из полного локального RuASD.
+# По умолчанию заново проверяются SHA-256 всех 250 pinned TAR; --skip-sha256 допустим
+# только после документированного полного audit этого же неизменённого набора.
+uv run python scripts/ingest_ruasd_research.py \
+  --archive-dir /home/ruslan/Downloads/RuASD \
+  --output-manifest data/manifests/ruasd_ru_v1_full_research_2000.csv \
+  --slice-name research-2000 --limit-per-label 1000 --min-per-stratum 1
+
 # Проверить B0 checkpoint на отдельном manifest без калибровки.
 uv run python scripts/evaluate_b0.py \
   --checkpoint models/b0-pyara-research-500.pt \
@@ -110,8 +118,6 @@ kds validate-manifest data/manifests/ood.csv --require-ood-generator
 kds validate-training-protocol data/manifests/slice.csv \
   --license-ledger data/licenses/license_ledger.csv --purpose research
 
-# Проверить локальный обезличенный export согласий для нового собственного corpus.
-kds validate-consent-registry data/consents/consented_product_v1.csv
 ```
 
 Все результаты CLI содержат только технические метаданные. Команды не отправляют аудио по

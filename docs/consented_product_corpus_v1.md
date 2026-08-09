@@ -1,5 +1,8 @@
 # Consented product corpus v1 — local consent registry contract
 
+> Архивный контракт: текущая цель KazDeepScan — personal research, поэтому создавать этот
+> registry для текущего этапа не требуется. Он сохранён для возможного будущего product scope.
+
 This template governs the **pseudonymous technical export** for a newly collected corpus. It is
 not a consent form and must not contain a person's name, contact details, signature, scan,
 biometric template, or recording. Those materials stay in an access-controlled legal/operations

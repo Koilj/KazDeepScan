@@ -7,9 +7,9 @@
 
 ## Цель MVP
 
-Оценивать риск синтезированности русской, казахской и смешанной речи по аудиофайлу.
-Результат — калиброванная оценка риска, а не идентификация человека или доказательство
-мошенничества.
+Локально исследовать признаки синтезированности русской, казахской и смешанной речи по
+аудиофайлу. Результат текущего этапа — воспроизводимые research metrics, а не риск-оценка,
+идентификация человека, доказательство мошенничества или развёрнутый product/API сервис.
 
 ## Сделано
 
@@ -49,6 +49,11 @@
   принимает только локальный pseudonymous export без PII и требует active consent с явными
   scopes на product training, synthetic derivatives и commercial deployment; `data/consents/`
   исключён из Git.
+- По уточнению владельца проекта scope изменён с потенциального product на **personal
+  research**. Лицензии, provenance, integrity checks и ограничения каждого источника остаются
+  обязательными; снят только ложный блок на использование research-only источников в личном
+  эксперименте. Product review и consent-registry сохранены как архивные fail-closed
+  материалы, а не как текущая дорожная карта.
 - Исправлен `GroupSplitter`: он назначает один split всей связной компоненте по
   `parent_group_id`, `speaker_pseudo_id` и `text_hash`, а не только по parent group. Это
   предотвращает text/speaker leakage при local re-split Common Voice.
@@ -94,6 +99,25 @@
   catalog, а metadata pass подтвердил `585 353` JSON/WAV pairs без extraction. У всех
   `147 097` raw bona-fide rows speaker неизвестен, у raw fake известны только
   `4 750/228 266`, поэтому full release не является speaker/voice-disjoint binary protocol.
+- Реализован `scripts/ingest_ruasd_research.py` для full RuASD personal-research binary
+  slice: он использует только raw real/TTS rows, по умолчанию повторно сверяет весь pinned
+  collection, распределяет равные классы с coverage source subset/model strata, не копирует
+  транскрипты в manifest и сохраняет text-leakage-safe split. Исходники, synthetic TAR tests,
+  documentation и ledger entry добавлены. Реально создан raw slice `research-2000`: `1 000`
+  bona-fide + `1 000` spoof WAV, после deterministic split `train=1 564`, `dev=220`,
+  `test=216`; все `2 000/2 000` raw asset SHA-256 прошли validation.
+- После QA/VAD создан ready RuASD manifest на `1 814` WAV (`816` bona-fide, `998` spoof;
+  `train=1 417`, `dev=202`, `test=195`). Отдельный report содержит все `186` rejections:
+  `152` insufficient speech, `32` too quiet и `2` collision с уже существующими processed
+  assets, которые не были перезаписаны. Готовые `1 814/1 814` assets, ledger и research
+  training protocol успешно проверены.
+- Добавлены `bonafide_accuracy`, `spoof_accuracy` и `balanced_accuracy` в B0 train/eval
+  reports. Для single-class набора balanced accuracy честно возвращается `null`.
+- B0 `models/b0-ruasd-full-research-2000.pt` обучен пять эпох на RTX 5060 Ti c `--purpose
+  research`. Его in-source RuASD test balanced accuracy — `0.8808`; ML-DF OOD — `0.9262`,
+  PyAra holdout — `0.7273`, KSC bona-fide recall — `0.9673`. Это не product metrics и не
+  свидетельство speaker/voice-independent robustness. Подробный разбор —
+  `docs/research_b0_ruasd_full_2000.md`.
 - Локально проверен вручную скачанный PyAra v7 `archive.zip`: `28 092 611 663` байта,
   SHA-256 `dadf5b795adbd6d635e74f4f9662c3e9a425c88bd76f26731f9e6adbad278b91`, полный ZIP
   CRC успешно. Archive содержит `73 583` real и `128 195` fake WAV от пяти algorithms.
@@ -203,29 +227,25 @@
 
 ## Текущий этап
 
-Русский PyAra binary research protocol, KSC/Common Voice bona-fide layers и два OOD layers
-подготовлены. B0 smoke baseline прошёл полный data/train/eval cycle, но не переносится на
-независимые OOD: ML-DF около random, RuASD fake detection низкая. PyAra не раскрывает speaker
-IDs; полный локальный RuASD также не имеет проверяемых bona-fide speaker IDs. Поэтому ни один
-доступный binary split не является speaker/voice-disjoint. Модель, API, calibration и product
-scoring остаются выключенными.
-Common Voice Russian v24 разрешён владельцем проекта только для личного исследования;
-сохраняются внешний запрет на идентификацию и re-hosting.
+Русский PyAra research protocol, full RuASD binary protocol, KSC/Common Voice bona-fide layers
+и OOD layers подготовлены. Новый RuASD B0 заметно лучше прежнего PyAra-only smoke baseline, но
+PyAra spoof recall остаётся `0.4545`, а все RuASD metrics non-speaker-disjoint. Поэтому модель
+можно использовать только для воспроизводимого local research comparison; model/API score и
+calibration не включаются. Common Voice Russian v24 разрешён владельцем проекта только для
+личного исследования; сохраняются внешний запрет на идентификацию и re-hosting.
 
 ## Дальше
 
-1. Получить русский или казахский binary corpus с проверяемыми speaker/voice group IDs и
-   явными правами на individual audio contents. До intake внести licence, artifact и
-   provenance в `data/licenses/license_ledger.csv`.
-2. Спроектировать speaker-disjoint target-language train/dev/test и channel-balanced OOD
-   protocol. Не трактовать KSC `deviceID` как speaker ID; не подменять unknown `speakers` из
-   полного RuASD источником groups; ML-DF и RuASD оставить изолированным OOD.
-3. Получить от rightsholder письменное уточнение scope для KazakhTTS2 **либо** собрать
-   собственный consented corpus по `docs/consented_product_corpus_v1.md`. После локальной
-   проверки архива внести только подтверждённый source в license ledger с explicit use policy и
-   group provenance, проверить `kds validate-training-protocol --purpose product`, затем
-   повторить B0 и XLS-R + SLS. До независимой evaluation и temperature calibration не создавать
-   product release, threshold или API scorer.
+1. Спроектировать explicit source-mixed research matrix: train/dev/test и evaluation source
+   должны быть disjoint по исходному corpus, а не только по sample ID. Не использовать
+   `ruasd-000000` fake-only shard как OOD после обучения на full RuASD.
+2. Повторить B0 на source-mixed protocol и отдельно сравнить class recall/balanced accuracy с
+   текущими single-source checkpoints. Не усреднять ML-DF, PyAra, KSC и within-source RuASD
+   metrics в одну «общую accuracy».
+3. При необходимости добавить KazakhTTS2, MCSKL, YO-CPT-ru или SpeechFake только после
+   отдельного local artifact/terms audit; personal-research scope не отменяет лицензию,
+   provenance или ограничение конкретного source. Для каждого нового source обновить ledger и
+   создать отдельный reproducible intake, а не смешивать файлы вручную.
 
 Повторный preprocessing с документированным исключением QA/VAD-rejections возможен только
 так (каждый output и отчёт должны быть новыми):
@@ -241,13 +261,14 @@ Common Voice Russian v24 разрешён владельцем проекта т
 ## Блокеры и ограничения
 
 - PyAra допускает personal-research binary smoke baseline по `CC-BY-NC-SA-4.0`, но не даёт
-  speaker IDs. Его local metrics не являются independent evaluation; коммерческое
-  использование запрещено лицензией.
+  speaker IDs. Его local metrics не являются independent evaluation.
 - Независимые OOD результаты B0 слабые (ML-DF `0.5208`, RuASD fake-only `0.3800`), поэтому
-  выдача риск-оценок, калибровка и product API по-прежнему запрещены.
-- Полный RuASD (250 TAR artifacts, около 250 GB) теперь локально находится в
-  `~/Downloads/RuASD` и не перемещается. Он не решает blocker: `speakers` неизвестен для всех
-  raw bona-fide rows, а лицензия `CC-BY-NC-SA-4.0` исключает коммерческий product release.
+  прежнего PyAra-only checkpoint больше не являются current baseline. Новый RuASD checkpoint
+  всё ещё не даёт основания включать risk score, calibration или API inference: PyAra spoof
+  recall только `0.4545`, а RuASD OOD shard не независим от full RuASD training source.
+- Полный RuASD (250 TAR artifacts, около 250 GB) находится в `~/Downloads/RuASD` и не
+  перемещается. Он пригоден для personal-research binary training, но `speakers` неизвестен
+  для raw bona-fide rows и spoof voice provenance unknown: split не speaker/voice-disjoint.
 - Загрузка разрешённых источников размером до 2 ГБ может выполняться без отдельного
   подтверждения. Если ожидаемый размер файла или набора файлов превышает 2 ГБ, остановить
   загрузку до её начала: пользователь скачивает данные самостоятельно, после чего работа

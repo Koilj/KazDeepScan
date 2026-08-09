@@ -1,5 +1,9 @@
 # Product corpus source review — 9 August 2026
 
+> Архивный review: с 9 августа 2026 текущий scope KazDeepScan изменён на personal research.
+> Этот документ не блокирует research use источников с соблюдением их лицензий; он остаётся
+> полезным только если scope когда-либо снова станет коммерческим/product.
+
 ## Decision
 
 No publicly checked release can yet be entered in the product ledger as a complete Russian or

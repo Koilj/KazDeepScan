@@ -87,30 +87,33 @@ kds assign-splits data/manifests/input.csv data/manifests/slice.csv --seed 20260
 `validate-manifest`; сам split не заменяет отдельный OOD protocol для нового
 генератора/канала.
 
-Для нового product source с подтверждённым spoof voice group обязательно добавить
-`--include-voice-id`: тогда splitter включает непустой `voice_id` в ту же связную компоненту
-и не разделяет один voice между train/dev/test. Не включайте флаг для источника с
-`spoof_voice_group_provenance=unknown` (например, текущего PyAra): строка `voice_id=unknown`
-не является реальной группой и искусственно склеит несвязанные записи.
+Если источник действительно подтверждает одну spoof-voice group для нескольких строк,
+добавьте `--include-voice-id`: splitter включит этот `voice_id` в ту же связную компоненту и
+не разделит один голос между train/dev/test. Не включайте флаг для источника с
+`spoof_voice_group_provenance=unknown` (например, PyAra или RuASD): строка
+`voice_id=unknown` не является реальной группой и искусственно склеит несвязанные записи.
 
 ## Явный training protocol
 
-Перед обучением B0 нужно явно назвать цель. Режим `research` допускает только источники с
-`research_only` или `product_allowed` policy и записывается в checkpoint. Режим `product`
-дополнительно требует все четыре binary split (`train`, `dev`, `test`, `ood`), оба класса в
-каждом из них, independent OOD generator family, `status=verified`,
-`usage_scope=commercial_clean`, product policy для соответствующей роли и `verified` group
-provenance для bona-fide и spoof rows. Он также запрещает одному verified spoof `voice_id`
-попадать в несколько split-ов.
+Текущая цель репозитория — personal research, поэтому перед обучением B0 всегда выбирается
+`--purpose research`. Этот режим допускает только источники с `research_only` либо
+`product_allowed` policy и сохраняет явный research protocol в checkpoint. Он требует оба
+класса в train/dev/test, но не превращает source pseudo-ID или text-safe split в
+speaker-disjoint оценку.
+
+В коде остаётся неактивная fail-closed ветка `product`: она дополнительно требует все четыре
+binary split (`train`, `dev`, `test`, `ood`), independent OOD generator family,
+`status=verified`, `usage_scope=commercial_clean`, product policy и `verified` group
+provenance. Она не является текущим планом или разрешением на deployment.
 
 ```bash
 kds validate-training-protocol data/manifests/protocol.csv \
-  --license-ledger data/licenses/license_ledger.csv --purpose product
+  --license-ledger data/licenses/license_ledger.csv --purpose research
 ```
 
-Ни один текущий источник не проходит product gate: это ожидаемый и безопасный результат, а не
-сбой реализации. Для PyAra допустим только `--purpose research`; RuASD и ML-DF разрешены
-лишь как OOD evaluation в research protocol.
+PyAra и полный raw RuASD допустимы только для `--purpose research`. ML-DF остаётся
+cross-lingual OOD evaluation: его перевод в train/dev/test не сделал бы русско- или
+казахскоязычную оценку содержательно корректной.
 
 ## Нормализация для обучения
 

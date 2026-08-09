@@ -80,6 +80,9 @@ def main() -> int:
                 "label_counts": label_counts,
                 "loss": result.loss,
                 "accuracy": result.accuracy,
+                "bonafide_accuracy": result.bonafide_accuracy,
+                "spoof_accuracy": result.spoof_accuracy,
+                "balanced_accuracy": result.balanced_accuracy,
                 "calibrated": False,
             }
         )

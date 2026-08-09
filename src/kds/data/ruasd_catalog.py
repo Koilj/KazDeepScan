@@ -112,7 +112,7 @@ def audit_ruasd_collection(
                     f"RuASD archive SHA-256 does not match catalog: {archive_name!r}."
                 )
             verified_archives += 1
-        summaries = _audit_single_archive(archive_path)
+        summaries = load_ruasd_archive_records(archive_path)
         total_records += len(summaries)
         for summary in summaries:
             record_key = "/".join((summary.label, summary.group, summary.source_type))
@@ -158,7 +158,14 @@ def write_ruasd_audit_report(path: Path, audit: RuAsdCollectionAudit) -> None:
 
 
 @dataclass(frozen=True, slots=True)
-class _RuAsdRecordSummary:
+class RuAsdRecordMetadata:
+    """Validated metadata for one paired member of a RuASD TAR artifact.
+
+    The class deliberately retains only a hash of source text.  It is sufficient for
+    split-leakage prevention without copying source transcripts into generated manifests.
+    """
+
+    sample_id: str
     label: str
     group: str
     source_type: str
@@ -166,6 +173,7 @@ class _RuAsdRecordSummary:
     model: str
     speaker_group: str | None
     has_source_text: bool
+    source_text_hash: str | None
 
 
 def _catalog_spec_from_row(row: Mapping[str, str | None], row_number: int) -> RuAsdArchiveSpec:
@@ -233,9 +241,16 @@ def _validate_archive_size(path: Path, spec: RuAsdArchiveSpec) -> None:
         )
 
 
-def _audit_single_archive(archive_path: Path) -> list[_RuAsdRecordSummary]:
+def load_ruasd_archive_records(archive_path: Path) -> list[RuAsdRecordMetadata]:
+    """Safely read one TAR and require an exact JSON/WAV pair for every sample.
+
+    The caller is responsible for checking the archive against its pinned catalog before
+    invoking this function.  Keeping that step separate lets both the full audit and a
+    selected extraction share the exact same TAR layout checks.
+    """
+
     audio_ids: set[str] = set()
-    records: dict[str, _RuAsdRecordSummary] = {}
+    records: dict[str, RuAsdRecordMetadata] = {}
     try:
         with tarfile.open(archive_path, mode="r:") as archive:
             for member in archive:
@@ -247,7 +262,7 @@ def _audit_single_archive(archive_path: Path) -> list[_RuAsdRecordSummary]:
                     continue
                 if sample_id in records:
                     raise RuAsdCatalogError(f"Duplicate RuASD metadata member: {member.name!r}.")
-                records[sample_id] = _read_record_summary(member, archive)
+                records[sample_id] = _read_record_metadata(member, archive)
     except (OSError, tarfile.TarError) as error:
         raise RuAsdCatalogError(f"RuASD archive cannot be read safely: {archive_path}") from error
     if not records or set(records) != audio_ids:
@@ -273,9 +288,9 @@ def _safe_member_name(member: tarfile.TarInfo) -> tuple[str, str]:
     return path.stem, path.suffix.lower()
 
 
-def _read_record_summary(
+def _read_record_metadata(
     member: tarfile.TarInfo, archive: tarfile.TarFile
-) -> _RuAsdRecordSummary:
+) -> RuAsdRecordMetadata:
     if member.size <= 0 or member.size > 1_000_000:
         raise RuAsdCatalogError(f"Unsafe RuASD metadata size: {member.name!r}.")
     source = archive.extractfile(member)
@@ -318,17 +333,17 @@ def _read_record_summary(
         raise RuAsdCatalogError(f"Unexpected raw fake RuASD record: {member.name!r}.")
     if group == "raw" and label == "real" and source_type != "real_speech":
         raise RuAsdCatalogError(f"Unexpected raw real RuASD record: {member.name!r}.")
-    return _RuAsdRecordSummary(
+    source_text = _source_text(raw)
+    return RuAsdRecordMetadata(
+        sample_id=sample_id,
         label=label,
         group=group,
         source_type=source_type,
         subset=subset,
         model=model,
         speaker_group=_speaker_group(raw.get("speakers")),
-        has_source_text=bool(
-            _optional_text_field(raw, "true_lines")
-            or _optional_text_field(raw, "transcription")
-        ),
+        has_source_text=bool(source_text),
+        source_text_hash=hashlib.sha256(source_text.encode()).hexdigest() if source_text else None,
     )
 
 
@@ -342,6 +357,13 @@ def _text_field(raw: Mapping[object, object], name: str) -> str:
 def _optional_text_field(raw: Mapping[object, object], name: str) -> str:
     value = raw.get(name)
     return value.strip() if isinstance(value, str) else ""
+
+
+def _source_text(raw: Mapping[object, object]) -> str:
+    """Return a canonical source transcript without exposing it to callers."""
+
+    value = _optional_text_field(raw, "true_lines") or _optional_text_field(raw, "transcription")
+    return " ".join(value.split())
 
 
 def _speaker_group(value: object) -> str | None:

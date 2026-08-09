@@ -104,7 +104,7 @@ def main() -> int:
         model.parameters(), lr=arguments.learning_rate, weight_decay=arguments.weight_decay
     )
 
-    history: list[dict[str, float | int]] = []
+    history: list[dict[str, float | int | None]] = []
     best_dev_loss = float("inf")
     best_state: dict[str, Tensor] | None = None
     for epoch in range(arguments.epochs):
@@ -116,8 +116,10 @@ def main() -> int:
                 "epoch": epoch + 1,
                 "train_loss": train_result.loss,
                 "train_accuracy": train_result.accuracy,
+                "train_balanced_accuracy": train_result.balanced_accuracy,
                 "dev_loss": dev_result.loss,
                 "dev_accuracy": dev_result.accuracy,
+                "dev_balanced_accuracy": dev_result.balanced_accuracy,
             }
         )
         if dev_result.loss < best_dev_loss:

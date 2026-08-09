@@ -1,12 +1,14 @@
 # B0: контрольный baseline
 
 `B0LogMelCnn` преобразует waveform 16 кГц в log-Mel и выдаёт один сырой `spoof_logit`.
-Это небольшой контрольный классификатор, цель которого — обнаружить ошибки в декодировании,
-labels и split-ах до обучения XLS-R. Он не является продуктовой моделью.
+Это небольшой personal-research контрольный классификатор, цель которого — обнаружить ошибки
+в декодировании, labels и split-ах до обучения XLS-R. Он не является продуктовой моделью или
+источником практической risk-оценки.
 
-До появления легального group-aware data slice веса модели случайны. Любой logit B0 до
-обучения не имеет семантики риска, не должен проходить через sigmoid и не может появиться в
-API-ответе. После обучения требуется отдельная record-level оценка и калибровка температуры.
+До появления достаточной независимой evaluation веса модели — только исследовательский
+артефакт. Любой logit B0 до обучения не имеет семантики риска и не должен появляться в
+API-ответе. После обучения нужны отдельные record-level и OOD отчёты; speaker/text-safe split
+не доказывает обобщение на новых людей или голосах.
 
 Проверить тензорный тракт без данных можно так:
 
@@ -26,10 +28,9 @@ uv run python scripts/train_b0.py \
   --device cuda
 ```
 
-`--purpose` обязателен: он не позволяет случайно представить research weights как product
-checkpoint. Режим `product` требует отдельного полного binary protocol с verified
-speaker/voice groups, legal commercial scope и independent OOD; текущие manifest-ы его не
-проходят. Скрипт сохраняет выбранную цель и protocol report в checkpoint.
+`--purpose research` обязателен: он явно маркирует веса как исследовательские и сохраняет
+protocol report в checkpoint. Строгая ветка `product` сохранена в коде как неактивный
+fail-closed validator и не относится к текущей цели проекта.
 
 До обучения скрипт требует для каждого источника одобренный статус в license ledger,
 проверяет SHA-256 всех train/dev assets, требует оба класса в каждом split и отказывается
@@ -48,6 +49,7 @@ uv run python scripts/evaluate_b0.py \
   --split ood --device cuda
 ```
 
-Команда проверяет schema, ledger и SHA-256 files, но возвращает только loss/accuracy.
+Команда проверяет schema, ledger и SHA-256 files и возвращает loss, ordinary accuracy, class
+recall и `balanced_accuracy` (последняя равна `null`, когда отсутствует один из классов).
 Она не вычисляет risk probability, threshold, EER или калибровку; fake-only OOD data не
-позволяют измерить false-positive rate.
+позволяют измерить false-positive rate или balanced accuracy.

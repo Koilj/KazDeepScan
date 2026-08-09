@@ -24,6 +24,11 @@ class EpochResult:
     loss: float
     accuracy: float
     examples: int
+    bonafide_examples: int
+    spoof_examples: int
+    bonafide_accuracy: float | None
+    spoof_accuracy: float | None
+    balanced_accuracy: float | None
 
 
 def collate_audio_samples(samples: list[AudioSample]) -> AudioBatch:
@@ -77,6 +82,10 @@ def _run_b0_epoch(
     total_loss = 0.0
     correct = 0
     examples = 0
+    bonafide_examples = 0
+    bonafide_correct = 0
+    spoof_examples = 0
+    spoof_correct = 0
 
     for batch in data_loader:
         waveforms = batch.waveforms.to(device, non_blocking=True)
@@ -90,9 +99,33 @@ def _run_b0_epoch(
 
         batch_size = labels.numel()
         total_loss += float(loss.detach()) * batch_size
-        correct += int(((logits.detach() >= 0.0) == (labels >= 0.5)).sum())
+        predictions = logits.detach() >= 0.0
+        expected_spoof = labels >= 0.5
+        correct += int((predictions == expected_spoof).sum())
+        bonafide_mask = ~expected_spoof
+        spoof_mask = expected_spoof
+        bonafide_examples += int(bonafide_mask.sum())
+        bonafide_correct += int((predictions[bonafide_mask] == expected_spoof[bonafide_mask]).sum())
+        spoof_examples += int(spoof_mask.sum())
+        spoof_correct += int((predictions[spoof_mask] == expected_spoof[spoof_mask]).sum())
         examples += batch_size
 
     if examples == 0:
         raise ValueError("Data loader yielded no batches.")
-    return EpochResult(loss=total_loss / examples, accuracy=correct / examples, examples=examples)
+    bonafide_accuracy = bonafide_correct / bonafide_examples if bonafide_examples else None
+    spoof_accuracy = spoof_correct / spoof_examples if spoof_examples else None
+    balanced_accuracy = (
+        (bonafide_accuracy + spoof_accuracy) / 2
+        if bonafide_accuracy is not None and spoof_accuracy is not None
+        else None
+    )
+    return EpochResult(
+        loss=total_loss / examples,
+        accuracy=correct / examples,
+        examples=examples,
+        bonafide_examples=bonafide_examples,
+        spoof_examples=spoof_examples,
+        bonafide_accuracy=bonafide_accuracy,
+        spoof_accuracy=spoof_accuracy,
+        balanced_accuracy=balanced_accuracy,
+    )

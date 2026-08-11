@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "kazdeepscan"
 version = "0.1.0"
-description = "Risk assessment service for synthetic Russian and Kazakh speech"
+description = "Audited personal-research workflows for synthetic Russian and Kazakh speech"
 readme = "README.md"
 requires-python = ">=3.11,<3.14"
 license = { text = "Proprietary" }

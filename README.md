@@ -229,8 +229,10 @@ uv run python scripts/train_xlsr_sls_stage_b.py \
   --plan configs/research/xlsr_sls_stage_b_v2.json \
   --audio-root data --profile-only
 
-# Confirmatory v1 уже выполнен и write-once outputs запрещают повтор. Для нового experiment
-# требуется новый plan с новыми output paths и честным disclosure test-set history.
+# Confirmatory v1 уже выполнен и write-once outputs запрещают повтор. Его точное pinned
+# implementation tree сохранено в commit 52d6e6b; --validate-only для исторического plan
+# следует выполнять в отдельном checkout этого commit. Для нового experiment требуется
+# новый plan с новыми output paths и честным disclosure test-set history.
 uv run python scripts/evaluate_xlsr_research_final.py \
   --plan configs/research/xlsr_sls_stage_b_v2_research_final_v1.json \
   --audio-root data --validate-only

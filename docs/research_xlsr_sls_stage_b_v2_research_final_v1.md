@@ -3,6 +3,11 @@
 **Статус:** однократный GPU run выполнен 12 августа 2026. Это не product quality и не blind
 project-level final.
 
+Точное дерево реализации, чьи SHA-256 закреплены выполненным plan, сохранено в Git-коммите
+`52d6e6b`. Более позднее исправление только package-description намеренно создаёт implementation
+drift относительно immutable plan; для повторного `--validate-only` нужен отдельный checkout
+коммита `52d6e6b`. Сам final inference повторять нельзя.
+
 Строгий plan SHA-256
 `1dfc3ca866607191385b33b85a1ee67cb3981099c6fc836aef720c6c2610d4fc` закрепляет Stage-B
 checkpoint/report, immutable 8-source ledger snapshot, четыре предшествующие роли, три evaluation

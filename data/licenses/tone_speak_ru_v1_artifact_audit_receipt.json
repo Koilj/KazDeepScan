@@ -1,0 +1,87 @@
+{
+  "artifact_total_bytes": 1686390665,
+  "artifacts": [
+    {
+      "relative_path": ".gitattributes",
+      "sha256": "e7a120ab07b1bc5b486be249e9fc6c83d59448d0093e1dfebe95d1566d9cafc0",
+      "size_bytes": 2461
+    },
+    {
+      "relative_path": "README.md",
+      "sha256": "da0d2a6fcbe4b84edc69a5fd44985ec94991f4e80c5c69d20317a25651517df6",
+      "size_bytes": 3741
+    },
+    {
+      "relative_path": "data/train-00000-of-00004.parquet",
+      "sha256": "7196f1aae6aa27da08813d2161a94e3af146669b0883bbfef2e404b6108b9f89",
+      "size_bytes": 380768912
+    },
+    {
+      "relative_path": "data/train-00001-of-00004.parquet",
+      "sha256": "1d79738cefae26918e02398ce0e6cd2d86de5fd8e67586f9a6c534a6d60b9987",
+      "size_bytes": 378847350
+    },
+    {
+      "relative_path": "data/train-00002-of-00004.parquet",
+      "sha256": "ebc2236a6fd3628b5710e360ad4469b3a0a9c3f95e7dbb169bc659187afef337",
+      "size_bytes": 378720674
+    },
+    {
+      "relative_path": "data/train-00003-of-00004.parquet",
+      "sha256": "dc03b849110eabdcdc5226b79ab4106ca436bf65e0ec80c7c0ff7b541c85b208",
+      "size_bytes": 380371736
+    },
+    {
+      "relative_path": "data/validation-00000-of-00001.parquet",
+      "sha256": "25da50ec9165c208330801c758ac35ce054bcefecba2be63348159fa585ee54b",
+      "size_bytes": 167675791
+    }
+  ],
+  "audio_max_duration_s": 30.264,
+  "audio_min_duration_s": 1.8750416666666667,
+  "audio_records": 6998,
+  "audio_sample_rates": [
+    24000
+  ],
+  "audio_total_bytes": 1683904769,
+  "audio_total_duration_s": 105244.0480416667,
+  "cross_split_normalized_texts": 0,
+  "dataset": "Vikhrmodels/ToneSpeak",
+  "duplicate_audio_payloads": 0,
+  "duplicate_normalized_texts": 1,
+  "records_without_cyrillic": 0,
+  "revision": "d40f94cd5c7dcf756a8c59a1c465b834220bec56",
+  "rows_by_split": {
+    "train": 6298,
+    "validation": 700
+  },
+  "source_id": "tone_speak_ru_v1",
+  "unique_audio_paths": 6998,
+  "unique_normalized_texts": 6997,
+  "voice_counts_by_split": {
+    "train": {
+      "alloy": 619,
+      "ash": 583,
+      "ballad": 622,
+      "coral": 661,
+      "echo": 629,
+      "fable": 621,
+      "nova": 674,
+      "onyx": 630,
+      "sage": 628,
+      "shimmer": 631
+    },
+    "validation": {
+      "alloy": 69,
+      "ash": 71,
+      "ballad": 68,
+      "coral": 66,
+      "echo": 62,
+      "fable": 66,
+      "nova": 81,
+      "onyx": 72,
+      "sage": 74,
+      "shimmer": 71
+    }
+  }
+}

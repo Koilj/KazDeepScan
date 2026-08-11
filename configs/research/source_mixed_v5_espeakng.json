@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "protocol_id": "source-mixed-research-v5-espeakng-final-test",
+  "purpose": "research",
+  "roles": [
+    {
+      "name": "train",
+      "manifest": "../../data/manifests/ruasd_ru_v1_full_research_2000_ready.csv",
+      "source_split": "train",
+      "expected_source_ids": ["ruasd_ru_v1_full"]
+    },
+    {
+      "name": "dev",
+      "manifest": "../../data/manifests/pyara_ru_v7_research_500_ready.csv",
+      "source_split": "dev",
+      "expected_source_ids": ["pyara_ru_v7"]
+    },
+    {
+      "name": "test",
+      "manifest": "../../data/manifests/ksc_derived_kk_v4_espeakng_test_358.csv",
+      "source_split": "test",
+      "expected_source_ids": ["ksc_derived_kk_v4_espeakng", "ksc_slr102"]
+    }
+  ]
+}

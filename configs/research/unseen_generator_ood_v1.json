@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "protocol_id": "frozen-unseen-generator-suite-v1-kazakh-families",
+  "purpose": "research",
+  "train": {
+    "manifest": "../../data/manifests/ruasd_ru_v1_full_research_2000_ready.csv",
+    "source_split": "train",
+    "expected_source_ids": ["ruasd_ru_v1_full"]
+  },
+  "dev": {
+    "manifest": "../../data/manifests/pyara_ru_v7_research_500_ready.csv",
+    "source_split": "dev",
+    "expected_source_ids": ["pyara_ru_v7"]
+  },
+  "shared_final_source_ids": ["ksc_slr102"],
+  "final_tests": [
+    {
+      "id": "kazemotts_gradtts_hifigan",
+      "manifest": "../../data/manifests/ksc_derived_kk_v2_kazemotts_test_359.csv",
+      "source_split": "test",
+      "expected_source_ids": ["ksc_derived_kk_v2_kazemotts", "ksc_slr102"],
+      "expected_generator_families": ["gradtts_hifigan_emotional_tts"]
+    },
+    {
+      "id": "sparktts_llm_bicodec",
+      "manifest": "../../data/manifests/ksc_derived_kk_v3_sparktts_test_381.csv",
+      "source_split": "test",
+      "expected_source_ids": ["ksc_derived_kk_v3_sparktts", "ksc_slr102"],
+      "expected_generator_families": ["llm_bicodec_controlled_tts"]
+    },
+    {
+      "id": "espeakng_formant",
+      "manifest": "../../data/manifests/ksc_derived_kk_v4_espeakng_test_358.csv",
+      "source_split": "test",
+      "expected_source_ids": ["ksc_derived_kk_v4_espeakng", "ksc_slr102"],
+      "expected_generator_families": ["formant_rule_based_tts"]
+    }
+  ]
+}

@@ -1,0 +1,1085 @@
+{
+  "existing_candidate_manifest": "data/manifests/fleurs_ru_v1_silero_v4_test_214.csv",
+  "existing_candidate_manifest_sha256": "8afd2d461495eb4b16c6e4de89ea731536d41ff73d7ea7152bfb1ea20e23ec1b",
+  "full_base_manifest": "data/manifests/fleurs_ru_ru_v1_test_ready_300.csv",
+  "full_base_manifest_sha256": "1840c29796289acf5faafa36bb14a8117ea2b977ff5228d700e68ac7b28da5ba",
+  "held_out": [
+    {
+      "sample_id": "google_fleurs_ru_v1:5046190389640051711",
+      "text_hash": "007865f93360b0e51c5a8478492f55d87046fb80554f80269f645843461a82cf",
+      "text_id": "google_fleurs_ru_v1:prompt:1930"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8558551009215934589",
+      "text_hash": "00d4a339614f9e055aa3617b5f8a2cdb0cf39b6192ed49dad2a9a519f9561804",
+      "text_id": "google_fleurs_ru_v1:prompt:1708"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:15006673202996633511",
+      "text_hash": "014d05477c402842ee7a7d0e47f47e072841ef5e1553f18e89973f4ee9bf6b87",
+      "text_id": "google_fleurs_ru_v1:prompt:1754"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:11692271085770319239",
+      "text_hash": "0156981c8793701cd6761fac2096b9aa0de09334947f9e4043cdd56279d745de",
+      "text_id": "google_fleurs_ru_v1:prompt:1697"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:1105476766992092088",
+      "text_hash": "0162e191d9a386b0bdb8002dfa2c5b1c637066f0c411b3538c09f852ce3dd699",
+      "text_id": "google_fleurs_ru_v1:prompt:1687"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:7721997118013656128",
+      "text_hash": "01e0cef0f10d949581d1b7e2e994048a967539e67c1c862237474a0cf3b118fc",
+      "text_id": "google_fleurs_ru_v1:prompt:1990"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:5354578987853956582",
+      "text_hash": "020a605fbfe6cc5e5b092bc98b45588257a0a7df41aefd858de3489ba40da5c6",
+      "text_id": "google_fleurs_ru_v1:prompt:1896"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:17716742215781432494",
+      "text_hash": "08e584e7409b6304cff970fda749e14f6a9862e1e85b0380910a64183adf610e",
+      "text_id": "google_fleurs_ru_v1:prompt:1882"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:5243557065248725743",
+      "text_hash": "0c06046aba40690b02433f07a51a51f644f2e10cb1553c8fb2423ce6f7c3a777",
+      "text_id": "google_fleurs_ru_v1:prompt:1786"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:17852357297340585600",
+      "text_hash": "0c522e9a9ebe80c9161a42fc64027ffa2a8865a9daa60e43c3f0cc090aaaa458",
+      "text_id": "google_fleurs_ru_v1:prompt:1984"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:10388692337460649572",
+      "text_hash": "0f942cbeb4f7f06d135ebf251f77581bed6954ad2afb9e238cc0ab2e73b2593b",
+      "text_id": "google_fleurs_ru_v1:prompt:1943"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:4021006210146211127",
+      "text_hash": "0f977191c355e6235e4ebf740fe8798389095d7f14d86f1da6e703a1642cd74d",
+      "text_id": "google_fleurs_ru_v1:prompt:1966"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:6366127702888072946",
+      "text_hash": "1195707b086be84741318c4688a8b5480a67dbfbf6d6d3da75212da7af8e2429",
+      "text_id": "google_fleurs_ru_v1:prompt:1746"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:11523204250869539219",
+      "text_hash": "12c7fdc5a45f4bca66000f3e4afd2a096acbe21050c238e695e2ed8de6f3eb5c",
+      "text_id": "google_fleurs_ru_v1:prompt:1666"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:1337839801698758739",
+      "text_hash": "136f4215ee16437a3f701cf3c69c54674b452f6a94af3b4a6843a9482b645bab",
+      "text_id": "google_fleurs_ru_v1:prompt:1957"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:13916543835067968668",
+      "text_hash": "143b6d43c738f194252aec32a9436da4046fdb7c8d679d1422f98f1a30cc14bc",
+      "text_id": "google_fleurs_ru_v1:prompt:1674"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:2749289499372541660",
+      "text_hash": "153d88afe328ec9332e613d63660b490184bdcff3b479aadf82b547f2c4d3d97",
+      "text_id": "google_fleurs_ru_v1:prompt:1923"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:13520902169230211439",
+      "text_hash": "154bc8ec145072fc5f67b76cebedc91f0329647ece2f5f1dde04d20555628908",
+      "text_id": "google_fleurs_ru_v1:prompt:1788"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:17855217728047020794",
+      "text_hash": "15b2a1487b8758a390fe171e2fd9388fe4e1a9af80c5cf03a55b8840baf5157b",
+      "text_id": "google_fleurs_ru_v1:prompt:1714"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8661794818516617222",
+      "text_hash": "16b03e50b88acf599cfaf565b6510519b9d548e556b1df65bc5deb499c6b5f37",
+      "text_id": "google_fleurs_ru_v1:prompt:1669"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:5882763998393716629",
+      "text_hash": "1904f50a7e9c0314fc1aeaa3ec5e08e143bcfce6fdb559386cee71f8979bc5ce",
+      "text_id": "google_fleurs_ru_v1:prompt:1894"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:7537964997966728076",
+      "text_hash": "19ac3a5607edc2bacf8d1331ff6bb50dc3801be926563857adaf125314e45860",
+      "text_id": "google_fleurs_ru_v1:prompt:1961"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:14292178338563241413",
+      "text_hash": "1a7c401ccd33e367849eb0b3291ab41ce28c69ee1112130e93451d09731dbf74",
+      "text_id": "google_fleurs_ru_v1:prompt:1777"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:6627048434118615166",
+      "text_hash": "1c8bce8339a1dee783a569a7f49aca05a51faa7e7d8fa1ec562424ac4f18bbfb",
+      "text_id": "google_fleurs_ru_v1:prompt:1849"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:11625724971940298677",
+      "text_hash": "1ccb2753e072b01b4f329769f2830bd0c91618232f4c34422f024d30f23d629c",
+      "text_id": "google_fleurs_ru_v1:prompt:1771"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:18045293640538578969",
+      "text_hash": "1f4f09c077be72f4b73f1dda07fe6c9e0d11f172ade6ca033257889a12411ca2",
+      "text_id": "google_fleurs_ru_v1:prompt:1785"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:3484242018296374195",
+      "text_hash": "1fd52a2f39ca4998070c4db1a4b15eec2db6fc0464209788b927d2cf9f8e4959",
+      "text_id": "google_fleurs_ru_v1:prompt:1914"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:809012245271118418",
+      "text_hash": "21e4efd53874856d71a9fc204a953d10b60f0db064ccb8b4dd0b0d5448ddc868",
+      "text_id": "google_fleurs_ru_v1:prompt:1695"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:6437781662926092516",
+      "text_hash": "236f9eff760de22be0a971f80b8509e33b7f8bef5bea7ea57246cacb0b6d7583",
+      "text_id": "google_fleurs_ru_v1:prompt:1965"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:7042513928754660331",
+      "text_hash": "2632b533b63d17bdb2f78782a8fe4d25479a5c16b1719f045c48b723b38d4b83",
+      "text_id": "google_fleurs_ru_v1:prompt:1899"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:1669362719203233034",
+      "text_hash": "3347cfb48e3c766af26b3b4f084bae2f5e0ff45a2af488a46b1eeba884228f7c",
+      "text_id": "google_fleurs_ru_v1:prompt:1919"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8627128127657044299",
+      "text_hash": "3428a007919e863015da1fd8a149f58176b608771b196de1ffabb03dfb467691",
+      "text_id": "google_fleurs_ru_v1:prompt:1796"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8493465642331680763",
+      "text_hash": "35523bd11d57dc9ea216213f128c4fc91782edf0633da30919e5bbe43b0d0cf9",
+      "text_id": "google_fleurs_ru_v1:prompt:1726"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:7253373319003837183",
+      "text_hash": "36bed19e091dc88f361d79bb90fc3d87db74820b95dafc772c34309fc869f646",
+      "text_id": "google_fleurs_ru_v1:prompt:1692"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:10015465823387918619",
+      "text_hash": "38682a22ea583b20614fc4c627aeac6e6c6d46aba3927ad78e1648f0e5e1bbf4",
+      "text_id": "google_fleurs_ru_v1:prompt:1751"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:2748271454336404184",
+      "text_hash": "395a6ad864b73684b5c3218b3f76738c9ed2d75241689a1dfcca2e014be0788f",
+      "text_id": "google_fleurs_ru_v1:prompt:1867"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:13899045665489617651",
+      "text_hash": "3a9b2df17f9142f842a2bf8d6001070cbe2b9403a2f1127fb4f2e88300b36b05",
+      "text_id": "google_fleurs_ru_v1:prompt:1855"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8001772272081461845",
+      "text_hash": "3b108676671fd51a9ea3cd8f06e304d5ec9a1060705ffe4285f599818e1584e1",
+      "text_id": "google_fleurs_ru_v1:prompt:1996"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:16103381679642313389",
+      "text_hash": "3b301bd31f7778e443b27c475a0a4ec23af70656fc449b6c509db3c5ae29a7a8",
+      "text_id": "google_fleurs_ru_v1:prompt:1839"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8855819697968720134",
+      "text_hash": "3bddfafb7a71b0d499b0f1c2630fdab9b3ab6f8f35b11149f2e226bf7dd93bd5",
+      "text_id": "google_fleurs_ru_v1:prompt:1664"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:6092332676981337749",
+      "text_hash": "3cddae63c78db1b1cd45b638a9bec3119f035103dc8fff3afe343f1697a2009c",
+      "text_id": "google_fleurs_ru_v1:prompt:1772"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:518776252680975054",
+      "text_hash": "3d465132c8ca621571753c0f4c06657ac394fd61f51e09cf7ba29b9e5889edd3",
+      "text_id": "google_fleurs_ru_v1:prompt:1750"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:9570283884603687635",
+      "text_hash": "3efd00277649db13b50fd97c4e4ada4996fcd0bb96b8a20c544dcb287c969142",
+      "text_id": "google_fleurs_ru_v1:prompt:1985"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:4455290279597744293",
+      "text_hash": "3f50928c1e3bf7c492d41861be1b37baff6e314102b7173fabaaa0d6be8a670a",
+      "text_id": "google_fleurs_ru_v1:prompt:1698"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:7845069817689735197",
+      "text_hash": "403c9f82bd62fc8225cf09d44fb7d5ce447dae08a79fb21efd5dde65714ae2fb",
+      "text_id": "google_fleurs_ru_v1:prompt:2005"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8923845689704620223",
+      "text_hash": "43e96cef668e98b2d27ed7eeaabb12238aabc85036c2c9d7d62d4cc9a6934318",
+      "text_id": "google_fleurs_ru_v1:prompt:1892"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:15348185416321876442",
+      "text_hash": "46668541a3bbbbd3c5ce55e58ecc3a4a167fc66537e1c081e4862ab23ef4bc7f",
+      "text_id": "google_fleurs_ru_v1:prompt:1731"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:151745618946626002",
+      "text_hash": "474f628e74a0935056d611b94f75caf4fd4c5bbeb517e66d3d49a64bcc1ea8e3",
+      "text_id": "google_fleurs_ru_v1:prompt:1955"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:3058429190354260903",
+      "text_hash": "4bff137492294d0ddfb8ed661ca897d110528aa6ca0676ee245e20b4befee1b3",
+      "text_id": "google_fleurs_ru_v1:prompt:1879"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8374657356155400241",
+      "text_hash": "4c957a91650a98345909bf064d2b1713fb0e739931892e4754f3e075214ebbb2",
+      "text_id": "google_fleurs_ru_v1:prompt:1667"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:9046861204650565592",
+      "text_hash": "4ff90b4df82dcf111be1e63757c21f88cdc35f5ad6d6ad955e251aa777094e60",
+      "text_id": "google_fleurs_ru_v1:prompt:1780"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:17698929277406944178",
+      "text_hash": "501fd835572e5d345a8ae422b3bc4f035f2586170fb35be2a9170d4d981a25a9",
+      "text_id": "google_fleurs_ru_v1:prompt:1912"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:3333288572612453637",
+      "text_hash": "50ff8b031d750b73b244ee11cca92f54291b8195b5a01fa59fd4714094751b12",
+      "text_id": "google_fleurs_ru_v1:prompt:1820"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:4617748510394424716",
+      "text_hash": "51dbb04e6be79acf5d837758b303df76ec713512e0663be61a6bb16fab856923",
+      "text_id": "google_fleurs_ru_v1:prompt:1949"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:2021009743268129790",
+      "text_hash": "523c64e0dc08598a49ad321d4a1d58e1c562ce0557db3e0a340fda186b606b29",
+      "text_id": "google_fleurs_ru_v1:prompt:1982"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:1488915330954892314",
+      "text_hash": "52acb545d3129b641a7e892170941b1155c998b1b57ed2e2cc9852a7e06d5c20",
+      "text_id": "google_fleurs_ru_v1:prompt:1942"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:5150455514582966017",
+      "text_hash": "5394bdb6258bcdc28a382c337d58ddb8088a99b9d9c92628419ef1d151808467",
+      "text_id": "google_fleurs_ru_v1:prompt:1807"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:13387436060039443470",
+      "text_hash": "54308982f8599969adfca46ccc206cc200834de00d22cd4fd1e4271f5ad53edd",
+      "text_id": "google_fleurs_ru_v1:prompt:1933"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:13148462337394727183",
+      "text_hash": "54d029b86128ba16343d3d52bea597f9a601495a4f5ac50c8e6a33614af188e2",
+      "text_id": "google_fleurs_ru_v1:prompt:1728"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:14725555503128811903",
+      "text_hash": "56642d8a979a581f379f1bde4e952247982e2974b5894b9ee68c02120c113770",
+      "text_id": "google_fleurs_ru_v1:prompt:1741"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:5565057045051195307",
+      "text_hash": "56c70b5133142320f0f6c077447240f90cf4d2d7d44ad7df0af175e9415f4a51",
+      "text_id": "google_fleurs_ru_v1:prompt:1881"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:7583640327090061581",
+      "text_hash": "581d8ac21072e301d5c031c4d2a86ba28c2145c28116f81ea54018cab6f2aaf0",
+      "text_id": "google_fleurs_ru_v1:prompt:1888"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:5263517448672798776",
+      "text_hash": "5a0a78cd08e5f82ae8fa03826e534cfcd9484944d18b2b8be26efc41012609e7",
+      "text_id": "google_fleurs_ru_v1:prompt:1823"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:14292181950589556379",
+      "text_hash": "5cf911ab92ba27b20d183b8064160c265c00106c8f4508535c4490a4b1369dbb",
+      "text_id": "google_fleurs_ru_v1:prompt:1970"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:10812779367344251629",
+      "text_hash": "5d5298aa38f0711fd2a8f85db97cbcd38d50cabd09c6c5ef59e0111cfbc2d506",
+      "text_id": "google_fleurs_ru_v1:prompt:1840"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:2005742764595256883",
+      "text_hash": "5d848f32aa3c8a24ab6b4288e327b921535c23212f4180629cd9c36faa65e337",
+      "text_id": "google_fleurs_ru_v1:prompt:1891"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:2024244454350948947",
+      "text_hash": "5e0526adf57af95878f812d64f06d8328b3f8a7f6503983afe5e8cb79454e6c6",
+      "text_id": "google_fleurs_ru_v1:prompt:1941"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:10011799110630615565",
+      "text_hash": "5fe0a57ea4e0d743308bcf875dc3a607db3505847594fa1ed7968f3115bdbf1c",
+      "text_id": "google_fleurs_ru_v1:prompt:1917"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:15285599257595572773",
+      "text_hash": "62a00c138513f9e67f7114db34ad786db872601f6fd2b8ef50f544c9b26f53a9",
+      "text_id": "google_fleurs_ru_v1:prompt:1818"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:11203877422067099161",
+      "text_hash": "62cf6f0dbe7e6f00c73cad1b0dae105e292419dd101ff8958a8656bf34802e66",
+      "text_id": "google_fleurs_ru_v1:prompt:1762"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:12250102401530015622",
+      "text_hash": "63ed4a19a9c72a70fbb2a6f7cb0c6e448b5ada968dd8f30b384d71a6e48f26ae",
+      "text_id": "google_fleurs_ru_v1:prompt:1813"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:4629330887881411976",
+      "text_hash": "6406c3684728f6ee6b2d1dcc16101d6b1baa1f99f589f75ec1335e7a1c4407cc",
+      "text_id": "google_fleurs_ru_v1:prompt:1672"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:10582851702303651044",
+      "text_hash": "6441b2a8a88a226a1ab532b8a86416e66c4a21e17984405831ab85a7bcba923b",
+      "text_id": "google_fleurs_ru_v1:prompt:1825"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:17795720978034862932",
+      "text_hash": "64deebd0ba89e16d08fb6f3800ac460142db911b690952406910c6974fc9ffbc",
+      "text_id": "google_fleurs_ru_v1:prompt:1829"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:13736754723310645986",
+      "text_hash": "65caf8ca3382036db02ae28805d59470fdb4cb178d206b77b0464db4bfe399e0",
+      "text_id": "google_fleurs_ru_v1:prompt:1963"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8993080628909561709",
+      "text_hash": "65e9196c58a812bfb6a1d348733e145b5ae7e3dd9e15a8f0de27df17b5c75e9a",
+      "text_id": "google_fleurs_ru_v1:prompt:1787"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:4322285431830969112",
+      "text_hash": "6a37332d36be1673a40843fee3b87d6231aa7124748ec4c6e28e566a81f9fa9f",
+      "text_id": "google_fleurs_ru_v1:prompt:1769"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:11472628935044939741",
+      "text_hash": "6a5f98aafb4f6211551ca5064ef3f33bc8d02a2efe249e91dd123a075d3c5fdb",
+      "text_id": "google_fleurs_ru_v1:prompt:1770"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:4118323934611606972",
+      "text_hash": "6b6852e5aec4be980f8c24c6de09ac5f6622eea6a142d2a5d667bd7945bfca99",
+      "text_id": "google_fleurs_ru_v1:prompt:2000"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:5763543501550919151",
+      "text_hash": "6bbb4231723c4ae0109f139067dcad2d42ef4009f89180f234e4144c548a9b2b",
+      "text_id": "google_fleurs_ru_v1:prompt:1739"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:18349867574016806605",
+      "text_hash": "6c52e9c94e11863019471d816cee7b69be01272b6ea02adfbe1a10dd4e037b78",
+      "text_id": "google_fleurs_ru_v1:prompt:1678"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8488797986333955891",
+      "text_hash": "6d65e6018251e689fd9211c73f59436db48a6faf615566598620e208f6737845",
+      "text_id": "google_fleurs_ru_v1:prompt:1897"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:1390464023074315113",
+      "text_hash": "6dc0093e7311461298ebba54e0ccd61773a96bcee276a1e3d9c188d391fc88e8",
+      "text_id": "google_fleurs_ru_v1:prompt:1887"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:4074146050590874057",
+      "text_hash": "6e221c1c81004b3f2e83d162c866bef1bbf0fe689c9943dab4e45d13957b6e8a",
+      "text_id": "google_fleurs_ru_v1:prompt:1797"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:1924935765529774544",
+      "text_hash": "70d3a20429e764777d63836b9a6cdea544ffaeb9411ac607b79cd8faf081f071",
+      "text_id": "google_fleurs_ru_v1:prompt:1954"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:9435097598739247495",
+      "text_hash": "710ad37c5b3a0558da72b5635821ad68936be8590e2126d4eddbbeb1c21a3c7c",
+      "text_id": "google_fleurs_ru_v1:prompt:1801"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:12213459567555616827",
+      "text_hash": "7164ba2178b0310f03ece655817efe6eb82fb3cb68c06846193ebe774a1c66b5",
+      "text_id": "google_fleurs_ru_v1:prompt:1944"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:17918893372710100428",
+      "text_hash": "728615b322c2621b9ea9431b44dd5ffe9b7cc52fd6e18254f45e25c2239e7fe8",
+      "text_id": "google_fleurs_ru_v1:prompt:1900"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:17398624990105526845",
+      "text_hash": "72a10f3ebaa398ff90b784f8ff63bfd89f3120ace0db4e73bc4b7c6928fb3fa9",
+      "text_id": "google_fleurs_ru_v1:prompt:1935"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:10743909401832377551",
+      "text_hash": "753b53b1e7e5e7c7bfa46a2d6eb196e7d2bebaf0a06acfc79f38c91ad628dd5c",
+      "text_id": "google_fleurs_ru_v1:prompt:1822"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:12853004049401242257",
+      "text_hash": "75d0ce43f2e8d3b2f0d47ed47e9a517fb97b6fc324a27004737b37fae6a134d5",
+      "text_id": "google_fleurs_ru_v1:prompt:1688"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:15280197942731820573",
+      "text_hash": "77f6e02652c47bbf50bca4e315fdb51a7e1eb0dc081f018bbbb9fe724a0af8bd",
+      "text_id": "google_fleurs_ru_v1:prompt:1696"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:7617857941586555280",
+      "text_hash": "79c57e5bdd413f4ca2816357a5ff6557e2e5904007a6b15f2b5a304faf0b245e",
+      "text_id": "google_fleurs_ru_v1:prompt:1890"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:15496908574838705108",
+      "text_hash": "7d800388ccfd42a0f1eb7b69c8bce40cbbf8a626b11d9f56d7ae7e6953948ffd",
+      "text_id": "google_fleurs_ru_v1:prompt:1700"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:10874905686012773608",
+      "text_hash": "7f5ee92df812ff19df64087fda95bb7ee4c35e35dabc395a27f99c20dd176e7b",
+      "text_id": "google_fleurs_ru_v1:prompt:2003"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:4769700271360442901",
+      "text_hash": "80732ab346568d520408ae95001aca24fdb68fe05e51ac7c1f11e54e32b6a064",
+      "text_id": "google_fleurs_ru_v1:prompt:1783"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:9886393161332298097",
+      "text_hash": "813150e52710819439cd8057e91cce4499abea6b7115d0036ca8949ec5edc4e0",
+      "text_id": "google_fleurs_ru_v1:prompt:1815"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:16300163988694917876",
+      "text_hash": "81836dad65fba47ad23d6d28b25c8ecb246a152aba29192e1e079cc2f807d4e1",
+      "text_id": "google_fleurs_ru_v1:prompt:1821"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:5328081163168782913",
+      "text_hash": "8254573f987a4ffb53b3bcf31b89db411eec4a5584edb7da616ae60ebc04cc11",
+      "text_id": "google_fleurs_ru_v1:prompt:1866"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:4573705590156444548",
+      "text_hash": "82ea84e15e61994ba60e0ddbf2519a81dd5fbb7f25c4ff11a40f0bc4ce05bec3",
+      "text_id": "google_fleurs_ru_v1:prompt:1799"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:10276863687632229120",
+      "text_hash": "84c0b23e56f1388b73cd224243f280a0af91b09b339fd569f03e4c0b7893a1e9",
+      "text_id": "google_fleurs_ru_v1:prompt:1861"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:492342885646675704",
+      "text_hash": "8525917149a8455fb7f0588c9c011b2d8965713b22f129ea4c2b0e4ed8cdca56",
+      "text_id": "google_fleurs_ru_v1:prompt:1774"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:15533548753796272197",
+      "text_hash": "86d1d891a679c4d113e50abbd86a49b5d5a97f3d5fb2e3a24f2055e951cdbd83",
+      "text_id": "google_fleurs_ru_v1:prompt:1910"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:7102753319248136307",
+      "text_hash": "870faf0eb5da2ab298215f4309bb4eea95344ca08457d692677829a594f8b873",
+      "text_id": "google_fleurs_ru_v1:prompt:1868"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:5295954390707603771",
+      "text_hash": "882ef03bd618e54cab9247c139925adebdbefcc19464674584e675ce5b5e99d3",
+      "text_id": "google_fleurs_ru_v1:prompt:1974"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:300029084780656442",
+      "text_hash": "891cfcbae52dea880fa1a1728b6ba168cc300c5624d6e88a91d5266291c5c526",
+      "text_id": "google_fleurs_ru_v1:prompt:1847"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:5426558829337300642",
+      "text_hash": "8abf6fa80e24b799bd77f3a45676bfdaa93560ca44ab4b07d2dd5896ddbeec26",
+      "text_id": "google_fleurs_ru_v1:prompt:1922"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:11573660989957981302",
+      "text_hash": "8b4d3bd5522aa215abd493319205b85888eb77e856d9893967bdc4289c7a438a",
+      "text_id": "google_fleurs_ru_v1:prompt:1738"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8208791745337031802",
+      "text_hash": "8bdd40715f87124330e9138086123839df6eaac931eade754b00b33282f05e46",
+      "text_id": "google_fleurs_ru_v1:prompt:1858"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:1789278489436991435",
+      "text_hash": "8c37976544bd9ba16adbf39a1b49ceb01b0d723db86035c1e7619cafbb21cfec",
+      "text_id": "google_fleurs_ru_v1:prompt:2006"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:6801199382315723617",
+      "text_hash": "8cc58a62457565019ecd1415bcbf88e8961f32f1ab7cab21907b77fc96bf360d",
+      "text_id": "google_fleurs_ru_v1:prompt:1817"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:4936456130637454076",
+      "text_hash": "8dd0a685d05220a0c1ddc4057d4e56c16b737874114c61ff713c1eeaca45ab5b",
+      "text_id": "google_fleurs_ru_v1:prompt:1806"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:7531184791854045455",
+      "text_hash": "8e98425359b4c793bb4cf8b79740d43e7dab80e756e367e3d486e93ef287ee58",
+      "text_id": "google_fleurs_ru_v1:prompt:1878"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:3703065705072357621",
+      "text_hash": "8ed0fec13f63618c738616775f12a912e94d2c85fbf93b60e0bf2a7ecfdc0a39",
+      "text_id": "google_fleurs_ru_v1:prompt:1808"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:18048850841466933061",
+      "text_hash": "8f37584b5a5bf83ca119d2a1548f6c5d50912cb4840529897f1eade90a2ae3a2",
+      "text_id": "google_fleurs_ru_v1:prompt:1838"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:15430310936563381460",
+      "text_hash": "9024a32fd24cc119ceea8d6d3212c815fe85f1fb1d018f0d601f55c9d55a95f5",
+      "text_id": "google_fleurs_ru_v1:prompt:1908"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:1415706618484255767",
+      "text_hash": "90520508c08e0fbd4ace834b39b5738fa76386e59ffc0a81ed65d70f46c0950c",
+      "text_id": "google_fleurs_ru_v1:prompt:1744"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:11939095380991183389",
+      "text_hash": "90e72985538caf556bbf980dc021c52904dd95499a00d1814630e06eca309963",
+      "text_id": "google_fleurs_ru_v1:prompt:1841"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:6080669178604795102",
+      "text_hash": "91d38bd62a782aef60c4478afa075bb34c965f4077c3c280ef5c26db52171f1f",
+      "text_id": "google_fleurs_ru_v1:prompt:1756"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:12813531627668957324",
+      "text_hash": "91d730c4dca990ec96aca8e7466aeeca1a20437cee527586eaec2d7d134f8ddf",
+      "text_id": "google_fleurs_ru_v1:prompt:1998"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:5321205676582523892",
+      "text_hash": "923a7d29b39844585c928cc0739a00c3da2ced516ea3f29cd2ee9420c39b054c",
+      "text_id": "google_fleurs_ru_v1:prompt:1676"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:17398099893668676573",
+      "text_hash": "9249b76c7d3a68489af32679f5feb4572a7766306fa589d3134a092bef6e4781",
+      "text_id": "google_fleurs_ru_v1:prompt:1945"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:18164877222687576661",
+      "text_hash": "938aec7e7b5be9bfa6dff56e14e85b8bf373213983f93de79873e290beec3dfd",
+      "text_id": "google_fleurs_ru_v1:prompt:1660"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:17728066011262458668",
+      "text_hash": "943f652aad004596a830fe8fbda48fb38d0a4414f1e798289930d980fddc8eea",
+      "text_id": "google_fleurs_ru_v1:prompt:1973"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8023939581992975590",
+      "text_hash": "9572e6935a23b0f2b1e98457897768f416b2081ba4fb18e370e0891b47d3e322",
+      "text_id": "google_fleurs_ru_v1:prompt:2009"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:15510658431455155431",
+      "text_hash": "9582f94b0aa2c0f038abf57c3aca4f0a9a5dfc57eb7b17df2d9206024bc9588a",
+      "text_id": "google_fleurs_ru_v1:prompt:1958"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:16795668053408124748",
+      "text_hash": "9597bb6b1da38343225941706bd77481f17e9734c138ceae41723eded16d543e",
+      "text_id": "google_fleurs_ru_v1:prompt:1865"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8959276571207778388",
+      "text_hash": "97ff8129d5cf3c13e25de5d955d4a935c8377563013e24142080e1f8bed3f17a",
+      "text_id": "google_fleurs_ru_v1:prompt:1977"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:18075117665839619623",
+      "text_hash": "981944fd4cca260beeb017c79a4d2b52111d038282588d8208c6ea051be291e8",
+      "text_id": "google_fleurs_ru_v1:prompt:1680"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:14683943316916260440",
+      "text_hash": "98bf9539d46390d64d425a0b5068e613f62fd4e1e1c08817c7abc0c4f494e10b",
+      "text_id": "google_fleurs_ru_v1:prompt:1809"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:1228407703983109388",
+      "text_hash": "98ef456cb67195edf06b82857ff72b261eb6637ce4b6f90c143f42f0ef769bc0",
+      "text_id": "google_fleurs_ru_v1:prompt:1824"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:17899007345629936324",
+      "text_hash": "9b5597464a7fcbf59681e2a711484731c4a21a32bf26b34eb09c3f69b6bad3fd",
+      "text_id": "google_fleurs_ru_v1:prompt:1694"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:17310667610948590994",
+      "text_hash": "9b888edef01a7917348e88c67cf0c7ef79c6ea09c25bf3b53e3f8029d418bf64",
+      "text_id": "google_fleurs_ru_v1:prompt:1939"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:3867413265291599525",
+      "text_hash": "9c193cd2c9aa8d3d616b2a8e1717db7994325b78651544ab7a03c92890614183",
+      "text_id": "google_fleurs_ru_v1:prompt:2001"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:7950781175891109024",
+      "text_hash": "9d7663781f741a2b61135c86c2036341676d9b93730707837f9e0b1641999d26",
+      "text_id": "google_fleurs_ru_v1:prompt:1711"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:17379295688568700080",
+      "text_hash": "9d7782967d73daec9abb9088c14ffe27e59e86c858c430d7a8c8aeb38c2894fe",
+      "text_id": "google_fleurs_ru_v1:prompt:1853"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:728239380900580834",
+      "text_hash": "a03b88c63f496deb20b6ca1d9d02b7439a23ac2b614b1bfb4044630a8d35bb0f",
+      "text_id": "google_fleurs_ru_v1:prompt:1884"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:9685636378657877388",
+      "text_hash": "a5a8b818282b1833d27ea7e2f2e0b4873e42efa9ed3a8c0226f254eff585bedd",
+      "text_id": "google_fleurs_ru_v1:prompt:1907"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:14082681589034879546",
+      "text_hash": "a6635cdd235c2fd146323dd6dc3b693fccae5309b0a1f2dd1ee33f0b3688dfa6",
+      "text_id": "google_fleurs_ru_v1:prompt:1976"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8725373809718975796",
+      "text_hash": "a784b27616f3c1259ee761f9fe0d7144495d8750d35f39420b88eb90643147c1",
+      "text_id": "google_fleurs_ru_v1:prompt:1925"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:1538387610799378889",
+      "text_hash": "a947fcf6dcbd83b01ce281aadb8a1cc3ebaa50af4687b6e466153edf4c183458",
+      "text_id": "google_fleurs_ru_v1:prompt:1909"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:9319601338231432643",
+      "text_hash": "aa875d153f1c302dccb622bdd1df0574206f7810924c003b1765bcb2acc19c57",
+      "text_id": "google_fleurs_ru_v1:prompt:1778"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:10574307942350357841",
+      "text_hash": "ac43e389ba638e44f17407ec990fdddc1ae84d1ea6898c4525b7bb37480d1a2c",
+      "text_id": "google_fleurs_ru_v1:prompt:1781"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8715634098033389550",
+      "text_hash": "ad94b7df9678a594ab46ac34ca267fb8bebfd3977b9f65c39a736e43a6255206",
+      "text_id": "google_fleurs_ru_v1:prompt:1857"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:17100432178325832883",
+      "text_hash": "af2c79d2d85445c15a5b3554138ccd9d436191ae18fced010a5604e5f18ebb40",
+      "text_id": "google_fleurs_ru_v1:prompt:1793"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:14973914077317373840",
+      "text_hash": "aff512763857162d553fe1db6fa56be5ed8b33060221c020f7fc6a29de489baf",
+      "text_id": "google_fleurs_ru_v1:prompt:1784"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:2190912415224000843",
+      "text_hash": "affd734c73665c008b03dfc7f10920a0871cb0204742e659be048ecbd5948425",
+      "text_id": "google_fleurs_ru_v1:prompt:1934"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:6395115175574753911",
+      "text_hash": "b0f444e1dd42548bb22e1d7166a12b8d91efc4de9d6a57d63f8a1bc3e4a7bbff",
+      "text_id": "google_fleurs_ru_v1:prompt:1719"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8747173315833088035",
+      "text_hash": "b237444f55d66c70d1ab4a415dcb549ce749b0266330fb8aff750d73e2a4577a",
+      "text_id": "google_fleurs_ru_v1:prompt:1959"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:13582120746673668255",
+      "text_hash": "b2545ee2fdd447271feba7a831629f29fa039ff45ef104801e74f8d99cadeac8",
+      "text_id": "google_fleurs_ru_v1:prompt:1834"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:4647205688764852389",
+      "text_hash": "b2d46cb1c51b607bf30df4f6e9d4832a92b4ef5693bf2b76fd12adcf910abe4a",
+      "text_id": "google_fleurs_ru_v1:prompt:1987"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:15642088567407352238",
+      "text_hash": "b531c6d485cf8ea329b24952b90e3cd78d6adf37f2e5e4def5845447e05501b8",
+      "text_id": "google_fleurs_ru_v1:prompt:1766"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:10132536326476504073",
+      "text_hash": "b5eb4f783652d48327c6845821615b1d6f4ec27108db491f1c25b6cbb9ac0bfb",
+      "text_id": "google_fleurs_ru_v1:prompt:1757"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:18327299948271813449",
+      "text_hash": "b62ffbda11ae094ffe3d95cd7c4c73e175c9dcc8c265beeb9dfd76da605f3949",
+      "text_id": "google_fleurs_ru_v1:prompt:1991"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:12784200054841610765",
+      "text_hash": "b69b3b7aa7bbc8d350e28e87aaff52cb1b44b8e449fac4dc2f3f12b9dd0d1354",
+      "text_id": "google_fleurs_ru_v1:prompt:1842"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:4189116259103695171",
+      "text_hash": "b7ef3aea07654e654920102244d209453d0753e1d7570ddbca6ada6b505b1c4a",
+      "text_id": "google_fleurs_ru_v1:prompt:1886"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:6690127029376739052",
+      "text_hash": "b93d802b5e105803f3b728c3c732ab66204ed54077dc3f866f91225bcde3a670",
+      "text_id": "google_fleurs_ru_v1:prompt:1972"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:2372441898802096446",
+      "text_hash": "ba833933947bce1584c5b4a499007fa375f08b7f9a341e8004559a426d6c8bf3",
+      "text_id": "google_fleurs_ru_v1:prompt:1905"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:7045840014455138313",
+      "text_hash": "bd09599e0ca74fef7a9423ff97f0adb8569427750b643268213b2a4e97726090",
+      "text_id": "google_fleurs_ru_v1:prompt:1920"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:10065691302010639580",
+      "text_hash": "bda5d3274309c43d34e0d5574a43ecfbe02d45b46537126a15767de3b628c37b",
+      "text_id": "google_fleurs_ru_v1:prompt:1903"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:1364167618593501372",
+      "text_hash": "bde630a3d002e7d81b4f3522a261d06ba77514321f6fed38cb26f1df62337e90",
+      "text_id": "google_fleurs_ru_v1:prompt:1880"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:10008070632189747443",
+      "text_hash": "beb70f2f31a2666eee1419fcadc1a714f9231bcd9b304375ad8a607b56d2ec43",
+      "text_id": "google_fleurs_ru_v1:prompt:1926"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:18188740256690045876",
+      "text_hash": "c05d3dab710e801d8cb8c6b3247fdc50bcc62dcbbd2599a17fd10f4e061f7ffa",
+      "text_id": "google_fleurs_ru_v1:prompt:1717"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:5622958675090506016",
+      "text_hash": "c462448fe468ecf4ad98a9921d49ec9740bb83b9fe61e575a8af12ca5861b65a",
+      "text_id": "google_fleurs_ru_v1:prompt:1779"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:1610736172494934637",
+      "text_hash": "c90617a08457ec649f1877c8833d738880e69043e429b68b9b285cb89121573d",
+      "text_id": "google_fleurs_ru_v1:prompt:1775"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:15399230404418130069",
+      "text_hash": "ca3d4a0e8b9f3593079541fa519c00acb379e65e61842efdd470d25fc7648622",
+      "text_id": "google_fleurs_ru_v1:prompt:1686"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:1509741710222653607",
+      "text_hash": "caf18d3ba7b04597a3546faa5278cf8cfb517fe4a5d8dc32f95cafc39adf5a70",
+      "text_id": "google_fleurs_ru_v1:prompt:1870"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:7309524291474443741",
+      "text_hash": "cb9f06b67b2bfb02869900fc8a3c73d0df787d0eeaae58153e79c51fa176c6e9",
+      "text_id": "google_fleurs_ru_v1:prompt:1747"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:15960588124712404375",
+      "text_hash": "ccd7446bbc3c04fafeeb373da7d99012a083ae80e4a15b9c245a0e11ef253167",
+      "text_id": "google_fleurs_ru_v1:prompt:1826"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:2703585400547990577",
+      "text_hash": "cd8532babd25c5500c2f60f19cf579913b6d9700a83c600bcb504289b66e72a3",
+      "text_id": "google_fleurs_ru_v1:prompt:1743"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:16150462226337863901",
+      "text_hash": "ce23e9737b805a1806fe490e4f7e6a6ff1962045a2a109f7460b28801e7508c6",
+      "text_id": "google_fleurs_ru_v1:prompt:2004"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:5033446029004251954",
+      "text_hash": "d062b678b1fce2dd2ffcb3f5a8772d45fd4493b8838be3a3fd5c401655c1985b",
+      "text_id": "google_fleurs_ru_v1:prompt:1689"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:1175584355831615712",
+      "text_hash": "d09b7eaabcf99ebffe4b322459d1f52229bfcbfaa682711c1311bcb90c95c118",
+      "text_id": "google_fleurs_ru_v1:prompt:1948"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:1751885806538712893",
+      "text_hash": "d19ddd732074af98cac478694102cf0b04942f30683c1b5abf4c49343887639d",
+      "text_id": "google_fleurs_ru_v1:prompt:1740"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:15453076092037508888",
+      "text_hash": "d4e70ac051dead06768a0973651cd6204d0493dedfb457c3eca358710b998e8e",
+      "text_id": "google_fleurs_ru_v1:prompt:1843"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:7080248592335657947",
+      "text_hash": "d50bd1d8ad25c7650781568d45df94522ed4799b876a41f8ef1d872a48bf4d61",
+      "text_id": "google_fleurs_ru_v1:prompt:1837"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:7493133918560386700",
+      "text_hash": "d51c88171119852f40f2aed8096adb21c1e0f2df14af2ed1c2b7ec5d373a64cb",
+      "text_id": "google_fleurs_ru_v1:prompt:1703"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:12252376104195968963",
+      "text_hash": "d75e940a72106be32030d04e3b1609baef9563828cdce28ce97e5705866ed4d6",
+      "text_id": "google_fleurs_ru_v1:prompt:1978"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:17388058705585455356",
+      "text_hash": "d79d57ddb2897e5caea0fdeefcaa7c540a46f8ec1ae5cbee97546f8b4910bd46",
+      "text_id": "google_fleurs_ru_v1:prompt:1816"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8933000208912150123",
+      "text_hash": "d80d4965a222623b7d3e8f379c4570fe28ae230517fa0063c6541faba7e21f46",
+      "text_id": "google_fleurs_ru_v1:prompt:1874"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:1328463586577772686",
+      "text_hash": "d9d6cc2739993ab92c1e05f9c6c0bb31ee16d4d1849e0f01b52ee0918a0e2cbc",
+      "text_id": "google_fleurs_ru_v1:prompt:1734"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:6822029544409342504",
+      "text_hash": "dac678be0dd8362b7da197e655864c6d0070d900d7b39b809a5c454e765f6116",
+      "text_id": "google_fleurs_ru_v1:prompt:1971"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:4843317091798946028",
+      "text_hash": "dc57e050c24ea1931e43f6fd265781fde8c20f9711b496a3e51b77bc49c3daff",
+      "text_id": "google_fleurs_ru_v1:prompt:1992"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:2895546686555573483",
+      "text_hash": "de83727b798610c60e97e390cc717b41493b0918470e36cb757116239e31dfc2",
+      "text_id": "google_fleurs_ru_v1:prompt:1760"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:14558427421757237056",
+      "text_hash": "dee241bd38072757c8fa8448fb7ff453f1782d4eed02be93fc74158068ac224f",
+      "text_id": "google_fleurs_ru_v1:prompt:1755"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:6899369957581148435",
+      "text_hash": "dfec31f1ebd4e6923afd7b280cef58612f6c4347e71a082c72ea1f098562277d",
+      "text_id": "google_fleurs_ru_v1:prompt:1752"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:11981020350023909190",
+      "text_hash": "e255079c1c3ee4318b5f7beea65afafff23b585faf13b8ec4390dd2fe3d9ec9a",
+      "text_id": "google_fleurs_ru_v1:prompt:1895"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:7946012461394054207",
+      "text_hash": "e395a5b945c671a5cf8874c6f356cd3adc7da3c76857319e5987ba61ff000c6f",
+      "text_id": "google_fleurs_ru_v1:prompt:1845"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:13550976468146004767",
+      "text_hash": "e511cb67d1e860834acf156a798dfba0dc321a0aa1195c561b3235fd09bd1050",
+      "text_id": "google_fleurs_ru_v1:prompt:1661"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:18270002016134104047",
+      "text_hash": "e67e94c1630c2f2078c03056f488ecf72d2e24df81bfb27c66f9b5d64697d269",
+      "text_id": "google_fleurs_ru_v1:prompt:1950"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:15072626212983044333",
+      "text_hash": "e750605e8e7c28bce835600d0ece714d5365e0ea5c2aa4465e05a45d3dad8c45",
+      "text_id": "google_fleurs_ru_v1:prompt:1831"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:13558922663686585225",
+      "text_hash": "e7b87ead6e3f5df19a7c3a84f162ad5e6a8ce99bba070440d3fbd70821b36753",
+      "text_id": "google_fleurs_ru_v1:prompt:1830"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:10042408394614123272",
+      "text_hash": "e843726603fcd3dc570dd623b06ae1fab8824af87c26b73c5a6f71846493d668",
+      "text_id": "google_fleurs_ru_v1:prompt:1791"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:689598883811114077",
+      "text_hash": "e87f9650a9e6fd80007e67e91d80d98f2074bfc9dd1e62056790cc55d002a993",
+      "text_id": "google_fleurs_ru_v1:prompt:2008"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:2598518349262346298",
+      "text_hash": "e9ad49d5ad03e1567ccd160cfd299a9fb4d8bd149bdd67dada309b9e360e74c8",
+      "text_id": "google_fleurs_ru_v1:prompt:1683"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:14909458026239529618",
+      "text_hash": "ebf318199c407fd55c8efb860d5288a06f92542030d29ead58c95e6b71dfae27",
+      "text_id": "google_fleurs_ru_v1:prompt:1873"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:17516392387051305254",
+      "text_hash": "ecde551638f1cda3546a3f0e32283719d5063232a60392746088c966b9c4b82a",
+      "text_id": "google_fleurs_ru_v1:prompt:1871"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8631420875141710773",
+      "text_hash": "ee5a75ccddeb07e84fa46d06f6dfe0209af191760130139c7ebe19713dc6069d",
+      "text_id": "google_fleurs_ru_v1:prompt:1938"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:13097035431751680722",
+      "text_hash": "eef3fddac1df198d260d0df26c294cd44065af57928f221ab1fdcc7ff4c9c500",
+      "text_id": "google_fleurs_ru_v1:prompt:1804"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8361069106575671490",
+      "text_hash": "efcacc828edc52688e8f646cd48cb10a0cf87b2047ed7cc98d5fc498c21552d8",
+      "text_id": "google_fleurs_ru_v1:prompt:1851"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:15984565722237603448",
+      "text_hash": "f34ee6524c1c1d7ddf55a373f227f27f4944e1185c1378476db29fb91b8832ed",
+      "text_id": "google_fleurs_ru_v1:prompt:1802"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:9348521898703183474",
+      "text_hash": "f7ed37706530bf026870240d820ce1aa4540574665d6903856d0a3d45c98f66e",
+      "text_id": "google_fleurs_ru_v1:prompt:1764"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:12677182505540492176",
+      "text_hash": "faad3d07a6f3261d10aa3ef2d1ed6751b30314667fa5a227d92e391ab130d0d1",
+      "text_id": "google_fleurs_ru_v1:prompt:1876"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:10536195230190303304",
+      "text_hash": "fad014a9a4d66307b182b61ed22709c28472bf73c2b9889f9064a19cf5e91994",
+      "text_id": "google_fleurs_ru_v1:prompt:1863"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:14994704515906027952",
+      "text_hash": "fb11686e0c9357ad6f6a850991bcee4d6ad253a01f966bff5f2a090c8d1a185d",
+      "text_id": "google_fleurs_ru_v1:prompt:1670"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:1136881583628361900",
+      "text_hash": "fb80a9c995c866dfe50f108c768f280fdc3e1179ae3906a54c26bb2dea143519",
+      "text_id": "google_fleurs_ru_v1:prompt:1844"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:9879432537068840800",
+      "text_hash": "fb830d8900e5a8555f17c2f692a4c090796bba5337fd7c5d38308aee99f64e02",
+      "text_id": "google_fleurs_ru_v1:prompt:1828"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:7123562312101849322",
+      "text_hash": "fcbf40ab34bec5cfe77cb11eedba9999a64e7eed2fb8ae3ea970a60c20ab34ce",
+      "text_id": "google_fleurs_ru_v1:prompt:1980"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:5989144741162168638",
+      "text_hash": "fd445d3bb206f290ed688245ce4847ea09bbeb9045cfa32700b7bad1c3f785d4",
+      "text_id": "google_fleurs_ru_v1:prompt:1956"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:2268409828530462916",
+      "text_hash": "fd6e61ba5f703206b0c4a720820ae5c3620ff583ad020f826956bedbe0c72fd1",
+      "text_id": "google_fleurs_ru_v1:prompt:1913"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:7967174134639302471",
+      "text_hash": "fdc38f651555413032397b20bf9312d2535b6b4cb1ec74b504b7444e00693aa4",
+      "text_id": "google_fleurs_ru_v1:prompt:1911"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:2108424922472675813",
+      "text_hash": "fe82b464ab54627988d8b936572b992abe3c1ad7cb70e5a2736dc9e5c659ad75",
+      "text_id": "google_fleurs_ru_v1:prompt:1918"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:4369053878356619842",
+      "text_hash": "feb67b674c95bf338f63f8907ee5939470bd779f3619c996e8b7a482fd02bf53",
+      "text_id": "google_fleurs_ru_v1:prompt:1940"
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:8734863754983296347",
+      "text_hash": "fffd9dddd869bc6559520d54014b2094ccb6a8f2c99d7eb4954905338e83d774",
+      "text_id": "google_fleurs_ru_v1:prompt:1681"
+    }
+  ],
+  "held_out_rows": 214,
+  "holdout_reason": "reserved_by_fleurs_ru_v1_silero_v4_candidate",
+  "schema_version": 1,
+  "selected_manifest": "data/manifests/fleurs_ru_v1_espeakng_base_75.csv",
+  "selected_manifest_sha256": "2a04cddedf39164108a8c7c76ed51b2d9e07bd4882ec79740e0b5ab98eb5ec9e",
+  "selected_rows": 75,
+  "selection_rule": "Select every FLEURS RU ready test bona-fide text group absent from the existing frozen FLEURS RU/Silero candidate."
+}

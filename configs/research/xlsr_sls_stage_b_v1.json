@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "run_id": "xlsr-sls-stage-b-v1",
+  "purpose": "research",
+  "base_stage_a_plan": {
+    "path": "xlsr_sls_stage_a_v1.json",
+    "sha256": "4cdb63f6490238f7c453afeab59f3c32bf0bdf1bbc5598e6d95e7847832f6d7e"
+  },
+  "initial_head": {
+    "checkpoint": {
+      "path": "../../models/xlsr-sls-stage-a-v1-head.pt",
+      "sha256": "46e8187551bb0d9defcb45eaae78f3e084fbff57667f593c3e696eea75a88a12"
+    },
+    "state_dict_sha256": "1370b9b81e0c61f0ced94d29fdcc15e28ba28f5240ef724683b8bfd0cdb490e6"
+  },
+  "dev": {
+    "manifest": {
+      "path": "../../data/manifests/pyara_ru_v7_fresh_dev_1000_ready_v2.csv",
+      "sha256": "7ae57e0714b5a245079902e06adaca7a02c423418e2e37bfded6d55c6db0d2f0"
+    },
+    "source_split": "dev",
+    "expected_source_ids": [
+      "pyara_ru_v7"
+    ],
+    "expected_languages": [
+      "ru"
+    ]
+  },
+  "training": {
+    "seed": 20260820,
+    "epochs": 15,
+    "batch_size": 4,
+    "gradient_accumulation_steps": 8,
+    "window_samples": 64600,
+    "sample_rate": 16000,
+    "encoder_learning_rate": 0.00001,
+    "head_learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 1.0,
+    "num_workers": 0,
+    "pin_memory": true,
+    "device": "cuda",
+    "precision": "bf16",
+    "last_encoder_blocks": 8,
+    "gradient_checkpointing": true,
+    "selection_metric": "dev_loss"
+  },
+  "outputs": {
+    "checkpoint": "../../models/xlsr-sls-stage-b-v1.pt",
+    "report": "../../models/xlsr-sls-stage-b-v1-report.json"
+  }
+}

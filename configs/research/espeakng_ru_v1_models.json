@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "protocol_id": "espeak-ng-russian-formant-research-v1",
+  "models": [
+    {
+      "model_id": "espeakng_russian_formant",
+      "destination": "espeakng_kazakh_formant",
+      "generator_family": "formant_rule_based_tts",
+      "generator_name": "eSpeak NG Russian formant synthesizer",
+      "generator_version": "eSpeak NG 1.52.0 source-4870adfa25b1a32b4361592f1be8a40337c58d6c; Ubuntu 1.52.0+dfsg-5build1 runtime packages",
+      "license": "eSpeak NG GPL-3.0-or-later; bundled Ubuntu runtime packages retain their declared package licenses",
+      "source_url": "https://github.com/espeak-ng/espeak-ng/tree/4870adfa25b1a32b4361592f1be8a40337c58d6c",
+      "runtime": {
+        "kind": "espeakng_formant_cli",
+        "source_archive_path": "source.tar.gz",
+        "binary_deb_path": "espeak-ng.deb",
+        "library_deb_paths": ["libespeak-ng1.deb", "libpcaudio0.deb", "libsonic0.deb"],
+        "data_deb_path": "espeak-ng-data.deb",
+        "voice": "ru",
+        "sample_rate": 22050,
+        "profiles": [
+          {"voice_id": "ru:w150:p35:a100", "speed_wpm": 150, "pitch": 35, "amplitude": 100},
+          {"voice_id": "ru:w150:p50:a100", "speed_wpm": 150, "pitch": 50, "amplitude": 100},
+          {"voice_id": "ru:w150:p65:a100", "speed_wpm": 150, "pitch": 65, "amplitude": 100},
+          {"voice_id": "ru:w175:p35:a100", "speed_wpm": 175, "pitch": 35, "amplitude": 100},
+          {"voice_id": "ru:w175:p50:a100", "speed_wpm": 175, "pitch": 50, "amplitude": 100},
+          {"voice_id": "ru:w175:p65:a100", "speed_wpm": 175, "pitch": 65, "amplitude": 100},
+          {"voice_id": "ru:w200:p35:a100", "speed_wpm": 200, "pitch": 35, "amplitude": 100},
+          {"voice_id": "ru:w200:p50:a100", "speed_wpm": 200, "pitch": 50, "amplitude": 100},
+          {"voice_id": "ru:w200:p65:a100", "speed_wpm": 200, "pitch": 65, "amplitude": 100},
+          {"voice_id": "ru:w225:p35:a100", "speed_wpm": 225, "pitch": 35, "amplitude": 100},
+          {"voice_id": "ru:w225:p50:a100", "speed_wpm": 225, "pitch": 50, "amplitude": 100},
+          {"voice_id": "ru:w225:p65:a100", "speed_wpm": 225, "pitch": 65, "amplitude": 100}
+        ]
+      },
+      "artifacts": [
+        {"relative_path": "source.tar.gz", "url": "https://github.com/espeak-ng/espeak-ng/archive/refs/tags/1.52.0.tar.gz", "expected_size_bytes": 17739803, "sha256": "bb4338102ff3b49a81423da8a1a158b420124b055b60fa76cfb4b18677130a23"},
+        {"relative_path": "espeak-ng.deb", "url": "https://archive.ubuntu.com/ubuntu/pool/universe/e/espeak-ng/espeak-ng_1.52.0+dfsg-5build1_amd64.deb", "expected_size_bytes": 2014882, "sha256": "01ed5ada622dd0f3eef34f6cd545a6be9ece8a8a6b58b70a552dc12b4852454c"},
+        {"relative_path": "libespeak-ng1.deb", "url": "https://archive.ubuntu.com/ubuntu/pool/main/e/espeak-ng/libespeak-ng1_1.52.0+dfsg-5build1_amd64.deb", "expected_size_bytes": 211318, "sha256": "73f01703f367560ca5f4acad10d00058ac103a0db46cf0a722e1eec8de2b7251"},
+        {"relative_path": "libpcaudio0.deb", "url": "https://archive.ubuntu.com/ubuntu/pool/main/p/pcaudiolib/libpcaudio0_1.3-1build1_amd64.deb", "expected_size_bytes": 9154, "sha256": "8b34341737d4c3ff830620413f11d9e2add1d049a47e475d4f97169a1bb2a705"},
+        {"relative_path": "libsonic0.deb", "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/sonic/libsonic0_0.2.0-13build2_amd64.deb", "expected_size_bytes": 11516, "sha256": "29b13ed4a03146b042e9b36d2db981f8522e40363e1bbd692a4c0a351eb3d33f"},
+        {"relative_path": "espeak-ng-data.deb", "url": "https://archive.ubuntu.com/ubuntu/pool/main/e/espeak-ng/espeak-ng-data_1.52.0+dfsg-5build1_amd64.deb", "expected_size_bytes": 9261438, "sha256": "8304ebf2260a5cf16394625a9b6bfc7cea6c29cc30e55d4cfa0e85da0d3cf56a"}
+      ]
+    }
+  ]
+}

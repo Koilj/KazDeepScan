@@ -1,0 +1,28 @@
+{
+  "acoustic_language_preservation": "pending_two_independent_reviews_per_ready_asset",
+  "final_or_product_eligible": false,
+  "raw_manifest": "data/manifests/tone_speak_ru_v1_ood_raw_100.csv",
+  "raw_manifest_sha256": "3957dcc8daa1ea59f994c6221607a521248ff815065ab7b41b3902061c384191",
+  "raw_rows": 100,
+  "ready_manifest": "data/manifests/tone_speak_ru_v1_ood_ready_100.csv",
+  "ready_manifest_sha256": "45527f97ddbb5be65ea12ff8a8ed7b723e9d1135aff0cde71addd95366dc84a0",
+  "ready_rows": 100,
+  "ready_voice_counts": {
+    "tone_speak_ru_v1:voice:alloy": 10,
+    "tone_speak_ru_v1:voice:ash": 10,
+    "tone_speak_ru_v1:voice:ballad": 10,
+    "tone_speak_ru_v1:voice:coral": 10,
+    "tone_speak_ru_v1:voice:echo": 10,
+    "tone_speak_ru_v1:voice:fable": 10,
+    "tone_speak_ru_v1:voice:nova": 10,
+    "tone_speak_ru_v1:voice:onyx": 10,
+    "tone_speak_ru_v1:voice:sage": 10,
+    "tone_speak_ru_v1:voice:shimmer": 10
+  },
+  "rejected_rows": 0,
+  "rejection_report": "data/manifests/tone_speak_ru_v1_ood_rejections_100.json",
+  "rejection_report_sha256": "67cf220069c9f0bf35d2960a2cd371c0934faafb9cf8b0bbfdeea387c9777250",
+  "rule": "The ready manifest may contain only normalized descendants of the locked raw ToneSpeak OOD candidate; every omitted raw sample must appear in its rejection report.",
+  "schema_version": 1,
+  "source_id": "tone_speak_ru_v1"
+}

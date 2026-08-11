@@ -1,0 +1,321 @@
+{
+  "input_manifest": "data/manifests/ksc_derived_kk_v3_base_raw_450.csv",
+  "published_rows": 387,
+  "rejected_rows": [
+    {
+      "sample_id": "ksc_slr102:5f5f3ea8269d9",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5f3ea8269d9.flac",
+      "detail": "Refusing to overwrite processed asset: processed/1a/1aa6732597015f59c91280fd672b1566eee48a456bc6b0939d64c9753e793e1c.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f60fda7bfd5a",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f60fda7bfd5a.flac",
+      "detail": "Refusing to overwrite processed asset: processed/e2/e2806ed2ec7f9ea8ceec4e1ea86b0e4c67ff94e40046d026ddb5ca9743f0dab0.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f5c34702772c",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5c34702772c.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f5c4d8096994",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5c4d8096994.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f5a396015ebb",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5a396015ebb.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f60a9ba837be",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f60a9ba837be.flac",
+      "detail": "Refusing to overwrite processed asset: processed/d5/d59a4cabd4b2efa3ca7e8c7ea7cbe9f931ba02a46b7b96bbb0155899e2c37588.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f60962ab9fba",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f60962ab9fba.flac",
+      "detail": "Refusing to overwrite processed asset: processed/5e/5e6d9a4f055763b4f66efbd52f8ba3640d659f40176defbc087b03a50f62515c.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f5a58aaae872",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5a58aaae872.flac",
+      "detail": "Refusing to overwrite processed asset: processed/3f/3faeac13cf7b8cb8936a5162e305b02fa69f5b56b3cc67099447a723c4bf40a5.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f58df8fe36a0",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f58df8fe36a0.flac",
+      "detail": "Refusing to overwrite processed asset: processed/43/43619dede451e5ffe35838e94a168853f57166df9a49a03f8da1001728cf9954.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5fa4ce6cef0b8",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5fa4ce6cef0b8.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f618cb4ed9aa",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f618cb4ed9aa.flac",
+      "detail": "Refusing to overwrite processed asset: processed/b9/b9525e89b7028ed28fcd31d6fd6725bc45a2f8bdf9c3e35473594c7d8a88b7ae.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f59bdde88748",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f59bdde88748.flac",
+      "detail": "Refusing to overwrite processed asset: processed/9b/9be142a0c21b493402cf88594ed3386eca045ceaf0ee6cd8035c2f07d6babc6b.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f60e65304152",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f60e65304152.flac",
+      "detail": "Refusing to overwrite processed asset: processed/6f/6fe273d38376891d9f0e4bbf6e4ed71bacd41cf8af4a19d287e8b6ed7c60b251.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f60bd8d0fcea",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f60bd8d0fcea.flac",
+      "detail": "Refusing to overwrite processed asset: processed/25/2559da5077987f5a0e0d022b46e0beb92f709246106696ac07b315382b81d9f0.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f57933ec12d6",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f57933ec12d6.flac",
+      "detail": "Refusing to overwrite processed asset: processed/87/877b584d17f4e7a08084dcdf2f52d017ed574dab430ecbd3cf624a8ed3abf2b9.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f61e3c065455",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f61e3c065455.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f62e4fbea0cf",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f62e4fbea0cf.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f579517ecf20",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f579517ecf20.flac",
+      "detail": "Refusing to overwrite processed asset: processed/1f/1fc2e2a5e9166888ea2663b313a65bd2579cb7d03e7db678bba0f614d8f1935a.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f60e5e648a68",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f60e5e648a68.flac",
+      "detail": "Refusing to overwrite processed asset: processed/e2/e2facef5889335b10b20ded1c2f7a2708a96aa81541455846dd3864fc98663b5.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f62da39d3413",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f62da39d3413.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f5a0a29d27ce",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5a0a29d27ce.flac",
+      "detail": "Refusing to overwrite processed asset: processed/a2/a2c0d4fdc82fe53b57fe581e660155b8eab544b6209124a550b832b0955f39ed.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f5fa22107b89",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5fa22107b89.flac",
+      "detail": "Refusing to overwrite processed asset: processed/a7/a7cdc1a7cf5c1f92f9a9a9e614ca8f82a7c876895365a6e297471adb9e44da8e.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5fa12a1a8d132",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5fa12a1a8d132.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f58e0797a873",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f58e0797a873.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f5686a521192",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5686a521192.flac",
+      "detail": "Refusing to overwrite processed asset: processed/53/530f77942a4855091b2bf01c7fa3f985ad1bd580f89fbb922d8176afbeee162a.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f61b1602fc78",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f61b1602fc78.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f5ef71380fca",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5ef71380fca.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f5a0c18e8b3a",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5a0c18e8b3a.flac",
+      "detail": "Refusing to overwrite processed asset: processed/93/931fd59d9c40e387ca917c7567772cb3c8784ce53ee85be3dfd4eca2dabf7632.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f5c9deb2b7a6",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5c9deb2b7a6.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f5c98ba38b9f",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5c98ba38b9f.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f60fe15afe22",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f60fe15afe22.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f61e38e3ca38",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f61e38e3ca38.flac",
+      "detail": "Refusing to overwrite processed asset: processed/73/73289ff8a3df04d4bcd2aee3e4b7bb1491d7020c57a12c131dc1e28714c24c99.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f5fbb3971840",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5fbb3971840.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f5a3815a398b",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5a3815a398b.flac",
+      "detail": "Refusing to overwrite processed asset: processed/42/42e1d8d6b2a8686e3d22f515380e332e40044412495480ab41bfc73566e065a9.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f579805cd1cf",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f579805cd1cf.flac",
+      "detail": "Refusing to overwrite processed asset: processed/a4/a47d2dd7ad5d8d8d8e7689503509f928f59008e9f99575d850184e2e14a0ff4d.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f5fb27d185ad",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5fb27d185ad.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f57991866209",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f57991866209.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f5c4c015de9d",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5c4c015de9d.flac",
+      "detail": "Refusing to overwrite processed asset: processed/9a/9ab5ec82b546845748139806e0b305a47629a1503a6dcbfe5b1fbc3739693f93.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f61e38221832",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f61e38221832.flac",
+      "detail": "Refusing to overwrite processed asset: processed/aa/aac91ebb1d306400ec4afbf96b2290629ac5c7af8c29c7cf3440f4046f5d841d.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f5793e83d0c1",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5793e83d0c1.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f5a3b1edbcc5",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5a3b1edbcc5.flac",
+      "detail": "Refusing to overwrite processed asset: processed/e1/e128dece4fc2346625f52d027274a3126ee82a073a6bd42fd66b6b12a8ef63dd.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f6185f8bbf7c",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f6185f8bbf7c.flac",
+      "detail": "Refusing to overwrite processed asset: processed/65/6511311c13188c67069ac1ceedb1c2b170fbc63f905151c8a7998f17097b29ef.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f58c80e63259",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f58c80e63259.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f60aa84cd9b4",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f60aa84cd9b4.flac",
+      "detail": "Refusing to overwrite processed asset: processed/23/23148bfa076687e7adeb1f99bc627c72b4ae8d07c2a32296a07a380614ffbc25.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f5a5b8bbd59c",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5a5b8bbd59c.flac",
+      "detail": "Refusing to overwrite processed asset: processed/7f/7f373a30589dddfa340fd7e96fba974120f351d9d016bd67023239cb6faa9a9b.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f57921d458d6",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f57921d458d6.flac",
+      "detail": "Refusing to overwrite processed asset: processed/c2/c295c39ba33424c576f97986ee62ce83aa26db90975478aaab2383f2216f49b6.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f63045aeab3d",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f63045aeab3d.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f5ca11aebd2e",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5ca11aebd2e.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5fa3b69e8cfa1",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5fa3b69e8cfa1.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f60bd9502240",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f60bd9502240.flac",
+      "detail": "Refusing to overwrite processed asset: processed/a1/a1b2af3010367a83b256563a72cd9a39f272ff5e8f0d6ffb437bd86b6135040d.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f6335045db41",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f6335045db41.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f60bf69eaeb4",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f60bf69eaeb4.flac",
+      "detail": "Refusing to overwrite processed asset: processed/d9/d9110f5216569ee1bafbf11fb7f0d6e05385a0a2f9cbbcbd8abe445664a4f73d.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f58c821eb521",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f58c821eb521.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f5c4fa407fed",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5c4fa407fed.flac",
+      "detail": "Refusing to overwrite processed asset: processed/42/424dfbe187929d396afc6f61f02e3044eca8119207c8dfdbf79a823ec75547a2.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f57af07bd8a0",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f57af07bd8a0.flac",
+      "detail": "Refusing to overwrite processed asset: processed/c4/c442721473ef3f1d36b78b25b108f87b494d19c64803f813ea6f0eb3d49bccf5.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f5f1f9ad33c5",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5f1f9ad33c5.flac",
+      "detail": "Refusing to overwrite processed asset: processed/5b/5bbe992b4c3d0e9d2d27c817a2d649961410f8362728632bfced584eeecaac9a.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f59eb35a8e69",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f59eb35a8e69.flac",
+      "detail": "Refusing to overwrite processed asset: processed/c7/c709e70834e1e840e59509015c898e1d4478660cca72860d3b4c137a42755233.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f56824e68d17",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f56824e68d17.flac",
+      "detail": "Refusing to overwrite processed asset: processed/d4/d48c68788482ee116ba7f9db9ddd4dd25a791b41c74446c9c7a2fedba2da9e19.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f5f3a1d74c8e",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5f3a1d74c8e.flac",
+      "detail": "Refusing to overwrite processed asset: processed/5d/5d886da6189d5fa871d883c9e15d6b6abf9301cd54dd2cec0c52def769e05046.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f5f77f47c545",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5f77f47c545.flac",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_slr102:5f5ef23a720e0",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5ef23a720e0.flac",
+      "detail": "Refusing to overwrite processed asset: processed/1d/1ddd84cf7a9a227b0887f8cfddfcff6e15d1b17f771b44e8d593c8b38fc4dc10.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5fa2321d1942a",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5fa2321d1942a.flac",
+      "detail": "Refusing to overwrite processed asset: processed/68/6811e427c05241426a2f02f8e5625cda5946fb06632fc0ba036bb4226d194d71.wav"
+    },
+    {
+      "sample_id": "ksc_slr102:5f5a5c3feb2c8",
+      "relative_path": "raw/ksc_slr102/slices/derived-v3-base-450/Audios_flac/5f5a5c3feb2c8.flac",
+      "detail": "Refusing to overwrite processed asset: processed/2d/2d1cb596ffae188be7d882d70547854678b24f279527ce4df7c1b94225b93acc.wav"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "input_manifest": "data/manifests/fleurs_ru_v1_espeakng_raw_75.csv",
+  "published_rows": 75,
+  "rejected_rows": []
+}

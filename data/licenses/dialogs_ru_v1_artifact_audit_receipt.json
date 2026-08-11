@@ -1,0 +1,58 @@
+{
+  "available_wav_by_speaker": {
+    "D": 1877,
+    "M": 5037,
+    "S": 3082
+  },
+  "available_wav_duration_s": 62712.26257327097,
+  "dataset": "langswap/dialogs-ru-emotional-conversations",
+  "eligible_for_bonafide_final": false,
+  "git_blob_files_verified": 7,
+  "intake_status": "rejected_incomplete_published_release",
+  "lfs_files_verified": 9997,
+  "metadata_missing_by_speaker": {
+    "D": 368,
+    "M": 898,
+    "S": 534
+  },
+  "metadata_missing_duration_s": 11437.023452806123,
+  "metadata_missing_path_samples": [
+    "wavs/masha_dima_part10_142.wav",
+    "wavs/masha_dima_part10_143.wav",
+    "wavs/masha_dima_part10_144.wav",
+    "wavs/masha_dima_part10_145.wav",
+    "wavs/masha_dima_part10_146.wav",
+    "wavs/masha_dima_part10_147.wav",
+    "wavs/masha_dima_part10_150.wav",
+    "wavs/masha_dima_part10_151.wav",
+    "wavs/masha_dima_part10_152.wav",
+    "wavs/masha_dima_part10_153.wav",
+    "wavs/masha_dima_part10_156.wav",
+    "wavs/masha_dima_part10_157.wav"
+  ],
+  "metadata_missing_wavs": 1800,
+  "metadata_unique_audio_paths": 11796,
+  "revision": "e25ba617b2b56bd1dbf255d3905c51bd8da3d31f",
+  "rows_by_csv": {
+    "metadata.csv": 11796,
+    "test.csv": 188,
+    "train.csv": 11428,
+    "val.csv": 180
+  },
+  "rows_by_speaker": {
+    "D": 2245,
+    "M": 5935,
+    "S": 3616
+  },
+  "snapshot_tree_sha256": "0e44fb25264c8b4486d968923cf7fcd9bf08c35d5d354a068a723aa02003eff0",
+  "source_artifact_bytes": 5571006447,
+  "source_artifact_files": 10004,
+  "source_id": "dialogs_ru_v1",
+  "split_overlap_rows": {
+    "train_test": 0,
+    "train_val": 0,
+    "val_test": 0
+  },
+  "split_union_audio_paths": 11796,
+  "wav_files": 9996
+}

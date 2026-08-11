@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "protocol_id": "sparktts-kazakh-controlled-research-v1",
+  "models": [
+    {
+      "model_id": "sparktts_kazakh_controlled",
+      "destination": "sparktts_kazakh_controlled",
+      "generator_family": "llm_bicodec_controlled_tts",
+      "generator_name": "Spark-TTS-Kazakh controlled LLM + BiCodec",
+      "generator_version": "Kazakh model-bd0572a9bf744cb4cf9ab1c7a67bd182fde0c367; Spark-TTS-source-2f1ea9082400547242641f5271b6f941c9f439d1",
+      "license": "Spark-TTS-Kazakh CC-BY-NC-SA-4.0; Spark-TTS inference source Apache-2.0",
+      "source_url": "https://huggingface.co/ErnarBahat/Spark-TTS-Kazakh/tree/bd0572a9bf744cb4cf9ab1c7a67bd182fde0c367",
+      "runtime": {
+        "kind": "sparktts_controlled_bicodec",
+        "source_archive_path": "source.tar.gz",
+        "source_archive_root": "Spark-TTS-2f1ea9082400547242641f5271b6f941c9f439d1",
+        "root_config_path": "config.yaml",
+        "bicodec_config_path": "BiCodec/config.yaml",
+        "bicodec_checkpoint_path": "BiCodec/model.safetensors",
+        "llm_config_path": "LLM/config.json",
+        "llm_merges_path": "LLM/merges.txt",
+        "llm_tokenizer_config_path": "LLM/tokenizer_config.json",
+        "llm_vocab_path": "LLM/vocab.json",
+        "llm_checkpoint_path": "LLM/model.safetensors",
+        "sample_rate": 16000,
+        "max_new_tokens": 3000,
+        "generation_attempts": 4,
+        "profile_attempts": 12,
+        "temperature": 0.8,
+        "top_k": 50,
+        "top_p": 0.95,
+        "profiles": [
+          {"voice_id": "female:low:low", "gender": "female", "pitch": "low", "speed": "low"},
+          {"voice_id": "female:low:high", "gender": "female", "pitch": "low", "speed": "high"},
+          {"voice_id": "female:moderate:low", "gender": "female", "pitch": "moderate", "speed": "low"},
+          {"voice_id": "female:moderate:high", "gender": "female", "pitch": "moderate", "speed": "high"},
+          {"voice_id": "female:high:low", "gender": "female", "pitch": "high", "speed": "low"},
+          {"voice_id": "female:high:high", "gender": "female", "pitch": "high", "speed": "high"},
+          {"voice_id": "male:low:low", "gender": "male", "pitch": "low", "speed": "low"},
+          {"voice_id": "male:low:high", "gender": "male", "pitch": "low", "speed": "high"},
+          {"voice_id": "male:moderate:low", "gender": "male", "pitch": "moderate", "speed": "low"},
+          {"voice_id": "male:moderate:high", "gender": "male", "pitch": "moderate", "speed": "high"},
+          {"voice_id": "male:high:low", "gender": "male", "pitch": "high", "speed": "low"},
+          {"voice_id": "male:high:high", "gender": "male", "pitch": "high", "speed": "high"}
+        ]
+      },
+      "artifacts": [
+        {
+          "relative_path": "source.tar.gz",
+          "url": "https://github.com/SparkAudio/Spark-TTS/archive/2f1ea9082400547242641f5271b6f941c9f439d1.tar.gz",
+          "expected_size_bytes": 6034176,
+          "sha256": "b43571928c6fc1d5bbcdbe4ade2761c040189e3469bc1bc8193ed4a31d4e9c52"
+        },
+        {
+          "relative_path": "config.yaml",
+          "url": "https://huggingface.co/ErnarBahat/Spark-TTS-Kazakh/resolve/bd0572a9bf744cb4cf9ab1c7a67bd182fde0c367/config.yaml",
+          "expected_size_bytes": 169,
+          "sha256": "49a07abffcdfb5358e91eda83b1f4f8068f54b0a4e1ef1ef6ac22d9a312a7ae3"
+        },
+        {
+          "relative_path": "BiCodec/config.yaml",
+          "url": "https://huggingface.co/ErnarBahat/Spark-TTS-Kazakh/resolve/bd0572a9bf744cb4cf9ab1c7a67bd182fde0c367/BiCodec/config.yaml",
+          "expected_size_bytes": 1164,
+          "sha256": "744f4093ae2381a2eb44ea8c4a5268a8d1e581498e9bf0808c034d1b076429be"
+        },
+        {
+          "relative_path": "BiCodec/model.safetensors",
+          "url": "https://huggingface.co/ErnarBahat/Spark-TTS-Kazakh/resolve/bd0572a9bf744cb4cf9ab1c7a67bd182fde0c367/BiCodec/model.safetensors",
+          "expected_size_bytes": 625518756,
+          "sha256": "e9940cd48d4446e4340ced82d234bf5618350dd9f5db900ebe47a4fdb03867ec"
+        },
+        {
+          "relative_path": "LLM/config.json",
+          "url": "https://huggingface.co/ErnarBahat/Spark-TTS-Kazakh/resolve/bd0572a9bf744cb4cf9ab1c7a67bd182fde0c367/LLM/config.json",
+          "expected_size_bytes": 658,
+          "sha256": "a08401458b097cceb08bc40b26ec799b685ca44cebc7fa71c56721b6634e4ae8"
+        },
+        {
+          "relative_path": "LLM/merges.txt",
+          "url": "https://huggingface.co/ErnarBahat/Spark-TTS-Kazakh/resolve/bd0572a9bf744cb4cf9ab1c7a67bd182fde0c367/LLM/merges.txt",
+          "expected_size_bytes": 1671853,
+          "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+        },
+        {
+          "relative_path": "LLM/tokenizer_config.json",
+          "url": "https://huggingface.co/ErnarBahat/Spark-TTS-Kazakh/resolve/bd0572a9bf744cb4cf9ab1c7a67bd182fde0c367/LLM/tokenizer_config.json",
+          "expected_size_bytes": 2579652,
+          "sha256": "d4b4dff03ac7e25aa2873a429b80bf255b27a1aec2e6a9879bbbed113dbb7cf8"
+        },
+        {
+          "relative_path": "LLM/vocab.json",
+          "url": "https://huggingface.co/ErnarBahat/Spark-TTS-Kazakh/resolve/bd0572a9bf744cb4cf9ab1c7a67bd182fde0c367/LLM/vocab.json",
+          "expected_size_bytes": 2776833,
+          "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+        },
+        {
+          "relative_path": "LLM/model.safetensors",
+          "url": "https://huggingface.co/ErnarBahat/Spark-TTS-Kazakh/resolve/bd0572a9bf744cb4cf9ab1c7a67bd182fde0c367/LLM/model.safetensors",
+          "expected_size_bytes": 1222491632,
+          "sha256": "9058488d858334256fe8147841cd32cb061292b437b4232f21c2351c211958c3"
+        }
+      ]
+    }
+  ]
+}

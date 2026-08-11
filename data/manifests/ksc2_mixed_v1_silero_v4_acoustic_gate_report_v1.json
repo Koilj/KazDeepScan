@@ -1,0 +1,742 @@
+{
+  "all_assets_acoustically_verified": true,
+  "asset_results": [
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_01_093",
+      "audio_sha256": "8a8fe53d546d36dc8589e25690fa581924ffa2be7485f5f8b69c8f9b0dd2f1b3",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_01_093"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_01_093",
+      "audio_sha256": "b2da6ef38fb3b2810c4bf8e1fe710f81ec819cb5fd3e8808211e9ec142e0e6d3",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:6c20a2b0440609d6"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_01_095",
+      "audio_sha256": "1ae993927599fe790ac90278c8ec08d6d3e10f24d3e03c31e849e94fd1a1f76c",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_01_095"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_01_095",
+      "audio_sha256": "c7fbf43432638b2960f52bc4119a6ca11833f4dfe68a49b0b0a3f456db7da918",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:596d1b1c2a207537"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_01_149",
+      "audio_sha256": "4f0ef96815e1712f097f9947ef280fa87e6d0a97bd3386d5531dcd76f1485f5f",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_01_149"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_01_149",
+      "audio_sha256": "9be00f898c0a31eb461e7447223fbd27b448bc29b182440a4b5da530ff737c85",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:f7de6002ae3f6070"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_01_150",
+      "audio_sha256": "382b248d696001369c3d97084627af838cb1d054fae92a922a62accdf3618d79",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_01_150"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_01_150",
+      "audio_sha256": "8cf66e3ca91b69f360f8ede0f6b65d994477e8700c78470a42f5857614163c5b",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:0fb169ec198a2232"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_01_151",
+      "audio_sha256": "193a0d5858f0eb8042eba5a91668e979b73547d09ca7bfc386433b68259d8644",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_01_151"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_01_151",
+      "audio_sha256": "df570900b122d60b96120e4debb7c959b30b38120d6dd68b5ee3802a80e4949b",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:59dd718434bee2f4"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_01_216",
+      "audio_sha256": "8a09de8c9d591f88bf9d74d69ac895c961e32e32f4b11848ff92e1a1f6a6fcea",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_01_216"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_01_216",
+      "audio_sha256": "44e546f8a559f2b370d4f5f8a1347b00f9fbec98e373dd6e4c0d421e7ca06717",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:31b6f5ff4310e1d0"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_01_251",
+      "audio_sha256": "ec2b6c027732aa58cce3d17d8c74da6dbfe941770c61de2b4934bed254b84719",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_01_251"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_01_251",
+      "audio_sha256": "e97d3333ed2486b0dc31a8fede30b0a62f14be70997bc263d62ad17bffcacbd7",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:9cfebac4de8c5f7c"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_01_292",
+      "audio_sha256": "6b00b66f4f606124eeeb1d82135a8f203442db0065727ea2fee2161e25b086a7",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_01_292"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_01_292",
+      "audio_sha256": "30a9033a0699e0d23fe7a02118c59ec8ff897a088748810ab3b66a55e73db36c",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:e9cf1780e984d30f"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_03_020",
+      "audio_sha256": "c165c9cb43e0c1f5649bbb89a9dfe3f64bac019530ceda429990e581f46b00aa",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_03_020"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_03_020",
+      "audio_sha256": "0fb8e6411421591817fda56be618b3fd1d07a60c39c2987bf8193bef072a7671",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:1781a4db58b94804"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_03_204",
+      "audio_sha256": "c4e6b3f0ff0b55471820028d7c0e6594fb9ccd02ff017e80cf3696b7453b3b0e",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_03_204"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_03_204",
+      "audio_sha256": "d7a71a26ce0e2c7a55cab48eb512638669bf559b5b648df023d0354a81bff520",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:daba94ba32b28d64"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_03_220",
+      "audio_sha256": "e8ab88c1c847c7ca5410c40c184974748bc59c460ffc6238a6150e7d4861160a",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_03_220"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_03_220",
+      "audio_sha256": "c511c505cf4652f3f9b38d4da87484a266f068c7bfb044779bf938c6f7df44cd",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:7592bd924cf0b9bb"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_03_251",
+      "audio_sha256": "8c455615fd7b0c4d603d6cff4e54514452548bee7e6d7c58d4e5c8f7da639398",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_03_251"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_03_251",
+      "audio_sha256": "71daba70d4e5e24aae84bee7b4d8ca40d26d781677f2a6fe1f6f56f08a870472",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:42d94b3e44a4b306"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_03_287",
+      "audio_sha256": "65a1303e3e936b0bd2f1465dc254ef2c1b1c5c3b411e584221b0908fe1643955",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_03_287"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_03_287",
+      "audio_sha256": "98c9d4aca0ef5811a76ea0a9b9cb8b66b44aa34c6c6504320aff0d30b27d858b",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:4603a592b6de5104"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_03_289",
+      "audio_sha256": "fa086afe2e9a64eaebfed3b574c9911ecae96ded95b8cbd3b71d66cf28479137",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_03_289"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_03_289",
+      "audio_sha256": "c0be16351c23811e3e344ed44eea636106e43d852c96b2acd5cf060471ae2bdd",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:06fe43a97a8426ab"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_04_024",
+      "audio_sha256": "2a6169a12af40f2a0f4ff4ce7dcbb58198593668c38f06204f86cc849f6bf726",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_04_024"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_04_024",
+      "audio_sha256": "40c1cb8e349bccb173c37b381f2f45e383253f81a862a7d021d954e7ff56e01c",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:6602f2a2c607d0e9"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_04_051",
+      "audio_sha256": "b10ccd3025d06c578a22c4a5fed4c6d3a444af978a28cae8abdcdb4125430057",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_04_051"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_04_051",
+      "audio_sha256": "19c3c44617ec92a08d09ca539bbf43b25a69613d936a827e7a4ede8adc66091c",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:8d6b41cf9dfe3d90"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_04_072",
+      "audio_sha256": "9d9a8b113c0709962dfbc592f9738f3e77d269ba0c1016442b407bf9917bdba4",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_04_072"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_04_072",
+      "audio_sha256": "aa855dd1724cffae776c177d3ea3babe6e9b5c2fe797749752441cceaf432f5c",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:f92f395032d3ae6a"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_04_074",
+      "audio_sha256": "7c0f22d3cb8998c8a53a69b4058ef1a59ecdfbf5cacfe78f48ed02bfa9121c1c",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_04_074"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_04_074",
+      "audio_sha256": "cef12e90de20588c288d0ef435840db8219e31e4afe132ee543885dd72846fe4",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:b93d6d6134899717"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_04_099",
+      "audio_sha256": "efd40ecef6801e908aebe8c4a66fe4a12a40f707370efb1969948d43329d7c9d",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_04_099"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_04_099",
+      "audio_sha256": "1108ffcfbc6e1c6746e7036163cfd57bea4407ab550945ef214068967ed4622f",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:640d509a993ecd79"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_04_212",
+      "audio_sha256": "87966856f4982dce9134f760baae2800a18153c62d8bce54267da77f27f76572",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/podcasts/09_04_212"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/podcasts/09_04_212",
+      "audio_sha256": "033359f5d6bb260135569fc03dc73c9e7808ea93f205bf47baf6f332565b61d1",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:e576aabf1da84428"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/radio/01_04_072",
+      "audio_sha256": "3ae3f7bd3ad3c6be4cc87c747da662c2298bd6c49ede85e2e61142cf5a6bf840",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/radio/01_04_072"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/radio/01_04_072",
+      "audio_sha256": "06e7816169b3dc6745c6394d4d6b55617a8eb58cd264f2287655f70dc5e8b4f9",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:c6c5652028c34faf"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/radio/01_05_157",
+      "audio_sha256": "9bf83f9322783227eed20500434da8d19bf199760604495b6be8434642c7dfb1",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/radio/01_05_157"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/radio/01_05_157",
+      "audio_sha256": "d8a3153368e6f3618c50dd4e82095bf29b2eb92cb6bdcfc08c7e1ceb55f75dce",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:1c795218500d5f2c"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/radio/01_05_194",
+      "audio_sha256": "4fa2c3fc3fbfe65be3b7ef7bc23b378bc3e5d05edf5150851f2b677e7851b30d",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/radio/01_05_194"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/radio/01_05_194",
+      "audio_sha256": "e02d7df855902ec6b9d2f7b1113ece00039b66951a6f1a32eeb5d1964600d3b1",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:1ecf892af069115f"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/radio/01_05_274",
+      "audio_sha256": "8c464145c448bceb94a858b12241737553db22e74d9dc1a937df3f48c4a01217",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/radio/01_05_274"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/radio/01_05_274",
+      "audio_sha256": "8860cf34ecb0a7fdf9d2ad6366d71dd013acf91d6660fa49b69b16cfc4a70a3c",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:a08a0c2f0449f48a"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/talkshow/01_02_067",
+      "audio_sha256": "e5f087c688b43fc20a38af86faa5ea597ba01e0d7f850ff09fc972e33da0262d",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/talkshow/01_02_067"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/talkshow/01_02_067",
+      "audio_sha256": "a961cf0b2e18dddbdeefdde3dda0784017f38261ddada86d885a671c18862c9e",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:80ac3a0650917421"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/talkshow/01_02_093",
+      "audio_sha256": "54c3bec0846616a5bdee3338ffa20b73c3f38e2d495e9a2e1d2d1d9d5fd4e9a2",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/talkshow/01_02_093"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/talkshow/01_02_093",
+      "audio_sha256": "5af2360d50805d640acf2a0aea6ac6e286f4db901284cf0cb93c08fb0feed8fa",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:6c0ed7494dc65130"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/talkshow/01_02_109",
+      "audio_sha256": "a7b4c19938d978d03b61d10c91ea35abc5a42fcfc81d9d0578b26279f8cceb81",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/talkshow/01_02_109"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/talkshow/01_02_109",
+      "audio_sha256": "f59188db6d388a790385d19b759ce5b4d7e31010af93164a0a6429d2c4288876",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:50046b64acc431a4"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/talkshow/01_02_110",
+      "audio_sha256": "49213c8fcb0f31b207c1e578dc1cfd4d214f5a67359d08bc413e3869539d1473",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/talkshow/01_02_110"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/talkshow/01_02_110",
+      "audio_sha256": "04689caec105b8a4ce405cccfe200066f293db6ee6d4249224be6d163a91f9fd",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:807fc5362467e85b"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/talkshow/01_02_274",
+      "audio_sha256": "af49a318ebb2762e1a1fbed3388b8b835461d00c60e966ea7cd4694f555b5d06",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/talkshow/01_02_274"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/talkshow/01_02_274",
+      "audio_sha256": "7e530b9d83b985cf82e87c908b51d740948a68b885d9e0b7b9bf78f9ac2e195a",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:c457488b7d58740a"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/talkshow/01_02_277",
+      "audio_sha256": "586eeb5ba1e2e67c9f3e5be43e65022f1e5cf7611f197dbb61000cc593a7dee7",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_v1:Test/talkshow/01_02_277"
+    },
+    {
+      "annotation_id": "ksc2_v1:Test/talkshow/01_02_277",
+      "audio_sha256": "fd803065d267538fb40601413f850f9d9e38ede7145d85c24f8eff7eed57a512",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "ksc2_mixed_v1_silero_v4:d7b70ac65b843e69"
+    }
+  ],
+  "decision_counts": {
+    "pass": 60
+  },
+  "final_or_product_eligible": false,
+  "limitations": [
+    "The gate establishes only audibility and lexical preservation of locked RU/KK evidence.",
+    "It does not establish speaker independence, binary-source independence, calibration, or final quality."
+  ],
+  "packet": {
+    "assets": 60,
+    "pairs": 30,
+    "path": "data/manifests/ksc2_mixed_v1_silero_v4_acoustic_gate_packet.csv",
+    "sha256": "225f5cfe70eb422ef4c5cf131c81537eefea3a4bc9eabd24ace4df87af620421"
+  },
+  "protocol_id": "mixed-acoustic-language-preservation-v1",
+  "review_rows": 120,
+  "schema_version": 1
+}

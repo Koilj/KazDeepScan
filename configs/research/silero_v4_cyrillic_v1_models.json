@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "protocol_id": "silero-v4-cyrillic-fastpitch-hifigan-fleurs-research-v1",
+  "models": [
+    {
+      "model_id": "silero_v4_cyrillic",
+      "destination": "silero_v4_cyrillic",
+      "generator_family": "fastpitch_hifigan_torchscript_tts",
+      "generator_name": "Silero V4 Cyrillic FastPitch + HiFi-GAN fixed-profile TTS",
+      "generator_version": "Silero v4_cyrillic hosted model SHA-256 5e3862319e13883ea105cd4db835273c7febde62ff82d98d1ccf596607f8673f; source d9355348e2781dc8fa25a135d1602c530afae24c",
+      "license": "Silero V4 model CC-BY-NC-SA-4.0; source archive CC-BY-NC-SA-4.0",
+      "source_url": "https://github.com/snakers4/silero-models/tree/d9355348e2781dc8fa25a135d1602c530afae24c",
+      "runtime": {
+        "kind": "silero_v4_cyrillic_torchpackage",
+        "package_path": "v4_cyrillic.pt",
+        "source_archive_path": "source.tar.gz",
+        "sample_rate": 48000,
+        "profiles": {
+          "ru": ["b_ru"],
+          "kk": ["kz_M1", "kz_M2", "kz_F1", "kz_F2", "kz_F3"]
+        }
+      },
+      "artifacts": [
+        {
+          "relative_path": "v4_cyrillic.pt",
+          "url": "https://models.silero.ai/models/tts/cyr/v4_cyrillic.pt",
+          "expected_size_bytes": 35431527,
+          "sha256": "5e3862319e13883ea105cd4db835273c7febde62ff82d98d1ccf596607f8673f"
+        },
+        {
+          "relative_path": "source.tar.gz",
+          "url": "https://github.com/snakers4/silero-models/archive/d9355348e2781dc8fa25a135d1602c530afae24c.tar.gz",
+          "expected_size_bytes": 789187,
+          "sha256": "cca6d3e6e34e03f9fe30c4e33ee2de8e89aa384f95bc0f3143c51af7a72765aa"
+        }
+      ]
+    }
+  ]
+}

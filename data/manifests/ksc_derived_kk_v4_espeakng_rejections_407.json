@@ -1,0 +1,251 @@
+{
+  "input_manifest": "data/manifests/ksc_derived_kk_v4_espeakng_raw_407.csv",
+  "published_rows": 358,
+  "rejected_rows": [
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:0560b0e99e614654",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f609b45267c6.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:8932d5e308ce6481",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f59ef0940bb4.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:9460b418d424ead1",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f2b0a9593150.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:2a9a040bc02a2182",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f5795cd296e7.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:cf46edaea66b66e5",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f61ec6890026.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:5b8038b27a5dc1ac",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f60e77d70a1e.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:69c9fe8d3aa3eebb",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f6097bae063e.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:d20a8e3c24c1819a",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f60adb87719b.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:e1c0944d41d4a9b0",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f5688e36f4d6.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:3eaf61c8171314d3",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f5f472041020.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:2228df2e44f2a820",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f5685057d43c.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:3cb8c91c263a809f",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f59ed4ed3ae4.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:f0ccf9711f7aa3d8",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f59ec31edf9c.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:d549c6dc6adbf79c",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f59edcb79702.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:9214fc231327a880",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f60c0d341330.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:7bb2d89ad140eceb",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f60bbc64d767.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:3ca7385c2ef7b7c5",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f60c2b1df0e0.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:8a45e4f7d8907c3c",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f6054f464e00.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:77a4f1e0fc4833e6",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f5efb8d9b16c.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:cd7a9d548aef7e82",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5fa263d5c3318.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:c12e89e6444ea915",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f5a0bbf66715.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:54eef2e10c6b4cc8",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f60c5e195da2.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:881aaa649db1e767",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f6065a581bb1.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:582c7a1d8696a1f9",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f5eff19190cb.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:fd437e9494ebbf02",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f61e6ea7b888.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:262c1ebceeba3575",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f60984899b78.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:9975e3db2243fb16",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f60e6959d715.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:59f581dd709825dc",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f60a065b1778.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:d8e1952f4d9f14e8",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f60598dd361d.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:08ff9eb864a6e75c",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f2b090060eae.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:f51397c625be23e1",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f56851d28303.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:11f5c76cba05f654",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f60fdf372a72.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:c47ac50835b8e712",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f60b00462b24.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:d1d0ec79db764baa",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f5c57e9914ea.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:3bf3327fe8182ba8",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f60e55a564db.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:fbd1072b53897a8f",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f5774d5f3238.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:84d3b9669698c85c",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f57966a1755c.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:b4a54d8cebfc3668",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f9fc58aa618f.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:d63d624fbbda2ac6",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f5af59dbfdf2.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:c545f10de9e42468",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f5688bb23501.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:cccde7db029b8d71",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f5f31d57c6fd.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:69582b54ddd16a02",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f5f054d27306.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:f7156835e295c2f0",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f5c9e2a9b26c.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:e755bc3ccf429a82",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f5af869c7628.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:93fe4ad837f1bca8",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f6095498563a.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:6e0f5651e45cc8b9",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f609b55dc835.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:a6800e063e842b6c",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f5f837daf623.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:83c4da841f136cd1",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f9f995bc9433.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v4_espeakng:a2ff2e4754539b8a",
+      "relative_path": "raw/ksc_derived_kk_v4_espeakng/slices/espeakng-407/espeakng_kazakh_formant/5f60fc9ea1ae9.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    }
+  ]
+}

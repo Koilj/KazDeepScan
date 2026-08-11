@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "source_id": "tone_speak_ru_v1",
+  "dataset": "Vikhrmodels/ToneSpeak",
+  "revision": "d40f94cd5c7dcf756a8c59a1c465b834220bec56",
+  "source_url": "https://huggingface.co/datasets/Vikhrmodels/ToneSpeak/tree/d40f94cd5c7dcf756a8c59a1c465b834220bec56",
+  "declared_license": "Apache-2.0",
+  "dataset_card_provenance": {
+    "language": "ru",
+    "text_generation": "GPT-4.1 mini",
+    "speech_generation": "GPT-4o mini TTS",
+    "voice_names": [
+      "alloy",
+      "ash",
+      "ballad",
+      "coral",
+      "echo",
+      "fable",
+      "nova",
+      "onyx",
+      "sage",
+      "shimmer"
+    ]
+  },
+  "artifacts": [
+    {
+      "path": ".gitattributes",
+      "size_bytes": 2461,
+      "local_sha256": "e7a120ab07b1bc5b486be249e9fc6c83d59448d0093e1dfebe95d1566d9cafc0"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 3741,
+      "git_blob_sha1": "34600eaf8657667a40dc7d53874e1b318abd0c77",
+      "local_sha256": "da0d2a6fcbe4b84edc69a5fd44985ec94991f4e80c5c69d20317a25651517df6"
+    },
+    {
+      "path": "data/train-00000-of-00004.parquet",
+      "size_bytes": 380768912,
+      "published_lfs_sha256": "7196f1aae6aa27da08813d2161a94e3af146669b0883bbfef2e404b6108b9f89"
+    },
+    {
+      "path": "data/train-00001-of-00004.parquet",
+      "size_bytes": 378847350,
+      "published_lfs_sha256": "1d79738cefae26918e02398ce0e6cd2d86de5fd8e67586f9a6c534a6d60b9987"
+    },
+    {
+      "path": "data/train-00002-of-00004.parquet",
+      "size_bytes": 378720674,
+      "published_lfs_sha256": "ebc2236a6fd3628b5710e360ad4469b3a0a9c3f95e7dbb169bc659187afef337"
+    },
+    {
+      "path": "data/train-00003-of-00004.parquet",
+      "size_bytes": 380371736,
+      "published_lfs_sha256": "dc03b849110eabdcdc5226b79ab4106ca436bf65e0ec80c7c0ff7b541c85b208"
+    },
+    {
+      "path": "data/validation-00000-of-00001.parquet",
+      "size_bytes": 167675791,
+      "published_lfs_sha256": "25da50ec9165c208330801c758ac35ce054bcefecba2be63348159fa585ee54b"
+    }
+  ],
+  "audit_receipt": "data/licenses/tone_speak_ru_v1_artifact_audit_receipt.json",
+  "audit_receipt_sha256": "c14d3f0fd38e6ee8675a78b08b627aa43ca618bde52be9c1f90cec8d71996908"
+}

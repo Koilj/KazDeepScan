@@ -1,0 +1,13 @@
+{
+  "published_rows": 30,
+  "raw_manifest": "data/manifests/ksc2_mixed_v1_silero_v4_raw.csv",
+  "raw_manifest_sha256": "a42e8206f6c7d1deaf6da510fe242edd809f05d43d9cac69f49f74001f3ad742",
+  "rejected_rows": [
+    {
+      "reason": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+      "relative_path": "raw/ksc2_mixed_v1_silero_v4/slices/ksc2-mixed-v1/silero_v4_cyrillic/395f30335f333638.wav",
+      "sample_id": "ksc2_mixed_v1_silero_v4:1ac2e3b2b3158a77"
+    }
+  ],
+  "rule": "Signal QA/VAD only; not an acoustic language-preservation check."
+}

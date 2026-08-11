@@ -1,0 +1,18 @@
+{
+  "raw_manifest": "data/manifests/ksc2_test_mixed_ai_review_v1_raw.csv",
+  "raw_rows": 32,
+  "ready_rows": 31,
+  "rejected_rows": [
+    {
+      "reason": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+      "relative_path": "raw/ksc2_v1/slices/ksc2_test_mixed_annotation_v1/assets/Test/podcasts/dd28080beb5a78f927c1475181322c1384b1867b761e7be00e061ebab96910f7.flac",
+      "sample_id": "ksc2_v1:Test/podcasts/09_01_296"
+    }
+  ],
+  "review_csv": "data/manifests/ksc2_test_mixed_ai_review_v1.csv",
+  "review_csv_sha256": "63257415ad744bf3095e28f6dede7e6e53e9608587258170cdd924651f5075e2",
+  "review_receipt": "data/licenses/ksc2_test_mixed_ai_review_v1_receipt.json",
+  "review_receipt_sha256": "e078a73322250992a3f2aa5322f731f884a237d3bf6a13256ea8f2ff6f201bd5",
+  "rule": "Narrow single-AI transcript-review bona-fide candidates only; not a binary training or final-test manifest.",
+  "schema_version": 1
+}

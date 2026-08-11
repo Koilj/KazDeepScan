@@ -1,0 +1,13 @@
+{
+  "base_manifest_sha256": {
+    "data/manifests/fleurs_ru_v1_espeakng_base_75.csv": "2a04cddedf39164108a8c7c76ed51b2d9e07bd4882ec79740e0b5ab98eb5ec9e"
+  },
+  "published_rows": 75,
+  "raw_manifest": "data/manifests/fleurs_ru_v1_espeakng_raw_75.csv",
+  "raw_manifest_sha256": "504d986ce9534fff927b327e104cb0e897eeed54937288572beb815876b20838",
+  "rejected_rows": [],
+  "rule": "No text normalization, filtering, or rejection occurred after base selection.",
+  "schema_version": 1,
+  "selection_receipt": "data/manifests/fleurs_ru_v1_espeakng_base_75_receipt.json",
+  "selection_receipt_sha256": "a027cb7613e44fd4faf4ee49c589cfe6c943008ccb934de1ae7e502068ddc05c"
+}

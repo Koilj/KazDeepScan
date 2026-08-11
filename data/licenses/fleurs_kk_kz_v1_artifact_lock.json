@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "source_id": "google_fleurs_kk_v1",
+  "dataset": "google/fleurs",
+  "revision": "4683b04af03d2d9549064c7d72060a9a94bb6046",
+  "locale": "kk_kz",
+  "language": "kk",
+  "license": "CC-BY-4.0",
+  "artifacts": [
+    {
+      "path": "data/kk_kz/audio/train.tar.gz",
+      "size_bytes": 1992291838,
+      "published_lfs_sha256": "4d28cb336b1c3207b993b96a301e23aceb513739ea0079ba9dd19e30da661393"
+    },
+    {
+      "path": "data/kk_kz/audio/dev.tar.gz",
+      "size_bytes": 248842953,
+      "published_lfs_sha256": "a0481dd445d9ae8424eb870751f1ab51d82f0b7f5566318ffa5adab7f9c9f69d"
+    },
+    {
+      "path": "data/kk_kz/audio/test.tar.gz",
+      "size_bytes": 628328020,
+      "published_lfs_sha256": "f29331a9731a00f544e2cb7d1dbcbb5a4258fd200323811ec837d15dd3c2e8a0"
+    },
+    {
+      "path": "data/kk_kz/train.tsv",
+      "size_bytes": 2812850,
+      "published_git_blob_sha1": "dd766bfd389fb4b02bccd5039fbc022195724b29",
+      "local_sha256": "618a8e83ab0b5fd1cf4c7dfb9f6777fc3dad145e9daf250e8698e56d69f944df"
+    },
+    {
+      "path": "data/kk_kz/dev.tsv",
+      "size_bytes": 312534,
+      "published_git_blob_sha1": "e9eb4ca68346f8132c56b63502df7ac7c5094e16",
+      "local_sha256": "24195834bd3720cbbb4c57cd6e6ce51e8335b15239054995b8f3c31b69f4293c"
+    },
+    {
+      "path": "data/kk_kz/test.tsv",
+      "size_bytes": 787758,
+      "published_git_blob_sha1": "8dabc83e97e1916f47c1b7e5150aa04bb033aacd",
+      "local_sha256": "16b40d7a3c0a3be482f3bea949d3297ccdd13e42042683ffd298f8b6e469508a"
+    }
+  ]
+}

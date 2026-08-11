@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "source_id": "ksc2_v1",
+  "dataset": "ISSAI Kazakh Speech Corpus 2",
+  "huggingface_revision": "cececbec1049f93f34a7421552500da01971ead8",
+  "official_source_url": "https://issai.nu.edu.kz/kz-speech-corpus/",
+  "license": "CC-BY-4.0",
+  "multipart_archive": {
+    "compressed_bytes": 80809122212,
+    "compressed_sha256": "43d1ee6725d737a438125a13997a0abde4159de84ef17d1706fe7921e8632cbe",
+    "parts": [
+      {"filename": "ISSAI_KSC2.tar.gz.partaa", "size_bytes": 8388608000, "sha256": "97f4d4da990a65f35e8ace9f56e839b91cef37080308810751e7f128eb22f9b3"},
+      {"filename": "ISSAI_KSC2.tar.gz.partab", "size_bytes": 8388608000, "sha256": "e54e938d12e41c57f1ab40137c8f24912d13bba43751adb9f72db7dbecb59002"},
+      {"filename": "ISSAI_KSC2.tar.gz.partac", "size_bytes": 8388608000, "sha256": "faded42e376f8e7a89e8aeb3b5eba8b173fe67ed5c1e400020cf5ae57596607c"},
+      {"filename": "ISSAI_KSC2.tar.gz.partad", "size_bytes": 8388608000, "sha256": "d0d19efa436e47bcca468fa7a2011af8b36317f150258e16b7e6cc511e324b1a"},
+      {"filename": "ISSAI_KSC2.tar.gz.partae", "size_bytes": 8388608000, "sha256": "6f1fdf6b00ee566cf5f609b7d5d72612b3bd6be44fbea5a1f38d92d9eb5d6486"},
+      {"filename": "ISSAI_KSC2.tar.gz.partaf", "size_bytes": 8388608000, "sha256": "fc088d1916a4f50fa03e232faa3572d7a74df8d7f353fc7dd7d632aa88011fb2"},
+      {"filename": "ISSAI_KSC2.tar.gz.partag", "size_bytes": 8388608000, "sha256": "b4234bd75181e24977a82d741bac6415578211d1859b0e4bda02cffb78ef987a"},
+      {"filename": "ISSAI_KSC2.tar.gz.partah", "size_bytes": 8388608000, "sha256": "eff158ce140feb233cc1668dea5a6a6403d7ec9a53ea3f2e0975c8bc84027d49"},
+      {"filename": "ISSAI_KSC2.tar.gz.partai", "size_bytes": 8388608000, "sha256": "85d34138c179a1d591d75823ca197842f94e5cd212d4688a20ea488138002b76"},
+      {"filename": "ISSAI_KSC2.tar.gz.partaj", "size_bytes": 5311650212, "sha256": "1c3425a48b4f6e9c5696e6efbc9c9d20e2072154a75571a4a92b19b7e1762b86"}
+    ]
+  },
+  "layout": {
+    "archive_root": "ISSAI_KSC2",
+    "flac_files": 645860,
+    "transcript_files": 645861,
+    "unpaired_audio_files": 0,
+    "unpaired_transcript_files": 1,
+    "unpaired_transcript": "ISSAI_KSC2/Train/radio/01_69_226.txt",
+    "test_nonlegacy_paired_candidates": {
+      "parliament": 773,
+      "podcasts": 1547,
+      "radio": 702,
+      "talkshow": 383,
+      "tv_news": 2618
+    },
+    "excluded_component_patterns": ["*/crowdsourced/*", "*/tts/*"],
+    "repeated_suffix_pair_count": 5044
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "input_manifest": "data/manifests/fleurs_ru_ru_v1_test_raw_300.csv",
+  "published_rows": 289,
+  "rejected_rows": [
+    {
+      "sample_id": "google_fleurs_ru_v1:15168957797605772339",
+      "relative_path": "raw/google_fleurs_ru_v1/slices/test-raw-300/15168957797605772339.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:17470378300644042595",
+      "relative_path": "raw/google_fleurs_ru_v1/slices/test-raw-300/17470378300644042595.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:847319919963451248",
+      "relative_path": "raw/google_fleurs_ru_v1/slices/test-raw-300/847319919963451248.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:17047589149416395439",
+      "relative_path": "raw/google_fleurs_ru_v1/slices/test-raw-300/17047589149416395439.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:2203515489150865469",
+      "relative_path": "raw/google_fleurs_ru_v1/slices/test-raw-300/2203515489150865469.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:1431500214137058232",
+      "relative_path": "raw/google_fleurs_ru_v1/slices/test-raw-300/1431500214137058232.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:15754855067536200790",
+      "relative_path": "raw/google_fleurs_ru_v1/slices/test-raw-300/15754855067536200790.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:2216648319283429002",
+      "relative_path": "raw/google_fleurs_ru_v1/slices/test-raw-300/2216648319283429002.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:10287982794225042645",
+      "relative_path": "raw/google_fleurs_ru_v1/slices/test-raw-300/10287982794225042645.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:6551088573330661212",
+      "relative_path": "raw/google_fleurs_ru_v1/slices/test-raw-300/6551088573330661212.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "google_fleurs_ru_v1:645550759404948782",
+      "relative_path": "raw/google_fleurs_ru_v1/slices/test-raw-300/645550759404948782.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    }
+  ]
+}

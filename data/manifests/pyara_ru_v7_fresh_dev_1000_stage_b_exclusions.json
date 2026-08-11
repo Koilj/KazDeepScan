@@ -1,0 +1,32 @@
+{
+  "candidate_rows": 973,
+  "selected_rows": 970,
+  "excluded_rows": 3,
+  "label_counts": {
+    "bonafide": 474,
+    "spoof": 496
+  },
+  "reason_counts": {
+    "text_hash": 3
+  },
+  "exclusions": [
+    {
+      "sample_id": "pyara_ru_v7:alg_1_38893",
+      "reasons": [
+        "text_hash"
+      ]
+    },
+    {
+      "sample_id": "pyara_ru_v7:alg_1_11091",
+      "reasons": [
+        "text_hash"
+      ]
+    },
+    {
+      "sample_id": "pyara_ru_v7:real_5422",
+      "reasons": [
+        "text_hash"
+      ]
+    }
+  ]
+}

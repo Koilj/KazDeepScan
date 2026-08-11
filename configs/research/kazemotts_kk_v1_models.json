@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "protocol_id": "kazemotts-kk-research-v1",
+  "models": [
+    {
+      "model_id": "kazemotts_gradtts_hifigan",
+      "destination": "kazemotts_gradtts_hifigan",
+      "generator_family": "gradtts_hifigan_emotional_tts",
+      "generator_name": "ISSAI KazEmoTTS Grad-TTS + HiFi-GAN",
+      "generator_version": "KazEmoTTS source-revision-0db250b2ebd95c0de7f8fb7ccba9fd65d4815115; checkpoints-2024-03-11",
+      "license": "KazEmoTTS dataset and model CC-BY-4.0; upstream source archive used only for local inference",
+      "source_url": "https://github.com/IS2AI/KazEmoTTS/tree/0db250b2ebd95c0de7f8fb7ccba9fd65d4815115",
+      "runtime": {
+        "kind": "kazemotts_gradtts_hifigan",
+        "source_archive_path": "source.tar.gz",
+        "source_archive_root": "KazEmoTTS-0db250b2ebd95c0de7f8fb7ccba9fd65d4815115",
+        "tts_archive_path": "pt_10000.zip",
+        "tts_checkpoint_member": "pt_10000/EMA_grad_10000.pt",
+        "tts_checkpoint_size_bytes": 209375007,
+        "tts_checkpoint_sha256": "b6c40610afdc2b7859ae4187b7f552e507011ebc1c5166ee91dbc7d085c8d225",
+        "vocoder_archive_path": "pre_trained_hf.zip",
+        "vocoder_checkpoint_member": "pre_trained 3/g_01720000",
+        "vocoder_checkpoint_size_bytes": 55824433,
+        "vocoder_checkpoint_sha256": "fa0a76a49573909b968708717138849d68d9627cdf03307d00c7bd49278dc573",
+        "sample_rate": 22050,
+        "n_timesteps": 10,
+        "temperature": 1.0,
+        "classifier_free_guidance": 100.0,
+        "profiles": [
+          {"voice_id": "M1:angry", "speaker_id": 0, "emotion_id": 0},
+          {"voice_id": "M1:surprise", "speaker_id": 0, "emotion_id": 1},
+          {"voice_id": "M1:fear", "speaker_id": 0, "emotion_id": 2},
+          {"voice_id": "M1:happy", "speaker_id": 0, "emotion_id": 3},
+          {"voice_id": "M1:neutral", "speaker_id": 0, "emotion_id": 4},
+          {"voice_id": "M1:sad", "speaker_id": 0, "emotion_id": 5},
+          {"voice_id": "F1:angry", "speaker_id": 1, "emotion_id": 0},
+          {"voice_id": "F1:surprise", "speaker_id": 1, "emotion_id": 1},
+          {"voice_id": "F1:fear", "speaker_id": 1, "emotion_id": 2},
+          {"voice_id": "F1:happy", "speaker_id": 1, "emotion_id": 3},
+          {"voice_id": "F1:neutral", "speaker_id": 1, "emotion_id": 4},
+          {"voice_id": "F1:sad", "speaker_id": 1, "emotion_id": 5},
+          {"voice_id": "M2:angry", "speaker_id": 2, "emotion_id": 0},
+          {"voice_id": "M2:surprise", "speaker_id": 2, "emotion_id": 1},
+          {"voice_id": "M2:fear", "speaker_id": 2, "emotion_id": 2},
+          {"voice_id": "M2:happy", "speaker_id": 2, "emotion_id": 3},
+          {"voice_id": "M2:neutral", "speaker_id": 2, "emotion_id": 4},
+          {"voice_id": "M2:sad", "speaker_id": 2, "emotion_id": 5}
+        ]
+      },
+      "artifacts": [
+        {
+          "relative_path": "source.tar.gz",
+          "url": "https://github.com/IS2AI/KazEmoTTS/archive/0db250b2ebd95c0de7f8fb7ccba9fd65d4815115.tar.gz",
+          "expected_size_bytes": 4439716,
+          "sha256": "2b0e228113c594523514ab77ef87c9c8ee80fd6b714b86cdd596a8e67c3d4bf4"
+        },
+        {
+          "relative_path": "pt_10000.zip",
+          "url": "https://issai.nu.edu.kz/wp-content/uploads/2024/03/pt_10000.zip",
+          "expected_size_bytes": 192062769,
+          "sha256": "f157ea0c4c9ec830fb0b6507446e8c3028453ace9e204cfc456a88507cbd43ae"
+        },
+        {
+          "relative_path": "pre_trained_hf.zip",
+          "url": "https://issai.nu.edu.kz/wp-content/uploads/2024/03/pre_trained_hf.zip",
+          "expected_size_bytes": 51874950,
+          "sha256": "74e9d5ab53f18dbc475b3aea5675b1b3806cbe0d870d2e64aac0116dbe354431"
+        }
+      ]
+    }
+  ]
+}

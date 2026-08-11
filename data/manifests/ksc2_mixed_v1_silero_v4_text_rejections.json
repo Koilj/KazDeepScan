@@ -1,0 +1,9 @@
+{
+  "base_manifest": "data/manifests/ksc2_test_mixed_ai_review_v1_ready.csv",
+  "base_manifest_sha256": "e3a881ba8b0d0c4e26dccaefce17ad7cd2fcd38c3890ec265047d4b045055770",
+  "model_lock_sha256": "b1cd921e743c24fb5be6129973c10b35cc0b728e6e37bf061d10328bdcdfc629",
+  "published_rows": 31,
+  "rejected_rows": [],
+  "review_csv_sha256": "63257415ad744bf3095e28f6dede7e6e53e9608587258170cdd924651f5075e2",
+  "rule": "Input-pinned mixed transcript only; acoustic preservation is unverified."
+}

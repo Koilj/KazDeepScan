@@ -1,0 +1,5 @@
+{
+  "input_manifest": "data/manifests/fleurs_ru_kk_v1_silero_v4_test_raw.csv",
+  "published_rows": 366,
+  "rejected_rows": []
+}

@@ -1,0 +1,221 @@
+{
+  "input_manifest": "data/manifests/ksc_derived_kk_v2_kazemotts_raw_402.csv",
+  "published_rows": 359,
+  "rejected_rows": [
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:1d385311277fc6e6",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f9fc05b6acac.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:b1d62f02f840ac6c",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f5a39ffe9e79.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:30bdada2423db193",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f5eeb94a2bef.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:aa0936efb2f7c86d",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f5f76f4db5b4.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:d069248b79c4b71e",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f59bfc8baefc.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:f25b5498d1dea550",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f6095e1b204c.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:0b20d6fd8ae42c62",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f632a74816be.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:8d7c7cf3fa484fff",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f5772608b766.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:479fb383184ff8a0",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f2b098ac675f.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:60dcebabc0a82615",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f62e03cafa42.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:38a23d56f0dde1b9",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f59e9f4a4a0a.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:d747ac1e95909a04",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f5fc45a17d7d.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:9de3a3f184c61be4",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f619374f3e61.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:6c3d6bb8b7aef4ad",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f60ea19058df.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:162f605f7124cb62",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f60fe255b038.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:9c841c6e18ea2c2c",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f5687bcaddb8.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:9b7251b75e7cc40f",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f619213dc684.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:719cfe1862bb9749",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f5a5c95d0331.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:937ca4d80c344d89",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f5f58c7d1be8.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:ca4f356c5ba785d5",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f60be68e726a.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:4f8c25d67ff2ea10",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f60e728897fb.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:9e37c0ccd76d0d50",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f61dfb0caece.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:7307cff0cf6b7bad",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f61bfbdeed46.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:1c82113ae342a8ad",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f5a55c5f1faf.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:95771a88c543d7ba",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f577447540bd.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:7c786019c68d9af0",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f58853f2954b.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:7abc73bae4546885",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5fa23084bf8a8.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:e58125fe6edde1f1",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f60cab44f9c5.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:437f5fd1fc11a036",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f434af08c2fe.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:c462c2956572c735",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5fa25e2e8a9f0.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:c20ee822a146062a",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f5f768609ece.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:a70e3b6ac7772787",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f5c4c4840b96.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:28bf62678da3a9d8",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5fa2340f229b6.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:c41f70f45fd162b1",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f60c3639b347.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:469fa4ed4c604e2d",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f62fce197b19.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:c18a3a15df643116",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f62ffcf171fb.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:c014e818014b2260",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f568381dee24.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:898eccfdc0c6adcd",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f60e770ef566.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:855f2cd4acb6dbd2",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f62ff91b6104.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:8d69b016959e40de",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f62d8d000ffe.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:5949bf4e9e4b13ca",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f60c6a8a1dab.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:3faa9b60dcafb44a",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f5c4bf9ccfaf.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ksc_derived_kk_v2_kazemotts:e81b01aa5c84a314",
+      "relative_path": "raw/ksc_derived_kk_v2_kazemotts/slices/kazemotts-402/kazemotts_gradtts_hifigan/5f618ad4606b3.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    }
+  ]
+}

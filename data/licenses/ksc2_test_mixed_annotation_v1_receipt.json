@@ -1,0 +1,21 @@
+{
+  "annotation_state": "pending",
+  "archive_sha256": "43d1ee6725d737a438125a13997a0abde4159de84ef17d1706fe7921e8632cbe",
+  "candidate_count": 2632,
+  "candidate_counts_by_component": {
+    "Test/podcasts": 1547,
+    "Test/radio": 702,
+    "Test/talkshow": 383
+  },
+  "code_switch": "unknown",
+  "language": "unknown",
+  "priority_components": [
+    "Test/podcasts",
+    "Test/radio",
+    "Test/talkshow"
+  ],
+  "rule": "No automatic language decision. This immutable candidate packet may feed only an explicit evidence-preserving later review; unreviewed rows remain unknown.",
+  "schema_version": 1,
+  "source_lock": "data/licenses/ksc2_v1_artifact_lock.json",
+  "source_lock_sha256": "5a632c689b2dff0d3e23d4352da4031349c51adb497d720a48ea96430e89231d"
+}

@@ -1,0 +1,20 @@
+{
+  "archive_sha256": "43d1ee6725d737a438125a13997a0abde4159de84ef17d1706fe7921e8632cbe",
+  "candidate_count": 2632,
+  "candidate_counts_by_component": {
+    "Test/podcasts": 1547,
+    "Test/radio": 702,
+    "Test/talkshow": 383
+  },
+  "packet_path": "data/manifests/ksc2_test_mixed_annotation_v1.csv",
+  "packet_receipt_path": "data/licenses/ksc2_test_mixed_annotation_v1_receipt.json",
+  "packet_receipt_sha256": "64925d25231ecde944ffb934a0d1e7f0fecdac37c8d1923e38d6bd7ec71b802d",
+  "packet_sha256": "5b80ee0b6d9d80907ed77a9c1e21821a6324e9621f3cb96ad1daab17982acc20",
+  "priority_components": [
+    "Test/podcasts",
+    "Test/radio",
+    "Test/talkshow"
+  ],
+  "schema_version": 1,
+  "source_lock_sha256": "5a632c689b2dff0d3e23d4352da4031349c51adb497d720a48ea96430e89231d"
+}

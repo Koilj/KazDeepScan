@@ -1,0 +1,51 @@
+{
+  "status": "ok",
+  "role": "calibration_dev",
+  "historical_manifests": [
+    {
+      "path": "data/manifests/ruasd_ru_v1_full_research_2000_ready.csv",
+      "sha256": "bad6981d86d7c620ad1cda32208e3d5e6cb00b7985a242a35ba279b4e2226072",
+      "rows": 1814
+    },
+    {
+      "path": "data/manifests/pyara_ru_v7_research_500_ready.csv",
+      "sha256": "3b8357c0acd7efbd603218e49536ab80046764301594ee1e4f7def68155a70eb",
+      "rows": 481
+    },
+    {
+      "path": "data/manifests/pyara_ru_v7_fresh_dev_1000_ready_v2.csv",
+      "sha256": "7ae57e0714b5a245079902e06adaca7a02c423418e2e37bfded6d55c6db0d2f0",
+      "rows": 970
+    }
+  ],
+  "candidate_manifest": {
+    "path": "data/manifests/pyara_ru_v7_stage_b_calibration_dev_1000_ready.csv",
+    "sha256": "a2386bae340d198dc3b64d7b64bbc1090c4ad856022029b7ada35f709c7129ad",
+    "rows": 978
+  },
+  "published_manifest": {
+    "path": "data/manifests/pyara_ru_v7_stage_b_calibration_dev_1000_ready_v2.csv",
+    "sha256": "3704f4da82ff02066260fbbd472952771bf721b3890f9f8bfac71dbd403fa879",
+    "rows": 977
+  },
+  "filter": {
+    "candidate_rows": 978,
+    "selected_rows": 977,
+    "excluded_rows": 1,
+    "label_counts": {
+      "bonafide": 478,
+      "spoof": 499
+    },
+    "reason_counts": {
+      "text_hash": 1
+    },
+    "exclusions": [
+      {
+        "sample_id": "pyara_ru_v7:alg_2_398",
+        "reasons": [
+          "text_hash"
+        ]
+      }
+    ]
+  }
+}

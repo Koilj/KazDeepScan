@@ -1,0 +1,5 @@
+{
+  "input_manifest": "data/manifests/tone_speak_ru_v1_ood_raw_100.csv",
+  "published_rows": 100,
+  "rejected_rows": []
+}

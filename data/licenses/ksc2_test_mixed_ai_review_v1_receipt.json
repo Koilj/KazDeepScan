@@ -1,0 +1,24 @@
+{
+  "archive_sha256": "43d1ee6725d737a438125a13997a0abde4159de84ef17d1706fe7921e8632cbe",
+  "candidate_packet_lock_path": "data/licenses/ksc2_test_mixed_annotation_v1_packet_lock.json",
+  "candidate_packet_lock_sha256": "c4d731de6b8b772f7c0c1f5e70be3edde668f1e065bc730472cc4e3a8491fe25",
+  "candidate_packet_path": "data/manifests/ksc2_test_mixed_annotation_v1.csv",
+  "candidate_packet_receipt_path": "data/licenses/ksc2_test_mixed_annotation_v1_receipt.json",
+  "candidate_packet_receipt_sha256": "64925d25231ecde944ffb934a0d1e7f0fecdac37c8d1923e38d6bd7ec71b802d",
+  "candidate_packet_sha256": "5b80ee0b6d9d80907ed77a9c1e21821a6324e9621f3cb96ad1daab17982acc20",
+  "candidate_rows": 2632,
+  "confirmed_mixed_counts_by_component": {
+    "Test/podcasts": 22,
+    "Test/radio": 4,
+    "Test/talkshow": 6
+  },
+  "confirmed_mixed_rows": 32,
+  "output_csv": "data/manifests/ksc2_test_mixed_ai_review_v1.csv",
+  "output_csv_sha256": "63257415ad744bf3095e28f6dede7e6e53e9608587258170cdd924651f5075e2",
+  "review_method": "single_ai_transcript_semantic_review_v1",
+  "reviewed_at": "2026-08-11T00:00:00Z",
+  "reviewer": "codex_language_review_v1",
+  "rule": "Each published row has explicit Russian and Kazakh transcript-token evidence from one AI semantic review. Unlisted candidates remain unknown. This is research evidence, not a binary training manifest.",
+  "schema_version": 1,
+  "source_lock_sha256": "5a632c689b2dff0d3e23d4352da4031349c51adb497d720a48ea96430e89231d"
+}

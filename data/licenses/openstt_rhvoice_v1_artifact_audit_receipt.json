@@ -1,0 +1,26 @@
+{
+  "archive": {
+    "filename": "tts_russian_addresses_rhvoice_4voices.tar.gz",
+    "md5": "2bdd0e26d972f60a0e54dafeef642264",
+    "size_bytes": 13862699423
+  },
+  "archive_content_bytes": 19789446778,
+  "archive_directories": 0,
+  "archive_duplicate_opus_members": 113277,
+  "archive_duplicate_payloads_verified": 226554,
+  "archive_duplicate_transcript_members": 113277,
+  "archive_opus_files": 1741838,
+  "archive_regular_files": 3483676,
+  "archive_transcript_files": 1741838,
+  "manifest": {
+    "filename": "tts_russian_addresses_rhvoice_4voices.csv",
+    "md5": "628c2974eeb2edfba4a560445d9dc628",
+    "size_bytes": 220255453
+  },
+  "manifest_duplicate_paths": 88897,
+  "manifest_duplicate_rows": 113277,
+  "manifest_duration_sum": "2712624.9621250",
+  "manifest_rows": 1741838,
+  "manifest_unique_pairs": 1628561,
+  "source_id": "openstt_rhvoice_addresses_v1"
+}

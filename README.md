@@ -27,13 +27,22 @@ KazDeepScan — локальный personal-research проект для исс�
   B0 smoke baseline; источник не даёт speaker IDs;
 - явный training-protocol gate: текущий рабочий режим — `research`; строгая ветка `product`
   остаётся только неактивным fail-closed validator для возможного будущего изменения scope;
-- local consent-registry validator сохранён как архивный инструмент; PII и сами соглашения
-  никогда не хранятся в Git.
-- B0 и XLS-R + SLS tensor/training foundations, record-level logit aggregation и temperature
-  scaling;
+- local consent-registry validator сохранён только как архивный инструмент. Текущая дорожная
+  карта не предусматривает запись голосов людей, voice cloning или сбор consented corpus;
+  PII и соглашения не создаются и никогда не хранятся в Git.
+- B0 foundation и реальные XLS-R + SLS Stage A/B: hash-pinned CUDA/BF16 runners сначала
+  обучают SLS-head, затем размораживают только последние восемь XLS-R blocks. Stage B использует
+  RuASD train и новый 970-row PyAra dev без доступного sample/asset/text/group overlap; runners
+  не принимают frozen final manifests, а aggregation/calibration остаются неактивными;
 - explicit source-mixed research matrix и B0 runner, который не допускает overlap исходных
   corpus между train/dev/final-test и проверяет обычный sample/SHA-256/group/text leakage поверх
   этого;
+- узкий KSC2 mixed evidence layer из single-AI semantic transcript review: каждая из 32 строк
+  содержит explicit Russian/Kazakh token evidence; остальные 2 600 candidates остаются unknown;
+- из этого evidence подготовлен QA/VAD-ready KSC2 bona-fide candidate: 31 из 32 строк; 1
+  rejection сохранён. Silero V4 technical smoke-test создал 10 технически готовых WAV, но пока
+  не создаёт acoustic language-quality claim. Отдельный input-pinned research candidate содержит
+  30 QA/VAD-ready exact bona-fide/spoof pairs и явно отмечает эту границу provenance;
 - FastAPI health/readiness/upload scaffold, который не выдаёт score без обученного,
   калиброванного model release.
 
@@ -44,8 +53,14 @@ KazDeepScan — локальный personal-research проект для исс�
 источник не даёт проверяемый speaker-disjoint binary split. Отчёты:
 [RuASD](docs/research_b0_ruasd_full_2000.md),
 [source-mixed v1](docs/research_b0_source_mixed_v1.md) и
-[source-mixed v2 Kazakh](docs/research_b0_source_mixed_v2_kk.md). Поэтому ни модель, ни API
-не выдают вероятность риска или калиброванный score.
+[source-mixed v2 Kazakh](docs/research_b0_source_mixed_v2_kk.md). XLS-R+SLS Stage B выбрал
+epoch 7 по fresh PyAra dev loss `0.15236`, accuracy `0.9381` и balanced accuracy `0.9393`;
+полный ограниченный отчёт — [XLS-R+SLS Stage B v1](docs/research_xlsr_sls_stage_b_v1.md).
+В самом Stage-B train/dev frozen final evaluation и calibration не выполнялись, поэтому ни
+модель, ни API не выдают вероятность риска или калиброванный score. Отдельный 30-pair
+KSC2/Silero exploratory stress-test проведён с write-once plan и без calibration/threshold
+selection; это не final quality. Полный pair-level report —
+[здесь](docs/research_xlsr_sls_stage_b_ksc2_mixed_exploratory_30.md).
 
 ## Требования
 
@@ -131,6 +146,16 @@ kds validate-training-protocol data/manifests/slice.csv \
 kds validate-source-matrix configs/research/source_mixed_v1.json \
   --license-ledger data/licenses/license_ledger.csv
 
+# Опубликовать narrow KSC2 single-AI mixed evidence review. Скрипт не запускает LID,
+# ASR или эвристику: он воспроизводит только явно сохранённые token-level review decisions.
+uv run python scripts/publish_ksc2_ai_mixed_review.py \
+  --packet data/manifests/ksc2_test_mixed_annotation_v1.csv \
+  --packet-receipt data/licenses/ksc2_test_mixed_annotation_v1_receipt.json \
+  --packet-lock data/licenses/ksc2_test_mixed_annotation_v1_packet_lock.json \
+  --reviewed-at 2026-08-11T00:00:00Z \
+  --output-csv data/manifests/ksc2_test_mixed_ai_review_v1.csv \
+  --output-receipt data/licenses/ksc2_test_mixed_ai_review_v1_receipt.json
+
 # Обучить B0 с source-disjoint train/dev и один раз оценить final test после выбора epoch по dev.
 uv run python scripts/train_b0_matrix.py \
   --matrix configs/research/source_mixed_v1.json \
@@ -148,10 +173,64 @@ uv run python scripts/train_b0_matrix.py \
   --license-ledger data/licenses/license_ledger.csv \
   --output models/b0-source-mixed-research-v2-kk.pt --device cuda
 
+# v4 — отдельный frozen Spark-TTS Kazakh final test. Его нельзя использовать
+# для выбора epoch, threshold или calibration.
+kds validate-source-matrix configs/research/source_mixed_v4_sparktts.json \
+  --license-ledger data/licenses/license_ledger.csv
+
+# v5 — отдельный frozen eSpeak NG Kazakh formant final test. Его нельзя использовать
+# для выбора epoch, threshold или calibration.
+kds validate-source-matrix configs/research/source_mixed_v5_espeakng.json \
+  --license-ledger data/licenses/license_ledger.csv
+
+# Проверить все три frozen Kazakh final test как unseen generator family
+# относительно фиксированных RuASD train и PyAra dev. Команда не обучает модель.
+kds validate-unseen-generator-suite configs/research/unseen_generator_ood_v1.json \
+  --license-ledger data/licenses/license_ledger.csv
+
+# Suite v1 уже оценён и повторно не запускается. Следующее имя plan — только шаблон:
+# файл создаётся вместе с новым suite и ранее не раскрытыми final assets. Сначала
+# проверить такой заранее зафиксированный run-plan без обучения и final inference:
+uv run python scripts/train_b0_unseen_suite.py \
+  --plan configs/research/unseen_generator_b0_run_v2.json \
+  --audio-root data --validate-only
+
+# После успешного preflight новый protocol выполняется ровно один раз той же командой
+# без --validate-only. Seed, model/training config, входные SHA-256 и output пути
+# берутся только из plan, а не из аргументов запуска.
+
+# Проверить новый XLS-R+SLS Stage A plan без обучения и без final inference.
+# Stage A v1 уже выполнен; для повторного эксперимента нужны новый run_id/output paths.
+uv run python scripts/train_xlsr_sls_stage_a.py \
+  --plan configs/research/xlsr_sls_stage_a_v2.json \
+  --audio-root data --validate-only
+
+# Затем отдельно выполнить ровно один train и один dev batch для CUDA/VRAM profile.
+uv run python scripts/train_xlsr_sls_stage_a.py \
+  --plan configs/research/xlsr_sls_stage_a_v2.json \
+  --audio-root data --profile-only
+
+# Stage B v1 уже выполнен. Новый запуск требует новых run_id/dev/output paths.
+uv run python scripts/train_xlsr_sls_stage_b.py \
+  --plan configs/research/xlsr_sls_stage_b_v2.json \
+  --audio-root data --validate-only
+
+# После успешного preflight выполнить ровно один batch train/dev для CUDA/VRAM profile.
+uv run python scripts/train_xlsr_sls_stage_b.py \
+  --plan configs/research/xlsr_sls_stage_b_v2.json \
+  --audio-root data --profile-only
+
 ```
 
 Все результаты CLI содержат только технические метаданные. Команды не отправляют аудио по
 сети и не создают его постоянных копий.
 
 Подробные контракты находятся в [docs/audio_pipeline.md](docs/audio_pipeline.md),
-[docs/data_contract.md](docs/data_contract.md) и [docs/threat_model.md](docs/threat_model.md).
+[docs/data_contract.md](docs/data_contract.md), [docs/threat_model.md](docs/threat_model.md) и
+[docs/frozen_b0_run_plan.md](docs/frozen_b0_run_plan.md). XLS-R Stage A/B описаны в
+[docs/xlsr_sls.md](docs/xlsr_sls.md); подготовка отдельного Stage-B calibration dev и границы
+следующего final protocol — в [docs/xlsr_stage_b_final_preparation.md](docs/xlsr_stage_b_final_preparation.md).
+KSC2 single-AI mixed evidence review и ограничения альтернативных LID/ASR sources — в
+[docs/ksc2_mixed_ai_review_v1.md](docs/ksc2_mixed_ai_review_v1.md); готовый bona-fide candidate
+и результат технического TTS smoke-test — в
+[docs/ksc2_mixed_candidate_v1.md](docs/ksc2_mixed_candidate_v1.md).

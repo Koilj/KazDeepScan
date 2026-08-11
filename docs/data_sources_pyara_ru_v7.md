@@ -43,6 +43,25 @@ Raw slice `data/manifests/pyara_ru_v7_research_500.csv` выбирается д�
 `kds validate-manifest --license-ledger` и `kds validate-assets` прошли для raw и ready
 manifest-ов.
 
+## Fresh Stage B dev slice
+
+Для Stage B создан отдельный детерминированный slice, который не повторяет исходные `500`
+PyAra record IDs и `499` уникальных text hashes. Raw manifest содержит `1 000` строк: `500`
+bona-fide и по `100` spoof от каждого из пяти algorithms. Все строки заранее получили
+`split=dev`; это evaluation/selection pool, а не новый local train/test split.
+
+После одинакового decode/QA/VAD осталось `973` строки, `27` rejections сохранены отдельно.
+Строгий builder затем удалил ещё три полных text groups, пересекавшихся с фиксированным RuASD
+train. Итоговый `data/manifests/pyara_ru_v7_fresh_dev_1000_ready_v2.csv` содержит `970` строк
+(`474` bona-fide / `496` spoof), имеет SHA-256
+`7ae57e0714b5a245079902e06adaca7a02c423418e2e37bfded6d55c6db0d2f0` и нулевой доступный
+sample/asset/text/parent-group overlap с RuASD train и старым Stage A dev.
+
+Exclusion report `data/manifests/pyara_ru_v7_fresh_dev_1000_stage_b_exclusions.json` имеет
+SHA-256 `446cd616f77ec66b7d9a2c7bcc72705cb5a4b66cb5c31817bf943fca6ca82154`. Увеличенный dev
+снижает неопределённость относительно старых 61 clips, но отсутствие speaker IDs по-прежнему
+запрещает называть его speaker-independent benchmark.
+
 ## B0 research smoke baseline
 
 На RTX 5060 Ti обучен `models/b0-pyara-research-500.pt`: 3 эпохи, лучший dev loss `0.5084`.

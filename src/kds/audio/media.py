@@ -47,9 +47,7 @@ def validate_declared_mime(mime_type: str | None) -> None:
 class FFmpegClient:
     """Thin, shell-free wrapper around ffprobe and ffmpeg."""
 
-    def __init__(
-        self, ffprobe_binary: str | None = None, ffmpeg_binary: str | None = None
-    ) -> None:
+    def __init__(self, ffprobe_binary: str | None = None, ffmpeg_binary: str | None = None) -> None:
         self._ffprobe_binary = ffprobe_binary or os.environ.get("KDS_FFPROBE_BINARY", "ffprobe")
         self._ffmpeg_binary = ffmpeg_binary or os.environ.get("KDS_FFMPEG_BINARY", "ffmpeg")
 

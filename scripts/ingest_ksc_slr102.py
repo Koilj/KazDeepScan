@@ -17,8 +17,31 @@ from kds.data.ksc_slr102 import (
     load_ksc_metadata,
     load_ksc_metadata_from_archive,
     select_ksc_records,
+    select_ksc_records_from_archive_excluding_texts,
 )
-from kds.data.manifest import ManifestError, validate_manifest, write_manifest
+from kds.data.manifest import ManifestError, load_manifest, validate_manifest, write_manifest
+
+
+def _excluded_ksc_provenance(manifests: list[Path]) -> tuple[set[str], set[str]]:
+    """Read previously frozen KSC rows to prevent a new derived source from reusing them."""
+
+    utterance_ids: set[str] = set()
+    text_hashes: set[str] = set()
+    prefix = "ksc_slr102:"
+    for path in manifests:
+        rows = load_manifest(path)
+        validate_manifest(rows)
+        for row in rows:
+            if row.source_name != "ksc_slr102":
+                continue
+            if not row.sample_id.startswith(prefix):
+                raise ValueError(f"KSC row has unexpected sample_id: {row.sample_id!r}")
+            utterance_id = row.sample_id.removeprefix(prefix)
+            if not utterance_id or "/" in utterance_id or "\\" in utterance_id:
+                raise ValueError(f"KSC row has unsafe sample_id: {row.sample_id!r}")
+            utterance_ids.add(utterance_id)
+            text_hashes.add(row.text_hash)
+    return utterance_ids, text_hashes
 
 
 def main() -> int:
@@ -43,6 +66,13 @@ def main() -> int:
     parser.add_argument("--slice-name", required=True)
     parser.add_argument("--source-splits", nargs="+", default=["train", "dev", "test"])
     parser.add_argument("--limit-per-split", type=int, default=250)
+    parser.add_argument(
+        "--exclude-manifest",
+        type=Path,
+        action="append",
+        default=[],
+        help="Existing frozen KSC manifest; its KSC sample IDs and text hashes cannot be reused.",
+    )
     parser.add_argument("--seed", default="20260808")
     parser.add_argument("--created-at", default=None)
     arguments = parser.parse_args()
@@ -55,22 +85,25 @@ def main() -> int:
         raise ValueError(f"data-root does not exist: {arguments.data_root}")
 
     try:
-        report = inspect_ksc_archive(arguments.archive)
+        excluded_ids, excluded_text_hashes = _excluded_ksc_provenance(arguments.exclude_manifest)
         if arguments.metadata_root is None:
-            selected_index_records = select_ksc_records(
+            selected_index_records, report = select_ksc_records_from_archive_excluding_texts(
+                arguments.archive,
                 load_ksc_metadata_from_archive(arguments.archive, arguments.source_splits),
                 arguments.limit_per_split,
                 arguments.seed,
+                excluded_utterance_ids=excluded_ids,
+                excluded_text_hashes=excluded_text_hashes,
             )
         else:
+            report = inspect_ksc_archive(arguments.archive)
             selected_records = select_ksc_records(
                 load_ksc_metadata(arguments.metadata_root, arguments.source_splits),
                 arguments.limit_per_split,
                 arguments.seed,
+                excluded_utterance_ids=excluded_ids,
             )
-        destination = (
-            arguments.data_root / "raw" / "ksc_slr102" / "slices" / arguments.slice_name
-        )
+        destination = arguments.data_root / "raw" / "ksc_slr102" / "slices" / arguments.slice_name
         selected_ids = (
             (record.utterance_id for record in selected_index_records)
             if arguments.metadata_root is None
@@ -80,6 +113,7 @@ def main() -> int:
             arguments.archive,
             selected_ids,
             destination,
+            excluded_text_hashes=excluded_text_hashes,
         )
         if arguments.metadata_root is None:
             selected_records = attach_ksc_transcripts(selected_index_records, destination)
@@ -95,6 +129,14 @@ def main() -> int:
                 codec=codec,
             )
         rows = ksc_manifest_rows(selected_records, assets, arguments.created_at)
+        reused_text_hashes = sorted(
+            {row.text_hash for row in rows}.intersection(excluded_text_hashes)
+        )
+        if reused_text_hashes:
+            raise ValueError(
+                "KSC selection overlaps a frozen manifest by transcript text hash; "
+                f"found {len(reused_text_hashes)} collisions."
+            )
         validate_manifest(rows)
         write_manifest(arguments.output_manifest, rows)
     except (KscIngestionError, ManifestError, ValueError) as error:

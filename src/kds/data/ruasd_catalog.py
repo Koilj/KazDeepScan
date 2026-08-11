@@ -196,8 +196,10 @@ def _catalog_spec_from_row(row: Mapping[str, str | None], row_number: int) -> Ru
             f"RuASD catalog row {row_number}: expected_size_bytes must be an integer."
         ) from error
     sha256 = value("sha256").lower()
-    if expected_size_bytes <= 0 or len(sha256) != 64 or any(
-        character not in "0123456789abcdef" for character in sha256
+    if (
+        expected_size_bytes <= 0
+        or len(sha256) != 64
+        or any(character not in "0123456789abcdef" for character in sha256)
     ):
         raise RuAsdCatalogError(f"RuASD catalog row {row_number}: invalid size or SHA-256.")
     return RuAsdArchiveSpec(
@@ -288,9 +290,7 @@ def _safe_member_name(member: tarfile.TarInfo) -> tuple[str, str]:
     return path.stem, path.suffix.lower()
 
 
-def _read_record_metadata(
-    member: tarfile.TarInfo, archive: tarfile.TarFile
-) -> RuAsdRecordMetadata:
+def _read_record_metadata(member: tarfile.TarInfo, archive: tarfile.TarFile) -> RuAsdRecordMetadata:
     if member.size <= 0 or member.size > 1_000_000:
         raise RuAsdCatalogError(f"Unsafe RuASD metadata size: {member.name!r}.")
     source = archive.extractfile(member)

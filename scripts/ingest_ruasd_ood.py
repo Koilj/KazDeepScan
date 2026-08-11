@@ -22,9 +22,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description="Build a verified fake-only Russian RuASD OOD slice."
     )
-    parser.add_argument(
-        "--archive", type=Path, default=Path("data/raw/ruasd") / RUASD_ARCHIVE_NAME
-    )
+    parser.add_argument("--archive", type=Path, default=Path("data/raw/ruasd") / RUASD_ARCHIVE_NAME)
     parser.add_argument("--data-root", type=Path, default=Path("data"))
     parser.add_argument("--output-manifest", type=Path, required=True)
     parser.add_argument("--slice-name", required=True)

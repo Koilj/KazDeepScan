@@ -22,9 +22,7 @@ COMMON_VOICE_RU_V24_ARCHIVE_NAME = "cv-corpus-24.0-2025-12-05-ru.tar.gz"
 COMMON_VOICE_RU_V24_ARCHIVE_EXPECTED_SIZE_BYTES = 7_008_716_262
 COMMON_VOICE_RU_V24_ARCHIVE_ROOT = "cv-corpus-24.0-2025-12-05"
 COMMON_VOICE_RU_V24_LOCALE = "ru"
-COMMON_VOICE_RU_V24_DIRECTORY = (
-    f"{COMMON_VOICE_RU_V24_ARCHIVE_ROOT}/{COMMON_VOICE_RU_V24_LOCALE}"
-)
+COMMON_VOICE_RU_V24_DIRECTORY = f"{COMMON_VOICE_RU_V24_ARCHIVE_ROOT}/{COMMON_VOICE_RU_V24_LOCALE}"
 COMMON_VOICE_RU_V24_CLIPS_DIRECTORY = f"{COMMON_VOICE_RU_V24_DIRECTORY}/clips"
 COMMON_VOICE_RU_V24_METADATA_FILENAMES = frozenset(
     {
@@ -486,9 +484,7 @@ def common_voice_manifest_rows(
         client_group = f"{COMMON_VOICE_RU_V24_SOURCE_ID}:client:{record.client_id}"
         rows.append(
             ManifestRow(
-                sample_id=(
-                    f"{COMMON_VOICE_RU_V24_SOURCE_ID}:{Path(record.clip_name).stem}"
-                ),
+                sample_id=(f"{COMMON_VOICE_RU_V24_SOURCE_ID}:{Path(record.clip_name).stem}"),
                 relative_path=asset.relative_path,
                 sha256=asset.sha256,
                 split=COMMON_VOICE_RU_V24_SOURCE_SPLITS[record.split],

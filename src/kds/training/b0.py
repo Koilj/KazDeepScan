@@ -45,7 +45,12 @@ def collate_audio_samples(samples: list[AudioSample]) -> AudioBatch:
 
 
 def make_audio_loader(
-    dataset: Dataset[AudioSample], batch_size: int, shuffle: bool, num_workers: int
+    dataset: Dataset[AudioSample],
+    batch_size: int,
+    shuffle: bool,
+    num_workers: int,
+    *,
+    pin_memory: bool = False,
 ) -> DataLoader[AudioBatch]:
     loader = DataLoader(
         dataset,
@@ -53,6 +58,7 @@ def make_audio_loader(
         shuffle=shuffle,
         num_workers=num_workers,
         collate_fn=collate_audio_samples,
+        pin_memory=pin_memory,
     )
     return cast(DataLoader[AudioBatch], loader)
 

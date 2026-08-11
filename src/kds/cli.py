@@ -26,6 +26,11 @@ from kds.data.source_matrix import (
     validate_source_mixed_research_matrix,
 )
 from kds.data.split import GroupSplitter, SplitConfig
+from kds.data.unseen_generator_ood import (
+    UnseenGeneratorSuiteError,
+    load_unseen_generator_suite,
+    validate_unseen_generator_suite,
+)
 
 
 def _inspect_audio(arguments: argparse.Namespace) -> int:
@@ -186,6 +191,42 @@ def _validate_source_mixed_research_matrix(arguments: argparse.Namespace) -> int
     return 0
 
 
+def _validate_unseen_generator_suite(arguments: argparse.Namespace) -> int:
+    try:
+        suite = load_unseen_generator_suite(Path(arguments.path))
+        report = validate_unseen_generator_suite(
+            suite, load_license_ledger(Path(arguments.license_ledger))
+        )
+    except (LicenseLedgerError, ManifestError, UnseenGeneratorSuiteError) as error:
+        print(json.dumps({"status": "error", "issues": list(error.issues)}, ensure_ascii=False))
+        return 2
+    print(
+        json.dumps(
+            {
+                "status": "ok",
+                "protocol_id": report.protocol_id,
+                "purpose": report.purpose,
+                "train": {"rows": report.train_rows, "source_ids": report.train_sources},
+                "dev": {"rows": report.dev_rows, "source_ids": report.dev_sources},
+                "train_dev_generator_families": report.train_dev_generator_families,
+                "final_tests": [
+                    {
+                        "id": test.test_id,
+                        "manifest": test.manifest_path,
+                        "rows": test.rows,
+                        "source_ids": test.source_ids,
+                        "generator_families": test.generator_families,
+                        "label_counts": test.label_counts,
+                    }
+                    for test in report.final_tests
+                ],
+            },
+            ensure_ascii=False,
+        )
+    )
+    return 0
+
+
 def _assign_splits(arguments: argparse.Namespace) -> int:
     try:
         rows = load_manifest(Path(arguments.input_path))
@@ -261,6 +302,16 @@ def build_parser() -> argparse.ArgumentParser:
     source_matrix.add_argument("path", help="Versioned JSON source matrix")
     source_matrix.add_argument("--license-ledger", required=True)
     source_matrix.set_defaults(handler=_validate_source_mixed_research_matrix)
+
+    unseen_suite = subparsers.add_parser(
+        "validate-unseen-generator-suite",
+        help=(
+            "Validate frozen, source-safe final tests whose spoof families are unseen in train/dev"
+        ),
+    )
+    unseen_suite.add_argument("path", help="Versioned JSON unseen-generator suite")
+    unseen_suite.add_argument("--license-ledger", required=True)
+    unseen_suite.set_defaults(handler=_validate_unseen_generator_suite)
 
     assign = subparsers.add_parser(
         "assign-splits", help="Assign train/dev/test by connected group, speaker, and text"

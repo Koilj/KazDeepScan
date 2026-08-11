@@ -8,7 +8,7 @@ import io
 import shutil
 import tempfile
 import zipfile
-from collections.abc import Iterable, Mapping
+from collections.abc import Collection, Iterable, Mapping
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path, PurePosixPath
@@ -120,6 +120,10 @@ def _canonical_sentence(value: str) -> str:
     return " ".join(value.split())
 
 
+def pyara_record_text_hash(record: PyAraRecord) -> str:
+    return hashlib.sha256(record.sentence.encode()).hexdigest()
+
+
 def _load_metadata(archive: zipfile.ZipFile) -> list[PyAraRecord]:
     try:
         with archive.open(PYARA_METADATA_MEMBER) as source:
@@ -205,14 +209,25 @@ def inspect_pyara_archive(archive_path: Path) -> tuple[PyAraArchiveReport, list[
 
 
 def select_pyara_records(
-    records: Iterable[RecordT], real_limit: int, fake_limit_per_algorithm: int, seed: str
+    records: Iterable[RecordT],
+    real_limit: int,
+    fake_limit_per_algorithm: int,
+    seed: str,
+    *,
+    excluded_record_ids: Collection[str] = (),
+    excluded_text_hashes: Collection[str] = (),
 ) -> list[RecordT]:
-    """Select a deterministic class-balanced raw slice with every fake algorithm represented."""
+    """Select a deterministic balanced slice, optionally excluding prior samples/texts."""
 
     if real_limit <= 0 or fake_limit_per_algorithm <= 0 or not seed:
         raise ValueError("Selection limits and seed must be positive and non-empty.")
     grouped: dict[str, list[RecordT]] = {}
     for record in records:
+        if (
+            record.record_id in excluded_record_ids
+            or pyara_record_text_hash(record) in excluded_text_hashes
+        ):
+            continue
         key = "real" if record.label == "bonafide" else record.algorithm
         grouped.setdefault(key, []).append(record)
     selected: list[RecordT] = []
@@ -274,9 +289,13 @@ def pyara_manifest_rows(
     records: Iterable[PyAraRecord],
     assets: Mapping[str, ExtractedPyAraAsset],
     created_at: str | None = None,
+    *,
+    split: str = "train",
 ) -> list[ManifestRow]:
     """Build research rows with text-safe groups; source does not supply speaker identities."""
 
+    if split not in {"train", "dev", "test", "ood"}:
+        raise ValueError("PyAra manifest split is invalid.")
     timestamp = created_at or datetime.now(UTC).isoformat().replace("+00:00", "Z")
     rows: list[ManifestRow] = []
     for record in records:
@@ -284,13 +303,13 @@ def pyara_manifest_rows(
         if asset is None:
             raise PyAraIngestionError(f"Missing PyAra asset: {record.relative_path!r}.")
         record_key = f"{PYARA_SOURCE_ID}:source-record:{record.record_id}"
-        text_hash = hashlib.sha256(record.sentence.encode()).hexdigest()
+        text_hash = pyara_record_text_hash(record)
         rows.append(
             ManifestRow(
                 sample_id=f"{PYARA_SOURCE_ID}:{record.record_id}",
                 relative_path=asset.relative_path,
                 sha256=asset.sha256,
-                split="train",
+                split=split,
                 label=record.label,
                 language="ru",
                 code_switch="unknown",

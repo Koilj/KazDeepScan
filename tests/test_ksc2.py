@@ -1,0 +1,152 @@
+from __future__ import annotations
+
+import gzip
+import io
+import tarfile
+from pathlib import Path
+
+import pytest
+
+from kds.data.ksc2 import (
+    KSC2_ARCHIVE_BASENAME,
+    Ksc2AuditError,
+    audit_ksc2_archive,
+    extract_ksc2_mixed_annotation_candidates,
+)
+
+
+def _write_parts(directory: Path, archive_members: list[tuple[str, bytes]]) -> tuple[int, ...]:
+    stream = io.BytesIO()
+    with tarfile.open(fileobj=stream, mode="w") as archive:
+        root = tarfile.TarInfo("ISSAI_KSC2/")
+        root.type = tarfile.DIRTYPE
+        archive.addfile(root)
+        directory_member = tarfile.TarInfo("ISSAI_KSC2/Test/crowdsourced/")
+        directory_member.type = tarfile.DIRTYPE
+        archive.addfile(directory_member)
+        for name, payload in archive_members:
+            member = tarfile.TarInfo(name)
+            member.size = len(payload)
+            archive.addfile(member, io.BytesIO(payload))
+    compressed = gzip.compress(stream.getvalue())
+    split = len(compressed) // 2
+    suffixes = (
+        "partaa",
+        "partab",
+        "partac",
+        "partad",
+        "partae",
+        "partaf",
+        "partag",
+        "partah",
+        "partai",
+        "partaj",
+    )
+    chunks = [compressed[:split], compressed[split:]] + [b""] * 8
+    for suffix, payload in zip(suffixes, chunks, strict=True):
+        (directory / f"{KSC2_ARCHIVE_BASENAME}.{suffix}").write_bytes(payload)
+    return tuple(len(chunk) for chunk in chunks)
+
+
+def test_ksc2_audit_streams_parts_once_and_collects_layout(tmp_path: Path) -> None:
+    expected_sizes = _write_parts(
+        tmp_path,
+        [
+            ("ISSAI_KSC2/Test/crowdsourced/a.flac", b"flac"),
+            ("ISSAI_KSC2/Test/crowdsourced/a.txt", b"text"),
+            ("ISSAI_KSC2/Test/crowdsourced/b.flac.flac", b"flac"),
+            ("ISSAI_KSC2/Test/crowdsourced/b.txt.txt", b"text"),
+            ("ISSAI_KSC2/Test/metadata.csv", b"id,text\n1,hello\n"),
+        ],
+    )
+
+    report = audit_ksc2_archive(tmp_path, expected_sizes=expected_sizes)
+
+    assert report.regular_files == 5
+    assert report.files_by_extension == {".csv": 1, ".flac": 2, ".txt": 2}
+    assert report.files_by_component == {"Test/crowdsourced": 4, "Test/metadata.csv": 1}
+    assert report.audio_files == 2
+    assert report.transcript_files == 2
+    assert report.unpaired_audio_examples == ()
+    assert report.unpaired_transcript_examples == ()
+    assert report.metadata_files == 1
+    assert report.metadata_member_examples == ("ISSAI_KSC2/Test/metadata.csv",)
+    assert len(report.parts) == 10
+    assert len(report.compressed_sha256) == 64
+
+
+def test_ksc2_audit_rejects_symlink_members(tmp_path: Path) -> None:
+    stream = io.BytesIO()
+    with tarfile.open(fileobj=stream, mode="w") as archive:
+        root = tarfile.TarInfo("ISSAI_KSC2/")
+        root.type = tarfile.DIRTYPE
+        archive.addfile(root)
+        link = tarfile.TarInfo("ISSAI_KSC2/Test/link")
+        link.type = tarfile.SYMTYPE
+        link.linkname = "/etc/passwd"
+        archive.addfile(link)
+    compressed = gzip.compress(stream.getvalue())
+    suffixes = (
+        "partaa",
+        "partab",
+        "partac",
+        "partad",
+        "partae",
+        "partaf",
+        "partag",
+        "partah",
+        "partai",
+        "partaj",
+    )
+    chunks = [compressed] + [b""] * 9
+    for suffix, payload in zip(suffixes, chunks, strict=True):
+        (tmp_path / f"{KSC2_ARCHIVE_BASENAME}.{suffix}").write_bytes(payload)
+
+    with pytest.raises(Ksc2AuditError, match="unsupported member type"):
+        audit_ksc2_archive(tmp_path, expected_sizes=tuple(len(chunk) for chunk in chunks))
+
+
+def test_ksc2_annotation_extracts_only_priority_components_as_unlabelled_candidates(
+    tmp_path: Path,
+) -> None:
+    expected_sizes = _write_parts(
+        tmp_path,
+        [
+            ("ISSAI_KSC2/Test/podcasts/p.flac", b"podcast-audio"),
+            ("ISSAI_KSC2/Test/podcasts/p.txt", "подкаст текст".encode()),
+            ("ISSAI_KSC2/Test/talkshow/t.flac", b"talkshow-audio"),
+            ("ISSAI_KSC2/Test/talkshow/t.txt", "ток-шоу текст".encode()),
+            ("ISSAI_KSC2/Test/radio/r.flac", b"radio-audio"),
+            ("ISSAI_KSC2/Test/radio/r.txt", "радио текст".encode()),
+            ("ISSAI_KSC2/Test/tv_news/n.flac", b"news-audio"),
+            ("ISSAI_KSC2/Test/tv_news/n.txt", "новости".encode()),
+        ],
+    )
+    archive_hash = audit_ksc2_archive(tmp_path, expected_sizes=expected_sizes).compressed_sha256
+
+    output = tmp_path / "annotation-stage"
+    candidates = extract_ksc2_mixed_annotation_candidates(
+        tmp_path,
+        output,
+        expected_compressed_sha256=archive_hash,
+        expected_sizes=expected_sizes,
+    )
+
+    assert [candidate.candidate_id for candidate in candidates] == [
+        "Test/podcasts/p",
+        "Test/radio/r",
+        "Test/talkshow/t",
+    ]
+    assert {candidate.component for candidate in candidates} == {
+        "Test/podcasts",
+        "Test/radio",
+        "Test/talkshow",
+    }
+    assert {candidate.transcript for candidate in candidates} == {
+        "подкаст текст",
+        "ток-шоу текст",
+        "радио текст",
+    }
+    for candidate in candidates:
+        assert (output / candidate.audio_relative_path).is_file()
+        assert "tv_news" not in candidate.audio_relative_path

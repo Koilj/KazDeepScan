@@ -103,9 +103,9 @@ def _load_mms_model(model_root: Path, device: torch.device) -> tuple[Any, Any]:
     """Load the vendor API locally; transformer stubs do not express AutoTokenizer's return type."""
 
     tokenizer = AutoTokenizer.from_pretrained(model_root, local_files_only=True)
-    model = cast(Any, VitsModel.from_pretrained(
-        model_root, local_files_only=True, use_safetensors=True
-    )).to(device)
+    model = cast(
+        Any, VitsModel.from_pretrained(model_root, local_files_only=True, use_safetensors=True)
+    ).to(device)
     model.eval()
     return tokenizer, model
 

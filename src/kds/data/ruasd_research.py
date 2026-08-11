@@ -173,9 +173,7 @@ def extract_ruasd_research_slice(
                             continue
                         source = archive.extractfile(member)
                         if source is None:
-                            raise RuAsdResearchError(
-                                f"Cannot read RuASD audio: {member.name!r}."
-                            )
+                            raise RuAsdResearchError(f"Cannot read RuASD audio: {member.name!r}.")
                         relative_path = Path(Path(archive_name).stem) / f"{sample_id}.wav"
                         output_path = stage / relative_path
                         output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -299,6 +297,8 @@ def _eligible_records(
             )
         )
     return records
+
+
 def _allocate_stratum_quotas(
     counts: Mapping[str, int], limit_per_label: int, min_per_stratum: int
 ) -> dict[str, int]:
@@ -321,9 +321,7 @@ def _allocate_stratum_quotas(
             )
         label_quotas = {stratum: min_per_stratum for stratum in label_counts}
         remaining = limit_per_label - base
-        capacities = {
-            stratum: count - min_per_stratum for stratum, count in label_counts.items()
-        }
+        capacities = {stratum: count - min_per_stratum for stratum, count in label_counts.items()}
         if any(capacity < 0 for capacity in capacities.values()):
             raise RuAsdResearchError(
                 f"A RuASD {label} stratum contains fewer than {min_per_stratum} rows."

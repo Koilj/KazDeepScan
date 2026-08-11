@@ -25,9 +25,11 @@ def main() -> int:
         raise ValueError("bf16 smoke test requires CUDA in this project.")
 
     dtype = torch.bfloat16 if arguments.precision == "bf16" else torch.float32
-    model = XlsrSlsClassifier.from_pretrained(str(arguments.model_dir)).to(
-        arguments.device, dtype=dtype
-    ).eval()
+    model = (
+        XlsrSlsClassifier.from_pretrained(str(arguments.model_dir))
+        .to(arguments.device, dtype=dtype)
+        .eval()
+    )
     input_values = torch.randn((1, 64_600), device=arguments.device, dtype=dtype) * 0.02
     attention_mask = torch.ones_like(input_values, dtype=torch.long)
     with torch.inference_mode():

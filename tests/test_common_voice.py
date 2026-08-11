@@ -17,8 +17,7 @@ def _metadata_content(split: str) -> bytes:
     if split != "train":
         return header.encode()
     return (
-        header
-        + "hashed-client\tcommon_voice_ru_1.mp3\tsentence-1\tПроверочная фраза\tru\n"
+        header + "hashed-client\tcommon_voice_ru_1.mp3\tsentence-1\tПроверочная фраза\tru\n"
     ).encode()
 
 

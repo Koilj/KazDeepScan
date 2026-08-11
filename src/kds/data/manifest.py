@@ -118,9 +118,7 @@ class ManifestRow:
             or relative_path in {"", "."}
         ):
             raise ManifestError(
-                [
-                    f"Row {row_number}: relative_path must be a portable path below the audio root."
-                ]
+                [f"Row {row_number}: relative_path must be a portable path below the audio root."]
             )
 
         split = value("split")
@@ -276,9 +274,7 @@ def validate_manifest(rows: Iterable[ManifestRow], require_ood_generator: bool =
         if not ood_families:
             issues.append("No spoof generator family is assigned to the ood split.")
         seen_elsewhere = {
-            row.generator_family
-            for row in rows
-            if row.split != "ood" and row.label == "spoof"
+            row.generator_family for row in rows if row.split != "ood" and row.label == "spoof"
         }
         overlapping = sorted(ood_families.intersection(seen_elsewhere))
         if overlapping:

@@ -211,24 +211,143 @@ def load_ksc_metadata(metadata_root: Path, splits: Iterable[str]) -> list[KscMet
     return attach_ksc_transcripts(index_records, metadata_root)
 
 
-def select_ksc_records(records: Iterable[RecordT], limit: int | None, seed: str) -> list[RecordT]:
+def select_ksc_records(
+    records: Iterable[RecordT],
+    limit: int | None,
+    seed: str,
+    *,
+    excluded_utterance_ids: Iterable[str] = (),
+) -> list[RecordT]:
     """Choose a reproducible source-balanced subset without changing source splits."""
 
     if limit is not None and limit <= 0:
         raise ValueError("limit must be positive when it is set.")
     if not seed:
         raise ValueError("seed must not be empty.")
+    excluded = {_safe_utterance_id(utterance_id) for utterance_id in excluded_utterance_ids}
     grouped: dict[str, list[RecordT]] = {}
     for record in records:
+        if record.utterance_id in excluded:
+            continue
         grouped.setdefault(record.split, []).append(record)
     selected: list[RecordT] = []
-    for _split, split_records in sorted(grouped.items()):
+    for split, split_records in sorted(grouped.items()):
         ranked = sorted(
             split_records,
             key=lambda item: hashlib.sha256(f"{seed}:{item.utterance_id}".encode()).digest(),
         )
+        if limit is not None and len(ranked) < limit:
+            raise KscIngestionError(
+                f"KSC source split {split!r} has only {len(ranked)} records after exclusions; "
+                f"need {limit}."
+            )
         selected.extend(ranked if limit is None else ranked[:limit])
     return selected
+
+
+def select_ksc_records_from_archive_excluding_texts(
+    archive: Path,
+    records: Iterable[KscMetadataIndexRecord],
+    limit: int,
+    seed: str,
+    *,
+    excluded_utterance_ids: Iterable[str] = (),
+    excluded_text_hashes: Iterable[str] = (),
+) -> tuple[list[KscMetadataIndexRecord], KscArchiveReport]:
+    """Select fresh KSC records by text before audio extraction can publish a slice.
+
+    The archive is streamed once to inspect every member and rank only transcripts whose hashes
+    are absent from frozen manifests.  This avoids the unsafe pattern of extracting audio first
+    and discovering a text collision only after a destination has become visible.
+    """
+
+    if limit <= 0:
+        raise ValueError("limit must be positive.")
+    if not seed:
+        raise ValueError("seed must not be empty.")
+    _validate_archive_size(archive)
+    excluded_ids = {_safe_utterance_id(value) for value in excluded_utterance_ids}
+    candidates = [record for record in records if record.utterance_id not in excluded_ids]
+    _validate_unique_metadata_ids(candidates)
+    ranked = sorted(
+        candidates,
+        key=lambda item: hashlib.sha256(f"{seed}:{item.utterance_id}".encode()).digest(),
+    )
+    if len(ranked) < limit:
+        raise KscIngestionError(
+            f"KSC source has only {len(ranked)} records after ID exclusions; need {limit}."
+        )
+    rank_by_id = {record.utterance_id: index for index, record in enumerate(ranked)}
+    record_by_id = {record.utterance_id: record for record in ranked}
+    excluded_hashes = set(excluded_text_hashes)
+    eligible_ids: set[str] = set()
+    audio_ids: set[str] = set()
+    transcript_ids: set[str] = set()
+    metadata_files: set[str] = set()
+    try:
+        with tarfile.open(archive, mode="r|gz") as tar:
+            for member in tar:
+                if not _is_expected_member(member):
+                    raise KscIngestionError(f"Unexpected KSC archive member: {member.name!r}.")
+                audio_id = _member_utterance_id(member, KSC_AUDIO_DIRECTORY, ".flac")
+                if audio_id is not None:
+                    if audio_id in audio_ids:
+                        raise KscIngestionError(f"Duplicate KSC audio member: {audio_id!r}.")
+                    audio_ids.add(audio_id)
+                    continue
+                transcript_id = _member_utterance_id(member, KSC_TRANSCRIPT_DIRECTORY, ".txt")
+                if transcript_id is not None:
+                    if transcript_id in transcript_ids:
+                        raise KscIngestionError(
+                            f"Duplicate KSC transcript member: {transcript_id!r}."
+                        )
+                    transcript_ids.add(transcript_id)
+                    if transcript_id not in rank_by_id:
+                        continue
+                    source = tar.extractfile(member)
+                    if source is None:
+                        raise KscIngestionError(
+                            f"Cannot read KSC transcript member: {member.name!r}."
+                        )
+                    try:
+                        with source:
+                            transcript = _canonical_transcript(source.read().decode("utf-8"))
+                    except UnicodeDecodeError as error:
+                        raise KscIngestionError(
+                            f"KSC transcript is not valid UTF-8: {member.name}"
+                        ) from error
+                    if not transcript:
+                        raise KscIngestionError(f"KSC transcript is empty: {member.name}")
+                    text_hash = hashlib.sha256(transcript.encode("utf-8")).hexdigest()
+                    if text_hash not in excluded_hashes:
+                        eligible_ids.add(transcript_id)
+                    continue
+                if member.name.startswith(f"{KSC_METADATA_DIRECTORY}/") and member.isfile():
+                    metadata_files.add(member.name)
+    except (tarfile.TarError, OSError) as error:
+        raise KscIngestionError(f"KSC archive cannot be read safely: {error}") from error
+    if audio_ids != transcript_ids:
+        raise KscIngestionError("KSC audio and transcript utterance ids do not match exactly.")
+    expected_metadata = {_metadata_member_name(name) for name in KSC_METADATA_SPLITS.values()}
+    if metadata_files != expected_metadata:
+        raise KscIngestionError(
+            "KSC archive does not contain exactly train/dev/test metadata files."
+        )
+    selected = sorted(
+        (record_by_id[value] for value in eligible_ids),
+        key=lambda item: rank_by_id[item.utterance_id],
+    )[:limit]
+    if len(selected) < limit:
+        raise KscIngestionError(
+            f"KSC source has only {len(selected)} text-disjoint records after exclusions; "
+            f"need {limit}."
+        )
+    return selected, KscArchiveReport(
+        archive=archive,
+        audio_files=len(audio_ids),
+        transcript_files=len(transcript_ids),
+        metadata_files=len(metadata_files),
+    )
 
 
 def _validate_archive_size(archive: Path) -> None:
@@ -386,7 +505,11 @@ def _transcript_member_name(utterance_id: str) -> str:
 
 
 def extract_ksc_audio_slice(
-    archive: Path, utterance_ids: Iterable[str], destination: Path
+    archive: Path,
+    utterance_ids: Iterable[str],
+    destination: Path,
+    *,
+    excluded_text_hashes: Iterable[str] = (),
 ) -> dict[str, Path]:
     """Extract requested FLACs and paired transcripts without ``extractall``.
 
@@ -396,6 +519,7 @@ def extract_ksc_audio_slice(
     """
 
     requested_ids = {_safe_utterance_id(value) for value in utterance_ids}
+    excluded_hashes = set(excluded_text_hashes)
     if not requested_ids:
         raise KscIngestionError("No KSC utterance ids were requested for extraction.")
     if destination.exists():
@@ -415,9 +539,7 @@ def extract_ksc_audio_slice(
             with tarfile.open(archive, mode="r|gz") as tar:
                 for member in tar:
                     if not _is_expected_member(member):
-                        raise KscIngestionError(
-                            f"Unexpected KSC archive member: {member.name!r}."
-                        )
+                        raise KscIngestionError(f"Unexpected KSC archive member: {member.name!r}.")
                     audio_id = _member_utterance_id(member, KSC_AUDIO_DIRECTORY, ".flac")
                     transcript_id = _member_utterance_id(member, KSC_TRANSCRIPT_DIRECTORY, ".txt")
                     if member.name.startswith(f"{KSC_METADATA_DIRECTORY}/") and member.isfile():
@@ -466,6 +588,25 @@ def extract_ksc_audio_slice(
                 suffix = "..." if len(missing) > 5 else ""
                 raise KscIngestionError(
                     f"Requested KSC audio is absent from archive: {preview}{suffix}"
+                )
+            reused_text_hashes: set[str] = set()
+            for utterance_id in requested_ids:
+                transcript_path = stage / "Transcriptions" / f"{utterance_id}.txt"
+                try:
+                    transcript = _canonical_transcript(transcript_path.read_text(encoding="utf-8"))
+                except UnicodeDecodeError as error:
+                    raise KscIngestionError(
+                        f"KSC transcript is not valid UTF-8: {transcript_path}"
+                    ) from error
+                if not transcript:
+                    raise KscIngestionError(f"KSC transcript is empty: {transcript_path}")
+                text_hash = hashlib.sha256(transcript.encode("utf-8")).hexdigest()
+                if text_hash in excluded_hashes:
+                    reused_text_hashes.add(text_hash)
+            if reused_text_hashes:
+                raise KscIngestionError(
+                    "KSC selection overlaps a frozen manifest by transcript text hash; "
+                    f"found {len(reused_text_hashes)} collisions."
                 )
             stage.replace(destination)
     except (tarfile.TarError, OSError) as error:

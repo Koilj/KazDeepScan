@@ -68,9 +68,7 @@ class ConsentRegistryEntry:
         )
         issues: list[str] = []
         if blank:
-            issues.append(
-                f"Consent row {row_number}: blank required values: {', '.join(blank)}."
-            )
+            issues.append(f"Consent row {row_number}: blank required values: {', '.join(blank)}.")
         for field in ("consent_record_id", "speaker_pseudo_id"):
             if value(field) and _OPAQUE_ID.fullmatch(value(field)) is None:
                 issues.append(
@@ -106,9 +104,7 @@ class ConsentRegistryEntry:
             try:
                 datetime.fromisoformat(timestamp.replace("Z", "+00:00"))
             except ValueError:
-                issues.append(
-                    f"Consent row {row_number}: {field} must be an ISO-8601 timestamp."
-                )
+                issues.append(f"Consent row {row_number}: {field} must be an ISO-8601 timestamp.")
         revoked_at = value("revoked_at")
         if status == "active" and revoked_at:
             issues.append(f"Consent row {row_number}: active consent must not have revoked_at.")
@@ -161,8 +157,7 @@ def load_consent_registry(path: Path) -> list[ConsentRegistryEntry]:
             continue
         if entry.speaker_pseudo_id in active_speakers:
             issues.append(
-                "Duplicate active consent for speaker_pseudo_id: "
-                f"{entry.speaker_pseudo_id!r}."
+                f"Duplicate active consent for speaker_pseudo_id: {entry.speaker_pseudo_id!r}."
             )
         active_speakers.add(entry.speaker_pseudo_id)
     if issues:

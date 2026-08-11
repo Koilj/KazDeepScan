@@ -17,7 +17,7 @@ from kds.data.source_matrix import (
     select_matrix_rows,
     validate_source_mixed_research_matrix,
 )
-from kds.eval import classification_confidence_intervals
+from kds.eval import classification_confidence_intervals, evaluate_b0_with_strata
 from kds.models import B0Config, B0LogMelCnn
 from kds.training import EpochResult, evaluate_b0, make_audio_loader, train_b0_epoch
 
@@ -100,28 +100,22 @@ def main() -> int:
         train_rows,
         DatasetConfig(audio_root=arguments.audio_root, mode="train", seed=arguments.seed),
     )
-    eval_datasets = {
-        role: ManifestAudioDataset(
-            rows_by_role[role],
-            DatasetConfig(audio_root=arguments.audio_root, mode="eval", seed=arguments.seed),
-        )
-        for role in ("dev", "test")
-    }
+    dev_dataset = ManifestAudioDataset(
+        dev_rows,
+        DatasetConfig(audio_root=arguments.audio_root, mode="eval", seed=arguments.seed),
+    )
     train_loader = make_audio_loader(
         train_dataset,
         batch_size=arguments.batch_size,
         shuffle=True,
         num_workers=arguments.num_workers,
     )
-    eval_loaders = {
-        role: make_audio_loader(
-            dataset,
-            batch_size=arguments.batch_size,
-            shuffle=False,
-            num_workers=arguments.num_workers,
-        )
-        for role, dataset in eval_datasets.items()
-    }
+    dev_loader = make_audio_loader(
+        dev_dataset,
+        batch_size=arguments.batch_size,
+        shuffle=False,
+        num_workers=arguments.num_workers,
+    )
     model = B0LogMelCnn(B0Config()).to(device)
     optimizer = AdamW(
         model.parameters(), lr=arguments.learning_rate, weight_decay=arguments.weight_decay
@@ -133,7 +127,7 @@ def main() -> int:
     for epoch in range(arguments.epochs):
         train_dataset.set_epoch(epoch)
         train_result = train_b0_epoch(model, train_loader, optimizer, device)
-        dev_result = evaluate_b0(model, eval_loaders["dev"], device)
+        dev_result = evaluate_b0(model, dev_loader, device)
         history.append(
             {
                 "epoch": epoch + 1,
@@ -155,7 +149,15 @@ def main() -> int:
         raise RuntimeError("No checkpoint was produced.")
     model.load_state_dict(best_state)
     # The test role is intentionally evaluated once, only after the best epoch is selected on dev.
-    test_result = evaluate_b0(model, eval_loaders["test"], device)
+    test_result, test_stratified_metrics = evaluate_b0_with_strata(
+        model,
+        test_rows,
+        audio_root=arguments.audio_root,
+        batch_size=arguments.batch_size,
+        seed=arguments.seed,
+        device=device,
+        num_workers=arguments.num_workers,
+    )
     checkpoint = {
         "model_name": "b0_logmel_cnn",
         "model_config": asdict(model.config),
@@ -164,6 +166,7 @@ def main() -> int:
         "source_mixed_research_matrix": asdict(matrix_report),
         "best_dev_loss": best_dev_loss,
         "final_test_metrics": _metrics(test_result),
+        "final_test_stratified_metrics": test_stratified_metrics,
         "state_dict": best_state,
     }
     torch.save(checkpoint, arguments.output)
@@ -176,6 +179,7 @@ def main() -> int:
                 "matrix": asdict(matrix_report),
                 "history": history,
                 "final_test_metrics": _metrics(test_result),
+                "final_test_stratified_metrics": test_stratified_metrics,
                 "calibrated": False,
             }
         )

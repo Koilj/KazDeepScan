@@ -5,8 +5,8 @@ import json
 from pathlib import Path
 
 from kds.data.assets import sha256_file
-from kds.data.licenses import load_license_ledger, validate_manifest_licenses
-from kds.data.manifest import ManifestError, validate_manifest, write_manifest
+from kds.data.licenses import LicenseLedgerError, load_license_ledger, validate_manifest_licenses
+from kds.data.manifest import ManifestError, load_manifest, validate_manifest, write_manifest
 from kds.data.pyara import (
     PYARA_ARCHIVE_NAME,
     ExtractedPyAraAsset,
@@ -37,6 +37,19 @@ def main() -> int:
     parser.add_argument("--fake-limit-per-algorithm", type=int, default=50)
     parser.add_argument("--seed", default="20260809")
     parser.add_argument("--created-at", default=None)
+    parser.add_argument(
+        "--exclude-manifest",
+        type=Path,
+        action="append",
+        default=[],
+        help="Exclude every prior PyAra sample ID and text hash; may be repeated.",
+    )
+    parser.add_argument(
+        "--fixed-split",
+        choices=("train", "dev", "test"),
+        default=None,
+        help="Assign the whole fresh slice to one role instead of making a local three-way split.",
+    )
     arguments = parser.parse_args()
 
     if not arguments.slice_name.replace("-", "").replace("_", "").isalnum():
@@ -44,9 +57,26 @@ def main() -> int:
     if arguments.output_manifest.exists() or not arguments.data_root.is_dir():
         raise ValueError("Output manifest already exists or data-root does not exist.")
     try:
+        excluded_record_ids: set[str] = set()
+        excluded_text_hashes: set[str] = set()
+        for manifest_path in arguments.exclude_manifest:
+            excluded_rows = load_manifest(manifest_path)
+            validate_manifest(excluded_rows)
+            for row in excluded_rows:
+                if row.source_name != "pyara_ru_v7" or not row.sample_id.startswith("pyara_ru_v7:"):
+                    raise PyAraIngestionError(
+                        f"Exclusion manifest is not exclusively PyAra v7: {manifest_path}"
+                    )
+                excluded_record_ids.add(row.sample_id.removeprefix("pyara_ru_v7:"))
+                excluded_text_hashes.add(row.text_hash)
         report, records = inspect_pyara_archive(arguments.archive)
         selected = select_pyara_records(
-            records, arguments.real_limit, arguments.fake_limit_per_algorithm, arguments.seed
+            records,
+            arguments.real_limit,
+            arguments.fake_limit_per_algorithm,
+            arguments.seed,
+            excluded_record_ids=excluded_record_ids,
+            excluded_text_hashes=excluded_text_hashes,
         )
         destination = arguments.data_root / "raw" / "pyara_ru_v7" / "slices" / arguments.slice_name
         destination.parent.mkdir(parents=True, exist_ok=True)
@@ -60,13 +90,26 @@ def main() -> int:
                 duration_s=duration_s,
                 original_sr=original_sr,
             )
-        source_rows = pyara_manifest_rows(selected, assets, arguments.created_at)
-        rows = GroupSplitter(SplitConfig(seed=arguments.seed)).assign_rows(source_rows)
+        source_rows = pyara_manifest_rows(
+            selected,
+            assets,
+            arguments.created_at,
+            split=arguments.fixed_split or "train",
+        )
+        rows = (
+            source_rows
+            if arguments.fixed_split is not None
+            else GroupSplitter(SplitConfig(seed=arguments.seed)).assign_rows(source_rows)
+        )
         validate_manifest(rows)
         validate_manifest_licenses(rows, load_license_ledger(arguments.license_ledger))
         write_manifest(arguments.output_manifest, rows)
-    except (PyAraIngestionError, ManifestError, ValueError) as error:
-        issues = list(error.issues) if isinstance(error, ManifestError) else [str(error)]
+    except (LicenseLedgerError, PyAraIngestionError, ManifestError, ValueError) as error:
+        issues = (
+            list(error.issues)
+            if isinstance(error, (LicenseLedgerError, ManifestError))
+            else [str(error)]
+        )
         print(json.dumps({"status": "error", "issues": issues}, ensure_ascii=False))
         return 2
     split_counts = {
@@ -85,6 +128,9 @@ def main() -> int:
                 "rows": len(rows),
                 "split_counts": split_counts,
                 "label_counts": label_counts,
+                "excluded_record_ids": len(excluded_record_ids),
+                "excluded_text_hashes": len(excluded_text_hashes),
+                "fixed_split": arguments.fixed_split,
                 "manifest": str(arguments.output_manifest),
             },
             ensure_ascii=False,

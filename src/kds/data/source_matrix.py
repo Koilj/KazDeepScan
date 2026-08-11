@@ -115,11 +115,7 @@ def load_source_mixed_research_matrix(path: Path) -> SourceMixedResearchMatrix:
     role_names = [role.name for role in roles]
     if tuple(sorted(role_names)) != tuple(sorted(MATRIX_ROLES)):
         raise SourceMatrixError(
-            [
-                "Source matrix must define exactly these roles once: "
-                + ", ".join(MATRIX_ROLES)
-                + "."
-            ]
+            ["Source matrix must define exactly these roles once: " + ", ".join(MATRIX_ROLES) + "."]
         )
     return SourceMixedResearchMatrix(protocol_id=protocol_id, roles=roles)
 
@@ -182,9 +178,7 @@ def validate_source_mixed_research_matrix(
             except LicenseLedgerError as error:
                 issues.extend(error.issues)
 
-            use_field = (
-                "ood_evaluation_use" if role.source_split == "ood" else "train_dev_test_use"
-            )
+            use_field = "ood_evaluation_use" if role.source_split == "ood" else "train_dev_test_use"
             for source_id in actual_source_ids:
                 source_roles.setdefault(source_id, set()).add(role.name)
                 entry = ledger.get(source_id)

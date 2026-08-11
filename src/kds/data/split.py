@@ -98,9 +98,7 @@ class GroupSplitter:
             for component_root, keys in component_keys.items()
         }
         return [
-            row
-            if index in ood_indices
-            else replace(row, split=assignments[root(index)])
+            row if index in ood_indices else replace(row, split=assignments[root(index)])
             for index, row in enumerate(rows)
         ]
 
@@ -112,11 +110,7 @@ class GroupSplitter:
     ) -> None:
         if not ood_indices:
             return
-        ood_values = {
-            value
-            for index in ood_indices
-            for value in self._group_values(rows[index])
-        }
+        ood_values = {value for index in ood_indices for value in self._group_values(rows[index])}
         overlaps = sorted(
             value
             for index in assignable_indices
@@ -126,6 +120,5 @@ class GroupSplitter:
         if overlaps:
             field, value = overlaps[0]
             raise ValueError(
-                "Cannot preserve an ood row that leaks into train/dev/test: "
-                f"{field}={value!r}."
+                f"Cannot preserve an ood row that leaks into train/dev/test: {field}={value!r}."
             )

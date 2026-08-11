@@ -17,7 +17,10 @@ from kds.data.manifest import (
 
 
 def _paired_bonafide_rows(
-    base_rows: list[ManifestRow], spoof_rows: list[ManifestRow]
+    base_rows: list[ManifestRow],
+    spoof_rows: list[ManifestRow],
+    *,
+    spoof_source_name: str,
 ) -> list[ManifestRow]:
     bonafide_by_text = {
         row.text_id: row
@@ -35,12 +38,10 @@ def _paired_bonafide_rows(
     paired: list[ManifestRow] = []
     seen_text_ids: set[str] = set()
     for row in spoof_rows:
-        if (
-            row.source_name != KSC_DERIVED_KK_SOURCE_ID
-            or row.split != "test"
-            or row.label != "spoof"
-        ):
-            raise ValueError("Spoof manifest contains a row outside the derived KSC test source.")
+        if row.source_name != spoof_source_name or row.split != "test" or row.label != "spoof":
+            raise ValueError(
+                "Spoof manifest contains a row outside the requested derived KSC test source."
+            )
         base_row = bonafide_by_text.get(row.text_id)
         if base_row is None:
             raise ValueError(f"No KSC bona-fide row pairs with spoof text_id={row.text_id!r}.")
@@ -61,6 +62,11 @@ def main() -> int:
     )
     parser.add_argument("--base-manifest", type=Path, required=True)
     parser.add_argument("--spoof-manifest", type=Path, required=True)
+    parser.add_argument(
+        "--spoof-source-name",
+        default=KSC_DERIVED_KK_SOURCE_ID,
+        help="Expected source_name in the derived spoof manifest (default: %(default)s).",
+    )
     parser.add_argument("--output-manifest", type=Path, required=True)
     parser.add_argument("--data-root", type=Path, required=True)
     parser.add_argument("--license-ledger", type=Path, required=True)
@@ -71,6 +77,10 @@ def main() -> int:
             raise ValueError(
                 f"Refusing to overwrite existing manifest: {arguments.output_manifest}"
             )
+        if not arguments.spoof_source_name.replace("_", "").isalnum():
+            raise ValueError(
+                "spoof_source_name must contain only letters, digits, and underscores."
+            )
         base_rows = load_manifest(arguments.base_manifest)
         spoof_rows = load_manifest(arguments.spoof_manifest)
         validate_manifest(base_rows)
@@ -78,7 +88,11 @@ def main() -> int:
         ledger = load_license_ledger(arguments.license_ledger)
         validate_manifest_licenses(base_rows, ledger)
         validate_manifest_licenses(spoof_rows, ledger)
-        bonafide_rows = _paired_bonafide_rows(base_rows, spoof_rows)
+        bonafide_rows = _paired_bonafide_rows(
+            base_rows,
+            spoof_rows,
+            spoof_source_name=arguments.spoof_source_name,
+        )
         combined = [*bonafide_rows, *spoof_rows]
         validate_manifest(combined)
         validate_manifest_licenses(combined, ledger)

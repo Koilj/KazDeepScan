@@ -85,16 +85,12 @@ class LicenseLedgerEntry:
         blank = sorted(name for name in required_nonempty if not value(name))
         issues: list[str] = []
         if blank:
-            issues.append(
-                f"Ledger row {row_number}: blank required values: {', '.join(blank)}."
-            )
+            issues.append(f"Ledger row {row_number}: blank required values: {', '.join(blank)}.")
 
         try:
             expected_size_bytes = int(value("expected_size_bytes"))
             if expected_size_bytes <= 0:
-                issues.append(
-                    f"Ledger row {row_number}: expected_size_bytes must be positive."
-                )
+                issues.append(f"Ledger row {row_number}: expected_size_bytes must be positive.")
         except ValueError:
             expected_size_bytes = 0
             issues.append(f"Ledger row {row_number}: expected_size_bytes must be an integer.")
@@ -131,9 +127,7 @@ class LicenseLedgerEntry:
 
         status = value("status").lower()
         if status in APPROVED_LICENSE_STATUSES and not sha256:
-            issues.append(
-                f"Ledger row {row_number}: approved status requires an archive SHA-256."
-            )
+            issues.append(f"Ledger row {row_number}: approved status requires an archive SHA-256.")
         if issues:
             raise LicenseLedgerError(issues)
 
@@ -232,9 +226,7 @@ def validate_training_protocol(
     """
 
     if purpose not in TRAINING_PURPOSES:
-        raise TrainingProtocolError(
-            [f"purpose must be one of {sorted(TRAINING_PURPOSES)}."]
-        )
+        raise TrainingProtocolError([f"purpose must be one of {sorted(TRAINING_PURPOSES)}."])
 
     rows = list(rows)
     try:

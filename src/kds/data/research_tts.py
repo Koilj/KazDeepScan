@@ -86,9 +86,7 @@ def load_research_tts_model_lock(path: Path) -> ResearchTtsModelLock:
     return ResearchTtsModelLock(protocol_id=protocol_id, models=models)
 
 
-def verify_research_tts_model_bundle(
-    model_root: Path, model: ResearchTtsModel
-) -> dict[str, Path]:
+def verify_research_tts_model_bundle(model_root: Path, model: ResearchTtsModel) -> dict[str, Path]:
     """Verify every local artifact before a generator is permitted to read it."""
 
     root = _resolve_below(model_root, model.destination)
@@ -123,8 +121,7 @@ def verify_research_tts_model_lock(
     """Verify the complete locked model set and return trusted local paths by model id."""
 
     return {
-        model.model_id: verify_research_tts_model_bundle(model_root, model)
-        for model in lock.models
+        model.model_id: verify_research_tts_model_bundle(model_root, model) for model in lock.models
     }
 
 

@@ -71,9 +71,7 @@ def main() -> int:
         ):
             raise ValueError("Every preprocess rejection must be an object with sample_id.")
         remaining_rejections = [
-            item
-            for item in original_rejected_rows
-            if item["sample_id"] not in reused_ids
+            item for item in original_rejected_rows if item["sample_id"] not in reused_ids
         ]
         ready_ids = {row.sample_id for row in merged_rows}
         raw_ids = {row.sample_id for row in raw_rows}

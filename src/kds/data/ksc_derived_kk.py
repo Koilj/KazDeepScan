@@ -62,9 +62,7 @@ def synthesis_profiles(lock: ResearchTtsModelLock) -> tuple[SynthesisProfile, ..
                 )
             for voice_id in voices:
                 if not isinstance(voice_id, str) or not voice_id.strip():
-                    raise ResearchTtsError(
-                        f"MMS model {model.model_id!r} has an invalid voice id."
-                    )
+                    raise ResearchTtsError(f"MMS model {model.model_id!r} has an invalid voice id.")
                 profiles.append(
                     SynthesisProfile(model=model, voice_id=voice_id.strip(), speaker_id=None)
                 )
@@ -96,9 +94,7 @@ def select_ksc_bonafide_rows(
         and row.language == "kk"
     ]
     if len(candidates) < limit:
-        raise ValueError(
-            f"Need {limit} KSC kk test bona-fide rows, found only {len(candidates)}."
-        )
+        raise ValueError(f"Need {limit} KSC kk test bona-fide rows, found only {len(candidates)}.")
     return sorted(
         candidates,
         key=lambda row: hashlib.sha256(f"{seed}:{row.sample_id}".encode()).digest(),
@@ -254,6 +250,10 @@ def derived_spoof_row(
     created_at: str,
     device: str,
     seed: int,
+    source_name: str = KSC_DERIVED_KK_SOURCE_ID,
+    source_license: str = KSC_DERIVED_KK_SOURCE_LICENSE,
+    include_tts_seed: bool | None = None,
+    capture_route: str = "offline_neural_tts",
 ) -> ManifestRow:
     """Make one spoof manifest row without hiding the KSC text or TTS provenance."""
 
@@ -262,21 +262,21 @@ def derived_spoof_row(
     ).hexdigest()[:16]
     profile_id = f"{profile.model.model_id}:{profile.voice_id}"
     return ManifestRow(
-        sample_id=f"{KSC_DERIVED_KK_SOURCE_ID}:{sample_key}",
+        sample_id=f"{source_name}:{sample_key}",
         relative_path=relative_path,
         sha256=sha256,
         split="test",
         label="spoof",
         language="kk",
         code_switch=base_row.code_switch,
-        parent_group_id=f"{KSC_DERIVED_KK_SOURCE_ID}:profile:{profile_id}",
-        source_name=KSC_DERIVED_KK_SOURCE_ID,
-        source_license=KSC_DERIVED_KK_SOURCE_LICENSE,
+        parent_group_id=f"{source_name}:profile:{profile_id}",
+        source_name=source_name,
+        source_license=source_license,
         rights_basis=(
             "Offline derivative for personal research from KSC transcript "
             f"{base_row.text_id}; {profile.model.license}; no voice cloning"
         ),
-        speaker_pseudo_id=f"{KSC_DERIVED_KK_SOURCE_ID}:synthetic-voice:{profile_id}",
+        speaker_pseudo_id=f"{source_name}:synthetic-voice:{profile_id}",
         text_id=base_row.text_id,
         text_hash=base_row.text_hash,
         duration_s=duration_s,
@@ -286,11 +286,15 @@ def derived_spoof_row(
         voice_id=profile_id,
         clone_consent_id="not_applicable:pretrained-tts-no-local-voice-cloning",
         device=device,
-        capture_route="offline_neural_tts",
+        capture_route=capture_route,
         original_sr=original_sr,
         codec="wav",
         augmentation_chain="none",
-        augmentation_seed=(f"tts_seed={seed}" if profile.speaker_id is None else ""),
+        augmentation_seed=(
+            f"tts_seed={seed}"
+            if (profile.speaker_id is None if include_tts_seed is None else include_tts_seed)
+            else ""
+        ),
         created_at=created_at,
     )
 

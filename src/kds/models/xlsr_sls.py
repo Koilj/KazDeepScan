@@ -129,14 +129,28 @@ class XlsrSlsClassifier(nn.Module):
         self._conv_stride = conv_stride
 
     @classmethod
-    def from_pretrained(cls, model_name: str = "facebook/wav2vec2-xls-r-300m") -> XlsrSlsClassifier:
+    def from_pretrained(
+        cls,
+        model_name: str = "facebook/wav2vec2-xls-r-300m",
+        *,
+        attention_size: int = 128,
+        classifier_size: int = 256,
+        dropout: float = 0.2,
+        local_files_only: bool = False,
+    ) -> XlsrSlsClassifier:
         from transformers import AutoModel
 
-        encoder = cast(nn.Module, AutoModel.from_pretrained(model_name))
+        encoder = cast(
+            nn.Module,
+            AutoModel.from_pretrained(model_name, local_files_only=local_files_only),
+        )
         config = cast(XlsrEncoderConfig, encoder.config)
         head_config = SlsHeadConfig(
             hidden_size=int(config.hidden_size),
             hidden_state_count=int(config.num_hidden_layers) + 1,
+            attention_size=attention_size,
+            classifier_size=classifier_size,
+            dropout=dropout,
         )
         return cls(
             encoder=encoder,

@@ -77,3 +77,38 @@ def test_pyara_manifest_records_text_groups_but_never_claims_speaker_identity() 
     assert rows[0].split == rows[1].split
     assert all("source-record" in row.speaker_pseudo_id for row in rows)
     assert {row.generator_name for row in rows if row.label == "spoof"} == {"alg_1"}
+
+
+def test_pyara_fresh_selection_excludes_prior_samples_and_texts() -> None:
+    records = [
+        pyara.PyAraRecord("Real/old.wav", "bonafide", "Old text", "", 3.0),
+        pyara.PyAraRecord("Real/fresh-real.wav", "bonafide", "Fresh real", "", 3.0),
+        pyara.PyAraRecord("Fake/old-text.wav", "spoof", "Old text", "alg_1", 3.0),
+        pyara.PyAraRecord("Fake/fresh-fake.wav", "spoof", "Fresh fake", "alg_1", 3.0),
+    ]
+
+    selected = pyara.select_pyara_records(
+        records,
+        real_limit=1,
+        fake_limit_per_algorithm=1,
+        seed="fixed",
+        excluded_record_ids={"old"},
+        excluded_text_hashes={pyara.pyara_record_text_hash(records[0])},
+    )
+
+    assert {record.record_id for record in selected} == {"fresh-real", "fresh-fake"}
+    rows = pyara.pyara_manifest_rows(
+        selected,
+        {
+            record.relative_path: pyara.ExtractedPyAraAsset(
+                relative_path=f"raw/pyara/{record.relative_path}",
+                sha256=hashlib.sha256(record.relative_path.encode()).hexdigest(),
+                duration_s=3.0,
+                original_sr=16_000,
+            )
+            for record in selected
+        },
+        created_at="2026-08-10T00:00:00Z",
+        split="dev",
+    )
+    assert {row.split for row in rows} == {"dev"}

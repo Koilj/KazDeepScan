@@ -171,9 +171,7 @@ def load_ml_df_it_metadata(metadata_archive: Path) -> list[MlDfRecord]:
                 f"metadata_IT.csv:{row_number}: duplicate audio path {relative_path!r}."
             )
         seen_paths.add(relative_path)
-        records.append(
-            MlDfRecord(relative_path, tool, gender, source_group, target_speaker_id)
-        )
+        records.append(MlDfRecord(relative_path, tool, gender, source_group, target_speaker_id))
     if not records:
         raise MlDfIngestionError("ML-DF Italian metadata contains no records.")
     return records
@@ -290,9 +288,7 @@ def extract_ml_df_audio_slice(
                     raise MlDfIngestionError(
                         "ML-DF archive uncompressed size does not match the verified release."
                     )
-                selected_size = sum(
-                    info_by_path[path].uncompressed for path in selected_paths
-                )
+                selected_size = sum(info_by_path[path].uncompressed for path in selected_paths)
                 if selected_size > ML_DF_MAX_OOD_SLICE_UNCOMPRESSED_BYTES:
                     raise MlDfIngestionError(
                         "Requested ML-DF OOD slice exceeds the safe extraction limit."

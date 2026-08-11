@@ -55,14 +55,20 @@ def filter_stage_b_calibration_rows(
     them to train.
     """
 
-    validate_manifest(historical_rows)
     if not historical_rows:
         raise ManifestError(["Stage-B calibration history must contain at least one row."])
-    return _filter_stage_b_dev_rows(historical_rows, candidate_rows)
+    return _filter_stage_b_dev_rows(
+        historical_rows,
+        candidate_rows,
+        allow_overlapping_reference_roles=True,
+    )
 
 
 def _filter_stage_b_dev_rows(
-    reference_rows: list[ManifestRow], candidate_rows: list[ManifestRow]
+    reference_rows: list[ManifestRow],
+    candidate_rows: list[ManifestRow],
+    *,
+    allow_overlapping_reference_roles: bool = False,
 ) -> tuple[list[ManifestRow], StageBDevFilterReport]:
     """Filter one new dev role against a previously fixed set of observations."""
 
@@ -101,7 +107,13 @@ def _filter_stage_b_dev_rows(
         raise ManifestError(
             ["Filtered Stage-B dev/calibration role must retain both bonafide and spoof rows."]
         )
-    validate_manifest([*reference_rows, *selected])
+    if allow_overlapping_reference_roles:
+        # Historical manifests are validated separately by the caller. They may contain the
+        # same frozen rows in several former roles; only the new candidate must be internally
+        # valid and disjoint from their union of leakage keys.
+        validate_manifest(selected)
+    else:
+        validate_manifest([*reference_rows, *selected])
     return (
         selected,
         StageBDevFilterReport(

@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import re
 import shutil
 import tarfile
 import tempfile
@@ -20,6 +21,8 @@ KNOWN_LABELS = frozenset({"real", "fake"})
 KNOWN_GROUPS = frozenset({"raw", "augmented"})
 KNOWN_SOURCE_TYPES = frozenset({"tts", "real_speech", "augmented_audio"})
 UNKNOWN_SPEAKER_VALUES = frozenset({"", "-1", "unknown", "none", "null"})
+RUASD_MODEL_IDENTIFIER_PATTERN = re.compile(r"[A-Za-z0-9][A-Za-z0-9._:/+@-]{0,127}\Z")
+RUASD_MODEL_UNSPECIFIED = "unspecified_by_source"
 AuditProgressCallback = Callable[[int, int, str], None]
 
 
@@ -44,6 +47,7 @@ class RuAsdCollectionAudit:
     record_counts: dict[str, int]
     subset_counts: dict[str, int]
     model_counts: dict[str, int]
+    model_status_counts: dict[str, int]
     speaker_counts: dict[str, int]
     text_counts: dict[str, int]
 
@@ -97,6 +101,7 @@ def audit_ruasd_collection(
     record_counts: Counter[str] = Counter()
     subset_counts: Counter[str] = Counter()
     model_counts: Counter[str] = Counter()
+    model_status_counts: Counter[str] = Counter()
     speaker_counts: Counter[str] = Counter()
     text_counts: Counter[str] = Counter()
     total_records = 0
@@ -121,6 +126,9 @@ def audit_ruasd_collection(
                 subset_counts[f"{summary.label}/{summary.group}/{summary.subset}"] += 1
             if summary.model:
                 model_counts[f"{summary.label}/{summary.group}/{summary.model}"] += 1
+            model_status_counts[
+                f"{summary.label}/{summary.group}/{summary.model_status}"
+            ] += 1
             speaker_key = "known" if summary.speaker_group is not None else "unknown"
             speaker_counts[f"{summary.label}/{summary.group}/{speaker_key}"] += 1
             text_key = "source_text_present" if summary.has_source_text else "source_text_missing"
@@ -135,6 +143,7 @@ def audit_ruasd_collection(
         record_counts=dict(sorted(record_counts.items())),
         subset_counts=dict(sorted(subset_counts.items())),
         model_counts=dict(sorted(model_counts.items())),
+        model_status_counts=dict(sorted(model_status_counts.items())),
         speaker_counts=dict(sorted(speaker_counts.items())),
         text_counts=dict(sorted(text_counts.items())),
     )
@@ -171,6 +180,8 @@ class RuAsdRecordMetadata:
     source_type: str
     subset: str
     model: str
+    model_status: str
+    source_model_sha256: str | None
     speaker_group: str | None
     has_source_text: bool
     source_text_hash: str | None
@@ -324,7 +335,7 @@ def _read_record_metadata(member: tarfile.TarInfo, archive: tarfile.TarFile) -> 
     ):
         raise RuAsdCatalogError(f"Unexpected RuASD metadata values: {member.name!r}.")
     subset = _optional_text_field(raw, "subset")
-    model = _optional_text_field(raw, "model")
+    source_model = _optional_text_field(raw, "model")
     if group == "raw" and not subset:
         raise RuAsdCatalogError(f"Raw RuASD record has no source subset: {member.name!r}.")
     if group == "augmented" and source_type != "augmented_audio":
@@ -333,6 +344,10 @@ def _read_record_metadata(member: tarfile.TarInfo, archive: tarfile.TarFile) -> 
         raise RuAsdCatalogError(f"Unexpected raw fake RuASD record: {member.name!r}.")
     if group == "raw" and label == "real" and source_type != "real_speech":
         raise RuAsdCatalogError(f"Unexpected raw real RuASD record: {member.name!r}.")
+    model, model_status, source_model_sha256 = _normalize_source_model(
+        source_model,
+        is_raw_tts=group == "raw" and label == "fake" and source_type == "tts",
+    )
     source_text = _source_text(raw)
     return RuAsdRecordMetadata(
         sample_id=sample_id,
@@ -341,6 +356,8 @@ def _read_record_metadata(member: tarfile.TarInfo, archive: tarfile.TarFile) -> 
         source_type=source_type,
         subset=subset,
         model=model,
+        model_status=model_status,
+        source_model_sha256=source_model_sha256,
         speaker_group=_speaker_group(raw.get("speakers")),
         has_source_text=bool(source_text),
         source_text_hash=hashlib.sha256(source_text.encode()).hexdigest() if source_text else None,
@@ -364,6 +381,34 @@ def _source_text(raw: Mapping[object, object]) -> str:
 
     value = _optional_text_field(raw, "true_lines") or _optional_text_field(raw, "transcription")
     return " ".join(value.split())
+
+
+def _normalize_source_model(
+    value: str,
+    *,
+    is_raw_tts: bool,
+) -> tuple[str, str, str | None]:
+    """Keep only identifier-shaped TTS model metadata.
+
+    The pinned RuASD release contains rows where a shifted source CSV field placed a
+    transcript fragment in ``model``.  Treating those fragments as generator versions creates
+    one-record sampling strata and leaks text into generated manifests.  The original value is
+    therefore represented only by a digest in audit data.
+    """
+
+    if not is_raw_tts:
+        return "", "not_applicable", None
+    if not value:
+        return RUASD_MODEL_UNSPECIFIED, "missing_by_source", None
+    if RUASD_MODEL_IDENTIFIER_PATTERN.fullmatch(value) and any(
+        character.isascii() and character.isalpha() for character in value
+    ):
+        return value, "source_identifier", None
+    return (
+        RUASD_MODEL_UNSPECIFIED,
+        "invalid_source_metadata",
+        hashlib.sha256(value.encode()).hexdigest(),
+    )
 
 
 def _speaker_group(value: object) -> str | None:

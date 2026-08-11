@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import hashlib
 import heapq
+import json
 import shutil
 import tarfile
 import tempfile
@@ -56,6 +57,8 @@ class RuAsdResearchRecord:
     label: str
     subset: str
     model: str
+    model_status: str
+    source_model_sha256: str | None
     text_hash: str
     has_source_text: bool
 
@@ -65,9 +68,7 @@ class RuAsdResearchRecord:
 
     @property
     def stratum(self) -> str:
-        if self.label == "bonafide":
-            return f"bonafide/{self.subset}"
-        return f"spoof/{self.subset}/{self.model or 'unspecified_by_source'}"
+        return f"{self.label}/{self.subset}"
 
 
 @dataclass(frozen=True, slots=True)
@@ -77,6 +78,8 @@ class RuAsdResearchSelection:
     records: tuple[RuAsdResearchRecord, ...]
     available_stratum_counts: dict[str, int]
     selected_stratum_counts: dict[str, int]
+    available_model_status_counts: dict[str, int]
+    selected_model_status_counts: dict[str, int]
     sha256_verified_archives: int
 
 
@@ -87,6 +90,68 @@ class ExtractedRuAsdResearchAsset:
     sha256: str
     duration_s: float
     original_sr: int
+
+
+def write_ruasd_research_selection_receipt(
+    path: Path,
+    selection: RuAsdResearchSelection,
+    *,
+    seed: str,
+    limit_per_label: int,
+    min_per_stratum: int,
+    slice_name: str,
+    catalog_path: Path,
+    catalog_sha256: str,
+    license_ledger_path: Path,
+    license_ledger_sha256: str,
+    manifest_path: Path,
+    manifest_sha256: str,
+    created_at: str,
+) -> None:
+    """Publish a write-once selection receipt without contaminated model text."""
+
+    if path.exists() or not path.parent.is_dir():
+        raise RuAsdResearchError(f"Unsafe RuASD selection receipt destination: {path}")
+    invalid_records = [
+        {
+            "record_key": record.record_key,
+            "source_model_sha256": record.source_model_sha256,
+        }
+        for record in selection.records
+        if record.model_status == "invalid_source_metadata"
+    ]
+    payload = {
+        "schema_version": 1,
+        "created_at": created_at,
+        "selection": {
+            "seed": seed,
+            "limit_per_label": limit_per_label,
+            "min_per_stratum": min_per_stratum,
+            "slice_name": slice_name,
+        },
+        "catalog": {"path": str(catalog_path), "sha256": catalog_sha256},
+        "license_ledger": {
+            "path": str(license_ledger_path),
+            "sha256": license_ledger_sha256,
+        },
+        "manifest": {"path": str(manifest_path), "sha256": manifest_sha256},
+        "sha256_verified_archives": selection.sha256_verified_archives,
+        "available_stratum_counts": selection.available_stratum_counts,
+        "selected_stratum_counts": selection.selected_stratum_counts,
+        "available_model_status_counts": selection.available_model_status_counts,
+        "selected_model_status_counts": selection.selected_model_status_counts,
+        "invalid_source_model_records": invalid_records,
+    }
+    try:
+        with tempfile.TemporaryDirectory(prefix="kds-ruasd-selection-", dir=path.parent) as stage:
+            staged = Path(stage) / path.name
+            staged.write_text(
+                json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+                encoding="utf-8",
+            )
+            shutil.move(staged, path)
+    except OSError as error:
+        raise RuAsdResearchError(f"Cannot write RuASD selection receipt: {path}") from error
 
 
 def select_ruasd_research_records(
@@ -111,6 +176,7 @@ def select_ruasd_research_records(
         raise ValueError("limit_per_label, min_per_stratum, and seed must be positive.")
     archive_paths = _validate_archive_set(archive_dir, catalog)
     available_counts: Counter[str] = Counter()
+    available_model_status_counts: Counter[str] = Counter()
     verified_archives = 0
     for completed, archive_name in enumerate(sorted(catalog), start=1):
         spec = catalog[archive_name]
@@ -124,17 +190,21 @@ def select_ruasd_research_records(
             verified_archives += 1
         for record in _eligible_records(archive_name, load_ruasd_archive_records(archive_path)):
             available_counts[record.stratum] += 1
+            available_model_status_counts[record.model_status] += 1
         if progress_callback is not None:
             progress_callback(completed, len(catalog), archive_name)
     quotas = _allocate_stratum_quotas(available_counts, limit_per_label, min_per_stratum)
     selected = _deterministic_candidates(archive_paths, quotas, seed)
     selected_counts = Counter(record.stratum for record in selected)
+    selected_model_status_counts = Counter(record.model_status for record in selected)
     if dict(sorted(selected_counts.items())) != dict(sorted(quotas.items())):
         raise RuAsdResearchError("RuASD selection did not meet its deterministic stratum quotas.")
     return RuAsdResearchSelection(
         records=tuple(sorted(selected, key=lambda record: record.record_key)),
         available_stratum_counts=dict(sorted(available_counts.items())),
         selected_stratum_counts=dict(sorted(selected_counts.items())),
+        available_model_status_counts=dict(sorted(available_model_status_counts.items())),
+        selected_model_status_counts=dict(sorted(selected_model_status_counts.items())),
         sha256_verified_archives=verified_archives,
     )
 
@@ -242,9 +312,7 @@ def ruasd_research_manifest_rows(
                 duration_s=asset.duration_s,
                 generator_family="tts" if record.label == "spoof" else "",
                 generator_name=record.subset if record.label == "spoof" else "",
-                generator_version=(
-                    record.model or "unspecified_by_source" if record.label == "spoof" else ""
-                ),
+                generator_version=record.model if record.label == "spoof" else "",
                 voice_id=(
                     f"{RUASD_RESEARCH_SOURCE_ID}:voice:{RUASD_RESEARCH_UNKNOWN}"
                     if record.label == "spoof"
@@ -289,6 +357,8 @@ def _eligible_records(
                 label="bonafide" if label == "real" else "spoof",
                 subset=item.subset,
                 model=item.model,
+                model_status=item.model_status,
+                source_model_sha256=item.source_model_sha256,
                 text_hash=source_text_hash
                 or hashlib.sha256(
                     f"{RUASD_RESEARCH_SOURCE_ID}:content:{record_key}".encode()

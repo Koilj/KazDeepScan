@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from datetime import UTC, datetime
 from pathlib import Path
 
 from kds.data.assets import sha256_file
@@ -19,6 +20,7 @@ from kds.data.ruasd_research import (
     inspect_extracted_ruasd_research_audio,
     ruasd_research_manifest_rows,
     select_ruasd_research_records,
+    write_ruasd_research_selection_receipt,
 )
 from kds.data.split import GroupSplitter, SplitConfig
 
@@ -36,6 +38,7 @@ def main() -> int:
         "--license-ledger", type=Path, default=Path("data/licenses/license_ledger.csv")
     )
     parser.add_argument("--output-manifest", type=Path, required=True)
+    parser.add_argument("--selection-receipt", type=Path, required=True)
     parser.add_argument("--slice-name", required=True)
     parser.add_argument("--limit-per-label", type=int, default=1_000)
     parser.add_argument("--min-per-stratum", type=int, default=1)
@@ -50,8 +53,15 @@ def main() -> int:
 
     if not arguments.slice_name.replace("-", "").replace("_", "").isalnum():
         raise ValueError("slice-name may contain only letters, numbers, hyphens, and underscores.")
-    if arguments.output_manifest.exists() or not arguments.data_root.is_dir():
-        raise ValueError("Output manifest already exists or data-root does not exist.")
+    if (
+        arguments.output_manifest.exists()
+        or arguments.selection_receipt.exists()
+        or not arguments.output_manifest.parent.is_dir()
+        or not arguments.selection_receipt.parent.is_dir()
+        or not arguments.data_root.is_dir()
+    ):
+        raise ValueError("Output exists, output parent is missing, or data-root does not exist.")
+    created_at = arguments.created_at or datetime.now(UTC).isoformat().replace("+00:00", "Z")
     try:
         catalog = load_ruasd_artifact_catalog(arguments.catalog)
         selection = select_ruasd_research_records(
@@ -80,7 +90,7 @@ def main() -> int:
                 original_sr=original_sr,
             )
         source_rows = ruasd_research_manifest_rows(
-            selection.records, assets, created_at=arguments.created_at
+            selection.records, assets, created_at=created_at
         )
         rows = GroupSplitter(SplitConfig(seed=arguments.seed)).assign_rows(source_rows)
         validate_manifest(rows)
@@ -88,6 +98,21 @@ def main() -> int:
         validate_manifest_licenses(rows, ledger)
         protocol = validate_training_protocol(rows, ledger, purpose="research")
         write_manifest(arguments.output_manifest, rows)
+        write_ruasd_research_selection_receipt(
+            arguments.selection_receipt,
+            selection,
+            seed=arguments.seed,
+            limit_per_label=arguments.limit_per_label,
+            min_per_stratum=arguments.min_per_stratum,
+            slice_name=arguments.slice_name,
+            catalog_path=arguments.catalog,
+            catalog_sha256=sha256_file(arguments.catalog),
+            license_ledger_path=arguments.license_ledger,
+            license_ledger_sha256=sha256_file(arguments.license_ledger),
+            manifest_path=arguments.output_manifest,
+            manifest_sha256=sha256_file(arguments.output_manifest),
+            created_at=created_at,
+        )
     except (RuAsdCatalogError, RuAsdResearchError, ManifestError, ValueError) as error:
         issues = list(error.issues) if isinstance(error, ManifestError) else [str(error)]
         print(json.dumps({"status": "error", "issues": issues}, ensure_ascii=False))
@@ -106,6 +131,7 @@ def main() -> int:
                 "split_counts": split_counts,
                 "label_counts": label_counts,
                 "selected_stratum_counts": selection.selected_stratum_counts,
+                "selected_model_status_counts": selection.selected_model_status_counts,
                 "sha256_verified_archives": selection.sha256_verified_archives,
                 "protocol": {
                     "purpose": protocol.purpose,
@@ -113,6 +139,7 @@ def main() -> int:
                     "source_ids": protocol.source_ids,
                 },
                 "manifest": str(arguments.output_manifest),
+                "selection_receipt": str(arguments.selection_receipt),
             },
             ensure_ascii=False,
         )

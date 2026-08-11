@@ -34,8 +34,52 @@ class PreprocessReport:
         return not self.issues
 
 
+@dataclass(frozen=True, slots=True)
+class PreprocessReuse:
+    reused_rows: tuple[ManifestRow, ...]
+    remaining_rows: tuple[ManifestRow, ...]
+
+
 def processed_relative_path(row: ManifestRow) -> str:
     return f"processed/{row.sha256[:2]}/{row.sha256}.wav"
+
+
+def reuse_preprocessed_rows(
+    rows: Iterable[ManifestRow],
+    prior_raw_rows: Iterable[ManifestRow],
+    prior_ready_rows: Iterable[ManifestRow],
+) -> PreprocessReuse:
+    """Reuse an exact prior normalized asset while retaining new manifest provenance.
+
+    Reuse is permitted only for the same sample ID and identical raw bytes.  This prevents an
+    existing content-addressed destination from silently turning a different source record into
+    a duplicate sample.
+    """
+
+    prior_raw = {row.sample_id: row for row in prior_raw_rows}
+    prior_ready = {row.sample_id: row for row in prior_ready_rows}
+    reused: list[ManifestRow] = []
+    remaining: list[ManifestRow] = []
+    for row in rows:
+        old_raw = prior_raw.get(row.sample_id)
+        old_ready = prior_ready.get(row.sample_id)
+        if old_raw is None or old_ready is None or old_raw.sha256 != row.sha256:
+            remaining.append(row)
+            continue
+        if old_ready.relative_path != processed_relative_path(old_raw):
+            raise ValueError(
+                f"Prior ready asset path is not derived from raw bytes: {row.sample_id!r}."
+            )
+        reused.append(
+            replace(
+                row,
+                relative_path=old_ready.relative_path,
+                sha256=old_ready.sha256,
+                duration_s=old_ready.duration_s,
+                codec="wav",
+            )
+        )
+    return PreprocessReuse(tuple(reused), tuple(remaining))
 
 
 def preprocess_rows(

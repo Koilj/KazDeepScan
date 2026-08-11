@@ -1,27 +1,27 @@
 # Подготовка final и calibration для XLS-R+SLS Stage B
 
-**Статус на 11 августа 2026:** calibration dev подготовлен и заморожен. Новый final
-RU/KK/mixed layer **ещё не создан**, поэтому final inference, temperature fit, threshold
-selection и API score запрещены.
+**Статус на 12 августа 2026:** новый disjoint calibration v3 и строгий confirmatory
+RU/KK/mixed research plan для Stage B v2 подготовлены. Его единственный GPU run выполнен;
+temperature fit и раздельные results закреплены в
+[`research_xlsr_sls_stage_b_v2_research_final_v1.md`](research_xlsr_sls_stage_b_v2_research_final_v1.md).
+API/product score остаётся запрещён.
 
 Единственный проведённый запуск на 30 KSC2/Silero mixed pairs — отдельный
 [exploratory stress-test](research_xlsr_sls_stage_b_ksc2_mixed_exploratory_30.md), а не
-исключение из final protocol. У synthetic WAV есть лишь input-transcript provenance, acoustic
-language-preservation gate не пройден; этот результат не может использоваться для temperature,
-threshold, model selection или API.
+исключение из final protocol. Позднее те же 30 pairs прошли narrow two-review acoustic gate,
+но v1 run уже раскрыл их detector results. Поэтому в v2 они помечены как previously exposed
+confirmatory layer, а не blind project-level final.
 
 ## Отдельный calibration dev
 
-Fresh PyAra Stage-B dev уже выбирал epoch 7 и не может использоваться для temperature scaling.
-Для калибровки подготовлен новый детерминированный PyAra v7 slice с seed `20260821`:
+Stage-B epoch-selection dev нельзя повторно использовать для temperature scaling. Исходный
+детерминированный PyAra calibration candidate дополнительно отфильтрован против RuASD v2 и
+нового Stage-B dev v3:
 
 | Артефакт | Строк | SHA-256 |
 | --- | ---: | --- |
-| Raw manifest | 1 000 (500/500) | `3de5f1187c25bc84947e138d69ce2949e742a4ed86d36d9cd00e70112f8e9d07` |
-| QA/VAD candidate | 978 | `a2386bae340d198dc3b64d7b64bbc1090c4ad856022029b7ada35f709c7129ad` |
-| Frozen calibration dev | 977 (478 bona-fide / 499 spoof) | `3704f4da82ff02066260fbbd472952771bf721b3890f9f8bfac71dbd403fa879` |
-| QA/VAD rejection report | 22 rows | `3e23546988aa078e2c4cc797db18c49a93d7b52e5befcc758dd4a9b4539c12aa` |
-| Stage-B exclusion receipt | 1 row | `d8f60f3e34b9e8133002fc26047727b304ddcf3ed6cb9aa27f553a72df9d2c4d` |
+| Frozen calibration dev v3 | 976 (478 bona-fide / 498 spoof) | `7fe2c89be7f02eea1abdfc369fc9c16185b0a395fa2526b5b2c58e361fa8fa31` |
+| Stage-B v2 exclusion receipt | 1 text-overlap row | `dd1144eb1df6d72686cea86d438c0a9f4fd1e6f5b36624b687b14ebdea06d31b` |
 
 Raw selection excluded every sample ID and text hash in both earlier PyAra manifests:
 `pyara_ru_v7_research_500.csv` and `pyara_ru_v7_fresh_dev_1000.csv`.
@@ -32,34 +32,30 @@ leakage keys (`sample_id`, asset SHA-256, parent group, speaker pseudo-ID and te
 - old Stage-A PyAra manifest;
 - chosen Stage-B PyAra epoch-selection dev.
 
-One candidate (`pyara_ru_v7:alg_2_398`) shared a text hash with historical data and was
-excluded. The published manifest passed schema/license validation and independent SHA-256 asset
-validation for all `977` files.
+V2 сначала исключил старый overlap, а v3 удалил ещё `pyara_ru_v7:alg_5_34535`, чей text hash
+появился в новых v2-ролях. Published manifest прошёл schema/license и asset validation для всех
+`976` files.
 
 The manifest is a **calibration-only input**. It is not used to retrain Stage B, select epoch,
 choose a threshold or inspect a final result. As with every PyAra slice, absence of source
 speaker IDs means this is record/text-disjoint under available metadata, not a
 speaker-independent calibration guarantee.
 
-## Required final contract
+## Выполненный confirmatory contract
 
-The final run plan may be created only after all three previously unobserved binary layers exist:
+Plan использовал три binary слоя с явно разным evidence status:
 
 | Layer | Required language | Required evidence before pinning |
 | --- | --- | --- |
-| `ru` | Russian | bona-fide and spoof; no train/dev source overlap or ordinary key overlap |
-| `kk` | Kazakh | bona-fide and spoof; new assets and a generator family absent from Stage-B train/dev |
-| `mixed` | Kazakh–Russian code-switching | bona-fide and spoof in each record; `language=mixed`, `code_switch=true` |
+| `ru` | Russian | FLEURS/eSpeak, 75 pairs; two-review acoustic gate; ранее не inferred |
+| `kk` | Kazakh | FLEURS/Silero, 152 pairs; ранее не inferred, acoustic review отсутствует |
+| `mixed` | Kazakh–Russian code-switching | KSC2/Silero, 30 pairs; gate пройден, assets раскрыты v1 run |
 
-For every layer, publish raw manifest, ready manifest, QA/VAD rejection report, asset hashes and
-license-ledger entry before writing the final-run plan. The plan must pin its own JSON bytes,
-Stage-B checkpoint/report, calibration manifest, ledger and every final manifest. It must reject
-an existing output path, fit `TemperatureScaler` only on the frozen calibration dev, and then
-read each final asset exactly once. Metrics must remain separate by language and generator
-family; there is no pooled product "accuracy".
-
-Until the three rows above are concrete and hash-pinned, a template with placeholder hashes is
-not a frozen plan and must not be executed.
+Plan закрепил checkpoint/report, immutable ledger snapshot, manifests/evidence/implementation и
+write-once outputs. Он fitted `TemperatureScaler` только на calibration v3, не подбирал threshold
+и прочитал каждый final asset один раз. Метрики остаются раздельными; pooled product accuracy
+отсутствует. KK acoustic gate и новый blind mixed layer — задачи будущего более сильного
+протокола, а не скрытые предположения текущего результата.
 
 ## KSC2 source audit
 

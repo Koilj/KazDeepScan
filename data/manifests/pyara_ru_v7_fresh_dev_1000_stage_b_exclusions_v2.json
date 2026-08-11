@@ -1,0 +1,20 @@
+{
+  "candidate_rows": 970,
+  "selected_rows": 969,
+  "excluded_rows": 1,
+  "label_counts": {
+    "bonafide": 474,
+    "spoof": 495
+  },
+  "reason_counts": {
+    "text_hash": 1
+  },
+  "exclusions": [
+    {
+      "sample_id": "pyara_ru_v7:alg_5_6949",
+      "reasons": [
+        "text_hash"
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # KazDeepScan — статус проекта
 
-**Обновлено:** 11 августа 2026
+**Обновлено:** 12 августа 2026
 
 Этот файл — рабочая точка продолжения. После каждого завершённого этапа обновляйте разделы
 «Сделано», «Проверено», «Текущий этап» и «Дальше».
@@ -10,6 +10,38 @@
 Локально исследовать признаки синтезированности русской, казахской и смешанной речи по
 аудиофайлу. Результат текущего этапа — воспроизводимые research metrics, а не риск-оценка,
 идентификация человека, доказательство мошенничества или развёрнутый product/API сервис.
+
+## Текущее проверенное состояние — 12 августа 2026
+
+- Исправлен RuASD intake v2: недостоверные `model` значения больше не становятся именами
+  генераторов, в manifest не попадают transcript/raw metadata, а выборка закрепляется отдельным
+  write-once receipt. Raw v2 содержит `2 000` строк (`1 000/1 000`); после QA/VAD готовы
+  `1 815` WAV (`817` bona-fide / `998` spoof; train/dev/test = `1471/185/159`). Все asset
+  SHA-256, ledger и research protocol прошли проверку.
+- Для новых планов введены минимальные неизменяемые snapshots license ledger. Исторические
+  v1-планы, закреплявшие изменяемый `license_ledger.csv`, остаются историческими receipts:
+  их прежние bytes не восстанавливаются из Git и не должны молча переписываться.
+- Stage A v2 обучен на RTX 5060 Ti: выбран epoch 3, dev loss `0.20181`, accuracy `0.90164`,
+  balanced accuracy `0.89945`. Stage B v2 также обучен на GPU: выбран epoch 5 по заранее
+  заданному `dev_loss=0.17405`, accuracy `0.92157`, balanced accuracy `0.92287`.
+- Новый PyAra Stage-B dev v3 (`969` строк) и calibration v3 (`976` строк) не пересекаются с
+  RuASD-v2 train и историческими dev-ролями по доступным sample/asset/group/speaker/text ключам.
+- Выполнен ровно один hash-pinned confirmatory research run Stage B v2. Temperature scaling
+  использовал только calibration v3: `T=1.29954`, NLL `0.15976 → 0.15424`; threshold не
+  подбирался. Раздельные balanced accuracy: RU FLEURS/eSpeak `0.9800`, KK FLEURS/Silero
+  `1.0000`, mixed KSC2/Silero `0.9333`. Общая pooled accuracy намеренно не публикуется.
+- Эти числа не являются product quality. RU и mixed имеют узкую двухрецензентную акустическую
+  проверку; у KK Silero есть только source-transcript provenance без двух acoustic reviews.
+  Mixed assets уже оценивались checkpoint v1, поэтому результат v2 — confirmatory, не blind
+  project-level final. Ни один source не даёт verified speaker-disjoint protocol.
+- ToneSpeak подтверждён только как независимый RU spoof-only personal-research source; его
+  единственный frozen OOD run остаётся отдельным от binary final. YO-CPT-ru и YO-CPT-kk
+  отклонены; Dusha — human bona-fide emotion corpus, а не spoof benchmark, и сейчас не нужен.
+
+Актуальные детальные receipts:
+`docs/research_ruasd_full_v2.md`, `docs/research_xlsr_sls_stage_a_v2.md`,
+`docs/research_xlsr_sls_stage_b_v2.md` и
+`docs/research_xlsr_sls_stage_b_v2_research_final_v1.md`.
 
 ## Сделано
 
@@ -545,7 +577,7 @@
 
 Ранее успешно прошли CUDA smoke test B0, real M4A inspection и XLS-R + SLS GPU smoke test.
 
-## Текущий этап
+## Историческое состояние до v2
 
 Русский PyAra research protocol, full RuASD binary protocol, KSC/Common Voice bona-fide layers,
 OOD layers и frozen source-mixed matrices v1–v5 подготовлены. KazEmoTTS — третья, Spark-TTS
@@ -618,7 +650,7 @@ final/product protocol без bona-fide counterpart, acoustic review конкр�
 остальных ранее зафиксированных условий. Новый 75-pair FLEURS RU/eSpeak layer закрывает только
 generator-diversity gap в personal research и уже прошёл свой narrow acoustic gate.
 
-## Дальше
+## Исторический план до v2
 
 1. Stage B v1 больше не менять и не переобучать. Calibration dev уже создан, но до любого
    final inference нужны нераскрытый binary mixed layer и отдельный hash-pinned final-run plan.

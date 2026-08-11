@@ -1,5 +1,9 @@
 # Full RuASD v1 — personal-research protocol
 
+> Historical v1 receipt. Актуальная исправленная выборка описана в
+> [research_ruasd_full_v2.md](research_ruasd_full_v2.md). V1 использовал непроверенное `model`
+> в strata; повторять его нельзя.
+
 ## Scope
 
 The local full RuASD release is a Russian binary source for personal research only.  It is

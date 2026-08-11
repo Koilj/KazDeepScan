@@ -1,0 +1,932 @@
+{
+  "input_manifest": "data/manifests/ruasd_ru_v1_full_research_2000_v2.csv",
+  "reused_rows": 7,
+  "published_rows": 1815,
+  "rejected_rows": [
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000059:raw_fake_grad_tts_724a12d6d931a9b24227e1ee9bfa7cd3",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000059/raw_fake_grad_tts_724a12d6d931a9b24227e1ee9bfa7cd3.wav",
+      "detail": "Audio is not trainable: rejected_quality (excessive_clipping)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000068:raw_fake_grad_tts_e56f89fd48aab2c5159e8d059296e76a",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000068/raw_fake_grad_tts_e56f89fd48aab2c5159e8d059296e76a.wav",
+      "detail": "Audio is not trainable: rejected_quality (excessive_clipping)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000142:raw_real_CommonVoice_common_voice_ru_19798691_49105853",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000142/raw_real_CommonVoice_common_voice_ru_19798691_49105853.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000145:raw_real_CommonVoice_common_voice_ru_22934467_28b5db14",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000145/raw_real_CommonVoice_common_voice_ru_22934467_28b5db14.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000145:raw_real_CommonVoice_common_voice_ru_22973924_1ea81731",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000145/raw_real_CommonVoice_common_voice_ru_22973924_1ea81731.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000145:raw_real_CommonVoice_common_voice_ru_23102949_3cd56a1d",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000145/raw_real_CommonVoice_common_voice_ru_23102949_3cd56a1d.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000146:raw_real_CommonVoice_common_voice_ru_23768091_dcaf1246",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000146/raw_real_CommonVoice_common_voice_ru_23768091_dcaf1246.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000146:raw_real_CommonVoice_common_voice_ru_25200655_86c4af32",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000146/raw_real_CommonVoice_common_voice_ru_25200655_86c4af32.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000148:raw_real_CommonVoice_common_voice_ru_28254776_501fa32f",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000148/raw_real_CommonVoice_common_voice_ru_28254776_501fa32f.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000148:raw_real_CommonVoice_common_voice_ru_28433475_983de07c",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000148/raw_real_CommonVoice_common_voice_ru_28433475_983de07c.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000148:raw_real_CommonVoice_common_voice_ru_28968130_5c0439a4",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000148/raw_real_CommonVoice_common_voice_ru_28968130_5c0439a4.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000149:raw_real_CommonVoice_common_voice_ru_29566295_1277f175",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000149/raw_real_CommonVoice_common_voice_ru_29566295_1277f175.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000149:raw_real_CommonVoice_common_voice_ru_29943105_fffba10d",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000149/raw_real_CommonVoice_common_voice_ru_29943105_fffba10d.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000149:raw_real_CommonVoice_common_voice_ru_30544316_a8c3f570",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000149/raw_real_CommonVoice_common_voice_ru_30544316_a8c3f570.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000149:raw_real_CommonVoice_common_voice_ru_31707193_28f8a4f1",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000149/raw_real_CommonVoice_common_voice_ru_31707193_28f8a4f1.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000149:raw_real_CommonVoice_common_voice_ru_31825197_239ba27e",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000149/raw_real_CommonVoice_common_voice_ru_31825197_239ba27e.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000149:raw_real_CommonVoice_common_voice_ru_31919393_0a202880",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000149/raw_real_CommonVoice_common_voice_ru_31919393_0a202880.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000149:raw_real_CommonVoice_common_voice_ru_31919425_35c6406f",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000149/raw_real_CommonVoice_common_voice_ru_31919425_35c6406f.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000150:raw_real_CommonVoice_common_voice_ru_36416047_d82bb2dd",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000150/raw_real_CommonVoice_common_voice_ru_36416047_d82bb2dd.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000150:raw_real_CommonVoice_common_voice_ru_36531526_b2748780",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000150/raw_real_CommonVoice_common_voice_ru_36531526_b2748780.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000150:raw_real_CommonVoice_common_voice_ru_37512933_7bcfe992",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000150/raw_real_CommonVoice_common_voice_ru_37512933_7bcfe992.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000151:raw_real_CommonVoice_common_voice_ru_38408273_d55b381b",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000151/raw_real_CommonVoice_common_voice_ru_38408273_d55b381b.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000151:raw_real_CommonVoice_common_voice_ru_39756723_3b149202",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000151/raw_real_CommonVoice_common_voice_ru_39756723_3b149202.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000151:raw_real_CommonVoice_common_voice_ru_39769042_ff36da38",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000151/raw_real_CommonVoice_common_voice_ru_39769042_ff36da38.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000151:raw_real_CommonVoice_common_voice_ru_39815969_afccbb39",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000151/raw_real_CommonVoice_common_voice_ru_39815969_afccbb39.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000152:raw_real_CommonVoice_common_voice_ru_42479308_ab95d5a9",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000152/raw_real_CommonVoice_common_voice_ru_42479308_ab95d5a9.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000152:raw_real_CommonVoice_common_voice_ru_42479406_2bc381c9",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000152/raw_real_CommonVoice_common_voice_ru_42479406_2bc381c9.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000153:raw_real_CommonVoice_common_voice_ru_42732605_8e104015",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000153/raw_real_CommonVoice_common_voice_ru_42732605_8e104015.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000153:raw_real_CommonVoice_common_voice_ru_43568042_c8c2e594",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000153/raw_real_CommonVoice_common_voice_ru_43568042_c8c2e594.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000154:raw_real_GOLOS_0096249dcd2391bbd5ae2c0c134bd7aa_ffc847d0",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000154/raw_real_GOLOS_0096249dcd2391bbd5ae2c0c134bd7aa_ffc847d0.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000154:raw_real_GOLOS_010e5ff8317e67edc7f1de29f0118e1e_6994f160",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000154/raw_real_GOLOS_010e5ff8317e67edc7f1de29f0118e1e_6994f160.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000154:raw_real_GOLOS_050318a77d273b19d2290a128074cc1d_f5cf1d92",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000154/raw_real_GOLOS_050318a77d273b19d2290a128074cc1d_f5cf1d92.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000154:raw_real_GOLOS_06ae0881a2a060f3840d6900e915d9e6_31d4de98",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000154/raw_real_GOLOS_06ae0881a2a060f3840d6900e915d9e6_31d4de98.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000154:raw_real_GOLOS_06f12f454d695c9b53baa9cef8f6f71a_ad7e557c",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000154/raw_real_GOLOS_06f12f454d695c9b53baa9cef8f6f71a_ad7e557c.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000154:raw_real_GOLOS_0816de200b56e306292c3d5a449ed322_2406f81f",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000154/raw_real_GOLOS_0816de200b56e306292c3d5a449ed322_2406f81f.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000155:raw_real_GOLOS_0cd8438c602661b4fc4131d28d32c17c_0d023845",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000155/raw_real_GOLOS_0cd8438c602661b4fc4131d28d32c17c_0d023845.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000155:raw_real_GOLOS_0da121df4178181da78560b452ef1451_5c4cde75",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000155/raw_real_GOLOS_0da121df4178181da78560b452ef1451_5c4cde75.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000155:raw_real_GOLOS_148d2436ed80794aea20d809c3a0e13a_df0fcdf2",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000155/raw_real_GOLOS_148d2436ed80794aea20d809c3a0e13a_df0fcdf2.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000156:raw_real_GOLOS_191a5e42c30aaf0f997cc686c69dc153_f38c17c1",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000156/raw_real_GOLOS_191a5e42c30aaf0f997cc686c69dc153_f38c17c1.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000157:raw_real_GOLOS_20eef6112b6bd7e37b86609eb63f14dc_5c84ccdd",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000157/raw_real_GOLOS_20eef6112b6bd7e37b86609eb63f14dc_5c84ccdd.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000157:raw_real_GOLOS_2630e0e2db90dd96218d659310e33b74_e553ed45",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000157/raw_real_GOLOS_2630e0e2db90dd96218d659310e33b74_e553ed45.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000158:raw_real_GOLOS_2f31533b8733c91532fee0703c8a3441_4ef37b9b",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000158/raw_real_GOLOS_2f31533b8733c91532fee0703c8a3441_4ef37b9b.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000159:raw_real_GOLOS_3816d42fcea2bca31be5257814f5a240_78487166",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000159/raw_real_GOLOS_3816d42fcea2bca31be5257814f5a240_78487166.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000159:raw_real_GOLOS_39c2cfa1cc0a72352dd10ab92e4abd56_633d3b76",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000159/raw_real_GOLOS_39c2cfa1cc0a72352dd10ab92e4abd56_633d3b76.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000160:raw_real_GOLOS_3dff15be9ed05d39ad0f5065b14f516e_ec2f4fb3",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000160/raw_real_GOLOS_3dff15be9ed05d39ad0f5065b14f516e_ec2f4fb3.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000160:raw_real_GOLOS_40c273da08b4298e3fb1a3a375873665_ac87455a",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000160/raw_real_GOLOS_40c273da08b4298e3fb1a3a375873665_ac87455a.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000160:raw_real_GOLOS_41a715c3208d45821589c3489b739870_5ca6c642",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000160/raw_real_GOLOS_41a715c3208d45821589c3489b739870_5ca6c642.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000161:raw_real_GOLOS_4d175c64e14cfce9ad5de7eaeb59a94f_08a6977e",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000161/raw_real_GOLOS_4d175c64e14cfce9ad5de7eaeb59a94f_08a6977e.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000161:raw_real_GOLOS_4da8c272221de65f76eeb71e1f7a46d4_ccd32290",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000161/raw_real_GOLOS_4da8c272221de65f76eeb71e1f7a46d4_ccd32290.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000161:raw_real_GOLOS_4e5ae395f857f4ade50fbaff57eb859c_1ac837ee",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000161/raw_real_GOLOS_4e5ae395f857f4ade50fbaff57eb859c_1ac837ee.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000161:raw_real_GOLOS_505a57da872c8c3f6287444172bea148_a6302348",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000161/raw_real_GOLOS_505a57da872c8c3f6287444172bea148_a6302348.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000162:raw_real_GOLOS_52d57686dfc10c862e708f52906457e1_542c0a27",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000162/raw_real_GOLOS_52d57686dfc10c862e708f52906457e1_542c0a27.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000162:raw_real_GOLOS_5400b8278b1ad47a13da2c50cab9fb28_4b627db7",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000162/raw_real_GOLOS_5400b8278b1ad47a13da2c50cab9fb28_4b627db7.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000162:raw_real_GOLOS_593b4e4b5d20868e47dc226a9202c7e1_2932717d",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000162/raw_real_GOLOS_593b4e4b5d20868e47dc226a9202c7e1_2932717d.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000163:raw_real_GOLOS_5ca128f6957542f01467e4d1793cd21a_f251956a",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000163/raw_real_GOLOS_5ca128f6957542f01467e4d1793cd21a_f251956a.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000163:raw_real_GOLOS_5d3a65fdf14574cb0b8ccf7c5faaaedd_fd62c4c9",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000163/raw_real_GOLOS_5d3a65fdf14574cb0b8ccf7c5faaaedd_fd62c4c9.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000163:raw_real_GOLOS_6204000d3c1cc955a0c94612ed6900e1_011b98f0",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000163/raw_real_GOLOS_6204000d3c1cc955a0c94612ed6900e1_011b98f0.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000163:raw_real_GOLOS_62c3329f43614a9a00c6a9c8b78f2bb7_7e610573",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000163/raw_real_GOLOS_62c3329f43614a9a00c6a9c8b78f2bb7_7e610573.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000163:raw_real_GOLOS_6570f9d4736169748d2fdcabe3125195_ace2f3c3",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000163/raw_real_GOLOS_6570f9d4736169748d2fdcabe3125195_ace2f3c3.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000164:raw_real_GOLOS_6c3fe74bceacbfd4f04fdd0c695abbb2_e3e106e3",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000164/raw_real_GOLOS_6c3fe74bceacbfd4f04fdd0c695abbb2_e3e106e3.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000165:raw_real_GOLOS_704ce21b9b1db2913258b1c2cea5ec3f_028b023c",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000165/raw_real_GOLOS_704ce21b9b1db2913258b1c2cea5ec3f_028b023c.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000165:raw_real_GOLOS_73cfe12cc07138793bfb0049b70fbc68_bf662f84",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000165/raw_real_GOLOS_73cfe12cc07138793bfb0049b70fbc68_bf662f84.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000165:raw_real_GOLOS_7881267c9ec320aa8f9bc1973e65f000_5af79dca",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000165/raw_real_GOLOS_7881267c9ec320aa8f9bc1973e65f000_5af79dca.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000165:raw_real_GOLOS_78a30ae6089d3e52e0173f02d499ca3f_e5fa1eff",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000165/raw_real_GOLOS_78a30ae6089d3e52e0173f02d499ca3f_e5fa1eff.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000165:raw_real_GOLOS_79b18b9540780af63855aba02451dfb5_7fc832df",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000165/raw_real_GOLOS_79b18b9540780af63855aba02451dfb5_7fc832df.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000166:raw_real_GOLOS_7ce8d013e5505581cf7e820b95882eaa_fd9e0711",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000166/raw_real_GOLOS_7ce8d013e5505581cf7e820b95882eaa_fd9e0711.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000166:raw_real_GOLOS_8059ce5b5cc0f2cb85ec5cff80305602_67622dd2",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000166/raw_real_GOLOS_8059ce5b5cc0f2cb85ec5cff80305602_67622dd2.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000166:raw_real_GOLOS_80eacf50a20a205eaf03072deb5fab8f_da5630ca",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000166/raw_real_GOLOS_80eacf50a20a205eaf03072deb5fab8f_da5630ca.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000166:raw_real_GOLOS_819ac722e477a6e4889f05bb61c956d3_639a49d6",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000166/raw_real_GOLOS_819ac722e477a6e4889f05bb61c956d3_639a49d6.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000167:raw_real_GOLOS_87873563ac55fc2f935542ebf969abcd_fbe425a2",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000167/raw_real_GOLOS_87873563ac55fc2f935542ebf969abcd_fbe425a2.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000167:raw_real_GOLOS_88745d4f5c1a8e8201851e2c5c646c53_f80fb69f",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000167/raw_real_GOLOS_88745d4f5c1a8e8201851e2c5c646c53_f80fb69f.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000168:raw_real_GOLOS_8f880aa24762f36d18f614657f81291e_75ddabf1",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000168/raw_real_GOLOS_8f880aa24762f36d18f614657f81291e_75ddabf1.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000168:raw_real_GOLOS_92df7aa6d7f5e0b5a659761ca0eefd38_73a934f7",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000168/raw_real_GOLOS_92df7aa6d7f5e0b5a659761ca0eefd38_73a934f7.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000168:raw_real_GOLOS_95eed60f53e7afbd753061b51b23781b_c82c3918",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000168/raw_real_GOLOS_95eed60f53e7afbd753061b51b23781b_c82c3918.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000168:raw_real_GOLOS_96c133fe51cfe9bac7d567811b168f8e_84b3ef29",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000168/raw_real_GOLOS_96c133fe51cfe9bac7d567811b168f8e_84b3ef29.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000169:raw_real_GOLOS_9a9c58ec7ae18600d47b8c97764ecf83_7ca427e1",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000169/raw_real_GOLOS_9a9c58ec7ae18600d47b8c97764ecf83_7ca427e1.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000169:raw_real_GOLOS_9ddf6b226ab6eac3502d790743a79ec4_8117ad6d",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000169/raw_real_GOLOS_9ddf6b226ab6eac3502d790743a79ec4_8117ad6d.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000169:raw_real_GOLOS_9f91bab5c88747334889c8c782b22a90_0dd798f5",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000169/raw_real_GOLOS_9f91bab5c88747334889c8c782b22a90_0dd798f5.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000170:raw_real_GOLOS_a4caeffd76be25a6fd057a15d7e70ece_9f21de37",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000170/raw_real_GOLOS_a4caeffd76be25a6fd057a15d7e70ece_9f21de37.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000170:raw_real_GOLOS_a52ae38b81d03b0e217ee3d9788ccebc_32f4ac7c",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000170/raw_real_GOLOS_a52ae38b81d03b0e217ee3d9788ccebc_32f4ac7c.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000170:raw_real_GOLOS_a90446c74c57867a80682f2606c321ce_6fc41d6d",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000170/raw_real_GOLOS_a90446c74c57867a80682f2606c321ce_6fc41d6d.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000170:raw_real_GOLOS_aa28efd915090a0c1f433f2864bf80d6_65319efb",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000170/raw_real_GOLOS_aa28efd915090a0c1f433f2864bf80d6_65319efb.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000170:raw_real_GOLOS_aaaf6e566c94754384a61eeb3b7163ff_16772e7a",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000170/raw_real_GOLOS_aaaf6e566c94754384a61eeb3b7163ff_16772e7a.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000170:raw_real_GOLOS_ab866d88a25e4f55860b3107b6b9b42d_a3970676",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000170/raw_real_GOLOS_ab866d88a25e4f55860b3107b6b9b42d_a3970676.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000170:raw_real_GOLOS_adb798b50844eeaabc3b066fc0e3b5d8_67502a7a",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000170/raw_real_GOLOS_adb798b50844eeaabc3b066fc0e3b5d8_67502a7a.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000170:raw_real_GOLOS_adbe8f262f55445064af3b8c0d4e97b2_1a44fd70",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000170/raw_real_GOLOS_adbe8f262f55445064af3b8c0d4e97b2_1a44fd70.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000171:raw_real_GOLOS_aff72916bd5b33448acd0978db3ac5f2_20788f74",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000171/raw_real_GOLOS_aff72916bd5b33448acd0978db3ac5f2_20788f74.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000171:raw_real_GOLOS_b788591b0488d00b9617028623e60894_a2535660",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000171/raw_real_GOLOS_b788591b0488d00b9617028623e60894_a2535660.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000171:raw_real_GOLOS_b7d64e652c6b4142176daf511791cdb7_dc82e8c8",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000171/raw_real_GOLOS_b7d64e652c6b4142176daf511791cdb7_dc82e8c8.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000172:raw_real_GOLOS_bbe2c3c4fd0c505ecbe0c6a0911424ce_473078eb",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000172/raw_real_GOLOS_bbe2c3c4fd0c505ecbe0c6a0911424ce_473078eb.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000172:raw_real_GOLOS_bbff4b6ffbfd06f77b9dbaa3a8dddbc1_baf57916",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000172/raw_real_GOLOS_bbff4b6ffbfd06f77b9dbaa3a8dddbc1_baf57916.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000172:raw_real_GOLOS_c042805059788898456b153951e9e73d_c685669f",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000172/raw_real_GOLOS_c042805059788898456b153951e9e73d_c685669f.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000173:raw_real_GOLOS_c2fd1c3b2bdace753cbcfeb10c44d5d1_4386187a",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000173/raw_real_GOLOS_c2fd1c3b2bdace753cbcfeb10c44d5d1_4386187a.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000173:raw_real_GOLOS_c3d293a9c77c9cb226c257610c15ebf2_a3d710f6",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000173/raw_real_GOLOS_c3d293a9c77c9cb226c257610c15ebf2_a3d710f6.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000173:raw_real_GOLOS_c42e4fd9bf8677ac9033fff2c19cbf88_dfe17929",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000173/raw_real_GOLOS_c42e4fd9bf8677ac9033fff2c19cbf88_dfe17929.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000173:raw_real_GOLOS_c805f6ce0251d33d7d66a1616dc56fe9_bd361321",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000173/raw_real_GOLOS_c805f6ce0251d33d7d66a1616dc56fe9_bd361321.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000173:raw_real_GOLOS_ca0a370a82568f139fdc4bb82cabd07a_c2aa1f95",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000173/raw_real_GOLOS_ca0a370a82568f139fdc4bb82cabd07a_c2aa1f95.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000173:raw_real_GOLOS_cbbdc4ef456a865a454cfaaffca9688c_47429a93",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000173/raw_real_GOLOS_cbbdc4ef456a865a454cfaaffca9688c_47429a93.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000174:raw_real_GOLOS_cf807faa72ce065cae692a43369edee7_70f8ec38",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000174/raw_real_GOLOS_cf807faa72ce065cae692a43369edee7_70f8ec38.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000174:raw_real_GOLOS_cf8499dee8ab9d6421f47910b3128375_7de9f01c",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000174/raw_real_GOLOS_cf8499dee8ab9d6421f47910b3128375_7de9f01c.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000174:raw_real_GOLOS_d090c82b68fd3274454d26a5efdf3c99_cfaf68e7",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000174/raw_real_GOLOS_d090c82b68fd3274454d26a5efdf3c99_cfaf68e7.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000174:raw_real_GOLOS_d16c5b544cf780eaf37b9cee17870675_e38fc555",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000174/raw_real_GOLOS_d16c5b544cf780eaf37b9cee17870675_e38fc555.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000174:raw_real_GOLOS_d3f320971dc5aa6e5ffa994ee15c1997_7d6eab53",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000174/raw_real_GOLOS_d3f320971dc5aa6e5ffa994ee15c1997_7d6eab53.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000175:raw_real_GOLOS_d83883baf80089323ebfdfeaf715ae3e_94efafa5",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000175/raw_real_GOLOS_d83883baf80089323ebfdfeaf715ae3e_94efafa5.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000175:raw_real_GOLOS_dcd6a19028ff50470ed892148a6dac33_5cdb46d1",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000175/raw_real_GOLOS_dcd6a19028ff50470ed892148a6dac33_5cdb46d1.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000176:raw_real_GOLOS_e2d7bf38b6bf2cdfb50d179c500a09f0_503b2ca5",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000176/raw_real_GOLOS_e2d7bf38b6bf2cdfb50d179c500a09f0_503b2ca5.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000176:raw_real_GOLOS_e8ea15138c844fc9962247a619c003bf_8f4f11e8",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000176/raw_real_GOLOS_e8ea15138c844fc9962247a619c003bf_8f4f11e8.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000176:raw_real_GOLOS_e9f1a241c8e0ef152b5ae29c26cd2f60_6b0ef935",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000176/raw_real_GOLOS_e9f1a241c8e0ef152b5ae29c26cd2f60_6b0ef935.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000178:raw_real_GOLOS_f5e0e481480003c5ad720f08e577c9de_d58f023c",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000178/raw_real_GOLOS_f5e0e481480003c5ad720f08e577c9de_d58f023c.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000178:raw_real_GOLOS_f9a5f4ab30411ddf8fce0c437b0a1691_4dacb4fe",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000178/raw_real_GOLOS_f9a5f4ab30411ddf8fce0c437b0a1691_4dacb4fe.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000178:raw_real_GOLOS_f9fbaf3d359c9ce88a225baff54b1026_dffcfe74",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000178/raw_real_GOLOS_f9fbaf3d359c9ce88a225baff54b1026_dffcfe74.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000178:raw_real_GOLOS_fbe9b04cde9fcff6403e3880db0e7588_a204a9cc",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000178/raw_real_GOLOS_fbe9b04cde9fcff6403e3880db0e7588_a204a9cc.wav",
+      "detail": "Audio is not trainable: rejected_quality (signal_too_quiet)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000178:raw_real_GOLOS_fd15992d190e2f40d1ed20cde3339e67_a4fe994e",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000178/raw_real_GOLOS_fd15992d190e2f40d1ed20cde3339e67_a4fe994e.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000178:raw_real_GOLOS_feeeaae9fcdeaac77f113b0a65684ffa_fb592eba",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000178/raw_real_GOLOS_feeeaae9fcdeaac77f113b0a65684ffa_fb592eba.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000180:raw_real_OpenSTT_2_25_5da74e40665b",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000180/raw_real_OpenSTT_2_25_5da74e40665b.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000181:raw_real_OpenSTT_2_69_2654770f4311",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000181/raw_real_OpenSTT_2_69_2654770f4311.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000181:raw_real_OpenSTT_3_25_2690459ef9b7",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000181/raw_real_OpenSTT_3_25_2690459ef9b7.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000181:raw_real_OpenSTT_3_3f_039e16fb0067",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000181/raw_real_OpenSTT_3_3f_039e16fb0067.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000182:raw_real_OpenSTT_5_3f_7ce94d08a096",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000182/raw_real_OpenSTT_5_3f_7ce94d08a096.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000183:raw_real_OpenSTT_6_fa_78894c514140",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000183/raw_real_OpenSTT_6_fa_78894c514140.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000183:raw_real_OpenSTT_7_92_a973fee46328",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000183/raw_real_OpenSTT_7_92_a973fee46328.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000183:raw_real_OpenSTT_8_0d_a4c9113e4ebc",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000183/raw_real_OpenSTT_8_0d_a4c9113e4ebc.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000183:raw_real_OpenSTT_8_32_1ab85a5e811d",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000183/raw_real_OpenSTT_8_32_1ab85a5e811d.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000183:raw_real_OpenSTT_8_b7_ca15b210c8b9",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000183/raw_real_OpenSTT_8_b7_ca15b210c8b9.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000184:raw_real_OpenSTT_9_7b_425994ea4f34",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000184/raw_real_OpenSTT_9_7b_425994ea4f34.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000184:raw_real_OpenSTT_9_cb_9a34e94c0410",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000184/raw_real_OpenSTT_9_cb_9a34e94c0410.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000184:raw_real_OpenSTT_a_80_ea50c3ff1873",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000184/raw_real_OpenSTT_a_80_ea50c3ff1873.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000184:raw_real_OpenSTT_a_bc_a59f1eb5bda1",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000184/raw_real_OpenSTT_a_bc_a59f1eb5bda1.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000184:raw_real_OpenSTT_b_16_542f5b20e51c",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000184/raw_real_OpenSTT_b_16_542f5b20e51c.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000185:raw_real_OpenSTT_d_58_0dee5562f37c",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000185/raw_real_OpenSTT_d_58_0dee5562f37c.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000185:raw_real_OpenSTT_d_a9_d9beb9f7110b",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000185/raw_real_OpenSTT_d_a9_d9beb9f7110b.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000186:raw_real_OpenSTT_e_b1_b63a710ca591",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000186/raw_real_OpenSTT_e_b1_b63a710ca591.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000186:raw_real_OpenSTT_e_e4_d48838394013",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000186/raw_real_OpenSTT_e_e4_d48838394013.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000186:raw_real_RUSLAN_000914_RUSLAN",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000186/raw_real_RUSLAN_000914_RUSLAN.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000186:raw_real_RUSLAN_002666_RUSLAN",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000186/raw_real_RUSLAN_002666_RUSLAN.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000186:raw_real_RUSLAN_004346_RUSLAN",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000186/raw_real_RUSLAN_004346_RUSLAN.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000187:raw_real_RUSLAN_013131_RUSLAN",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000187/raw_real_RUSLAN_013131_RUSLAN.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000187:raw_real_RuLS_belkintales_05_pushkin_0276",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000187/raw_real_RuLS_belkintales_05_pushkin_0276.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000188:raw_real_RuLS_obryv_021_goncharov_0136",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000188/raw_real_RuLS_obryv_021_goncharov_0136.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000189:raw_real_SOVA-AB_0c310c6b-f3a6-4b5c-a552-a5c93d96e778",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000189/raw_real_SOVA-AB_0c310c6b-f3a6-4b5c-a552-a5c93d96e778.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000189:raw_real_SOVA-AB_13f67a97-877d-4b40-88b4-5d06c013095d",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000189/raw_real_SOVA-AB_13f67a97-877d-4b40-88b4-5d06c013095d.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000189:raw_real_SOVA-AB_1ec45512-3b71-45c4-ab81-96e6be560fbc",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000189/raw_real_SOVA-AB_1ec45512-3b71-45c4-ab81-96e6be560fbc.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000189:raw_real_SOVA-AB_28fa52f4-6296-409e-8d86-49e9bb3b5f81",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000189/raw_real_SOVA-AB_28fa52f4-6296-409e-8d86-49e9bb3b5f81.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000189:raw_real_SOVA-AB_3b5bf695-ac0c-4d90-b6eb-b1da2167a22e",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000189/raw_real_SOVA-AB_3b5bf695-ac0c-4d90-b6eb-b1da2167a22e.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000189:raw_real_SOVA-AB_463ef9da-c940-43ae-8fc4-f63480aed1f6",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000189/raw_real_SOVA-AB_463ef9da-c940-43ae-8fc4-f63480aed1f6.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000189:raw_real_SOVA-AB_480bf960-fb34-4773-a8d1-8a59b87862fe",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000189/raw_real_SOVA-AB_480bf960-fb34-4773-a8d1-8a59b87862fe.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000189:raw_real_SOVA-AB_5bc8d6a9-a29c-4aaf-a875-6900628eb3b7",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000189/raw_real_SOVA-AB_5bc8d6a9-a29c-4aaf-a875-6900628eb3b7.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000189:raw_real_SOVA-AB_adc20b0b-a573-4ef0-a711-ac4627e81c1f",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000189/raw_real_SOVA-AB_adc20b0b-a573-4ef0-a711-ac4627e81c1f.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000189:raw_real_SOVA-AB_b1718d61-e08a-4577-a8f3-ab90a9e72025",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000189/raw_real_SOVA-AB_b1718d61-e08a-4577-a8f3-ab90a9e72025.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000189:raw_real_SOVA-AB_c048e93e-75dc-40fb-ac82-833f669e175c",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000189/raw_real_SOVA-AB_c048e93e-75dc-40fb-ac82-833f669e175c.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-AB_de29e1ef-5445-492a-a1c5-28e4a5e901fb",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-AB_de29e1ef-5445-492a-a1c5-28e4a5e901fb.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-AB_f6908fa1-b6b0-439a-b013-3532f1a9ce7a",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-AB_f6908fa1-b6b0-439a-b013-3532f1a9ce7a.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-AB_fa6c0b42-72b1-48c1-b9b5-549b8af0e20c",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-AB_fa6c0b42-72b1-48c1-b9b5-549b8af0e20c.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_01b1bfb5-00a8-4d40-8d54-96d6d056cc87",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_01b1bfb5-00a8-4d40-8d54-96d6d056cc87.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_030a92e4-d031-4b45-9b94-bd895af6dd39",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_030a92e4-d031-4b45-9b94-bd895af6dd39.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_1a13716f-0b06-4680-965b-560019cb5b3d",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_1a13716f-0b06-4680-965b-560019cb5b3d.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_1ad4ceff-13c0-47f5-97b4-6fc45974b7be",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_1ad4ceff-13c0-47f5-97b4-6fc45974b7be.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_2556cec6-a551-4456-840a-11912069fdf0",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_2556cec6-a551-4456-840a-11912069fdf0.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_2becd9ea-20d2-4382-a28c-fbc96f703683",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_2becd9ea-20d2-4382-a28c-fbc96f703683.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_3bf426b1-87d2-49f0-8bae-9b8a54a83552",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_3bf426b1-87d2-49f0-8bae-9b8a54a83552.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_5757438d-5974-4b74-a42d-f98cb10654e0",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_5757438d-5974-4b74-a42d-f98cb10654e0.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_66f7d5e7-0508-44c9-9e6c-e654869d1f66",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_66f7d5e7-0508-44c9-9e6c-e654869d1f66.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_6835da48-8500-4e0d-9f55-0a75959b3cfc",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_6835da48-8500-4e0d-9f55-0a75959b3cfc.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_71583a68-901f-4a2a-8864-882ab3fb2135",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_71583a68-901f-4a2a-8864-882ab3fb2135.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_7c3a57c7-40e9-477e-8bdb-938b41b376a2",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_7c3a57c7-40e9-477e-8bdb-938b41b376a2.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_8420f2c9-d0bf-4f4f-99b5-0bf25447b89c",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_8420f2c9-d0bf-4f4f-99b5-0bf25447b89c.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_84e6ceaa-e5f7-4140-8b84-87ab0254871e",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_84e6ceaa-e5f7-4140-8b84-87ab0254871e.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_8c6fa845-4888-4b98-a888-6f4f1acdb97d",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_8c6fa845-4888-4b98-a888-6f4f1acdb97d.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_8c747f5e-14e0-40ed-b2aa-8163ccb59dea",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_8c747f5e-14e0-40ed-b2aa-8163ccb59dea.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_958ab2fa-7da0-410c-9912-f903f6c04e4e",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_958ab2fa-7da0-410c-9912-f903f6c04e4e.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_95fe83d8-4ea2-4e45-a6a6-3d887ccbc1a2",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_95fe83d8-4ea2-4e45-a6a6-3d887ccbc1a2.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000190:raw_real_SOVA-D_98d35742-e384-4707-957b-920010241bef",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000190/raw_real_SOVA-D_98d35742-e384-4707-957b-920010241bef.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000191:raw_real_SOVA-D_abcb0876-998a-4dfb-adc0-905490dc9169",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000191/raw_real_SOVA-D_abcb0876-998a-4dfb-adc0-905490dc9169.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000191:raw_real_SOVA-D_af657ff9-ed1a-4ffe-b795-8080eeacf700",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000191/raw_real_SOVA-D_af657ff9-ed1a-4ffe-b795-8080eeacf700.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000191:raw_real_SOVA-D_b2c6b801-e4ef-489e-97ec-a0a2f47ff9dc",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000191/raw_real_SOVA-D_b2c6b801-e4ef-489e-97ec-a0a2f47ff9dc.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000191:raw_real_SOVA-D_b72f71ab-e367-4024-bc73-e5aba1f43aa4",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000191/raw_real_SOVA-D_b72f71ab-e367-4024-bc73-e5aba1f43aa4.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000191:raw_real_SOVA-D_c32296fe-7e35-47c7-b8c8-dfd7a9a1093e",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000191/raw_real_SOVA-D_c32296fe-7e35-47c7-b8c8-dfd7a9a1093e.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000191:raw_real_SOVA-D_c376f113-61eb-4713-9418-7d7e48fe9c52",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000191/raw_real_SOVA-D_c376f113-61eb-4713-9418-7d7e48fe9c52.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000191:raw_real_SOVA-D_c4388098-7531-45f2-bbd1-488ead76195f",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000191/raw_real_SOVA-D_c4388098-7531-45f2-bbd1-488ead76195f.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000191:raw_real_SOVA-D_c7e2475a-6b78-4321-ac08-59351d08e3ad",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000191/raw_real_SOVA-D_c7e2475a-6b78-4321-ac08-59351d08e3ad.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000191:raw_real_SOVA-D_d73f46dc-96c3-4044-bc8a-2c062d7a4a33",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000191/raw_real_SOVA-D_d73f46dc-96c3-4044-bc8a-2c062d7a4a33.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000191:raw_real_SOVA-D_ea9fde57-2a99-40f9-a759-d691626b11d3",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000191/raw_real_SOVA-D_ea9fde57-2a99-40f9-a759-d691626b11d3.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000191:raw_real_SOVA-D_ec939920-0e44-4986-9502-af85d134b987",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000191/raw_real_SOVA-D_ec939920-0e44-4986-9502-af85d134b987.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000191:raw_real_SOVA-D_f2a4cc4f-daff-471a-bd63-39d82794dc2f",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000191/raw_real_SOVA-D_f2a4cc4f-daff-471a-bd63-39d82794dc2f.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "ruasd_ru_v1_full:ruasd-000191:raw_real_SOVA-YT_0d83811c-6e8b-42d5-be6a-12ea511a9a77_000016",
+      "relative_path": "raw/ruasd_ru_v1_full/slices/research-2000-v2/ruasd-000191/raw_real_SOVA-YT_0d83811c-6e8b-42d5-be6a-12ea511a9a77_000016.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    }
+  ]
+}

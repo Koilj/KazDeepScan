@@ -10,6 +10,7 @@ from kds.data.licenses import (
     load_license_ledger,
     validate_manifest_licenses,
     validate_training_protocol,
+    write_license_ledger_snapshot,
 )
 from kds.data.manifest import ManifestRow
 from tests.factories import manifest_mapping
@@ -79,6 +80,37 @@ def test_verified_ledger_entry_requires_archive_digest(tmp_path: Path) -> None:
 
     with pytest.raises(LicenseLedgerError, match="requires an archive SHA-256"):
         load_license_ledger(ledger_path)
+
+
+def test_license_ledger_snapshot_is_minimal_deterministic_and_write_once(
+    tmp_path: Path,
+) -> None:
+    ledger_path = tmp_path / "license_ledger.csv"
+    _write_ledger(ledger_path)
+    snapshot_path = tmp_path / "frozen" / "plan_v1.csv"
+    snapshot_path.parent.mkdir()
+    ledger = load_license_ledger(ledger_path)
+
+    assert write_license_ledger_snapshot(
+        snapshot_path, ledger, source_ids=["approved-source", "approved-source"]
+    ) == ("approved-source",)
+    assert load_license_ledger(snapshot_path) == ledger
+    with pytest.raises(LicenseLedgerError, match="Unsafe license ledger snapshot"):
+        write_license_ledger_snapshot(
+            snapshot_path, ledger, source_ids=["approved-source"]
+        )
+
+
+def test_license_ledger_snapshot_rejects_unknown_source(tmp_path: Path) -> None:
+    ledger_path = tmp_path / "license_ledger.csv"
+    _write_ledger(ledger_path)
+
+    with pytest.raises(LicenseLedgerError, match="sources are missing"):
+        write_license_ledger_snapshot(
+            tmp_path / "snapshot.csv",
+            load_license_ledger(ledger_path),
+            source_ids=["missing-source"],
+        )
 
 
 def test_training_protocol_requires_explicit_source_policy(tmp_path: Path) -> None:

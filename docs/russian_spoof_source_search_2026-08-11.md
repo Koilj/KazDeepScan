@@ -46,6 +46,14 @@ details, pinned review hashes, plan and receipt are in
 
 ## Повторная external-проверка — результат не изменился
 
+12 августа дополнительно проверены предложенные YO-CPT-ru, YO-CPT-kk и Dusha. Оба YO-CPT —
+YouTube-derived bona-fide TTS-pretraining corpora, а не spoof releases; они имеют unresolved
+per-record copyright/privacy provenance, face-derived persona/identity fields и огромный объём
+(около 1.01 TB RU и 99.95 GB KK). Не скачивать. Dusha — human Russian emotion corpus, не spoof
+source; crowd archive 28 GB сейчас не нужен, podcast audio сам publisher не распространяет по
+licensing причине. Решения: `data_sources_yocpt_ru_2026-08-12.md`,
+`data_sources_yocpt_kk_2026-08-12.md`, `data_sources_dusha_2026-08-12.md`.
+
 Повторный read-only search в этот же день не нашёл пригодного **independent Russian-only** release.
 Актуальная [RuASD dataset card](https://huggingface.co/datasets/lab260/RuASD) описывает `37`
 Russian-capable TTS/voice-cloning systems и binary Russian corpus, однако этот exact source уже

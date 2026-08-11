@@ -11,10 +11,31 @@ import pytest
 
 from kds.data.ruasd_catalog import (
     RuAsdCatalogError,
+    _normalize_source_model,
     audit_ruasd_collection,
     load_ruasd_artifact_catalog,
     write_ruasd_audit_report,
 )
+
+
+@pytest.mark.parametrize(
+    "value",
+    ["1997", "35", "собранная международными организациями."],
+)
+def test_tts_model_normalization_rejects_shifted_metadata(value: str) -> None:
+    normalized, status, source_sha256 = _normalize_source_model(value, is_raw_tts=True)
+
+    assert normalized == "unspecified_by_source"
+    assert status == "invalid_source_metadata"
+    assert source_sha256 == hashlib.sha256(value.encode()).hexdigest()
+
+
+def test_tts_model_normalization_keeps_identifier() -> None:
+    assert _normalize_source_model("ru_RU-dmitri-medium", is_raw_tts=True) == (
+        "ru_RU-dmitri-medium",
+        "source_identifier",
+        None,
+    )
 
 
 def _write_archive(path: Path) -> None:
@@ -120,6 +141,11 @@ def test_collection_audit_counts_metadata_without_extracting_audio(tmp_path: Pat
     }
     assert audit.text_counts["fake/raw/source_text_present"] == 1
     assert audit.text_counts["real/augmented/source_text_missing"] == 1
+    assert audit.model_status_counts == {
+        "fake/raw/source_identifier": 1,
+        "real/augmented/not_applicable": 1,
+        "real/raw/not_applicable": 1,
+    }
     assert events == [(1, 1, "ruasd-000000.tar")]
 
 

@@ -86,3 +86,18 @@ def test_stage_b_calibration_filter_excludes_all_earlier_dev_roles() -> None:
     assert {row.sample_id for row in selected} == {"fresh-real", "fresh-fake"}
     assert report.excluded_rows == 2
     assert report.reason_counts == {"text_hash": 2}
+
+
+def test_stage_b_calibration_filter_accepts_duplicate_historical_roles() -> None:
+    historical = _row("history", "train", "bonafide", "a" * 64)
+    candidate = [
+        _row("fresh-real", "dev", "bonafide", "b" * 64),
+        _row("fresh-fake", "dev", "spoof", "c" * 64),
+    ]
+
+    selected, report = filter_stage_b_calibration_rows(
+        [historical, historical], candidate
+    )
+
+    assert selected == candidate
+    assert report.selected_rows == 2

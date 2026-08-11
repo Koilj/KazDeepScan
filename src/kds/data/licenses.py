@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import csv
+import shutil
+import tempfile
 from collections.abc import Iterable, Mapping
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from datetime import datetime
 from pathlib import Path
 
@@ -181,6 +183,44 @@ def load_license_ledger(path: Path) -> dict[str, LicenseLedgerEntry]:
     if issues:
         raise LicenseLedgerError(issues)
     return entries
+
+
+def write_license_ledger_snapshot(
+    path: Path,
+    entries: Mapping[str, LicenseLedgerEntry],
+    *,
+    source_ids: Iterable[str],
+) -> tuple[str, ...]:
+    """Write a deterministic, minimal and immutable ledger for one frozen protocol."""
+
+    selected_ids = tuple(sorted(set(source_ids)))
+    missing = tuple(source_id for source_id in selected_ids if source_id not in entries)
+    if not selected_ids:
+        raise LicenseLedgerError(["A license ledger snapshot needs at least one source_id."])
+    if missing:
+        raise LicenseLedgerError(
+            ["License ledger snapshot sources are missing: " + ", ".join(missing) + "."]
+        )
+    if path.exists() or not path.parent.is_dir():
+        raise LicenseLedgerError([f"Unsafe license ledger snapshot destination: {path}"])
+
+    try:
+        with tempfile.TemporaryDirectory(prefix="kds-ledger-snapshot-", dir=path.parent) as stage:
+            staged = Path(stage) / path.name
+            with staged.open("w", encoding="utf-8", newline="") as destination:
+                writer = csv.DictWriter(
+                    destination,
+                    fieldnames=LICENSE_LEDGER_FIELD_ORDER,
+                    lineterminator="\n",
+                )
+                writer.writeheader()
+                for source_id in selected_ids:
+                    writer.writerow(asdict(entries[source_id]))
+            load_license_ledger(staged)
+            shutil.move(staged, path)
+    except OSError as error:
+        raise LicenseLedgerError([f"Cannot write license ledger snapshot: {path}"]) from error
+    return selected_ids
 
 
 def validate_manifest_licenses(

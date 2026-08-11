@@ -3,12 +3,17 @@ from __future__ import annotations
 import hashlib
 import wave
 from array import array
+from dataclasses import replace
 from pathlib import Path
 
 from kds.audio.contracts import MediaInfo, SpeechSegment
 from kds.audio.pipeline import AudioPreparationPipeline
 from kds.data.manifest import ManifestRow
-from kds.data.preprocess import preprocess_rows, processed_relative_path
+from kds.data.preprocess import (
+    preprocess_rows,
+    processed_relative_path,
+    reuse_preprocessed_rows,
+)
 from tests.factories import manifest_mapping
 
 
@@ -133,3 +138,45 @@ def test_preprocess_rows_can_publish_ready_assets_when_rejections_are_explicit(
     assert [row.sample_id for row in report.processed_rows] == ["first"]
     assert len(report.issues) == 1
     assert (tmp_path / processed_relative_path(first)).is_file()
+
+
+def test_reuse_preprocessed_rows_requires_same_sample_and_raw_bytes() -> None:
+    prior_raw = ManifestRow.from_mapping(
+        manifest_mapping(
+            sample_id="same",
+            relative_path="raw/same.wav",
+            sha256="a" * 64,
+            label="spoof",
+            generator_family="tts",
+            generator_name="generator",
+            generator_version="bad-old-value",
+            voice_id="voice",
+        ),
+        row_number=2,
+    )
+    prior_ready = replace(
+        prior_raw,
+        relative_path=processed_relative_path(prior_raw),
+        sha256="b" * 64,
+        duration_s=4.25,
+        codec="wav",
+    )
+    current = replace(prior_raw, split="dev", generator_version="normalized-v2")
+    different_bytes = replace(current, sample_id="changed", sha256="c" * 64)
+
+    result = reuse_preprocessed_rows(
+        [current, different_bytes], [prior_raw], [prior_ready]
+    )
+
+    assert result.reused_rows == (
+        replace(
+            current,
+            relative_path=prior_ready.relative_path,
+            sha256=prior_ready.sha256,
+            duration_s=prior_ready.duration_s,
+            codec="wav",
+        ),
+    )
+    assert result.reused_rows[0].generator_version == "normalized-v2"
+    assert result.reused_rows[0].split == "dev"
+    assert result.remaining_rows == (different_bytes,)

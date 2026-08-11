@@ -40,6 +40,8 @@ uv run python scripts/train_xlsr_sls_stage_a.py \
 
 Stage A v1 уже выполнен и не перезапускается. Его протокол, CUDA profile, train/dev metrics и
 artifact hashes записаны в [research_xlsr_sls_stage_a_v1.md](research_xlsr_sls_stage_a_v1.md).
+Stage A v2 на исправленном RuASD-v2 также завершён: epoch 3, dev balanced accuracy `0.89945`.
+Точный receipt — [research_xlsr_sls_stage_a_v2.md](research_xlsr_sls_stage_a_v2.md).
 
 ## Stage B
 
@@ -68,6 +70,14 @@ Stage B v1 уже выполнен и не перезапускается. Вы�
 accuracy `0.9381` и balanced accuracy `0.9393`; в самом Stage-B train/dev run frozen final
 inference и calibration не выполнялись. Полный протокол, CUDA profile и artifact hashes записаны
 в [research_xlsr_sls_stage_b_v1.md](research_xlsr_sls_stage_b_v1.md).
+
+Stage B v2 обучен на RuASD-v2 train и PyAra dev v3: по заранее зафиксированному minimum dev loss
+выбран epoch 5 (`0.17405`), balanced accuracy `0.92287`. Детали и hashes —
+[research_xlsr_sls_stage_b_v2.md](research_xlsr_sls_stage_b_v2.md). После отдельного immutable
+preflight ровно один раз выполнены temperature scaling на disjoint calibration v3 и confirmatory
+RU/KK/mixed evaluation. Результаты не pooled и не product quality; mixed слой ранее раскрыт v1,
+а KK не имеет two-review acoustic gate. Полный receipt —
+[research_xlsr_sls_stage_b_v2_research_final_v1.md](research_xlsr_sls_stage_b_v2_research_final_v1.md).
 
 Позднее единожды выполнен **не final** exploratory stress-test на 30 input-pinned KSC2 mixed
 pairs. Он имеет отдельный immutable plan и execution lock, не меняет Stage-B weights/calibration

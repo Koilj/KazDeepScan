@@ -31,9 +31,13 @@ KazDeepScan — локальный personal-research проект для исс�
   карта не предусматривает запись голосов людей, voice cloning или сбор consented corpus;
   PII и соглашения не создаются и никогда не хранятся в Git.
 - B0 foundation и реальные XLS-R + SLS Stage A/B: hash-pinned CUDA/BF16 runners сначала
-  обучают SLS-head, затем размораживают только последние восемь XLS-R blocks. Stage B использует
-  RuASD train и новый 970-row PyAra dev без доступного sample/asset/text/group overlap; runners
-  не принимают frozen final manifests, а aggregation/calibration остаются неактивными;
+  обучают SLS-head, затем размораживают только последние восемь XLS-R blocks. V2 использует
+  исправленный RuASD train (`1 471`) и новый 969-row PyAra dev без доступного
+  sample/asset/text/group overlap;
+- отдельный write-once Stage-B v2 contract fitted temperature только на disjoint PyAra
+  calibration и один раз выполнил раздельный confirmatory RU/KK/mixed run. Это не pooled
+  product score: mixed assets ранее видел checkpoint v1, а KK layer не имеет two-review
+  acoustic gate;
 - explicit source-mixed research matrix и B0 runner, который не допускает overlap исходных
   corpus между train/dev/final-test и проверяет обычный sample/SHA-256/group/text leakage поверх
   этого;
@@ -53,11 +57,11 @@ KazDeepScan — локальный personal-research проект для исс�
 источник не даёт проверяемый speaker-disjoint binary split. Отчёты:
 [RuASD](docs/research_b0_ruasd_full_2000.md),
 [source-mixed v1](docs/research_b0_source_mixed_v1.md) и
-[source-mixed v2 Kazakh](docs/research_b0_source_mixed_v2_kk.md). XLS-R+SLS Stage B выбрал
-epoch 7 по fresh PyAra dev loss `0.15236`, accuracy `0.9381` и balanced accuracy `0.9393`;
-полный ограниченный отчёт — [XLS-R+SLS Stage B v1](docs/research_xlsr_sls_stage_b_v1.md).
-В самом Stage-B train/dev frozen final evaluation и calibration не выполнялись, поэтому ни
-модель, ни API не выдают вероятность риска или калиброванный score. Отдельный 30-pair
+[source-mixed v2 Kazakh](docs/research_b0_source_mixed_v2_kk.md). XLS-R+SLS Stage B v2 выбрал
+epoch 5 по fresh PyAra dev loss `0.17405`, accuracy `0.9216` и balanced accuracy `0.9229`;
+полный train/dev отчёт — [XLS-R+SLS Stage B v2](docs/research_xlsr_sls_stage_b_v2.md).
+Отдельный calibrated confirmatory run дал balanced accuracy RU `0.9800`, KK `1.0000`, mixed
+`0.9333`, но его ограничения не позволяют включать model/API risk score. Отдельный 30-pair
 KSC2/Silero exploratory stress-test проведён с write-once plan и без calibration/threshold
 selection; это не final quality. Полный pair-level report —
 [здесь](docs/research_xlsr_sls_stage_b_ksc2_mixed_exploratory_30.md).
@@ -122,8 +126,10 @@ uv run python scripts/ingest_common_voice_ru_v24.py \
 # только после документированного полного audit этого же неизменённого набора.
 uv run python scripts/ingest_ruasd_research.py \
   --archive-dir /home/ruslan/Downloads/RuASD \
-  --output-manifest data/manifests/ruasd_ru_v1_full_research_2000.csv \
-  --slice-name research-2000 --limit-per-label 1000 --min-per-stratum 1
+  --output-manifest data/manifests/ruasd_ru_v1_full_research_2000_v2.csv \
+  --selection-receipt data/manifests/ruasd_ru_v1_full_research_2000_v2_selection_receipt.json \
+  --slice-name research-2000-v2 --limit-per-label 1000 --min-per-stratum 1 \
+  --selected-at-utc 2026-08-12T00:00:00Z
 
 # Проверить B0 checkpoint на отдельном manifest без калибровки.
 uv run python scripts/evaluate_b0.py \
@@ -199,26 +205,35 @@ uv run python scripts/train_b0_unseen_suite.py \
 # без --validate-only. Seed, model/training config, входные SHA-256 и output пути
 # берутся только из plan, а не из аргументов запуска.
 
-# Проверить новый XLS-R+SLS Stage A plan без обучения и без final inference.
-# Stage A v1 уже выполнен; для повторного эксперимента нужны новый run_id/output paths.
+# Исторический синтаксис preflight для XLS-R+SLS Stage A v2.
+# Этот plan уже выполнен: write-once guard теперь ожидаемо отклонит и validate/profile/train.
+# Для нового эксперимента нужны новый run_id и новые output paths.
 uv run python scripts/train_xlsr_sls_stage_a.py \
   --plan configs/research/xlsr_sls_stage_a_v2.json \
   --audio-root data --validate-only
 
-# Затем отдельно выполнить ровно один train и один dev batch для CUDA/VRAM profile.
+# Исторический синтаксис отдельного CUDA/VRAM profile до обучения:
 uv run python scripts/train_xlsr_sls_stage_a.py \
   --plan configs/research/xlsr_sls_stage_a_v2.json \
   --audio-root data --profile-only
 
-# Stage B v1 уже выполнен. Новый запуск требует новых run_id/dev/output paths.
+# Исторический синтаксис preflight для Stage B v2. Plan уже выполнен, поэтому write-once
+# guard ожидаемо отклонит повторный validate/profile/train. Новый experiment требует
+# новых run_id, dev/calibration manifests и output paths.
 uv run python scripts/train_xlsr_sls_stage_b.py \
   --plan configs/research/xlsr_sls_stage_b_v2.json \
   --audio-root data --validate-only
 
-# После успешного preflight выполнить ровно один batch train/dev для CUDA/VRAM profile.
+# Исторический синтаксис CUDA/VRAM profile до обучения:
 uv run python scripts/train_xlsr_sls_stage_b.py \
   --plan configs/research/xlsr_sls_stage_b_v2.json \
   --audio-root data --profile-only
+
+# Confirmatory v1 уже выполнен и write-once outputs запрещают повтор. Для нового experiment
+# требуется новый plan с новыми output paths и честным disclosure test-set history.
+uv run python scripts/evaluate_xlsr_research_final.py \
+  --plan configs/research/xlsr_sls_stage_b_v2_research_final_v1.json \
+  --audio-root data --validate-only
 
 ```
 
@@ -230,6 +245,8 @@ uv run python scripts/train_xlsr_sls_stage_b.py \
 [docs/frozen_b0_run_plan.md](docs/frozen_b0_run_plan.md). XLS-R Stage A/B описаны в
 [docs/xlsr_sls.md](docs/xlsr_sls.md); подготовка отдельного Stage-B calibration dev и границы
 следующего final protocol — в [docs/xlsr_stage_b_final_preparation.md](docs/xlsr_stage_b_final_preparation.md).
+Выполненный calibrated confirmatory receipt — в
+[docs/research_xlsr_sls_stage_b_v2_research_final_v1.md](docs/research_xlsr_sls_stage_b_v2_research_final_v1.md).
 KSC2 single-AI mixed evidence review и ограничения альтернативных LID/ASR sources — в
 [docs/ksc2_mixed_ai_review_v1.md](docs/ksc2_mixed_ai_review_v1.md); готовый bona-fide candidate
 и результат технического TTS smoke-test — в

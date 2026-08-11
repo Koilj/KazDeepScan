@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "run_id": "xlsr-sls-stage-b-v2-research-final-v1",
+  "purpose": "research",
+  "protocol": {
+    "kind": "confirmatory_multilingual_research_evaluation",
+    "quality_claim": "research_only_not_product_quality",
+    "test_novelty": "model_version_holdout_not_project_level_blind",
+    "calibration": "temperature_only_on_pinned_pyara_role",
+    "decision_boundary": "fixed_calibrated_probability_0.5",
+    "pooled_language_metric": "prohibited"
+  },
+  "license_ledger": {
+    "path": "../../data/licenses/frozen/xlsr_sls_stage_b_v2_research_final_v1.csv",
+    "sha256": "3e656f636a01d21d96b6ee90e365ef63bab3c3e033367f85233d1b63cfbe7538"
+  },
+  "checkpoint": {
+    "path": "../../models/xlsr-sls-stage-b-v2.pt",
+    "sha256": "e112c5c93f2a5af0c567b85eccac0a617c37fa79b4d7cc2b29b4b3289f2764cd",
+    "stage_b_report": {
+      "path": "../../models/xlsr-sls-stage-b-v2-report.json",
+      "sha256": "cca5bf61976f07207d15976497b030420c274c6c1c5a194c4d37db2728f4c651"
+    },
+    "selected_trainable_state_sha256": "d03adfe2ebfe7b7361b2a0d9b7902ef7251f7faf139d37a30531e2211e2dd738"
+  },
+  "encoder": {
+    "checkpoint_dir": "../../models/xlsr-300m",
+    "revision": "1a640f32ac3e39899438a2931f9924c02f080a54",
+    "config": {
+      "path": "../../models/xlsr-300m/config.json",
+      "sha256": "0bffa0d0e98153e883b828d86491f3c6062cb563dc9d7a9cfd1790da30c286ac"
+    },
+    "weights": {
+      "path": "../../models/xlsr-300m/pytorch_model.bin",
+      "sha256": "d5e490574712ad0a6736923b9ed11d4cd51c78609c36205f704fc4e87b11d2e0"
+    }
+  },
+  "head": {
+    "attention_size": 128,
+    "classifier_size": 256,
+    "dropout": 0.2
+  },
+  "roles": {
+    "train": {
+      "manifest": {
+        "path": "../../data/manifests/ruasd_ru_v1_full_research_2000_ready_v2.csv",
+        "sha256": "82518a2e4e40ef39fa3bcc0c197f717ef83e5f7310cfee53bf546a55fe3ba4cc"
+      },
+      "selected_split": "train",
+      "expected_rows": 1471
+    },
+    "stage_a_dev": {
+      "manifest": {
+        "path": "../../data/manifests/pyara_ru_v7_research_500_ready.csv",
+        "sha256": "3b8357c0acd7efbd603218e49536ab80046764301594ee1e4f7def68155a70eb"
+      },
+      "selected_split": "dev",
+      "expected_rows": 61
+    },
+    "stage_b_dev": {
+      "manifest": {
+        "path": "../../data/manifests/pyara_ru_v7_fresh_dev_1000_ready_v3.csv",
+        "sha256": "39261826df9f51bbb23dcc8efa489c4f2c0bfe894361791fa99d63407bb3c4ea"
+      },
+      "selected_split": "dev",
+      "expected_rows": 969
+    },
+    "calibration": {
+      "manifest": {
+        "path": "../../data/manifests/pyara_ru_v7_stage_b_calibration_dev_1000_ready_v3.csv",
+        "sha256": "7fe2c89be7f02eea1abdfc369fc9c16185b0a395fa2526b5b2c58e361fa8fa31"
+      },
+      "selected_split": "dev",
+      "expected_rows": 976
+    },
+    "final_layers": [
+      {
+        "name": "ru",
+        "language": "ru",
+        "manifest": {
+          "path": "../../data/manifests/fleurs_ru_v1_espeakng_test_75.csv",
+          "sha256": "65b12c43df18fcf7d1ea6b38d2e951cc505963241f5d821092b035b56c9a3af8"
+        },
+        "expected_rows": 150,
+        "expected_pairs": 75,
+        "evidence_kind": "two_review_acoustic_gate",
+        "evidence_report": {
+          "path": "../../data/manifests/fleurs_ru_v1_espeakng_acoustic_gate_report_v1.json",
+          "sha256": "ec9f6129391687ef12799a8a6b06ad9a6dfd308a3defba1c9cda09a81e2380ea"
+        },
+        "project_exposure": "never_inferred",
+        "exposure_receipt": null
+      },
+      {
+        "name": "kk",
+        "language": "kk",
+        "manifest": {
+          "path": "../../data/manifests/fleurs_kk_v1_silero_v4_test_152.csv",
+          "sha256": "e23f1ce80dbc866eafd4fe1f488f2f55c5705bef1bd9b12e33ce80632328dac2"
+        },
+        "expected_rows": 304,
+        "expected_pairs": 152,
+        "evidence_kind": "source_transcript_only_no_acoustic_review",
+        "evidence_report": null,
+        "project_exposure": "never_inferred",
+        "exposure_receipt": null
+      },
+      {
+        "name": "mixed",
+        "language": "mixed",
+        "manifest": {
+          "path": "../../data/manifests/ksc2_mixed_v1_silero_v4_candidate_30.csv",
+          "sha256": "dafa33d424da8efab19d849afeeeb11c279d2e6c10ff187f3a57cada76c6c4a8"
+        },
+        "expected_rows": 60,
+        "expected_pairs": 30,
+        "evidence_kind": "two_review_acoustic_gate",
+        "evidence_report": {
+          "path": "../../data/manifests/ksc2_mixed_v1_silero_v4_acoustic_gate_report_v1.json",
+          "sha256": "3585cda150e09a40a57bee50f3209e02e836b86738027c224902ae98d98eed01"
+        },
+        "project_exposure": "previously_inferred_with_older_model",
+        "exposure_receipt": {
+          "path": "../../artifacts/xlsr-sls-stage-b-v1-ksc2-mixed-exploratory-30.report.json",
+          "sha256": "e1ab67f5d075ade907bd7c067cf5afe31718394677b2c3571415faef6f7ecd0b"
+        }
+      }
+    ]
+  },
+  "implementation": [
+    {
+      "path": "../../scripts/evaluate_xlsr_research_final.py",
+      "sha256": "db55b0abd594a54de31ad8caef1f2ca7e9a872981426a228d7251f76f4b4c62a"
+    },
+    {
+      "path": "../../src/kds/eval/xlsr_research_final.py",
+      "sha256": "bede89e5718a89f71b6e6b84d41c3ff94530576d9fab72832b2a74af59af8a8d"
+    },
+    {
+      "path": "../../src/kds/eval/calibration.py",
+      "sha256": "bf34382fc5ecff15a7b7f1cba414b79ba13c29d3ffdcc6173369689d912c5b55"
+    },
+    {
+      "path": "../../src/kds/eval/metrics.py",
+      "sha256": "2e5ce453bcf3c59fecdafb7732d2ed84ae2a56354702fb7521d9390d2cc9bace"
+    },
+    {
+      "path": "../../src/kds/data/assets.py",
+      "sha256": "b3a27d67596dd2e6aa70ac0aa54cf61fc0c967c1386e67888c5f89e123e4dba9"
+    },
+    {
+      "path": "../../src/kds/data/dataset.py",
+      "sha256": "efd0b5224213ed8ee1fb81c58e937ba0455ee6d1713dc93797065bb34ac0487c"
+    },
+    {
+      "path": "../../src/kds/data/licenses.py",
+      "sha256": "35ba1184671e4896cc1af3a8612874caf716c4706444b496e8997f09b71aace7"
+    },
+    {
+      "path": "../../src/kds/data/manifest.py",
+      "sha256": "f1b709fc06cd9b465217afd62b80e5519bb9f24513da195326d4670a27fc61f8"
+    },
+    {
+      "path": "../../src/kds/data/stage_b_dev.py",
+      "sha256": "3a0b56f484461774717555a4c9696a2f7ac8f653207be2db6ce88524e94e497b"
+    },
+    {
+      "path": "../../src/kds/models/__init__.py",
+      "sha256": "5697351cdc4ee0836fc5068d7ed93a1d9b54e454c709261fda286e609e3bd9d2"
+    },
+    {
+      "path": "../../src/kds/models/xlsr_sls.py",
+      "sha256": "470c213fee423a7aa895f882fe3618c8d1597e30e7f95b0cef697ed614d430b8"
+    },
+    {
+      "path": "../../src/kds/training/__init__.py",
+      "sha256": "37f4e20e86f2488ba3f34a7a70d4aabcf406f63e6fc321e8906ab9bb7a398faf"
+    },
+    {
+      "path": "../../src/kds/training/b0.py",
+      "sha256": "4827c686e2692ff429c6a94195534d5cf4d2ee7ea108675740b0f06f59016118"
+    },
+    {
+      "path": "../../src/kds/training/frozen_b0.py",
+      "sha256": "e9cc8cf0a7f3046596ad7f921c3b305dc7a096b0dfb233039558671615f49861"
+    },
+    {
+      "path": "../../src/kds/training/xlsr_stage_a_plan.py",
+      "sha256": "1f6c8753cfc9e9cb934a204e53223a6b69cf41cb06e9c252307cbcf52771970b"
+    },
+    {
+      "path": "../../pyproject.toml",
+      "sha256": "67598066ccb2d74accec5861357d92f3e2113d2f4a1bfda534481ee54d82e995"
+    },
+    {
+      "path": "../../uv.lock",
+      "sha256": "a33027f7a6dd8af232c957a4135c362722effd4867a3547e09d8caf20fdd120c"
+    }
+  ],
+  "inference": {
+    "sample_rate": 16000,
+    "window_samples": 64600,
+    "batch_size": 4,
+    "num_workers": 0,
+    "device": "cuda",
+    "precision": "bf16",
+    "calibrated_probability_boundary": 0.5,
+    "temperature_max_iter": 50
+  },
+  "outputs": {
+    "execution_lock": "../../artifacts/xlsr-sls-stage-b-v2-research-final-v1.execution.json",
+    "report": "../../artifacts/xlsr-sls-stage-b-v2-research-final-v1.report.json"
+  }
+}

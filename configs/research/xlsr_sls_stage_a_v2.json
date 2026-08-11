@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "run_id": "xlsr-sls-stage-a-v2",
+  "purpose": "research",
+  "license_ledger": {
+    "path": "../../data/licenses/frozen/xlsr_sls_stage_ab_v2.csv",
+    "sha256": "5ef01f6f648280e1eb6905be15a9921b78fc78d479d293c86a9f102234cc7477"
+  },
+  "train": {
+    "manifest": {
+      "path": "../../data/manifests/ruasd_ru_v1_full_research_2000_ready_v2.csv",
+      "sha256": "82518a2e4e40ef39fa3bcc0c197f717ef83e5f7310cfee53bf546a55fe3ba4cc"
+    },
+    "source_split": "train",
+    "expected_source_ids": [
+      "ruasd_ru_v1_full"
+    ],
+    "expected_languages": [
+      "ru"
+    ]
+  },
+  "dev": {
+    "manifest": {
+      "path": "../../data/manifests/pyara_ru_v7_research_500_ready.csv",
+      "sha256": "3b8357c0acd7efbd603218e49536ab80046764301594ee1e4f7def68155a70eb"
+    },
+    "source_split": "dev",
+    "expected_source_ids": [
+      "pyara_ru_v7"
+    ],
+    "expected_languages": [
+      "ru"
+    ]
+  },
+  "encoder": {
+    "checkpoint_dir": "../../models/xlsr-300m",
+    "revision": "1a640f32ac3e39899438a2931f9924c02f080a54",
+    "config": {
+      "filename": "config.json",
+      "sha256": "0bffa0d0e98153e883b828d86491f3c6062cb563dc9d7a9cfd1790da30c286ac"
+    },
+    "weights": {
+      "filename": "pytorch_model.bin",
+      "sha256": "d5e490574712ad0a6736923b9ed11d4cd51c78609c36205f704fc4e87b11d2e0"
+    }
+  },
+  "head": {
+    "attention_size": 128,
+    "classifier_size": 256,
+    "dropout": 0.2
+  },
+  "training": {
+    "seed": 20260823,
+    "epochs": 3,
+    "batch_size": 16,
+    "gradient_accumulation_steps": 1,
+    "window_samples": 64600,
+    "sample_rate": 16000,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 1.0,
+    "num_workers": 0,
+    "pin_memory": true,
+    "device": "cuda",
+    "precision": "bf16",
+    "freeze_encoder": true,
+    "encoder_eval_mode": true,
+    "selection_metric": "dev_loss"
+  },
+  "outputs": {
+    "checkpoint": "../../models/xlsr-sls-stage-a-v2-head.pt",
+    "report": "../../models/xlsr-sls-stage-a-v2-report.json"
+  }
+}

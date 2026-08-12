@@ -45,6 +45,9 @@ checkpoint и строго ограниченный evaluation-контур:
 - для следующего asset-level-blind suite опубликован source inventory v2: полный pinned FLEURS
   release оставляет 55 RU и 197 KK fresh text groups, из которых сейчас QA-ready 60 KK; второй
   disjoint KSC2 semantic pass довёл fresh QA-ready mixed слой с 1 до 58 groups;
+- до synthesis заморожена all-eligible selection policy: 55 RU, 60 KK и 58 mixed groups без
+  model-based отбора и backfill. Bona-fide QA оставил 50/60/58 rows; пять тихих RU recordings
+  получили accounted rejection, combined ready слой содержит 168 rows;
 - абсолютная architecture novelty заменена на доказуемый exact checkpoint/runtime gate, потому
   что historical RuASD manifests не содержат architecture IDs. ISSAI KazakhTTS2 Male2
   Tacotron2 + ParallelWaveGAN прошёл rights/artifact/config/exposure и CUDA technical-smoke

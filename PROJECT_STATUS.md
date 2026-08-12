@@ -35,6 +35,9 @@ smoke и pre-inference two-listener language gate прошли; detector inferen
 - Для mixed Stage C опубликован disjoint 59-row single-AI semantic-review delta: 57 rows прошли
   QA/VAD, 2 отклонены с полным accounting. Это устранило статистически непригодный размер 1,
   но не заменяет будущий human acoustic gate.
+- Selection policy заморожена до synthesis: все `173` доступных groups (`55 RU / 60 KK / 58
+  mixed`) без metric-based отбора и backfill. После bona-fide QA готовы `50 / 60 / 58`; пять RU
+  rows отклонены как `signal_too_quiet`, combined ready manifest содержит 168 rows.
 - ISSAI KazakhTTS2 Male2 Tacotron2 + ParallelWaveGAN принят как `unseen_exact_generator_route`:
   122 908 306 outer artifact bytes, все required inner hashes/CRC/configs и local CUDA smoke
   проверены; reference audio и cloning запрещены.
@@ -84,10 +87,9 @@ calibration.
 
 ## Следующие действия
 
-1. Зафиксировать selection policy и exact bona-fide groups: до 55 RU, 60 QA-ready KK и 58
-   QA-ready mixed groups из inventory v2.
-2. Синтезировать связанные KazakhTTS spoof assets для трёх прошедших языковых ролей.
-3. Выполнить QA/rejection accounting, exposure/leakage audit и full-asset
+1. Синтезировать связанные KazakhTTS spoof assets для 168 frozen ready base rows.
+2. Выполнить generated-asset QA/rejection accounting и сформировать exact balanced pairs.
+3. Выполнить exposure/leakage audit и full-asset
    two-review gate, ledger snapshot, manifests, implementation hashes и output paths.
 4. После успешных gates выполнить один preflight и один GPU inference run. Только затем решать,
    нужен ли model v3.
@@ -119,5 +121,6 @@ calibration.
 - [Stage C source review и fresh inventory](docs/fresh_research_suite_stage_c_source_review_2026-08-12.md)
 - [Stage C KazakhTTS pre-inference language gate](docs/fresh_suite_stage_c_kazakhtts_acoustic_gate_v1.md)
 - [KSC2 mixed Stage-C semantic evidence v2 delta](docs/ksc2_mixed_ai_review_v2_delta.md)
+- [Stage C frozen selection и bona-fide materialization](docs/fresh_suite_stage_c_selection_v1.md)
 - [External RU spoof-source search](docs/russian_spoof_source_search_2026-08-11.md)
 - [License-ledger snapshots](docs/license_ledger_snapshots.md)

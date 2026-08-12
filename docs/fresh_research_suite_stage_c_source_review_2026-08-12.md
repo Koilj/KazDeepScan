@@ -137,8 +137,8 @@ Kazakh как speech-output target.
 4. При трёх pass сначала фиксируются selection policy, rejection accounting, ledger
    snapshot и immutable run plan. Detector inference остаётся последним одноразовым действием.
 
-Следующий корректный автоматический этап — заморозить selection policy и exact bona-fide groups
-до массового synthesis. Следующий человеческий gate потребуется уже для всех созданных assets.
+Selection policy и exact bona-fide groups далее заморожены до массового synthesis. Следующий
+человеческий gate потребуется уже для всех созданных assets.
 
 ## 6. Расширение mixed evidence до selection
 
@@ -148,3 +148,13 @@ RU+KK-token decisions; 57 прошли QA/VAD, две отклонены как 
 fresh v1 row доступны 58 groups. Все прочие KSC2 rows остаются unknown; ranking не использовался
 как автоматический label. Подробности и хеши:
 `docs/ksc2_mixed_ai_review_v2_delta.md`.
+
+## 7. Frozen selection и bona-fide QA
+
+Все доступные eligible groups заморожены до synthesis: 55 RU, 60 KK и 58 mixed. Политика не
+использует detector outputs, выбирает один recording на text group и запрещает backfill. RU
+extraction/QA оставил 50 ready rows; пять `signal_too_quiet` rejections учтены. KK и mixed были
+QA-ready до selection. Combined bona-fide manifest содержит 168 rows. Selection SHA-256:
+`dfd43c60d7b22bf0a93127f4f810be0b1900b66c0611aaf56e8f935a0d39e03d`; materialization
+receipt SHA-256: `522917f4a7aade4403099b3e4a678d9f9f6e2293c014635d605505a0cd59b6a2`.
+Подробности: `docs/fresh_suite_stage_c_selection_v1.md`.

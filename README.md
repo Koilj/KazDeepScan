@@ -49,8 +49,9 @@ checkpoint и строго ограниченный evaluation-контур:
   что historical RuASD manifests не содержат architecture IDs. ISSAI KazakhTTS2 Male2
   Tacotron2 + ParallelWaveGAN прошёл rights/artifact/config/exposure и CUDA technical-smoke
   checks без cloning/reference audio. Exact route новый, но Male2 speaker alias уже встречался
-  через Piper, поэтому speaker-independence не заявляется; RU/mixed остаются conditional до двух
-  pre-inference listening reviews;
+  через Piper, поэтому speaker-independence не заявляется. Два pre-inference listening review
+  одобрили `kk`, `ru` и `mixed` только для подготовки нового candidate; detector inference ещё
+  запрещён;
 - explicit source-mixed research matrix и B0 runner, который не допускает overlap исходных
   corpus между train/dev/final-test и проверяет обычный sample/SHA-256/group/text leakage поверх
   этого;
@@ -215,8 +216,9 @@ uv run python scripts/audit_stage_c_generator_route.py \
   --audited-at 2026-08-12T00:00:00Z \
   --output data/manifests/fresh_suite_stage_c_generator_route_gate_v2.json
 
-# Текущий smoke v1 уже выполнен и write-once outputs повторно не создавать. Две подготовленные
-# review forms заполняют два разных реальных слушателя; detector inference этим не разрешается.
+# Smoke v1 и two-listener language gate уже выполнены; write-once report не пересоздавать.
+# Команда ниже сохранена только как исторический receipt. Gate разрешил сбор candidate,
+# но не detector inference.
 uv run python scripts/kazakhtts_stage_c_acoustic_gate.py evaluate \
   --packet data/manifests/fresh_suite_stage_c_kazakhtts_acoustic_gate_packet_v1.csv \
   --reviewer-1 data/manifests/fresh_suite_stage_c_kazakhtts_acoustic_review_reviewer_1.csv \

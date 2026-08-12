@@ -7,7 +7,8 @@
 **Состояние:** XLS-R+SLS v2 обучен и один раз проверен; post-inference two-review KK acoustic
 gate завершён для всех 304 exact assets. Для следующего blind research suite выполнен fresh-source
 inventory и принят новый exact KazakhTTS checkpoint/runtime route. Его технический RU/KK/mixed
-smoke прошёл; pre-inference listening gate ожидает два независимых review.
+smoke и pre-inference two-listener language gate прошли; detector inference ещё запрещён до
+подготовки и полной проверки нового suite.
 
 Этот файл намеренно краткий. Архитектура описана в
 [KazDeepScan_implementation_blueprint.md](KazDeepScan_implementation_blueprint.md), следующие
@@ -37,9 +38,10 @@ smoke прошёл; pre-inference listening gate ожидает два неза�
 - Exposure audit охватил 46 manifests / 17 657 spoof rows: exact route overlap `0`, но 312
   сохранённых строк используют тот же Male2 speaker alias через Piper. Speaker independence не
   заявляется.
-- Подготовлены три smoke WAV (KK official support, RU/mixed conditional), immutable listening
-  packet и две fail-closed 3-row формы. До двух reviews языки не одобрены и detector inference
-  запрещён.
+- Три smoke WAV (KK official support, RU/mixed conditional) прошли два независимых listening
+  review: `kk`, `ru` и `mixed` одобрены для подготовки candidate. Receipt SHA-256
+  `946c3a3a59fdd437553c2fe8e93d4ade157e718cf67505abb1216c02cbc82a73`; detector inference
+  всё ещё запрещён.
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
 ## Актуальные результаты
@@ -79,12 +81,13 @@ calibration.
 
 ## Следующие действия
 
-1. Заполнить две 3-row Stage-C listening forms двумя разными реальными слушателями.
-2. При KK pass начать frozen selection из 60 QA-ready fresh KK groups. RU/mixed использовать
-   только при отдельном pass; иначе выбрать для них другие exact fixed-voice routes.
-3. До synthesis зафиксировать selection policy; затем QA/rejection accounting и full-asset
+1. Зафиксировать selection policy и exact bona-fide groups: до 55 RU, 60 QA-ready KK и один
+   подтверждённый mixed group; не расширять mixed слой без нового semantic evidence.
+2. Синтезировать связанные KazakhTTS spoof assets для трёх прошедших языковых ролей.
+3. Выполнить QA/rejection accounting, exposure/leakage audit и full-asset
    two-review gate, ledger snapshot, manifests, implementation hashes и output paths.
-4. Выполнить один preflight и один GPU inference run. Только затем решать, нужен ли model v3.
+4. После успешных gates выполнить один preflight и один GPU inference run. Только затем решать,
+   нужен ли model v3.
 
 Полный порядок и критерии остановки: [План реализации.md](План%20реализации.md).
 
@@ -111,5 +114,6 @@ calibration.
 - [ToneSpeak RU OOD](docs/research_xlsr_sls_stage_b_tone_speak_ru_ood_100.md)
 - [KK acoustic gate receipt](docs/fleurs_kk_silero_v4_acoustic_gate_v1.md)
 - [Stage C source review и fresh inventory](docs/fresh_research_suite_stage_c_source_review_2026-08-12.md)
+- [Stage C KazakhTTS pre-inference language gate](docs/fresh_suite_stage_c_kazakhtts_acoustic_gate_v1.md)
 - [External RU spoof-source search](docs/russian_spoof_source_search_2026-08-11.md)
 - [License-ledger snapshots](docs/license_ledger_snapshots.md)

@@ -1,0 +1,54 @@
+{
+  "all_languages_passed": true,
+  "approved_input_languages": [
+    "kk",
+    "mixed",
+    "ru"
+  ],
+  "detector_inference_authorized": false,
+  "evaluated_at": "2026-08-12T20:40:34+05:00",
+  "interpretation": "A passed language may be used only to build a new pre-inference candidate; final asset selection, QA, two-review gate and immutable inference plan remain required.",
+  "packet_sha256": "12dd6caa8bff9332708e1b365002545ddec9c7ea15b92ad82cb89de82ac37dea",
+  "protocol_id": "fresh-suite-stage-c-kazakhtts-acoustic-gate-v1",
+  "results": [
+    {
+      "case_id": "kk_officially_supported",
+      "decision": "pass",
+      "language": "kk",
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ]
+    },
+    {
+      "case_id": "mixed_conditional",
+      "decision": "pass",
+      "language": "mixed",
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ]
+    },
+    {
+      "case_id": "ru_conditional",
+      "decision": "pass",
+      "language": "ru",
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ]
+    }
+  ],
+  "review_files": [
+    {
+      "path": "data/manifests/fresh_suite_stage_c_kazakhtts_acoustic_review_reviewer_1.csv",
+      "sha256": "ee9d5139f84bb4a7ad63aac4c412171eea32eb71c70c2baf2a172953f8fc7a29"
+    },
+    {
+      "path": "data/manifests/fresh_suite_stage_c_kazakhtts_acoustic_review_reviewer_2.csv",
+      "sha256": "0e305a42cfef1678030170e7d157a2be370d1e4ccae35eef3c8b3cee6300093a"
+    }
+  ],
+  "review_rows": 6,
+  "schema_version": 1
+}

@@ -8,8 +8,9 @@ inference.
 **Решение:** абсолютная новизна TTS-архитектуры заменена на проверяемую новизну точного
 маршрута `checkpoint + runtime`. Запреты на cloning/reference audio и переиспользование exact
 assets не ослаблены. ISSAI KazakhTTS2 Male2 Tacotron2 + ParallelWaveGAN принят как Stage-C
-candidate и прошёл artifact/config/technical-smoke gates. До заполнения двух listening forms
-разрешения на сбор evaluation suite и detector inference нет.
+candidate и прошёл artifact/config/technical-smoke gates. Два независимых listening review
+одобрили `kk`, `ru` и `mixed` для подготовки evaluation candidate. Detector inference остаётся
+запрещён до полного asset-level gate и immutable plan.
 
 ## 1. Почему изменён критерий
 
@@ -97,9 +98,9 @@ CUDA/PyTorch 2.11 успешно загрузил старый ESPnet checkpoint
 
 | Язык | Официальный статус | Duration | Peak | Решение сейчас |
 | --- | --- | ---: | ---: | --- |
-| KK | supported | 3.286 s | 0.361 | technical pass; listening pending |
-| RU | не заявлен upstream | 4.470 s | 0.355 | conditional; listening pending |
-| mixed | не заявлен upstream | 2.705 s | 0.419 | conditional; listening pending |
+| KK | supported | 3.286 s | 0.361 | listening pass, 2 reviewers |
+| RU | не заявлен upstream | 4.470 s | 0.355 | listening pass, 2 reviewers |
+| mixed | не заявлен upstream | 2.705 s | 0.419 | listening pass, 2 reviewers |
 
 Smoke report SHA-256:
 `fc10d5660eca06a44bfc7433838ac7043ee5ee93171b277d4034f10356c4377b`.
@@ -107,9 +108,12 @@ Detector checkpoint, logits и predictions не открывались.
 
 Listening packet содержит три exact WAV и не содержит model predictions. Packet SHA-256:
 `12dd6caa8bff9332708e1b365002545ddec9c7ea15b92ad82cb89de82ac37dea`.
-Две формы подготовлены fail closed. Для каждого языка нужны два разных реальных слушателя:
-`pass/yes/yes/yes/no` означает intelligible speech, сохранённый текст и язык без тяжёлых
-артефактов. Пока формы не заполнены, `approved_input_languages=[]`.
+Две формы заполнены разными reviewer IDs и строго проверены. Для каждого языка оба решения
+`pass/yes/yes/yes/no`: intelligible speech, сохранённый текст и язык без тяжёлых артефактов.
+Gate receipt SHA-256:
+`946c3a3a59fdd437553c2fe8e93d4ade157e718cf67505abb1216c02cbc82a73`;
+`approved_input_languages=["kk", "mixed", "ru"]`, но `detector_inference_authorized=false`.
+Подробный receipt: `docs/fresh_suite_stage_c_kazakhtts_acoustic_gate_v1.md`.
 
 ## 5. Отклонённые routes и дальнейшее ветвление
 
@@ -123,15 +127,14 @@ RHVoice не имеет официальной Kazakh поддержки; MMS/VI
 Kazakh; Coqui XTTS/AIT-Syn требуют cloning/reference voice; SeamlessM4T v2 не поддерживает
 Kazakh как speech-output target.
 
-После reviews решение принимается по языкам:
+После reviews решение принято по языкам:
 
 1. KK pass разрешает перейти к frozen selection 60 уже QA-ready fresh KK groups.
 2. RU/mixed pass разрешает только сбор отдельного fresh candidate и новый full-asset acoustic
    gate до detector inference.
-3. Если RU или mixed не проходит, KazakhTTS не растягивается на этот язык: для него выбирается
-   отдельный exact fixed-voice route. KK progress при этом не блокируется.
-4. Даже при трёх pass сначала фиксируются selection policy, rejection accounting, ledger
+3. Все три роли прошли; альтернативный exact route сейчас не требуется.
+4. При трёх pass сначала фиксируются selection policy, rejection accounting, ledger
    snapshot и immutable run plan. Detector inference остаётся последним одноразовым действием.
 
-Это текущая граница корректной автоматической реализации: следующий факт требует человеческого
-прослушивания, которое нельзя заменить текстовой эвристикой, ASR или detector output.
+Следующий корректный автоматический этап — заморозить selection policy и exact bona-fide groups
+до массового synthesis. Следующий человеческий gate потребуется уже для всех созданных assets.

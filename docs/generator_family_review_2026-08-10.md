@@ -32,3 +32,12 @@ emotion, seed или sampler одного checkpoint. Для local intake нуж
    отклонёнными; LRLspoof исключён и больше не является вариантом intake. Теперь можно
    проектировать frozen unseen-generator OOD; это не разрешает calibration, API score или
    product claim.
+
+## Дополнение 12 августа 2026
+
+Отклонение `IS2AI/TurkicTTS` остаётся в силе. Новый Stage-C candidate взят из другого
+официального repository — `IS2AI/Kazakh_TTS`, где CC-BY-4.0 license и ссылки на pretrained
+Tacotron2/ParallelWaveGAN artifacts опубликованы вместе. Он принят не как доказанно новая
+архитектура, а как ранее не встречавшийся exact checkpoint/runtime route с раскрытым overlap
+speaker alias `ISSAI_KazakhTTS2_M2`. Детали и hashes находятся в
+`fresh_research_suite_stage_c_source_review_2026-08-12.md`.

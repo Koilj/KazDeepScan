@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "protocol_id": "fresh-suite-stage-c-kazakhtts-smoke-v1",
+  "model_lock": {
+    "path": "kazakhtts_tacotron2_pwg_v1_models.json",
+    "sha256": "1ee5150c1c9c5f69b33cc4a4a67148904079651830b0a144f8647af10c8cf68e"
+  },
+  "generator_route_gate": {
+    "path": "../../data/manifests/fresh_suite_stage_c_generator_route_gate_v1.json",
+    "sha256": "54da4a704b59f2a6ff24395a90dee013b3a1fd1a48e65355bab4008426358f57"
+  },
+  "seed": 20260812,
+  "cases": [
+    {
+      "id": "kk_officially_supported",
+      "language": "kk",
+      "status": "officially_supported",
+      "text": "Бүгінде өңірде тағы бес жобаның құрылысы жүргізілуде."
+    },
+    {
+      "id": "ru_conditional",
+      "language": "ru",
+      "status": "conditional_acoustic_smoke_only",
+      "text": "Сегодня в регионе продолжается строительство ещё пяти проектов."
+    },
+    {
+      "id": "mixed_conditional",
+      "language": "mixed",
+      "status": "conditional_acoustic_smoke_only",
+      "text": "Бүгін қалада новый жоба іске қосылды."
+    }
+  ],
+  "decision_rule": {
+    "detector_inference": "forbidden",
+    "reference_audio": "forbidden",
+    "voice_cloning": "forbidden",
+    "kk": "technical WAV success permits a pre-inference acoustic review packet",
+    "ru_mixed": "remain unsupported unless human acoustic review confirms intelligibility and intended-language preservation"
+  }
+}

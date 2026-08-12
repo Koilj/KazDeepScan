@@ -6,7 +6,8 @@
 
 **Состояние:** XLS-R+SLS v2 обучен и один раз проверен; post-inference two-review KK acoustic
 gate завершён для всех 304 exact assets. Для следующего blind research suite выполнен fresh-source
-inventory, но новая разрешённая TTS architecture family пока не найдена.
+inventory и принят новый exact KazakhTTS checkpoint/runtime route. Его технический RU/KK/mixed
+smoke прошёл; pre-inference listening gate ожидает два независимых review.
 
 Этот файл намеренно краткий. Архитектура описана в
 [KazDeepScan_implementation_blueprint.md](KazDeepScan_implementation_blueprint.md), следующие
@@ -30,6 +31,15 @@ inventory, но новая разрешённая TTS architecture family пок
 - Fresh-source inventory повторно проверил полный pinned FLEURS release и KSC2 evidence:
   доступны 55 RU release-level groups, 60 QA-ready + 137 ещё не обработанных KK groups и только
   1 QA-ready mixed row; 2 600 KSC2 candidates требуют semantic review.
+- ISSAI KazakhTTS2 Male2 Tacotron2 + ParallelWaveGAN принят как `unseen_exact_generator_route`:
+  122 908 306 outer artifact bytes, все required inner hashes/CRC/configs и local CUDA smoke
+  проверены; reference audio и cloning запрещены.
+- Exposure audit охватил 46 manifests / 17 657 spoof rows: exact route overlap `0`, но 312
+  сохранённых строк используют тот же Male2 speaker alias через Piper. Speaker independence не
+  заявляется.
+- Подготовлены три smoke WAV (KK official support, RU/mixed conditional), immutable listening
+  packet и две fail-closed 3-row формы. До двух reviews языки не одобрены и detector inference
+  запрещён.
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
 ## Актуальные результаты
@@ -62,26 +72,27 @@ calibration.
   counterpart отсутствует.
 - YO-CPT-ru/kk не подходят: это крупные YouTube-derived bona-fide TTS-pretraining corpora без
   spoof-класса и с unresolved rights/privacy provenance. Dusha — human emotion corpus, не spoof.
-- IMS Toucan отклонён как новая family: official architecture — FastSpeech-2-like с
-  FastPitch-style conditioning и HiFi-GAN, а такая route уже присутствует через Silero V4.
+- Абсолютная architecture novelty больше не используется: historical RuASD manifests не дают
+  architecture IDs. Проверяется exact checkpoint/runtime route; component и voice overlaps
+  раскрываются отдельно. IMS Toucan не выбран, KazakhTTS route принят.
 - Research checkpoint нельзя подключать к API risk score.
 
 ## Следующие действия
 
-1. Найти или создать действительно новую разрешённую TTS architecture family с RU/KK/mixed
-   text-only route и заранее проверить права, provenance и fixed voice profile.
-2. Только после успешного TTS gate закрепить selection policy и собрать fresh suite из уже
-   посчитанной ёмкости; acoustic gates завершить до inference.
-3. Закрепить новый ledger snapshot, manifests, implementation hashes и output paths.
-4. Выполнить один preflight и один GPU run. Только затем решать, нужен ли model v3.
+1. Заполнить две 3-row Stage-C listening forms двумя разными реальными слушателями.
+2. При KK pass начать frozen selection из 60 QA-ready fresh KK groups. RU/mixed использовать
+   только при отдельном pass; иначе выбрать для них другие exact fixed-voice routes.
+3. До synthesis зафиксировать selection policy; затем QA/rejection accounting и full-asset
+   two-review gate, ledger snapshot, manifests, implementation hashes и output paths.
+4. Выполнить один preflight и один GPU inference run. Только затем решать, нужен ли model v3.
 
 Полный порядок и критерии остановки: [План реализации.md](План%20реализации.md).
 
 ## Проверка и воспроизводимость
 
 - Ruff: успешно.
-- mypy: 121 source files без ошибок.
-- pytest: 187 tests успешно.
+- mypy: 128 source files без ошибок.
+- pytest: 191 test успешно.
 - Final preflight: 3 991 asset bindings.
 - Точное implementation tree выполненного final plan: Git commit `52d6e6b`.
 - Scope clarification: `b1368c9`.

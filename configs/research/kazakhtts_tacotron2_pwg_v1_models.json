@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "protocol_id": "kazakhtts-tacotron2-pwg-research-v1",
+  "models": [
+    {
+      "model_id": "issai_kazakhtts2_male2_tacotron2_pwg",
+      "destination": "issai_kazakhtts2_male2_tacotron2_pwg",
+      "generator_family": "tacotron2_parallelwavegan_fixed_voice_tts",
+      "generator_name": "ISSAI KazakhTTS2 Male2 Tacotron2 + ParallelWaveGAN",
+      "generator_version": "source-fc906048ff5914a3528d1ae4ed6f7ccd94d71383; acoustic-deb9cb49703b012d8f1406d15f4fa182b39ecb320bc4e2be5a557ac58766ea75; vocoder-fb415182fdf84dbe6a0bbca72e5ed9ed39009b622cf39e20ba630cb830594329",
+      "license": "Kazakh_TTS repository and published pretrained model artifacts CC-BY-4.0; ESPnet Apache-2.0; ParallelWaveGAN MIT",
+      "source_url": "https://github.com/IS2AI/Kazakh_TTS/tree/fc906048ff5914a3528d1ae4ed6f7ccd94d71383",
+      "runtime": {
+        "kind": "kazakhtts_tacotron2_parallelwavegan",
+        "source_archive_path": "source.tar.gz",
+        "source_archive_root": "Kazakh_TTS-fc906048ff5914a3528d1ae4ed6f7ccd94d71383",
+        "acoustic_archive_path": "kaztts_male2_tacotron2_train.loss.ave.zip",
+        "acoustic_meta_member": "meta.yaml",
+        "acoustic_meta_size_bytes": 288,
+        "acoustic_meta_sha256": "fed4d574c94004b0e07d46d84da7d8c814baf24e79e3aca92f0e554222063f0c",
+        "acoustic_config_member": "exp/tts_train_raw_char/config.yaml",
+        "acoustic_config_size_bytes": 3836,
+        "acoustic_config_sha256": "ea3d70dd0587dc1b9c35b65caed556c6d3fa78a152bc855d13d976bfc96981bd",
+        "acoustic_checkpoint_member": "exp/tts_train_raw_char/train.loss.ave_5best.pth",
+        "acoustic_checkpoint_size_bytes": 106809178,
+        "acoustic_checkpoint_sha256": "deb9cb49703b012d8f1406d15f4fa182b39ecb320bc4e2be5a557ac58766ea75",
+        "acoustic_stats_member": "exp/tts_stats_raw_char/train/feats_stats.npz",
+        "acoustic_stats_size_bytes": 1402,
+        "acoustic_stats_sha256": "0dca35226cf181d840baedf98032bea16d3cb4b69496cd59adb8f04b49d298fc",
+        "vocoder_archive_path": "parallelwavegan_male2_checkpoint.zip",
+        "vocoder_config_member": "parallelwavegan_male2_checkpoint/config.yml",
+        "vocoder_config_size_bytes": 1955,
+        "vocoder_config_sha256": "a6d12456bf5bd06f12af32559d247a2ca36f2275c8e22326496ea4b2877a1fdf",
+        "vocoder_checkpoint_member": "parallelwavegan_male2_checkpoint/checkpoint-400000steps.pkl",
+        "vocoder_checkpoint_size_bytes": 17694194,
+        "vocoder_checkpoint_sha256": "fb415182fdf84dbe6a0bbca72e5ed9ed39009b622cf39e20ba630cb830594329",
+        "sample_rate": 22050,
+        "fixed_voice_id": "ISSAI_KazakhTTS2_M2",
+        "supported_languages": ["kk"],
+        "conditional_smoke_languages": ["ru", "mixed"],
+        "reference_audio_policy": "forbidden",
+        "voice_cloning": false,
+        "espnet_version": "0.10.6",
+        "checkpoint_espnet_version": "0.10.3a4",
+        "parallel_wavegan_version": "0.6.1",
+        "checkpoint_parallel_wavegan_version": "0.4.8",
+        "threshold": 0.5,
+        "min_length_ratio": 0.0,
+        "max_length_ratio": 10.0,
+        "use_attention_constraint": true,
+        "backward_window": 1,
+        "forward_window": 3,
+        "speed_control_alpha": 1.0,
+        "scipy_kaiser_compatibility_shim": true
+      },
+      "artifacts": [
+        {
+          "relative_path": "source.tar.gz",
+          "url": "https://github.com/IS2AI/Kazakh_TTS/archive/fc906048ff5914a3528d1ae4ed6f7ccd94d71383.tar.gz",
+          "expected_size_bytes": 17551,
+          "sha256": "889cd6d323d09a36bb1e479dcccf4850382e9f4d8b752496958836467db7d7ad"
+        },
+        {
+          "relative_path": "kaztts_male2_tacotron2_train.loss.ave.zip",
+          "url": "https://issai.nu.edu.kz/wp-content/uploads/2022/03/kaztts_male2_tacotron2_train.loss.ave.zip",
+          "expected_size_bytes": 107280461,
+          "sha256": "ea80b8227c94e12c87f447270c17d93d5eebe89b7df3f7c76f7b30523a5cf2c2"
+        },
+        {
+          "relative_path": "parallelwavegan_male2_checkpoint.zip",
+          "url": "https://issai.nu.edu.kz/wp-content/uploads/2022/03/parallelwavegan_male2_checkpoint.zip",
+          "expected_size_bytes": 15610294,
+          "sha256": "3efb427b99a1a51b53b3cf08841a64f040b41b70c791e4b3a8f4edc7dca71337"
+        }
+      ]
+    }
+  ]
+}

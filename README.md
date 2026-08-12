@@ -44,8 +44,13 @@ checkpoint и строго ограниченный evaluation-контур:
   получили `pass`; статус уже раскрытой метрики при этом не повышен;
 - для следующего asset-level-blind suite опубликован write-once source inventory: полный pinned
   FLEURS release оставляет 55 RU и 197 KK fresh text groups, но из них сейчас QA-ready только 60
-  KK; в KSC2 fresh QA-ready mixed row только один. IMS Toucan отклонён как не новая family
-  относительно уже использованной FastPitch/HiFi-GAN route;
+  KK; в KSC2 fresh QA-ready mixed row только один;
+- абсолютная architecture novelty заменена на доказуемый exact checkpoint/runtime gate, потому
+  что historical RuASD manifests не содержат architecture IDs. ISSAI KazakhTTS2 Male2
+  Tacotron2 + ParallelWaveGAN прошёл rights/artifact/config/exposure и CUDA technical-smoke
+  checks без cloning/reference audio. Exact route новый, но Male2 speaker alias уже встречался
+  через Piper, поэтому speaker-independence не заявляется; RU/mixed остаются conditional до двух
+  pre-inference listening reviews;
 - explicit source-mixed research matrix и B0 runner, который не допускает overlap исходных
   corpus между train/dev/final-test и проверяет обычный sample/SHA-256/group/text leakage поверх
   этого;
@@ -201,6 +206,23 @@ kds validate-source-matrix configs/research/source_mixed_v5_espeakng.json \
 # относительно фиксированных RuASD train и PyAra dev. Команда не обучает модель.
 kds validate-unseen-generator-suite configs/research/unseen_generator_ood_v1.json \
   --license-ledger data/licenses/license_ledger.csv
+
+# Stage C: воспроизвести exact-route exposure audit до synthesis/detector inference.
+uv run python scripts/audit_stage_c_generator_route.py \
+  --model-lock configs/research/kazakhtts_tacotron2_pwg_v1_models.json \
+  --manifest-directory data/manifests \
+  --fixed-voice-alias ISSAI_KazakhTTS2_M2 \
+  --audited-at 2026-08-12T00:00:00Z \
+  --output data/manifests/fresh_suite_stage_c_generator_route_gate_v2.json
+
+# Текущий smoke v1 уже выполнен и write-once outputs повторно не создавать. Две подготовленные
+# review forms заполняют два разных реальных слушателя; detector inference этим не разрешается.
+uv run python scripts/kazakhtts_stage_c_acoustic_gate.py evaluate \
+  --packet data/manifests/fresh_suite_stage_c_kazakhtts_acoustic_gate_packet_v1.csv \
+  --reviewer-1 data/manifests/fresh_suite_stage_c_kazakhtts_acoustic_review_reviewer_1.csv \
+  --reviewer-2 data/manifests/fresh_suite_stage_c_kazakhtts_acoustic_review_reviewer_2.csv \
+  --evaluated-at 2026-08-12T00:00:00Z \
+  --output-report data/manifests/fresh_suite_stage_c_kazakhtts_acoustic_gate_report_v1.json
 
 # Suite v1 уже оценён и повторно не запускается. Следующее имя plan — только шаблон:
 # файл создаётся вместе с новым suite и ранее не раскрытыми final assets. Сначала

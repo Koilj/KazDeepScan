@@ -1,0 +1,65 @@
+{
+  "acoustic_language_gate_passed": false,
+  "created_at": "2026-08-12T00:00:00Z",
+  "cuda_version": "12.8",
+  "detector_inference_performed": false,
+  "device": "cuda",
+  "fixed_voice_id": "ISSAI_KazakhTTS2_M2",
+  "generator_family": "tacotron2_parallelwavegan_fixed_voice_tts",
+  "generator_route_gate_sha256": "54da4a704b59f2a6ff24395a90dee013b3a1fd1a48e65355bab4008426358f57",
+  "interpretation": "All files are technical smoke only. KK may proceed to human acoustic review; RU/mixed remain conditional and unsupported until that review.",
+  "model_id": "issai_kazakhtts2_male2_tacotron2_pwg",
+  "model_lock_sha256": "1ee5150c1c9c5f69b33cc4a4a67148904079651830b0a144f8647af10c8cf68e",
+  "outputs": [
+    {
+      "case_id": "kk_officially_supported",
+      "channels": 1,
+      "duration_s": 3.2856235827664397,
+      "language": "kk",
+      "peak_abs": 0.3614630103111267,
+      "relative_path": "data/raw/fresh_suite_stage_c_kazakhtts_smoke_v1/kk_officially_supported.wav",
+      "rms": 0.08381958847720583,
+      "sample_rate": 22050,
+      "sha256": "f890cfa66eedc82905aebdd5fda28f99d1c476641dc5986cb43f6d7bef3053ef",
+      "size_bytes": 144940,
+      "support_status": "officially_supported",
+      "text": "Бүгінде өңірде тағы бес жобаның құрылысы жүргізілуде."
+    },
+    {
+      "case_id": "ru_conditional",
+      "channels": 1,
+      "duration_s": 4.46984126984127,
+      "language": "ru",
+      "peak_abs": 0.3545142114162445,
+      "relative_path": "data/raw/fresh_suite_stage_c_kazakhtts_smoke_v1/ru_conditional.wav",
+      "rms": 0.07515038454595123,
+      "sample_rate": 22050,
+      "sha256": "fcae70941e302570489c89676f5e39de0d506e6562fea810a5209af847e5020a",
+      "size_bytes": 197164,
+      "support_status": "conditional_acoustic_smoke_only",
+      "text": "Сегодня в регионе продолжается строительство ещё пяти проектов."
+    },
+    {
+      "case_id": "mixed_conditional",
+      "channels": 1,
+      "duration_s": 2.705124716553288,
+      "language": "mixed",
+      "peak_abs": 0.4190838634967804,
+      "relative_path": "data/raw/fresh_suite_stage_c_kazakhtts_smoke_v1/mixed_conditional.wav",
+      "rms": 0.0775767706929499,
+      "sample_rate": 22050,
+      "sha256": "713f2743e82b5f5b4e27667103b70a2555a1f7f990529ad1da2bd5054d9f6482",
+      "size_bytes": 119340,
+      "support_status": "conditional_acoustic_smoke_only",
+      "text": "Бүгін қалада новый жоба іске қосылды."
+    }
+  ],
+  "plan": {
+    "path": "configs/research/fresh_suite_stage_c_kazakhtts_smoke_v1.json",
+    "sha256": "92f695ad964c27b4e749a728919083c51f4a9ead37ec3f0e9ccea67db3a3f40b"
+  },
+  "protocol_id": "fresh-suite-stage-c-kazakhtts-smoke-v1",
+  "schema_version": 1,
+  "technical_smoke_passed": true,
+  "torch_version": "2.11.0+cu128"
+}

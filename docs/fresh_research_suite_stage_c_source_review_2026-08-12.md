@@ -1,18 +1,41 @@
-# Stage C — source/rights review и fresh-asset inventory
+# Stage C — source/rights review, route decision и fresh-asset inventory
 
-**Дата проверки:** 12 августа 2026 года  
-**Scope:** personal research; без записи голосов, reference audio, voice cloning и model
-inference.  
-**Решение:** fresh-source inventory зафиксирован, но ни один проверенный TTS-кандидат не прошёл
-все обязательные gates. Artifact lock, synthesis и detector inference не запускаются.
+**Дата проверки:** 12 августа 2026 года
 
-## 1. Воспроизводимый inventory
+**Scope:** personal research; без записи голосов, reference audio, voice cloning и detector
+inference.
+
+**Решение:** абсолютная новизна TTS-архитектуры заменена на проверяемую новизну точного
+маршрута `checkpoint + runtime`. Запреты на cloning/reference audio и переиспользование exact
+assets не ослаблены. ISSAI KazakhTTS2 Male2 Tacotron2 + ParallelWaveGAN принят как Stage-C
+candidate и прошёл artifact/config/technical-smoke gates. До заполнения двух listening forms
+разрешения на сбор evaluation suite и detector inference нет.
+
+## 1. Почему изменён критерий
+
+RuASD train/dev manifests содержат в основном названия генераторов и общий family `tts`, но не
+надёжные architecture IDs или checkpoint provenance. Поэтому утверждение «эта архитектура
+отсутствовала в обучении» по имеющимся данным нельзя ни доказать, ни опровергнуть. Сохранять
+такой gate означало бы выдавать предположение за проверенный факт.
+
+Новый fail-closed контракт доказывает только доступные факты:
+
+- точная тройка `generator_family + generator_name + generator_version`, где version включает
+  SHA-256 checkpoints, не встречалась ни в одном сохранённом manifest;
+- reference audio и voice cloning запрещены самим runtime contract;
+- family/component и fixed-speaker alias overlap публикуются отдельно;
+- результат нельзя называть architecture- или speaker-independent;
+- разные fixed text-only routes для RU/KK/mixed допустимы, если один route не проходит
+  pre-inference language gate. Это не меняет раздельное вычисление метрик.
+
+Иными словами, ослаблено только недоказуемое название novelty, а не защита от leakage.
+
+## 2. Воспроизводимый fresh inventory
 
 Полный локальный FLEURS release повторно проверен на pinned revision
-`4683b04af03d2d9549064c7d72060a9a94bb6046`: exact sizes/hashes всех RU/KK artifacts,
-TAR CRC, безопасный layout и совпадение TAR/TSV membership. Затем exact text groups были
-сопоставлены с уже оценёнными project manifests. KSC2 candidates, semantic review, QA-ready
-manifest и ранее оценённый 30-pair manifest связаны по annotation/sample ID и transcript hash.
+`4683b04af03d2d9549064c7d72060a9a94bb6046`: exact sizes/hashes RU/KK artifacts, TAR CRC,
+безопасный layout и совпадение TAR/TSV membership. KSC2 candidates связаны с semantic review,
+QA-ready manifest и ранее оценёнными assets.
 
 Write-once receipt:
 `data/manifests/fresh_research_suite_source_inventory_v1.json`, SHA-256
@@ -20,80 +43,95 @@ Write-once receipt:
 
 | Роль | Полный доступный источник | Уже оценено | Fresh сейчас | Что ещё требуется |
 | --- | ---: | ---: | ---: | --- |
-| RU FLEURS | 344 unique test texts | 289 | 55 release groups | новая extraction и QA/VAD |
-| KK FLEURS | 349 unique test texts | 152 | 60 уже QA-ready + 137 release groups | для 137 — extraction и QA/VAD |
-| KSC2 mixed | 2 632 candidates | 30 | 1 уже QA-ready | semantic review для 2 600 pending rows |
+| RU FLEURS | 344 unique test texts | 289 | 55 release groups | extraction и QA/VAD |
+| KK FLEURS | 349 unique test texts | 152 | 60 QA-ready + 137 release groups | для 137 — extraction и QA/VAD |
+| KSC2 mixed | 2 632 candidates | 30 | 1 QA-ready | semantic review для 2 600 rows |
 
-Важно: `55` RU и суммарные `197` KK — только release-level capacity до новой selection,
-extraction и QA. Они ещё не являются approved final assets. У KSC2 только один свежий row уже
-имеет semantic evidence и QA-ready WAV: `ksc2_v1:Test/podcasts/09_03_368`.
+Эти числа являются capacity до selection, а не approved final assets. Без нового corpus и
+verified speaker IDs возможен только честно обозначенный **asset-level-blind research suite**.
 
-Inventory не доказывает source- или speaker-independence: FLEURS и KSC2 уже являются известными
-project sources и не публикуют достаточные verified speaker groups. Возможен только честно
-обозначенный **asset-level-blind research suite**.
+## 3. Принятый generator route
 
-## 2. Проверка новой TTS family
+Используется официальный репозиторий [IS2AI/Kazakh_TTS](https://github.com/IS2AI/Kazakh_TTS/tree/fc906048ff5914a3528d1ae4ed6f7ccd94d71383),
+а не ранее отклонённый `IS2AI/TurkicTTS` без объявленной repository license. Официальный
+Kazakh_TTS repository публикует CC-BY-4.0 license, пять Tacotron2 checkpoints и соответствующие
+ParallelWaveGAN vocoders. Для проекта разрешён только один фиксированный профиль Male2.
 
-### IMS Toucan — отклонён как новая architecture family
+Model lock: `configs/research/kazakhtts_tacotron2_pwg_v1_models.json`, SHA-256
+`1ee5150c1c9c5f69b33cc4a4a67148904079651830b0a144f8647af10c8cf68e`.
 
-Проверены official source repository, model repository и paper:
+| Artifact | Bytes | SHA-256 |
+| --- | ---: | --- |
+| source revision archive | 17 551 | `889cd6d323d09a36bb1e479dcccf4850382e9f4d8b752496958836467db7d7ad` |
+| Male2 Tacotron2 archive | 107 280 461 | `ea80b8227c94e12c87f447270c17d93d5eebe89b7df3f7c76f7b30523a5cf2c2` |
+| Male2 ParallelWaveGAN archive | 15 610 294 | `3efb427b99a1a51b53b3cf08841a64f040b41b70c791e4b3a8f4edc7dca71337` |
 
-- source revision `3cc2094d9c7123336eda7e299ac0bc90319ca9ff`, code license `Apache-2.0`;
-- model revision `e0afe0ef703d2178dd7dc74ec298693ddb10e720`, repository license
-  `Apache-2.0`;
-- official `supervised_languages.json` содержит `rus` и `kaz`;
-- `ToucanTTS.pt`: `200 782 528` bytes, SHA-256
-  `b36d5d79669ef2b36b1edbf6196132ba95c9e6b03c799d679191e259fe561a59`;
-- `Vocoder.pt`: `124 772 377` bytes, SHA-256
-  `3f4fa1ea04b2f723cdf4b7fed3ccc73b07fd8dd84723f1e8bc7dee80094ffdbf`;
-- interface может использовать `checkpoint["default_emb"]` без reference audio, но одновременно
-  включает optional ECAPA reference-audio route. Любой возможный adapter обязан был бы удалить
-  этот route и запретить скрытые downloads.
+Проверены CRC обоих ZIP, allowlisted extraction и inner SHA-256 для metadata, acoustic config,
+normalization statistics, Tacotron2 checkpoint, vocoder config и vocoder checkpoint. Config
+подтвердил `char + Tacotron2`, 80 mel bands и 22 050 Hz; vocoder — ParallelWaveGAN 0.4.8,
+80-channel conditioning и 22 050 Hz. Runtime зафиксирован как ESPnet 0.10.6 +
+ParallelWaveGAN 0.6.1; для удалённого из нового SciPy alias `signal.kaiser` используется узкий
+локальный shim на `signal.windows.kaiser`.
 
-Несмотря на техническую поддержку языков, candidate не проходит главный gate. Official paper
-описывает acoustic model как `FastSpeech-2-like` с `FastPitch-style` conditioning и `HiFi-GAN`.
-В проекте уже использована family `fastpitch_hifigan_torchscript_tts` (Silero V4). Отличающийся
-checkpoint, multilingual frontend и model name не превращают близкую architecture route в новую
-независимую family.
+Route exposure receipt:
+`data/manifests/fresh_suite_stage_c_generator_route_gate_v1.json`, SHA-256
+`54da4a704b59f2a6ff24395a90dee013b3a1fd1a48e65355bab4008426358f57`.
 
-Есть и дополнительные ограничения: краткая model card не закрепляет exact training snapshot и
-происхождение встроенного `default_emb`; последний checkpoint commit описан как «new default
-speaker», но не публикует проверяемый voice ID/rights record. Для текущего research scope это
-требовало бы отдельного ограничения, однако architecture overlap уже достаточен для stop.
+- проверено 46 manifest-файлов и 17 657 сохранённых spoof-строк;
+- найдено 313 точных исторических routes;
+- exact candidate route overlap: `0`;
+- generator-family overlap: `0`;
+- alias `ISSAI_KazakhTTS2_M2`: 312 строк через ранее оценённый Piper route.
 
-Official evidence:
+Последний пункт принципиален: новый checkpoint/runtime route не делает голос новым. Этот слой
+может проверять устойчивость к другому способу синтеза того же опубликованного профиля, но не
+устойчивость к новому speaker identity.
 
-- [IMS Toucan source](https://github.com/DigitalPhonetics/IMS-Toucan/tree/3cc2094d9c7123336eda7e299ac0bc90319ca9ff);
-- [ToucanTTS model revision](https://huggingface.co/Flux9665/ToucanTTS/tree/e0afe0ef703d2178dd7dc74ec298693ddb10e720);
-- [supervised language list](https://huggingface.co/Flux9665/ToucanTTS/blob/e0afe0ef703d2178dd7dc74ec298693ddb10e720/supervised_languages.json);
-- [architecture and training-data paper](https://arxiv.org/abs/2406.06403).
+## 4. Технический pre-detector smoke
 
-### Остальные проверенные routes
+Frozen smoke plan SHA-256:
+`92f695ad964c27b4e749a728919083c51f4a9ead37ec3f0e9ccea67db3a3f40b`.
 
-| Candidate | Решение | Причина |
-| --- | --- | --- |
-| RHVoice | reject | official supported-language list содержит Russian, но не Kazakh |
-| Meta MMS TTS | reject | поддерживает `rus`/`kaz`, но VITS family уже использована проектом |
-| Qwen3-TTS / AIT-Syn | reject | official Qwen3-TTS не заявляет Kazakh; AIT-Syn Kazakh route требует reference voice cloning |
-| Coqui XTTS v2 | reject | Kazakh отсутствует в declared language set; основной route использует cloning |
-| SeamlessM4T v2 | reject | UnitY2 был бы новой family, но Kazakh не поддерживается как speech-output target |
+CUDA/PyTorch 2.11 успешно загрузил старый ESPnet checkpoint в safe weights-only default mode.
+Все три входа входят в checkpoint token list; созданы конечные mono PCM WAV 22 050 Hz:
 
-Переход к разным генераторам для RU/KK/mixed сейчас также не принят: он усложнит сравнение,
-а для mixed всё равно не найден text-only, no-reference route с однозначной RU/KK code-switch
-поддержкой и полной artifact provenance.
+| Язык | Официальный статус | Duration | Peak | Решение сейчас |
+| --- | --- | ---: | ---: | --- |
+| KK | supported | 3.286 s | 0.361 | technical pass; listening pending |
+| RU | не заявлен upstream | 4.470 s | 0.355 | conditional; listening pending |
+| mixed | не заявлен upstream | 2.705 s | 0.419 | conditional; listening pending |
 
-## 3. Stop decision
+Smoke report SHA-256:
+`fc10d5660eca06a44bfc7433838ac7043ee5ee93171b277d4034f10356c4377b`.
+Detector checkpoint, logits и predictions не открывались.
 
-Этап source/rights review выполнен корректно именно как **отрицательный gate result**:
+Listening packet содержит три exact WAV и не содержит model predictions. Packet SHA-256:
+`12dd6caa8bff9332708e1b365002545ddec9c7ea15b92ad82cb89de82ac37dea`.
+Две формы подготовлены fail closed. Для каждого языка нужны два разных реальных слушателя:
+`pass/yes/yes/yes/no` означает intelligible speech, сохранённый текст и язык без тяжёлых
+артефактов. Пока формы не заполнены, `approved_input_languages=[]`.
 
-- TTS weights и новые крупные datasets не скачивались;
-- model lock и license-ledger row для отклонённых candidates не создавались;
-- fresh assets не извлекались и не выбирались после просмотра detector outputs;
-- synthesis, acoustic review и XLS-R inference не выполнялись;
-- старые final plans и результаты не изменялись.
+## 5. Отклонённые routes и дальнейшее ветвление
 
-Следующий допустимый шаг — найти либо создать действительно новую TTS architecture family,
-которая одновременно поддерживает RU, KK и mixed text-only synthesis со встроенным фиксированным
-voice profile и проверяемыми правами. Только после успешного review разрешены artifact lock и
-frozen selection policy. Ослабление требования «новая architecture family» является изменением
-научного контракта и требует отдельного решения владельца проекта.
+IMS Toucan остаётся отклонённым именно как заявленная новая architecture family: его
+FastSpeech-2-like/FastPitch-style + HiFi-GAN components близки уже использованному Silero V4.
+После смены критерия его можно было бы повторно рассматривать как exact route, но KazakhTTS
+предпочтён из-за более простого fixed-voice/no-reference interface, официальных artifact links
+и успешно проверенной локальной совместимости.
+
+RHVoice не имеет официальной Kazakh поддержки; MMS/VITS уже представлен; Qwen3-TTS не заявляет
+Kazakh; Coqui XTTS/AIT-Syn требуют cloning/reference voice; SeamlessM4T v2 не поддерживает
+Kazakh как speech-output target.
+
+После reviews решение принимается по языкам:
+
+1. KK pass разрешает перейти к frozen selection 60 уже QA-ready fresh KK groups.
+2. RU/mixed pass разрешает только сбор отдельного fresh candidate и новый full-asset acoustic
+   gate до detector inference.
+3. Если RU или mixed не проходит, KazakhTTS не растягивается на этот язык: для него выбирается
+   отдельный exact fixed-voice route. KK progress при этом не блокируется.
+4. Даже при трёх pass сначала фиксируются selection policy, rejection accounting, ledger
+   snapshot и immutable run plan. Detector inference остаётся последним одноразовым действием.
+
+Это текущая граница корректной автоматической реализации: следующий факт требует человеческого
+прослушивания, которое нельзя заменить текстовой эвристикой, ASR или detector output.

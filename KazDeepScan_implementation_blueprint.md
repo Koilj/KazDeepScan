@@ -142,11 +142,13 @@ Temperature scaling fitted только на 976-row calibration role. Поро�
 | Слой | Balanced accuracy | Главное ограничение |
 | --- | ---: | --- |
 | RU | 0.9800 | exact bytes прошли review, но нет verified speaker independence |
-| KK | 1.0000 | до inference не было two-review acoustic gate |
+| KK | 1.0000 | exact bytes прошли gate только после inference |
 | Mixed | 0.9333 | эти exact assets ранее видел checkpoint v1 |
 
 Это confirmatory research evidence, а не blind project-level final и не product metric. Полный
 immutable receipt: [research_xlsr_sls_stage_b_v2_research_final_v1.md](docs/research_xlsr_sls_stage_b_v2_research_final_v1.md).
+Поздний KK gate подтвердил audibility, соответствие казахскому тексту и отсутствие явных
+дефектов для `304/304` exact assets, но не изменил уже раскрытую метрику или её статус.
 
 ToneSpeak остаётся отдельным RU spoof-only OOD исследованием (`88/100` spoof recall). У него нет
 bona-fide counterpart, поэтому он не превращается в binary final source.
@@ -163,12 +165,7 @@ bona-fide counterpart, поэтому он не превращается в bina
 release contract, отдельная product/research-demo calibration policy, model card, latency/security
 tests и явное решение владельца о допустимом UX. До этого поведение fail closed сохраняется.
 
-## 9. Локальные данные и воспроизводимость
-
-Сейчас сохраняются `RuASD/`, `KSC2/`, `archive.zip` (PyAra) и `FLEURS/`. Архивы KSC SLR102 и
-Common Voice не читаются текущим v2 pipeline и могут быть удалены только после проверенной
-off-machine backup. Полная таблица —
-[docs/local_raw_dataset_retention_2026-08-12.md](docs/local_raw_dataset_retention_2026-08-12.md).
+## 9. Воспроизводимость завершённого запуска
 
 Точное implementation tree уже выполненного final plan сохранено в Git-коммите `52d6e6b`.
 Новые изменения проекта не должны переписывать этот plan: исторический `--validate-only`
@@ -189,3 +186,8 @@ off-machine backup. Полная таблица —
 
 Конкретная последовательность и критерии остановки находятся в
 [План реализации.md](План%20реализации.md).
+
+Source/rights gate от 12 августа 2026 года закрепил exact fresh capacity, но остановил переход к
+artifact lock: IMS Toucan использует FastSpeech-2-like/FastPitch/HiFi-GAN route и не считается
+новой family относительно Silero V4. Детали и write-once inventory:
+[fresh_research_suite_stage_c_source_review_2026-08-12.md](docs/fresh_research_suite_stage_c_source_review_2026-08-12.md).

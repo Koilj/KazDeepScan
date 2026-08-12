@@ -1,0 +1,3690 @@
+{
+  "all_assets_acoustically_verified": true,
+  "asset_results": [
+    {
+      "audio_sha256": "520efd06838213d983b88c0298377ba8f577e46cf3fdbcf373b8226dd619dbca",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:8279540564397689609",
+      "text_hash": "043eced9275fba5c6f9ffd129bb97c77bf29aaabd679e45dbfa52b7f971ae249"
+    },
+    {
+      "audio_sha256": "ceda9305883746edda76258049a7be25d230fcfc1819df772b2fb2e5619d8b2d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:a8178027e3839777",
+      "text_hash": "043eced9275fba5c6f9ffd129bb97c77bf29aaabd679e45dbfa52b7f971ae249"
+    },
+    {
+      "audio_sha256": "78c2b25fa269692c5c8a91ced98e99b79291543db18a680a740bd414e014b032",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:1557497511948704471",
+      "text_hash": "08910cd19d1c27bf1c54f52f23ae38af110abad0679be41e50381ab1c41c5f86"
+    },
+    {
+      "audio_sha256": "0fa492737cf61c35acaaa7f50fbb30daed11c1671726af5f89de4233e1228f25",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:086bfb4472b6fe9c",
+      "text_hash": "08910cd19d1c27bf1c54f52f23ae38af110abad0679be41e50381ab1c41c5f86"
+    },
+    {
+      "audio_sha256": "a424d07e5904751fe498361a144224e8733899fcedb0ff941d21595066d42f7e",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:2508642953820087179",
+      "text_hash": "0b36b727b7caa42335f61047abc2a35d9450444483100315e63cc0d0f52e4d02"
+    },
+    {
+      "audio_sha256": "dc828abbcaa9d3e3e6b5049463cdc584ea7d3344ee97bd62bbbc91dd83f2457b",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:5400c039ee89b91f",
+      "text_hash": "0b36b727b7caa42335f61047abc2a35d9450444483100315e63cc0d0f52e4d02"
+    },
+    {
+      "audio_sha256": "e527e2a08e51876ac8967eec4354322c2255f7e1bbd52949ee820df3146c5070",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:8985760214127870750",
+      "text_hash": "0c5127dbe031c8111ccaffcbc5b76a868ba99afef7e2dbf9c188521b0f31ed75"
+    },
+    {
+      "audio_sha256": "25751775679ca497293d0f948df93f8c6a37a1290ab0d2f59bccf6212dc71b2f",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:991b27a154c69832",
+      "text_hash": "0c5127dbe031c8111ccaffcbc5b76a868ba99afef7e2dbf9c188521b0f31ed75"
+    },
+    {
+      "audio_sha256": "f2029a96dcdd67eabaf48c754418b901b623b3bcbd385b4617b47ff1569a2fdd",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:2361349675354639429",
+      "text_hash": "0cd26931fa77facbcf0f21933993d9ae889317ceffc7433cc0b1c23f67a07358"
+    },
+    {
+      "audio_sha256": "b2a26597146f84807172a057fef937bc16c49002dd8e1f74bd65e94e7726c8ad",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:3a85d1899a9560ab",
+      "text_hash": "0cd26931fa77facbcf0f21933993d9ae889317ceffc7433cc0b1c23f67a07358"
+    },
+    {
+      "audio_sha256": "387cfcb292f0f598f6fccbbe56bb28d9207b2300c21c0e9b18211fb114ad11d8",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:185218502349541926",
+      "text_hash": "0e066d0fe9378f99bdd5f0503bf177b09c0c2b7a9256511b76171f980c2ef9a1"
+    },
+    {
+      "audio_sha256": "e06b41583c060fe5a7adfee43f7a978d89c7e218b9e97675207bbe76f1e73369",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:e9275bb927372274",
+      "text_hash": "0e066d0fe9378f99bdd5f0503bf177b09c0c2b7a9256511b76171f980c2ef9a1"
+    },
+    {
+      "audio_sha256": "47c543d5665c308060ed88c670af8464fed11fd4767e5b3738e3cf6fce3d21aa",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:1012620404977445825",
+      "text_hash": "0f7d827b4990fac72d8cb6e7c03a90261ee1716cc1c5f83db7d3b948b55d150b"
+    },
+    {
+      "audio_sha256": "a6e97109284a2146fcb9ba204dff2f65783a0537c7718acf385d7ab78f81fe3c",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:6d65d9670fb7727a",
+      "text_hash": "0f7d827b4990fac72d8cb6e7c03a90261ee1716cc1c5f83db7d3b948b55d150b"
+    },
+    {
+      "audio_sha256": "56147fd25729756dc8aac812bb0371c7fece18718e057164b0671aa1b38df340",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:8481884831392370547",
+      "text_hash": "0ff1ce5e7d5e3e41d4b90c71478941f4487ec624fb617f596989f1a11dfc07a3"
+    },
+    {
+      "audio_sha256": "03a3a15fc2c9494305bd2afcb2bb8c7ed35f6750d8689e2e9f5f5ed09ad76d45",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:ba8e12a9d13cbb86",
+      "text_hash": "0ff1ce5e7d5e3e41d4b90c71478941f4487ec624fb617f596989f1a11dfc07a3"
+    },
+    {
+      "audio_sha256": "bdaae8bc6424381a650e66c63d7273697ea4abd4eefa955fb52e025d1707e468",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:12132517779672439413",
+      "text_hash": "10f4c55ff0e14f05c677f5d6056e594e378e9808eb7b350a89686368cd85cecd"
+    },
+    {
+      "audio_sha256": "d7915f8757fe101ee7388e3f927b5f8569d36a2db2d1ca4257b3943bd8bac0b9",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:66a187528ccbdd47",
+      "text_hash": "10f4c55ff0e14f05c677f5d6056e594e378e9808eb7b350a89686368cd85cecd"
+    },
+    {
+      "audio_sha256": "20fbb2b1d7d184d53a3b3983634069f202fa0da41b7f1508a928268538ba2c2f",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:12499343535907906459",
+      "text_hash": "13cd80d994c0af4ef0c5dee44864991692483df7fdb618b29bd1c5e635b3b4b4"
+    },
+    {
+      "audio_sha256": "e7e766e207dd6463b07c777348256952ae54bee2079f46ca1613455e066d1bd5",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:3c1702b694cb9854",
+      "text_hash": "13cd80d994c0af4ef0c5dee44864991692483df7fdb618b29bd1c5e635b3b4b4"
+    },
+    {
+      "audio_sha256": "d264b5c4803c80227ccaba6205c4fc0db1969eed2ce02ae460701e33d7b445e1",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:4194173425644122902",
+      "text_hash": "17c05fa7ebb4080f34232916fcc43e4cdbab9170a65d074e138c0be9b055e2df"
+    },
+    {
+      "audio_sha256": "5b15407c9337801eb88a700a3ef1425880a0bfd7336cba4c5c889d33decc8854",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:4f395dddd9be8cb1",
+      "text_hash": "17c05fa7ebb4080f34232916fcc43e4cdbab9170a65d074e138c0be9b055e2df"
+    },
+    {
+      "audio_sha256": "6501ecc2edf2b99f6fa3ce93da420ec57972eb6c7b8acd1363aa96dcd6beb042",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:3940757202864967611",
+      "text_hash": "17e2bc279be15da1fb974e4f3496e62f01ff0d454c855ec5f749457047740bbe"
+    },
+    {
+      "audio_sha256": "6a0a25fbcb040bf7833559e4ce69887b156c87bfd7cf5a6e64d0f6648520a877",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:fbd406f681a1ea50",
+      "text_hash": "17e2bc279be15da1fb974e4f3496e62f01ff0d454c855ec5f749457047740bbe"
+    },
+    {
+      "audio_sha256": "91e10e20e5b21dd7532fe634a5e10d6ec7d862ed7ee4c5c5d725d9748c1ee69e",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:8487639534267018622",
+      "text_hash": "18e172760ad9b525def5d92990b3bf6d707031ee1fdc0410f7c7a82b21aa0e14"
+    },
+    {
+      "audio_sha256": "56f16b1fc0b36a5fb0ed2ca2c1b75d7c88c7ec599b75e00f386c32e34e0aa47a",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:58285db04c8035af",
+      "text_hash": "18e172760ad9b525def5d92990b3bf6d707031ee1fdc0410f7c7a82b21aa0e14"
+    },
+    {
+      "audio_sha256": "fff02135ce7b84ea86c7b937ab83931159bf65b216ea128f40868b7d34335857",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:1247360510688283233",
+      "text_hash": "1a1c58d9ce9805a00198b44de7dbf14bf6083474a3619e4975120dc530958ab8"
+    },
+    {
+      "audio_sha256": "6313985419230df60ac606f6b73dc25bf6eed9e1064c4a9db1a364b71e3c2c6d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:7caf86b43a5ea126",
+      "text_hash": "1a1c58d9ce9805a00198b44de7dbf14bf6083474a3619e4975120dc530958ab8"
+    },
+    {
+      "audio_sha256": "0aec0beb14f570a37d2250fb60fda8f7f1a0cac432b512049fbdf8b60633c110",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:6300887452511091456",
+      "text_hash": "1aec6a373c1a42247293efc03176e8d9310f350c4c4a160c982d032fec2e4d92"
+    },
+    {
+      "audio_sha256": "b70bd0dbece6f9d925f2d5d0c881702f72528ce89bb5890d2a792654fb2d44c6",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:04da74268f148959",
+      "text_hash": "1aec6a373c1a42247293efc03176e8d9310f350c4c4a160c982d032fec2e4d92"
+    },
+    {
+      "audio_sha256": "184526cf3d0644d42075a9bdae5f77a22e040e1b20624ce60e822aaa3d2f6f31",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:3400869910910742068",
+      "text_hash": "1d942849640faa6386b9ad2361bc6f74644ca754a85fd8f22f99c0ef87ee8e3f"
+    },
+    {
+      "audio_sha256": "c76222e190f332121f49cc7451870f26f11356101a626386aeca7bc645251f9a",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:d787905038c8ca21",
+      "text_hash": "1d942849640faa6386b9ad2361bc6f74644ca754a85fd8f22f99c0ef87ee8e3f"
+    },
+    {
+      "audio_sha256": "178aebcdc78c41a544ad7bdd0c40468f9201bf6ca0ce2714075d454c324ccfef",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:12278804363229651857",
+      "text_hash": "1f8220ce02fb070e3c013d361c7598312a0770af4122423a3d2ea7613cb807c1"
+    },
+    {
+      "audio_sha256": "46173e213904f5811f633f2a18d955c77c7eefa52b62e75ac2620b525ec96c36",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:f4f90586f5cbfce9",
+      "text_hash": "1f8220ce02fb070e3c013d361c7598312a0770af4122423a3d2ea7613cb807c1"
+    },
+    {
+      "audio_sha256": "57c828f3f2c6cee558cf10ef187323fe8cf9a902ee8b516b95300931fae8b5b0",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:3647163325885339655",
+      "text_hash": "2414a91a815bf66c718bfcb149f17395337ab6f0cb806fd33febfbc83df88f99"
+    },
+    {
+      "audio_sha256": "29419ffe69060bf20509bc84c4066fcdcc3f35420086243203ebe79d868f6b20",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:0a3ac9adb0d1011b",
+      "text_hash": "2414a91a815bf66c718bfcb149f17395337ab6f0cb806fd33febfbc83df88f99"
+    },
+    {
+      "audio_sha256": "47afcb213306573812c674e709cc14f7b4276359cb755b0f2de1ebc6ca809a70",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:2654146336577118542",
+      "text_hash": "255b220128a3be5b7b749dbfa02404b306a4ed1143eb1603cdf1941211694e65"
+    },
+    {
+      "audio_sha256": "20e3ac83d8c591d74cbcde2895bdab5d4ca898da6c2a0a26cf97ccaf45125c80",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:dcc0dd09fb71e631",
+      "text_hash": "255b220128a3be5b7b749dbfa02404b306a4ed1143eb1603cdf1941211694e65"
+    },
+    {
+      "audio_sha256": "ea4095fc4592747512ea9da8231ddc7db0e4b644583d7d88a3ec965739842939",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:5570830079281004559",
+      "text_hash": "281035d0032497876e2a04ad556123e2799649f069021bb6389e15a26ba38ee0"
+    },
+    {
+      "audio_sha256": "558bf327cc6011fef3282c38fdcbb77d6d37b30da9c1171df01e18d6b4cfa093",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:57f9ebf20a85530a",
+      "text_hash": "281035d0032497876e2a04ad556123e2799649f069021bb6389e15a26ba38ee0"
+    },
+    {
+      "audio_sha256": "76c2fe304929d3efc3033400eaf997a856e245a40f9964d2851b5daf0fb394ef",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:14138591742216968275",
+      "text_hash": "287db4aeccbea94b54250f304b3be01635779b0a0398a05352c9cae686c7d574"
+    },
+    {
+      "audio_sha256": "d21200e4a34ca7a8a59eef4306a264e2560aa0f2263649b7ba409bcc049cea97",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:365d2926c6bd732c",
+      "text_hash": "287db4aeccbea94b54250f304b3be01635779b0a0398a05352c9cae686c7d574"
+    },
+    {
+      "audio_sha256": "7fb6f233f4dbee5ca1aa633d08df5314df7ace1a9e345342bf736a5236e1f823",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:6987858971628193632",
+      "text_hash": "2a305fc9ca43809e46064be67d1a55899193c6c414cf3fa55ccfe7f2a73b2c37"
+    },
+    {
+      "audio_sha256": "08846aa5c80ec63a3b6205c540b17c9bf2ad288591156cd72a1ca956ccd78764",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:f74c24e967653082",
+      "text_hash": "2a305fc9ca43809e46064be67d1a55899193c6c414cf3fa55ccfe7f2a73b2c37"
+    },
+    {
+      "audio_sha256": "54065c03ff812e019f58370e7e8b1a61c983230d73241e24a482de96e09ae154",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:9511488393989233871",
+      "text_hash": "2a731573dcc72e966becf5d3bbf8182b2f5205ab1a8e8174c4de14386466c5d9"
+    },
+    {
+      "audio_sha256": "b4b5320d20d41e99fbe98826648ced75ba7a5abeddb127f370bf0a974d34c522",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:346022038283737b",
+      "text_hash": "2a731573dcc72e966becf5d3bbf8182b2f5205ab1a8e8174c4de14386466c5d9"
+    },
+    {
+      "audio_sha256": "fee68cffb34b4ac6140879d77441c31702d1cd2e2e5ebf52b901e2b8a34829cc",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:14758568503093185019",
+      "text_hash": "2a9299b1e2c106658512cb748ddef4f5ecc8913466b9f04f16a2a43a41e2aeb9"
+    },
+    {
+      "audio_sha256": "47f58f70f3c5b5abd45336dcfb64ded0a6a861f3363da08a2c1e6524c73e1d47",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:88bbcd8ca1c6bc7a",
+      "text_hash": "2a9299b1e2c106658512cb748ddef4f5ecc8913466b9f04f16a2a43a41e2aeb9"
+    },
+    {
+      "audio_sha256": "9309c34551526b1a1c747f90874253bef2aecdc6816772b6ba00afd4283562e9",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:16100295713913896452",
+      "text_hash": "2ca8897ccc4736fc9f3ddd589ff284f6589970a74dbd35a25713cef418ea5c0e"
+    },
+    {
+      "audio_sha256": "16673c16313314897ca28ff824235e2bc70b18d2cc21ddaded6329df649131f9",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:958976aadc8681b4",
+      "text_hash": "2ca8897ccc4736fc9f3ddd589ff284f6589970a74dbd35a25713cef418ea5c0e"
+    },
+    {
+      "audio_sha256": "d1ef02113f984085a37b625ff3f62444a932db06836f1d746dd3636e26a45574",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:11101644398530543412",
+      "text_hash": "2fffd730adeb93b7027a61c25f35cbb88b295450274722ed811494286496adea"
+    },
+    {
+      "audio_sha256": "bdcaa50eb0575845a51abb6419523bc92cca71606e75d23a43e75332e9731407",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:71790e0082bf9f27",
+      "text_hash": "2fffd730adeb93b7027a61c25f35cbb88b295450274722ed811494286496adea"
+    },
+    {
+      "audio_sha256": "70f4417cbd9ea493c020f57a0d09ac609b2d5692e12eaade2ad3a5d1ea18da79",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:14214739215091152833",
+      "text_hash": "3115daf3f630affe3348da5daa2ba972a4e9f1d1e0ed99b5170d8b2d1f187b03"
+    },
+    {
+      "audio_sha256": "16dfcfdce2d180ae8652198ada24eff11ee19d39685507c3af4ab415a4bc395c",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:23abe4ea0acf20a7",
+      "text_hash": "3115daf3f630affe3348da5daa2ba972a4e9f1d1e0ed99b5170d8b2d1f187b03"
+    },
+    {
+      "audio_sha256": "60fd4945c346813e72a8d4f1b14e8bff91132b5e703c7e7f33442479e61c8b2d",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:7831385849313021663",
+      "text_hash": "35b6a172e41de03b126ae1afc2db1a0c60184b6b7037bc02419f5073c74039d9"
+    },
+    {
+      "audio_sha256": "9d64e3c1a28b08e3d42068cd86e97e2aa806a3731f181dd300ad2f4bba543889",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:c9f75894552a54b7",
+      "text_hash": "35b6a172e41de03b126ae1afc2db1a0c60184b6b7037bc02419f5073c74039d9"
+    },
+    {
+      "audio_sha256": "21b83bc76e9c951fd746c4f3dac47d5af52cd0d5f689e2011a881f882cd37579",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:7273275015828455863",
+      "text_hash": "36965cdb8373fc8f524c37e6bdce66009fe26c589f5da1fe742c3f249aa139bc"
+    },
+    {
+      "audio_sha256": "bdb26fcbd927b3a04ab299c9f6a36e0838272090254534b656d03e0acdabddfa",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:2d9cdf64230e58a8",
+      "text_hash": "36965cdb8373fc8f524c37e6bdce66009fe26c589f5da1fe742c3f249aa139bc"
+    },
+    {
+      "audio_sha256": "e13376bbc082741c546ba018c0243b04518d23d60460367b372358ed76a995f8",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:6716542451035067564",
+      "text_hash": "36a75e76a58ec338950fcbdf24e28f08414fab9a88917987ed01cadc84effcfa"
+    },
+    {
+      "audio_sha256": "5e96f58c1644e495cf898059d94723bc1e366b83e2f4f73cf51677b36d97d107",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:a3a8c49adb3032aa",
+      "text_hash": "36a75e76a58ec338950fcbdf24e28f08414fab9a88917987ed01cadc84effcfa"
+    },
+    {
+      "audio_sha256": "0724ed650749485e51ec9e62a6a3b499df0c35a2670ecd0aef7fcea37f9a38ab",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:9970442057444676055",
+      "text_hash": "37cd10471a66256ae4551317a625f4441bb000840aab314ec12db5a2baadf698"
+    },
+    {
+      "audio_sha256": "387c0b7534fe03c372c697290504b80a80bb3be665d31c4f47b67a3e171e1636",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:af13cd9bf1333370",
+      "text_hash": "37cd10471a66256ae4551317a625f4441bb000840aab314ec12db5a2baadf698"
+    },
+    {
+      "audio_sha256": "59bcba44c6a9aea3626e0207a1514a99ded0b2e73c80fda37ed5746681ff6b12",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:13427528320636238784",
+      "text_hash": "3aade2d4417d7e3fb8f4a56862cedc61add832bbc8ce776a65163371488526e1"
+    },
+    {
+      "audio_sha256": "a264a9916a21a13dc3fc1ae659268f676ba3100809320605f845fa9fcc2882ae",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:4d9752d4acad2f6c",
+      "text_hash": "3aade2d4417d7e3fb8f4a56862cedc61add832bbc8ce776a65163371488526e1"
+    },
+    {
+      "audio_sha256": "e9784c6e257f2281a0fb33a08587a24da39337b23e23d2b18d031f0573d07a1a",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:384102721568267504",
+      "text_hash": "3ad280aa751f729554718730fbcbec7c1adfc1b217d52146e7d7f5b8c41b2454"
+    },
+    {
+      "audio_sha256": "ce089c725d748007fe862748abf34e9b3eb233dbf52fdc6ff332e7bcc1a563e1",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:3dcb2935dcbbca09",
+      "text_hash": "3ad280aa751f729554718730fbcbec7c1adfc1b217d52146e7d7f5b8c41b2454"
+    },
+    {
+      "audio_sha256": "09229dceb32c863057bbf73e2c3c2c3d360af83c899cd197fcca8c6b0fd0864a",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:8250296871804107802",
+      "text_hash": "3d3657064996bb44141b6cc3edc35ca8f2b927c8e07491cba4b7fbb1e7e5c743"
+    },
+    {
+      "audio_sha256": "70dc242fdc52921b86fc7c8f669ecfd878d180e4aff47c69a68f4d6b25173f7b",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:5d0a94bde0371810",
+      "text_hash": "3d3657064996bb44141b6cc3edc35ca8f2b927c8e07491cba4b7fbb1e7e5c743"
+    },
+    {
+      "audio_sha256": "fccdf5421166e72a2a0977468bfeb1e7ea321066f8ef67a6febec79a9feb3cbb",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:1250870285955643901",
+      "text_hash": "3fa4d75dbb3ad24bbe9da114b38ab597ded77b8b85cde066dd77eecdc3dd126f"
+    },
+    {
+      "audio_sha256": "cbb3d9ab8bb3a93389a09fe80933f048db9c30a0074ee53b6a71081d13632575",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:901420051b379caf",
+      "text_hash": "3fa4d75dbb3ad24bbe9da114b38ab597ded77b8b85cde066dd77eecdc3dd126f"
+    },
+    {
+      "audio_sha256": "04972602aaa7250fcf6ac184ccef4c9d3d1fd42243e38032acc9442c6ba8ab49",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:14702793071649019367",
+      "text_hash": "4093ef53d0ad974ce985bdc9afea94a9d51089d0514274e028530fa0be5b8c6c"
+    },
+    {
+      "audio_sha256": "04badc68be637bc1e47c86e761447ca32297936ff02a6cb355b62429733668e4",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:5866f118e8d97f87",
+      "text_hash": "4093ef53d0ad974ce985bdc9afea94a9d51089d0514274e028530fa0be5b8c6c"
+    },
+    {
+      "audio_sha256": "cec4c91d572075fd0291a40be88e724c2ad8383a4fc631b7570f235cbe316164",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:7163401007073568905",
+      "text_hash": "44628d78d573fc89aada41fe4647df5df30d7d6afb28237d62a273fa6d469ac2"
+    },
+    {
+      "audio_sha256": "78b1fe4e4672195ae57b11030238968b6c8765f1280fc599e0bdb5d08322121f",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:58b20ca5dcd2ab07",
+      "text_hash": "44628d78d573fc89aada41fe4647df5df30d7d6afb28237d62a273fa6d469ac2"
+    },
+    {
+      "audio_sha256": "8c3a03b885a770d7c80d5898da2512e82e9ad672b70a538fd5434f3d76f6a77d",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:10360237251151782078",
+      "text_hash": "47600904c26fa7b710d4e132ab20d3f9041953d15e2c2266e8edf5bfac4d8af9"
+    },
+    {
+      "audio_sha256": "bd24cef8f66e75128f54a10ca170f8b32e9c76e5403e80fa369c2082d94712fb",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:5f70fdfe96bc4219",
+      "text_hash": "47600904c26fa7b710d4e132ab20d3f9041953d15e2c2266e8edf5bfac4d8af9"
+    },
+    {
+      "audio_sha256": "c9e53bab011a41065b9b0f03b83fd669e1ec8b5bb01b2c4e169e9b54dc5c6faf",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:16604209040550033927",
+      "text_hash": "4a89ac849fff1e037ec5bc8e8a55120e2c66945382d3b51e72c89461efc59fcf"
+    },
+    {
+      "audio_sha256": "ace952b66cf80e55d967a485c35b0cde67e2b9db144a630ed5332316ddeb1841",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:c923d509bb9a9109",
+      "text_hash": "4a89ac849fff1e037ec5bc8e8a55120e2c66945382d3b51e72c89461efc59fcf"
+    },
+    {
+      "audio_sha256": "41ff7558e53721651ac59bb73a48da068761220515258bb1dd4b2ea5eb0b3cc9",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:3587954411604827234",
+      "text_hash": "4e0bd60541dae0a9c3d75b2198f1d4563568cac31833f3ec40557f25b7837aa6"
+    },
+    {
+      "audio_sha256": "f6e4005cf66bb02aebb3cb156557d60d7092b5eeba0e54121f47bf05302d5bfc",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:a01bd9babcb5a15d",
+      "text_hash": "4e0bd60541dae0a9c3d75b2198f1d4563568cac31833f3ec40557f25b7837aa6"
+    },
+    {
+      "audio_sha256": "b96e09d4e0ca80b0274316a11001ace260d10a607db583d5adf68024987f3fd5",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:14595150909983902123",
+      "text_hash": "4e0dd9aa31c41baadf0416b3dac47692957ea0831ba2571c3b1514c0aba163de"
+    },
+    {
+      "audio_sha256": "1da601f69ef487ee8b35f2664b5dd76d1d2b400df42b56904aaed97222812841",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:e5451e27c5844cbf",
+      "text_hash": "4e0dd9aa31c41baadf0416b3dac47692957ea0831ba2571c3b1514c0aba163de"
+    },
+    {
+      "audio_sha256": "2aadc87d7749b24d58381bd1cc91f177a865990a51813c57cde3aea4861d2127",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:6816954887008639041",
+      "text_hash": "512c38a582d8ea9e4c8d3acd69c2a47234b19c8e83bdb6d6b8b772bb776e536d"
+    },
+    {
+      "audio_sha256": "fa09fd5365ea19bb182de85a7ec729bd2fd40352b5fce04a1ae457cafbbd2805",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:330d415f24926e94",
+      "text_hash": "512c38a582d8ea9e4c8d3acd69c2a47234b19c8e83bdb6d6b8b772bb776e536d"
+    },
+    {
+      "audio_sha256": "d3d0b4a30efd32664b33fb0d71a440e1f321c4caba24b51d59f868f8ba86de25",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:14570558337449311443",
+      "text_hash": "52845fa51d753db820aecf4bb9aafb8b0ed921f6b1295afc69f49d13b4e8836a"
+    },
+    {
+      "audio_sha256": "7f7931c70608763ef5ad8de0ad00692759c1dfdbdc099800e18e429eaf681cca",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:97c1906e3a1dfeb2",
+      "text_hash": "52845fa51d753db820aecf4bb9aafb8b0ed921f6b1295afc69f49d13b4e8836a"
+    },
+    {
+      "audio_sha256": "04584a4b91e54e64336313de833d7441c1d1961856f115b6cd02673d2325a9f7",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:8942423188900080379",
+      "text_hash": "52bd1a29ac0116d5851445ca3180ebe052e6f2bb75967a822f8998d6fc603e66"
+    },
+    {
+      "audio_sha256": "bdf4556dd21b71098798d1ec85b594046dc9e3153e948ac93d4a2987fd3a54ae",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:cef1aa21f0ef4973",
+      "text_hash": "52bd1a29ac0116d5851445ca3180ebe052e6f2bb75967a822f8998d6fc603e66"
+    },
+    {
+      "audio_sha256": "5a8e008f85a209ef428a9c7dcee7771b35269ba3bb46b63cb86fb2e292c74dd3",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:9700012532066396017",
+      "text_hash": "53e9a3c1aa517ce74e9548e33456bad0af0eb2a79413b93b883e61b3ba23567d"
+    },
+    {
+      "audio_sha256": "96aeeee7600548229a2b641921777329a8259c4a745e61fe3c23dff1c4eaa350",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:f98dd53d16784489",
+      "text_hash": "53e9a3c1aa517ce74e9548e33456bad0af0eb2a79413b93b883e61b3ba23567d"
+    },
+    {
+      "audio_sha256": "e69954254cd604fddfc1a4f7c83082fc816e63e95e3971e2d2b304679dcc511f",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:6476835204312079772",
+      "text_hash": "542a25cb706bde889c8e13c01365381dc0f7ae0923596d1e05cbfaf70d777fd0"
+    },
+    {
+      "audio_sha256": "24c1abb349cf0153437b152357fec1f4302afd4ae6534c519effa062644254c8",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:ed80b15c92da611f",
+      "text_hash": "542a25cb706bde889c8e13c01365381dc0f7ae0923596d1e05cbfaf70d777fd0"
+    },
+    {
+      "audio_sha256": "0a95633894bcbcca2b7ac5ae9eaad7cd7cf2e380bfa25cd0d2870cef715fda37",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:6233262974224255335",
+      "text_hash": "5443cc6bffb9a9622b7d8818e591974c037337528e6f46b6132aa2dbe8d69ac4"
+    },
+    {
+      "audio_sha256": "49bc4ab7cb622cf459914f85b47c55162d0e7fa28cd06208caa5dd26f6096b99",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:631a3ac4ff67c0a6",
+      "text_hash": "5443cc6bffb9a9622b7d8818e591974c037337528e6f46b6132aa2dbe8d69ac4"
+    },
+    {
+      "audio_sha256": "640280dcbf5e2161439115ec4d1ee298553a295755d9be7383160c33aca3fdcf",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:12811696996646412406",
+      "text_hash": "54b0a1620cc66d338e84ad13291361eaae610c234e01f4649541aa075152c1ea"
+    },
+    {
+      "audio_sha256": "5867995ae12ee3fcbb97d357d1f3acdbcf8ae65778ab61b2b6d32cd70b2426c0",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:e44596752b104d28",
+      "text_hash": "54b0a1620cc66d338e84ad13291361eaae610c234e01f4649541aa075152c1ea"
+    },
+    {
+      "audio_sha256": "e723ec63dd5daa710da5837007b113f2d11669ecf44764e34325e5f2aeb39423",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:6104539044175665682",
+      "text_hash": "5764d22ff4946c2533c99fcc9e933e5637dcfc20a42aff07f39499d1783a93a8"
+    },
+    {
+      "audio_sha256": "d3818f765aa5a30f4e9a6f9c08625255c5ed7a859f9cd791a84680b39a18c6a0",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:9b457a13aac1b209",
+      "text_hash": "5764d22ff4946c2533c99fcc9e933e5637dcfc20a42aff07f39499d1783a93a8"
+    },
+    {
+      "audio_sha256": "0a522bac0fc8d084635260374aa63fcad9693d588e8fcabb28da4488f38c5028",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:5974293727995024581",
+      "text_hash": "5c62a90cf5b90e8d254816e29fffac542c07bed230662e026b83a63c3468c9f1"
+    },
+    {
+      "audio_sha256": "4fd202bde4f918a3c9fa8ff40887e64c6a54e7c939583374967d7fa49e3c9f43",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:598f178978ee59c4",
+      "text_hash": "5c62a90cf5b90e8d254816e29fffac542c07bed230662e026b83a63c3468c9f1"
+    },
+    {
+      "audio_sha256": "54c398be286e222515c0ba6581adfcb1067402d64d4c72dc142bbd632e0d61fc",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:629797216463047475",
+      "text_hash": "5f188c1144ea736a789d91f929446165fde0c7c941be56b219d4747084bfbb80"
+    },
+    {
+      "audio_sha256": "c7af1d0243157ab8c292c2652aaf33f09a951740558e25cbce893b3cf4543d5d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:ba5843b1685c01e6",
+      "text_hash": "5f188c1144ea736a789d91f929446165fde0c7c941be56b219d4747084bfbb80"
+    },
+    {
+      "audio_sha256": "651b5997acbed35061669ebe3dd7a2568173541b1f1660692683377241de0c7e",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:17538154279371720554",
+      "text_hash": "60a2a668e1e082f60cecdc4f8a29d84509715284da5cd1a28aa13bf723479303"
+    },
+    {
+      "audio_sha256": "49e15d29e0e2f0c5b4b55954c70cb9a84be3ad3485a0ec1678dd44f2d5494638",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:63490b3d0c85f12d",
+      "text_hash": "60a2a668e1e082f60cecdc4f8a29d84509715284da5cd1a28aa13bf723479303"
+    },
+    {
+      "audio_sha256": "a983d898b8ea50c2ae22887c5ddc2a21741abf0afd15bb89ae18be8b0ea908ef",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:7054553805448314465",
+      "text_hash": "6123f2996b443d8ccf0b64e21fc6840f2b7a644a53047f4be3799c1f7723e763"
+    },
+    {
+      "audio_sha256": "5d826ccdb26027dc00563c881d1a7d3680728be73a4238b7390b95c8a2a27cde",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:e30671164079eab2",
+      "text_hash": "6123f2996b443d8ccf0b64e21fc6840f2b7a644a53047f4be3799c1f7723e763"
+    },
+    {
+      "audio_sha256": "3cc29c7f310f539d66099da58bbb515b51cc4d6641b6f94c7e2e1517e11bd174",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:17178441752577396152",
+      "text_hash": "66052debde60617075029576b9755a65c80295290291a7b831edb0da0d8f7c9e"
+    },
+    {
+      "audio_sha256": "9354b1a9ff69a69a2547b70b4c51b8b6534b557696fde0625833a5aae0827ce9",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:60e6cf51dfe7fe60",
+      "text_hash": "66052debde60617075029576b9755a65c80295290291a7b831edb0da0d8f7c9e"
+    },
+    {
+      "audio_sha256": "ebe2ee8ba9fc3abcad57cc666a507c29c24b572e29445e284a9526d2bdf3bc44",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:3657226784517563878",
+      "text_hash": "67c26dbe553723074dfe1cbf1f4db6ef82c10903a75c5ebb101d4f13e6708f52"
+    },
+    {
+      "audio_sha256": "4c4e03c0a5a2aaf0c26bc3743b3fcf85605034a81481fe669ba1b2cbdfe906e8",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:2cda5313e9454e35",
+      "text_hash": "67c26dbe553723074dfe1cbf1f4db6ef82c10903a75c5ebb101d4f13e6708f52"
+    },
+    {
+      "audio_sha256": "657046d4b902b6cbcbed7bc414e21df40fb51bb683a8ef30194fad950756a391",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:3399058941735398575",
+      "text_hash": "69d7291f5d80354fbb09f5c7e77c62f5680ce155bdee13d72d2e372b8d69ccfc"
+    },
+    {
+      "audio_sha256": "8adc0af377eb7b2bc2fc2baa6bd72243d98d13ae4ed5da1a7fdfc9a1c516566b",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:dca8b317b268a9f7",
+      "text_hash": "69d7291f5d80354fbb09f5c7e77c62f5680ce155bdee13d72d2e372b8d69ccfc"
+    },
+    {
+      "audio_sha256": "f488ddeb3c8988a49c4f0fc7356a45ce2841d32cee184f37221bffe431a5fd10",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:2454730730804230962",
+      "text_hash": "6b78956291195d6b41f503068b0452cdda8aaafd9358ac0026bc6e60cc7e659a"
+    },
+    {
+      "audio_sha256": "c99d0e8af8435a3023f18433c4401936448d4b07c5affd22e701349cc826a09a",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:189b032b3ab1294b",
+      "text_hash": "6b78956291195d6b41f503068b0452cdda8aaafd9358ac0026bc6e60cc7e659a"
+    },
+    {
+      "audio_sha256": "dc3df7f54099f397ffdb014ec5b0de6e6f68930e407d90f7a680b3d9cb8899a5",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:7323162609615540323",
+      "text_hash": "6bb4f3c7a0eaf6ea43b5d569703ad71084f7b152a5d27a363d69d6e95162b907"
+    },
+    {
+      "audio_sha256": "ba951cd1df064f4020ad378f897cb3fefc469d47ec0ee81b99a39ae23d56eb04",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:9fc9b441d7927b13",
+      "text_hash": "6bb4f3c7a0eaf6ea43b5d569703ad71084f7b152a5d27a363d69d6e95162b907"
+    },
+    {
+      "audio_sha256": "73d4bd255fd6f766dc3b554cff78921ef598e49015f61cb1e16d7762b2c055d2",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:14891497894668742151",
+      "text_hash": "6d711ffcb7af5b4d27e255c69a357f52eeeab896a20684d095043c3c30c7a8bb"
+    },
+    {
+      "audio_sha256": "6d66381a320f783132d288f1d7cf2ed9b993566ac36e3b0159bdb47b0e5905cf",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:9773abc0a87b5e6e",
+      "text_hash": "6d711ffcb7af5b4d27e255c69a357f52eeeab896a20684d095043c3c30c7a8bb"
+    },
+    {
+      "audio_sha256": "68d0a49747837df4f6ff94f4bff0d12051d9a9e2dcbcc200ad6b2e29b44ea81a",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:15844101689531079573",
+      "text_hash": "6da1296f9b22f2e6df75ebdead99d2056695c00987730f4bd54e88a5f0ce649a"
+    },
+    {
+      "audio_sha256": "d3c2a9359cce6b33b16e7cb30dccbeaf4646a61c2c92279c289cebc5409d6cc5",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:9fb49339761f74a3",
+      "text_hash": "6da1296f9b22f2e6df75ebdead99d2056695c00987730f4bd54e88a5f0ce649a"
+    },
+    {
+      "audio_sha256": "45feaef8512efb72757496c5c566423b18cc5e4c744294d949c89d77dacba87d",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:11655535092514289153",
+      "text_hash": "6e21d13e8c551dbc1f6348d442e7be637942cff76e975fd69f4a11100fca222d"
+    },
+    {
+      "audio_sha256": "d5601f3dbd00a022b4aab350384211261cda45b5ee86dc87e666787dc0494a19",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:8cb45842d99e5492",
+      "text_hash": "6e21d13e8c551dbc1f6348d442e7be637942cff76e975fd69f4a11100fca222d"
+    },
+    {
+      "audio_sha256": "fef70f71f0a2465be9e89c059feac030cdf9497d48226c5566c402abe54c13f8",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:2520734453574482576",
+      "text_hash": "6e28a5243cc08e378523092ad968baa00f5e98fe0f973a5a24601679cc01812d"
+    },
+    {
+      "audio_sha256": "cb2c735721f7d2d81e0831da34be50bac472b2d4494ae041123936e8ca2be367",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:3996d17576a579aa",
+      "text_hash": "6e28a5243cc08e378523092ad968baa00f5e98fe0f973a5a24601679cc01812d"
+    },
+    {
+      "audio_sha256": "8e222b9a7d42e9a55d8fd5cb42004ef789c4ded84c9bcca663d428021fccfa67",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:6673944443160251806",
+      "text_hash": "6f9ce30d017c4b50b605aade7e89b6b95127dbfe3d94975874a99896cd92ca91"
+    },
+    {
+      "audio_sha256": "4ad55d13e7f07c855e484336d659afefd46645490111d0fd7869e9b89c8f4b28",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:d138d4c50e431e53",
+      "text_hash": "6f9ce30d017c4b50b605aade7e89b6b95127dbfe3d94975874a99896cd92ca91"
+    },
+    {
+      "audio_sha256": "61d6f58e11f9ec963e2a59aa6b5f940392bd2f26bf80270c30b8881f0e7413fc",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:5086309611093145116",
+      "text_hash": "7058567d8fbe1a17d384ab6505e1857cbdfc5b8ef32c3f6e99fd0dd2b409a72f"
+    },
+    {
+      "audio_sha256": "40754b5a56cebf519be204deeb597926263d858ee5df8e86bc64fa89281774a3",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:f4858359ce2d4669",
+      "text_hash": "7058567d8fbe1a17d384ab6505e1857cbdfc5b8ef32c3f6e99fd0dd2b409a72f"
+    },
+    {
+      "audio_sha256": "fb146f60ac2ac904da098cb752576e2be6d757f2155f2e043959605a33208626",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:16535373547775542902",
+      "text_hash": "7108fb26feda5e82f478ec487793fcda59f8d423ea995d3eb77083f9c0037a55"
+    },
+    {
+      "audio_sha256": "aef89df3d18b5eb11761cae5f5ecb6f8ab98bc155d25dff79c2790c4483637fa",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:a9ccaa28db728be3",
+      "text_hash": "7108fb26feda5e82f478ec487793fcda59f8d423ea995d3eb77083f9c0037a55"
+    },
+    {
+      "audio_sha256": "fdd63d6d0d290c1a15881a53167b2b59205ee74aa1baf9a570712363dc74b4b8",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:16501025976398811218",
+      "text_hash": "71d11b00e0a4b8b4d2507bfaef5e0050e21f42b16920b15747cf4113d86dca4a"
+    },
+    {
+      "audio_sha256": "38fd9b6806c99552a843d55475c242c88580df74c7fdd17fb258722d659d5733",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:e6f329f3c31375f6",
+      "text_hash": "71d11b00e0a4b8b4d2507bfaef5e0050e21f42b16920b15747cf4113d86dca4a"
+    },
+    {
+      "audio_sha256": "50b10cd7c69987056820a917a0ceeaff4c16920749a082092817519eec0712f6",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:12180754816680983008",
+      "text_hash": "74b331a323a6d783bbde39995ee3b5dbb62078a7b3bb0c9a38b334074eabfbcd"
+    },
+    {
+      "audio_sha256": "d9dfb6d84527f67ff504368721734b1e0b32ec2d12b2d4a3f47ba547a1dc322d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:3e430440487e216a",
+      "text_hash": "74b331a323a6d783bbde39995ee3b5dbb62078a7b3bb0c9a38b334074eabfbcd"
+    },
+    {
+      "audio_sha256": "839c9c59b7b631b193bc3eb5b20829eeda652cffb4995fd247242e0a40b48295",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:17379024387606259038",
+      "text_hash": "74c4b522af7617e201d2f4d9385e6e10d22fdf6b5257491e46f07b19bdaf27e3"
+    },
+    {
+      "audio_sha256": "6ecfd0722844c33dee1118640bd21a5402df05d8e011625de4b5f0d5049c2b5c",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:d95555b69cb9e673",
+      "text_hash": "74c4b522af7617e201d2f4d9385e6e10d22fdf6b5257491e46f07b19bdaf27e3"
+    },
+    {
+      "audio_sha256": "2f2d7495003e49e11a0cd21d8a07b60f05cd87fb09e5c80e9ece9c022b012168",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:2273302584069065560",
+      "text_hash": "75ea3ae9389500fb9eb2c4724d386ced09a1e4de5e2fd8957ce98724802977e3"
+    },
+    {
+      "audio_sha256": "a524181f998c8bbfc85ca32e6257ee91a4484aa7d4684ddc78c9b1ed5de540aa",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:e005f9ae0342e42c",
+      "text_hash": "75ea3ae9389500fb9eb2c4724d386ced09a1e4de5e2fd8957ce98724802977e3"
+    },
+    {
+      "audio_sha256": "e407bb374fda02807b9064437b7d46c7ace458df6c92ccf60aa2ee9c00265a86",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:269374605800178121",
+      "text_hash": "76bac4628db51181d569b2e20fcd3d184229f92b84db150ee15bb7fb58944fc1"
+    },
+    {
+      "audio_sha256": "bf937761bb197dbf9c28ad7397c6d5975a5744dca8ebce7cd6717e39d4f13aff",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:136945ce7869b80b",
+      "text_hash": "76bac4628db51181d569b2e20fcd3d184229f92b84db150ee15bb7fb58944fc1"
+    },
+    {
+      "audio_sha256": "3ac013016c23afcc773854f47479e0a966703d78f7278f00109bbe50e6077f38",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:7525260263536462617",
+      "text_hash": "7ceffaed74a585e404ad10b42919efacc95e212f1d372a6080533f18fc3a12ba"
+    },
+    {
+      "audio_sha256": "e749a858c05e855737ad233b435337e88aecc8ecd49cb8b86f654d716943813a",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:733491fcc46ac95a",
+      "text_hash": "7ceffaed74a585e404ad10b42919efacc95e212f1d372a6080533f18fc3a12ba"
+    },
+    {
+      "audio_sha256": "2b7e6332d01fbb25d161e419483cac8128eea63e1cd696ba0dd3861d2697f4c6",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:5236613882861665911",
+      "text_hash": "7d8a748ba0eb38654c82ed68e6bd131961e4ec4647539778f73a858a5936aa60"
+    },
+    {
+      "audio_sha256": "c78b5e7f11c0b24dbb008df2f08f2d5b7a03e8adb34b6522dcaa51cbb0fd875c",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:390a9743d1cf0265",
+      "text_hash": "7d8a748ba0eb38654c82ed68e6bd131961e4ec4647539778f73a858a5936aa60"
+    },
+    {
+      "audio_sha256": "180f57c134b9bddaeb4217fa8efa0697d447e53f498c0adb59739d3f5a367e6f",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:10840568158816099865",
+      "text_hash": "7f6961b0e6fa11a7e2800b9a943165501df8a1342cc32bed5705526ef0775bd5"
+    },
+    {
+      "audio_sha256": "41265b87010dbd5e363503396f1ab283e4f2e43351d512c675d22f52bc58ab04",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:5b2a8345e1f64f2f",
+      "text_hash": "7f6961b0e6fa11a7e2800b9a943165501df8a1342cc32bed5705526ef0775bd5"
+    },
+    {
+      "audio_sha256": "850eb231728a85c17be17550dc7d5dda8f6a78242061d334ebe85b5c6c91035a",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:16842714721752745809",
+      "text_hash": "808fa738c4b06707d4740122583c1d020b1e738c3b1ecc184f0b82e1722e01fc"
+    },
+    {
+      "audio_sha256": "78e0f667f4f2c65bff858bef0cf4d18a668130495d5bb294db565323f6f74d88",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:833b822e9c75a323",
+      "text_hash": "808fa738c4b06707d4740122583c1d020b1e738c3b1ecc184f0b82e1722e01fc"
+    },
+    {
+      "audio_sha256": "8a397f9adcdfe63fa219a1aee36775d4704bb981b87ab9e3ca61e708bae47ef5",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:3979372608043346370",
+      "text_hash": "81001939bfe3dba2e1c489d34de4e27e8d7157a94a06f68aca84b214ccc64335"
+    },
+    {
+      "audio_sha256": "af8270326604c9b599ffb06399eb7c1d76f4c7ecc984cc73fd30e301471e79d3",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:14fd9dfd1eb875dc",
+      "text_hash": "81001939bfe3dba2e1c489d34de4e27e8d7157a94a06f68aca84b214ccc64335"
+    },
+    {
+      "audio_sha256": "cf4b85028651d46381232b347245072c049c5ab0c615bae8eb149ce528c80ca6",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:255510443646268705",
+      "text_hash": "81eecf1321a3dbb25ce3f7a0d2e8c055be329c29f4862a4c1db701c99a781187"
+    },
+    {
+      "audio_sha256": "a5595aa75ecdf59fe7f6334f8787f202f14631a22c799234555aa6d7f24c17ea",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:87a71619194a7703",
+      "text_hash": "81eecf1321a3dbb25ce3f7a0d2e8c055be329c29f4862a4c1db701c99a781187"
+    },
+    {
+      "audio_sha256": "c016293ba6ba96ab415edc7033c99213913e5e7bd660e50f17848398ca5ed74d",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:14183059672649198417",
+      "text_hash": "82529f0e0cca0c99a4844f2737ca67631a03875b9e85f1b7a896b6b41a4b948d"
+    },
+    {
+      "audio_sha256": "695981e0934d79c2b9bc0f64d3e8ae08be6dfaa4e1fd0c2180427bc7fde48271",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:d3027f47115562cf",
+      "text_hash": "82529f0e0cca0c99a4844f2737ca67631a03875b9e85f1b7a896b6b41a4b948d"
+    },
+    {
+      "audio_sha256": "156b78d05c511071cca5e6550d6f3ca801436bbe56855aefaeada5835912a0d1",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:17094367462223000490",
+      "text_hash": "8491e281aba2238b6b511530f8d631d36620857ee5020fa05b25479399d71c69"
+    },
+    {
+      "audio_sha256": "c4649d4cad3cd6ae8bcc0c7e49b4e49911ce78f06977ba2d7495090a6a07e605",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:ade85160ef5cfeb0",
+      "text_hash": "8491e281aba2238b6b511530f8d631d36620857ee5020fa05b25479399d71c69"
+    },
+    {
+      "audio_sha256": "3c38e06dc3612793c258d8c4aa5c97d9c9b0f8167dc3e15c38b4534252d74a17",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:13941231433010364485",
+      "text_hash": "8607f0068d5d35a4248347014a605b497049663efc653e511471f60899101356"
+    },
+    {
+      "audio_sha256": "4f729384c4173d48ac1f4d8d37423ac96c15c8c100b35e7cccd40e8bfb65ee94",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:f8410bb9399c375a",
+      "text_hash": "8607f0068d5d35a4248347014a605b497049663efc653e511471f60899101356"
+    },
+    {
+      "audio_sha256": "b96dbb8e5385d35b8661a3e6d2c63f177e0736e0dac31a51a76fa7333cda4a86",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:4026883231563063717",
+      "text_hash": "8814b4bfb9ab5e297e9da390b27efe1d39e951d955c4b2a36b2bf5fb5d8c3ebb"
+    },
+    {
+      "audio_sha256": "8d3ada84f70c5afddd93e8b9ff124e660af2dd7352e9ddc998a2ec3b1b2db3d7",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:a0d687c119eda3cb",
+      "text_hash": "8814b4bfb9ab5e297e9da390b27efe1d39e951d955c4b2a36b2bf5fb5d8c3ebb"
+    },
+    {
+      "audio_sha256": "dc61b952a51959b8550dc72ac5953e3558d1beeb6505707f3b3c2792d18675a3",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:3529817270549895625",
+      "text_hash": "88166198e6ed3d43210b0958e74dc9f1b030bf1e0406b7c7f7c87c71a8718c78"
+    },
+    {
+      "audio_sha256": "8ea73b594542970bdf2dd2f453084c61838334bd707760a7b6bc277d74f6a08c",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:0ebc2d0573b25cf6",
+      "text_hash": "88166198e6ed3d43210b0958e74dc9f1b030bf1e0406b7c7f7c87c71a8718c78"
+    },
+    {
+      "audio_sha256": "9e33b7d506dfdb899077dfe10195991b6721d68ff1985e8f9069ec0188192a69",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:7151458564285178141",
+      "text_hash": "89a432a8b9d897c3ffa5d3c4566591c102960c3dc05f6ed32c7b64c26100152e"
+    },
+    {
+      "audio_sha256": "0a4828ae2d0955974cdfb5f3ef968523e8a4a275f58a37b3c492edc4d098e306",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:e2b13a0d6945cbcb",
+      "text_hash": "89a432a8b9d897c3ffa5d3c4566591c102960c3dc05f6ed32c7b64c26100152e"
+    },
+    {
+      "audio_sha256": "8820360414998685a22f46b328762da617a46f496481af1c18d66fa9c6fc5809",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:16102329833862528531",
+      "text_hash": "8b7c76e67257ce6ef10417b2cbabea3421ed6e3c273d73b8fb435eb707585593"
+    },
+    {
+      "audio_sha256": "e7cc02704cefc3f493b9aab2290de9e063f1d6173ca15dbfe1203a12695252c0",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:8a33222d3ff32387",
+      "text_hash": "8b7c76e67257ce6ef10417b2cbabea3421ed6e3c273d73b8fb435eb707585593"
+    },
+    {
+      "audio_sha256": "01b46af5e5a8fb20e32e9bd0fc104661914895b202075e250dd47b8585451a58",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:17782454036043301211",
+      "text_hash": "8f5a180b322ca95c17a5a66f7c2ef9969068002d90fabf86deb5fd12e7136d7a"
+    },
+    {
+      "audio_sha256": "0780a9610c67ff7d48c673139bf3498e630b7ea6fc17e21395d64d625600940a",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:be4276c5244fa4f1",
+      "text_hash": "8f5a180b322ca95c17a5a66f7c2ef9969068002d90fabf86deb5fd12e7136d7a"
+    },
+    {
+      "audio_sha256": "cd767430fd644753f4febdf81ce32a7aa6299a4648377c13713a0f1c5457854d",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:11600074027915788170",
+      "text_hash": "8fba6b6b0fc3279e759b5445475d599d186221131bbe9b45cdf1d1d76bfed0c3"
+    },
+    {
+      "audio_sha256": "6aacae6e36bfac21530e4e28ecbaf5a6bb9117fedac09db43f5847b6fb2280ea",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:2eacabb7edcde55f",
+      "text_hash": "8fba6b6b0fc3279e759b5445475d599d186221131bbe9b45cdf1d1d76bfed0c3"
+    },
+    {
+      "audio_sha256": "6f99bbdc2203c2cdff36c2b8d254c6bccd8025ad2bfc4fc0aff75da148e99369",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:91477112721386621",
+      "text_hash": "8fcb3fcc0162fe89c72fbf9fc59465ec1cec5ad9d5f8eaa9c7a1c3faee01cec2"
+    },
+    {
+      "audio_sha256": "d6057bbfc90db1c03f97277fd6a196d7c316bbae71afed3fa8fd422de1e18325",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:7941d4b9585cb2fe",
+      "text_hash": "8fcb3fcc0162fe89c72fbf9fc59465ec1cec5ad9d5f8eaa9c7a1c3faee01cec2"
+    },
+    {
+      "audio_sha256": "d61f64a5e8ff7cf7aacada481f778def7915048b9f6763f06b77ae381ab0ac43",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:5966036344960974048",
+      "text_hash": "92df37897b6522242feca172487112a49e0eaae141fd425ef0faa68d69757f00"
+    },
+    {
+      "audio_sha256": "d8c7f6eb759549b665a55a7d234a849fca3c632c8d1acfb8787bd0f4a7655f5e",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:9115038444949433",
+      "text_hash": "92df37897b6522242feca172487112a49e0eaae141fd425ef0faa68d69757f00"
+    },
+    {
+      "audio_sha256": "b7b8d8455d73b2ade08b07e9d33df7cf5ab3b994e987c602d71d8a1dc9b07c1a",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:15976580782781799284",
+      "text_hash": "953d8d558e94be0c3b40cf6039a74f1d9a85073d5f33954b35a4ab28be54ecbd"
+    },
+    {
+      "audio_sha256": "2ff13347713fc18b46e246745386c370fb6c3065ccb73878c16d3b8017db52aa",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:caf94a501a91c702",
+      "text_hash": "953d8d558e94be0c3b40cf6039a74f1d9a85073d5f33954b35a4ab28be54ecbd"
+    },
+    {
+      "audio_sha256": "844105961edacd3edf68188daece3f58691bc81666b19c80eea9567fae8343b9",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:8321073215776891338",
+      "text_hash": "97e57eff5d99af881fafcdf410d3bda3761debd835525665c40e4a27d21f376d"
+    },
+    {
+      "audio_sha256": "701bfe95e14903e913192f876089415c5226e05399378f2b96afdded45415d12",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:948bcbbbe877da1f",
+      "text_hash": "97e57eff5d99af881fafcdf410d3bda3761debd835525665c40e4a27d21f376d"
+    },
+    {
+      "audio_sha256": "ffdc8f5c3ea4b332550f7621e04e7794071cd2b0576874740566281f65713b3f",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:8058753579738794945",
+      "text_hash": "987a3f9b3d7e861eee571f1e5caf0f0646728f2d9efb87e7ff4e9afca7588910"
+    },
+    {
+      "audio_sha256": "62f1315e2c9b9da69cc7e37991507e37aed2434fb04c3af47f98eff9a76094fc",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:b8f87b1615fbd533",
+      "text_hash": "987a3f9b3d7e861eee571f1e5caf0f0646728f2d9efb87e7ff4e9afca7588910"
+    },
+    {
+      "audio_sha256": "0c68b78f663d20f660cba45a93fd3aef96e1a71d0f0e402d3a271bc8fa15b286",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:12086451839967303553",
+      "text_hash": "996ee01489539c63922b6c0838713343bcb26620d508df88bda9bf7e1f12d106"
+    },
+    {
+      "audio_sha256": "4f0f0434e415a6b668045f642b22afbb490679d4db6101668786f9732c5b399d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:b8d681ef90e2e5fb",
+      "text_hash": "996ee01489539c63922b6c0838713343bcb26620d508df88bda9bf7e1f12d106"
+    },
+    {
+      "audio_sha256": "705a0706c4300b1977adb6a309c459a61767df5787738f19934520395e6c22df",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:5265935435538291039",
+      "text_hash": "9b216b70bc4022d65b98756d436713be836bffd6b6605094663e4738f1de98ee"
+    },
+    {
+      "audio_sha256": "bc34bb16090eb03c341a82c5e255ae0f5b93b1ed22403a95d6e4ff3654f64a5e",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:8edf6fb5d5d28b69",
+      "text_hash": "9b216b70bc4022d65b98756d436713be836bffd6b6605094663e4738f1de98ee"
+    },
+    {
+      "audio_sha256": "bef9ba257ae9708c1a075380b23ab43f425e86d61ee5a0e23f9acb66bdb9db19",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:12352978323269862765",
+      "text_hash": "9de9345f9e156ae4a5ad4da2e26d0e8f1ee13c9319837faa8b6714b2c26ed191"
+    },
+    {
+      "audio_sha256": "72c1e37be467f0bc5d0466d080a96f06013468050b74fe7135afe7ce6b6db51a",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:1524edc650e455b5",
+      "text_hash": "9de9345f9e156ae4a5ad4da2e26d0e8f1ee13c9319837faa8b6714b2c26ed191"
+    },
+    {
+      "audio_sha256": "1e08c4796c126d243eb786627b9175ab42e95037ed5d3f5f24af6b5a1bb786b0",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:17295886502727755343",
+      "text_hash": "9dfc9a69623cc502a4814b835db0f0ee171b95ea12375239760d30425a02e44b"
+    },
+    {
+      "audio_sha256": "20a7e883ee86d5d33a7456672e884f6a003fb06a0ae768b0ad57a76dae78b2eb",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:6a0fd8eed9d83329",
+      "text_hash": "9dfc9a69623cc502a4814b835db0f0ee171b95ea12375239760d30425a02e44b"
+    },
+    {
+      "audio_sha256": "04cfa00e5465b4d2501251017ed48ce5aca959ab7e3e2ae93ed13dce32146fbc",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:141556679415876188",
+      "text_hash": "9ed05ffc3efe6cfdab7173b3f43b7c18d8f67019c5af2d6505f76406ddf1ad74"
+    },
+    {
+      "audio_sha256": "e53a9885f65e9c185502649c8fe7eaeaf45c4ee9e108f15d0211d393c3090882",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:6bad5b7299ab8fc9",
+      "text_hash": "9ed05ffc3efe6cfdab7173b3f43b7c18d8f67019c5af2d6505f76406ddf1ad74"
+    },
+    {
+      "audio_sha256": "865d0969331e3f46d1498d5945aae7425a6103afb9c0002db85a9039f7b02e9d",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:801333932928805748",
+      "text_hash": "a115f976f65591fe3420d338732dd3fc71c2c60641ef7fbeaec8674125b18e2c"
+    },
+    {
+      "audio_sha256": "f8d626e4a2f43b3dc6f0d87beeecaca22178e4250d432871abe2189ec3be8c5c",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:b07706a9ec7a425d",
+      "text_hash": "a115f976f65591fe3420d338732dd3fc71c2c60641ef7fbeaec8674125b18e2c"
+    },
+    {
+      "audio_sha256": "21944382ded8a63ac1ba0e7ecd6da352360a4efe22c64067286b17c64854ec3d",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:5437037980078772132",
+      "text_hash": "a1dfd8e8b4ad557a48dc9d8b4bf27fa77b3fb48fce16acc36c9e8df02f46ff72"
+    },
+    {
+      "audio_sha256": "20ca5936814a5d183714f3a0adbf67d03c7a86d9a7072495aa127134c67f6d0c",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:ccde58f838da0768",
+      "text_hash": "a1dfd8e8b4ad557a48dc9d8b4bf27fa77b3fb48fce16acc36c9e8df02f46ff72"
+    },
+    {
+      "audio_sha256": "b51c778379109d29bb685cbdf56d8284fb37ba460d46acdf059ef56250855843",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:15152262510103459027",
+      "text_hash": "a2836904f777ba813a20da8a2199327b50c57546877260f1b498b13f99e56a99"
+    },
+    {
+      "audio_sha256": "b8fe974e77fafe91b6a8099455c503ff06e78822a54022483634f8ec48794eed",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:a90f014e859a2cd5",
+      "text_hash": "a2836904f777ba813a20da8a2199327b50c57546877260f1b498b13f99e56a99"
+    },
+    {
+      "audio_sha256": "afb1d725204fabd9a8addef03aff16f89ad20cd96bab1c4819b6ca3a33fb72a0",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:8109192570732096481",
+      "text_hash": "a2c19752eec12ddbb1d8f0c2c6e553d525d185029866b9b62b02a48860c216a5"
+    },
+    {
+      "audio_sha256": "fc6aca89f2aa60e451eb8a54c0fce539c557e17047b69e3cf16f8c9eaaf41618",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:8ed5c3b59b2a25f0",
+      "text_hash": "a2c19752eec12ddbb1d8f0c2c6e553d525d185029866b9b62b02a48860c216a5"
+    },
+    {
+      "audio_sha256": "772d6eec348ec0bd9ca5a8ecb72fbffa600c34581da201733e8e182f2db57326",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:17274810632843354681",
+      "text_hash": "a3228628173de89dc8e47a041978cb0caa3dc18237993778a04bb8571443297c"
+    },
+    {
+      "audio_sha256": "55d27f866889b6df34a11b00f739ceb2e592c4cb8fb7c194114c0d93d8e47172",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:ffa1f6b4de87652f",
+      "text_hash": "a3228628173de89dc8e47a041978cb0caa3dc18237993778a04bb8571443297c"
+    },
+    {
+      "audio_sha256": "185757059b42f4dcc17b570f102ccd01ff107ecc1f9d5331dc8bed46b6d3f301",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:6218148537888488275",
+      "text_hash": "a5002382889f9f9c4ac21982a7164d7ce74d21eeec1b196c9795e2b65e49911c"
+    },
+    {
+      "audio_sha256": "4d1928208bbe26bf06d5b49b9b5b3411d12e0da495bf037ceac95ca47658a3ec",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:927261ac4cb23e6c",
+      "text_hash": "a5002382889f9f9c4ac21982a7164d7ce74d21eeec1b196c9795e2b65e49911c"
+    },
+    {
+      "audio_sha256": "df97b70ba9b1d9b7099e0e7c1990902cd3b183e4060ba6c729d5374912d37afc",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:16936122209542847320",
+      "text_hash": "a9085876da000f21dc245a2522750c921b91c0646b0024f71c221f4016e989ed"
+    },
+    {
+      "audio_sha256": "446eb25ccc5281ff5f4b384608c930394f31e069e4375faa258a77aba59b0dfb",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:2ceea5d958c1d55f",
+      "text_hash": "a9085876da000f21dc245a2522750c921b91c0646b0024f71c221f4016e989ed"
+    },
+    {
+      "audio_sha256": "e06dbab2a71f5329b3242854a6c9c5819d0695cb99d71db5a305dd829a7cbf0e",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:8143696017918475773",
+      "text_hash": "a99a094014350e1e6248fb247a682c86d65062b812c0d829647505666fc5b829"
+    },
+    {
+      "audio_sha256": "a91c43f4e73334825717a5988593093767fff06b9a42977bf3092f84068f459d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:8d9d555214d03000",
+      "text_hash": "a99a094014350e1e6248fb247a682c86d65062b812c0d829647505666fc5b829"
+    },
+    {
+      "audio_sha256": "502e36a10947a11f9a485370b10d36f6779a615a7a23159a434d3299a2ef7e14",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:9385674633095218242",
+      "text_hash": "aff44c373fa1ecec2b27cfc33fcaa94babe99079ad998d30ac67152006d00b69"
+    },
+    {
+      "audio_sha256": "701529cfe176fe265687f6dd9467f6e2202ad549fd564d7d28e2bd147634f950",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:7dcba8e4831c3563",
+      "text_hash": "aff44c373fa1ecec2b27cfc33fcaa94babe99079ad998d30ac67152006d00b69"
+    },
+    {
+      "audio_sha256": "58910fe6ef46fc5226cdfd4c38d5a839b5032ca2cc489940daba2bfe5fdcba93",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:14838236437060460461",
+      "text_hash": "b3ed7ce58c0009399db89b68f85eb962a4520ca1d724a7c6115aeaa19f60df5e"
+    },
+    {
+      "audio_sha256": "38442cfec0b17edd1de625c4c83169fe40a323fb5c7d4d046983a66528fd5727",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:f68335d21a5f8a62",
+      "text_hash": "b3ed7ce58c0009399db89b68f85eb962a4520ca1d724a7c6115aeaa19f60df5e"
+    },
+    {
+      "audio_sha256": "0fccc15cc4486cf597e2bd6e1110ab4691bd6d054a67279685eba0afa5910eae",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:6149896357661331733",
+      "text_hash": "b418eb3eab35c342548877e47483df0f2c118f474bf3e2e159496ce04c127aaa"
+    },
+    {
+      "audio_sha256": "b5d6d7b24e086b5de341c817d283bb1a96cdb07fc5fc12d68ba55aede1924412",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:99ebc4aea842e135",
+      "text_hash": "b418eb3eab35c342548877e47483df0f2c118f474bf3e2e159496ce04c127aaa"
+    },
+    {
+      "audio_sha256": "6d3eced7a8bf0a2d0f440c0e0c6bcee2314e5d11510f322e992ff41cf3cdff18",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:4649242127712174758",
+      "text_hash": "b86fe8bce2b08b27b9c3bc8fa388f3088c42e30dd1945fcba80a54ad93b36c79"
+    },
+    {
+      "audio_sha256": "ca02e295c86df32f70aa887d9ded1ce037eeaf18130d523aeec66be90463fd1d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:813b55c8ed4591cb",
+      "text_hash": "b86fe8bce2b08b27b9c3bc8fa388f3088c42e30dd1945fcba80a54ad93b36c79"
+    },
+    {
+      "audio_sha256": "1cd4adaca00bdb0993c291867e4f3184911dea6e6b97a986ebdd2025a3be6547",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:5789899437388738271",
+      "text_hash": "b934e851cfeb1ff6388737dce6639010c2465491381c63abb4a7662c92c7ddf0"
+    },
+    {
+      "audio_sha256": "c427e7f2d38cdaa5a9caea0567228450c8a486a10ec84db8cbdfa5a99c75452a",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:41c1dbec1549f6cb",
+      "text_hash": "b934e851cfeb1ff6388737dce6639010c2465491381c63abb4a7662c92c7ddf0"
+    },
+    {
+      "audio_sha256": "2700d2a895a3232121ba407d564280046835de3d92c2f946bfa01130159760fe",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:15020601068071855718",
+      "text_hash": "ba561b921ba4260d1b410176981a64d5e3509ecf734e391e24784d5c779e6c78"
+    },
+    {
+      "audio_sha256": "569abc0f3d20bf775c9aae0249447f76f27fcead02f20691b3e87911129a356c",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:a98998fffedadc95",
+      "text_hash": "ba561b921ba4260d1b410176981a64d5e3509ecf734e391e24784d5c779e6c78"
+    },
+    {
+      "audio_sha256": "99b47d2b0cdf2180924bf9458adfd1a903471294faa074b8d71340f2bcb60073",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:16836301270879395215",
+      "text_hash": "bb87f3e44946b8a9d9e0d869fa38f44ad592e1911b6c94d5d5c5b2da39507264"
+    },
+    {
+      "audio_sha256": "714df0842869561dd3556d05082f7e75a2d119873616a12054ae5114629601e8",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:89c71ecadb8696fc",
+      "text_hash": "bb87f3e44946b8a9d9e0d869fa38f44ad592e1911b6c94d5d5c5b2da39507264"
+    },
+    {
+      "audio_sha256": "bf480a9dc19123ca89274e6feab5116712a428520208a6fb3f8a4e2aba5588b1",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:6160881479648607400",
+      "text_hash": "bd01f084276ef75521aec7bf5351bf731a879eed0bfddc9873c10182c8f84f02"
+    },
+    {
+      "audio_sha256": "fc77eef3a07d3138ad77b9704fe36c8e9559944342e3da141db4e4cafbf1252f",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:4cbb14fb1d58211a",
+      "text_hash": "bd01f084276ef75521aec7bf5351bf731a879eed0bfddc9873c10182c8f84f02"
+    },
+    {
+      "audio_sha256": "14a5c6446dc329b5504562fdba3542d77f244b7fde78e29648cc9e74e7bc1968",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:2275915455050845415",
+      "text_hash": "bd02bc886b5864800b4d8ea9d0d3c31bdf623a5fcc43a0ad59f33282c6185edf"
+    },
+    {
+      "audio_sha256": "2cc063687aa2b8fff4dd18418ad36d6434f2ffa66f6784bffe6dde9514a954a9",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:503a9bbbba8aa3d4",
+      "text_hash": "bd02bc886b5864800b4d8ea9d0d3c31bdf623a5fcc43a0ad59f33282c6185edf"
+    },
+    {
+      "audio_sha256": "90d3d042e701fdeb26b38af5bec33d8a5aa667ea3ad12098f29a06d5af44fd47",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:17470438766512732223",
+      "text_hash": "bdb7aea3cac7c6dc40b15dd45a5750441adf389c0e1583f97e25b37c81ce994f"
+    },
+    {
+      "audio_sha256": "0006dd54f08b61104d7f56d56919c290c8fb467eb7132fc70ef5aa5b02c008c9",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:3126b21a15c465ae",
+      "text_hash": "bdb7aea3cac7c6dc40b15dd45a5750441adf389c0e1583f97e25b37c81ce994f"
+    },
+    {
+      "audio_sha256": "a2bca237636f68ba6a749661a54b6dd6034fc5e6e80d3a1bac66a52b8e2189cc",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:15248404693060639844",
+      "text_hash": "bdbebfdac426d1f61f87853d713645abb5cc1d80d28e328c267ffe666b0d3d2c"
+    },
+    {
+      "audio_sha256": "a73313fcfe1d5611fa6bca66ceaa3378a550c0f89de59be71ebfec168695bbd8",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:719d61b997ccc377",
+      "text_hash": "bdbebfdac426d1f61f87853d713645abb5cc1d80d28e328c267ffe666b0d3d2c"
+    },
+    {
+      "audio_sha256": "f8b4832cbe04813a4d3fdc5a779c44fd9c728066b6e46de5297b55611e13028d",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:5939801623937848725",
+      "text_hash": "bdde1a048d99ada401b62f0ff0c27fa17869d9bd92218d85469a31bd7abf4cbf"
+    },
+    {
+      "audio_sha256": "0afb1375b007116ef66b3ebc530b476ac3d5257ffaf6c5649aa647357d28caff",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:42c615ffa4769eb1",
+      "text_hash": "bdde1a048d99ada401b62f0ff0c27fa17869d9bd92218d85469a31bd7abf4cbf"
+    },
+    {
+      "audio_sha256": "d16ac3b8831e02614f199bb6ea48a0c8f4293251495cfd3dabc2f5d1423d6686",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:9265487283553001550",
+      "text_hash": "bf509b3488715489fc19b4e22c67f73ff85d6944c52533412651de48e32980ed"
+    },
+    {
+      "audio_sha256": "0c430041adde7eccaaaf96cde911b6dd220d0664b99444b370a5786c237cb4bf",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:9c7c9df83f91aa6b",
+      "text_hash": "bf509b3488715489fc19b4e22c67f73ff85d6944c52533412651de48e32980ed"
+    },
+    {
+      "audio_sha256": "eeb8460d32aefb6dbacf3d739f596dfaffbb4268bcd268dfb6239ac3eb410991",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:3560671684963452770",
+      "text_hash": "bf543b8f918d8e0129c178c52ca24d02d35cdf884feb81ba88fc971e4d2de8d3"
+    },
+    {
+      "audio_sha256": "aea3d02745549a27f8c4981e9fc261af0616d1fd33bd3007d4dccbe846e69330",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:dfdd617b7d836cbf",
+      "text_hash": "bf543b8f918d8e0129c178c52ca24d02d35cdf884feb81ba88fc971e4d2de8d3"
+    },
+    {
+      "audio_sha256": "518bb7d4e4efa7877568aa114d1116ac103546e38fa5e8809b87a5c1b3535ab7",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:13707050606827299613",
+      "text_hash": "bf66026425d80301bd6cafe5ac0ecbfe4adfce79c6d9942808abc12e233314d6"
+    },
+    {
+      "audio_sha256": "8be796adb44fe8558936321c950f1441ea71813c9e90d6dc85f3d0bdb3ce395e",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:9ca7667d88e9e43d",
+      "text_hash": "bf66026425d80301bd6cafe5ac0ecbfe4adfce79c6d9942808abc12e233314d6"
+    },
+    {
+      "audio_sha256": "1e47a1357f721cd47e74a67c28d6af326a2cb3674a0491fc668868cbc8978b42",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:11407733267324366616",
+      "text_hash": "c07b499ec81f3f97961b563b9c40cf3aa6d4fcef3c5b9714fffa2d6a1fab20e3"
+    },
+    {
+      "audio_sha256": "d3ed40c1529c7f5d0244929bd253a886bf5976b05b882a13e69a0cae391a62d5",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:4e854f6da065dc7e",
+      "text_hash": "c07b499ec81f3f97961b563b9c40cf3aa6d4fcef3c5b9714fffa2d6a1fab20e3"
+    },
+    {
+      "audio_sha256": "1007d93c7e70adafaaa39c65d6b0cea914b21be627faa08a85afa8dca9f90b40",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:3881323171652632378",
+      "text_hash": "c22865dc4be2a3eb38b9dec2e61b3fb6267c3b461c1055089c8f93d6bc8031c2"
+    },
+    {
+      "audio_sha256": "abba7082dce15f1f0419a209497c8ffb9edc312710d328ae9b782b1b2a419c86",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:eca889741db6f185",
+      "text_hash": "c22865dc4be2a3eb38b9dec2e61b3fb6267c3b461c1055089c8f93d6bc8031c2"
+    },
+    {
+      "audio_sha256": "2262a4db31ebc7b83c27bbb8a8c88f81236c948f4e61306efc1228ac8414e69b",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:14733805998468999371",
+      "text_hash": "c3b98efe6b74814cb01bac4e627e3cf3f1b45a516c17b4099362518e42660349"
+    },
+    {
+      "audio_sha256": "592732376f27c99442d371169200b84c54535430c9d39fe7ef2701d63befb3a4",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:62a32de3f69777b3",
+      "text_hash": "c3b98efe6b74814cb01bac4e627e3cf3f1b45a516c17b4099362518e42660349"
+    },
+    {
+      "audio_sha256": "f531cd7e4ae06e9c1a84946262e6c060dce8164e8450254b10793845556fc7f1",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:16286047391000162456",
+      "text_hash": "c64941e2e10162575bcd4a022cc6fae5e5c073fec649e2a78805514222cbe270"
+    },
+    {
+      "audio_sha256": "e1804d68e94c16d0adc8aeb892a274be45afa350bbde9b4100913ec6c01c6ec8",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:a2345b7a8a4d3f7d",
+      "text_hash": "c64941e2e10162575bcd4a022cc6fae5e5c073fec649e2a78805514222cbe270"
+    },
+    {
+      "audio_sha256": "b406ad645317cfd653906268a4666c29abf44e3986eb76cafaffb145e48cc41a",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:2887969760121763646",
+      "text_hash": "c7c0390f689cfaa8eadf18e21857b2e6d50338ef6abd462ea2216f4b818b995b"
+    },
+    {
+      "audio_sha256": "fd0d9b4aa549e98982c61e3402a31aaceb5fef874fc0e063c5be2f7f184b555a",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:375369bed06b6742",
+      "text_hash": "c7c0390f689cfaa8eadf18e21857b2e6d50338ef6abd462ea2216f4b818b995b"
+    },
+    {
+      "audio_sha256": "643181426bdb514e4cb3d8af5557a3752e8b6d8d1627e4684bfdd728612ad9b5",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:8139559263523489014",
+      "text_hash": "c7de0a903350e504f3840ad4e3d5aa4f7be16bcffdb03c780d859250f7cf9723"
+    },
+    {
+      "audio_sha256": "6c2289e8f32a5b14d56258aad35c6624ac2d80de3037451e699ba2bffa08cf6a",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:31e9bc0bd3600d4c",
+      "text_hash": "c7de0a903350e504f3840ad4e3d5aa4f7be16bcffdb03c780d859250f7cf9723"
+    },
+    {
+      "audio_sha256": "20cb89eabfa7fb9d016abf0701afd61ceea92efcc4b68dbd10ad7053456243cb",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:16876533997572535624",
+      "text_hash": "c83780bd35857f1328f4bd413b6a85e7d9f8b16c8d8affa5e3b758c37aac6473"
+    },
+    {
+      "audio_sha256": "d4ef4b51450878317b600cb672449e1153fcb6be868d3043d64697bdff429189",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:8e4e3743045e6964",
+      "text_hash": "c83780bd35857f1328f4bd413b6a85e7d9f8b16c8d8affa5e3b758c37aac6473"
+    },
+    {
+      "audio_sha256": "afa360702a3f1d4f659e496f19f49f9315dc3d1195d464fbe6d06f1609eb59ac",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:18082271520745447801",
+      "text_hash": "cc5b990cfc0ab0adecec0cd52e7caf372701912a3c049b49ea330886cb59c5ee"
+    },
+    {
+      "audio_sha256": "8ececf4f848686784afa712e684b5e2f9e2ff5f5987493b8eed4ec0c65c946e9",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:07f9fc3f99a7f4af",
+      "text_hash": "cc5b990cfc0ab0adecec0cd52e7caf372701912a3c049b49ea330886cb59c5ee"
+    },
+    {
+      "audio_sha256": "1edad09176c2f5f4e3b40fea4b8209e0dac1b647b49d06420e3739d2b7d0a839",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:10941487999946180001",
+      "text_hash": "ce476fa8c0f63138457c796d1363e9c429a3e3d28f8fd341be0e99950d56bdf8"
+    },
+    {
+      "audio_sha256": "83f26722a51598d260d98471f6064a4b09c079972d9a62dd628e57f890f4fa5a",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:1ed15d7ae37d6b0d",
+      "text_hash": "ce476fa8c0f63138457c796d1363e9c429a3e3d28f8fd341be0e99950d56bdf8"
+    },
+    {
+      "audio_sha256": "11a83889280c8e0ea100be2e4c57e31f9372d530522bec4c4ab1e47ef5c78184",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:8631182954021819163",
+      "text_hash": "cef233b1363e60266e3f1a1094c65b56ca7039ef4f5c77fc435c608b302c295c"
+    },
+    {
+      "audio_sha256": "2d4e7ec10584dd1cc470227d955e495d0dc44d44c58950037a97f0fc91cf860d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:e957cb8214042dfc",
+      "text_hash": "cef233b1363e60266e3f1a1094c65b56ca7039ef4f5c77fc435c608b302c295c"
+    },
+    {
+      "audio_sha256": "1e84ae599eb397804cccc6ed304bfb735e800987167e631dff67ab784ef77e31",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:7883338511567673153",
+      "text_hash": "cfa747357f85eee3a7a2e3f323ac3f656c029e32d3c4c08cb2d233f81d8e73d7"
+    },
+    {
+      "audio_sha256": "d6355b44b4353cc9819552543161cab6d23e6ff5d3485861995041c749e6a14a",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:3881bb086713e24e",
+      "text_hash": "cfa747357f85eee3a7a2e3f323ac3f656c029e32d3c4c08cb2d233f81d8e73d7"
+    },
+    {
+      "audio_sha256": "03d222a9fbf337c96a02b3440f60c281e18b52d9335004e31c2d484f12afb792",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:15689560026979007091",
+      "text_hash": "cfda64bf2ead3d3ec33abab90bdf07d3309ca4ae624a5ca1d4db21f963b145b9"
+    },
+    {
+      "audio_sha256": "3c37c980c79252a03be5f2f3fd5f99c9f489584ed8b5dcd81a395d77b20c665b",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:f6261a5702d3c709",
+      "text_hash": "cfda64bf2ead3d3ec33abab90bdf07d3309ca4ae624a5ca1d4db21f963b145b9"
+    },
+    {
+      "audio_sha256": "3827802ee8ff258c14022a0a3354e323849172d99c85ec2bbe69ce044b67a6f6",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:1423536329956269105",
+      "text_hash": "d068b7685adb8e29c68293719089097221138456c4ae77cda564ae2e3c5354fe"
+    },
+    {
+      "audio_sha256": "348c712b971167de9226a6b9bf3698644878dcb1fa41e2f903295a4a82c1636d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:62ff2b01309994e5",
+      "text_hash": "d068b7685adb8e29c68293719089097221138456c4ae77cda564ae2e3c5354fe"
+    },
+    {
+      "audio_sha256": "93ee013d765aa272d57f4a96603c3bd3fd8bc7dce3a652c0787f614a601b0aad",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:17556852857647100726",
+      "text_hash": "d2e8f4716ee0826a90d929ee06c3ab92c09ee9b667bab823d25b989018148b35"
+    },
+    {
+      "audio_sha256": "5976b669d2040aef17e93d9870257c52522150e1ec5b2bf1d39ce0738b33588d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:ad0f29872996ec75",
+      "text_hash": "d2e8f4716ee0826a90d929ee06c3ab92c09ee9b667bab823d25b989018148b35"
+    },
+    {
+      "audio_sha256": "e595adfb0ec61a76fdb59433083184168c3f92b84df53a11d138cf2522ff6b08",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:18128932792796571997",
+      "text_hash": "da4059b627062e15ac543e6d2e494f7d5eeae4ecea9d86b9fcec1297dd3e766f"
+    },
+    {
+      "audio_sha256": "0e4dbeb4ac2f6e0e48926c3ac599658292c87a98ddb4120960e5947f5e5005f3",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:1c540f34d60b50db",
+      "text_hash": "da4059b627062e15ac543e6d2e494f7d5eeae4ecea9d86b9fcec1297dd3e766f"
+    },
+    {
+      "audio_sha256": "abbcfd5f8f51a0517a6ec8ebe97ea460b6aaec9cef6ab4e4edf4342d741575d0",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:6294113731949889599",
+      "text_hash": "db1917d84a044eb8325e9612959901141ec40d71543222cfd744e8bc244ac85a"
+    },
+    {
+      "audio_sha256": "c57bbe3db47526a289e0999f053e1d067e33981fc4f56fc9205915fc5963b630",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:0553731dddbc211c",
+      "text_hash": "db1917d84a044eb8325e9612959901141ec40d71543222cfd744e8bc244ac85a"
+    },
+    {
+      "audio_sha256": "cbaed2d90dd67b225b44ddecb6dd5d0fb5d10837e7c81aa938fad66b92b77821",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:9790576277370269032",
+      "text_hash": "dbe9f72f525394740e0b2447c776b97e8dbcccb22540b6a5e6696c72df2d306d"
+    },
+    {
+      "audio_sha256": "44cbeecd17eca0b9b480c9ac07dde754779ab6129811422165cbc60c96f65334",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:35327fcc45e216f0",
+      "text_hash": "dbe9f72f525394740e0b2447c776b97e8dbcccb22540b6a5e6696c72df2d306d"
+    },
+    {
+      "audio_sha256": "95dce46f7bb399327413884fa4c3163a1bd711a65673937ebebffd8ce6006770",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:2990764790385847393",
+      "text_hash": "dc3c25dfb0dfb89f52f9fb05f3f9339a3bd18307d0b0e5fe929d57a9016a5458"
+    },
+    {
+      "audio_sha256": "66af7a84e8ea9934c29b81d6d944098e29532426dd560f7eba408ed47612ea71",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:62739218409c0134",
+      "text_hash": "dc3c25dfb0dfb89f52f9fb05f3f9339a3bd18307d0b0e5fe929d57a9016a5458"
+    },
+    {
+      "audio_sha256": "2b9e6c7b471d7de6f1f936dc265dc9bac7b71fb2f4777f231bdbcef88768dc84",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:9392839239552639338",
+      "text_hash": "de1c8d4653a430203ae3c86e5b723351e3d1761e8c73418f87ae2da55b758a37"
+    },
+    {
+      "audio_sha256": "829df5b981a17b8063f25a8ea50d11b0f7c9c59a3e1792b6db8eb5692c95d17d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:351d723bb66ec640",
+      "text_hash": "de1c8d4653a430203ae3c86e5b723351e3d1761e8c73418f87ae2da55b758a37"
+    },
+    {
+      "audio_sha256": "997560ed647164c39e1ef8ca328c5bf33540a903a29113dc589823682aeb0071",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:2115243478833149357",
+      "text_hash": "e78b28d184a712101de3b92ccc7ac7cbd6d7db3f3df72815ed11cf11d0384992"
+    },
+    {
+      "audio_sha256": "753b57af26e4dbebbc966bd7d4741bba2abfddfadc29513c4b9977b2bb99114b",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:ad8b0da64e99a57e",
+      "text_hash": "e78b28d184a712101de3b92ccc7ac7cbd6d7db3f3df72815ed11cf11d0384992"
+    },
+    {
+      "audio_sha256": "975e5cb5643163f3bf95037efd69d15832a35c963e61029809b69e1c3c806973",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:9977320742543734142",
+      "text_hash": "e824d1a4ba1d9311ee3fd63f682a595d5836b14abf8d5980fe890f1e569a6ae2"
+    },
+    {
+      "audio_sha256": "f4f583f26c16270d1af2b885fb064b78eb78bb1c432b6c7e2f3706f3297ca02c",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:b62914bd297840f5",
+      "text_hash": "e824d1a4ba1d9311ee3fd63f682a595d5836b14abf8d5980fe890f1e569a6ae2"
+    },
+    {
+      "audio_sha256": "e39ffceff2769f3f42bb108d0cd8448912f3e79e3b7c2251baebc89a1e9db2a3",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:3536613518945240633",
+      "text_hash": "e96e8258e96e56a195a1be88784a1a277a1c5ebba69fed3d5e17b0eed0f1d9f6"
+    },
+    {
+      "audio_sha256": "d9d8e7d0667ed444021da3adbec36ddc5efe96810cb9fe1e52a9e53ccc6249eb",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:3aad75702c59b0dd",
+      "text_hash": "e96e8258e96e56a195a1be88784a1a277a1c5ebba69fed3d5e17b0eed0f1d9f6"
+    },
+    {
+      "audio_sha256": "2acd56c49b828f0d132b900ec2cc85ff7e883f791562cf96dcf4d9094bae82c0",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:9289713775687363744",
+      "text_hash": "e9c24b3ffea0e895cf0ebd5ef1f70a8bc50a75e2429076a1f3539c81ef50b5ee"
+    },
+    {
+      "audio_sha256": "1f85eff139536ae1e027d7f6a5e3adca6131538749f5fa85b3b5ae40ee75fe9b",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:b386fcb3eac2b2eb",
+      "text_hash": "e9c24b3ffea0e895cf0ebd5ef1f70a8bc50a75e2429076a1f3539c81ef50b5ee"
+    },
+    {
+      "audio_sha256": "5211965e46f479bee84f864e31f317b25dda676e066599a810b332cdb4a0d618",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:6247505412144186029",
+      "text_hash": "eb1f55c965709d7cc12f9427cdffd453a31a1dd38ac390e2a8bd936aa7b9d81d"
+    },
+    {
+      "audio_sha256": "8ef9de2e3367085373a8dce9888874bce1407bb6a8112fdb80148f881a9eff1d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:d4ab5bad02c1cb53",
+      "text_hash": "eb1f55c965709d7cc12f9427cdffd453a31a1dd38ac390e2a8bd936aa7b9d81d"
+    },
+    {
+      "audio_sha256": "d44e98570e8df690eff28f41aebbe6573113b9d1d94dbe86b11b762d4566c21f",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:7541968137019116183",
+      "text_hash": "ed4b2d464f25049b536421d499068c30399883d5c9524a4f2529ca3f58d0b847"
+    },
+    {
+      "audio_sha256": "f2aa7eb3de1b3dc48ab36bc706b1e726510348df364179d74362b03b84fc403c",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:298bc754c24a441c",
+      "text_hash": "ed4b2d464f25049b536421d499068c30399883d5c9524a4f2529ca3f58d0b847"
+    },
+    {
+      "audio_sha256": "74eaa6504c598f8b1ff69be2da64faf7a44d5bba9c53fd8a1e6d5980643eb81c",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:7306350900385919661",
+      "text_hash": "ef8e2ef1cf48a6ff9eb70f068ae6157bc36f4ac54db4a402fb764eed03cfd5d0"
+    },
+    {
+      "audio_sha256": "4d4b9598a7b24cfd6311ea270578d6c4e274c18768621db5e831d5c9b167ce42",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:05aca8b97adbe8a9",
+      "text_hash": "ef8e2ef1cf48a6ff9eb70f068ae6157bc36f4ac54db4a402fb764eed03cfd5d0"
+    },
+    {
+      "audio_sha256": "764c521c83d23b1dd26935ab9ac6f738881555f8657c1a8e809a393312210fee",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:13866886119467998876",
+      "text_hash": "efa2c256ff6498c97c2982d27e1b39cedfc2fd4ed5ed71ced49e26c9fff2bd25"
+    },
+    {
+      "audio_sha256": "c82074a6f8301c97fa79fa8467202d5e78fb5626653c1ba2eebfd728211644ac",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:664646de3de9a9ba",
+      "text_hash": "efa2c256ff6498c97c2982d27e1b39cedfc2fd4ed5ed71ced49e26c9fff2bd25"
+    },
+    {
+      "audio_sha256": "6655f47ef0c5b41e6d6249a64e7b6e5c7721144363697b418e8560e8a2949d38",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:6997034426091578500",
+      "text_hash": "f0e07a379eb7237474b1e74c1dccc12a5530892437f25b113c7ca6ddfda60b09"
+    },
+    {
+      "audio_sha256": "37ca0452e1d67214a57a499cc87a8b8b14d35de4925c65c4c489a42d392eb22d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:922b92096889a7b9",
+      "text_hash": "f0e07a379eb7237474b1e74c1dccc12a5530892437f25b113c7ca6ddfda60b09"
+    },
+    {
+      "audio_sha256": "9a55757d98f12f7b10f614325033b2c33e862a529a99c2560ce44a58127174ee",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:9572909065628971391",
+      "text_hash": "f5a99933622a3ee17e8f3cbcde234f69defcbf271d954540db1383541f33552d"
+    },
+    {
+      "audio_sha256": "74beb4db2c1605f8b2595c9b0ec5986715302185f841db7142e8ac7831391df5",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:25989057e490d27b",
+      "text_hash": "f5a99933622a3ee17e8f3cbcde234f69defcbf271d954540db1383541f33552d"
+    },
+    {
+      "audio_sha256": "45c8606e54caab5a0aeac80c7c2bc7d6ea13ce473edd8f9713d14672c04f3ecf",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:9824709265248009868",
+      "text_hash": "f7cbac099ba65232acb4c2989a55c43ec91cd44455f6780f6ebc7f6db58b68e6"
+    },
+    {
+      "audio_sha256": "778fbfba9bf7b564699d8b7a9ebef8f48182b8e4e4e2bc2ce23c0a3e71770538",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:c5028caa373966d4",
+      "text_hash": "f7cbac099ba65232acb4c2989a55c43ec91cd44455f6780f6ebc7f6db58b68e6"
+    },
+    {
+      "audio_sha256": "335116a04ae82d27eb52b9bb5c1a8ffec4885bf041aca1e60854f6e54cbe0700",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:16979850846019411899",
+      "text_hash": "f7e709feb8640b58ea08536679b53ede4114145a14ecab76d0da422163106164"
+    },
+    {
+      "audio_sha256": "899da82a409957eaf27e08bf2c9aaaa036c2dee8061fe2c8480fed18f0f860bc",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:ff693caa86350726",
+      "text_hash": "f7e709feb8640b58ea08536679b53ede4114145a14ecab76d0da422163106164"
+    },
+    {
+      "audio_sha256": "c3178bd9d44f6a02f28a41f18907204e88cebb99a6ef1f854460ed11730f0fc8",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:14972182249928462191",
+      "text_hash": "f9bf6d8d373193588e6c78248a1218fb8c16d4531fe022254f3c200a35564d48"
+    },
+    {
+      "audio_sha256": "0a8cc7505d5d5033f09dc21b753369fd160778b0546135f2f94fb0ab4faa2a5d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:70cbc1d11ac0adae",
+      "text_hash": "f9bf6d8d373193588e6c78248a1218fb8c16d4531fe022254f3c200a35564d48"
+    },
+    {
+      "audio_sha256": "4f9fa2f081ae19ac0da201486d4dd64d73b8a93d3ec89bca8152a3264ac80572",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:12936943492704241226",
+      "text_hash": "fa705c20c5d9206d2c360b5436dda062f5d6eaaf522699d3e2371f0522665ca7"
+    },
+    {
+      "audio_sha256": "880a37a6c44fc43495a2a016e515bf04d0a0d8695316a757836caccc2f98778f",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:359d32054be939b2",
+      "text_hash": "fa705c20c5d9206d2c360b5436dda062f5d6eaaf522699d3e2371f0522665ca7"
+    },
+    {
+      "audio_sha256": "dc4b0ae08528ed65fa4a4a8e3328c3d7c96e025441ba3223d259d1f9783dd420",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "google_fleurs_kk_v1:14202799437416007706",
+      "text_hash": "fd23e35c26ba3e740e42a4086bf28329db1963b245e40a9692ef9a79fae42217"
+    },
+    {
+      "audio_sha256": "071e5fd346d6224326d7b2315004aebbca2671b1c2ec92183c9eaa6dbf688d9d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "fleurs_ru_kk_v1_silero_v4:daf774504c90d3a6",
+      "text_hash": "fd23e35c26ba3e740e42a4086bf28329db1963b245e40a9692ef9a79fae42217"
+    }
+  ],
+  "blind_final_eligible": false,
+  "decision_counts": {
+    "pass": 304
+  },
+  "evidence_timing": "post_inference",
+  "final_or_product_eligible": false,
+  "limitations": [
+    "The gate establishes only audibility, Kazakh transcript correspondence and absence of obvious defects for the exact locked WAV bytes.",
+    "The detector result was known before these reviews, so the evidence is post-inference and cannot become a blind final result retroactively.",
+    "The gate does not establish speaker independence, source independence, calibration or product quality."
+  ],
+  "metric_status_changed": false,
+  "packet": {
+    "assets": 304,
+    "pairs": 152,
+    "path": "data/manifests/fleurs_kk_v1_silero_v4_acoustic_gate_packet.csv",
+    "sha256": "1ff70e56f516b09be1dba7b3c3e5c6d890538be076122cf08ae716fada401267"
+  },
+  "protocol_id": "fleurs-kk-silero-v4-acoustic-quality-v1",
+  "review_files": [
+    {
+      "path": "data/manifests/fleurs_kk_v1_silero_v4_acoustic_review_reviewer_1.csv",
+      "rows": 304,
+      "sha256": "8cb82ef7737586537e43b4e1ae653147ade75abb73b90d51adfd40d97628c0a7"
+    },
+    {
+      "path": "data/manifests/fleurs_kk_v1_silero_v4_acoustic_review_reviewer_2.csv",
+      "rows": 304,
+      "sha256": "6286695353379a9e6ae76b79e5a386a865d7176e1f76c7049f7e6a243da62096"
+    }
+  ],
+  "review_rows": 608,
+  "reviewers": [
+    "reviewer_1",
+    "reviewer_2"
+  ],
+  "schema_version": 1
+}

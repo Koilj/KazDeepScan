@@ -1,0 +1,119 @@
+{
+  "audited_at": "2026-08-12T00:00:00Z",
+  "fleurs_release_artifacts": {
+    "kk_kz": {
+      "data/kk_kz/audio/dev.tar.gz": "a0481dd445d9ae8424eb870751f1ab51d82f0b7f5566318ffa5adab7f9c9f69d",
+      "data/kk_kz/audio/test.tar.gz": "f29331a9731a00f544e2cb7d1dbcbb5a4258fd200323811ec837d15dd3c2e8a0",
+      "data/kk_kz/audio/train.tar.gz": "4d28cb336b1c3207b993b96a301e23aceb513739ea0079ba9dd19e30da661393",
+      "data/kk_kz/dev.tsv": "24195834bd3720cbbb4c57cd6e6ce51e8335b15239054995b8f3c31b69f4293c",
+      "data/kk_kz/test.tsv": "16b40d7a3c0a3be482f3bea949d3297ccdd13e42042683ffd298f8b6e469508a",
+      "data/kk_kz/train.tsv": "618a8e83ab0b5fd1cf4c7dfb9f6777fc3dad145e9daf250e8698e56d69f944df"
+    },
+    "ru_ru": {
+      "data/ru_ru/audio/dev.tar.gz": "4dc533cd0f312f749bd6d0fe968f3183288d938e07ed97dc141d9f10570457f9",
+      "data/ru_ru/audio/test.tar.gz": "8a0d6a0d23c3421f50c575bcf65d875cd19dadae2f7cabb415024f81b65178b1",
+      "data/ru_ru/audio/train.tar.gz": "1966e34c17d612317f03916fb45159c793947de77e1988fe76b3b53cf6c40b44",
+      "data/ru_ru/dev.tsv": "25d9dc88a7533fc0f303354a8e6d3c8186c557229c9a0024487090a11226171e",
+      "data/ru_ru/test.tsv": "cd54f261220f49afbb4c128633a737eca4a22f6c0a8233d3cc891478d06676e6",
+      "data/ru_ru/train.tsv": "a18a051553daba44130d323ff8c7387dcde64ce855ade317c53209c0922885dc"
+    }
+  },
+  "fleurs_revision": "4683b04af03d2d9549064c7d72060a9a94bb6046",
+  "inputs": [
+    {
+      "path": "data/manifests/fleurs_ru_ru_v1_test_ready_300.csv",
+      "sha256": "1840c29796289acf5faafa36bb14a8117ea2b977ff5228d700e68ac7b28da5ba",
+      "size_bytes": 165025
+    },
+    {
+      "path": "data/manifests/fleurs_ru_v1_silero_v4_test_214.csv",
+      "sha256": "8afd2d461495eb4b16c6e4de89ea731536d41ff73d7ea7152bfb1ea20e23ec1b",
+      "size_bytes": 385207
+    },
+    {
+      "path": "data/manifests/fleurs_ru_v1_espeakng_test_75.csv",
+      "sha256": "65b12c43df18fcf7d1ea6b38d2e951cc505963241f5d821092b035b56c9a3af8",
+      "size_bytes": 131143
+    },
+    {
+      "path": "data/manifests/fleurs_kk_kz_v1_test_ready_300.csv",
+      "sha256": "ca7dbe5cbb577a18376e68b2491f5433e761c4837603fc61988792a2be5cdd29",
+      "size_bytes": 121185
+    },
+    {
+      "path": "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv",
+      "sha256": "e23f1ce80dbc866eafd4fe1f488f2f55c5705bef1bd9b12e33ce80632328dac2",
+      "size_bytes": 274129
+    },
+    {
+      "path": "data/manifests/ksc2_test_mixed_annotation_v1.csv",
+      "sha256": "5b80ee0b6d9d80907ed77a9c1e21821a6324e9621f3cb96ad1daab17982acc20",
+      "size_bytes": 1902313
+    },
+    {
+      "path": "data/manifests/ksc2_test_mixed_ai_review_v1.csv",
+      "sha256": "63257415ad744bf3095e28f6dede7e6e53e9608587258170cdd924651f5075e2",
+      "size_bytes": 32881
+    },
+    {
+      "path": "data/manifests/ksc2_test_mixed_ai_review_v1_ready.csv",
+      "sha256": "e3a881ba8b0d0c4e26dccaefce17ad7cd2fcd38c3890ec265047d4b045055770",
+      "size_bytes": 24178
+    },
+    {
+      "path": "data/manifests/ksc2_mixed_v1_silero_v4_candidate_30.csv",
+      "sha256": "dafa33d424da8efab19d849afeeeb11c279d2e6c10ff187f3a57cada76c6c4a8",
+      "size_bytes": 66415
+    }
+  ],
+  "interpretation": {
+    "asset_level_blind_only": true,
+    "rule": "Fresh release counts are pre-extraction/pre-QA capacity, not approved final assets. Mixed rows outside semantic review remain unknown and unusable.",
+    "source_independent": false,
+    "speaker_independent": false
+  },
+  "inventory": {
+    "kk": {
+      "all_current_qa_ready_text_groups_exposed": false,
+      "exposed_bonafide_rows": 152,
+      "exposed_unique_text_groups": 152,
+      "fresh_qa_ready_unique_text_groups": 60,
+      "fresh_release_unique_text_groups_before_extraction_and_qa": 197,
+      "language": "kk",
+      "locale": "kk_kz",
+      "qa_ready_rows": 212,
+      "qa_ready_unique_text_groups": 212,
+      "source_id": "google_fleurs_kk_v1",
+      "source_test_rows": 856,
+      "source_test_unique_text_groups": 349
+    },
+    "mixed": {
+      "candidate_rows": 2632,
+      "exposed_bonafide_mixed_rows": 30,
+      "fresh_qa_ready_annotation_ids": [
+        "ksc2_v1:Test/podcasts/09_03_368"
+      ],
+      "fresh_qa_ready_mixed_rows": 1,
+      "pending_semantic_review_rows": 2600,
+      "qa_ready_mixed_rows": 31,
+      "semantically_reviewed_mixed_rows": 32,
+      "source_id": "ksc2_v1"
+    },
+    "ru": {
+      "all_current_qa_ready_text_groups_exposed": true,
+      "exposed_bonafide_rows": 289,
+      "exposed_unique_text_groups": 289,
+      "fresh_qa_ready_unique_text_groups": 0,
+      "fresh_release_unique_text_groups_before_extraction_and_qa": 55,
+      "language": "ru",
+      "locale": "ru_ru",
+      "qa_ready_rows": 289,
+      "qa_ready_unique_text_groups": 289,
+      "source_id": "google_fleurs_ru_v1",
+      "source_test_rows": 775,
+      "source_test_unique_text_groups": 344
+    }
+  },
+  "protocol_id": "fresh-research-suite-source-inventory-v1",
+  "schema_version": 1
+}

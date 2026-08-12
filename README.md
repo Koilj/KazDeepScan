@@ -4,7 +4,8 @@ KazDeepScan — локальный personal-research проект для исс�
 синтезированности русской, казахской и смешанной речи. Это не идентификация говорящего,
 не доказательство мошенничества и не развёрнутый сервис оценки риска.
 
-Текущий реализованный этап — проверяемый фундамент для данных, аудио и безопасного intake:
+Текущее реализованное состояние включает проверяемый фундамент данных, обученный research
+checkpoint и строго ограниченный evaluation-контур:
 
 - безопасная проверка размера, MIME-типа, фактического контейнера и длительности;
 - нормализация через `ffmpeg` в mono PCM WAV, 16 кГц;
@@ -36,8 +37,15 @@ KazDeepScan — локальный personal-research проект для исс�
   sample/asset/text/group overlap;
 - отдельный write-once Stage-B v2 contract fitted temperature только на disjoint PyAra
   calibration и один раз выполнил раздельный confirmatory RU/KK/mixed run. Это не pooled
-  product score: mixed assets ранее видел checkpoint v1, а KK layer не имеет two-review
-  acoustic gate;
+  product score: mixed assets ранее видел checkpoint v1, а KK acoustic gate был завершён только
+  после раскрытия результата;
+- для exact 304-asset FLEURS KK/Silero layer завершён отдельный post-inference two-review gate:
+  packet не содержал predictions, обе полные формы прошли строгую проверку, `304/304` assets
+  получили `pass`; статус уже раскрытой метрики при этом не повышен;
+- для следующего asset-level-blind suite опубликован write-once source inventory: полный pinned
+  FLEURS release оставляет 55 RU и 197 KK fresh text groups, но из них сейчас QA-ready только 60
+  KK; в KSC2 fresh QA-ready mixed row только один. IMS Toucan отклонён как не новая family
+  относительно уже использованной FastPitch/HiFi-GAN route;
 - explicit source-mixed research matrix и B0 runner, который не допускает overlap исходных
   corpus между train/dev/final-test и проверяет обычный sample/SHA-256/group/text leakage поверх
   этого;
@@ -252,4 +260,6 @@ uv run python scripts/evaluate_xlsr_research_final.py \
 KSC2 single-AI mixed evidence review и ограничения альтернативных LID/ASR sources — в
 [docs/ksc2_mixed_ai_review_v1.md](docs/ksc2_mixed_ai_review_v1.md); готовый bona-fide candidate
 и результат технического TTS smoke-test — в
-[docs/ksc2_mixed_candidate_v1.md](docs/ksc2_mixed_candidate_v1.md).
+[docs/ksc2_mixed_candidate_v1.md](docs/ksc2_mixed_candidate_v1.md). Следующий source/rights gate
+и точная fresh-asset ёмкость зафиксированы в
+[docs/fresh_research_suite_stage_c_source_review_2026-08-12.md](docs/fresh_research_suite_stage_c_source_review_2026-08-12.md).

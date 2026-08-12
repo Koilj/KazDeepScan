@@ -10,6 +10,8 @@ from pathlib import Path
 
 from kds.data.ksc2_mixed_review import (
     AI_REVIEW_FIELDS,
+    CURATED_MIXED_DECISIONS,
+    CURATED_MIXED_DECISIONS_V2_DELTA,
     Ksc2MixedReviewError,
     curated_mixed_rows,
     load_candidate_packet,
@@ -36,6 +38,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--packet-receipt", type=Path, required=True)
     parser.add_argument("--packet-lock", type=Path, required=True)
     parser.add_argument("--reviewed-at", required=True)
+    parser.add_argument("--decision-set", choices=("v1", "v2_delta"), default="v1")
     parser.add_argument("--output-csv", type=Path, required=True)
     parser.add_argument("--output-receipt", type=Path, required=True)
     arguments = parser.parse_args(argv)
@@ -51,7 +54,21 @@ def main(argv: list[str] | None = None) -> int:
         packet = load_candidate_packet(
             arguments.packet, arguments.packet_receipt, arguments.packet_lock
         )
-        rows = curated_mixed_rows(packet, arguments.reviewed_at)
+        if arguments.decision_set == "v1":
+            decisions = CURATED_MIXED_DECISIONS
+            review_method = "single_ai_transcript_semantic_review_v1"
+            reviewer = "codex_language_review_v1"
+        else:
+            decisions = CURATED_MIXED_DECISIONS_V2_DELTA
+            review_method = "single_ai_transcript_semantic_review_v2_delta"
+            reviewer = "codex_language_review_v2"
+        rows = curated_mixed_rows(
+            packet,
+            arguments.reviewed_at,
+            decisions=decisions,
+            review_method=review_method,
+            reviewer=reviewer,
+        )
         csv_hash = write_csv_once(arguments.output_csv, AI_REVIEW_FIELDS, rows)
         component_counts = Counter(row["component"] for row in rows)
         receipt_hash = write_json_once(
@@ -66,8 +83,8 @@ def main(argv: list[str] | None = None) -> int:
                 "candidate_packet_lock_sha256": packet.lock_sha256,
                 "archive_sha256": rows[0]["archive_sha256"],
                 "source_lock_sha256": rows[0]["source_lock_sha256"],
-                "review_method": "single_ai_transcript_semantic_review_v1",
-                "reviewer": "codex_language_review_v1",
+                "review_method": review_method,
+                "reviewer": reviewer,
                 "reviewed_at": arguments.reviewed_at,
                 "candidate_rows": len(packet.rows),
                 "confirmed_mixed_rows": len(rows),

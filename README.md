@@ -42,9 +42,9 @@ checkpoint и строго ограниченный evaluation-контур:
 - для exact 304-asset FLEURS KK/Silero layer завершён отдельный post-inference two-review gate:
   packet не содержал predictions, обе полные формы прошли строгую проверку, `304/304` assets
   получили `pass`; статус уже раскрытой метрики при этом не повышен;
-- для следующего asset-level-blind suite опубликован write-once source inventory: полный pinned
-  FLEURS release оставляет 55 RU и 197 KK fresh text groups, но из них сейчас QA-ready только 60
-  KK; в KSC2 fresh QA-ready mixed row только один;
+- для следующего asset-level-blind suite опубликован source inventory v2: полный pinned FLEURS
+  release оставляет 55 RU и 197 KK fresh text groups, из которых сейчас QA-ready 60 KK; второй
+  disjoint KSC2 semantic pass довёл fresh QA-ready mixed слой с 1 до 58 groups;
 - абсолютная architecture novelty заменена на доказуемый exact checkpoint/runtime gate, потому
   что historical RuASD manifests не содержат architecture IDs. ISSAI KazakhTTS2 Male2
   Tacotron2 + ParallelWaveGAN прошёл rights/artifact/config/exposure и CUDA technical-smoke
@@ -57,6 +57,9 @@ checkpoint и строго ограниченный evaluation-контур:
   этого;
 - узкий KSC2 mixed evidence layer из single-AI semantic transcript review: каждая из 32 строк
   содержит explicit Russian/Kazakh token evidence; остальные 2 600 candidates остаются unknown;
+- отдельный Stage-C semantic-review delta добавил 59 disjoint explicit decisions: 57 прошли
+  QA/VAD, 2 получили accounted rejection; после исключения 30 прежних exposed rows доступны 58
+  fresh mixed groups, а 2 541 непросмотренная строка остаётся unknown;
 - из этого evidence подготовлен QA/VAD-ready KSC2 bona-fide candidate: 31 из 32 строк; 1
   rejection сохранён. Silero V4 technical smoke-test создал 10 технически готовых WAV, но пока
   не создаёт acoustic language-quality claim. Отдельный input-pinned research candidate содержит

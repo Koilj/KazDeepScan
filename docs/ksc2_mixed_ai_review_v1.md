@@ -89,3 +89,7 @@ uv run python scripts/publish_ksc2_ai_mixed_review.py \
 
 Первый QA/VAD-ready bona-fide candidate, технический Silero smoke-test и границы дальнейшей
 synthesis описаны в [KSC2 mixed bona-fide candidate v1](ksc2_mixed_candidate_v1.md).
+
+Для нового Stage-C suite исторический v1 не изменялся. Отдельный disjoint review и его
+QA/rejection accounting описаны в
+[KSC2 mixed semantic evidence v2 delta](ksc2_mixed_ai_review_v2_delta.md).

@@ -38,15 +38,16 @@ RuASD train/dev manifests содержат в основном названия 
 безопасный layout и совпадение TAR/TSV membership. KSC2 candidates связаны с semantic review,
 QA-ready manifest и ранее оценёнными assets.
 
-Write-once receipt:
-`data/manifests/fresh_research_suite_source_inventory_v1.json`, SHA-256
-`434a3b12d11e654e4de4438d60a42448cb4badd21a6a0fb700a02a1ce0507b3f`.
+Первичный write-once receipt v1 сохранён без изменений. После отдельного Stage-C semantic
+review delta актуальный inventory v2:
+`data/manifests/fresh_research_suite_source_inventory_v2.json`, SHA-256
+`915294f0c608435d4775217f686cd6d2933eabfb4efd65e0a7a1d38d9d0db39a`.
 
 | Роль | Полный доступный источник | Уже оценено | Fresh сейчас | Что ещё требуется |
 | --- | ---: | ---: | ---: | --- |
 | RU FLEURS | 344 unique test texts | 289 | 55 release groups | extraction и QA/VAD |
 | KK FLEURS | 349 unique test texts | 152 | 60 QA-ready + 137 release groups | для 137 — extraction и QA/VAD |
-| KSC2 mixed | 2 632 candidates | 30 | 1 QA-ready | semantic review для 2 600 rows |
+| KSC2 mixed | 2 632 candidates | 30 | 58 QA-ready | 2 541 rows остаются unknown |
 
 Эти числа являются capacity до selection, а не approved final assets. Без нового corpus и
 verified speaker IDs возможен только честно обозначенный **asset-level-blind research suite**.
@@ -138,3 +139,12 @@ Kazakh как speech-output target.
 
 Следующий корректный автоматический этап — заморозить selection policy и exact bona-fide groups
 до массового synthesis. Следующий человеческий gate потребуется уже для всех созданных assets.
+
+## 6. Расширение mixed evidence до selection
+
+Inventory v1 оставлял только один fresh mixed group, что не позволяло получить научно полезную
+отдельную метрику. Второй disjoint single-AI semantic pass опубликовал 59 новых explicit
+RU+KK-token decisions; 57 прошли QA/VAD, две отклонены как `insufficient_speech`. Вместе с одной
+fresh v1 row доступны 58 groups. Все прочие KSC2 rows остаются unknown; ranking не использовался
+как автоматический label. Подробности и хеши:
+`docs/ksc2_mixed_ai_review_v2_delta.md`.

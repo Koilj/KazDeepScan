@@ -29,9 +29,12 @@ smoke и pre-inference two-listener language gate прошли; detector inferen
 - Один write-once confirmatory RU/KK/mixed run завершён.
 - Post-inference KK acoustic gate завершён: две полные формы, 608 решений и `304/304` exact
   assets с итогом `pass`; write-once receipt опубликован.
-- Fresh-source inventory повторно проверил полный pinned FLEURS release и KSC2 evidence:
-  доступны 55 RU release-level groups, 60 QA-ready + 137 ещё не обработанных KK groups и только
-  1 QA-ready mixed row; 2 600 KSC2 candidates требуют semantic review.
+- Fresh-source inventory v2 повторно проверил полный pinned FLEURS release и KSC2 evidence:
+  доступны 55 RU release-level groups, 60 QA-ready + 137 ещё не обработанных KK groups и 58
+  QA-ready mixed groups; 2 541 KSC2 candidates остаются без semantic review.
+- Для mixed Stage C опубликован disjoint 59-row single-AI semantic-review delta: 57 rows прошли
+  QA/VAD, 2 отклонены с полным accounting. Это устранило статистически непригодный размер 1,
+  но не заменяет будущий human acoustic gate.
 - ISSAI KazakhTTS2 Male2 Tacotron2 + ParallelWaveGAN принят как `unseen_exact_generator_route`:
   122 908 306 outer artifact bytes, все required inner hashes/CRC/configs и local CUDA smoke
   проверены; reference audio и cloning запрещены.
@@ -81,8 +84,8 @@ calibration.
 
 ## Следующие действия
 
-1. Зафиксировать selection policy и exact bona-fide groups: до 55 RU, 60 QA-ready KK и один
-   подтверждённый mixed group; не расширять mixed слой без нового semantic evidence.
+1. Зафиксировать selection policy и exact bona-fide groups: до 55 RU, 60 QA-ready KK и 58
+   QA-ready mixed groups из inventory v2.
 2. Синтезировать связанные KazakhTTS spoof assets для трёх прошедших языковых ролей.
 3. Выполнить QA/rejection accounting, exposure/leakage audit и full-asset
    two-review gate, ledger snapshot, manifests, implementation hashes и output paths.
@@ -115,5 +118,6 @@ calibration.
 - [KK acoustic gate receipt](docs/fleurs_kk_silero_v4_acoustic_gate_v1.md)
 - [Stage C source review и fresh inventory](docs/fresh_research_suite_stage_c_source_review_2026-08-12.md)
 - [Stage C KazakhTTS pre-inference language gate](docs/fresh_suite_stage_c_kazakhtts_acoustic_gate_v1.md)
+- [KSC2 mixed Stage-C semantic evidence v2 delta](docs/ksc2_mixed_ai_review_v2_delta.md)
 - [External RU spoof-source search](docs/russian_spoof_source_search_2026-08-11.md)
 - [License-ledger snapshots](docs/license_ledger_snapshots.md)

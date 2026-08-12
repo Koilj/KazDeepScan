@@ -21,8 +21,12 @@ from kds.data.assets import sha256_file
 from kds.data.ksc2_mixed_review import AI_REVIEW_FIELDS
 from kds.data.manifest import ManifestRow
 
-KSC2_MIXED_REVIEW_METHOD: Final = "single_ai_transcript_semantic_review_v1"
-KSC2_MIXED_REVIEWER: Final = "codex_language_review_v1"
+KSC2_MIXED_REVIEW_PROFILES: Final = frozenset(
+    {
+        ("single_ai_transcript_semantic_review_v1", "codex_language_review_v1"),
+        ("single_ai_transcript_semantic_review_v2_delta", "codex_language_review_v2"),
+    }
+)
 KSC2_MIXED_SOURCE_ID: Final = "ksc2_v1"
 KSC2_MIXED_SOURCE_LICENSE: Final = "CC-BY-4.0"
 _HEX = frozenset("0123456789abcdef")
@@ -54,6 +58,8 @@ class Ksc2MixedEvidenceRow:
     ru_evidence_tokens: str
     kk_evidence_token_indices: str
     kk_evidence_tokens: str
+    review_method: str
+    reviewer: str
 
 
 @dataclass(frozen=True, slots=True)
@@ -116,13 +122,13 @@ def load_published_mixed_review(
 
     receipt = _read_json_object(review_receipt, "KSC2 mixed review receipt")
     review_hash = sha256_file(review_csv)
+    receipt_profile = (receipt.get("review_method"), receipt.get("reviewer"))
     if (
         receipt.get("schema_version") != 1
         or receipt.get("output_csv") != review_csv.as_posix()
         or _sha256(receipt.get("output_csv_sha256"), "review receipt output_csv_sha256")
         != review_hash
-        or receipt.get("review_method") != KSC2_MIXED_REVIEW_METHOD
-        or receipt.get("reviewer") != KSC2_MIXED_REVIEWER
+        or receipt_profile not in KSC2_MIXED_REVIEW_PROFILES
         or receipt.get("confirmed_mixed_rows") != len(source_rows)
     ):
         raise Ksc2MixedCandidateError(["KSC2 mixed review receipt does not pin this CSV."])
@@ -140,8 +146,7 @@ def load_published_mixed_review(
         if (
             row["language"] != "mixed"
             or row["code_switch"] != "true"
-            or row["review_method"] != KSC2_MIXED_REVIEW_METHOD
-            or row["reviewer"] != KSC2_MIXED_REVIEWER
+            or (row["review_method"], row["reviewer"]) != receipt_profile
             or row["source_name"] != KSC2_MIXED_SOURCE_ID
             or row["source_license"] != KSC2_MIXED_SOURCE_LICENSE
             or not row["transcript"]
@@ -184,6 +189,8 @@ def load_published_mixed_review(
                 ru_evidence_tokens=row["ru_evidence_tokens"],
                 kk_evidence_token_indices=row["kk_evidence_token_indices"],
                 kk_evidence_tokens=row["kk_evidence_tokens"],
+                review_method=row["review_method"],
+                reviewer=row["reviewer"],
             )
         )
         component_counts[row["component"]] += 1
@@ -230,7 +237,8 @@ def mixed_bonafide_rows(
                 rights_basis=(
                     "KSC2 CC-BY-4.0 source recording; explicit single-AI transcript-review "
                     f"evidence; archive={item.archive_sha256}; "
-                    f"source_lock={item.source_lock_sha256}"
+                    f"source_lock={item.source_lock_sha256}; method={item.review_method}; "
+                    f"reviewer={item.reviewer}"
                 ),
                 speaker_pseudo_id="ksc2_v1:unknown",
                 text_id=text_id,

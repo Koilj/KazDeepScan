@@ -1,0 +1,23 @@
+{
+  "raw_manifest": "data/manifests/ksc2_test_mixed_ai_review_v2_delta_raw.csv",
+  "raw_rows": 59,
+  "ready_rows": 57,
+  "rejected_rows": [
+    {
+      "reason": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+      "relative_path": "raw/ksc2_v1/slices/ksc2_test_mixed_annotation_v1/assets/Test/radio/c1b1c663b235057e415816611ce5ccb9a95eb2adfd8d3541ce6a9e0e394b5466.flac",
+      "sample_id": "ksc2_v1:Test/radio/01_04_142"
+    },
+    {
+      "reason": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+      "relative_path": "raw/ksc2_v1/slices/ksc2_test_mixed_annotation_v1/assets/Test/podcasts/3966ea71b3f117678c92bd4d7f2bc273374d5216026a1ec91be8f888672a8968.flac",
+      "sample_id": "ksc2_v1:Test/podcasts/09_04_011"
+    }
+  ],
+  "review_csv": "data/manifests/ksc2_test_mixed_ai_review_v2_delta.csv",
+  "review_csv_sha256": "80464931a73dbb366d4140db7409698ad47ccf67b43bfc50201af66e08fe2554",
+  "review_receipt": "data/licenses/ksc2_test_mixed_ai_review_v2_delta_receipt.json",
+  "review_receipt_sha256": "9935c12c7c4f19bb67cb33ac50eca610787a978b6b2bf406aa900718de9edeeb",
+  "rule": "Narrow single-AI transcript-review bona-fide candidates only; not a binary training or final-test manifest.",
+  "schema_version": 1
+}

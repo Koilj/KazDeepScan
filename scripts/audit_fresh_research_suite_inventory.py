@@ -66,14 +66,22 @@ def main() -> int:
     parser.add_argument("--kk-ready-manifest", type=Path, required=True)
     parser.add_argument("--kk-exposed-manifest", type=Path, action="append", required=True)
     parser.add_argument("--mixed-candidate-csv", type=Path, required=True)
-    parser.add_argument("--mixed-reviewed-csv", type=Path, required=True)
-    parser.add_argument("--mixed-ready-manifest", type=Path, required=True)
+    parser.add_argument("--mixed-reviewed-csv", type=Path, action="append", required=True)
+    parser.add_argument("--mixed-ready-manifest", type=Path, action="append", required=True)
     parser.add_argument("--mixed-exposed-manifest", type=Path, required=True)
     parser.add_argument("--audited-at", required=True)
+    parser.add_argument(
+        "--protocol-id", default="fresh-research-suite-source-inventory-v1"
+    )
     parser.add_argument("--output", type=Path, required=True)
     arguments = parser.parse_args()
 
     try:
+        if not arguments.protocol_id.replace("-", "").replace("_", "").isalnum():
+            raise FreshSuiteInventoryError(
+                "Fresh-suite protocol-id may contain only letters, numbers, hyphens and "
+                "underscores."
+            )
         if arguments.output.exists():
             raise FreshSuiteInventoryError(
                 f"Refusing to overwrite fresh-suite inventory: {arguments.output}"
@@ -91,8 +99,7 @@ def main() -> int:
         validate_manifest(kk_ready)
         ru_exposed = _load_manifests(arguments.ru_exposed_manifest)
         kk_exposed = _load_manifests(arguments.kk_exposed_manifest)
-        mixed_ready = load_manifest(arguments.mixed_ready_manifest)
-        validate_manifest(mixed_ready)
+        mixed_ready = _load_manifests(arguments.mixed_ready_manifest)
         mixed_exposed = load_manifest(arguments.mixed_exposed_manifest)
         validate_manifest(mixed_exposed)
 
@@ -110,7 +117,9 @@ def main() -> int:
         )
         mixed_inventory = audit_ksc2_mixed_inventory(
             candidate_rows=_read_csv(arguments.mixed_candidate_csv),
-            reviewed_rows=_read_csv(arguments.mixed_reviewed_csv),
+            reviewed_rows=[
+                row for path in arguments.mixed_reviewed_csv for row in _read_csv(path)
+            ],
             ready_rows=mixed_ready,
             exposed_rows=mixed_exposed,
         )
@@ -121,13 +130,13 @@ def main() -> int:
             arguments.kk_ready_manifest,
             *arguments.kk_exposed_manifest,
             arguments.mixed_candidate_csv,
-            arguments.mixed_reviewed_csv,
-            arguments.mixed_ready_manifest,
+            *arguments.mixed_reviewed_csv,
+            *arguments.mixed_ready_manifest,
             arguments.mixed_exposed_manifest,
         ]
         payload = {
             "schema_version": 1,
-            "protocol_id": "fresh-research-suite-source-inventory-v1",
+            "protocol_id": arguments.protocol_id,
             "audited_at": arguments.audited_at,
             "fleurs_revision": FLEURS_REVISION,
             "fleurs_release_artifacts": {

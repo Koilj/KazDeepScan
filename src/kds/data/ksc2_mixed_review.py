@@ -132,6 +132,72 @@ CURATED_MIXED_DECISIONS: Final[tuple[ReviewDecision, ...]] = (
     ReviewDecision("ksc2_v1:Test/talkshow/01_02_277", (8,), (2,)),
 )
 
+# A second, disjoint review pass used for Stage C.  Candidate ranking used conservative Russian
+# discourse/phrase cues only to make manual semantic reading tractable; every row below is an
+# explicit decision with stored token positions.  The four ambiguous ranking hits based only on
+# ``проблема``, ``так`` or a weak ``там`` were deliberately left unknown.
+CURATED_MIXED_DECISIONS_V2_DELTA: Final[tuple[ReviewDecision, ...]] = (
+    ReviewDecision("ksc2_v1:Test/talkshow/01_02_088", (18, 19), (1,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_03_005", (2,), (3,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_03_366", (1,), (2,)),
+    ReviewDecision("ksc2_v1:Test/radio/01_04_142", (2,), (3,)),
+    ReviewDecision("ksc2_v1:Test/radio/01_05_180", (1,), (2,)),
+    ReviewDecision("ksc2_v1:Test/radio/01_05_128", (4,), (5,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_01_243", (4,), (1,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_04_011", (1,), (3,)),
+    ReviewDecision("ksc2_v1:Test/radio/01_05_057", (2,), (3,)),
+    ReviewDecision("ksc2_v1:Test/radio/01_05_226", (4,), (3,)),
+    ReviewDecision("ksc2_v1:Test/radio/01_05_287", (4,), (2,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_01_048", (11,), (2,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_02_062", (8,), (2,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_00_388", (8,), (2,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_01_304", (11,), (1,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_03_044", (10,), (1,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_04_226", (1,), (3,)),
+    ReviewDecision("ksc2_v1:Test/radio/01_04_152", (3,), (1,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_03_384", (2,), (3,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_04_030", (1,), (2,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_04_061", (7, 8), (1,)),
+    ReviewDecision("ksc2_v1:Test/radio/01_04_116", (1,), (3,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_03_414", (2,), (3,)),
+    ReviewDecision("ksc2_v1:Test/radio/01_05_304", (5, 9), (2,)),
+    ReviewDecision("ksc2_v1:Test/talkshow/01_02_312", (7,), (1,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_01_172", (14,), (2,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_03_121", (14,), (4,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_03_129", (6,), (2,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_03_419", (11,), (1,)),
+    ReviewDecision("ksc2_v1:Test/talkshow/01_02_329", (2,), (3,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_01_017", (7,), (1,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_04_149", (10, 11), (1,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_04_253", (1,), (2,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_01_098", (15,), (3,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_03_219", (3,), (1,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_03_165", (15,), (2,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_03_221", (1,), (2,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_04_125", (10, 11, 12), (1,)),
+    ReviewDecision("ksc2_v1:Test/radio/01_04_117", (4,), (1,)),
+    ReviewDecision("ksc2_v1:Test/radio/01_05_272", (1, 4), (2,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_01_078", (14,), (2,)),
+    ReviewDecision("ksc2_v1:Test/radio/01_04_144", (5,), (6,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_00_160", (20,), (2,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_01_083", (6,), (1,)),
+    ReviewDecision("ksc2_v1:Test/radio/01_05_013", (13,), (1,)),
+    ReviewDecision("ksc2_v1:Test/radio/01_05_109", (6,), (3,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_03_410", (9,), (3,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_04_153", (19,), (2,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_04_110", (18,), (2,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_03_418", (6,), (4,)),
+    ReviewDecision("ksc2_v1:Test/talkshow/01_02_348", (22,), (2,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_04_102", (10,), (2,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_04_255", (2,), (5,)),
+    ReviewDecision("ksc2_v1:Test/talkshow/01_02_074", (6,), (8,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_03_347", (14, 16, 22), (1,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_04_123", (27,), (2,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_04_245", (2,), (4,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_00_234", (7,), (3,)),
+    ReviewDecision("ksc2_v1:Test/podcasts/09_03_085", (27,), (6,)),
+)
+
 
 def sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
@@ -300,12 +366,21 @@ def load_candidate_packet(packet: Path, receipt: Path, lock: Path) -> CandidateP
     )
 
 
-def curated_mixed_rows(packet: CandidatePacket, reviewed_at: str) -> list[dict[str, str]]:
+def curated_mixed_rows(
+    packet: CandidatePacket,
+    reviewed_at: str,
+    *,
+    decisions: Sequence[ReviewDecision] = CURATED_MIXED_DECISIONS,
+    review_method: str = "single_ai_transcript_semantic_review_v1",
+    reviewer: str = "codex_language_review_v1",
+) -> list[dict[str, str]]:
     """Materialise only the explicit positive review list; unlisted rows stay unknown."""
 
     seen: set[str] = set()
     result: list[dict[str, str]] = []
-    for decision in CURATED_MIXED_DECISIONS:
+    if not review_method or not reviewer:
+        raise Ksc2MixedReviewError(["Review method and reviewer must not be empty."])
+    for decision in decisions:
         if decision.annotation_id in seen:
             raise Ksc2MixedReviewError([f"Duplicate curated decision: {decision.annotation_id}."])
         seen.add(decision.annotation_id)
@@ -360,8 +435,8 @@ def curated_mixed_rows(packet: CandidatePacket, reviewed_at: str) -> list[dict[s
                 "candidate_receipt_sha256": packet.receipt_sha256,
                 "language": "mixed",
                 "code_switch": "true",
-                "review_method": "single_ai_transcript_semantic_review_v1",
-                "reviewer": "codex_language_review_v1",
+                "review_method": review_method,
+                "reviewer": reviewer,
                 "ru_evidence_token_indices": ",".join(str(index) for index in decision.ru_indices),
                 "ru_evidence_tokens": " ".join(ru_tokens),
                 "kk_evidence_token_indices": ",".join(str(index) for index in decision.kk_indices),

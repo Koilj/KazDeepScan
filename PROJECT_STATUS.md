@@ -5,10 +5,10 @@
 **Scope:** personal research, без записи голосов людей, voice cloning и product/API score.
 
 **Состояние:** XLS-R+SLS v2 обучен и один раз проверен; post-inference two-review KK acoustic
-gate завершён для всех 304 exact assets. Для следующего blind research suite выполнен fresh-source
-inventory и принят новый exact KazakhTTS checkpoint/runtime route. Его технический RU/KK/mixed
-smoke и pre-inference two-listener language gate прошли; detector inference ещё запрещён до
-подготовки и полной проверки нового suite.
+gate завершён для всех 304 exact assets. Для следующего blind research suite опубликован новый
+167-pair RU/KK/mixed candidate через exact KazakhTTS route. Synthesis, QA, rejection accounting
+и project-exposure audit завершены; detector inference запрещён до заполнения двух full-asset
+review forms и фиксации нового immutable plan.
 
 Этот файл намеренно краткий. Архитектура описана в
 [KazDeepScan_implementation_blueprint.md](KazDeepScan_implementation_blueprint.md), следующие
@@ -48,6 +48,16 @@ smoke и pre-inference two-listener language gate прошли; detector inferen
   review: `kk`, `ru` и `mixed` одобрены для подготовки candidate. Receipt SHA-256
   `946c3a3a59fdd437553c2fe8e93d4ade157e718cf67505abb1216c02cbc82a73`; detector inference
   всё ещё запрещён.
+- Первая массовая попытка KazakhTTS явно отклонила 72/168 исходных surface forms. До повторного
+  synthesis заморожен character-inventory normalizer: изменены 60 KK и 12 RU текстов, исходные
+  `text_id/text_hash` сохранены, detector/metric-based решений не было.
+- Нормализованный run создал 168/168 WAV. Generated-asset QA принял 167 и отклонил одну mixed
+  строку как `insufficient_speech`; без regeneration/backfill опубликованы 50 RU, 60 KK и 57
+  mixed exact pairs (`334` candidate assets).
+- Project-exposure audit сравнил candidate с 15 manifests / 11 869 rows из 21 research config:
+  overlap по `sample_id`, audio SHA-256 и `text_hash` равен `0/0/0`.
+- Full-asset packet на все 167 QA-ready synthetic WAV и две fail-closed reviewer forms готовы.
+  Человеческие решения ещё не внесены; inference и immutable plan пока заблокированы.
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
 ## Актуальные результаты
@@ -87,11 +97,10 @@ calibration.
 
 ## Следующие действия
 
-1. Синтезировать связанные KazakhTTS spoof assets для 168 frozen ready base rows.
-2. Выполнить generated-asset QA/rejection accounting и сформировать exact balanced pairs.
-3. Выполнить exposure/leakage audit и full-asset
-   two-review gate, ledger snapshot, manifests, implementation hashes и output paths.
-4. После успешных gates выполнить один preflight и один GPU inference run. Только затем решать,
+1. Заполнить две 167-row full-asset review формы независимыми reviewer IDs и решениями.
+2. Строго оценить формы и опубликовать write-once acoustic-gate report.
+3. После pass зафиксировать ledger snapshot, implementation hashes и immutable output paths.
+4. Выполнить один validate-only preflight и один GPU inference run. Только затем решать,
    нужен ли model v3.
 
 Полный порядок и критерии остановки: [План реализации.md](План%20реализации.md).
@@ -99,8 +108,8 @@ calibration.
 ## Проверка и воспроизводимость
 
 - Ruff: успешно.
-- mypy: 128 source files без ошибок.
-- pytest: 191 test успешно.
+- mypy: 140 source files без ошибок.
+- pytest: 211 tests успешно.
 - Final preflight: 3 991 asset bindings.
 - Точное implementation tree выполненного final plan: Git commit `52d6e6b`.
 - Scope clarification: `b1368c9`.
@@ -122,5 +131,6 @@ calibration.
 - [Stage C KazakhTTS pre-inference language gate](docs/fresh_suite_stage_c_kazakhtts_acoustic_gate_v1.md)
 - [KSC2 mixed Stage-C semantic evidence v2 delta](docs/ksc2_mixed_ai_review_v2_delta.md)
 - [Stage C frozen selection и bona-fide materialization](docs/fresh_suite_stage_c_selection_v1.md)
+- [Stage C KazakhTTS normalized candidate и full-asset gate](docs/fresh_suite_stage_c_kazakhtts_candidate_v1.md)
 - [External RU spoof-source search](docs/russian_spoof_source_search_2026-08-11.md)
 - [License-ledger snapshots](docs/license_ledger_snapshots.md)

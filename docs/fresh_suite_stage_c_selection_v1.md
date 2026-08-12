@@ -1,7 +1,7 @@
 # Stage C fresh-suite selection and bona-fide materialization v1
 
 **Статус:** selection заморожен и bona-fide сторона материализована 12 августа 2026 года.
-Detector inference и массовый TTS synthesis на момент фиксации не выполнялись.
+Последующий synthesis/candidate описан отдельным receipt; detector inference не выполнялся.
 
 ## Selection contract
 
@@ -37,6 +37,8 @@ hashes для KK/mixed, полный pinned FLEURS artifact set и 15 input bind
 
 ## Граница следующего шага
 
-Разрешён text-only synthesis ровно для 168 ready base rows через уже одобренный exact
-KazakhTTS route. Любой generated WAV сначала проходит signal QA/VAD, а затем два независимых
-full-asset acoustic reviews. До завершения этих gates detector inference остаётся запрещён.
+Разрешённый text-only synthesis завершён. После character-inventory normalization созданы все
+168 WAV, signal QA/VAD оставил 167 и одну mixed-строку отклонил без backfill. Опубликованы 167
+balanced pairs и две full-asset review forms. Подробности:
+`docs/fresh_suite_stage_c_kazakhtts_candidate_v1.md`. До успешной оценки обеих форм detector
+inference остаётся запрещён.

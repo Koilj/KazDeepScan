@@ -3,29 +3,26 @@
 from __future__ import annotations
 
 import argparse
-import importlib.metadata
 import json
 import math
-import os
 import shutil
-import sys
 import tempfile
-import types
 from pathlib import Path
-from typing import Any, cast
 
 import numpy as np
 import soundfile as sf  # type: ignore[import-untyped]
 import torch
-import yaml  # type: ignore[import-untyped]
-from packaging.version import Version
 
 from kds.data.assets import sha256_file
 from kds.data.kazakhtts import (
-    KazakhTtsRuntime,
     extract_verified_kazakhtts_runtime,
     load_kazakhtts_runtime,
     validate_kazakhtts_text,
+)
+from kds.data.kazakhtts_inference import (
+    load_kazakhtts_models,
+    resolve_kazakhtts_device,
+    synthesize_kazakhtts_waveform,
 )
 from kds.data.research_tts import (
     ResearchTtsError,
@@ -33,84 +30,6 @@ from kds.data.research_tts import (
     verify_research_tts_model_lock,
 )
 from kds.eval.kazakhtts_smoke import KazakhTtsSmokeError, load_kazakhtts_smoke_plan
-
-
-def _device(value: str) -> torch.device:
-    resolved = ("cuda" if torch.cuda.is_available() else "cpu") if value == "auto" else value
-    device = torch.device(resolved)
-    if device.type == "cuda" and not torch.cuda.is_available():
-        raise ResearchTtsError("KazakhTTS CUDA was requested but is unavailable.")
-    return device
-
-
-def _disable_unused_english_g2p_download_route() -> None:
-    """ESPnet imports g2p_en eagerly even though this char model declares g2p=null."""
-
-    module = types.ModuleType("g2p_en")
-
-    class DisabledG2p:
-        def __init__(self, *_args: object, **_kwargs: object) -> None:
-            raise RuntimeError("g2p_en is disabled for the pinned KazakhTTS char model.")
-
-    module.G2p = DisabledG2p  # type: ignore[attr-defined]
-    sys.modules["g2p_en"] = module
-
-
-def _load_models(
-    runtime: KazakhTtsRuntime,
-    extracted: Any,
-    device: torch.device,
-) -> tuple[Any, Any]:
-    if Version(torch.__version__.split("+", maxsplit=1)[0]) < Version("2.6"):
-        raise ResearchTtsError("KazakhTTS requires torch>=2.6 for weights-only load by default.")
-    for distribution, expected in (
-        ("espnet", runtime.espnet_version),
-        ("parallel-wavegan", runtime.parallel_wavegan_version),
-    ):
-        actual = importlib.metadata.version(distribution)
-        if actual != expected:
-            raise ResearchTtsError(
-                f"KazakhTTS runtime needs {distribution}=={expected}, got {actual}."
-            )
-    _disable_unused_english_g2p_download_route()
-    import scipy.signal as signal  # type: ignore[import-untyped]
-
-    signal.kaiser = signal.windows.kaiser
-    from espnet2.bin.tts_inference import Text2Speech  # type: ignore[import-untyped]
-    from parallel_wavegan.utils import load_model  # type: ignore[import-untyped]
-
-    previous_directory = Path.cwd()
-    try:
-        os.chdir(extracted.acoustic_config.parents[2])
-        text_to_speech = Text2Speech(
-            extracted.acoustic_config,
-            extracted.acoustic_checkpoint,
-            device=str(device),
-            threshold=runtime.threshold,
-            minlenratio=runtime.min_length_ratio,
-            maxlenratio=runtime.max_length_ratio,
-            use_att_constraint=runtime.use_attention_constraint,
-            backward_window=runtime.backward_window,
-            forward_window=runtime.forward_window,
-            speed_control_alpha=runtime.speed_control_alpha,
-        )
-    finally:
-        os.chdir(previous_directory)
-    text_to_speech.spc2wav = None
-    try:
-        vocoder_config_value: object = yaml.safe_load(
-            extracted.vocoder_config.read_text(encoding="utf-8")
-        )
-    except (OSError, UnicodeDecodeError, yaml.YAMLError) as error:
-        raise ResearchTtsError(f"Cannot safely read KazakhTTS vocoder config: {error}") from error
-    if not isinstance(vocoder_config_value, dict):
-        raise ResearchTtsError("KazakhTTS vocoder config must be a mapping.")
-    vocoder = load_model(
-        str(extracted.vocoder_checkpoint), config=cast(dict[str, object], vocoder_config_value)
-    )
-    vocoder = vocoder.to(device).eval()
-    vocoder.remove_weight_norm()
-    return text_to_speech, vocoder
 
 
 def main() -> int:
@@ -147,7 +66,7 @@ def main() -> int:
         model = lock.models[0]
         runtime = load_kazakhtts_runtime(model)
         verified = verify_research_tts_model_lock(arguments.model_root, lock)
-        device = _device(arguments.device)
+        device = resolve_kazakhtts_device(arguments.device)
         stage_directory = Path(
             tempfile.mkdtemp(
                 prefix=".kds-kazakhtts-smoke-", dir=arguments.output_directory.parent
@@ -165,21 +84,14 @@ def main() -> int:
                     runtime=runtime,
                     destination=Path(runtime_dir) / "runtime",
                 )
-                text_to_speech, vocoder = _load_models(runtime, extracted, device)
+                text_to_speech, vocoder = load_kazakhtts_models(runtime, extracted, device)
                 torch.manual_seed(plan.seed)
                 if device.type == "cuda":
                     torch.cuda.manual_seed_all(plan.seed)
                 outputs: list[dict[str, object]] = []
                 for case in plan.cases:
                     text = validate_kazakhtts_text(case.text, extracted)
-                    with torch.inference_mode():
-                        result = text_to_speech(text)
-                        features = result["feat_gen"]
-                        waveform = vocoder.inference(features).reshape(-1).float().cpu().numpy()
-                    if waveform.ndim != 1 or waveform.size == 0 or not np.isfinite(waveform).all():
-                        raise ResearchTtsError(
-                            f"KazakhTTS smoke {case.case_id!r} produced invalid samples."
-                        )
+                    waveform = synthesize_kazakhtts_waveform(text_to_speech, vocoder, text)
                     output = stage_directory / f"{case.case_id}.wav"
                     sf.write(output, waveform, runtime.sample_rate, subtype="PCM_16")
                     info = sf.info(str(output))

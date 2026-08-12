@@ -158,3 +158,18 @@ QA-ready до selection. Combined bona-fide manifest содержит 168 rows. 
 `dfd43c60d7b22bf0a93127f4f810be0b1900b66c0611aaf56e8f935a0d39e03d`; materialization
 receipt SHA-256: `522917f4a7aade4403099b3e4a678d9f9f6e2293c014635d605505a0cd59b6a2`.
 Подробности: `docs/fresh_suite_stage_c_selection_v1.md`.
+
+## 8. Normalized synthesis, candidate и project exposure
+
+Исходные surface forms оказались несовместимы с token inventory для 72/168 строк, поэтому
+частичная попытка v1 сохранена только как explicit failure receipt. До повторения заморожен
+детерминированный character-inventory normalizer: 60 KK и 12 RU строк изменены, 58 mixed строк
+остались неизменными, исходные IDs/hashes сохранены.
+
+Normalized v2 создал 168/168 WAV. Generated-asset QA принял 167 и отклонил одну mixed строку
+как `insufficient_speech`; replacement/backfill не выполнялся. Candidate содержит 50 RU, 60 KK
+и 57 mixed exact pairs. Exposure audit против 15 manifests / 11 869 prior configured rows дал
+нулевой overlap по sample ID, exact audio bytes и text hash. Full-asset packet и две 167-row
+fail-closed формы опубликованы, но ещё не заполнены. Detector inference и новый run plan до
+успешного gate запрещены. Подробности:
+`docs/fresh_suite_stage_c_kazakhtts_candidate_v1.md`.

@@ -1,0 +1,441 @@
+{
+  "accepted_text_rows": 96,
+  "post_selection_backfill": false,
+  "rejected_text_rows": [
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1 4 9 « »",
+      "sample_id": "google_fleurs_kk_v1:1003383318376154990",
+      "text_hash": "a8e1ad3955e0765a63c808a06c4678e0525ebc8f0ccb4df076b8b1df060158c5",
+      "text_id": "google_fleurs_kk_v1:prompt:1749"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1",
+      "sample_id": "google_fleurs_kk_v1:10037546300559313240",
+      "text_hash": "8ff36537382ec09671c7291b6cfae2ac4556581be6c1ea02b36802262dff2f4e",
+      "text_id": "google_fleurs_kk_v1:prompt:1701"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 2 5",
+      "sample_id": "google_fleurs_kk_v1:10911720144661608593",
+      "text_hash": "2c6311fb5ebe434622e69addc2b0fc3a95b3ffff8e3fcaae883977b7f5945f4b",
+      "text_id": "google_fleurs_kk_v1:prompt:1964"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: m t z",
+      "sample_id": "google_fleurs_kk_v1:11620544926596143282",
+      "text_hash": "1e0e5448e05cd9a08ba5fde4b762a441a1738e872f9429ede8487f0ef5a0aad7",
+      "text_id": "google_fleurs_kk_v1:prompt:1716"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1 2 5 7",
+      "sample_id": "google_fleurs_kk_v1:11674175124921753596",
+      "text_hash": "111adb070d51df292557bf35ec3f7308a924654be4e3d430ce6033910f71c6df",
+      "text_id": "google_fleurs_kk_v1:prompt:1883"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 3 4 a e i l m p t « »",
+      "sample_id": "google_fleurs_kk_v1:11941935412420287805",
+      "text_hash": "67c6d533c1bac8c9abd8001ded9b7d426fb483604f5d4459c66ce6b0b4002c84",
+      "text_id": "google_fleurs_kk_v1:prompt:1710"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 6",
+      "sample_id": "google_fleurs_kk_v1:12093710832555802440",
+      "text_hash": "c6fb826aaec20e671b0080a506aea96e69a03f3790ec89c83501191afd6b2396",
+      "text_id": "google_fleurs_kk_v1:prompt:1929"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 3 5",
+      "sample_id": "google_fleurs_kk_v1:12419278186730905681",
+      "text_hash": "d2569eed417e279938e9041e1ec7c1a1959929cba8193100acfd99728d8876da",
+      "text_id": "google_fleurs_kk_v1:prompt:1685"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 1 3 6 9",
+      "sample_id": "google_fleurs_kk_v1:12603150173068884281",
+      "text_hash": "7dac5ed8778a90bfd5c299670775739c92adeb7a3b1da29b871d7179ce4dcfea",
+      "text_id": "google_fleurs_kk_v1:prompt:1721"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1 2 3",
+      "sample_id": "google_fleurs_kk_v1:12646149303157413512",
+      "text_hash": "18e44ce48fec5bcf6cc5a8d747ce9b977fcc1c1d2f080e7f4af5c98bc810d94c",
+      "text_id": "google_fleurs_kk_v1:prompt:1732"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: a e h i m o r s t",
+      "sample_id": "google_fleurs_kk_v1:13072900730200162921",
+      "text_hash": "8e2d59b56f2c3af2a2cd0953507e0a9caf5f22bdf9309353cece967e11cc95f2",
+      "text_id": "google_fleurs_kk_v1:prompt:1679"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 2",
+      "sample_id": "google_fleurs_kk_v1:13384586419516553980",
+      "text_hash": "1608a7a582e9b9802678a3e9344a49a817bbb67c5d2cf11f951287b2e94891eb",
+      "text_id": "google_fleurs_kk_v1:prompt:1951"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 2 3 d m t",
+      "sample_id": "google_fleurs_kk_v1:1339613590589751952",
+      "text_hash": "a48259604d6bf9c23cdd399b28ff5a7b9b542104a3ef31deddef5006c1cc91a8",
+      "text_id": "google_fleurs_kk_v1:prompt:1885"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 1 6 7 9",
+      "sample_id": "google_fleurs_kk_v1:13907614700396617324",
+      "text_hash": "0e127cc4b752b1c9fe9541145da8f3abd52baed0fcb7e202ace1a064c0933fe0",
+      "text_id": "google_fleurs_kk_v1:prompt:1665"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 1 8 9",
+      "sample_id": "google_fleurs_kk_v1:14089950306038719733",
+      "text_hash": "c695ae10f5512ac437000daad3abee60dbb4173f56ae5bf6595d874252e94748",
+      "text_id": "google_fleurs_kk_v1:prompt:1795"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 1 6 m",
+      "sample_id": "google_fleurs_kk_v1:14285705490080071843",
+      "text_hash": "7da35bf9d0630756f833e6338cd7be4a45a9a8086659beaf57b76db13d38a1d1",
+      "text_id": "google_fleurs_kk_v1:prompt:1736"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: b f g k p",
+      "sample_id": "google_fleurs_kk_v1:14381932041887637362",
+      "text_hash": "9285107c1e2f4e4d734841c8d71525ef569448d5f48e2ca017f2dabf1f0372ef",
+      "text_id": "google_fleurs_kk_v1:prompt:1979"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 1 3 5 7",
+      "sample_id": "google_fleurs_kk_v1:15242706784888718582",
+      "text_hash": "a57f400ecbb9d9150350a2c47af0c0badf439c644b9454ad4fad9af80a5f65ea",
+      "text_id": "google_fleurs_kk_v1:prompt:1765"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1 2 5",
+      "sample_id": "google_fleurs_kk_v1:15967874925366242179",
+      "text_hash": "dd102e1edc1141920d6b2c439edf3fb8c5ca36849da65239643a81891f5aa044",
+      "text_id": "google_fleurs_kk_v1:prompt:1671"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 3 6 d r x",
+      "sample_id": "google_fleurs_kk_v1:16578432271217182729",
+      "text_hash": "deb97246a4b351e9ef9d9e7b08ee466c239841b5090863b2ec33ee75ec9cc8b1",
+      "text_id": "google_fleurs_kk_v1:prompt:1997"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: / 0 7",
+      "sample_id": "google_fleurs_kk_v1:16756314357636282561",
+      "text_hash": "fdf0b5c9952ce27dae848691a9c0e9f5642b5be7c06995b6291b39b338b93f4e",
+      "text_id": "google_fleurs_kk_v1:prompt:1932"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: a o p s w",
+      "sample_id": "google_fleurs_kk_v1:17381370315257491045",
+      "text_hash": "25641f8e33f19e7f657fd712aaa7d2b3bf85df87fa8d0838b843fa6246eb68c6",
+      "text_id": "google_fleurs_kk_v1:prompt:1830"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 7 8",
+      "sample_id": "google_fleurs_kk_v1:17506271158265386948",
+      "text_hash": "22cda6af6f716daa55b90ab43ec92590c42206e2e662c6913517c94646abddbb",
+      "text_id": "google_fleurs_kk_v1:prompt:1733"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 8",
+      "sample_id": "google_fleurs_kk_v1:2139020965064502156",
+      "text_hash": "604a6f4606a9b356c375ebaadcafbe0cee07233da92364d89441a006494450d0",
+      "text_id": "google_fleurs_kk_v1:prompt:1975"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: / 0 3 6 7",
+      "sample_id": "google_fleurs_kk_v1:2239387764343134854",
+      "text_hash": "eb940186bafe7976880d4b1127f88d5d373ce75012603319652f74ca2bf5a15d",
+      "text_id": "google_fleurs_kk_v1:prompt:1730"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 2 9",
+      "sample_id": "google_fleurs_kk_v1:2593581323605809132",
+      "text_hash": "893946c5daae74abe358860f610e806db160fac6b3b68b5ae9716034f6c76246",
+      "text_id": "google_fleurs_kk_v1:prompt:1981"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 3 4 b c o r s t u",
+      "sample_id": "google_fleurs_kk_v1:2641102901788122884",
+      "text_hash": "8ef5014ba6b5ecad7a9cb4934ca3604cab0968c6e336397050275b839fbc8dea",
+      "text_id": "google_fleurs_kk_v1:prompt:1805"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 6",
+      "sample_id": "google_fleurs_kk_v1:2895857189572398160",
+      "text_hash": "1735edda6ef8ea67baab0c0e6f6ec8f1e3c34c0b5a3f7ca133a566a9251cef94",
+      "text_id": "google_fleurs_kk_v1:prompt:2007"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 2 «",
+      "sample_id": "google_fleurs_kk_v1:2998778049046655097",
+      "text_hash": "d8fd274be91000f8c72e4a718b6364ba8421178590f45c641f025505c31f63c3",
+      "text_id": "google_fleurs_kk_v1:prompt:1960"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: f i r t",
+      "sample_id": "google_fleurs_kk_v1:3235066870739833453",
+      "text_hash": "b5d58cdbd005ac80e87779b0e86b06ed5e16ca6f9fc71634261d491aca1a581f",
+      "text_id": "google_fleurs_kk_v1:prompt:1786"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: a c e g i n o p r s t z",
+      "sample_id": "google_fleurs_kk_v1:3413358158273460290",
+      "text_hash": "2f622a50216cc4a3b801f3fbabcd778c08fa9029d65a3aae0c626760a1c420d9",
+      "text_id": "google_fleurs_kk_v1:prompt:1735"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: \" g s u",
+      "sample_id": "google_fleurs_kk_v1:3767667661334691665",
+      "text_hash": "1783364515bc23e448b267bfc120e6de4368b724943a4a97773c6a18f7144d54",
+      "text_id": "google_fleurs_kk_v1:prompt:1670"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: [ ] « »",
+      "sample_id": "google_fleurs_kk_v1:4324230341347616046",
+      "text_hash": "2aa84159d144ed91ffccbd3505cb4a5214cdd6a5d2eed5b340560b89cb2e7865",
+      "text_id": "google_fleurs_kk_v1:prompt:1898"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1",
+      "sample_id": "google_fleurs_kk_v1:4817696526462555081",
+      "text_hash": "a374573919f738ec80949c495d7bdc7d72290522ffcda4d4fce6e275e8e5295d",
+      "text_id": "google_fleurs_kk_v1:prompt:1718"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 1 8 9",
+      "sample_id": "google_fleurs_kk_v1:492685675165544120",
+      "text_hash": "74e7d6bc21713b1576ac1cabe5b5da32087919e26a2bad84c80fad769d1fed84",
+      "text_id": "google_fleurs_kk_v1:prompt:1723"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 2 3",
+      "sample_id": "google_fleurs_kk_v1:5372569721322854172",
+      "text_hash": "96b2e49b1550fb355f76c6fc00fc3794eec04e4f8a564872980f43a8ca157ad4",
+      "text_id": "google_fleurs_kk_v1:prompt:1846"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: a c i l s t v « »",
+      "sample_id": "google_fleurs_kk_v1:5389016603927296708",
+      "text_hash": "1d94e8f5d719d686cebf931e3bf540f7ac18ad527835e6ef39aa815d3b87017f",
+      "text_id": "google_fleurs_kk_v1:prompt:1983"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 1 3 5",
+      "sample_id": "google_fleurs_kk_v1:5670371838991364185",
+      "text_hash": "9d98fd4e83768f72b38a9e4367a3d429c5275b1be9710b725530fd12e53c8bd9",
+      "text_id": "google_fleurs_kk_v1:prompt:1748"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1 8",
+      "sample_id": "google_fleurs_kk_v1:5690605322783951571",
+      "text_hash": "1ccaa7f24b275885afefeda4848fbd421a1fbf418ef7d56313b2e099964e95c9",
+      "text_id": "google_fleurs_kk_v1:prompt:1947"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1 4",
+      "sample_id": "google_fleurs_kk_v1:5879645372237316156",
+      "text_hash": "3c9346ebd03d3b61c78245f8192abc59a851cf2cc0eaf00753fc2925986e2c9b",
+      "text_id": "google_fleurs_kk_v1:prompt:1724"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 2 7 a e s u",
+      "sample_id": "google_fleurs_kk_v1:5966979003506583007",
+      "text_hash": "b0b7886ee0c8b3db52a769888c2283125217ffeef174515e1771810fb089e58d",
+      "text_id": "google_fleurs_kk_v1:prompt:1725"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 1 6 7 9",
+      "sample_id": "google_fleurs_kk_v1:6013460121839312592",
+      "text_hash": "bca9a4fd336af6db56a2ac617034d47182c347cb50722752940200e2b68ac3fa",
+      "text_id": "google_fleurs_kk_v1:prompt:1928"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: $ 0 1 5",
+      "sample_id": "google_fleurs_kk_v1:601348972683172613",
+      "text_hash": "e43d1831e041c60324c2cf055a284db1d30bf037cf2c13105a9585e6e9309565",
+      "text_id": "google_fleurs_kk_v1:prompt:1989"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 1 f",
+      "sample_id": "google_fleurs_kk_v1:6391218539357763424",
+      "text_hash": "73676f3a0e1247c9c01a7bd662db05e0c2d2a38cd4893d19cb7bf311d4c5920a",
+      "text_id": "google_fleurs_kk_v1:prompt:1832"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 6",
+      "sample_id": "google_fleurs_kk_v1:6431314337260724205",
+      "text_hash": "6afed3a12fd20f98ef076cc95a61018b2c3ed26ab79d724195866401650d4d3a",
+      "text_id": "google_fleurs_kk_v1:prompt:1782"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: c o s u",
+      "sample_id": "google_fleurs_kk_v1:6472377869964564670",
+      "text_hash": "df4f3b453486f9df8b6f79ac8d6e7a16d3d6243021329060fcb3cef29ea3b1f7",
+      "text_id": "google_fleurs_kk_v1:prompt:1690"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: a d e g i n o r t",
+      "sample_id": "google_fleurs_kk_v1:6484592171234112008",
+      "text_hash": "c760488821ec29c0aa73d4f2b6944986c670a1528423d0da6c01cb8e5b77f339",
+      "text_id": "google_fleurs_kk_v1:prompt:1798"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1 6 —",
+      "sample_id": "google_fleurs_kk_v1:6846734733464788435",
+      "text_hash": "6688c24a93030684d0b933bb060928a68197a3a7c99981316f28adbb6420baf6",
+      "text_id": "google_fleurs_kk_v1:prompt:1773"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 3 5",
+      "sample_id": "google_fleurs_kk_v1:7118781598222999072",
+      "text_hash": "d69aa37538e13dff2d2f9bb2286e4db9fba74b4991b20dc04c832c1c240ae10c",
+      "text_id": "google_fleurs_kk_v1:prompt:1722"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: a k n p r s",
+      "sample_id": "google_fleurs_kk_v1:7709807475494132035",
+      "text_hash": "37ad68c87402b4d201bff8ab5a67be9a329c398b42214c2095500d2e9383c6a2",
+      "text_id": "google_fleurs_kk_v1:prompt:1707"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1 8 9 « »",
+      "sample_id": "google_fleurs_kk_v1:8231093604627164137",
+      "text_hash": "5efd224d36964fff4062e36b8007e24c9007be87939b2b5fdbfde573c12314ac",
+      "text_id": "google_fleurs_kk_v1:prompt:1986"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1 2 9",
+      "sample_id": "google_fleurs_kk_v1:840648180515281883",
+      "text_hash": "b9e16872c6f7f8d0f89a4a05eaefaf6e6d1c3b26940ac21aa202ef0533668724",
+      "text_id": "google_fleurs_kk_v1:prompt:1988"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: h p",
+      "sample_id": "google_fleurs_kk_v1:8481235565935308012",
+      "text_hash": "c6d5381e1e34055eb4db4feb26d8c9e85b26ec89b99f8592a24f68bf6e0b42c1",
+      "text_id": "google_fleurs_kk_v1:prompt:1962"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1 3 5",
+      "sample_id": "google_fleurs_kk_v1:8642090197581152517",
+      "text_hash": "5a13dc7e5bbcb4b865a60f4f63dbce362b131c8abdc6390c87b521727fc56e60",
+      "text_id": "google_fleurs_kk_v1:prompt:1877"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 2",
+      "sample_id": "google_fleurs_kk_v1:8733554910944593936",
+      "text_hash": "27381617b5eadbab7654a544ce3aec97faec33f39efc45610c90a7fd4ea582f1",
+      "text_id": "google_fleurs_kk_v1:prompt:1946"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1 2 7",
+      "sample_id": "google_fleurs_kk_v1:9161810616423051790",
+      "text_hash": "2170e6211ae759b0c7118e86207fa59dca5c57a71ec050b4e3e371e246f85be0",
+      "text_id": "google_fleurs_kk_v1:prompt:1800"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 7",
+      "sample_id": "google_fleurs_kk_v1:9255561269519807477",
+      "text_hash": "b604bdd782be7579ba4490f20ca96501c7e89e000f5de82eece34bb5a69d4060",
+      "text_id": "google_fleurs_kk_v1:prompt:1869"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1 9",
+      "sample_id": "google_fleurs_kk_v1:96001873715476538",
+      "text_hash": "99121f43b5b29946208a8b43e6a485381a2ee59bd021bb91d1182ced18cb40ee",
+      "text_id": "google_fleurs_kk_v1:prompt:1704"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 4",
+      "sample_id": "google_fleurs_kk_v1:9881574778245616613",
+      "text_hash": "2030bbcfd76cce28cb64263e130915d06978ce635c02ceaee780e41f5b3a7f7a",
+      "text_id": "google_fleurs_kk_v1:prompt:1684"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1 2 5 a b d e i l n o p r s u « »",
+      "sample_id": "google_fleurs_kk_v1:9936057803160572676",
+      "text_hash": "f9f4a086077dd99ee4c70e410b318f6b18b2c31bc1061820c92d4c4c36a50f47",
+      "text_id": "google_fleurs_kk_v1:prompt:1776"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: a d e g i n o r t",
+      "sample_id": "google_fleurs_ru_v1:11720526414504187623",
+      "text_hash": "579b067e6cc0d1f77822d13ac7373746aeef63fa9ac91ff33dc9c078357e3d98",
+      "text_id": "google_fleurs_ru_v1:prompt:1798"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 3 5",
+      "sample_id": "google_fleurs_ru_v1:1295187326794625413",
+      "text_hash": "0eafc8e72b7032822e526230c14f0387d018986212b85573e8750f9f9c7f0fe6",
+      "text_id": "google_fleurs_ru_v1:prompt:1685"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 4",
+      "sample_id": "google_fleurs_ru_v1:17608171913188414934",
+      "text_hash": "e4ee003262355e1ed8cfd0a7cf2eec682b975042ff57fc4b6e1526c5e2191981",
+      "text_id": "google_fleurs_ru_v1:prompt:1684"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 7",
+      "sample_id": "google_fleurs_ru_v1:1809379254155773372",
+      "text_hash": "022d987f4bdbfb062176bedfd50c75347faed047bdba2978d721a88e1dc5111b",
+      "text_id": "google_fleurs_ru_v1:prompt:1932"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 7",
+      "sample_id": "google_fleurs_ru_v1:2177343402251661651",
+      "text_hash": "1bf2c7ca5fa0d8a5c87192183d0f985e5d76f07d38971f6fa46a0565304d758a",
+      "text_id": "google_fleurs_ru_v1:prompt:1869"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1 2 9",
+      "sample_id": "google_fleurs_ru_v1:3084534182653267135",
+      "text_hash": "d7624b56a475b60af8143d90d4ab2e8f4818a198c4406807eff3a8edecd74a6e",
+      "text_id": "google_fleurs_ru_v1:prompt:1988"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1 2",
+      "sample_id": "google_fleurs_ru_v1:3856597593993028555",
+      "text_hash": "c8323f08f95142868d77f581b2180f12883b339be667dde321ac034e2c0fb289",
+      "text_id": "google_fleurs_ru_v1:prompt:1758"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1",
+      "sample_id": "google_fleurs_ru_v1:4033294954571550112",
+      "text_hash": "7f636301bfa877a3176c09c817d09d8bce0d90f383e8b31a13b93b76e1dcb882",
+      "text_id": "google_fleurs_ru_v1:prompt:1701"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 3 5",
+      "sample_id": "google_fleurs_ru_v1:5589367787808299703",
+      "text_hash": "6494dae3f63f9210ec0048ac0e72e83bffe9a90e9db83680d0c2ebd34b04d257",
+      "text_id": "google_fleurs_ru_v1:prompt:1722"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: —",
+      "sample_id": "google_fleurs_ru_v1:5877310789022788647",
+      "text_hash": "69912967baae1cfd62c69c4cef1333fb7b5080007dd2e88756f69833227cc74a",
+      "text_id": "google_fleurs_ru_v1:prompt:1814"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 1 7",
+      "sample_id": "google_fleurs_ru_v1:711612461751010015",
+      "text_hash": "6c0289f3309bdce569d6bb2e1d66b26491fd34481b07507cd0ed43dbc7ddc0db",
+      "text_id": "google_fleurs_ru_v1:prompt:1827"
+    },
+    {
+      "reason": "KazakhTTS input contains unsupported characters: 0 8",
+      "sample_id": "google_fleurs_ru_v1:9131659074294316738",
+      "text_hash": "4732a9b1ccf46a04c8f6d907b0ea1dcb222f84f03ebc8a2eb4ea2a760277e047",
+      "text_id": "google_fleurs_ru_v1:prompt:1937"
+    }
+  ],
+  "schema_version": 1,
+  "selected_base_rows": 168,
+  "selection_sha256": "dfd43c60d7b22bf0a93127f4f810be0b1900b66c0611aaf56e8f935a0d39e03d"
+}

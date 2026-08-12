@@ -1,0 +1,12 @@
+{
+  "input_manifest": "data/manifests/fresh_suite_stage_c_kazakhtts_raw_v2.csv",
+  "reused_rows": 0,
+  "published_rows": 167,
+  "rejected_rows": [
+    {
+      "sample_id": "fresh_suite_v1_kazakhtts_tacotron2_pwg:a0e24bfb528307e37fbb",
+      "relative_path": "raw/fresh_suite_v1_kazakhtts_tacotron2_pwg/slices/stage_c_normalized_v2/68d7dd12c59a08ca1e32-b3a226a39196.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    }
+  ]
+}

@@ -48,13 +48,18 @@ checkpoint и строго ограниченный evaluation-контур:
 - до synthesis заморожена all-eligible selection policy: 55 RU, 60 KK и 58 mixed groups без
   model-based отбора и backfill. Bona-fide QA оставил 50/60/58 rows; пять тихих RU recordings
   получили accounted rejection, combined ready слой содержит 168 rows;
+- character-inventory normalization заморожена до повторного synthesis и хранит отдельный hash
+  фактически произнесённого текста, не меняя исходные text IDs/hashes. Нормализованный run создал
+  168/168 WAV; audio QA оставил 167 и одну mixed строку отклонил без backfill. Опубликован
+  167-pair candidate (`50 RU / 60 KK / 57 mixed`) с нулевым exact sample/audio/text overlap
+  против 11 869 prior configured rows;
 - абсолютная architecture novelty заменена на доказуемый exact checkpoint/runtime gate, потому
   что historical RuASD manifests не содержат architecture IDs. ISSAI KazakhTTS2 Male2
   Tacotron2 + ParallelWaveGAN прошёл rights/artifact/config/exposure и CUDA technical-smoke
   checks без cloning/reference audio. Exact route новый, но Male2 speaker alias уже встречался
   через Piper, поэтому speaker-independence не заявляется. Два pre-inference listening review
-  одобрили `kk`, `ru` и `mixed` только для подготовки нового candidate; detector inference ещё
-  запрещён;
+  одобрили `kk`, `ru` и `mixed` только для подготовки нового candidate. Full-asset packet и две
+  167-row fail-closed формы теперь готовы; detector inference запрещён до их полного pass;
 - explicit source-mixed research matrix и B0 runner, который не допускает overlap исходных
   corpus между train/dev/final-test и проверяет обычный sample/SHA-256/group/text leakage поверх
   этого;
@@ -231,6 +236,16 @@ uv run python scripts/kazakhtts_stage_c_acoustic_gate.py evaluate \
   --reviewer-2 data/manifests/fresh_suite_stage_c_kazakhtts_acoustic_review_reviewer_2.csv \
   --evaluated-at 2026-08-12T00:00:00Z \
   --output-report data/manifests/fresh_suite_stage_c_kazakhtts_acoustic_gate_report_v1.json
+
+# Stage C full-asset gate: packet и обе формы уже созданы, prepare повторно не запускать.
+# После двух независимых reviews строго проверить 167 exact synthetic assets. Во всех
+# прошедших строках нужны pass/yes/yes/yes/no; любой иной ответ оставляет suite blocked.
+uv run python scripts/prepare_fresh_suite_stage_c_acoustic_gate.py evaluate \
+  --packet data/manifests/fresh_suite_stage_c_kazakhtts_full_acoustic_gate_packet_v1.csv \
+  --reviewer-1 data/manifests/fresh_suite_stage_c_kazakhtts_full_acoustic_review_reviewer_1.csv \
+  --reviewer-2 data/manifests/fresh_suite_stage_c_kazakhtts_full_acoustic_review_reviewer_2.csv \
+  --evaluated-at 2026-08-12T00:00:00Z \
+  --output-report data/manifests/fresh_suite_stage_c_kazakhtts_full_acoustic_gate_report_v1.json
 
 # Suite v1 уже оценён и повторно не запускается. Следующее имя plan — только шаблон:
 # файл создаётся вместе с новым suite и ранее не раскрытыми final assets. Сначала

@@ -1,0 +1,233 @@
+{
+  "candidate": {
+    "path": "data/manifests/fresh_suite_stage_c_candidate_v1.csv",
+    "rows": 334,
+    "sha256": "64d2f54d59f05eeb9211db7fba3280036798fc94c91b30440122001caca215c9"
+  },
+  "claims": {
+    "exact_assets_absent_from_prior_configured_roles": true,
+    "exact_generator_route_absent_from_prior_spoof_manifests": true,
+    "exact_texts_absent_from_prior_configured_roles": true,
+    "source_independent": false,
+    "speaker_independent": false,
+    "voice_alias_overlap_disclosed": true
+  },
+  "created_at": "2026-08-12T21:28:48+05:00",
+  "detector_inference_authorized": false,
+  "detector_inference_performed": false,
+  "generator_route_gate": {
+    "exact_route_overlap_rows": 0,
+    "path": "data/manifests/fresh_suite_stage_c_generator_route_gate_v1.json",
+    "sha256": "54da4a704b59f2a6ff24395a90dee013b3a1fd1a48e65355bab4008426358f57",
+    "voice_alias_overlap_rows": 312
+  },
+  "overlap_counts": {
+    "sample_id": 0,
+    "sha256": 0,
+    "text_hash": 0
+  },
+  "overlaps": {
+    "sample_id": [],
+    "sha256": [],
+    "text_hash": []
+  },
+  "pairing_receipt": {
+    "path": "data/manifests/fresh_suite_stage_c_kazakhtts_pairing_v1.json",
+    "sha256": "9012dcad2065d90072a41c5dd66eac08326156229b6ba08b87f4563998c2026a"
+  },
+  "protocol_id": "fresh-suite-stage-c-candidate-project-exposure-v1",
+  "schema_version": 1,
+  "scope": {
+    "comparison_fields": [
+      "sample_id",
+      "sha256",
+      "text_hash"
+    ],
+    "configuration_directory": "configs/research",
+    "configuration_files": [
+      {
+        "manifest_references": 0,
+        "path": "configs/research/espeakng_kk_v1_models.json",
+        "sha256": "9f874fa0508a1994bdde244eb9b7542b8bb60cd3bbac3e28aba27c4c62c0f872"
+      },
+      {
+        "manifest_references": 0,
+        "path": "configs/research/espeakng_ru_v1_models.json",
+        "sha256": "6e84fc467f65bda1a581a0bff3779f5b04337289325e63bda40667e1ff629825"
+      },
+      {
+        "manifest_references": 0,
+        "path": "configs/research/fresh_suite_stage_c_kazakhtts_smoke_v1.json",
+        "sha256": "92f695ad964c27b4e749a728919083c51f4a9ead37ec3f0e9ccea67db3a3f40b"
+      },
+      {
+        "manifest_references": 0,
+        "path": "configs/research/kazakhtts_tacotron2_pwg_v1_models.json",
+        "sha256": "1ee5150c1c9c5f69b33cc4a4a67148904079651830b0a144f8647af10c8cf68e"
+      },
+      {
+        "manifest_references": 0,
+        "path": "configs/research/kazemotts_kk_v1_models.json",
+        "sha256": "a88c900f2217f49f129087012095b4c8cc99f7da4d9bae568ff9e95fe6d5e67b"
+      },
+      {
+        "manifest_references": 0,
+        "path": "configs/research/ksc_derived_kk_v1_models.json",
+        "sha256": "0b47a62fe467f7bfe95724a366e0a223ae28a7a14510acc7bb3936702f1c8d9f"
+      },
+      {
+        "manifest_references": 0,
+        "path": "configs/research/silero_v4_cyrillic_v1_models.json",
+        "sha256": "b1cd921e743c24fb5be6129973c10b35cc0b728e6e37bf061d10328bdcdfc629"
+      },
+      {
+        "manifest_references": 3,
+        "path": "configs/research/source_mixed_v1.json",
+        "sha256": "f2b8bea79f15b78ee289b1a75e3a9da316d9b01839432865cfe70b8a995151e8"
+      },
+      {
+        "manifest_references": 3,
+        "path": "configs/research/source_mixed_v2_kk.json",
+        "sha256": "939b601ca3f87a2d6d68bd238f5d48188c2de7ecf612600e59704e3148dd8f4e"
+      },
+      {
+        "manifest_references": 3,
+        "path": "configs/research/source_mixed_v3_kazemotts.json",
+        "sha256": "23908058f04f76009fcc8b428c478d9eae95f02876c0cf745a479fd0fcfe9e82"
+      },
+      {
+        "manifest_references": 3,
+        "path": "configs/research/source_mixed_v4_sparktts.json",
+        "sha256": "73c1ad5a3538546d833b65ee8770f29b8232f8d7ae24aa096884519818f54de8"
+      },
+      {
+        "manifest_references": 3,
+        "path": "configs/research/source_mixed_v5_espeakng.json",
+        "sha256": "44abf2b8f7c4aee855e80bec1c106e6c0f58d7c153d938909837037c2eafc405"
+      },
+      {
+        "manifest_references": 0,
+        "path": "configs/research/sparktts_kk_v1_models.json",
+        "sha256": "bc0febaf0f4b0113d21df3583add2ae60106cc0f315148eaf52f81bc6f9e1c45"
+      },
+      {
+        "manifest_references": 5,
+        "path": "configs/research/unseen_generator_ood_v1.json",
+        "sha256": "eab57c633a0661c54e02808bb42280fe72ea4d0e403134a1bb877b351d3d6359"
+      },
+      {
+        "manifest_references": 2,
+        "path": "configs/research/xlsr_sls_stage_a_v1.json",
+        "sha256": "4cdb63f6490238f7c453afeab59f3c32bf0bdf1bbc5598e6d95e7847832f6d7e"
+      },
+      {
+        "manifest_references": 2,
+        "path": "configs/research/xlsr_sls_stage_a_v2.json",
+        "sha256": "cc5de1383082eda290d07f90337022b95ea95a3c57fe5030255f14f5d0cb3ae7"
+      },
+      {
+        "manifest_references": 1,
+        "path": "configs/research/xlsr_sls_stage_b_v1.json",
+        "sha256": "264c10cfdee74e0ee2e75990bbbeeb5725f0aef0e254b8cdf90029015c40e731"
+      },
+      {
+        "manifest_references": 1,
+        "path": "configs/research/xlsr_sls_stage_b_v1_ksc2_mixed_exploratory_30.json",
+        "sha256": "4355cd3a8dd361ae5aebbceb9b4fc40c2d77ffc7a7a34142c947179545700070"
+      },
+      {
+        "manifest_references": 1,
+        "path": "configs/research/xlsr_sls_stage_b_v1_tone_speak_ru_ood_100.json",
+        "sha256": "b655abcdf90b3d53cd2d32065e4296436dd3467a94cb5cce60f9e2e2c7a544b0"
+      },
+      {
+        "manifest_references": 1,
+        "path": "configs/research/xlsr_sls_stage_b_v2.json",
+        "sha256": "edec0e98fabf9af4ebb4526005d03e5af2b1fcae3e5854bc3a6e5c6d83f8d8d5"
+      },
+      {
+        "manifest_references": 7,
+        "path": "configs/research/xlsr_sls_stage_b_v2_research_final_v1.json",
+        "sha256": "1dfc3ca866607191385b33b85a1ee67cb3981099c6fc836aef720c6c2610d4fc"
+      }
+    ],
+    "prior_rows": 11869,
+    "referenced_manifests": [
+      {
+        "path": "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv",
+        "rows": 304,
+        "sha256": "e23f1ce80dbc866eafd4fe1f488f2f55c5705bef1bd9b12e33ce80632328dac2"
+      },
+      {
+        "path": "data/manifests/fleurs_ru_v1_espeakng_test_75.csv",
+        "rows": 150,
+        "sha256": "65b12c43df18fcf7d1ea6b38d2e951cc505963241f5d821092b035b56c9a3af8"
+      },
+      {
+        "path": "data/manifests/ksc2_mixed_v1_silero_v4_candidate_30.csv",
+        "rows": 60,
+        "sha256": "dafa33d424da8efab19d849afeeeb11c279d2e6c10ff187f3a57cada76c6c4a8"
+      },
+      {
+        "path": "data/manifests/ksc_derived_kk_v1_test_921.csv",
+        "rows": 1842,
+        "sha256": "aed7c7f98236244d65598f48e761988806797568cd9a1c539b315ef2c15917f7"
+      },
+      {
+        "path": "data/manifests/ksc_derived_kk_v2_kazemotts_test_359.csv",
+        "rows": 718,
+        "sha256": "2553ba1f174f18589796b086be777a24992ed26242dc061c101929cd383ebb5e"
+      },
+      {
+        "path": "data/manifests/ksc_derived_kk_v3_sparktts_test_381.csv",
+        "rows": 762,
+        "sha256": "4f903fdf95fc64584d923448efc6c1f01eee65d6a476baa661107efda0841364"
+      },
+      {
+        "path": "data/manifests/ksc_derived_kk_v4_espeakng_test_358.csv",
+        "rows": 716,
+        "sha256": "7e7920177887c8dc23b91a60e61080663b2d9f9e2f047cce593d238bc3802db4"
+      },
+      {
+        "path": "data/manifests/ml_df_it_v1_ood_200_ready.csv",
+        "rows": 192,
+        "sha256": "951582973a8f31aca4585f2136e68e35267a62568e988910d4ad417e2a759da8"
+      },
+      {
+        "path": "data/manifests/pyara_ru_v7_fresh_dev_1000_ready_v2.csv",
+        "rows": 970,
+        "sha256": "7ae57e0714b5a245079902e06adaca7a02c423418e2e37bfded6d55c6db0d2f0"
+      },
+      {
+        "path": "data/manifests/pyara_ru_v7_fresh_dev_1000_ready_v3.csv",
+        "rows": 969,
+        "sha256": "39261826df9f51bbb23dcc8efa489c4f2c0bfe894361791fa99d63407bb3c4ea"
+      },
+      {
+        "path": "data/manifests/pyara_ru_v7_research_500_ready.csv",
+        "rows": 481,
+        "sha256": "3b8357c0acd7efbd603218e49536ab80046764301594ee1e4f7def68155a70eb"
+      },
+      {
+        "path": "data/manifests/pyara_ru_v7_stage_b_calibration_dev_1000_ready_v3.csv",
+        "rows": 976,
+        "sha256": "7fe2c89be7f02eea1abdfc369fc9c16185b0a395fa2526b5b2c58e361fa8fa31"
+      },
+      {
+        "path": "data/manifests/ruasd_ru_v1_full_research_2000_ready.csv",
+        "rows": 1814,
+        "sha256": "bad6981d86d7c620ad1cda32208e3d5e6cb00b7985a242a35ba279b4e2226072"
+      },
+      {
+        "path": "data/manifests/ruasd_ru_v1_full_research_2000_ready_v2.csv",
+        "rows": 1815,
+        "sha256": "82518a2e4e40ef39fa3bcc0c197f717ef83e5f7310cfee53bf546a55fe3ba4cc"
+      },
+      {
+        "path": "data/manifests/tone_speak_ru_v1_ood_ready_100.csv",
+        "rows": 100,
+        "sha256": "45527f97ddbb5be65ea12ff8a8ed7b723e9d1135aff0cde71addd95366dc84a0"
+      }
+    ]
+  }
+}

@@ -32,7 +32,7 @@ def _valid_ledger() -> str:
 def test_current_mutable_license_ledger_has_strict_csv_shape() -> None:
     assert _script().audit_license_ledger_csv(
         Path("data/licenses/license_ledger.csv")
-    ) == 23
+    ) == 24
 
 
 def test_audit_rejects_extra_unquoted_row_field(tmp_path: Path) -> None:

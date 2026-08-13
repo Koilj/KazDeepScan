@@ -14,8 +14,8 @@ test; результаты не source-, speaker- или architecture-family-ind
 
 Для будущих unevaluated layers принят трёхуровневый evidence policy: основной независимый слой,
 external source/generator-family holdout с непроверенным TTS training-data overlap и same-family
-sensitivity test. Denis source intake/exposure screen теперь завершён; это ещё не paired candidate,
-VoxCPM2 artifact lock, synthesis или inference result.
+sensitivity test. Denis source intake/exposure и official VoxCPM2 artifact/source/history gates
+теперь завершены; это ещё не paired candidate, runtime/CUDA smoke, synthesis или inference result.
 
 Этот файл намеренно краткий. Архитектура описана в
 [KazDeepScan_implementation_blueprint.md](KazDeepScan_implementation_blueprint.md), следующие
@@ -26,7 +26,7 @@ VoxCPM2 artifact lock, synthesis или inference result.
 - Безопасный audio pipeline: проверка media, FFmpeg decode, QA, WebRTC VAD, 16 kHz mono WAV и
   окна 4.04 s.
 - Строгие manifests, SHA-256 asset validation, license ledger/snapshots, group-aware split и
-  leakage checks. Separate license-ledger CSV gate fail closed при non-exact header и extra row fields; все `23`
+  leakage checks. Separate license-ledger CSV gate fail closed при non-exact header и extra row fields; все `24`
   mutable-ledger строки загружаются без обрезания comma-containing `notes`, frozen snapshots
   не изменены.
 - Source-specific intake и аудиты RU/KK/mixed datasets; raw audio и weights исключены из Git.
@@ -37,7 +37,12 @@ VoxCPM2 artifact lock, synthesis или inference result.
   но corpus single-speaker, а `12` unique historical `ru_RU-denis-medium` samples (`11` train,
   `1` dev) делают speaker lineage likely exposed. Route остаётся external holdout с
   `TTS training-data overlap unverified`, не speaker-independent/robust evidence.
-  Official OpenBMB VoxCPM2 пока не скачивался и не загружался.
+  Official OpenBMB VoxCPM2 exact model revision `bffb3d…` и source commit `ee8161…` закреплены:
+  `9` files / `4,960,731,703` bytes, `577` contiguous BF16 safetensors tensors, `316`-member
+  AudioVAE ZIP и `312`-tensor weights-only state, tokenizer/source safety pass. History screen
+  связал `95` manifests / `40,682` rows / `19,001` spoof rows и нашёл `0` VoxCPM rows, поэтому
+  generator family новый для проекта. Runtime/CUDA load и smoke ещё не выполнялись;
+  training-data overlap/default voice identity не подтверждены.
   MCSKL остаётся blocked из-за `78/73` participant и `CC BY` / `CC BY-NC-SA` конфликтов;
   VoxCPM2-KZ-Darwin не раскрывает provenance Kazakh LoRA/base достаточно и после RU VoxCPM2
   является same-family sensitivity, не новым generator-family layer.
@@ -272,11 +277,11 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
    immutable contract, preflight, execution lock и report без изменений. Не повторять inference,
    не использовать 12 final errors для tuning/replacement и не использовать UtrobinTTS как
    backfill. Новый research layer требует genuinely new source/route и отдельный contract.
-4. Denis source intake/exposure gate завершён: сохранить exact archive/receipt hashes, zero direct
-   overlap и likely speaker-lineage disclosure без изменений. Следующим выполнить только
-   official OpenBMB VoxCPM2 artifact/runtime intake: full revision, all-file size/SHA-256,
-   Python 3.12, `audiovae.pth` safe-load, tokenizer-code и offline-wrapper audit. На этом этапе
-   model не загружать, selection/smoke/synthesis/detector inference не выполнять.
+4. Denis source и official VoxCPM2 artifact/source/history gates завершены: сохранить exact
+   archive/model/source/receipt hashes, zero direct source overlap, likely speaker-lineage и
+   unverified TTS-training-overlap disclosures без изменений. Следующим создать isolated Python
+   3.12 dependency lock и выполнить только один non-candidate text-only CUDA smoke с внешним
+   network block. Selection/candidate synthesis/detector inference не выполнять.
 5. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 
@@ -357,3 +362,4 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [License-ledger snapshots](docs/license_ledger_snapshots.md)
 - [External holdout policy и VoxCPM2 candidate review](docs/external_holdout_policy_and_voxcpm2_candidates_2026-08-14.md)
 - [Denis 1.0 source intake и exposure screen](docs/data_sources_denis_1_0_mdc_2026-08-14.md)
+- [Official OpenBMB VoxCPM2 artifact/source/history gate](docs/data_sources_voxcpm2_official_2026-08-14.md)

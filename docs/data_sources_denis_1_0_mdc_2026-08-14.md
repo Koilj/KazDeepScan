@@ -1,8 +1,9 @@
 # Denis 1.0 / Mozilla Data Collective — source intake, 14 августа 2026
 
 **Статус:** completed read-only source-level archive intake и source-wide project-exposure
-screen. Это ещё не frozen selection, raw/ready manifest, VoxCPM2 artifact lock, synthesis,
-acoustic review или detector inference.
+screen. Отдельный VoxCPM2 artifact/source/history gate теперь также завершён, но это ещё не
+frozen selection, raw/ready manifest, runtime/CUDA smoke, synthesis, acoustic review или
+detector inference.
 
 **Допустимая роль:** personal-research external holdout only. Источник single-speaker и имеет
 вероятную historical speaker-lineage экспозицию; speaker-disjoint, speaker-independent и
@@ -77,10 +78,11 @@ retry/backfill и post-result tuning не ослаблены.
 minimum `60` и target `79`. Это pre-QA feasibility, не `ready`: VAD, waveform QA, text
 compatibility и acoustic review ещё не выполнялись. Снижать минимум ниже `60` не нужно.
 
-NBSP и trailing whitespace нельзя молча нормализовать после selection. До freeze нужен отдельный
-metadata-only text-compatibility rule: либо literal text проходит pinned VoxCPM2 wrapper при
-`normalize=False`, либо строка заранее исключается. С `1,150` уникальными текстами это не требует
-backfill по результатам detector/TTS.
+NBSP и trailing whitespace нельзя молча менять после selection. Exact VoxCPM2 `core.py`
+безусловно схлопывает whitespace даже при `normalize=False`, поэтому до freeze разрешена и
+закреплена ровно одна metadata-only операция: `" ".join(text.split())`. Future manifest обязан
+связать literal и collapse-whitespace SHA-256; semantic normalization/rewrite запрещён. С
+`1,150` уникальными текстами это не требует backfill по результатам detector/TTS.
 
 ## Project exposure и speaker lineage
 
@@ -121,7 +123,8 @@ Denis source gate **пройден** для ограниченного марш�
 лексический/domain запас, хотя не speaker diversity. Будущий selection может распределять строки
 между General/Chat/CustomerService, но это не заменяет diversity людей и не меняет claim.
 
-Следующий отдельный этап — только artifact/runtime intake official OpenBMB VoxCPM2: повторно
-разрешить full revision, скачать snapshot вне Git, закрепить все sizes/SHA-256, Python 3.12
-environment, проверить `audiovae.pth` safe load, tokenizer code и offline wrapper. Пока запрещены
-frozen text selection, raw materialization, smoke, candidate synthesis и detector inference.
+Official OpenBMB VoxCPM2 artifact/source/history gate уже завершён: exact snapshot/source,
+checkpoint safety, narrow offline text-only wrapper и нулевой historical VoxCPM route закреплены.
+Следующий отдельный этап — isolated dependency/runtime lock и один non-candidate CUDA smoke без
+detector inference. Пока запрещены frozen text selection, raw materialization и candidate
+synthesis.

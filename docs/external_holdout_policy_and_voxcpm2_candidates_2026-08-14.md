@@ -1,9 +1,9 @@
 # Evidence tiers and VoxCPM2 holdout candidates — 14 августа 2026
 
-**Статус:** policy/source review и отдельный Denis 1.0 read-only source intake/exposure screen
-завершены. Этот документ не является VoxCPM2 artifact lock, frozen selection, разрешением на
-synthesis или detector inference. Denis archive проверен вне Git; MCSKL и VoxCPM2 checkpoints
-локально не загружались и не исполнялись.
+**Статус:** policy, Denis 1.0 source intake/exposure и official VoxCPM2
+artifact/source/project-history gates завершены. Runtime environment/CUDA smoke, frozen
+selection, synthesis и detector inference не выполнялись. Denis archive и VoxCPM2 model/source
+bytes проверены вне Git; MCSKL и VoxCPM2-KZ-Darwin локально не загружались.
 
 **Scope:** personal research. Ранее выполненные write-once runs, их manifests, reports, hashes и
 запреты на повтор остаются неизменными.
@@ -65,7 +65,9 @@ audio полным проходом audited decoder. Такой derived duration
    эти значения от CLI/config. Voice-design/control prefix также запрещён для claim
    `default voice`.
 4. `normalize=False`, `denoise=False`, `retry_badcase=False`; ровно одна попытка на frozen text,
-   без скрытого retry или отбора «лучшего» WAV.
+   без скрытого retry или отбора «лучшего» WAV. Если exact upstream всё равно применяет
+   детерминированный whitespace collapse, он разрешён только как заранее объявленный transform
+   с literal/canonical hash binding; semantic TN/rewrite остаётся запрещён.
 5. Output маркируется `text-only default voice`; не заявляются fixed real identity, совпадение с
    bona-fide speaker, cloning или speaker independence.
 6. Smoke test выполняется на отдельном non-candidate тексте и без detector inference. Candidate
@@ -120,19 +122,21 @@ speaker-disjoint** относительно detector training. Human archive о�
 [API reference](https://voxcpm.readthedocs.io/en/latest/reference/api.html) и
 [technical report](https://arxiv.org/html/2606.06928v1).
 
-- Наблюдавшийся current HF revision: `bffb3df5a29440629464e5e839f4d214c8714c3d`;
-  intake обязан повторно разрешить и закрепить полный commit, а не использовать mutable `main`.
+- Exact HF revision закреплён как `bffb3df5a29440629464e5e839f4d214c8714c3d`, официальный
+  source commit — `ee8161e9e1b7b082cb5721a3a9980da4204401e6`; mutable `main` не используется.
 - Модель имеет 2B parameters, Apache-2.0 и официальную поддержку Russian; basic TTS запускается
   без reference audio и выдаёт 48 kHz output.
 - Это новая для project manifests tokenizer-free diffusion-autoregressive family
   (`LocEnc -> TSLM -> RALM -> LocDiT`), а не Piper/MMS/VITS/RHVoice/eSpeak/Qwen3-TTS.
-- Snapshot около `4.96 GB` содержит `model.safetensors` около `4.58 GB`, но также
-  `audiovae.pth` около `377 MB` с pickle imports и local tokenizer Python file. Поэтому маршрут
-  **не полностью safetensors**: до model load нужны file allow-list, safe-load/code audit и
-  подтверждение tensor-only AudioVAE loading.
-- Upstream требует Python `>=3.10,<3.13`, тогда как текущая project venv — Python `3.13.15`.
-  Любой smoke требует отдельного pinned Python 3.12 environment; менять основной lock ради TTS
-  нельзя.
+- Exact `9` files / `4,960,731,703` bytes включают `model.safetensors` и `audiovae.pth`.
+  Safetensors header/`577` BF16 tensors и contiguous payload проверены; AudioVAE ZIP CRC,
+  pickle `GLOBAL` allow-list и `312`-tensor CPU `torch.load(weights_only=True)` state прошли.
+  Tokenizer Python и весь official source tar также проверены до model load.
+- Exact current source требует Python `>=3.10`, а не прежнее наблюдение `<3.13`. Для smoke всё
+  равно выбран отдельный Python 3.12 environment; основной project venv не меняется.
+- Upstream безусловно схлопывает whitespace даже при `normalize=False`. Project wrapper заранее
+  выполняет только `" ".join(text.split())`, связывает literal/canonical hashes и запрещает
+  semantic normalizer.
 - Model card рекомендует 1–3 generation attempts из-за вариативности. Project contract это
   сознательно запрещает: один frozen seed, одна попытка, любой reject остаётся reject.
 
@@ -144,18 +148,21 @@ Denis/OHF material в training data; Apache-2.0 weights/code license сама п
 
 ## 6. Решение по Denis 1.0 × official VoxCPM2
 
-**Source gate пройден; route условно принят для следующего VoxCPM2 artifact/runtime intake уровня
-external holdout.** Exact source sample/audio/text overlap равен нулю по `34` configs и `95`
-manifest files, но historical speaker-lineage ограничение остаётся. Если runtime и последующие
-gates пройдут, допустимая маркировка результата:
+**Source и VoxCPM2 artifact/source/project-history gates пройдены; route принят для следующего
+изолированного runtime/CUDA smoke уровня external holdout.** Exact source sample/audio/text
+overlap равен нулю по `34` configs и `95` manifest files; отдельный history screen проверил
+`40,682` rows / `19,001` spoof rows и нашёл `0` VoxCPM rows. Generator family новый, но
+historical speaker-lineage ограничение остаётся. Если runtime и последующие gates пройдут,
+допустимая маркировка результата:
 
 > external human-source- and generator-family-disjoint RU holdout; TTS training-data overlap
 > unverified; likely historical speaker-lineage exposure through RuASD Piper Denis; single
 > speaker; not speaker-robust or speaker-independent; personal research only.
 
 Это полезнее ещё одного exact-route test на Common Voice/VoxForge и historical TTS family, но не
-закрывает основной independent/speaker-robust evidence gap. Source intake сам по себе не
-разрешает model load, smoke, selection, synthesis или detector inference.
+закрывает основной independent/speaker-robust evidence gap. Artifact gate сам по себе не
+разрешает candidate selection, synthesis или detector inference; разрешён только следующий
+отдельно закреплённый non-candidate smoke.
 
 ## 7. MCSKL × VoxCPM2-KZ-Darwin
 
@@ -210,9 +217,9 @@ sensitivity/source-diversity test**, а не вторым новым generator-f
    historical lineage receipt уточнил `12` unique Piper Denis samples. Selection, VAD и acoustic
    QA ещё не выполнены; если после них меньше `60` строк — stop без backfill, `60–78` допустимы
    только как minimum layer, `79+` позволяют frozen target `79` без speaker-robust claim.
-4. Следующим отдельно pin official VoxCPM2 source + model snapshot и Python 3.12 runtime;
-   проверить all-file hashes, AudioVAE safe load, tokenizer code, offline fail-closed wrapper и
-   historical generator-family exposure. Model ещё не загружать на этапе artifact audit.
-5. После двух успешных intake gates отдельным commit разрешить один non-candidate text-only smoke
-   без detector inference. Candidate selection/synthesis и write-once evaluation требуют новых
-   последующих contracts.
+4. **Завершено:** official VoxCPM2 model revision и source commit, `9` model files, source TAR,
+   safetensors, AudioVAE weights-only load, tokenizer/source code, narrow wrapper и historical
+   generator-family exposure закреплены; model не загружался, synthesis не выполнялся.
+5. Следующим создать isolated Python 3.12 dependency lock и выполнить ровно один non-candidate
+   text-only CUDA smoke с внешним network block и без detector inference. Candidate selection,
+   synthesis и write-once evaluation требуют новых последующих contracts.

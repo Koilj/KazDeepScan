@@ -15,7 +15,7 @@ checkpoint и строго ограниченный evaluation-контур:
 - CSV-манифест с проверкой прав, происхождения и leakage между split-ами;
 - fail-closed license-ledger CSV gate: non-exact header и extra row fields отклоняются, а
   поля с запятыми обязаны быть CSV-quoted; текущий mutable ledger strict-loads все
-  `22/22` строки, frozen snapshots не изменены;
+  `24/24` строки, frozen snapshots не изменены;
 - KSC / OpenSLR SLR102 downloader с проверкой размера и gzip CRC, а также ingestion только из
   чистого архива; metadata и транскрипции берутся из его `Meta/` + `Transcriptions/`;
 - Common Voice Russian v24 intake с pinned размером и SHA-256 archive, tar whitelist,
@@ -132,9 +132,13 @@ checkpoint и строго ограниченный evaluation-контур:
   voice contract без reference/prompt audio, normalizer, denoiser и retry. Denis 1.0 source
   intake/exposure screen пройден: `1,150` exact pairs, `1,143` rows `>=2.5` s и zero direct
   sample/audio/text overlap. Но source single-speaker и likely speaker-lineage exposed через `12`
-  unique historical `ru_RU-denis-medium` samples (`11` train, `1` dev); следующий gate — только
-  official VoxCPM2 artifact/runtime intake. MCSKL/VoxCPM2-KZ-Darwin остаётся blocked review и
-  после RU route считается той же VoxCPM2 family;
+  unique historical `ru_RU-denis-medium` samples (`11` train, `1` dev). Official VoxCPM2
+  artifact/source/history gate также пройден: exact `9` model files / `4,960,731,703` bytes,
+  official source commit, safetensors, AudioVAE weights-only state и tokenizer/source code
+  проверены; `0` VoxCPM rows среди `40,682` historical rows подтверждают новую для проекта
+  generator family. Runtime/CUDA smoke ещё не выполнен, training-data overlap остаётся
+  unverified. Следующий gate — isolated Python 3.12 lock и один non-candidate text-only smoke;
+  MCSKL/VoxCPM2-KZ-Darwin остаётся blocked review и после RU route считается той же family;
 - FastAPI health/readiness/upload scaffold, который не выдаёт score без обученного,
   калиброванного model release.
 
@@ -459,4 +463,6 @@ quality.
 Политика силы будущих доказательств, проверка Denis/VoxCPM2 и условный MCSKL/KZ route описаны в
 [external holdout policy/source review](docs/external_holdout_policy_and_voxcpm2_candidates_2026-08-14.md).
 Завершённый exact Denis archive/source-exposure intake и ограничения speaker lineage
-зафиксированы в [source receipt](docs/data_sources_denis_1_0_mdc_2026-08-14.md).
+зафиксированы в [source receipt](docs/data_sources_denis_1_0_mdc_2026-08-14.md), а exact
+VoxCPM2 artifact/source/history gate — в
+[model/source receipt](docs/data_sources_voxcpm2_official_2026-08-14.md).

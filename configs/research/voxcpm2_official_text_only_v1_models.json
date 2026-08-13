@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "protocol_id": "voxcpm2-official-text-only-v1",
+  "models": [
+    {
+      "model_id": "openbmb_voxcpm2_official_text_only",
+      "destination": "voxcpm2_official_v1",
+      "generator_family": "openbmb_voxcpm2_official_text_only",
+      "generator_name": "Official OpenBMB VoxCPM2 text-only default voice",
+      "generator_version": "model-bffb3df5a29440629464e5e839f4d214c8714c3d; source-ee8161e9e1b7b082cb5721a3a9980da4204401e6; wrapper-4f9ad38da0ccbda4b97d263ee0c382d91b11edfceb9fea87d0a4229a79c32cde",
+      "license": "Apache-2.0 published model/code; training-source overlap remains unverified; personal-research external holdout only",
+      "source_url": "https://huggingface.co/openbmb/VoxCPM2/tree/bffb3df5a29440629464e5e839f4d214c8714c3d",
+      "runtime": {
+        "kind": "openbmb_voxcpm2_official_local_text_only",
+        "source_revision": "ee8161e9e1b7b082cb5721a3a9980da4204401e6",
+        "python_policy": "isolated_cpython_3_12_preferred_exact_upstream_requires_gte_3_10",
+        "device": "cuda",
+        "sample_rate": 48000,
+        "network": "outer_network_block_required_plus_offline_environment",
+        "local_files_only": true,
+        "text_input_only": true,
+        "default_voice_identity": "unknown_not_claimed",
+        "reference_audio_policy": "forbidden_null_only",
+        "prompt_audio_policy": "forbidden_null_only",
+        "prompt_text_policy": "forbidden_null_only",
+        "voice_cloning": false,
+        "lora_weights_policy": "forbidden_null_only",
+        "load_denoiser": false,
+        "normalize": false,
+        "denoise": false,
+        "retry_badcase": false,
+        "retry_badcase_max_times": 1,
+        "streaming": false,
+        "seed": 20260814,
+        "cfg_value": 2.0,
+        "inference_timesteps": 10,
+        "min_len": 2,
+        "max_len": 4096,
+        "text_policy": "bind literal and collapse-whitespace SHA-256 before selection; pass collapse-whitespace text only; no semantic rewrite or external normalizer",
+        "wrapper_module": "src/kds/data/voxcpm2_text_only.py",
+        "wrapper_sha256": "4f9ad38da0ccbda4b97d263ee0c382d91b11edfceb9fea87d0a4229a79c32cde",
+        "artifact_source_receipt": "data/licenses/voxcpm2_official_v1_artifact_source_receipt.json",
+        "artifact_source_receipt_sha256": "84d5572840837d5fb6ef92202c53be4162d8116cdced0abfbcf7e0414890fcb8",
+        "project_history_receipt": "data/manifests/voxcpm2_official_project_history_screen_v1.json",
+        "project_history_receipt_sha256": "0a86e2677f0d8ec64dd2206720d7d95a6b9ec01e2aec38f4669a9544399558d7",
+        "runtime_environment_materialized": false,
+        "cuda_load_verified": false,
+        "text_only_smoke_verified": false
+      },
+      "artifacts": [
+        {
+          "relative_path": "model/.gitattributes",
+          "url": "https://huggingface.co/openbmb/VoxCPM2/resolve/bffb3df5a29440629464e5e839f4d214c8714c3d/.gitattributes",
+          "expected_size_bytes": 1519,
+          "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361"
+        },
+        {
+          "relative_path": "model/README.md",
+          "url": "https://huggingface.co/openbmb/VoxCPM2/resolve/bffb3df5a29440629464e5e839f4d214c8714c3d/README.md",
+          "expected_size_bytes": 7776,
+          "sha256": "7384fad93ce2d98f47d5c3170597f3b31d414c12c92e7fdf3121fa90f19fe29d"
+        },
+        {
+          "relative_path": "model/audiovae.pth",
+          "url": "https://huggingface.co/openbmb/VoxCPM2/resolve/bffb3df5a29440629464e5e839f4d214c8714c3d/audiovae.pth",
+          "expected_size_bytes": 376951122,
+          "sha256": "94b5d51e107e0507d4acc976cfdadb64edd6fd06d1f751dadbf2fd1594274bf1"
+        },
+        {
+          "relative_path": "model/config.json",
+          "url": "https://huggingface.co/openbmb/VoxCPM2/resolve/bffb3df5a29440629464e5e839f4d214c8714c3d/config.json",
+          "expected_size_bytes": 4336,
+          "sha256": "405f0dcd92f7feba6011ed4eac5c8d4f74cba9712f07fd5cfa3063bbdd95402c"
+        },
+        {
+          "relative_path": "model/model.safetensors",
+          "url": "https://huggingface.co/openbmb/VoxCPM2/resolve/bffb3df5a29440629464e5e839f4d214c8714c3d/model.safetensors",
+          "expected_size_bytes": 4580080592,
+          "sha256": "f7f964cfa9da23653baec6e6f7750719977ad944ed9f95fe52fe3a620506891d"
+        },
+        {
+          "relative_path": "model/special_tokens_map.json",
+          "url": "https://huggingface.co/openbmb/VoxCPM2/resolve/bffb3df5a29440629464e5e839f4d214c8714c3d/special_tokens_map.json",
+          "expected_size_bytes": 1632,
+          "sha256": "068594063e37662c02b21acf42ebb334ef6a74fb810e68a2368f88f08351de76"
+        },
+        {
+          "relative_path": "model/tokenization_voxcpm2.py",
+          "url": "https://huggingface.co/openbmb/VoxCPM2/resolve/bffb3df5a29440629464e5e839f4d214c8714c3d/tokenization_voxcpm2.py",
+          "expected_size_bytes": 2895,
+          "sha256": "84489ea32b6ee0cae22ed5480cacb6df85c46624c3119be9a2021c3649a12729"
+        },
+        {
+          "relative_path": "model/tokenizer.json",
+          "url": "https://huggingface.co/openbmb/VoxCPM2/resolve/bffb3df5a29440629464e5e839f4d214c8714c3d/tokenizer.json",
+          "expected_size_bytes": 3676772,
+          "sha256": "f8984687e4a92a3503d521396d454b7d68e9fdaab2a0288eb3536c7c1aa4bc20"
+        },
+        {
+          "relative_path": "model/tokenizer_config.json",
+          "url": "https://huggingface.co/openbmb/VoxCPM2/resolve/bffb3df5a29440629464e5e839f4d214c8714c3d/tokenizer_config.json",
+          "expected_size_bytes": 5059,
+          "sha256": "e78a3ebb48a0b9437efd1823b6b726c823da89e49dd8bcc90c02419d9baa772b"
+        },
+        {
+          "relative_path": "source/source.tar.gz",
+          "url": "https://github.com/OpenBMB/VoxCPM/archive/ee8161e9e1b7b082cb5721a3a9980da4204401e6.tar.gz",
+          "expected_size_bytes": 4107908,
+          "sha256": "5af8b4def8dc200c3a0b660b63d4a08a1cf5cadcb5c5371c0b89d5f0f58c0674"
+        }
+      ]
+    }
+  ]
+}

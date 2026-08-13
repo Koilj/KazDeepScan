@@ -1,0 +1,165 @@
+{
+  "model_revision": "bffb3df5a29440629464e5e839f4d214c8714c3d",
+  "source_revision": "ee8161e9e1b7b082cb5721a3a9980da4204401e6",
+  "model_files": 9,
+  "model_bytes": 4960731703,
+  "model_inventory_sha256": "10e641b2787d50198a69c8a0b32c01e6586a7975056f68210bf899640905f3f2",
+  "architecture": "voxcpm2",
+  "output_sample_rate_hz": 48000,
+  "safetensors_header_bytes": 71496,
+  "safetensors_tensors": 577,
+  "safetensors_dtype_counts": {
+    "BF16": 577
+  },
+  "safetensors_payload_bytes": 4580009088,
+  "safetensors_offsets_contiguous": true,
+  "audiovae_zip_members": 316,
+  "audiovae_zip_crc_verified": true,
+  "audiovae_pickle_globals": [
+    "collections.OrderedDict",
+    "torch.FloatStorage",
+    "torch.IntStorage",
+    "torch._utils._rebuild_tensor_v2"
+  ],
+  "audiovae_weights_only_loaded": true,
+  "audiovae_state_tensors": 312,
+  "audiovae_state_dtype_counts": {
+    "float32": 311,
+    "int32": 1
+  },
+  "audiovae_state_elements": 94213957,
+  "audiovae_sample_rate_hz": 16000,
+  "tokenizer_python_imports": [
+    "transformers"
+  ],
+  "tokenizer_python_forbidden_calls": [],
+  "source_archive_members": 98,
+  "source_archive_files": 75,
+  "source_archive_directories": 23,
+  "source_archive_regular_bytes": 5941036,
+  "source_gzip_crc_verified": true,
+  "source_torch_load_calls": 11,
+  "source_torch_load_all_weights_only": true,
+  "source_license": "Apache-2.0",
+  "source_requires_python": ">=3.10",
+  "local_path_loader_verified": true,
+  "denoiser_can_be_disabled": true,
+  "semantic_normalizer_can_be_disabled": true,
+  "retry_can_be_disabled": true,
+  "upstream_whitespace_collapse_unconditional": true,
+  "tts_model_loaded": false,
+  "synthesis_performed": false,
+  "detector_inference_performed": false,
+  "schema_version": 1,
+  "protocol_id": "voxcpm2-official-text-only-artifact-source-gate-v1",
+  "audited_at": "2026-08-14T03:07:06+05:00",
+  "model_id": "openbmb/VoxCPM2",
+  "model_url": "https://huggingface.co/openbmb/VoxCPM2/tree/bffb3df5a29440629464e5e839f4d214c8714c3d",
+  "source_url": "https://github.com/OpenBMB/VoxCPM/tree/ee8161e9e1b7b082cb5721a3a9980da4204401e6",
+  "model_files_expected": {
+    ".gitattributes": {
+      "size_bytes": 1519,
+      "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361"
+    },
+    "README.md": {
+      "size_bytes": 7776,
+      "sha256": "7384fad93ce2d98f47d5c3170597f3b31d414c12c92e7fdf3121fa90f19fe29d"
+    },
+    "audiovae.pth": {
+      "size_bytes": 376951122,
+      "sha256": "94b5d51e107e0507d4acc976cfdadb64edd6fd06d1f751dadbf2fd1594274bf1"
+    },
+    "config.json": {
+      "size_bytes": 4336,
+      "sha256": "405f0dcd92f7feba6011ed4eac5c8d4f74cba9712f07fd5cfa3063bbdd95402c"
+    },
+    "model.safetensors": {
+      "size_bytes": 4580080592,
+      "sha256": "f7f964cfa9da23653baec6e6f7750719977ad944ed9f95fe52fe3a620506891d"
+    },
+    "special_tokens_map.json": {
+      "size_bytes": 1632,
+      "sha256": "068594063e37662c02b21acf42ebb334ef6a74fb810e68a2368f88f08351de76"
+    },
+    "tokenization_voxcpm2.py": {
+      "size_bytes": 2895,
+      "sha256": "84489ea32b6ee0cae22ed5480cacb6df85c46624c3119be9a2021c3649a12729"
+    },
+    "tokenizer.json": {
+      "size_bytes": 3676772,
+      "sha256": "f8984687e4a92a3503d521396d454b7d68e9fdaab2a0288eb3536c7c1aa4bc20"
+    },
+    "tokenizer_config.json": {
+      "size_bytes": 5059,
+      "sha256": "e78a3ebb48a0b9437efd1823b6b726c823da89e49dd8bcc90c02419d9baa772b"
+    }
+  },
+  "source_archive": {
+    "name": "source.tar.gz",
+    "size_bytes": 4107908,
+    "sha256": "5af8b4def8dc200c3a0b660b63d4a08a1cf5cadcb5c5371c0b89d5f0f58c0674",
+    "verified_inner_files": {
+      "LICENSE": {
+        "size_bytes": 11298,
+        "sha256": "4f10acc209addacfad28293315c74c4cd648f771ee1263a748f1781d1e0265e4"
+      },
+      "pyproject.toml": {
+        "size_bytes": 2142,
+        "sha256": "6d4b8d4f6e4d96525611718ba686bc4025db9b027a53abeeb0bc4721cb97bf78"
+      },
+      "src/voxcpm/core.py": {
+        "size_bytes": 16078,
+        "sha256": "5116a96ed19e2e2b86a9bffabfb322e276dd33dc0bf4d0b189a1e4fd5d2cc109"
+      },
+      "src/voxcpm/model/voxcpm2.py": {
+        "size_bytes": 54715,
+        "sha256": "31ad554bc15a4da18cf820c6fda97a5b2c56ac8e9a5e66031a264d363661575c"
+      },
+      "tests/test_torch_load_safety.py": {
+        "size_bytes": 3122,
+        "sha256": "84793db4a25234894e97a032ebaa2319ac57d844b05a6e5883d33f08c3ee3602"
+      }
+    }
+  },
+  "checkpoint_policy": {
+    "model_safetensors": "header and complete contiguous tensor payload audited",
+    "audiovae_pth": "ZIP CRC and pickle GLOBAL allow-list audited; loaded only with torch.load(weights_only=True, map_location='cpu', mmap=True)"
+  },
+  "admitted_runtime_contract": {
+    "status": "specified_not_executed",
+    "python": "isolated CPython 3.12 preferred; upstream exact source requires >=3.10",
+    "network": "outer network namespace/firewall plus offline environment required",
+    "model_path": "exact local snapshot only",
+    "reference_wav_path": null,
+    "prompt_wav_path": null,
+    "prompt_text": null,
+    "lora_weights_path": null,
+    "load_denoiser": false,
+    "normalize": false,
+    "denoise": false,
+    "retry_badcase": false,
+    "streaming": false,
+    "seed": 20260814,
+    "cfg_value": 2.0,
+    "inference_timesteps": 10,
+    "min_len": 2,
+    "max_len": 4096,
+    "text_policy": "bind literal SHA-256 and predeclared collapse-whitespace SHA-256; pass only the latter; no semantic rewrite or external normalizer"
+  },
+  "claims": {
+    "artifact_and_source_gate_complete": true,
+    "runtime_environment_materialized": false,
+    "cuda_load_verified": false,
+    "text_only_smoke_verified": false,
+    "new_generator_family_claim": "requires separate project-history receipt",
+    "training_data_overlap": "unverified",
+    "default_voice_identity": "unknown_not_claimed"
+  },
+  "limitations": [
+    "The model card discloses aggregate training scale but not a complete training-source list.",
+    "Apache-2.0 covers the published model/code route; it does not prove training-data disjointness.",
+    "The upstream public API supports cloning, but the admitted project wrapper exposes text only.",
+    "Upstream always collapses whitespace even with normalize=False; the project makes that transform explicit and hash-bound.",
+    "No model load, synthesis, candidate selection, detector inference, or post-result tuning occurred in this gate."
+  ]
+}

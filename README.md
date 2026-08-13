@@ -253,12 +253,9 @@ uv run python scripts/evaluate_xlsr_fresh_suite_stage_c.py \
   --plan configs/research/xlsr_sls_stage_b_v2_fresh_suite_stage_c_v1.json \
   --audio-root data --validate-only
 
-# После успешного preflight неизменённая команда без --validate-only запускает ровно один
-# GPU inference run. Calibration выполняется только на pinned PyAra role; threshold и pooled
-# metric не выбираются. Появившийся execution lock или report запрещает повтор.
-uv run python scripts/evaluate_xlsr_fresh_suite_stage_c.py \
-  --plan configs/research/xlsr_sls_stage_b_v2_fresh_suite_stage_c_v1.json \
-  --audio-root data
+# Run `xlsr-sls-stage-b-v2-fresh-suite-stage-c-v1` уже завершён; не запускайте команду без
+# --validate-only повторно. Execution lock и report намеренно блокируют повторные inference.
+# Calibration выполнялась только на pinned PyAra role; threshold и pooled metric не выбирались.
 
 # Исторический синтаксис preflight для XLS-R+SLS Stage A v2.
 # Этот plan уже выполнен: write-once guard теперь ожидаемо отклонит и validate/profile/train.

@@ -4,11 +4,10 @@
 
 **Scope:** personal research, без записи голосов людей, voice cloning и product/API score.
 
-**Состояние:** XLS-R+SLS v2 обучен и один раз проверен; post-inference two-review KK acoustic
-gate завершён для всех 304 exact assets. Для следующего blind research suite опубликован новый
-167-pair RU/KK/mixed candidate через exact KazakhTTS route. Synthesis, QA, rejection accounting,
-project-exposure audit и full-asset acoustic gate завершены. Immutable XLS-R Stage-C plan создан,
-его validate-only preflight прошёл; единственный GPU inference run ещё не выполнялся.
+**Состояние:** XLS-R+SLS v2 обучен и проверен на двух write-once research protocols. Для нового
+167-pair RU/KK/mixed Stage-C candidate через exact KazakhTTS route завершены synthesis, QA,
+exposure audit, two-review full-asset gate, immutable plan и один GPU inference run. Результат
+asset-level blind, но не source- или speaker-independent; checkpoint не используется в API.
 
 Этот файл намеренно краткий. Архитектура описана в
 [KazDeepScan_implementation_blueprint.md](KazDeepScan_implementation_blueprint.md), следующие
@@ -62,6 +61,10 @@ project-exposure audit и full-asset acoustic gate завершены. Immutable
 - New Stage-C XLS-R plan закрепляет candidate, full acoustic gate, project-exposure audit, frozen
   five-source license snapshot, calibration role, implementation hashes и новые write-once paths.
   Preflight подтвердил `1 310` asset bindings (`976` calibration, `100 RU`, `120 KK`, `114 mixed`).
+- Единственный Stage-C GPU inference run завершён: все `334` final assets получили по одному
+  logit, execution-lock SHA-256
+  `7d692542e6397c64ac0379eca34564d16f1fd670d5deb93e7a9a940695c2ccdb`, report SHA-256
+  `2cb7198a6ec03f2c6424748dde3263731d87ff6b0b557f59b0463b7f74cc5e32`.
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
 ## Актуальные результаты
@@ -74,6 +77,9 @@ project-exposure audit и full-asset acoustic gate завершены. Immutable
 | KK FLEURS/Silero balanced accuracy | 1.0000 | exact bytes прошли post-inference two-review gate |
 | Mixed KSC2/Silero balanced accuracy | 0.9333 | exact assets ранее видел checkpoint v1 |
 | ToneSpeak RU spoof recall | 88/100 | отдельный spoof-only OOD observation |
+| Fresh Stage-C RU balanced accuracy | 0.9000 | 50 new exact pairs, asset-level blind |
+| Fresh Stage-C KK balanced accuracy | 0.9500 | 60 new exact pairs, asset-level blind |
+| Fresh Stage-C mixed balanced accuracy | 0.8070 | 57 new exact pairs, asset-level blind |
 
 Общая pooled RU+KK+mixed accuracy намеренно не рассчитывается. Это не product quality и не
 speaker-independent result: используемые источники не дают достаточного verified speaker
@@ -101,9 +107,9 @@ calibration.
 
 ## Следующие действия
 
-1. Выполнить ровно один GPU inference run по frozen Stage-C plan.
-2. Опубликовать report с confidence intervals и раздельными RU/KK/mixed метриками.
-3. Только затем решать, нужен ли model v3.
+1. Не повторять Stage-C run и не использовать его final errors для tuning.
+2. Решить отдельно, нужен ли model v3; если да, готовить новый train/dev/calibration contract и
+   прежде нераскрытый final suite.
 
 Полный порядок и критерии остановки: [План реализации.md](План%20реализации.md).
 
@@ -113,6 +119,7 @@ calibration.
 - mypy: 142 source files без ошибок.
 - pytest: 213 tests успешно.
 - Final preflight: 3 991 asset bindings.
+- Stage-C preflight: 1 310 asset bindings; один GPU inference run, `334` exact final predictions.
 - Точное implementation tree выполненного final plan: Git commit `52d6e6b`.
 - Scope clarification: `b1368c9`.
 - Final plan SHA-256: `1dfc3ca866607191385b33b85a1ee67cb3981099c6fc836aef720c6c2610d4fc`.
@@ -134,5 +141,6 @@ calibration.
 - [KSC2 mixed Stage-C semantic evidence v2 delta](docs/ksc2_mixed_ai_review_v2_delta.md)
 - [Stage C frozen selection и bona-fide materialization](docs/fresh_suite_stage_c_selection_v1.md)
 - [Stage C KazakhTTS normalized candidate и full-asset gate](docs/fresh_suite_stage_c_kazakhtts_candidate_v1.md)
+- [XLS-R Stage-C asset-level-blind evaluation](docs/research_xlsr_sls_stage_b_v2_fresh_suite_stage_c_v1.md)
 - [External RU spoof-source search](docs/russian_spoof_source_search_2026-08-11.md)
 - [License-ledger snapshots](docs/license_ledger_snapshots.md)

@@ -49,8 +49,10 @@ Packet содержит все 167 QA-ready synthetic assets, exact audio SHA, �
 должна стать `pass/yes/yes/yes/no`. Обе независимые формы заполнены: все 334 решения строгого
 контракта прошли, `167/167` exact synthetic assets получили итог `pass`. Write-once receipt
 `fresh_suite_stage_c_kazakhtts_full_acoustic_gate_report_v1.json` имеет SHA-256
-`9a12f235072ce5ae4c3bd6bb0616a804a710abea74f3c3b387cebe12baf8153c` и разрешает только
-создание immutable inference plan; detector inference до исполнения такого plan не выполнялся.
+`9a12f235072ce5ae4c3bd6bb0616a804a710abea74f3c3b387cebe12baf8153c` и разрешил создание
+immutable inference plan. После exact validate-only preflight один GPU inference run завершён;
+повтор блокирован execution lock. Раздельные результаты и ограничения описаны в
+`docs/research_xlsr_sls_stage_b_v2_fresh_suite_stage_c_v1.md`.
 
 ## Ключевые артефакты
 

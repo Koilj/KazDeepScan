@@ -9,6 +9,8 @@ from pathlib import Path
 import pytest
 
 import kds.data.voxforge as voxforge
+import kds.eval.voxforge_metadata_screen as metadata_screen
+from kds.data.manifest import ManifestRow
 
 
 def _wav_bytes() -> bytes:
@@ -93,3 +95,99 @@ def test_audit_voxforge_ru_archive_rejects_wav_without_prompt(
 
     with pytest.raises(voxforge.VoxForgeRuAuditError, match="no prompt rows"):
         voxforge.audit_voxforge_ru_archive(path)
+
+
+def test_load_voxforge_ru_metadata_reads_bound_transcripts_without_wav_extraction(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    path = _fixture_archive(tmp_path)
+    _pin_fixture(monkeypatch, path)
+
+    records = voxforge.load_voxforge_ru_metadata(path)
+
+    assert records == (
+        voxforge.VoxForgeRuRecord(
+            submission_id="tester-20260512-abc",
+            contributor_alias="tester",
+            prompt_id="ru_0001",
+            prompt_text="Test prompt",
+            original_prompt_text="Test prompt.",
+        ),
+    )
+
+
+def _prior_manifest_row(*, text_hash: str) -> ManifestRow:
+    return ManifestRow(
+        sample_id="prior:sample",
+        relative_path="processed/prior.wav",
+        sha256="a" * 64,
+        split="test",
+        label="bonafide",
+        language="ru",
+        code_switch="false",
+        parent_group_id="prior:group",
+        source_name="prior",
+        source_license="CC-BY-4.0",
+        rights_basis="fixture",
+        speaker_pseudo_id="prior:speaker",
+        text_id="prior:text",
+        text_hash=text_hash,
+        duration_s=1.0,
+        generator_family="",
+        generator_name="",
+        generator_version="",
+        voice_id="",
+        clone_consent_id="not_applicable",
+        device="cpu",
+        capture_route="fixture",
+        original_sr=16_000,
+        codec="wav",
+        augmentation_chain="",
+        augmentation_seed="",
+        created_at="2026-08-13T00:00:00Z",
+    )
+
+
+def test_metadata_screen_taints_every_record_in_contributor_group(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    records = (
+        voxforge.VoxForgeRuRecord("submission-a", "alias-a", "one", "shared", "shared"),
+        voxforge.VoxForgeRuRecord("submission-a", "alias-a", "two", "unique-a", "unique-a"),
+        voxforge.VoxForgeRuRecord("submission-b", "alias-b", "three", "unique-b", "unique-b"),
+    )
+    prior_row = _prior_manifest_row(
+        text_hash=hashlib.sha256(b"shared").hexdigest()
+    )
+    config_root = tmp_path / "configs"
+    manifest_root = tmp_path / "manifests"
+    config_root.mkdir()
+    manifest_root.mkdir()
+    monkeypatch.setattr(
+        metadata_screen,
+        "configured_role_scope",
+        lambda _project_root, _config_root: ([prior_row], [], []),
+    )
+    monkeypatch.setattr(
+        metadata_screen,
+        "_load_inventory",
+        lambda **_kwargs: ([prior_row], []),
+    )
+
+    screen = metadata_screen.screen_voxforge_ru_metadata(
+        records=records,
+        project_root=tmp_path,
+        config_root=config_root,
+        manifest_root=manifest_root,
+        created_at="2026-08-13T00:00:00Z",
+    )
+
+    assert [identity.sample_id for identity in screen.surviving] == [
+        "voxforge_ru_mdc_2026_05:submission-b:three"
+    ]
+    strict = screen.receipt["strict_group_exclusion"]
+    overlaps = screen.receipt["direct_overlap_record_counts"]
+    assert strict["tainted_contributor_groups"] == 1
+    assert strict["excluded_records"] == 2
+    assert overlaps["configured_roles"]["prompt_text_hash"] == 1
+    assert overlaps["manifest_inventory"]["prompt_text_hash"] == 1

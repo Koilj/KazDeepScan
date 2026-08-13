@@ -101,6 +101,17 @@ class VoxForgeRuArchiveAudit:
 
 
 @dataclass(frozen=True, slots=True)
+class VoxForgeRuRecord:
+    """One unextracted WAV identity with its two source transcript layers."""
+
+    submission_id: str
+    contributor_alias: str
+    prompt_id: str
+    prompt_text: str
+    original_prompt_text: str
+
+
+@dataclass(frozen=True, slots=True)
 class _WavInfo:
     frames: int
     sample_rate_hz: int
@@ -477,3 +488,132 @@ def audit_voxforge_ru_archive(archive_path: Path) -> VoxForgeRuArchiveAudit:
         detector_inference_performed=False,
         candidate_selection_performed=False,
     )
+
+
+def load_voxforge_ru_metadata(archive_path: Path) -> tuple[VoxForgeRuRecord, ...]:
+    """Read pre-extraction identities from the exact archive without writing WAV bytes.
+
+    This repeats archive identity and member-layout validation but deliberately does not open WAV
+    payloads. The preceding source-level artifact audit validates their headers.
+    """
+
+    _validate_archive_identity(archive_path)
+    member_paths: set[str] = set()
+    submission_wav_ids: dict[str, set[str]] = {}
+    submission_etc_files: dict[str, set[str]] = {}
+    submission_prompts: dict[str, dict[str, str]] = {}
+    submission_original_prompts: dict[str, dict[str, str]] = {}
+    submission_contributors: dict[str, str] = {}
+    submission_license_members: set[str] = set()
+
+    try:
+        with tarfile.open(archive_path, mode="r:gz") as archive:
+            for member in archive:
+                parts = _safe_member_parts(member.name)
+                if parts[0] != VOXFORGE_RU_ARCHIVE_ROOT:
+                    raise VoxForgeRuAuditError(
+                        f"Unexpected archive root in member: {member.name!r}."
+                    )
+                if not (member.isdir() or member.isfile()):
+                    raise VoxForgeRuAuditError(
+                        f"Unsafe TAR member type for {member.name!r}: {member.type!r}."
+                    )
+                if member.name in member_paths:
+                    raise VoxForgeRuAuditError(f"Duplicate TAR member path: {member.name!r}.")
+                member_paths.add(member.name)
+                if member.isdir():
+                    continue
+                if len(parts) == 3 and parts[2] == "LICENSE":
+                    submission_license_members.add(parts[1])
+                    continue
+                if len(parts) != 4:
+                    raise VoxForgeRuAuditError(
+                        f"Unexpected regular TAR member path: {member.name!r}."
+                    )
+                submission, directory, filename = parts[1:]
+                if directory == "wav":
+                    path = PurePosixPath(filename)
+                    if path.suffix.lower() != ".wav" or not path.stem:
+                        raise VoxForgeRuAuditError(f"Unexpected audio member: {member.name!r}.")
+                    wav_ids = submission_wav_ids.setdefault(submission, set())
+                    if path.stem in wav_ids:
+                        raise VoxForgeRuAuditError(
+                            f"Duplicate WAV id in submission {submission!r}: {path.stem!r}."
+                        )
+                    wav_ids.add(path.stem)
+                    continue
+                if directory != "etc" or filename not in _REQUIRED_ETC_FILES.union(
+                    _OPTIONAL_ETC_FILES
+                ):
+                    raise VoxForgeRuAuditError(
+                        f"Unexpected regular TAR member path: {member.name!r}."
+                    )
+                etc_files = submission_etc_files.setdefault(submission, set())
+                if filename in etc_files:
+                    raise VoxForgeRuAuditError(
+                        f"Duplicate {filename!r} in submission {submission!r}."
+                    )
+                etc_files.add(filename)
+                if filename == "PROMPTS":
+                    submission_prompts[submission] = _parse_prompts(
+                        _read_member_text(archive, member), submission, member.name
+                    )
+                elif filename == "prompts-original":
+                    submission_original_prompts[submission] = _parse_original_prompts(
+                        _read_member_text(archive, member), member.name
+                    )
+                elif filename == "README":
+                    submission_contributors[submission] = _parse_contributor(
+                        _read_member_text(archive, member), member.name
+                    )
+            submissions = set(submission_wav_ids).union(submission_etc_files)
+            if not submissions:
+                raise VoxForgeRuAuditError("Archive contains no VoxForge submissions.")
+            records: list[VoxForgeRuRecord] = []
+            for submission in sorted(submissions):
+                submission_wav_id_entries = submission_wav_ids.get(submission)
+                submission_etc_file_entries = submission_etc_files.get(submission)
+                prompts = submission_prompts.get(submission)
+                original_prompts = submission_original_prompts.get(submission)
+                contributor = submission_contributors.get(submission)
+                if submission_wav_id_entries is None or submission_etc_file_entries is None:
+                    raise VoxForgeRuAuditError(
+                        f"Submission {submission!r} lacks either WAV or etc members."
+                    )
+                missing = sorted(_REQUIRED_ETC_FILES.difference(submission_etc_file_entries))
+                if missing:
+                    raise VoxForgeRuAuditError(
+                        f"Submission {submission!r} lacks required etc files: {', '.join(missing)}."
+                    )
+                if submission not in submission_license_members:
+                    raise VoxForgeRuAuditError(
+                        f"Submission {submission!r} lacks its LICENSE member."
+                    )
+                if prompts is None or original_prompts is None or contributor is None:
+                    raise VoxForgeRuAuditError(
+                        f"Submission {submission!r} has incomplete metadata."
+                    )
+                if (
+                    submission_wav_id_entries != set(prompts)
+                    or submission_wav_id_entries != set(original_prompts)
+                ):
+                    raise VoxForgeRuAuditError(
+                        f"Submission {submission!r} WAV/transcript membership differs."
+                    )
+                records.extend(
+                    VoxForgeRuRecord(
+                        submission_id=submission,
+                        contributor_alias=contributor,
+                        prompt_id=prompt_id,
+                        prompt_text=prompts[prompt_id],
+                        original_prompt_text=original_prompts[prompt_id],
+                    )
+                    for prompt_id in sorted(submission_wav_id_entries)
+                )
+    except (OSError, tarfile.TarError) as error:
+        raise VoxForgeRuAuditError(
+            f"Cannot read VoxForge RU TAR archive: {archive_path}."
+        ) from error
+    if not records:
+        raise VoxForgeRuAuditError("Archive contains no VoxForge RU WAV metadata records.")
+    return tuple(records)

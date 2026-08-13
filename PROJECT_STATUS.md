@@ -138,8 +138,10 @@ test; результаты не source-, speaker- или architecture-family-ind
   `7372c6f8d067b8d1651995ad8306b673acaf2cde705ee51295152b96c93de557`, GPL-3.0-or-later
   notices/text, `644` submissions, `6,412` transcript-bound mono 48 kHz WAV и `194`
   source-provided contributor groups. Raw WAV не извлекались; `81` canonical prompt texts
-  требуют strict text/group project-exposure screen до selection. Receipt SHA-256
-  `0e8bd5c7d1e02bedc235adcb3bdb7ed3bc7efdd0ff7637339460e3f43c38272f`.
+  прошли strict pre-extraction screen: all `6,412` records / `194` contributor groups survive;
+  overlap `0/0/0/0/0` against both transcript layers, sample and group keys in 31 configs / 90
+  manifests. Receipts SHA-256 `0e8bd5c7d1e02bedc235adcb3bdb7ed3bc7efdd0ff7637339460e3f43c38272f`
+  and `275367a9738bfcc017315cfb3799078c0c3ab1981a318098b0849eaf7893dffe`.
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
 ## Актуальные результаты
@@ -207,10 +209,10 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
    повторять его, не менять candidate/reviews/checkpoint/calibration/boundary and не использовать
    final errors для tuning. Старые 55 Stage-D/v3 пар, 73-row selection и их rejections нельзя
    переиспользовать как «новый blind» тест.
-3. Для VoxForge RU выполнить только write-once pre-extraction screen: exact archive metadata
-   против всех configured roles и manifest inventory, с whole-contributor-group exclusion по
-   sample/text/group overlap. Не извлекать WAV, не выбирать candidate и не запускать detector до
-   нового успешного receipt и отдельного frozen selection policy.
+3. Для VoxForge RU подготовить отдельную immutable selection policy: выбрать не более `81`
+   surviving text groups, по одному record на conservative contributor group, без audio/duration
+   или model-based ranking. До отдельного exact spoof-route review не извлекать WAV, не делать
+   synthesis/pairing и не запускать detector.
 4. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 
@@ -261,6 +263,7 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [Stage-D Dialogs-RU VITS2 / Masha-neutral](docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md)
 - [XLS-R+SLS v3 Stage-D governed evaluation](docs/research_xlsr_sls_v3_stage_d_dialogs_ru_v1.md)
 - [VoxForge Russian source-level intake](docs/data_sources_voxforge_ru_mdc_2026-08-13.md)
+- [VoxForge Russian pre-extraction exposure screen](data/manifests/voxforge_ru_mdc_2026_05_metadata_exposure_screen_v1.json)
 - [Silero V5.5 RU / eugene route intake](docs/silero_v5_5_ru_eugene_intake_2026-08-13.md)
 - [Common Voice RU full-test metadata exposure screen](data/manifests/common_voice_ru_v24_full_test_metadata_exposure_screen_v1.json)
 - [Common Voice RU / Silero V5.5 literal-text screen](data/manifests/common_voice_ru_v24_full_test_silero_v5_5_literal_text_screen_v1.json)

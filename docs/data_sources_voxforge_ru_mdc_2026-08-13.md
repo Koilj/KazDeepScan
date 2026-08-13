@@ -52,13 +52,31 @@ directories are retained as provenance but do not justify a speaker-independence
 The `81`-text capacity is a material constraint: any future selection must be one text group per
 binary pair and must first exclude every group whose text appears in prior project evidence.
 
+## Pre-extraction project-exposure screen
+
+Completed screen binds the source audit and compared both canonical `PROMPTS` text and
+`prompts-original` text hashes, sample identities and privacy-preserving contributor-group keys
+with every then-current configured role and full manifest inventory.
+
+| Scope | Configuration / manifests | Rows | Exact overlap: sample / spoken text / original text / group / speaker key |
+| --- | ---: | ---: | --- |
+| Configured roles | `31` / `18` | `12,397` | `0 / 0 / 0 / 0 / 0` |
+| Full manifest inventory | `90` | `40,206` | `0 / 0 / 0 / 0 / 0` |
+
+Strict whole-contributor-group exclusion tainted `0` groups: all `6,412` records, `194`
+contributor groups and `81` canonical text groups survive. The screen intentionally has no WAV
+SHA-256 comparison because it is pre-extraction; an exact asset audit remains mandatory after a
+future frozen selection. Immutable screen receipt SHA-256:
+`275367a9738bfcc017315cfb3799078c0c3ab1981a318098b0849eaf7893dffe` —
+[versioned receipt](../data/manifests/voxforge_ru_mdc_2026_05_metadata_exposure_screen_v1.json).
+
 ## Запреты и следующий gate
 
 This stage created no `data/raw/voxforge*` material, manifest, candidate, selection, synthetic
 audio, model logit or metric. Raw archive and WAV stay outside Git.
 
-The next permitted action is a **pre-extraction project-exposure screen** across the full
-archive's sample/text/contributor identities and all configured roles plus manifest inventory.
-It must taint a whole source-provided contributor group on any exact historical overlap. Only a
-passed receipt can permit a separately frozen, limited bona-fide selection; it still cannot
-authorize synthesis or detector inference.
+The next permitted action is a separately frozen, limited bona-fide selection policy. It must
+bind a seed, selected text/group rule and a candidate size no greater than the surviving `81`
+text groups. It still cannot authorize synthesis or detector inference: a separate exact spoof
+route, audio QA, pair lock, full-asset acoustic review and immutable one-run evaluation contract
+remain required.

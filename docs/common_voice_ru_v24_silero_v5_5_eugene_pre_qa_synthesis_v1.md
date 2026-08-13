@@ -1,7 +1,7 @@
 # Common Voice RU v24 / Silero V5.5 `eugene` — pre-QA synthesis v1
 
-**Статус:** completed raw synthetic layer and technical decode/QA/VAD accounting; later pairing
-and acoustic technical review are complete, but detector inference has not been performed.
+**Статус:** completed raw synthetic layer and technical decode/QA/VAD accounting; later pairing,
+acoustic technical review and one governed detector-inference run are complete.
 
 ## Входы и строгий route
 

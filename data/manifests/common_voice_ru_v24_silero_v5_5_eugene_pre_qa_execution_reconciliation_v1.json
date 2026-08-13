@@ -1,0 +1,44 @@
+{
+  "actual_execution": {
+    "detector_inference_performed": true,
+    "evidence": {
+      "execution_lock_status": "calibration_and_final_ru_inference_started",
+      "final_sample_results": 84,
+      "report_mode": "one_time_gpu_inference",
+      "report_status": "ok"
+    },
+    "one_time_execution": true,
+    "rerun_authorized": false
+  },
+  "created_at": "2026-08-13T18:44:40+05:00",
+  "execution_lock": {
+    "path": "artifacts/xlsr-sls-stage-b-v2-common-voice-ru-v24-silero-v5-5-eugene-v1.execution.json",
+    "sha256": "0bad2d746c2036068e1c6ae1d160b294ab22a351b3a56f00867825b1fdb28015"
+  },
+  "immutable_reporting_defect": {
+    "affected_field": "detector_inference_performed",
+    "cause": "The frozen final-report builder spreads the no-logit preflight mapping into the final report and does not overwrite this field after inference.",
+    "corrective_action": "Do not mutate the report or rerun. This reconciliation binds the execution lock and final report, and records the conflict explicitly.",
+    "final_report_value": false,
+    "severity": "status_metadata_inconsistency"
+  },
+  "plan": {
+    "path": "configs/research/xlsr_sls_stage_b_v2_common_voice_ru_v24_silero_v5_5_eugene_v1.json",
+    "sha256": "cdf3fcbb496006478e575c024963cca497854dae1ce17775e58d95ae4d74cadf"
+  },
+  "preflight": {
+    "path": "artifacts/xlsr-sls-stage-b-v2-common-voice-ru-v24-silero-v5-5-eugene-v1.preflight.json",
+    "sha256": "3df30bd5a70bcb471d57db4a85765658396e6a2491ab9937731018e37e4206f3"
+  },
+  "protocol_id": "xlsr-sls-stage-b-v2-common-voice-ru-v24-silero-v5-5-eugene-execution-reconciliation-v1",
+  "report": {
+    "path": "artifacts/xlsr-sls-stage-b-v2-common-voice-ru-v24-silero-v5-5-eugene-v1.report.json",
+    "sha256": "06744ecd71244791efe431c6473b59c8c9962f7b27273ed919495365bbe48991"
+  },
+  "schema_version": 1,
+  "write_once_integrity": {
+    "execution_lock_overwritten": false,
+    "report_overwritten": false,
+    "report_repaired_in_place": false
+  }
+}

@@ -1,7 +1,7 @@
 # Common Voice RU v24 / Silero V5.5 `eugene` — spoof technical QA v1
 
-**Статус:** raw synthesis layer fully accounted by normal technical QA. The later binary pair lock
-and technical acoustic gate are complete; detector inference has not started.
+**Статус:** raw synthesis layer fully accounted by normal technical QA. The later binary pair lock,
+technical acoustic gate and one governed detector-inference run are complete.
 
 ## Вход и результат
 

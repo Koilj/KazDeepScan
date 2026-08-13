@@ -92,9 +92,12 @@ checkpoint и строго ограниченный evaluation-контур:
   `pass/yes/yes/yes/yes` решения. Subsequent exposure audit against 30 configured research
   contracts / 17 manifests / 12,313 prior rows found `0/0/0` sample/audio/text overlap. One
   immutable XLS-R+SLS Stage-B v2 contract now pins that evidence, a fixed 976-row calibration,
-  the selected checkpoint and write-once paths. Its 1,060-asset CUDA/BF16 preflight completed
-  without logits; the one allowed detector inference has not begun, а distinct IDs сами не
-  доказывают organizational independence;
+  the selected checkpoint and write-once paths. Its 1,060-asset CUDA/BF16 preflight and exactly
+  one final GPU run completed: `84/84` accuracy and balanced accuracy `1.0000`, with 42/42 pairs
+  correct. Это fixed source-linked layer, not source/speaker/vendor/architecture-independent
+  evidence or product quality. Its final report has a known immutable `detector_inference_performed`
+  metadata defect; the reconciliation receipt binds the actual one-time execution. Distinct IDs
+  сами не доказывают organizational independence;
 - перед любым выбором нового RU final набора весь full Common Voice `test` прошёл historical
   exposure screen, затем fixed V5.5 literal-text gate без lexical rewrite. Из `10 261` source
   records остаётся `5 600` в `1 337` client groups. Из них отдельный immutable receipt выбрал
@@ -394,4 +397,6 @@ two-review technical gate — в
 а его project-exposure audit — в
 [versioned receipt](data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_candidate_project_exposure_v1.json),
 а prepared evaluation contract — в
-[V5.5 contract receipt](docs/research_xlsr_sls_stage_b_v2_common_voice_ru_v24_silero_v5_5_eugene_v1.md).
+[V5.5 contract receipt](docs/research_xlsr_sls_stage_b_v2_common_voice_ru_v24_silero_v5_5_eugene_v1.md),
+а immutable report-status correction — в
+[execution reconciliation receipt](data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_execution_reconciliation_v1.json).

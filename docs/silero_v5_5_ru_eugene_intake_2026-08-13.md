@@ -128,8 +128,8 @@ one fixed-profile V5.5/eugene raw WAV per bound text. Its
 retained `42` rows and accounted `33` insufficient-speech rejects. No failed row may be replaced,
 reselected or resynthesized; the matching
 [42-pair lock](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md) passed the subsequent
-full technical acoustic gate. A new immutable contract and preflight remain required before any
-detector inference.
+full technical acoustic gate, immutable contract and exactly one detector-inference run. The result
+does not change this route's personal-research, exact-route-only scope.
 
 The existing Common Voice archive guard now validates both size and SHA-256 before metadata read
 or extraction; see

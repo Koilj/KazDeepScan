@@ -1,7 +1,7 @@
 # Common Voice RU v24 / Silero V5.5 `eugene` — immutable pairing v1
 
 **Статус:** exact technical-QA-retained pair lock completed. The subsequent full 84-asset
-technical acoustic gate passed; detector inference has not started.
+technical acoustic gate and the one governed detector-inference run are complete.
 
 ## Pair rule and accounting
 

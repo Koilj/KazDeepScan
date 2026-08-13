@@ -1,8 +1,8 @@
 # Common Voice RU v24 / Silero V5.5 `eugene` — acoustic gate v1
 
-**Статус:** two completed 84-row response forms have passed the fail-closed technical gate.
-The gate authorizes preparation of one new immutable evaluation contract; detector inference has
-not been performed.
+**Статус:** two completed 84-row response forms passed the fail-closed technical gate. The gate
+then fed one immutable contract and exactly one completed detector-inference run; the gate report
+itself remains a pre-inference record.
 
 ## Immutable packet
 

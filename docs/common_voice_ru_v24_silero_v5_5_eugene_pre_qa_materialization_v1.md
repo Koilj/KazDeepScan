@@ -61,5 +61,6 @@ accounted the other 33 in
 [its receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_spoof_technical_qa_v1.md). The
 [42-pair lock](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md) passed its later
 full-asset technical acoustic review. A project-exposure audit now confirms that its exact
-candidate bytes and texts do not overlap prior configured roles. An immutable contract and
-preflight remain required before any detector inference.
+candidate bytes and texts do not overlap prior configured roles. The subsequent immutable contract
+and preflight completed, followed by exactly one detector-inference run; rerun and tuning remain
+forbidden.

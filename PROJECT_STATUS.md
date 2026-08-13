@@ -92,8 +92,16 @@ test; результаты не source-, speaker- или architecture-family-ind
   V5.5 evaluation plan SHA-256 `cdf3fcbb496006478e575c024963cca497854dae1ce17775e58d95ae4d74cadf`
   pins the passing evidence, V2 checkpoint, 976-row calibration, frozen license ledger and
   write-once paths. Its one preflight validated 1,060 assets with CUDA/BF16 and no logits,
-  SHA-256 `3df30bd5a70bcb471d57db4a85765658396e6a2491ab9937731018e37e4206f3`; detector inference
-  has not started and distinct IDs do not themselves prove organizational independence.
+  SHA-256 `3df30bd5a70bcb471d57db4a85765658396e6a2491ab9937731018e37e4206f3`. Exactly one final
+  GPU run then gave `84/84` accuracy, balanced accuracy `1.0000` and `42/42` fully correct pairs;
+  execution SHA-256 is `0bad2d746c2036068e1c6ae1d160b294ab22a351b3a56f00867825b1fdb28015`;
+  report SHA-256 is `06744ecd71244791efe431c6473b59c8c9962f7b27273ed919495365bbe48991`. It is a fixed
+  source-linked personal-research layer, not independent generalization, and distinct IDs do not
+  themselves prove organizational independence. The immutable final report has a known erroneous
+  top-level `detector_inference_performed=false` inherited from preflight; its execution lock,
+  result rows and report status prove the run. Reconciliation receipt SHA-256
+  `0a301c3e4f14d7a5ea048b0cfda7bfae7eda83b6913b787b34d10fc7c079c5b4` records this without
+  changing the report or allowing a rerun.
 - Full Common Voice RU v24 `test` metadata screen до extraction сравнил `10 261` records / `2 075`
   client groups с `12 313` configured-role rows и `39 850` rows в `85` manifest files. Строгое
   whole-client-group exclusion оставляет `6 211` records / `1 443` groups; это только capacity
@@ -187,10 +195,10 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
    checkpoint, temperature, threshold или augmentation.
 2. Новый RU route прошёл завершённые selection/materialization/text binding/synthesis/technical
    QA/pair lock, 84-asset technical acoustic gate, zero-overlap project-exposure audit, immutable
-   evaluation contract and its 1,060-asset no-logit preflight. Следом выполнить ровно один
-   CUDA/BF16 inference run under that frozen contract; не менять candidate, reviews, calibration,
-   checkpoint, threshold или generation. Старые 55 Stage-D/v3 пар, 73-row selection и их
-   rejections нельзя переиспользовать как «новый blind» тест.
+   evaluation contract, no-logit preflight and its exactly one final GPU inference run. Не
+   повторять его, не менять candidate/reviews/checkpoint/calibration/boundary and не использовать
+   final errors для tuning. Старые 55 Stage-D/v3 пар, 73-row selection и их rejections нельзя
+   переиспользовать как «новый blind» тест.
 3. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 
@@ -208,6 +216,12 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
   predictions; report SHA-256 `9f99a7bed878ecfc561831e5130ac92dd5c8b73cb9965fc51e8a4d00d66e50e3`.
 - V5.5/eugene preflight: 1 060 asset bindings; no logits/inference; receipt SHA-256
   `3df30bd5a70bcb471d57db4a85765658396e6a2491ab9937731018e37e4206f3`.
+- V5.5/eugene final: exactly one GPU run, `84/84` correct / balanced accuracy `1.0000`; execution
+  lock SHA-256 `0bad2d746c2036068e1c6ae1d160b294ab22a351b3a56f00867825b1fdb28015`, report SHA-256
+  `06744ecd71244791efe431c6473b59c8c9962f7b27273ed919495365bbe48991`.
+- V5.5/eugene execution reconciliation: final report's inherited
+  `detector_inference_performed=false` is a documented immutable status defect; receipt SHA-256
+  `0a301c3e4f14d7a5ea048b0cfda7bfae7eda83b6913b787b34d10fc7c079c5b4`.
 - Точное implementation tree исторического v2 final plan: Git commit `52d6e6b`.
 - Scope clarification: `b1368c9`.
 - Historical v2 final plan SHA-256: `1dfc3ca866607191385b33b85a1ee67cb3981099c6fc836aef720c6c2610d4fc`.

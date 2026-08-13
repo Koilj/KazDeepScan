@@ -52,8 +52,10 @@ inferences.
 ## Следующий безопасный шаг
 
 Literal binding для всех 75 ready rows завершён в
-[отдельном receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_text_binding_v1.md). Следом
-разрешён ровно один fixed-profile V5.5/eugene synthetic WAV на каждый bound text. Пять
-rejections permanently out of this candidate: no replacement, reselection, regeneration или
-backfill. Later full-asset acoustic reviews must cover exact bona-fide and synthetic bytes
+[отдельном receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_text_binding_v1.md), а raw
+fixed-profile V5.5/eugene WAV — в
+[synthesis receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_synthesis_v1.md). Пять
+bona fide rejections permanently out of this candidate: no replacement, reselection,
+regeneration или backfill. Next normal synthetic technical QA may only reduce the 75 raw spoof
+rows; later full-asset acoustic reviews must cover exact retained bona-fide and synthetic bytes
 before any paired evaluation plan can be prepared.

@@ -86,7 +86,8 @@ checkpoint и строго ограниченный evaluation-контур:
   audio, cloning, random profile, SSML и `voice_path`. Route audit видит 0 exact V5.5/eugene
   rows среди 18 605 historical spoof rows, но 1 265 legacy Silero rows исключают architecture-,
   vendor- и speaker-independence claims. Новый bona-fide pre-QA selection уже заморожен,
-  materialized и literal-text bound; synthesis, review и inference ещё не начаты;
+  materialized, literal-text bound и синтезирован в raw 75-row layer; technical QA, review и
+  inference ещё не начаты;
 - перед любым выбором нового RU final набора весь full Common Voice `test` прошёл historical
   exposure screen, затем fixed V5.5 literal-text gate без lexical rewrite. Из `10 261` source
   records остаётся `5 600` в `1 337` client groups. Из них отдельный immutable receipt выбрал
@@ -374,4 +375,6 @@ Voice RU slice описаны в
 Technical materialization этого slice описана в
 [отдельном receipt](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_materialization_v1.md),
 а literal-text binding всех 75 ready rows — в
-[text-binding receipt](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_text_binding_v1.md).
+[text-binding receipt](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_text_binding_v1.md),
+а one-WAV-per-text synthesis — в
+[synthesis receipt](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_synthesis_v1.md).

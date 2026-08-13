@@ -60,6 +60,8 @@ The subsequent [materialization receipt](common_voice_ru_v24_silero_v5_5_eugene_
 accounts for all 80 frozen MP3s: 75 reached ready WAV and five were rejected for
 `insufficient_speech`, with no replacement or backfill. The following
 [literal-text binding receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_text_binding_v1.md)
-verified the exact source text of all 75 ready rows without rewrite. The next separate write-once
-step may synthesize exactly one fixed-profile WAV per bound text; two independent full-asset
-reviews and a new immutable paired plan remain required before any detector inference.
+verified the exact source text of all 75 ready rows without rewrite. The subsequent
+[synthesis receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_synthesis_v1.md) stores one
+raw fixed-profile WAV per bound text. Synthetic technical QA may only reduce that raw layer; two
+independent full-asset reviews and a new immutable paired plan remain required before any detector
+inference.

@@ -85,8 +85,8 @@ test; результаты не source-, speaker- или architecture-family-ind
   `insufficient_speech` rejects; immutable pairing locked exactly 42/42 pairs. Two completed
   84-row forms with distinct pseudonymous IDs passed the strict technical acoustic gate: every
   exact asset has two `pass/yes/yes/yes/yes` decisions, gate-report SHA-256
-  `cb9604a6a2c41fa16ce6e0c8c1947e44c0d0d21d626b88ccbf90673c872c3631`. This authorizes only a
-  new immutable evaluation contract. Its project-exposure audit covered 30 configured research
+  `cb9604a6a2c41fa16ce6e0c8c1947e44c0d0d21d626b88ccbf90673c872c3631`. Gate был обязательным
+  предикатом immutable evaluation contract. Его project-exposure audit covered 30 configured research
   files, 17 referenced manifests and 12,313 prior rows; sample/audio/text overlap is `0/0/0`,
   receipt SHA-256 `6071deb2f60ca914e475611addf81ef2cf81b485c2b9b86826c5a135c0cca3ff`. The immutable
   V5.5 evaluation plan SHA-256 `cdf3fcbb496006478e575c024963cca497854dae1ce17775e58d95ae4d74cadf`
@@ -118,7 +118,8 @@ test; результаты не source-, speaker- или architecture-family-ind
   resynthesis/backfill; immutable candidate locked matching 42 bona fide/spoof pairs. Completed
   acoustic gate passed all 84 exact assets, and project-exposure audit against all 30 then-current
   configs / 17 referenced manifests / 12,313 rows found `0/0/0` sample/audio/text overlap.
-  Detector inference remains unperformed.
+  Subsequent immutable contract completed exactly one GPU inference run; rerun и post-hoc tuning
+  запрещены.
 - Stage D строго привязал 73 frozen Common Voice RU текста, создал ровно 73 synthetic WAV и без
   backfill сохранил 55 binary pairs / 110 assets после 18 `insufficient_speech` rejects.
   Проектный exposure audit против 23 configs / 12 203 rows дал `0/0/0` sample/audio/text overlap.

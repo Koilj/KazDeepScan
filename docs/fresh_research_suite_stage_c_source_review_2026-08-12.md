@@ -169,7 +169,10 @@ receipt SHA-256: `522917f4a7aade4403099b3e4a678d9f9f6e2293c014635d605505a0cd59b6
 Normalized v2 создал 168/168 WAV. Generated-asset QA принял 167 и отклонил одну mixed строку
 как `insufficient_speech`; replacement/backfill не выполнялся. Candidate содержит 50 RU, 60 KK
 и 57 mixed exact pairs. Exposure audit против 15 manifests / 11 869 prior configured rows дал
-нулевой overlap по sample ID, exact audio bytes и text hash. Full-asset packet и две 167-row
-fail-closed формы опубликованы, но ещё не заполнены. Detector inference и новый run plan до
-успешного gate запрещены. Подробности:
-`docs/fresh_suite_stage_c_kazakhtts_candidate_v1.md`.
+нулевой overlap по sample ID, exact audio bytes и text hash. На момент публикации packet и две
+167-row fail-closed формы были незаполнены. Впоследствии обе формы прошли strict gate: `334`
+решения и `167/167` exact synthetic assets получили `pass`; gate receipt SHA-256
+`9a12f235072ce5ae4c3bd6bb0616a804a710abea74f3c3b387cebe12baf8153c`. После immutable plan и
+preflight был выполнен ровно один GPU inference run; повтор запрещён. Подробности:
+`docs/fresh_suite_stage_c_kazakhtts_candidate_v1.md` и
+`docs/research_xlsr_sls_stage_b_v2_fresh_suite_stage_c_v1.md`.

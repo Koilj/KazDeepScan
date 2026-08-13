@@ -421,5 +421,7 @@ independent full-asset формы затем прошли fail-closed acoustic/l
 Russian-native/speaker/organizational-independence claim и не detector inference. Completed gate и
 его ограничения описаны в
 [VoxForge Qwen acoustic-gate receipt](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md);
-следующий безопасный этап — новый project-exposure audit и отдельный immutable evaluation
-contract.
+последующий project-exposure audit pinned `33` current configs / `18` referenced manifests /
+`12,397` prior rows и нашёл `0/0/0` sample/audio/text overlap. Он не запускал и не разрешал
+inference. Следующий безопасный этап — отдельный immutable evaluation contract; полный audit
+описан в [VoxForge Qwen exposure receipt](docs/voxforge_ru_mdc_qwen3_tts_customvoice_candidate_project_exposure_v1.md).

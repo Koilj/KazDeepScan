@@ -161,8 +161,11 @@ test; результаты не source-, speaker- или architecture-family-ind
   passed the fail-closed gate: `158/158` assets have two `pass/yes/yes/yes/yes` decisions from
   distinct pseudonymous reviewer IDs. Report SHA-256
   `bf7a6d84c7ecb71462c128b70f68d8f939ebece916fc11e87c6b9ac8afd26029`; it confirms only
-  exact-byte acoustic/language criteria and records no detector inference. A current
-  project-exposure audit and separate immutable evaluation contract are still required.
+  exact-byte acoustic/language criteria and records no detector inference. The subsequent current
+  project-exposure audit pinned `33` configs / `18` referenced manifests / `12,397` prior rows and
+  found `0/0/0` sample/audio/text overlap; receipt SHA-256
+  `8696bfbea8d9f59451881bcf6ee875ff235c2e281c7b9ddbe5be4ecf74804a72`. It also did not
+  authorize inference. A separate immutable evaluation contract is still required.
   UtrobinTTS remains rejected: `76` historical spoof rows carry its unversioned identifier.
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
@@ -231,11 +234,11 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
    повторять его, не менять candidate/reviews/checkpoint/calibration/boundary and не использовать
    final errors для tuning. Старые 55 Stage-D/v3 пар, 73-row selection и их rejections нельзя
    переиспользовать как «новый blind» тест.
-3. Для VoxForge RU не менять `79` exact pairs, completed forms или gate report и не выполнять
-   resynthesis/replacement/backfill. Провести новый project-exposure audit против всех текущих
-   research contracts/manifests; только при нулевом overlap подготовить отдельный immutable
-   evaluation contract и no-logit preflight. До них detector не запускать; UtrobinTTS нельзя
-   использовать как backfill.
+3. Для VoxForge RU не менять `79` exact pairs, completed forms, gate report или clean exposure
+   receipt и не выполнять resynthesis/replacement/backfill. Подготовить отдельный immutable
+   evaluation contract с fixed checkpoint/calibration/`0.5` boundary/license ledger и новыми
+   write-once paths, затем выполнить no-logit preflight. До успешного contract/preflight detector
+   не запускать; UtrobinTTS нельзя использовать как backfill.
 4. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 
@@ -295,7 +298,8 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [VoxForge Russian Qwen one-shot synthesis](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_synthesis_v1.md)
 - [VoxForge Russian Qwen technical QA](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_technical_qa_v1.md)
 - [VoxForge Russian Qwen immutable pair lock](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_pairing_v1.md)
-- [VoxForge Russian Qwen acoustic/language gate packet](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md)
+- [VoxForge Russian Qwen acoustic/language gate](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md)
+- [VoxForge Russian Qwen project-exposure audit](docs/voxforge_ru_mdc_qwen3_tts_customvoice_candidate_project_exposure_v1.md)
 - [VoxForge Russian rejected UtrobinTTS route review](docs/voxforge_ru_mdc_utrobinmv_vits_route_review_2026-08-13.md)
 - [Silero V5.5 RU / eugene route intake](docs/silero_v5_5_ru_eugene_intake_2026-08-13.md)
 - [Common Voice RU full-test metadata exposure screen](data/manifests/common_voice_ru_v24_full_test_metadata_exposure_screen_v1.json)

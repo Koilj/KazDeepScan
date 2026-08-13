@@ -54,9 +54,10 @@ independence, calibration, product quality or detector performance.
 
 ## Следующий безопасный шаг
 
-Commit the completed gate as immutable evidence, then run a new candidate project-exposure audit
-against all currently versioned research contracts/manifests. Only a separately reviewed immutable
-evaluation contract may bind that audit, this gate, a fixed checkpoint/calibration/boundary,
-license limits and write-once output paths. The gate report's
-`evaluation_contract_authorized=true` permits preparation of that contract; it does not itself
-authorize or perform detector inference.
+The completed gate is immutable evidence. The subsequent
+[project-exposure audit](voxforge_ru_mdc_qwen3_tts_customvoice_candidate_project_exposure_v1.md)
+covered `33` research configs / `18` referenced manifests / `12,397` prior rows and found
+`0/0/0` sample/audio/text overlap. Only a separately reviewed immutable evaluation contract may
+bind that audit, this gate, a fixed checkpoint/calibration/boundary, license limits and write-once
+output paths. The gate report's `evaluation_contract_authorized=true` permits preparation of that
+contract; it does not itself authorize or perform detector inference.

@@ -89,10 +89,11 @@ checkpoint и строго ограниченный evaluation-контур:
   materialized, literal-text bound и синтезирован в raw 75-row layer; technical QA оставил 42
   spoof rows и exact 42-pair candidate заморожены. Две 84-row forms с distinct pseudonymous
   reviewer IDs прошли strict technical acoustic gate: `84/84` exact assets получили по два
-  `pass/yes/yes/yes/yes` решения. Это authorizes только новый immutable evaluation contract;
-  subsequent exposure audit against 30 configured research contracts / 17 manifests / 12,313
-  prior rows found `0/0/0` sample/audio/text overlap. Detector inference ещё не начат, а distinct
-  IDs сами не доказывают organizational independence;
+  `pass/yes/yes/yes/yes` решения. Subsequent exposure audit against 30 configured research
+  contracts / 17 manifests / 12,313 prior rows found `0/0/0` sample/audio/text overlap. One
+  immutable XLS-R+SLS Stage-B v2 contract now pins that evidence, a fixed 976-row calibration,
+  the selected checkpoint and write-once paths. Preflight and detector inference ещё не начаты,
+  а distinct IDs сами не доказывают organizational independence;
 - перед любым выбором нового RU final набора весь full Common Voice `test` прошёл historical
   exposure screen, затем fixed V5.5 literal-text gate без lexical rewrite. Из `10 261` source
   records остаётся `5 600` в `1 337` client groups. Из них отдельный immutable receipt выбрал
@@ -390,4 +391,6 @@ Technical materialization этого slice описана в
 two-review technical gate — в
 [acoustic-gate receipt](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_acoustic_gate_v1.md),
 а его project-exposure audit — в
-[versioned receipt](data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_candidate_project_exposure_v1.json).
+[versioned receipt](data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_candidate_project_exposure_v1.json),
+а prepared evaluation contract — в
+[V5.5 contract receipt](docs/research_xlsr_sls_stage_b_v2_common_voice_ru_v24_silero_v5_5_eugene_v1.md).

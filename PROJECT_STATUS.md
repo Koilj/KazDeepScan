@@ -88,8 +88,11 @@ test; результаты не source-, speaker- или architecture-family-ind
   `cb9604a6a2c41fa16ce6e0c8c1947e44c0d0d21d626b88ccbf90673c872c3631`. This authorizes only a
   new immutable evaluation contract. Its project-exposure audit covered 30 configured research
   files, 17 referenced manifests and 12,313 prior rows; sample/audio/text overlap is `0/0/0`,
-  receipt SHA-256 `6071deb2f60ca914e475611addf81ef2cf81b485c2b9b86826c5a135c0cca3ff`. Detector
-  inference has not started and distinct IDs do not themselves prove organizational independence.
+  receipt SHA-256 `6071deb2f60ca914e475611addf81ef2cf81b485c2b9b86826c5a135c0cca3ff`. The immutable
+  V5.5 evaluation plan SHA-256 `cdf3fcbb496006478e575c024963cca497854dae1ce17775e58d95ae4d74cadf`
+  pins the passing evidence, V2 checkpoint, 976-row calibration, frozen license ledger and
+  write-once paths. Preflight/detector inference have not started and distinct IDs do not
+  themselves prove organizational independence.
 - Full Common Voice RU v24 `test` metadata screen до extraction сравнил `10 261` records / `2 075`
   client groups с `12 313` configured-role rows и `39 850` rows в `85` manifest files. Строгое
   whole-client-group exclusion оставляет `6 211` records / `1 443` groups; это только capacity
@@ -182,11 +185,11 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 1. Не повторять Stage-C/Stage-D/v3 runs и не использовать их final errors для tuning, выбора
    checkpoint, temperature, threshold или augmentation.
 2. Новый RU route прошёл завершённые selection/materialization/text binding/synthesis/technical
-   QA/pair lock, 84-asset technical acoustic gate and a zero-overlap project-exposure audit.
-   Следом подготовить один immutable evaluation contract, pinning these receipts, fixed
-   checkpoint/calibration/boundary and write-once outputs; до его preflight/run не менять
-   candidate, reviews, calibration, checkpoint, threshold или generation. Старые 55 Stage-D/v3
-   пар, 73-row selection и их rejections нельзя переиспользовать как «новый blind» тест.
+   QA/pair lock, 84-asset technical acoustic gate, zero-overlap project-exposure audit and one
+   immutable evaluation contract. Следом выполнить его единственный `--validate-only` preflight
+   (976 calibration + 84 final assets) without logits; до него не менять candidate, reviews,
+   calibration, checkpoint, threshold или generation. Старые 55 Stage-D/v3 пар, 73-row selection
+   и их rejections нельзя переиспользовать как «новый blind» тест.
 3. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 
@@ -239,5 +242,6 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [Common Voice RU / Silero V5.5 immutable pairing](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md)
 - [Common Voice RU / Silero V5.5 acoustic gate](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_acoustic_gate_v1.md)
 - [Common Voice RU / Silero V5.5 project-exposure audit](data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_candidate_project_exposure_v1.json)
+- [XLS-R Stage-B v2 / Common Voice RU Silero V5.5 contract](docs/research_xlsr_sls_stage_b_v2_common_voice_ru_v24_silero_v5_5_eugene_v1.md)
 - [External RU spoof-source search](docs/russian_spoof_source_search_2026-08-11.md)
 - [License-ledger snapshots](docs/license_ledger_snapshots.md)

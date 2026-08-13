@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "run_id": "xlsr-sls-stage-b-v2-common-voice-ru-v24-silero-v5-5-eugene-v1",
+  "purpose": "research",
+  "protocol": {
+    "kind": "asset_level_blind_single_ru_layer_research_evaluation",
+    "quality_claim": "research_only_not_product_quality",
+    "test_novelty": "exact_assets_never_inferred_project_wide_not_source_or_speaker_independent",
+    "calibration": "temperature_only_on_pinned_pyara_role",
+    "decision_boundary": "fixed_calibrated_probability_0.5",
+    "pooled_language_metric": "prohibited",
+    "final_set_model_driven_selection": "prohibited"
+  },
+  "license_ledger": {
+    "path": "../../data/licenses/frozen/xlsr_sls_stage_b_v2_common_voice_ru_v24_silero_v5_5_eugene_v1.csv",
+    "sha256": "6de966f1197626e15ac786a38f2abbd211f701a51979c7378b79fb611c9100e8"
+  },
+  "checkpoint": {
+    "path": "../../models/xlsr-sls-stage-b-v2.pt",
+    "sha256": "e112c5c93f2a5af0c567b85eccac0a617c37fa79b4d7cc2b29b4b3289f2764cd",
+    "stage_b_report": {
+      "path": "../../models/xlsr-sls-stage-b-v2-report.json",
+      "sha256": "cca5bf61976f07207d15976497b030420c274c6c1c5a194c4d37db2728f4c651"
+    },
+    "selected_trainable_state_sha256": "d03adfe2ebfe7b7361b2a0d9b7902ef7251f7faf139d37a30531e2211e2dd738"
+  },
+  "encoder": {
+    "checkpoint_dir": "../../models/xlsr-300m",
+    "revision": "1a640f32ac3e39899438a2931f9924c02f080a54",
+    "config": {
+      "path": "../../models/xlsr-300m/config.json",
+      "sha256": "0bffa0d0e98153e883b828d86491f3c6062cb563dc9d7a9cfd1790da30c286ac"
+    },
+    "weights": {
+      "path": "../../models/xlsr-300m/pytorch_model.bin",
+      "sha256": "d5e490574712ad0a6736923b9ed11d4cd51c78609c36205f704fc4e87b11d2e0"
+    }
+  },
+  "head": {
+    "attention_size": 128,
+    "classifier_size": 256,
+    "dropout": 0.2
+  },
+  "roles": {
+    "calibration": {
+      "manifest": {
+        "path": "../../data/manifests/pyara_ru_v7_stage_b_calibration_dev_1000_ready_v3.csv",
+        "sha256": "7fe2c89be7f02eea1abdfc369fc9c16185b0a395fa2526b5b2c58e361fa8fa31"
+      },
+      "selected_split": "dev",
+      "expected_rows": 976
+    },
+    "final_ru": {
+      "manifest": {
+        "path": "../../data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairs_v1.csv",
+        "sha256": "9227455d70c30f6f931902951421abb86b62627513feeb1cfc8530cb38bf2d71"
+      },
+      "expected_rows": 84,
+      "expected_pairs": 42,
+      "acoustic_gate": {
+        "path": "../../data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_acoustic_gate_report_v1.json",
+        "sha256": "cb9604a6a2c41fa16ce6e0c8c1947e44c0d0d21d626b88ccbf90673c872c3631"
+      },
+      "project_exposure_audit": {
+        "path": "../../data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_candidate_project_exposure_v1.json",
+        "sha256": "6071deb2f60ca914e475611addf81ef2cf81b485c2b9b86826c5a135c0cca3ff"
+      },
+      "route_audit": {
+        "path": "../../data/manifests/silero_v5_5_ru_eugene_exact_route_audit_v1.json",
+        "sha256": "5850d8d36bb72191f7e9a9516edec14552bcf1fe83aecea154a9bb90964fb955"
+      }
+    }
+  },
+  "implementation": [
+    {
+      "path": "../../scripts/evaluate_xlsr_common_voice_ru_v24_silero_v5_5.py",
+      "sha256": "ddf71a5733e1fc739308ebb268c2d7db005ff361f73c42c27e4e3719b5a90ea3"
+    },
+    {
+      "path": "../../scripts/evaluate_xlsr_stage_d_dialogs_ru.py",
+      "sha256": "f7f53b23dc888d0dd6715e9a727eff2aaaa886f198b327f459a43db70f355fa5"
+    },
+    {
+      "path": "../../src/kds/data/assets.py",
+      "sha256": "b3a27d67596dd2e6aa70ac0aa54cf61fc0c967c1386e67888c5f89e123e4dba9"
+    },
+    {
+      "path": "../../src/kds/data/dataset.py",
+      "sha256": "1fb4b89c2b018d939206b31d509e4105a626c37045f718deb8d8565814afc243"
+    },
+    {
+      "path": "../../src/kds/data/licenses.py",
+      "sha256": "35ba1184671e4896cc1af3a8612874caf716c4706444b496e8997f09b71aace7"
+    },
+    {
+      "path": "../../src/kds/data/manifest.py",
+      "sha256": "f1b709fc06cd9b465217afd62b80e5519bb9f24513da195326d4670a27fc61f8"
+    },
+    {
+      "path": "../../src/kds/data/stage_b_dev.py",
+      "sha256": "3a0b56f484461774717555a4c9696a2f7ac8f653207be2db6ce88524e94e497b"
+    },
+    {
+      "path": "../../src/kds/eval/calibration.py",
+      "sha256": "bf34382fc5ecff15a7b7f1cba414b79ba13c29d3ffdcc6173369689d912c5b55"
+    },
+    {
+      "path": "../../src/kds/eval/metrics.py",
+      "sha256": "2e5ce453bcf3c59fecdafb7732d2ed84ae2a56354702fb7521d9390d2cc9bace"
+    },
+    {
+      "path": "../../src/kds/models/__init__.py",
+      "sha256": "5697351cdc4ee0836fc5068d7ed93a1d9b54e454c709261fda286e609e3bd9d2"
+    },
+    {
+      "path": "../../src/kds/models/xlsr_sls.py",
+      "sha256": "470c213fee423a7aa895f882fe3618c8d1597e30e7f95b0cef697ed614d430b8"
+    },
+    {
+      "path": "../../src/kds/training/__init__.py",
+      "sha256": "37f4e20e86f2488ba3f34a7a70d4aabcf406f63e6fc321e8906ab9bb7a398faf"
+    },
+    {
+      "path": "../../src/kds/training/b0.py",
+      "sha256": "4827c686e2692ff429c6a94195534d5cf4d2ee7ea108675740b0f06f59016118"
+    },
+    {
+      "path": "../../src/kds/training/frozen_b0.py",
+      "sha256": "e9cc8cf0a7f3046596ad7f921c3b305dc7a096b0dfb233039558671615f49861"
+    },
+    {
+      "path": "../../pyproject.toml",
+      "sha256": "debc12027b79900ad127dbc125efa0d931d8f7181509056cbdd9f49554467e39"
+    },
+    {
+      "path": "../../uv.lock",
+      "sha256": "61314bb9c647eab9f53c898143757ed17c321a9812e56e05fc9928f3ea5183a1"
+    }
+  ],
+  "inference": {
+    "sample_rate": 16000,
+    "window_samples": 64600,
+    "batch_size": 4,
+    "num_workers": 0,
+    "device": "cuda",
+    "precision": "bf16",
+    "calibrated_probability_boundary": 0.5,
+    "temperature_max_iter": 50
+  },
+  "outputs": {
+    "preflight": "../../artifacts/xlsr-sls-stage-b-v2-common-voice-ru-v24-silero-v5-5-eugene-v1.preflight.json",
+    "execution_lock": "../../artifacts/xlsr-sls-stage-b-v2-common-voice-ru-v24-silero-v5-5-eugene-v1.execution.json",
+    "report": "../../artifacts/xlsr-sls-stage-b-v2-common-voice-ru-v24-silero-v5-5-eugene-v1.report.json"
+  }
+}

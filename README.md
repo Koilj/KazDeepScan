@@ -125,6 +125,14 @@ checkpoint и строго ограниченный evaluation-контур:
   no-logit preflight. Единственный CUDA/BF16 run дал `146/158`, balanced accuracy `0.9241`,
   bona-fide recall `74/79`, spoof recall `72/79` и `67/79` fully correct pairs. Это
   source-linked personal-research evidence; rerun и tuning по final errors запрещены;
+- для следующих исследований введены уровни evidence вместо требования «идеального» готового
+  набора: основной independent layer, external source/generator-family holdout с явным
+  `TTS training-data overlap unverified` и same-family sensitivity test. Минимум снижен до `60`
+  готовых пар при цели `79`; cloning-capable TTS допустим только в offline text-only default
+  voice contract без reference/prompt audio, normalizer, denoiser и retry. Следующий условный
+  intake — Denis 1.0 / official OpenBMB VoxCPM2, но он single-speaker и вероятно speaker-lineage
+  exposed через 6 RuASD train rows `ru_RU-denis-medium`; MCSKL/VoxCPM2-KZ-Darwin остаётся
+  blocked review и после RU route считается той же VoxCPM2 family;
 - FastAPI health/readiness/upload scaffold, который не выдаёт score без обученного,
   калиброванного model release.
 
@@ -445,3 +453,6 @@ write-once inference run затем дал `146/158` correct, balanced accuracy 
 `7da4df67f756addbc4bcd21868e294a62a150985479f30aad7e8f93bdbc96dff`. Repeat run и tuning
 по final errors запрещены; это не source/speaker/vendor/architecture independence или product
 quality.
+
+Политика силы будущих доказательств, проверка Denis/VoxCPM2 и условный MCSKL/KZ route описаны в
+[external holdout policy/source review](docs/external_holdout_policy_and_voxcpm2_candidates_2026-08-14.md).

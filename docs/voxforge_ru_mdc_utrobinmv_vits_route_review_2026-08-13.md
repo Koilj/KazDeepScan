@@ -1,5 +1,11 @@
 # VoxForge RU — UtrobinTTS VITS route review, 13 августа 2026
 
+> **Исторический rejected route.** Запрет на UtrobinTTS и его immutable JSON receipts остаётся
+> неизменным. Раздел «Следующий безопасный шаг» ниже описывает состояние на момент review: после
+> него отдельный Qwen/VoxForge route уже был завершён один раз. Текущий следующий intake и
+> evidence policy находятся в
+> [review от 14 августа](external_holdout_policy_and_voxcpm2_candidates_2026-08-14.md).
+
 **Статус:** rejected. Ни selection-bound WAV extraction, ни synthesis, ни QA, ни pairing, ни
 detector inference этим review не разрешены.
 

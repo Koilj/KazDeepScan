@@ -1,5 +1,10 @@
 # Kazakh generator family review — 10 августа 2026
 
+> **Исторический family inventory.** Реализованные/rejected решения ниже не меняются. Для
+> будущих routes новый policy считает checkpoint/adapter той же family только sensitivity test;
+> current MCSKL/VoxCPM2-KZ-Darwin review находится
+> [здесь](external_holdout_policy_and_voxcpm2_candidates_2026-08-14.md).
+
 ## Критерий
 
 Family засчитывается только если это отдельная generation chain, а не дополнительный voice,

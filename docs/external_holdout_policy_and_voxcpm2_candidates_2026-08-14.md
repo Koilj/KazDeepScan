@@ -1,0 +1,203 @@
+# Evidence tiers and VoxCPM2 holdout candidates — 14 августа 2026
+
+**Статус:** policy/source review завершён. Этот документ не является archive intake, artifact
+lock, разрешением на synthesis или detector inference. Ни Denis 1.0, ни MCSKL, ни один VoxCPM2
+checkpoint локально не загружались и не исполнялись в рамках этого review.
+
+**Scope:** personal research. Ранее выполненные write-once runs, их manifests, reports, hashes и
+запреты на повтор остаются неизменными.
+
+## 1. Новая иерархия силы доказательств
+
+Проект больше не требует «идеального» готового binary dataset и не требует от поставщика TTS
+исчерпывающего перечня каждой обучающей реплики как предварительного условия для любого
+исследования. Вместо бинарного `independent / rejected` используются три уровня.
+
+| Уровень | Обязательные условия | Допустимый claim | Недопустимый claim |
+| --- | --- | --- | --- |
+| **Основной независимый слой** | новый human-корпус; новое generator family; text-only run без reference/prompt audio; права, exact artifacts и project exposure проверены; данные TTS достаточны для каждого заявленного измерения независимости | только те измерения независимости, которые фактически подтверждены | training-data, speaker или organizational independence без отдельного доказательства |
+| **External source/family holdout** | новая human/TTS пара; новый human source и generator family относительно проекта; reference/prompt audio отсутствуют; TTS training sources раскрыты неполно | `external source- and generator-family-disjoint holdout; TTS training-data overlap unverified` | подтверждение отсутствия TTS training-data overlap или полностью независимый benchmark |
+| **Same-family sensitivity test** | новый checkpoint, adapter, voice или language specialization внутри уже использованной family | sensitivity к checkpoint/языку/voice/config | новый независимый holdout или дополнительная generator-family evidence layer |
+
+Полный список обучающих реплик TTS не является формальным обязательным артефактом. Но если
+поставщик раскрывает лишь объём или общую схему training data, проект не превращает отсутствие
+сведений в доказательство отсутствия overlap: такой результат автоматически остаётся external
+holdout. Для stronger claim достаточно не конкретного формата списка, а проверяемого evidence,
+которое действительно исключает заявленный overlap.
+
+## 2. Неизменяемые запреты и облегчённый размер
+
+Остаются fail-closed запреты на:
+
+- human sources, уже использованные проектом, их repack/derivative copies и источники с
+  неизвестными правами на человеческую речь;
+- любой `reference_wav_path`, `prompt_wav_path`, reference/prompt audio, voice cloning или
+  попытку воспроизвести идентичность человека;
+- выбор, замену, backfill, regeneration, retry, reselection или настройку checkpoint, seed,
+  параметров, threshold/calibration/augmentation после просмотра detector result;
+- повтор выполненного write-once run или использование его final errors для следующего recipe.
+
+Минимальный **готовый после technical QA** размер нового binary layer снижен до `60` exact pairs;
+цель — `79`. Pre-QA buffer может быть больше, но selection policy, порядок и отсутствие backfill
+фиксируются до synthesis. Для multi-speaker corpus сначала максимизируется число разных
+source-provided speaker groups, затем строки добавляются round-robin с заранее установленным
+per-speaker cap. Универсальное число cap не выдумывается до знания фактической metadata.
+
+Single-speaker corpus может пройти только как явно ограниченный external holdout. `79` строк
+одного человека не становятся speaker-robust evidence только из-за размера.
+
+## 3. Contract для cloning-capable TTS в text-only режиме
+
+Наличие cloning capability больше не отклоняет модель само по себе. Конкретный pinned route
+допустим только если wrapper и receipt обеспечивают одновременно:
+
+1. Полные commit/revision, source/runtime revision, license, размеры и SHA-256 всех required
+   files; seed и generation parameters фиксируются до первого WAV.
+2. Runtime работает из локального allow-listed snapshot: `local_files_only=True`, denoiser не
+   загружается, сетевые обращения технически запрещены и проверены.
+3. `reference_wav_path=None`, `prompt_wav_path=None`, `prompt_text=None`; wrapper не принимает
+   эти значения от CLI/config. Voice-design/control prefix также запрещён для claim
+   `default voice`.
+4. `normalize=False`, `denoise=False`, `retry_badcase=False`; ровно одна попытка на frozen text,
+   без скрытого retry или отбора «лучшего» WAV.
+5. Output маркируется `text-only default voice`; не заявляются fixed real identity, совпадение с
+   bona-fide speaker, cloning или speaker independence.
+6. Smoke test выполняется на отдельном non-candidate тексте и без detector inference. Candidate
+   synthesis разрешается только отдельным последующим contract после intake и exposure gate.
+
+## 4. Denis 1.0: подтверждённые факты и новое ограничение
+
+Первичная карточка [Mozilla Data Collective](https://mozilladatacollective.com/datasets/cmiup9seu01flnv076fexaqp9)
+указывает:
+
+- dataset ID `cmiup9seu01flnv076fexaqp9`, steward Open Home Foundation;
+- latest archive name `denis-1-0-3f60c388.tar.gz`, отображаемый размер `104.52 MB`;
+- `CC0-1.0`, примерно два часа scripted Russian speech, один speaker, WEBM;
+- запись через Piper Recording Studio и отсутствие post-processing/validation;
+- запрет re-identification и наличие отдельной pretrained Piper voice.
+
+MDC [Data Provider Terms](https://mozilladatacollective.com/terms/providers) требуют от
+поставщика подтвердить необходимые права, permissions и consents. Это полезная contractual
+warranty, но сами terms одновременно говорят, что платформа не гарантирует законность, точность
+или качество dataset. Поэтому rights evidence сильнее, чем у неизвестного web corpus, но не
+равно независимому consent audit. Consumer terms, dataset restrictions и запрет re-identification
+остаются обязательными; raw archive нельзя добавлять в Git или rehost.
+
+Карточка не публикует exact byte size, SHA-256, число utterances или таблицу durations. До
+локального read-only archive intake нельзя утверждать, что есть `60` или `79` пригодных строк.
+
+### Историческая speaker-lineage экспозиция
+
+В project manifests уже есть `7` ready RuASD v2 spoof rows с
+`generator_name=piperTTS`, `generator_version=ru_RU-denis-medium`: `6` в detector train и `1` в
+исходном RuASD dev split. Официальная [Piper model card](https://huggingface.co/rhasspy/piper-voices/blob/main/ru/ru_RU/denis/medium/MODEL_CARD)
+связывает `ru_RU-denis-medium` с CC0 `OHF-Voice/voice-datasets`, а Denis 1.0 у MDC ссылается на
+доступную pretrained Piper voice. Это сильное указание, что historical synthetic voice обучена
+на речи этого же человека, хотя текущие public cards не дают cryptographic archive-to-checkpoint
+binding.
+
+Проект применяет fail-closed трактовку: пока обратное не доказано, Denis 1.0 **не является
+speaker-disjoint** относительно detector training. Human archive остаётся новым direct source,
+но route нельзя называть speaker-independent или speaker-robust.
+
+## 5. Official OpenBMB VoxCPM2: подтверждённые факты
+
+Проверены официальный [model card](https://huggingface.co/openbmb/VoxCPM2),
+[repository](https://github.com/OpenBMB/VoxCPM),
+[API reference](https://voxcpm.readthedocs.io/en/latest/reference/api.html) и
+[technical report](https://arxiv.org/html/2606.06928v1).
+
+- Наблюдавшийся current HF revision: `bffb3df5a29440629464e5e839f4d214c8714c3d`;
+  intake обязан повторно разрешить и закрепить полный commit, а не использовать mutable `main`.
+- Модель имеет 2B parameters, Apache-2.0 и официальную поддержку Russian; basic TTS запускается
+  без reference audio и выдаёт 48 kHz output.
+- Это новая для project manifests tokenizer-free diffusion-autoregressive family
+  (`LocEnc -> TSLM -> RALM -> LocDiT`), а не Piper/MMS/VITS/RHVoice/eSpeak/Qwen3-TTS.
+- Snapshot около `4.96 GB` содержит `model.safetensors` около `4.58 GB`, но также
+  `audiovae.pth` около `377 MB` с pickle imports и local tokenizer Python file. Поэтому маршрут
+  **не полностью safetensors**: до model load нужны file allow-list, safe-load/code audit и
+  подтверждение tensor-only AudioVAE loading.
+- Upstream требует Python `>=3.10,<3.13`, тогда как текущая project venv — Python `3.13.15`.
+  Любой smoke требует отдельного pinned Python 3.12 environment; менять основной lock ради TTS
+  нельзя.
+- Model card рекомендует 1–3 generation attempts из-за вариативности. Project contract это
+  сознательно запрещает: один frozen seed, одна попытка, любой reject остаётся reject.
+
+Technical report раскрывает более `2` млн часов multilingual training speech: Chinese/English
+составляют большинство, остальные 28 языков имеют примерно `1K–50K` часов каждый. Названия и
+полный состав корпусов, включая Russian, не опубликованы. Поэтому нельзя проверить, входил ли
+Denis/OHF material в training data; Apache-2.0 weights/code license сама по себе этого не
+доказывает.
+
+## 6. Решение по Denis 1.0 × official VoxCPM2
+
+**Условно принят только как следующий intake route уровня external holdout.** Если archive и
+runtime gates пройдут, допустимая маркировка результата:
+
+> external human-source- and generator-family-disjoint RU holdout; TTS training-data overlap
+> unverified; likely historical speaker-lineage exposure through RuASD Piper Denis; single
+> speaker; not speaker-robust or speaker-independent; personal research only.
+
+Это полезнее ещё одного exact-route test на Common Voice/VoxForge и historical TTS family, но не
+закрывает основной independent/speaker-robust evidence gap. Сейчас не разрешены model download,
+load, smoke, synthesis или detector inference.
+
+## 7. MCSKL × VoxCPM2-KZ-Darwin
+
+Human side существенно сильнее по diversity, но intake пока заблокирован:
+
+- [data paper](https://openhumanitiesdata.metajnl.com/articles/10.5334/johd.529) сообщает 33
+  recordings, около 12 часов, естественные разговоры и time-aligned transcripts; abstract пишет
+  `78` participants, а metadata section — `73`;
+- тот же paper показывает `CC BY 4.0` в abstract/page metadata, но dataset-description license
+  называет `Attribution-NonCommercial-ShareAlike 4.0`;
+- официальный [SPEAK DMP](https://site.unibo.it/msca_speak/en/pubblicazioni/data-management-plan/@@download/file/MSCA-SPEAK-DMP.pdf)
+  прямо относит MCSKL audio и transcripts к `CC BY-NC-SA 4.0`.
+
+До проверки license file и terms **в фактическом OSF archive** действует более ограничительная
+трактовка `CC BY-NC-SA 4.0`; ни `CC BY`, ни точное число speaker groups не считаются
+закреплёнными.
+
+[VoxCPM2-KZ-Darwin model card](https://huggingface.co/AMAImedia/VoxCPM2-KZ-Darwin-NOESIS-BF16)
+указывает Apache-2.0, BF16 safetensors, Kazakh primary, Russian secondary и baked-in
+`voxcpm_kaz_lora`, но:
+
+- observed short revision `c0aa555` ещё не заменён полным pinned commit;
+- base указан как `sozkz/VoxCPM2`, а не официальный `openbmb/VoxCPM2`;
+- `voxcpm_kaz_lora` не имеет в card проверяемого source revision, training-corpus description и
+  rights chain;
+- snapshot listing не показывает отдельный AudioVAE artifact, поэтому offline completeness
+  должна быть доказана до load.
+
+После выбора official VoxCPM2 для RU этот KZ checkpoint относится к той же VoxCPM2 family. Даже
+при успешных rights/artifact gates MCSKL × KZ-Darwin сможет быть только **same-family KK
+sensitivity/source-diversity test**, а не вторым новым generator-family holdout. Альтернатива —
+отказаться от RU VoxCPM2 и первой использовать KZ family, но текущие license/provenance blockers
+делают это худшим следующим шагом.
+
+## 8. Исторические исключения не открываются повторно
+
+- `RUSLAN`, `SOVA`, `RuLS` и `M-AILABS` уже входят в RuASD upstream; также не возвращаются
+  перечисленные там GOLOS/OpenSTT routes.
+- Utrobin VITS остаётся rejected по immutable review: `76` historical rows с тем же model name
+  и неизвестной historical revision запрещают использовать его как backfill.
+- Piper, MMS, RHVoice, eSpeak NG, Silero, Dialogs VITS2, Qwen3-TTS и другие уже зафиксированные
+  families/routes остаются historical. Новый checkpoint внутри них — sensitivity/exact-route
+  evidence, а не новая family.
+
+## 9. Следующий безопасный этап
+
+1. Владелец вручную принимает актуальные MDC consumer/dataset terms и предоставляет неизменённый
+   `denis-1-0-3f60c388.tar.gz` вне Git. Автоматически обходить download gate нельзя.
+2. Выполнить read-only Denis intake: exact size/SHA-256, gzip CRC, safe TAR membership без
+   links/traversal/duplicates, metadata/schema, utterance-text binding, actual duration/count,
+   license/terms snapshot и `>=60` / target-`79` feasibility. Audio/model inference запрещены.
+3. Выполнить source/text/project-exposure screen и отдельный speaker-lineage receipt. Если после
+   QA меньше `60` строк — stop без backfill; если `60–78` — допустим минимальный layer; `79+` —
+   frozen target `79` без утверждения speaker robustness.
+4. Только затем отдельно pin official VoxCPM2 source + model snapshot и Python 3.12 runtime;
+   проверить all-file hashes, AudioVAE safe load, tokenizer code, offline fail-closed wrapper и
+   historical generator-family exposure. Model ещё не загружать на этапе artifact audit.
+5. После двух успешных intake gates отдельным commit разрешить один non-candidate text-only smoke
+   без detector inference. Candidate selection/synthesis и write-once evaluation требуют новых
+   последующих contracts.

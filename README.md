@@ -400,3 +400,7 @@ two-review technical gate — в
 [V5.5 contract receipt](docs/research_xlsr_sls_stage_b_v2_common_voice_ru_v24_silero_v5_5_eugene_v1.md),
 а immutable report-status correction — в
 [execution reconciliation receipt](data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_execution_reconciliation_v1.json).
+Новый VoxForge Russian bona-fide source пока прошёл только byte-locked GPL/transcript intake:
+`6,412` WAV, `194` source-provided contributor groups и `81` canonical text groups; raw WAV не
+извлекались и candidate не выбран. Ограничения и следующий pre-extraction exposure gate описаны
+в [VoxForge intake receipt](docs/data_sources_voxforge_ru_mdc_2026-08-13.md).

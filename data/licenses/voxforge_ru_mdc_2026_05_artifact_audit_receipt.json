@@ -1,0 +1,45 @@
+{
+  "source_id": "voxforge_ru_mdc_2026_05",
+  "archive_name": "voxforge-russian-9a8495d3.tar.gz",
+  "archive_size_bytes": 3795197539,
+  "archive_sha256": "7372c6f8d067b8d1651995ad8306b673acaf2cde705ee51295152b96c93de557",
+  "archive_root": "voxforge-ru",
+  "archive_members": 11657,
+  "regular_files": 9724,
+  "directories": 1933,
+  "submission_license_members": 644,
+  "submissions": 644,
+  "source_provided_contributor_groups": 194,
+  "wav_files": 6412,
+  "prompt_rows": 6412,
+  "original_prompt_rows": 6412,
+  "supplemental_audiofile_detail_files": 92,
+  "canonical_prompt_texts": 81,
+  "duplicated_prompt_rows": 6331,
+  "total_duration_seconds": "55545.812312",
+  "sample_rates_hz": {
+    "48000": 6412
+  },
+  "channel_counts": {
+    "1": 6412
+  },
+  "sample_width_bytes": {
+    "2": 6412
+  },
+  "intake_status": "accepted_source_level_only",
+  "extraction_performed": false,
+  "detector_inference_performed": false,
+  "candidate_selection_performed": false,
+  "schema_version": 1,
+  "audited_at": "2026-08-13T19:20:41+05:00",
+  "source_url": "https://mozilladatacollective.com/datasets/cmp2h1zvg00n0mp07wrjxow3l",
+  "license": "GPL-3.0-or-later",
+  "rights_scope": "personal_research_only; no product, training, calibration, or re-hosting authorization",
+  "group_provenance": "source_provided contributor/submission identifiers; not verified speaker identities",
+  "limitations": [
+    "The audit establishes archive-level provenance and transcript bindings only.",
+    "A contributor identifier is a conservative group key, not a verified human speaker identity.",
+    "No raw WAV is extracted or added to Git by this audit.",
+    "A future final candidate still needs project-exposure screening, frozen selection, QA, a separate spoof route, and an immutable one-run evaluation contract."
+  ]
+}

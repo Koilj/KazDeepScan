@@ -93,21 +93,26 @@ It permits no external lexical rewrite and requires wrapper-normalized text to e
 sentence exactly. `113` direct incompatible transcripts (only unsupported quotation marks or the
 minus glyph) taint `106` complete client groups; thus `5 600` records in `1 337` groups remain.
 This is a conservative wrapper-grammar exclusion, not a correction of the source text or an
-audio-quality result. No clip selection, extraction, synthesis, QA/review or detector inference
-occurred.
+audio-quality result. At the time of this screen, no clip selection, extraction, synthesis,
+QA/review or detector inference had occurred.
 
-Before extracting a single new MP3, the next contract must do all of the following:
+## Immutable pre-QA selection
 
-1. Choose and freeze an explicit candidate size and seed from only the `5 600` literal-text and
-   historical-exposure survivors, without detector output, metrics or final errors.
-2. Version a new selection receipt before audio extraction. It must name the metadata screen,
-   literal-text compatibility screen, selection inputs and all audit counts, and must exclude an
-   entire client group on any protected-field overlap.
-3. The receipt must not repurpose the old `55`, the old `73`, their `18` rejected partners or
-   remaining records from the first-250 source intake.
-4. Extract only the frozen survivors, run normal decode/QA/VAD and two-review acoustic gate. Do
-   not backfill failures after the selection is frozen. Only then may a new paired V5.5 contract
-   be reviewed; detector inference still needs a separate immutable plan.
+The required selection was completed before extracting any MP3. The new
+[pre-QA selection receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_selection_v1.md)
+uses seed `2026-08-13-silero-v5-5-eugene-pre-qa-candidate-v1` to freeze `80` records — exactly
+one per client group — from only these `5,600` survivors. Its CSV SHA-256 is
+`73eaf22706419b275517500ebb25973510e8dcccaa94a54f45b4fe2a787f6b50`; receipt SHA-256 is
+`a7f0a1b5c3a152c87692e5e9d7d4ac2e02b2b64d9b6933f7f79f29b4e6b6d7ad`.
+
+The `80` count is a conservative pre-QA buffer over the historical `55` pairs, not an expected
+QA yield. Selection did not use audio/duration, detector output, metrics or final errors, and all
+selected sample IDs, client groups and text hashes are unique. It does not repurpose the old
+`55`, old `73`, their `18` rejected partners or remaining first-250 source-intake records.
+
+The next contract may extract only the frozen `clip_name` values and run normal decode/QA/VAD.
+No failed row may be replaced, reselected or resynthesized. Two independent full-asset reviews,
+pairing and a new immutable plan remain necessary before detector inference.
 
 The existing Common Voice archive guard now validates both size and SHA-256 before metadata read
 or extraction; see

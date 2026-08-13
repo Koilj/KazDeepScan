@@ -4,11 +4,15 @@ import hashlib
 import json
 from pathlib import Path
 
+import pytest
+
 from kds.data.common_voice import CommonVoiceRecord
 from kds.data.manifest import ManifestRow, write_manifest
+from kds.eval.candidate_exposure import CandidateExposureError
 from kds.eval.common_voice_metadata_screen import (
     screen_common_voice_ru_test_metadata,
     screen_silero_v5_5_literal_text_compatibility,
+    select_common_voice_ru_v24_silero_v5_5_pre_qa_candidate,
 )
 from tests.factories import manifest_mapping
 
@@ -143,3 +147,88 @@ def test_literal_text_screen_taints_entire_client_group_on_one_incompatible_text
     assert strict_group_exclusion["tainted_client_groups"] == 1
     assert strict_group_exclusion["surviving_records"] == 2
     assert direct_incompatible[0]["sample_id"] == "common_voice_ru_v24:tainted-a"
+
+
+def test_pre_qa_selection_is_seeded_and_uses_one_record_per_client_group(
+    tmp_path: Path,
+) -> None:
+    project = tmp_path / "project"
+    config_root = project / "configs" / "research"
+    manifest_root = project / "data" / "manifests"
+    config_root.mkdir(parents=True)
+    manifest_root.mkdir(parents=True)
+    records = (
+        _record("one-a.mp3", "one", "первый текст"),
+        _record("one-b.mp3", "one", "второй текст"),
+        _record("two-a.mp3", "two", "третий текст"),
+        _record("two-b.mp3", "two", "четвертый текст"),
+        _record("three-a.mp3", "three", "пятый текст"),
+    )
+    source_manifest = manifest_root / "source.csv"
+    write_manifest(
+        source_manifest,
+        [
+            _manifest_row(
+                sample_id="unrelated:sample", client_id="unrelated", text_hash="d" * 64
+            )
+        ],
+    )
+    (config_root / "role.json").write_text(
+        json.dumps({"manifest": "../../data/manifests/source.csv"}), encoding="utf-8"
+    )
+    metadata_screen = screen_common_voice_ru_test_metadata(
+        records=records,
+        project_root=project,
+        config_root=config_root,
+        manifest_root=manifest_root,
+        created_at="2026-08-13T00:00:00Z",
+    )
+    compatibility = screen_silero_v5_5_literal_text_compatibility(
+        records=records, metadata_screen=metadata_screen
+    )
+
+    selection = select_common_voice_ru_v24_silero_v5_5_pre_qa_candidate(
+        compatibility_screen=compatibility,
+        selection_seed="pre-qa-selection-test-v1",
+        requested_client_groups=2,
+        selected_at="2026-08-13T01:00:00Z",
+    )
+    repeated = select_common_voice_ru_v24_silero_v5_5_pre_qa_candidate(
+        compatibility_screen=compatibility,
+        selection_seed="pre-qa-selection-test-v1",
+        requested_client_groups=2,
+        selected_at="2026-08-13T01:00:00Z",
+    )
+
+    assert selection == repeated
+    assert len(selection.entries) == 2
+    assert [entry.selection_rank for entry in selection.entries] == [1, 2]
+    assert len({entry.parent_group_id for entry in selection.entries}) == 2
+    assert selection.receipt["selection_policy"] == {
+        "kind": "seeded_two_stage_one_record_per_client_group",
+        "selection_seed": "pre-qa-selection-test-v1",
+        "requested_client_groups": 2,
+        "selected_records": 2,
+        "selected_client_groups": 2,
+        "group_ranking": (
+            "ascending SHA-256(seed + NUL + 'client-group' + NUL + parent_group_id), "
+            "then parent_group_id"
+        ),
+        "record_ranking": (
+            "ascending SHA-256(seed + NUL + 'record-in-client-group:' + "
+            "parent_group_id + NUL + sample_id), then sample_id"
+        ),
+        "exactly_one_record_per_selected_client_group": True,
+        "post_selection_backfill": False,
+        "selection_uses_audio_or_duration": False,
+        "selection_uses_detector_or_model_output": False,
+        "selection_uses_model_metrics_or_final_errors": False,
+    }
+
+    with pytest.raises(CandidateExposureError, match="exceeds"):
+        select_common_voice_ru_v24_silero_v5_5_pre_qa_candidate(
+            compatibility_screen=compatibility,
+            selection_seed="pre-qa-selection-test-v1",
+            requested_client_groups=4,
+            selected_at="2026-08-13T01:00:00Z",
+        )

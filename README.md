@@ -85,12 +85,13 @@ checkpoint и строго ограниченный evaluation-контур:
   hash-pinned package, source, ZIP/dispatcher audit и fail-closed wrapper запрещают reference
   audio, cloning, random profile, SSML и `voice_path`. Route audit видит 0 exact V5.5/eugene
   rows среди 18 605 historical spoof rows, но 1 265 legacy Silero rows исключают architecture-,
-  vendor- и speaker-independence claims. Synthesis, bona-fide selection, review и inference ещё
-  не начаты;
+  vendor- и speaker-independence claims. Новый bona-fide pre-QA selection уже заморожен, но
+  extraction, synthesis, review и inference ещё не начаты;
 - перед любым выбором нового RU final набора весь full Common Voice `test` прошёл historical
   exposure screen, затем fixed V5.5 literal-text gate без lexical rewrite. Из `10 261` source
-  records остаётся `5 600` в `1 337` client groups; это capacity evidence, не frozen selection
-  и не audio/model result;
+  records остаётся `5 600` в `1 337` client groups. Из них отдельный immutable receipt выбрал
+  `80` exact clip metadata — по одной записи на group, без audio/model-based selection и без
+  backfill; это всё ещё не audio/model result;
 - explicit source-mixed research matrix и B0 runner, который не допускает overlap исходных
   corpus между train/dev/final-test и проверяет обычный sample/SHA-256/group/text leakage поверх
   этого;
@@ -364,6 +365,7 @@ Stage-C contract зафиксированы в
 [docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md](docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md),
 а v3 governance/training/final receipt — в
 [docs/research_xlsr_sls_v3_stage_d_dialogs_ru_v1.md](docs/research_xlsr_sls_v3_stage_d_dialogs_ru_v1.md).
-Проверенный, но ещё не оценённый Silero V5.5 route и точная безопасная процедура для нового
-Common Voice RU slice описаны в
-[docs/silero_v5_5_ru_eugene_intake_2026-08-13.md](docs/silero_v5_5_ru_eugene_intake_2026-08-13.md).
+Проверенный, но ещё не оценённый Silero V5.5 route и immutable pre-QA selection нового Common
+Voice RU slice описаны в
+[docs/silero_v5_5_ru_eugene_intake_2026-08-13.md](docs/silero_v5_5_ru_eugene_intake_2026-08-13.md)
+и [pre-QA selection receipt](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_selection_v1.md).

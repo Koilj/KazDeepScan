@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import json
 from collections import Counter
 from collections.abc import Sequence
 from dataclasses import dataclass
@@ -60,6 +61,28 @@ class CommonVoiceTextCompatibilityScreen:
     """Literal-text-compatible records after fail-closed client-group exclusion."""
 
     surviving: tuple[CommonVoiceRecord, ...]
+    receipt: dict[str, object]
+
+
+@dataclass(frozen=True, slots=True)
+class CommonVoicePreQaSelectionEntry:
+    """One frozen, unmaterialized Common Voice record for a later QA candidate."""
+
+    selection_rank: int
+    sample_id: str
+    clip_name: str
+    source_split: str
+    parent_group_id: str
+    speaker_pseudo_id: str
+    text_id: str
+    text_hash: str
+
+
+@dataclass(frozen=True, slots=True)
+class CommonVoicePreQaSelection:
+    """A deterministic one-record-per-client-group pre-QA selection."""
+
+    entries: tuple[CommonVoicePreQaSelectionEntry, ...]
     receipt: dict[str, object]
 
 
@@ -385,6 +408,171 @@ def screen_silero_v5_5_literal_text_compatibility(
                 "detector_inference_authorized": False,
                 "selection_frozen": False,
                 "future_selection_must_bind_seed_count_and_survivors": True,
+            },
+        },
+    )
+
+
+def _selection_rank(seed: str, domain: str, value: str) -> bytes:
+    return hashlib.sha256(f"{seed}\x00{domain}\x00{value}".encode()).digest()
+
+
+def _selection_entry_payload(entry: CommonVoicePreQaSelectionEntry) -> dict[str, object]:
+    return {
+        "selection_rank": entry.selection_rank,
+        "sample_id": entry.sample_id,
+        "clip_name": entry.clip_name,
+        "source_split": entry.source_split,
+        "parent_group_id": entry.parent_group_id,
+        "speaker_pseudo_id": entry.speaker_pseudo_id,
+        "text_id": entry.text_id,
+        "text_hash": entry.text_hash,
+    }
+
+
+def _selection_fingerprint(entries: Sequence[CommonVoicePreQaSelectionEntry]) -> str:
+    return hashlib.sha256(
+        json.dumps(
+            [_selection_entry_payload(entry) for entry in entries],
+            ensure_ascii=False,
+            separators=(",", ":"),
+            sort_keys=True,
+        ).encode("utf-8")
+    ).hexdigest()
+
+
+def select_common_voice_ru_v24_silero_v5_5_pre_qa_candidate(
+    *,
+    compatibility_screen: CommonVoiceTextCompatibilityScreen,
+    selection_seed: str,
+    requested_client_groups: int,
+    selected_at: str,
+) -> CommonVoicePreQaSelection:
+    """Freeze one literal-text-compatible test record for each selected client group.
+
+    This selection deliberately happens before extraction.  It ranks all compatible client
+    groups from a public seed, then independently ranks records within each selected group.
+    It never inspects audio, model output, QA outcomes, or final-run errors.
+    """
+
+    try:
+        datetime.fromisoformat(selected_at.replace("Z", "+00:00"))
+    except ValueError as error:
+        raise CandidateExposureError("selected_at must be an ISO-8601 timestamp.") from error
+    if not selection_seed or "\x00" in selection_seed:
+        raise CandidateExposureError("selection_seed must be non-empty and contain no NUL byte.")
+    if requested_client_groups <= 0:
+        raise CandidateExposureError("requested_client_groups must be positive.")
+    if not compatibility_screen.surviving:
+        raise CandidateExposureError("Literal-text compatibility screen has no survivors.")
+
+    by_group: dict[str, list[CommonVoiceRecord]] = {}
+    seen_sample_ids: set[str] = set()
+    for record in compatibility_screen.surviving:
+        identity = common_voice_metadata_identity(record)
+        if identity.sample_id in seen_sample_ids:
+            raise CandidateExposureError(
+                "Literal-text compatibility screen has duplicate source sample IDs."
+            )
+        seen_sample_ids.add(identity.sample_id)
+        by_group.setdefault(identity.parent_group_id, []).append(record)
+    if requested_client_groups > len(by_group):
+        raise CandidateExposureError(
+            "requested_client_groups exceeds literal-text-compatible client-group capacity."
+        )
+
+    ranked_groups = sorted(
+        by_group,
+        key=lambda group_id: (_selection_rank(selection_seed, "client-group", group_id), group_id),
+    )
+    entries: list[CommonVoicePreQaSelectionEntry] = []
+    for selection_rank, group_id in enumerate(ranked_groups[:requested_client_groups], start=1):
+        selected_record = min(
+            by_group[group_id],
+            key=lambda record: (
+                _selection_rank(
+                    selection_seed,
+                    f"record-in-client-group:{group_id}",
+                    common_voice_metadata_identity(record).sample_id,
+                ),
+                common_voice_metadata_identity(record).sample_id,
+            ),
+        )
+        identity = common_voice_metadata_identity(selected_record)
+        entries.append(
+            CommonVoicePreQaSelectionEntry(
+                selection_rank=selection_rank,
+                sample_id=identity.sample_id,
+                clip_name=selected_record.clip_name,
+                source_split=selected_record.split,
+                parent_group_id=identity.parent_group_id,
+                speaker_pseudo_id=identity.speaker_pseudo_id,
+                text_id=selected_record.sentence_id,
+                text_hash=identity.text_hash,
+            )
+        )
+    if len({entry.parent_group_id for entry in entries}) != len(entries):
+        raise CandidateExposureError("Pre-QA selection does not have unique client groups.")
+
+    compatibility_counts = compatibility_screen.receipt.get("strict_group_exclusion")
+    if not isinstance(compatibility_counts, dict):
+        raise CandidateExposureError("Literal-text compatibility receipt has invalid group counts.")
+    if (
+        compatibility_counts.get("surviving_records") != len(compatibility_screen.surviving)
+        or compatibility_counts.get("surviving_client_groups") != len(by_group)
+    ):
+        raise CandidateExposureError(
+            "Literal-text compatibility receipt does not match its supplied survivor records."
+        )
+
+    frozen_entries = tuple(entries)
+    return CommonVoicePreQaSelection(
+        entries=frozen_entries,
+        receipt={
+            "schema_version": 1,
+            "protocol_id": "common-voice-ru-v24-silero-v5-5-eugene-pre-qa-selection-v1",
+            "selected_at": selected_at,
+            "candidate_state": (
+                "immutable metadata selection only; no audio extraction, synthesis, QA, "
+                "acoustic review, or detector inference"
+            ),
+            "survivor_pool": {
+                "source_id": COMMON_VOICE_RU_V24_SOURCE_ID,
+                "source_split": "test",
+                "literal_text_compatible_records": len(compatibility_screen.surviving),
+                "literal_text_compatible_client_groups": len(by_group),
+            },
+            "selection_policy": {
+                "kind": "seeded_two_stage_one_record_per_client_group",
+                "selection_seed": selection_seed,
+                "requested_client_groups": requested_client_groups,
+                "selected_records": len(frozen_entries),
+                "selected_client_groups": len({entry.parent_group_id for entry in frozen_entries}),
+                "group_ranking": (
+                    "ascending SHA-256(seed + NUL + 'client-group' + NUL + parent_group_id), "
+                    "then parent_group_id"
+                ),
+                "record_ranking": (
+                    "ascending SHA-256(seed + NUL + 'record-in-client-group:' + "
+                    "parent_group_id + NUL + sample_id), then sample_id"
+                ),
+                "exactly_one_record_per_selected_client_group": True,
+                "post_selection_backfill": False,
+                "selection_uses_audio_or_duration": False,
+                "selection_uses_detector_or_model_output": False,
+                "selection_uses_model_metrics_or_final_errors": False,
+            },
+            "selected_entries_fingerprint_sha256": _selection_fingerprint(frozen_entries),
+            "claims": {
+                "historical_exposure_and_literal_text_screens_required": True,
+                "audio_extraction_performed": False,
+                "synthetic_audio_generated": False,
+                "qa_or_acoustic_review_performed": False,
+                "detector_inference_performed": False,
+                "detector_inference_authorized": False,
+                "selection_frozen": True,
+                "future_extraction_must_use_only_selected_clip_names": True,
+                "qa_rejects_must_not_trigger_backfill": True,
             },
         },
     )

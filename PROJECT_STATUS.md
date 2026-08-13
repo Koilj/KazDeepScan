@@ -79,16 +79,18 @@ test; результаты не source-, speaker- или architecture-family-ind
   SHA-256, local wrapper разрешает только literal Russian text → built-in `eugene` at 48 kHz и
   запрещает reference audio, cloning, random profile, SSML и `voice_path`. Audit 56 historical
   manifests / 18 605 spoof rows нашёл `0` exact V5.5/eugene overlap, но `1 265` legacy Silero
-  rows исключают architecture-, vendor- и speaker-independence claims. Нет synthesis, bona-fide
-  selection, review или detector inference.
+  rows исключают architecture-, vendor- и speaker-independence claims. Нет synthesis, review или
+  detector inference.
 - Full Common Voice RU v24 `test` metadata screen до extraction сравнил `10 261` records / `2 075`
   client groups с `12 313` configured-role rows и `39 850` rows в `85` manifest files. Строгое
   whole-client-group exclusion оставляет `6 211` records / `1 443` groups; это только capacity
   receipt без selection, audio extraction, synthesis, QA/review или inference.
 - Fixed V5.5 literal-text gate без lexical rewrite проверил ровно эти `6 211` metadata survivors:
   `113` records с неподдержанными кавычками/glyph `−` taint `106` full client groups. После
-  strict group exclusion доступны `5 600` records / `1 337` groups; это всё ещё только capacity
-  receipt без selection, audio extraction, synthesis, QA/review или inference.
+  strict group exclusion доступны `5 600` records / `1 337` groups. Immutable pre-QA receipt
+  выбрал из них `80` exact records: seeded two-stage rule берёт одну запись на отдельную client
+  group, без audio/duration, detector/model output, metrics или final errors. `80/80` sample IDs,
+  client groups и text hashes уникальны; extraction, synthesis, QA/review и inference не начаты.
 - Stage D строго привязал 73 frozen Common Voice RU текста, создал ровно 73 synthetic WAV и без
   backfill сохранил 55 binary pairs / 110 assets после 18 `insufficient_speech` rejects.
   Проектный exposure audit против 23 configs / 12 203 rows дал `0/0/0` sample/audio/text overlap.
@@ -163,10 +165,10 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 
 1. Не повторять Stage-C/Stage-D/v3 runs и не использовать их final errors для tuning, выбора
    checkpoint, temperature, threshold или augmentation.
-2. Новый RU route, historical exposure и literal-text screen уже закреплены. Следом выбрать
-   явные size/seed только из `5 600` survivors, version selection receipt и freeze exact clips
-   без backfill до extraction. Старые 55 Stage-D/v3 пар, 73-row selection и их rejections нельзя
-   переиспользовать как «новый blind» тест.
+2. Новый RU route, historical exposure, literal-text screen и `80`-record pre-QA selection уже
+   закреплены. Следом extract только frozen clip names, затем normal decode/QA/VAD без backfill.
+   Старые 55 Stage-D/v3 пар, 73-row selection и их rejections нельзя переиспользовать как
+   «новый blind» тест.
 3. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 
@@ -211,5 +213,6 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [Silero V5.5 RU / eugene route intake](docs/silero_v5_5_ru_eugene_intake_2026-08-13.md)
 - [Common Voice RU full-test metadata exposure screen](data/manifests/common_voice_ru_v24_full_test_metadata_exposure_screen_v1.json)
 - [Common Voice RU / Silero V5.5 literal-text screen](data/manifests/common_voice_ru_v24_full_test_silero_v5_5_literal_text_screen_v1.json)
+- [Common Voice RU / Silero V5.5 immutable pre-QA selection](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_selection_v1.md)
 - [External RU spoof-source search](docs/russian_spoof_source_search_2026-08-11.md)
 - [License-ledger snapshots](docs/license_ledger_snapshots.md)

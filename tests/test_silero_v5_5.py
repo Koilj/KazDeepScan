@@ -16,6 +16,7 @@ from kds.data.silero_v5_5 import (
     load_silero_v5_5_runtime,
     normalize_silero_v5_5_text,
     silero_v5_5_spoof_row,
+    synthesize_silero_v5_5,
 )
 from tests.factories import manifest_mapping
 
@@ -84,6 +85,18 @@ def test_silero_v5_5_spoof_row_preserves_common_voice_text() -> None:
     assert spoof.code_switch == "unknown"
     assert spoof.voice_id.endswith(":eugene")
     assert spoof.clone_consent_id == "not_applicable:fixed-pretrained-tts-no-reference-audio"
+
+
+def test_silero_v5_5_synthesis_requires_wav_output_suffix(tmp_path: Path) -> None:
+    runtime, _model = _runtime_and_model()
+
+    with pytest.raises(SileroV55Error, match=".wav filename"):
+        synthesize_silero_v5_5(
+            model=object(),
+            text="Точный текст",
+            runtime=runtime,
+            output=tmp_path / "invalid.wav.part",
+        )
 
 
 def test_silero_v5_5_zip_inspection_rejects_unsafe_paths(tmp_path: Path) -> None:

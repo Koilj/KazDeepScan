@@ -203,6 +203,8 @@ def synthesize_silero_v5_5(
     prosody symbols, a voice path, timestamps, language override or intensity override.
     """
 
+    if output.suffix.lower() != ".wav":
+        raise SileroV55Error("Silero V5.5 synthesis output must use a .wav filename.")
     literal_text = normalize_silero_v5_5_text(text)
     try:
         with torch.inference_mode():
@@ -230,7 +232,10 @@ def synthesize_silero_v5_5(
     audio = waveform.detach().to("cpu", torch.float32).numpy()
     if audio.ndim != 1 or audio.size == 0 or not np.isfinite(audio).all():
         raise SileroV55Error("Silero V5.5 produced an empty or non-finite waveform.")
-    sf.write(output, audio, runtime.sample_rate, subtype="PCM_16")
+    try:
+        sf.write(output, audio, runtime.sample_rate, subtype="PCM_16")
+    except (OSError, TypeError) as error:
+        raise SileroV55Error(f"Cannot write Silero V5.5 WAV output: {error}") from error
 
 
 def silero_v5_5_spoof_row(

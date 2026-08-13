@@ -1,0 +1,96 @@
+{
+  "source_id": "denis_1_0_mdc",
+  "downloaded_archive_name": "1764973737766-ru_RU-denis.tar.gz",
+  "source_card_archive_name": "denis-1-0-3f60c388.tar.gz",
+  "archive_size_bytes": 109594943,
+  "archive_sha256": "75e2c63c5082df7623c6a98c529718b22015dfbd2d38a1ea328635f4dd4ccf9b",
+  "archive_root": "ru-RU",
+  "archive_members": 2304,
+  "regular_files": 2300,
+  "directories": 4,
+  "gzip_crc_verified": true,
+  "gzip_uncompressed_bytes": 111523328,
+  "tar_stream_fully_read": true,
+  "regular_file_bytes": 109626453,
+  "text_files": 1150,
+  "audio_files": 1150,
+  "paired_records": 1150,
+  "orphan_record_stems": 0,
+  "unsafe_paths": 0,
+  "duplicate_member_paths": 0,
+  "casefold_duplicate_member_paths": 0,
+  "records_by_category": {
+    "0000000001_0300000050_General": 550,
+    "3000000001_3000000300_Chat": 300,
+    "4000000001_4000000300_CustomerService": 300
+  },
+  "text_payload_bytes": 148187,
+  "audio_payload_bytes": 109478266,
+  "empty_texts": 0,
+  "multiline_texts": 0,
+  "nul_texts": 0,
+  "literal_unique_texts": 1150,
+  "whitespace_canonical_unique_texts": 1150,
+  "nfkc_whitespace_canonical_unique_texts": 1150,
+  "text_members_with_nbsp": 46,
+  "text_members_with_trailing_whitespace": 18,
+  "filename_suffix_counts": {
+    ".webm": 1150
+  },
+  "decoded_container_counts": {
+    "OGG": 1150
+  },
+  "decoded_subtype_counts": {
+    "OPUS": 1150
+  },
+  "sample_rate_counts_hz": {
+    "48000": 1150
+  },
+  "channel_counts": {
+    "2": 1150
+  },
+  "fully_decoded_audio_files": 1150,
+  "decode_failures": 0,
+  "decoded_frames_total": 322534320,
+  "duration_total_seconds": "6719.465000",
+  "duration_min_seconds": "2.333500",
+  "duration_median_seconds": "5.233500",
+  "duration_max_seconds": "19.313500",
+  "duration_at_least_2_5_seconds": 1143,
+  "duration_below_2_5_seconds": 7,
+  "member_inventory_sha256": "77fb3b338fba89bb756553b5c354679b220041c74081647e01f222c87016d994",
+  "record_identity_fingerprint": "7087795d0fc989f9c2bc7cfcc0d213f713361b4327c830d0468625b2220f25b5",
+  "source_provided_speaker_groups": 1,
+  "speaker_metadata_embedded": false,
+  "license_file_embedded": false,
+  "duration_metadata_embedded": false,
+  "duration_derived_from_audio": true,
+  "disk_extraction_performed": false,
+  "audio_payload_decoded_in_memory": true,
+  "candidate_selection_performed": false,
+  "tts_inference_performed": false,
+  "detector_inference_performed": false,
+  "intake_status": "accepted_source_level_only",
+  "schema_version": 1,
+  "audited_at": "2026-08-14T02:25:37+05:00",
+  "source_url": "https://mozilladatacollective.com/datasets/cmiup9seu01flnv076fexaqp9",
+  "license": "CC0-1.0",
+  "rights_scope": "personal_research_only; no re-identification, re-hosting, product, training, calibration, synthesis, or detector-inference authorization",
+  "rights_evidence": "MDC dataset card declares CC0-1.0 and names Open Home Foundation as steward; MDC provider terms require the provider to hold necessary rights, permissions, and consents. The archive itself embeds no license file.",
+  "duration_basis": "fully decoded PCM frame count divided by the declared 48000 Hz sample rate, after the Opus decoder applies codec pre-skip",
+  "feasibility": {
+    "minimum_ready_pairs": 60,
+    "target_pairs": 79,
+    "pre_qa_rows_at_least_2_5_seconds": 1143,
+    "minimum_60_feasible_before_vad_and_acoustic_qa": true,
+    "target_79_feasible_before_vad_and_acoustic_qa": true
+  },
+  "limitations": [
+    "The browser-assigned download name differs from the archive name shown on the source card; exact local bytes and SHA-256 are authoritative here.",
+    "Members use a .webm suffix but decode consistently as Ogg/Opus; the mismatch is disclosed and must not be rewritten silently.",
+    "The archive provides no embedded license, duration table, speaker table, or independent consent audit.",
+    "The source card describes one speaker, so this source cannot establish speaker robustness.",
+    "Duration feasibility is not VAD, acoustic review, candidate readiness, or an authorization to select, synthesize, or run the detector.",
+    "Raw audio and transcripts remain outside Git; no member was extracted to disk by this intake."
+  ]
+}

@@ -2,8 +2,9 @@
 
 > **Исторический review.** Stage-B/Stage-C routes из этого документа уже выполнены; его source
 > exclusions (включая RuASD upstream) остаются в силе. Текущая классификация будущих independent,
-> external-holdout и same-family layers, а также следующий Denis/VoxCPM2 intake находятся в
-> [review от 14 августа](external_holdout_policy_and_voxcpm2_candidates_2026-08-14.md).
+> external-holdout и same-family layers находятся в
+> [review от 14 августа](external_holdout_policy_and_voxcpm2_candidates_2026-08-14.md). Denis
+> source intake уже завершён; следующий gate — только official VoxCPM2 artifact/runtime intake.
 
 Проверка проведена 10–11 августа 2026 года. В этот список включён только источник,
 который не является частью RuASD/KSC2, публикует исходное аудио и транскрипты с

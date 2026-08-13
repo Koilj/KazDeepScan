@@ -129,10 +129,12 @@ checkpoint и строго ограниченный evaluation-контур:
   набора: основной independent layer, external source/generator-family holdout с явным
   `TTS training-data overlap unverified` и same-family sensitivity test. Минимум снижен до `60`
   готовых пар при цели `79`; cloning-capable TTS допустим только в offline text-only default
-  voice contract без reference/prompt audio, normalizer, denoiser и retry. Следующий условный
-  intake — Denis 1.0 / official OpenBMB VoxCPM2, но он single-speaker и вероятно speaker-lineage
-  exposed через 6 RuASD train rows `ru_RU-denis-medium`; MCSKL/VoxCPM2-KZ-Darwin остаётся
-  blocked review и после RU route считается той же VoxCPM2 family;
+  voice contract без reference/prompt audio, normalizer, denoiser и retry. Denis 1.0 source
+  intake/exposure screen пройден: `1,150` exact pairs, `1,143` rows `>=2.5` s и zero direct
+  sample/audio/text overlap. Но source single-speaker и likely speaker-lineage exposed через `12`
+  unique historical `ru_RU-denis-medium` samples (`11` train, `1` dev); следующий gate — только
+  official VoxCPM2 artifact/runtime intake. MCSKL/VoxCPM2-KZ-Darwin остаётся blocked review и
+  после RU route считается той же VoxCPM2 family;
 - FastAPI health/readiness/upload scaffold, который не выдаёт score без обученного,
   калиброванного model release.
 
@@ -456,3 +458,5 @@ quality.
 
 Политика силы будущих доказательств, проверка Denis/VoxCPM2 и условный MCSKL/KZ route описаны в
 [external holdout policy/source review](docs/external_holdout_policy_and_voxcpm2_candidates_2026-08-14.md).
+Завершённый exact Denis archive/source-exposure intake и ограничения speaker lineage
+зафиксированы в [source receipt](docs/data_sources_denis_1_0_mdc_2026-08-14.md).

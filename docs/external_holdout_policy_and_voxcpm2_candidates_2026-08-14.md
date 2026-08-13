@@ -1,8 +1,9 @@
 # Evidence tiers and VoxCPM2 holdout candidates — 14 августа 2026
 
-**Статус:** policy/source review завершён. Этот документ не является archive intake, artifact
-lock, разрешением на synthesis или detector inference. Ни Denis 1.0, ни MCSKL, ни один VoxCPM2
-checkpoint локально не загружались и не исполнялись в рамках этого review.
+**Статус:** policy/source review и отдельный Denis 1.0 read-only source intake/exposure screen
+завершены. Этот документ не является VoxCPM2 artifact lock, frozen selection, разрешением на
+synthesis или detector inference. Denis archive проверен вне Git; MCSKL и VoxCPM2 checkpoints
+локально не загружались и не исполнялись.
 
 **Scope:** personal research. Ранее выполненные write-once runs, их manifests, reports, hashes и
 запреты на повтор остаются неизменными.
@@ -46,6 +47,11 @@ per-speaker cap. Универсальное число cap не выдумыва
 Single-speaker corpus может пройти только как явно ограниченный external holdout. `79` строк
 одного человека не становятся speaker-robust evidence только из-за размера.
 
+Если поставщик не публикует duration table, exact duration разрешено получить из byte-pinned
+audio полным проходом audited decoder. Такой derived duration должен быть отдельно маркирован и
+не считается VAD/acoustic QA. Это не ослабляет требования к archive identity, text/audio binding
+или waveform readiness.
+
 ## 3. Contract для cloning-capable TTS в text-only режиме
 
 Наличие cloning capability больше не отклоняет модель само по себе. Конкретный pinned route
@@ -83,14 +89,21 @@ warranty, но сами terms одновременно говорят, что п
 равно независимому consent audit. Consumer terms, dataset restrictions и запрет re-identification
 остаются обязательными; raw archive нельзя добавлять в Git или rehost.
 
-Карточка не публикует exact byte size, SHA-256, число utterances или таблицу durations. До
-локального read-only archive intake нельзя утверждать, что есть `60` или `79` пригодных строк.
+Карточка не публикует exact byte size, SHA-256, число utterances или таблицу durations. Теперь
+завершён отдельный [локальный source intake](data_sources_denis_1_0_mdc_2026-08-14.md): browser
+download `1764973737766-ru_RU-denis.tar.gz` имеет `109,594,943` bytes и SHA-256
+`75e2c63c5082df7623c6a98c529718b22015dfbd2d38a1ea328635f4dd4ccf9b`. Он содержит `1,150`
+exact unique UTF-8 text/audio pairs; все `1,150` payloads полностью декодируются как 48-kHz
+stereo Ogg/Opus, хотя members имеют `.webm` suffix. Decoded duration — `6,719.465` s; `1,143`
+rows имеют duration `>=2.5` s до VAD/acoustic QA. Source gate поэтому подтверждает feasibility
+minimum `60` и target `79`, но ещё не ready-candidate status.
 
 ### Историческая speaker-lineage экспозиция
 
-В project manifests уже есть `7` ready RuASD v2 spoof rows с
-`generator_name=piperTTS`, `generator_version=ru_RU-denis-medium`: `6` в detector train и `1` в
-исходном RuASD dev split. Официальная [Piper model card](https://huggingface.co/rhasspy/piper-voices/blob/main/ru/ru_RU/denis/medium/MODEL_CARD)
+В полном current project scope есть `12` уникальных historical RuASD spoof sample IDs с
+`generator_name=piperTTS`, `generator_version=ru_RU-denis-medium`: `11` в когда-либо configured
+train и `1` в dev. Ранее названные `7` относятся только к v2; v1 добавляет ещё `5`. Raw/ready
+copies дают `24` manifest rows, но не `24` уникальных samples. Официальная [Piper model card](https://huggingface.co/rhasspy/piper-voices/blob/main/ru/ru_RU/denis/medium/MODEL_CARD)
 связывает `ru_RU-denis-medium` с CC0 `OHF-Voice/voice-datasets`, а Denis 1.0 у MDC ссылается на
 доступную pretrained Piper voice. Это сильное указание, что historical synthetic voice обучена
 на речи этого же человека, хотя текущие public cards не дают cryptographic archive-to-checkpoint
@@ -131,16 +144,18 @@ Denis/OHF material в training data; Apache-2.0 weights/code license сама п
 
 ## 6. Решение по Denis 1.0 × official VoxCPM2
 
-**Условно принят только как следующий intake route уровня external holdout.** Если archive и
-runtime gates пройдут, допустимая маркировка результата:
+**Source gate пройден; route условно принят для следующего VoxCPM2 artifact/runtime intake уровня
+external holdout.** Exact source sample/audio/text overlap равен нулю по `34` configs и `95`
+manifest files, но historical speaker-lineage ограничение остаётся. Если runtime и последующие
+gates пройдут, допустимая маркировка результата:
 
 > external human-source- and generator-family-disjoint RU holdout; TTS training-data overlap
 > unverified; likely historical speaker-lineage exposure through RuASD Piper Denis; single
 > speaker; not speaker-robust or speaker-independent; personal research only.
 
 Это полезнее ещё одного exact-route test на Common Voice/VoxForge и historical TTS family, но не
-закрывает основной independent/speaker-robust evidence gap. Сейчас не разрешены model download,
-load, smoke, synthesis или detector inference.
+закрывает основной independent/speaker-robust evidence gap. Source intake сам по себе не
+разрешает model load, smoke, selection, synthesis или detector inference.
 
 ## 7. MCSKL × VoxCPM2-KZ-Darwin
 
@@ -187,15 +202,15 @@ sensitivity/source-diversity test**, а не вторым новым generator-f
 
 ## 9. Следующий безопасный этап
 
-1. Владелец вручную принимает актуальные MDC consumer/dataset terms и предоставляет неизменённый
-   `denis-1-0-3f60c388.tar.gz` вне Git. Автоматически обходить download gate нельзя.
-2. Выполнить read-only Denis intake: exact size/SHA-256, gzip CRC, safe TAR membership без
-   links/traversal/duplicates, metadata/schema, utterance-text binding, actual duration/count,
-   license/terms snapshot и `>=60` / target-`79` feasibility. Audio/model inference запрещены.
-3. Выполнить source/text/project-exposure screen и отдельный speaker-lineage receipt. Если после
-   QA меньше `60` строк — stop без backfill; если `60–78` — допустим минимальный layer; `79+` —
-   frozen target `79` без утверждения speaker robustness.
-4. Только затем отдельно pin official VoxCPM2 source + model snapshot и Python 3.12 runtime;
+1. **Завершено:** владелец предоставил browser-downloaded Denis archive вне Git; exact local
+   bytes/SHA-256 закреплены несмотря на отличие browser/source-card filenames.
+2. **Завершено:** read-only intake проверил gzip/TAR safety, `1,150` text/audio bindings, полный
+   decode, derived duration, rights limitations и feasibility `60/79`.
+3. **Завершено:** source-wide sample/audio/three-text-hash screen дал zero direct overlap;
+   historical lineage receipt уточнил `12` unique Piper Denis samples. Selection, VAD и acoustic
+   QA ещё не выполнены; если после них меньше `60` строк — stop без backfill, `60–78` допустимы
+   только как minimum layer, `79+` позволяют frozen target `79` без speaker-robust claim.
+4. Следующим отдельно pin official VoxCPM2 source + model snapshot и Python 3.12 runtime;
    проверить all-file hashes, AudioVAE safe load, tokenizer code, offline fail-closed wrapper и
    historical generator-family exposure. Model ещё не загружать на этапе artifact audit.
 5. После двух успешных intake gates отдельным commit разрешить один non-candidate text-only smoke

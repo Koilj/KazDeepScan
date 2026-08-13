@@ -378,8 +378,8 @@ Stage-C contract зафиксированы в
 [docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md](docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md),
 а v3 governance/training/final receipt — в
 [docs/research_xlsr_sls_v3_stage_d_dialogs_ru_v1.md](docs/research_xlsr_sls_v3_stage_d_dialogs_ru_v1.md).
-Проверенный, но ещё не оценённый Silero V5.5 route и immutable pre-QA selection нового Common
-Voice RU slice описаны в
+Проверенный и ровно один раз оценённый в research-only scope Silero V5.5 route и immutable pre-QA
+selection нового Common Voice RU slice описаны в
 [docs/silero_v5_5_ru_eugene_intake_2026-08-13.md](docs/silero_v5_5_ru_eugene_intake_2026-08-13.md)
 и [pre-QA selection receipt](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_selection_v1.md).
 Technical materialization этого slice описана в

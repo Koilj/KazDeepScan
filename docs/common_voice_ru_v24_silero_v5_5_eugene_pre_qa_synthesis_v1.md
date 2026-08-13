@@ -15,8 +15,9 @@ literal-text binding `75/75`, exact-route audit и pinned Common Voice archive. 
 Единственный permitted call route — local CPU, built-in fixed `eugene`, literal source text,
 48 kHz, no reference audio, cloning, random profile, SSML, `voice_path` или external
 normalizer. CC-BY-NC-SA-4.0 ограничивает результат personal-research scope; product, training
-and calibration are prohibited. Detector inference remains forbidden until a new immutable
-contract pins the completed two-review gate.
+and calibration are prohibited. Detector inference was forbidden until a new immutable contract
+pinned the completed two-review gate; that contract has now completed its sole allowed run. Any
+further inference, retry, replacement, backfill or tuning on this route remains prohibited.
 
 ## Результат
 
@@ -47,6 +48,9 @@ Normal QA завершён в
 [separate receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_spoof_technical_qa_v1.md):
 `42` spoof rows retained and `33` insufficient-speech rejects are accounted. A failed synthetic
 QA row cannot be resynthesized, replaced или backfilled. Immutable 42-pair lock is published in
-[the pairing receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md); the completed
-[two-review acoustic gate](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_acoustic_gate_v1.md)
-now permits preparation of, but is not itself, a governed inference plan.
+[the pairing receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md). The completed
+[two-review acoustic gate](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_acoustic_gate_v1.md),
+exposure audit and immutable contract have since led to exactly one governed inference run; its
+result and immutable report-status reconciliation are recorded in the
+[V5.5 evaluation receipt](research_xlsr_sls_stage_b_v2_common_voice_ru_v24_silero_v5_5_eugene_v1.md).
+This synthesis layer cannot be used for a rerun or for post-hoc tuning.

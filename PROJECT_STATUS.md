@@ -1,6 +1,6 @@
 # KazDeepScan — текущий статус
 
-**Обновлено:** 13 августа 2026
+**Обновлено:** 14 августа 2026
 
 **Scope:** personal research, без записи голосов людей, voice cloning и product/API score.
 
@@ -21,7 +21,9 @@ test; результаты не source-, speaker- или architecture-family-ind
 - Безопасный audio pipeline: проверка media, FFmpeg decode, QA, WebRTC VAD, 16 kHz mono WAV и
   окна 4.04 s.
 - Строгие manifests, SHA-256 asset validation, license ledger/snapshots, group-aware split и
-  leakage checks.
+  leakage checks. Separate license-ledger CSV gate fail closed при non-exact header и extra row fields; все `22`
+  mutable-ledger строки загружаются без обрезания comma-containing `notes`, frozen snapshots
+  не изменены.
 - Source-specific intake и аудиты RU/KK/mixed datasets; raw audio и weights исключены из Git.
 - B0 research baselines и source-mixed stress tests.
 - RuASD v2: 2 000 raw строк, 1 815 ready WAV; train split для XLS-R — 1 471 строка.

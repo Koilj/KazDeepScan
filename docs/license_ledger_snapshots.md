@@ -20,3 +20,8 @@ Snapshot нельзя обновлять на месте; новый protocol п
 blob. Их exact прежние ledger bytes нельзя достоверно восстановить из текущего дерева, поэтому
 старые hashes не переписываются и v1 receipt остаётся исторически честным, но не полностью
 revalidatable. Model/checkpoint results от этого не становятся product evidence.
+
+14 августа 2026 mutable ledger был исправлен: шесть legacy `notes` с запятыми получили
+корректные CSV quotes. Новый separate gate отклоняет non-exact header и extra row fields
+вместо молчаливого обрезания. Pinned semantic loader не изменён: это инвалидировало
+бы completed contracts. Все listed snapshots и их SHA-256 остались без изменений.

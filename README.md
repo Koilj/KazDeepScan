@@ -12,7 +12,10 @@ checkpoint и строго ограниченный evaluation-контур:
 - измерение уровня, клиппинга и DC offset;
 - выделение речи WebRTC VAD, отказ при менее чем 2.5 с речи;
 - детерминированные окна 4.04 с с шагом 2.0 с;
-- CSV-манифест с проверкой прав, происхождения и leakage между split-ами.
+- CSV-манифест с проверкой прав, происхождения и leakage между split-ами;
+- fail-closed license-ledger CSV gate: non-exact header и extra row fields отклоняются, а
+  поля с запятыми обязаны быть CSV-quoted; текущий mutable ledger strict-loads все
+  `22/22` строки, frozen snapshots не изменены;
 - KSC / OpenSLR SLR102 downloader с проверкой размера и gzip CRC, а также ingestion только из
   чистого архива; metadata и транскрипции берутся из его `Meta/` + `Transcriptions/`;
 - Common Voice Russian v24 intake с pinned размером и SHA-256 archive, tar whitelist,

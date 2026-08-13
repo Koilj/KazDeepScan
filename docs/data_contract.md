@@ -45,6 +45,12 @@ processing или обучение. Помимо лицензии в нём об
 - `bonafide_group_provenance` и `spoof_voice_group_provenance`: `verified`,
   `source_provided`, `unknown` либо `not_applicable`.
 
+Separate `scripts/audit_license_ledger_csv.py` gate требует точный ordered header и fail
+closed при extra row fields. Любое
+поле с запятой, включая `rights_basis` и `notes`, должно быть корректно CSV-quoted;
+иначе row отклоняется целиком. Gate запускает и existing semantic loader. Pinned
+`src/kds/data/licenses.py` не изменялся, чтобы не инвалидировать completed contracts.
+
 Идентификатор в поле `speaker_pseudo_id` не является достаточным доказательством группы:
 только значение `verified` в policy означает, что при source review подтверждена его семантика
 как speaker group. То же правило отдельно действует для `voice_id` spoof-записей. Поэтому

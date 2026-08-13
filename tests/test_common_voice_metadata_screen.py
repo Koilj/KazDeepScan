@@ -6,7 +6,10 @@ from pathlib import Path
 
 from kds.data.common_voice import CommonVoiceRecord
 from kds.data.manifest import ManifestRow, write_manifest
-from kds.eval.common_voice_metadata_screen import screen_common_voice_ru_test_metadata
+from kds.eval.common_voice_metadata_screen import (
+    screen_common_voice_ru_test_metadata,
+    screen_silero_v5_5_literal_text_compatibility,
+)
 from tests.factories import manifest_mapping
 
 
@@ -88,3 +91,55 @@ def test_metadata_screen_taints_entire_client_group_on_historical_overlap(tmp_pa
     assert strict_group_exclusion["tainted_client_groups"] == 1
     assert strict_group_exclusion["surviving_records"] == 2
     assert claims["selection_frozen"] is False
+
+
+def test_literal_text_screen_taints_entire_client_group_on_one_incompatible_text(
+    tmp_path: Path,
+) -> None:
+    project = tmp_path / "project"
+    config_root = project / "configs" / "research"
+    manifest_root = project / "data" / "manifests"
+    config_root.mkdir(parents=True)
+    manifest_root.mkdir(parents=True)
+    records = (
+        _record("clean-a.mp3", "clean", "обычный русский текст"),
+        _record("clean-b.mp3", "clean", "ещё обычный текст"),
+        _record("tainted-a.mp3", "tainted", "в этом тексте есть цифра 1"),
+        _record("tainted-b.mp3", "tainted", "но эта строка сама совместима"),
+    )
+    source_manifest = manifest_root / "source.csv"
+    write_manifest(
+        source_manifest,
+        [
+            _manifest_row(
+                sample_id="unrelated:sample", client_id="unrelated", text_hash="e" * 64
+            )
+        ],
+    )
+    (config_root / "role.json").write_text(
+        json.dumps({"manifest": "../../data/manifests/source.csv"}), encoding="utf-8"
+    )
+    metadata_screen = screen_common_voice_ru_test_metadata(
+        records=records,
+        project_root=project,
+        config_root=config_root,
+        manifest_root=manifest_root,
+        created_at="2026-08-13T00:00:00Z",
+    )
+
+    compatibility = screen_silero_v5_5_literal_text_compatibility(
+        records=records, metadata_screen=metadata_screen
+    )
+
+    assert [record.clip_name for record in compatibility.surviving] == [
+        "clean-a.mp3",
+        "clean-b.mp3",
+    ]
+    strict_group_exclusion = compatibility.receipt["strict_group_exclusion"]
+    direct_incompatible = compatibility.receipt["direct_incompatible_records"]
+    assert isinstance(strict_group_exclusion, dict)
+    assert isinstance(direct_incompatible, list)
+    assert strict_group_exclusion["direct_incompatible_records"] == 1
+    assert strict_group_exclusion["tainted_client_groups"] == 1
+    assert strict_group_exclusion["surviving_records"] == 2
+    assert direct_incompatible[0]["sample_id"] == "common_voice_ru_v24:tainted-a"

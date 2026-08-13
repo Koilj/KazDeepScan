@@ -87,6 +87,10 @@ checkpoint и строго ограниченный evaluation-контур:
   rows среди 18 605 historical spoof rows, но 1 265 legacy Silero rows исключают architecture-,
   vendor- и speaker-independence claims. Synthesis, bona-fide selection, review и inference ещё
   не начаты;
+- перед любым выбором нового RU final набора весь full Common Voice `test` прошёл historical
+  exposure screen, затем fixed V5.5 literal-text gate без lexical rewrite. Из `10 261` source
+  records остаётся `5 600` в `1 337` client groups; это capacity evidence, не frozen selection
+  и не audio/model result;
 - explicit source-mixed research matrix и B0 runner, который не допускает overlap исходных
   corpus между train/dev/final-test и проверяет обычный sample/SHA-256/group/text leakage поверх
   этого;

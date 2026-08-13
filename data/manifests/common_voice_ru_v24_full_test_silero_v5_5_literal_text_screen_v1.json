@@ -1,0 +1,629 @@
+{
+  "archive": {
+    "expected_sha256": "9a2ed32a0574f74f505cd7740a599f0b9edc9f52ba1e7d6624b66f258db4c0ea",
+    "expected_size_bytes": 7008716262,
+    "identity_verified_before_metadata_read": true,
+    "path": "/home/ruslan/Downloads/cv-corpus-24.0-2025-12-05-ru.tar.gz"
+  },
+  "audited_at": "2026-08-13T00:00:00Z",
+  "candidate_state": "source-wide text compatibility screen only; no clip selection or extraction",
+  "claims": {
+    "audio_extraction_performed": false,
+    "detector_inference_authorized": false,
+    "detector_inference_performed": false,
+    "future_selection_must_bind_seed_count_and_survivors": true,
+    "qa_or_acoustic_review_performed": false,
+    "selection_frozen": false,
+    "synthetic_audio_generated": false
+  },
+  "direct_incompatibility_reason_counts": {
+    "Silero V5.5 text has unsupported characters: \"'\".": 1,
+    "Silero V5.5 text has unsupported characters: '\"'.": 9,
+    "Silero V5.5 text has unsupported characters: '«', '»'.": 65,
+    "Silero V5.5 text has unsupported characters: '«'.": 21,
+    "Silero V5.5 text has unsupported characters: '»'.": 16,
+    "Silero V5.5 text has unsupported characters: '−'.": 1
+  },
+  "direct_incompatible_records": [
+    {
+      "parent_group_id": "common_voice_ru_v24:client:3049d60036bc51cfff957c6574a49fdf1a2b41569ff393b5c88887dd16b66eeabb504f261ae4e3b75d51713c595bfd9b7c68ee0feb24c2e99fdabdcca2ede3df",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_18988621"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:805cee3e40fe5839a05595651a27f471d12b7789c119455537463d3528f91b3ba8cbcffec65d61e8a8d6ca52271a4f493029c08fc3206c24de9652f77f9767f9",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19007114"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:f46dd50c97c68a588607cdb0dea77c23f685487ba5bb3aac900518670097d0000ae7b2bfd77b4455fc29d26eac8fe258722fbb8dfa5aa84d1e8cfc6924619096",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19499425"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:bffcba4ebc15c47993fcd3d2a2b2643bad24944e0184df606efe816057e6a8e16b3e72e189a7430aa0a2788f9f3f3c3464813226cedaf011fc06ad4a33474017",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19506868"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:b82127818c58f12b3610724d83a9a00ca6906c2514145c3aba41ebe40e30a5a7789daa31effa4f0fa239aaef15c0aa9118393ade96db7ee20cc56cebc0114024",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19529674"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:cbe3ddea91ee35ad148a8f877b794e54b6b86597e2ca3e4c0c4f74bfdfb4cc81771f07e193a0710366ceefe774968b2b04b6ad48e273f22b15f6e13d84a7a617",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19557541"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:e74bbb53bb4d413168061d967c83dec14677077cbfceb64703e1fb6850393404da930bc1dca54833a1fc0039fbe2429ac8abd3e52f971213a0c6e72d584c0b81",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19920905"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:00e606abbe4f3c6a541b6aa88c2a707da2a97336ccec3cbc3811e71e95986e1f0a13db26c1e7d9cff2796b4fa9acdf5a574b13d40a9a549cbfb37e353f6863a6",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19950516"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:e8c1fa2c5aa4b64a4d359450bc3f2efd211c69aa4d8c0d6878254bdf6c5e05fb0583a98fd24dc0fb9bf52fd806f4e1d4cf91da1c4e89b4d0e73a87ec177b79ab",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19966379"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:904a85da99ff3e86633a6a918ad81690fe609da91152382b5d22291eb3dadf8c104fb2571239db78ff778bc71511d6644bcbcca8d6f475f578948374cb0b6a29",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20209182"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:389b833512129ce1d32498fa4b9f255e2278fb2ee9e4d28381bc570daee36215f8613495e3ecef26fb6172dd113653eddf5e4d31397cd965ca045755426e408d",
+      "reason": "Silero V5.5 text has unsupported characters: '−'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20387105"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:76b7d293241a7bc4e3844330b91f7c8bf214f4ee1ca69a1062c0ebf20f3c8a740f2f7495ddeab9379cd7fe03cd45fd85acc4bfc212986ca7ce397429aad91426",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20403455"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:55d1af0a2ca692a55e6e9982ac69bd90678914d462d2f33c014d33c92217094fabed7e514bd08f77610e34e93a24e0baa955758adab0b470c20f91c8d4831f4e",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20424126"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:7608f32a52791fc7a8d4512268e4b820f561d7240306e9c4f5cdb78f87ef1857216946b308ee86ba777bb9411bbe5b40545fe25032b6bd4f23f9ab4908445553",
+      "reason": "Silero V5.5 text has unsupported characters: '\"'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_21565172"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:17d7d770de7ab5aeebc405a3479ffa74a11453d72e609da920922460910ca5d5b5e4b474c2d5e1f1da6e55bbd8320f92e64190dd9bd161be1bd14ae671593a01",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_21765993"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:08d4b8012b743a43a6043693347008458f413296bd6456822108f64d0ebdff9573f110db5fa834b7ec32e2ec901c8d089f676f14bfabd1f75e9799542c569e5a",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_21887150"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:fb5a6220a60e1e544ddc647bc16093b5b4d60e888f15a398bd6ac2d91908742efd59e24cdf4e2331b73b07899bb4de15892c183579d3f16fbe98dc260d6b7151",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_22035140"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:a026ed71e6a4be47e2391770273ecfbb99235cf6791ec2748669260404c3375c47bd048685a5f1018badaffdad1f6afbf31e3e062e89c05478e04ef4bb2db35a",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_22715121"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:2854b4bc827eb873a5c92ec351abbfe9038f2db951a4948e6aee42492a06c8fded06fd026c65329a104c11f5cec1157a9bd0ba4b50e002d09227df4c5ae756fb",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_22727139"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:bf26b2771ca4eff3d82d3382f7285888520f70718cc53a307cb3278220cfcdd7ccd5357b1227624ee8865db20bd89578f73a9b6d9c8043f3428d17f3b26cd60f",
+      "reason": "Silero V5.5 text has unsupported characters: '\"'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_22877810"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:e48d7db7ea3a1d5f50e478a715b4bd6fd0ca6f1b0b283ac7095fe920a0a9f95659cc0c4921a4fc50280c8e28a8107368857095e5e2a4cb0b591e0c7b47a5d7d9",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_23717624"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:b3f1c25efa47ba1423af69b9332930b2a98fa1cff4b9aa046bdac2612cece56535f8b428eb6c1167824d54e058eafd3f315282e9fab86f97396c1fadb34b538a",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_23733192"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:03177ef994688fd8f089626a178aa366cf16d9ec9bf591f32a895e9e42fa2528cb4530d03b704072a6ec0a84c70aa7b75664b7275b220caadbe6551dc348ffd2",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_23749745"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:84621b2c18b24d6035684323afd1d0f19175c6740129cc86ab1fe8b2148e8565703ebfada56af92ff6681e6f7607f2361cedcbefd7e35b3e9784b15519fef5c0",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_23882964"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:a7543f85b52497cb181bb1385fafc66587376a73f7d28ca6a489fa11b88c11236afdcf36b8b228ca6ef030cc36da3d7e3deaea5d35fe7b0e78727a5f9a378512",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_23943985"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:d8b37bab7530f4748d74f21bbf0c20a502da70f3547f49fa2985f160b5a8e9ea17faa4303fd1d83183ef2b8428e02655cd3559b0c5056e981b6e22797235eae9",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_23968795"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:d29251ea8f1ef7c0ebc68c307f080b681bb36fba6b6555bd0a1408ca0a825ef6e8a085a24cd005405392dc9a95963ed34567dd810986a362a8662ac7cf8183ec",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_23994210"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:850721ed4a286e45cef2dcf69328ea22e65f3dce04a1a74d79cbec27e714c2045ae9102332becb0b99508e5d15b6dbe2fd87c674bbb73126b3f29c2409d58670",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_24002447"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:a78bb80785954394fb3a43090a7dd00f2a0c81f3b1fef1f393d1a1497ebbb56132be3312fdbf2de6481dc711c7b7ac2d0b28716f7e8187493fe52ea8ae174d9a",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_24192823"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:c5b21cb5a0f8f14a0fbcf8d28fd0cdb02c3f16d0602cfea4511628ee1bf40f771bf1a8eec84c39438d24e40977303b33c18d55efdd522f2e1a0821ee7ac36200",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_24361695"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:6b64d93f9e241dd80f0d55c9b3e2a66f76d3388ea73e8becc3a3b33848f0ee776ae274cfc1f9315923437d57568a8db99768541aefeffd629cd212438aec28b2",
+      "reason": "Silero V5.5 text has unsupported characters: '\"'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_24867533"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:6bd2a32c4017847653fc6bafd4a70c30688681b5b7b49d1fa249752c75c86de14eab0186c303d7d6716cd315d86fdbfb00545d495b98b1422d0e217980ff0c44",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25056218"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:6bd2a32c4017847653fc6bafd4a70c30688681b5b7b49d1fa249752c75c86de14eab0186c303d7d6716cd315d86fdbfb00545d495b98b1422d0e217980ff0c44",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25056219"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:45ed812d3fa74b297b87003e051ebe26b9ea67a48f116417a61d03b9c4be14f9cbd9970af89a094f67b4ebab8872a6d1b1f01b722d0bd0ae7d5d5c71076929c9",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25279871"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:502103f80355c5b3b334b4f21914dd03af604cd33dff250eddfcf447f53956fa6570d587cf1f25d687df960a83046e838cafdc5f7f57e2b168754e9ecb828b1e",
+      "reason": "Silero V5.5 text has unsupported characters: '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25349726"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:502103f80355c5b3b334b4f21914dd03af604cd33dff250eddfcf447f53956fa6570d587cf1f25d687df960a83046e838cafdc5f7f57e2b168754e9ecb828b1e",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25349729"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:5a9ffaff3a906a66d5da634a714168d59214bdd7bcdbc1288fac7fda7c6f35408304d97dc799888eadef991961f37d0a3c0595575404510d78e6005c55725d11",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25385380"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:ec0ea9f8502a8b968c3a8ae70c9952feaaa144a425e6058fee242c15d107c038db2f865876fba12db812a17baa0052a9f55f210450795c094504bbd4fa655aca",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25477567"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:bf25feae84f9097898a4f4ae8ec1997e6e075efd5beb29f414c48054891a9dd8faadf823e3ab26cbba8f9762d81d7b7ea781c630a54129fad4f4e5192c95d50a",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25515332"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:7eb8991e42b6b715836247674d7023aa33b1b051647cba34fecd3f160db999f3f572d5fef6e9eec0f0b49c53e38c6ea53ad33a9af681dd19ee1535715a48b847",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25555483"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:7e2d4f80b796d2162b11a486062eb9f353d86aa6fe90adea42fe5021737c54e68c2b1b5af20b9413f0d21f8c28da27c5d59fbe5148d6f6b4dcab2449fd55df91",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25791711"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:a7bbc2745dfd303df07354eb77fa0e2a323c60db2a303353673026903be74624ba2a5abbeef6cabddddf54ff6bed8b666f2a4a54071889cd891be0f440e06061",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25810228"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:00a6a64bf9d7471b7949855c7492a6412a0de2dd6d740ae1a7014a35580224547a75bb52d02d2e93c3db3352ae79b7c0c717546d5020cf359281a0b93f12d8cb",
+      "reason": "Silero V5.5 text has unsupported characters: \"'\".",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25836184"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:db197078bdba32d5f6d7cf97c2cffaf02bc0a21fa33fa37cb2ffba9bf82a34d68e1992c873825e9ef0b750008b62b713f543e77a157cfacf5ec877dbd65d3154",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25962648"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:5406149d38c9064097d7be08eb0b1e6b1cc6678c276dae3f303fa3e95e928c0e4f8e407d6a76b735839b0056089b86abd9fb9f411aa0f32a5eeaedcc9f302408",
+      "reason": "Silero V5.5 text has unsupported characters: '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26315580"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:e5ef8228cd8a5cca6ef52202f9390484f99a5e06f7ee590614d175d90e74e1500c15f15ebeb2717266516f5bbedb1a3be7912290403c56d92167ace887bf3580",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26542675"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:7b010f09b5016c43c54582464c8e289714ef3d0b78e093456491653e710f241e764c0f527ea80a688372d53402ed1c276b44a5465f91e589f9a6f4df1b503b35",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26609172"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:40ff1ed43df698ca860462956522f4857496f403a18da5f91220c46f032fb28ef408b07f14007241fe256590d843622d6a351c535b7ad47d6d7cddfd7b55ed5f",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26810007"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:ffd4640d6c3d4036401042ff95578afda238716c696695fe257d8631bb050e8c5cc93d886a4f2d07f6e6f059d03857cdcf1b5f3594686b7d23744103ab36c626",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26823342"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:8b3e04bc9dfd26d072cada56df61430fb116ebe6816e23115b1af068a080fa1327ef2c8cc739e0489e00c505a88558d72d7c999f75d88279560fa1ca6f72e2d5",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26841052"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:c0fa192bcafa009560785ad9c0c671145e1afa6fda5bc53c18ddeb27a6efca96ee888a7d4b5bc7aa9dbadf880fb452450294e199046b1d663663ee6f6badd155",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26848308"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:cdc7dcefc5108f6468e8738bf5fe26f6e0a147813b1cfb2107e090fb29ce7011897d3d066d442231baabc76cad3eccff708bcf177e9078eef8d523e086d1f5a9",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26876216"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:9a8b73ef15ccd46fa633707f742bc3d7e7e75360cf46674ff6df546aa53c63de8acd13cd031d3e3cb0f18f2dfe0828067453eb8f3427a6e36d42a90545944bb9",
+      "reason": "Silero V5.5 text has unsupported characters: '\"'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26887472"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:9a8b73ef15ccd46fa633707f742bc3d7e7e75360cf46674ff6df546aa53c63de8acd13cd031d3e3cb0f18f2dfe0828067453eb8f3427a6e36d42a90545944bb9",
+      "reason": "Silero V5.5 text has unsupported characters: '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26887640"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:d58dac1e162e048a96d7d92f8939d9c9de1fb847f40ebea8eca3d9e4ed9ba01071beaecb2ca03124a46a19ff34a526f6a1ce56a6ab63a077121d60494210539c",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27015420"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:72a1075300af36009c3752a27925a069fecaaa7d3d3f3a05c5d7660f4e9ca1a761d9fc79b56039a560bbce261005b4d03251d66b48512b3d22ec76d4613ea925",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27046601"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:3681eb7cfdf3c7aa5f3363e9a93d19c2ff755c6495ca8646c19ca1c483d9fdf451ee01c6c813fb3d297df8e40eaa4ed5229228e020a578d1c9c400d05b0c22cc",
+      "reason": "Silero V5.5 text has unsupported characters: '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27049310"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:80569f55556b00076d6877b7417c0d809a7103a07741febb1fa901201f9e13dd57da4ce47f9430058cc1086f432596a6af2b9d3777ad2983821174c3d57d5c49",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27053635"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:77dee3e7d50ad44a04c193310b82c3fd774dc09c6e5ba13afd4502df4331e378f228a760cd0c54db46a2b48f5f2c9ed07d263726b7120be8c065b941ea2e5afd",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27069199"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:77dee3e7d50ad44a04c193310b82c3fd774dc09c6e5ba13afd4502df4331e378f228a760cd0c54db46a2b48f5f2c9ed07d263726b7120be8c065b941ea2e5afd",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27069200"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:77dee3e7d50ad44a04c193310b82c3fd774dc09c6e5ba13afd4502df4331e378f228a760cd0c54db46a2b48f5f2c9ed07d263726b7120be8c065b941ea2e5afd",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27069202"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:2f5ca7e332cabb6c1afc6d7f1d8e2db7ae7df3f8de9ebf81617fb73806bebd0a9eb1ae0359e89e2a64718f8fdfc7d92d4ed45150b4ceae90d7d7519dc441c02f",
+      "reason": "Silero V5.5 text has unsupported characters: '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27137651"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:ff50e07cbe2ebd75ecf1ae76f52c836fb63c89b4c8a82e9eee7009046a1cd6e3085450925718eb98d814e33d9a0957d844c1b943fcd275884b129a4f138a4390",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27144508"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:96317e65c904b841a19704c934ef54bb2e52d7754c3279ced205c9fd70bedf5bbab2270e25cc2cce657cd14e24711224f07fb4a8d150e7abb8348119709922c0",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27154181"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:a23ff37986fd59ba1e6e00ae346855cd77942e797a16c2e7a73afd423109eac647a4e3170ebc9da1ed461080245382a9964640f24bbc7bad716e5108c51db84a",
+      "reason": "Silero V5.5 text has unsupported characters: '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27158569"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:802ecef58970af5dae87071946a73f8b66bd1cabed2b07c379ab66b1d0dfb3dbc34c9806972b8ac95f13b50c0ee3adbe94af876d91b45ce7ace84ab187e6e1e3",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27207693"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:6b306510b08b0d879fb1f66c0eec895bf6dbdda1367002e88f571322fb3328b3fdd3a7cefbe1717166340531553de2d7179a8878b6136fa5f55bad6826a1e5ee",
+      "reason": "Silero V5.5 text has unsupported characters: '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27274286"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:44f389996b7ed7142a263ca72ff722c421343f2b81dba3a845657b02501a75a4efbc90f11e01ff7fc3f95595a26150166bd20790672991b6edd772fd836adabb",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27385302"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:69f40346ff494c619660d34936d3fc670721193e56fded54f3243782784c42a92f9741a12b38c55acb9ffc1a4a534c043a2abaee78bacb942633bea6bbef904d",
+      "reason": "Silero V5.5 text has unsupported characters: '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27481804"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:1a54c889ce5c13cf3796af64f15cfeedfdf8eda0717f589f4fcb9b67411230e530850857575d1e1ed5a89fe27808cdf1c0b88cfc38779540671252c72f3c51df",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27674793"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:32d40a6321879f313cd8129b5cbec714e676dee44d85ebcf193619c2edc6e5be7fb57511c8da534077606c4526c94a5edcbe71dd0c51c35776cf2f4687eb4e21",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27683114"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:4e663882fa52402e89d9364ef5dd1b42df7b4b01ad52cbde27c5fca327131b1a83ca540c6c6bc83f41fccb93554a782c34e4b991c27efbfeebb7b11ea3ccc85c",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27709934"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:fcd410c77947c35665d18628e7770e0d8bf2d85aa25f4f3101dd9145fadf34023dc7777e223cf9eb3402a156b181e7b569d85d19f43fe2436329b13a3b182443",
+      "reason": "Silero V5.5 text has unsupported characters: '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27729400"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:3e42df744e1f272084df51e6f44adde448cfe523f3337e3352b82f1ba5414ebafd45a477d33e3f644d9927d441480b3be2cb0d6f4c27a3b4c308120df1c22996",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27731646"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:094a1d108d5104a3cea607d0ef3619e0b3e4457dd30e0b681014c111039183d20f49d2aaf12b360525c8472ecc4cfd3bb6f8ded05d3ed4501f1c1ec62603291c",
+      "reason": "Silero V5.5 text has unsupported characters: '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27788532"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:1a6bc80483db677eb3c3bff6e4f55f8025bbcc667f3962748da85d4dcb8e5db60129c5b61442547f046207df5702f7bb38d696f33de32494d51ced391e98e013",
+      "reason": "Silero V5.5 text has unsupported characters: '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27816483"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:5749b6417ecf37d47542ef5b106d27802fcc079d7dacab46cef69af3e344d27204a7a37c17684ab3adef42b8316e0b309a7a5575d7f682ef164da450f8d718fd",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27858215"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:b3d69f06fa228cfffe8ce0689e1fc30b87e9d77ceb635f6bb39d57f2e7dae166ecc36c8fb8a39ce04e8321486ceb6fc44242ab19c8ed0518e4a35f731c609600",
+      "reason": "Silero V5.5 text has unsupported characters: '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27954269"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:b60215e8f971b6eed71bec6bb9333ce9746c62d957cd0b65a6b21c695ddbe1538e9ba12ee202b54d3200fbeb9847a1c42098d5959642f55577fd0148caa215c1",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27985396"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:83b0b6f58e9e23537b0f7d61844cff4483f36172a8f006382d252dcbb437b561fae5c75fcbb1811ea634dea904d85da6a7582bc6137fc489a650cd19fcd73b74",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28065591"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:48513d1e458508f5079aeb2cd44ec7686fd577e315160c69fe87cbfa73a74915728775269c0f218424ec87b738b7014fb82820f4eb9de4760bd191c82902ea5f",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28181985"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:1dc38519e67b158f7d96506835a418d5d1bad204ea783905b536a4e2d0dbf7b644ab76cb5726ff21e307e80b261a48629dbf02b2bb87a80d85eb4693046a6e90",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28279627"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:fbaa64357289fc7b63f8fa178df882fd9da4d3d2f41fcc89435ab8a7b4967e3cafab9a4a0fae8f1ce2ead4ecf512021719c8f87da36eaaa530723c5e0088e160",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28318139"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:37b7c38e97d448716b0ba56dfb8c089fac4530c621b42a64722100b8fcfca58a2c7968e33206d23c2ecfd676af953c0f1f6088f41a114dd0484bbc224cd345c4",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28604878"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:37b7c38e97d448716b0ba56dfb8c089fac4530c621b42a64722100b8fcfca58a2c7968e33206d23c2ecfd676af953c0f1f6088f41a114dd0484bbc224cd345c4",
+      "reason": "Silero V5.5 text has unsupported characters: '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28604920"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:e78e9a9a5d1065c9dd4362e1723d46a8328bea58871fb514c169657632ac2c8f7052a62052491e50b7c550072ada50be85e9f5f5ba4faec12949b575785f048f",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28705685"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:5259624453ecfb60d68a606a0114f82b4cdcc5c9b3465f65a52f242a8accde5a9f41eb0ee262e95a1d374b9968949a1a58159aa5309ee2330e214deef1aba4a7",
+      "reason": "Silero V5.5 text has unsupported characters: '«'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28756452"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:fe3f4795d2601f320a91cf4b760d08fb82bfffd2f7d4111662a5d079c99274c08443793191b1df3af0d61293634e4b4b6629ad6d07f91b27e8641184dab0c2d4",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_30560791"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:353834406353e7917dc5bfb32852bc58c3051509e867a5bc880f4e7d4858c593ffebb66c27515c20c91f636b0520623ef7101080499ba5e5d91cadcbf39c14a9",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_30649585"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:eb6d3804887a26275baa99d5f253bdd5ae77b4cc5cf0807673e8bac506e1e82ab38e3428b023684dcfa2da39a2bc8670f5de9d0fb13591fd1f89cc0287b07a00",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_31216689"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:eb6d3804887a26275baa99d5f253bdd5ae77b4cc5cf0807673e8bac506e1e82ab38e3428b023684dcfa2da39a2bc8670f5de9d0fb13591fd1f89cc0287b07a00",
+      "reason": "Silero V5.5 text has unsupported characters: '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_31216690"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:e073fb69b73560a838c0a38e078070c4709684ba51d42c063291a8d21b348fb59cfc5c44a508a6829c818a6ce3c4ea6f7d9451010cf0c8727fdeb8292e42b9c1",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_32097851"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:a29d259e0d29c2496bcd185de2fe1797c7dddb65783ed1edfca092a8523684e8cc99c50454a7eaeb69e66a40bb6ca3a731a4d89268eab5a9a5b38be4ca46002c",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_32320890"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:6387639b4d0f6689b78ce41f8ae1fa106b46c344fab45a21b8c562e244023635b091b1c8ffc6d54c6c6abfdd33a66903a36116f621ff79fea7b080df34bc1dae",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_32637156"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:17d1640651d8adaf3cf5918a4855bbd892be6c8bb9bfec740a0b6416d75e8754a8ba16e65dfa8e9e34292d9a0cf4b69af43393befbcc6eece3d0493994edb856",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_34015867"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:69ee1e9ef96f67b816e818ca22b1684b7bf0e2e1cad87bd8e9846ea59160779c5420d565137368791d620affed4cadc8a8d65d051800ab8dd030b63b4b02f6a8",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_35213771"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:eb88a3830d8504cc1785e32f814fdf68c5a8d59fa17351e776eff847bd4a33cc9f8b0df102e4515b4023415106051a81f49a3edd468806dd3da93524d8c1b75c",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_35323542"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:2202218330bbb59278d3c28b2f56ebc403d9398286848306a4519c6943df68c6f1d02e4bbff4465f89e1f7cc181ae31c874e2d11ecb8ea1a922aa6aec2996f64",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_36455467"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:084cf7033ee3d9340f80bbf198723a18142fb9f54c9c275dc7aba22543fac2083bf67b734d04a04a7fe6097b24d975e10bda91fc42346ae379c5712580dc43a0",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_36528036"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:b4924cb68f7d1287ba49a4e65748ba464855b58c0051c79116da04c317a771ac995026476a6d520a2e3d80a63fa61bd6cee0b8e21c6b0f6f7dc4d916835bc822",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_36857163"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:4a8eb0572f60935754c90cb3eebaf761e86ae0292c530e64d8e6a5b35addffc6ea9d665670caa662366611c53b9d757394c0f4cce73e800db8114d955d35c66a",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_36884650"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:1d0af0ec07d733d85035de89181bda7fde74be748f76d4391256c8fb7abb6709868a00b431f857687411e6a8a0085ee4aefb23486823ab7b96a3fc038970d64e",
+      "reason": "Silero V5.5 text has unsupported characters: '\"'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_37054828"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:a78174e035bb614b49b5c799a3fdaee410315a43481ffec1fdd3d50a88905fa1b95e5c57ccf4e41cb30565e74ad498715f593595e0cf6a4b552eacf47e0451a6",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_37141605"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:ad80b5d751b21edcb6515aea4ccc7838da1591f18475a7b983a7f674c46f4224c575b0103315ded6c5828d793b7250301352fa9a32ac5aeb8343ba30bdd7d854",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_37330192"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:27c23d993d2ffcd97e67c64e479db85987cb9c081a6ec6d26c13420f2fef1f02fdff0e3501bd24fd05197b2b8c8a4c997b3083dc9420ab3b8d2dc6308ea218a0",
+      "reason": "Silero V5.5 text has unsupported characters: '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_37776375"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:66c12892770c549eb8b4f3a9c0c4a554e2c4a2afcebcf4d1cf8ec3e9b902127a1efb868db05bb9ea9a41c3490dd302efb38444a2b724bec12531f78fca746073",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_37856259"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:cbba4272c3ef6d904126d397b43fcb8d4c8f5668947e0092a229ebd90d586d447bfd36ace0251bdbdf52ecd5b43c3793557d9a11cd3b0f6f10bff41bb15897e0",
+      "reason": "Silero V5.5 text has unsupported characters: '\"'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_38097444"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:35b963eb85890d889c497b9bd5bada27169760f6aba3d3dada726e4daad27c19ca1c21d38e218e58debbf6a04899812c5634f8142a67f353ce58d79f64f599d2",
+      "reason": "Silero V5.5 text has unsupported characters: '\"'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_38099542"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:81fa914f4050387c265242ea74454baf368c59684e6a8708cffa725ae1553b41365ff368ffdb5908e2e9d53884469dd579870e35a55dfc1098fa1ce46b57b334",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_38525788"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:6158b392a417508f83367b328b9654a8a4465e1c1eed0c8347feea00dea4be8626c7509f9b892d494bc2957bb760201cc52e5324eb14c7651d4ee20a1cafbd7f",
+      "reason": "Silero V5.5 text has unsupported characters: '\"'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_38671894"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:af8ee1d7d325e8787b33cb48093bae073b48c909ec6a82d7bef885d59470034c20cfaf7d62e74b8f6bcb3320639f1fe0af42acdf7449e3ca426082d095301c67",
+      "reason": "Silero V5.5 text has unsupported characters: '\"'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_39475801"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:c430e603276c6137f8815340f69ae3e782f340bf83565d0814009c0a952d77073dff77c4adcda34242ad99b6769f2b5087f0290c87e3abca4f126471f3aa1e37",
+      "reason": "Silero V5.5 text has unsupported characters: '«', '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_40856227"
+    },
+    {
+      "parent_group_id": "common_voice_ru_v24:client:14b263024bea4fc7d0596bc40ead92f8431994f00f371714b350063e00b56ef97f0ee3ed851499e8756d097d1b18481832ed7e86539be4a989613a435d4579d6",
+      "reason": "Silero V5.5 text has unsupported characters: '»'.",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_41473544"
+    }
+  ],
+  "input_metadata_screen": {
+    "client_groups_before_literal_text_screen": 1443,
+    "path": "data/manifests/common_voice_ru_v24_full_test_metadata_exposure_screen_v1.json",
+    "records_before_literal_text_screen": 6211,
+    "sha256": "f862ae667195c733c7deb6bf25f304a6287890ca87d4dc0ee7cb5e06aa6f46b3",
+    "source_id": "common_voice_ru_v24",
+    "source_split": "test"
+  },
+  "literal_text_contract": {
+    "external_lexical_rewrite": "forbidden",
+    "fixed_speaker": "eugene",
+    "normalized_text_must_equal_source_sentence": true,
+    "normalizer_id": "silero_v5_5_ru_literal_whitespace_only_v1",
+    "reference_audio": "forbidden",
+    "sample_rate": 48000,
+    "voice_cloning": "forbidden"
+  },
+  "model_lock": {
+    "fixed_speaker": "eugene",
+    "model_id": "silero_v5_5_ru_eugene",
+    "path": "configs/research/silero_v5_5_ru_eugene_v1_models.json",
+    "runtime_kind": "silero_v5_5_ru_fixed_eugene_torchpackage",
+    "sample_rate": 48000,
+    "sha256": "39fc9f4748286593ff39fe51688212215c312b4b1d880dc9539e7f43d9ce8edd"
+  },
+  "protocol_id": "common-voice-ru-v24-silero-v5-5-literal-text-screen-v1",
+  "schema_version": 1,
+  "strict_group_exclusion": {
+    "direct_incompatible_records": 113,
+    "excluded_records_due_to_direct_or_group_incompatibility": 611,
+    "policy": "exclude a whole Common Voice client group if any metadata-screen survivor fails the fixed V5.5 literal-text wrapper grammar",
+    "surviving_client_groups": 1337,
+    "surviving_records": 5600,
+    "tainted_client_groups": 106
+  }
+}

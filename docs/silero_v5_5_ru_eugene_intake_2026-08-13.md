@@ -86,12 +86,20 @@ and speaker pseudo-ID. Strict whole-client-group exclusion leaves `6 211` record
 groups. This is capacity evidence only: no seed, candidate size or clips were frozen; no audio
 was extracted, synthesized, QA-reviewed, acoustically reviewed or scored.
 
+The fixed-wrapper literal-text screen then consumed exactly those `6 211` survivors:
+[`data/manifests/common_voice_ru_v24_full_test_silero_v5_5_literal_text_screen_v1.json`](../data/manifests/common_voice_ru_v24_full_test_silero_v5_5_literal_text_screen_v1.json),
+SHA-256 `4356c3ecbf3a9b68dd7a5d5f4e2ed9347d9c6f105d63d558bfc03dd1403b23d0`.
+It permits no external lexical rewrite and requires wrapper-normalized text to equal the source
+sentence exactly. `113` direct incompatible transcripts (only unsupported quotation marks or the
+minus glyph) taint `106` complete client groups; thus `5 600` records in `1 337` groups remain.
+This is a conservative wrapper-grammar exclusion, not a correction of the source text or an
+audio-quality result. No clip selection, extraction, synthesis, QA/review or detector inference
+occurred.
+
 Before extracting a single new MP3, the next contract must do all of the following:
 
-1. Apply the frozen V5.5 literal-text character gate to the `6 211` metadata survivors without
-   changing words, punctuation or stress; account every incompatibility before choosing a size.
-   Then choose and freeze an explicit candidate size and seed without detector output, metrics or
-   final errors.
+1. Choose and freeze an explicit candidate size and seed from only the `5 600` literal-text and
+   historical-exposure survivors, without detector output, metrics or final errors.
 2. Version a new selection receipt before audio extraction. It must name the metadata screen,
    literal-text compatibility screen, selection inputs and all audit counts, and must exclude an
    entire client group on any protected-field overlap.

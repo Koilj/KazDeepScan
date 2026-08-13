@@ -78,7 +78,14 @@ groups) против `12 313` configured-role rows и `39 850` строк из `
 `f862ae667195c733c7deb6bf25f304a6287890ca87d4dc0ee7cb5e06aa6f46b3`.
 
 Это не selection и не разрешение на extraction, synthesis или inference: следующий contract
-обязан сначала проверить literal-text compatibility выбранного fixed TTS wrapper без lexical
-rewrite, затем отдельно frozen bind size/seed и exact survivors до создания raw assets.
-Historical first-250 intake, Stage-D `73` selection, уже scored `55` pairs и `18` rejected
-partners не являются допустимым резервом или backfill для нового blind candidate.
+обязан отдельно frozen bind size/seed и exact survivors до создания raw assets. Historical
+first-250 intake, Stage-D `73` selection, уже scored `55` pairs и `18` rejected partners не
+являются допустимым резервом или backfill для нового blind candidate.
+
+Для fixed Silero V5.5 / `eugene` выполнен следующий literal-text screen без lexical rewrite:
+`data/manifests/common_voice_ru_v24_full_test_silero_v5_5_literal_text_screen_v1.json`,
+SHA-256 `4356c3ecbf3a9b68dd7a5d5f4e2ed9347d9c6f105d63d558bfc03dd1403b23d0`. Он потребляет
+ровно `6 211` metadata survivors, требует exact equality после whitespace-only wrapper gate и
+исключает весь client group при одном incompatible text. `113` direct incompatible records
+(только неподдержанные кавычки или glyph `−`) исключили `106` groups / `611` records; остаются
+`5 600` records / `1 337` groups. Это не изменение или оценка транскриптов и не audio operation.

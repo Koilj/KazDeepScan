@@ -85,6 +85,10 @@ test; результаты не source-, speaker- или architecture-family-ind
   client groups с `12 313` configured-role rows и `39 850` rows в `85` manifest files. Строгое
   whole-client-group exclusion оставляет `6 211` records / `1 443` groups; это только capacity
   receipt без selection, audio extraction, synthesis, QA/review или inference.
+- Fixed V5.5 literal-text gate без lexical rewrite проверил ровно эти `6 211` metadata survivors:
+  `113` records с неподдержанными кавычками/glyph `−` taint `106` full client groups. После
+  strict group exclusion доступны `5 600` records / `1 337` groups; это всё ещё только capacity
+  receipt без selection, audio extraction, synthesis, QA/review или inference.
 - Stage D строго привязал 73 frozen Common Voice RU текста, создал ровно 73 synthetic WAV и без
   backfill сохранил 55 binary pairs / 110 assets после 18 `insufficient_speech` rejects.
   Проектный exposure audit против 23 configs / 12 203 rows дал `0/0/0` sample/audio/text overlap.
@@ -159,11 +163,10 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 
 1. Не повторять Stage-C/Stage-D/v3 runs и не использовать их final errors для tuning, выбора
    checkpoint, temperature, threshold или augmentation.
-2. Новый RU route и full source-wide Common Voice screen уже закреплены. Следом без lexical
-   rewrite применить V5.5 literal-text gate к `6 211` screen survivors, затем выбрать явные
-   size/seed, version selection receipt и freeze exact clips без backfill до extraction. Старые
-   55 Stage-D/v3 пар, 73-row selection и их rejections нельзя переиспользовать как «новый blind»
-   тест.
+2. Новый RU route, historical exposure и literal-text screen уже закреплены. Следом выбрать
+   явные size/seed только из `5 600` survivors, version selection receipt и freeze exact clips
+   без backfill до extraction. Старые 55 Stage-D/v3 пар, 73-row selection и их rejections нельзя
+   переиспользовать как «новый blind» тест.
 3. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 
@@ -207,5 +210,6 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [XLS-R+SLS v3 Stage-D governed evaluation](docs/research_xlsr_sls_v3_stage_d_dialogs_ru_v1.md)
 - [Silero V5.5 RU / eugene route intake](docs/silero_v5_5_ru_eugene_intake_2026-08-13.md)
 - [Common Voice RU full-test metadata exposure screen](data/manifests/common_voice_ru_v24_full_test_metadata_exposure_screen_v1.json)
+- [Common Voice RU / Silero V5.5 literal-text screen](data/manifests/common_voice_ru_v24_full_test_silero_v5_5_literal_text_screen_v1.json)
 - [External RU spoof-source search](docs/russian_spoof_source_search_2026-08-11.md)
 - [License-ledger snapshots](docs/license_ledger_snapshots.md)

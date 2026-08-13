@@ -136,8 +136,11 @@ checkpoint и строго ограниченный evaluation-контур:
   artifact/source/history gate также пройден: exact `9` model files / `4,960,731,703` bytes,
   official source commit, safetensors, AudioVAE weights-only state и tokenizer/source code
   проверены; `0` VoxCPM rows среди `40,682` historical rows подтверждают новую для проекта
-  generator family. Runtime/CUDA smoke ещё не выполнен, training-data overlap остаётся
-  unverified. Следующий gate — isolated Python 3.12 lock и один non-candidate text-only smoke;
+  generator family. Isolated Python 3.12 frozen-lock runtime и единственный non-candidate CUDA
+  smoke также завершены: one actual call, `0` network attempts, no reference/prompt audio,
+  normalizer, denoiser или retry; output `48 kHz` mono. Предшествующий duplicate-`streaming`
+  interface failure зафиксирован и произошёл до generation/WAV. Training-data overlap остаётся
+  unverified; следующий gate — frozen Denis metadata selection и bona-fide QA/VAD без backfill;
   MCSKL/VoxCPM2-KZ-Darwin остаётся blocked review и после RU route считается той же family;
 - FastAPI health/readiness/upload scaffold, который не выдаёт score без обученного,
   калиброванного model release.

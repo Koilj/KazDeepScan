@@ -24,6 +24,19 @@ class _FakeModel:
         return [0.0]
 
 
+class _UpstreamLikeModel:
+    """Mirror VoxCPM.generate, which owns the non-streaming keyword itself."""
+
+    def generate(self, *args: object, **kwargs: object) -> list[float]:
+        return self._generate(*args, streaming=False, **kwargs)
+
+    def _generate(self, *args: object, streaming: bool, **kwargs: object) -> list[float]:
+        assert not args
+        assert streaming is False
+        assert kwargs["reference_wav_path"] is None
+        return [0.0]
+
+
 def test_generation_contract_is_text_only_and_single_attempt() -> None:
     literal = "  Тест\u00a0 строки  "
     kwargs = generation_kwargs(literal, bind_text(literal))
@@ -50,6 +63,13 @@ def test_narrow_wrapper_passes_no_uncontrolled_arguments() -> None:
 
     assert synthesize_text_only(model, text, bind_text(text)) == [0.0]
     assert model.kwargs == generation_kwargs(text, bind_text(text))
+
+
+def test_wrapper_does_not_duplicate_upstream_owned_streaming_keyword() -> None:
+    text = "Проверка интерфейса"
+
+    assert synthesize_text_only(_UpstreamLikeModel(), text, bind_text(text)) == [0.0]
+    assert "streaming" not in generation_kwargs(text, bind_text(text))
 
 
 def test_local_loader_disables_remote_denoiser_and_lora(tmp_path: Path) -> None:

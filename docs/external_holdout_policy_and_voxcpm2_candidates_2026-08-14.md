@@ -219,7 +219,11 @@ sensitivity/source-diversity test**, а не вторым новым generator-f
    только как minimum layer, `79+` позволяют frozen target `79` без speaker-robust claim.
 4. **Завершено:** official VoxCPM2 model revision и source commit, `9` model files, source TAR,
    safetensors, AudioVAE weights-only load, tokenizer/source code, narrow wrapper и historical
-   generator-family exposure закреплены; model не загружался, synthesis не выполнялся.
-5. Следующим создать isolated Python 3.12 dependency lock и выполнить ровно один non-candidate
-   text-only CUDA smoke с внешним network block и без detector inference. Candidate selection,
-   synthesis и write-once evaluation требуют новых последующих contracts.
+   generator-family exposure закреплены.
+5. **Завершено:** official frozen lock установлен в isolated Python 3.12; первый interface call
+   versioned как pre-generation failure без WAV, после correction ровно один actual non-candidate
+   CUDA smoke дал `48 kHz` mono output при `0` network attempts и null/false forbidden controls.
+   Smoke не повторять.
+6. Следующим отдельным contract заморозить Denis metadata selection/buffer и выполнить
+   bona-fide decode/QA/VAD без backfill. Candidate synthesis и write-once evaluation требуют
+   новых последующих contracts.

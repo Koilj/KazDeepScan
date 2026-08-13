@@ -4,8 +4,8 @@
 > exclusions (включая RuASD upstream) остаются в силе. Текущая классификация будущих independent,
 > external-holdout и same-family layers находятся в
 > [review от 14 августа](external_holdout_policy_and_voxcpm2_candidates_2026-08-14.md). Denis
-> source intake и official VoxCPM2 artifact/source/history gate уже завершены; следующий gate —
-> isolated runtime/dependency lock и один non-candidate text-only CUDA smoke.
+> source intake и official VoxCPM2 artifact/source/history/runtime/smoke gates уже завершены;
+> следующий gate — frozen Denis metadata selection/buffer и bona-fide QA/VAD без backfill.
 
 Проверка проведена 10–11 августа 2026 года. В этот список включён только источник,
 который не является частью RuASD/KSC2, публикует исходное аудио и транскрипты с

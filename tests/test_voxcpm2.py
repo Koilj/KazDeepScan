@@ -60,4 +60,7 @@ def test_current_voxcpm2_model_lock_is_strict_and_complete() -> None:
     assert len(model.artifacts) == 10
     assert sum(artifact.expected_size_bytes for artifact in model.artifacts) == 4_964_839_611
     assert model.runtime["reference_audio_policy"] == "forbidden_null_only"
-    assert model.runtime["runtime_environment_materialized"] is False
+    assert model.runtime["runtime_environment_materialized"] is True
+    assert model.runtime["cuda_load_verified"] is True
+    assert model.runtime["text_only_smoke_verified"] is True
+    assert model.runtime["cuda_smoke_rerun_policy"] == "forbidden"

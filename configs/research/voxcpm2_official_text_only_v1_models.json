@@ -7,7 +7,7 @@
       "destination": "voxcpm2_official_v1",
       "generator_family": "openbmb_voxcpm2_official_text_only",
       "generator_name": "Official OpenBMB VoxCPM2 text-only default voice",
-      "generator_version": "model-bffb3df5a29440629464e5e839f4d214c8714c3d; source-ee8161e9e1b7b082cb5721a3a9980da4204401e6; wrapper-4f9ad38da0ccbda4b97d263ee0c382d91b11edfceb9fea87d0a4229a79c32cde",
+      "generator_version": "model-bffb3df5a29440629464e5e839f4d214c8714c3d; source-ee8161e9e1b7b082cb5721a3a9980da4204401e6; wrapper-3dcc290594a6af2670203b1dfd9ff500b96dbaf425b5ebe21011abfe57f12cbd",
       "license": "Apache-2.0 published model/code; training-source overlap remains unverified; personal-research external holdout only",
       "source_url": "https://huggingface.co/openbmb/VoxCPM2/tree/bffb3df5a29440629464e5e839f4d214c8714c3d",
       "runtime": {
@@ -38,14 +38,21 @@
         "max_len": 4096,
         "text_policy": "bind literal and collapse-whitespace SHA-256 before selection; pass collapse-whitespace text only; no semantic rewrite or external normalizer",
         "wrapper_module": "src/kds/data/voxcpm2_text_only.py",
-        "wrapper_sha256": "4f9ad38da0ccbda4b97d263ee0c382d91b11edfceb9fea87d0a4229a79c32cde",
+        "wrapper_sha256": "3dcc290594a6af2670203b1dfd9ff500b96dbaf425b5ebe21011abfe57f12cbd",
         "artifact_source_receipt": "data/licenses/voxcpm2_official_v1_artifact_source_receipt.json",
         "artifact_source_receipt_sha256": "84d5572840837d5fb6ef92202c53be4162d8116cdced0abfbcf7e0414890fcb8",
         "project_history_receipt": "data/manifests/voxcpm2_official_project_history_screen_v1.json",
         "project_history_receipt_sha256": "0a86e2677f0d8ec64dd2206720d7d95a6b9ec01e2aec38f4669a9544399558d7",
-        "runtime_environment_materialized": false,
-        "cuda_load_verified": false,
-        "text_only_smoke_verified": false
+        "runtime_uv_lock_sha256": "fc066d21d09656c5060892baad096c53af6774c0947fad5bf6c676ea73c47c9b",
+        "runtime_installed_distribution_fingerprint": "60158bb4e2dd9dbef6a0defdf517b98b3c5df21811af13e0b0a48c25de1e5779",
+        "runtime_environment_materialized": true,
+        "cuda_load_verified": true,
+        "text_only_smoke_verified": true,
+        "pre_inference_failure_receipt": "data/licenses/voxcpm2_official_v1_cuda_smoke_pre_inference_failure_v1.json",
+        "pre_inference_failure_receipt_sha256": "d803afad53782aeb38be2b29ea6182c44652cea5692cd715dd094b3efc98ff41",
+        "cuda_smoke_receipt": "data/licenses/voxcpm2_official_v1_cuda_smoke_v1.json",
+        "cuda_smoke_receipt_sha256": "0c24a8325d5c1159b2ac2885ebb46d8e38386c984d6908822170a442ea3d6982",
+        "cuda_smoke_rerun_policy": "forbidden"
       },
       "artifacts": [
         {

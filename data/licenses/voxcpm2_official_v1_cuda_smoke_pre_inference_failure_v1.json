@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "protocol_id": "voxcpm2-official-text-only-cuda-smoke-pre-inference-failure-v1",
+  "created_at": "2026-08-14T03:28:31+05:00",
+  "status": "failed_before_upstream_generation_body",
+  "model_revision": "bffb3df5a29440629464e5e839f4d214c8714c3d",
+  "source_revision": "ee8161e9e1b7b082cb5721a3a9980da4204401e6",
+  "runtime": {
+    "python": "3.12.13",
+    "torch": "2.10.0+cu128",
+    "cuda_device": "NVIDIA GeForce RTX 5060 Ti",
+    "outer_network_namespace": "bwrap --unshare-net",
+    "model_load_completed": true,
+    "denoiser_loaded": false,
+    "reference_or_prompt_audio_supplied": false
+  },
+  "input": {
+    "non_candidate_denis_transcripts_screened": 1150,
+    "literal_matches": 0,
+    "collapse_whitespace_matches": 0,
+    "smoke_text_literal_sha256": "897ad381b06712ac1ed5c1e506d476c0c1a39dfd938c62b704b66aaddccc676e"
+  },
+  "failure": {
+    "exception_type": "TypeError",
+    "message": "voxcpm.core.VoxCPM._generate() got multiple values for keyword argument 'streaming'",
+    "cause": "The project wrapper supplied streaming=False to VoxCPM.generate while the exact upstream public generate method also injects streaming=False before calling _generate.",
+    "trace_boundary": "Python argument binding for VoxCPM._generate",
+    "upstream_generation_body_entered": false,
+    "stochastic_generation_started": false,
+    "waveform_returned": false,
+    "wav_created": false,
+    "detector_inference_performed": false
+  },
+  "frozen_code": {
+    "wrapper_sha256": "4f9ad38da0ccbda4b97d263ee0c382d91b11edfceb9fea87d0a4229a79c32cde",
+    "smoke_runner_sha256": "73b91c37f00b52d2f8a5eee14ba031d9ae1cc371640b40560694682f239f34c6"
+  },
+  "decision": {
+    "failed_call_is_a_generation_result": false,
+    "correction_allowed": true,
+    "reason": "No upstream generation body, stochastic step, waveform, candidate operation, or detector result existed; the correction removes only a duplicate public-API keyword.",
+    "permitted_next_action": "publish a new wrapper hash and run the first and only actual non-candidate generation smoke",
+    "forbidden": "suppressing this failure, retrying after any waveform/result, candidate synthesis, detector inference, or parameter tuning"
+  }
+}

@@ -124,7 +124,7 @@ Denis source gate **пройден** для ограниченного марш�
 между General/Chat/CustomerService, но это не заменяет diversity людей и не меняет claim.
 
 Official OpenBMB VoxCPM2 artifact/source/history gate уже завершён: exact snapshot/source,
-checkpoint safety, narrow offline text-only wrapper и нулевой historical VoxCPM route закреплены.
-Следующий отдельный этап — isolated dependency/runtime lock и один non-candidate CUDA smoke без
-detector inference. Пока запрещены frozen text selection, raw materialization и candidate
-synthesis.
+checkpoint safety, narrow offline text-only wrapper и нулевой historical VoxCPM route закреплены;
+isolated runtime и единственный non-candidate CUDA smoke также прошли. Следующий отдельный этап —
+frozen metadata selection/buffer и bona-fide decode/QA/VAD без backfill. Candidate synthesis и
+detector inference пока запрещены.

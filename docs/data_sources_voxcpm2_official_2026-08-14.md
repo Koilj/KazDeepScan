@@ -1,8 +1,8 @@
-# Official OpenBMB VoxCPM2 — artifact/source gate, 14 августа 2026
+# Official OpenBMB VoxCPM2 — artifact/source/runtime gate, 14 августа 2026
 
-**Статус:** exact model/source artifacts и project-history novelty gate завершены. Runtime
-environment, CUDA model load и text-only smoke ещё не выполнены. Никаких candidate texts,
-synthesis или detector inference в этом этапе не было.
+**Статус:** exact model/source artifacts, project-history novelty, isolated runtime и один
+non-candidate CUDA text-only smoke завершены. Candidate selection/synthesis и detector inference
+не выполнялись; smoke повторять запрещено.
 
 **Допустимая будущая роль:** personal-research external source/generator-family holdout для
 Denis 1.0. Это не подтверждает отсутствие Denis/аналогичных записей в training data модели,
@@ -78,20 +78,56 @@ NBSP и `18` с trailing whitespace без молчаливого post-selection
 
 Wrapper:
 [`src/kds/data/voxcpm2_text_only.py`](../src/kds/data/voxcpm2_text_only.py), SHA-256
-`4f9ad38da0ccbda4b97d263ee0c382d91b11edfceb9fea87d0a4229a79c32cde`.
+`3dcc290594a6af2670203b1dfd9ff500b96dbaf425b5ebe21011abfe57f12cbd`.
 Model contract:
 [`configs/research/voxcpm2_official_text_only_v1_models.json`](../configs/research/voxcpm2_official_text_only_v1_models.json),
-SHA-256 `23e9fd73c0b65bfe3ab650c617d4ca4e2385e24b56152968c97ebbc0435e0472`.
+SHA-256 `544a2ad4df100c5e39b76ca92dcd4aafe9150de2139e7bca608435e32b0a9168`.
+
+## Isolated runtime и единственный smoke
+
+Официальный `uv.lock` SHA-256
+`fc066d21d09656c5060892baad096c53af6774c0947fad5bf6c676ea73c47c9b` установлен из exact Git
+checkout того же source commit в отдельный Python `3.12.13`. Current `uv 0.12.3` требует для
+этого legacy lock режим `--frozen`: `--locked` хотел бы обновить metadata из-за malformed
+specifier одной upstream dependency, а менять официальный lock запрещено. Установлены `160`
+unique distributions; fingerprint
+`60158bb4e2dd9dbef6a0defdf517b98b3c5df21811af13e0b0a48c25de1e5779`.
+
+Первый launcher загрузил модель, но остановился до входа в upstream `_generate`: wrapper передал
+`streaming=False`, а public `VoxCPM.generate` добавляет этот keyword сам. Python выдал `TypeError`
+при binding аргументов; stochastic generation/WAV не было. Ошибка не скрыта:
+[`data/licenses/voxcpm2_official_v1_cuda_smoke_pre_inference_failure_v1.json`](../data/licenses/voxcpm2_official_v1_cuda_smoke_pre_inference_failure_v1.json),
+SHA-256 `d803afad53782aeb38be2b29ea6182c44652cea5692cd715dd094b3efc98ff41`.
+Исправление только удалило дублирующий API-owned keyword; seed/model/text/parameters не менялись.
+
+После correction выполнен первый и единственный фактический generation call:
+
+| Проверка | Результат |
+| --- | ---: |
+| Runtime | `torch 2.10.0+cu128`, CUDA `12.8`, RTX 5060 Ti, BF16 |
+| Network | `bwrap --unshare-net` + offline env + socket guard; `0` attempts |
+| Non-candidate screen | `0` literal/canonical matches среди `1,150` Denis texts |
+| Model load | local-only, no denoiser/LoRA; `14.060360` s |
+| Generation calls | `1`, fixed seed `20260814`; `3.383638` s |
+| Reference/prompt audio/text | `None / None / None` |
+| Normalizer / denoiser / retry | `false / false / false` |
+| Output | mono PCM-16 WAV, `48,000 Hz`, `161,280` frames / `3.360000` s |
+| WAV bytes / SHA-256 | `322,604` / `4678b294…a25c` |
+| Peak / RMS | `0.641680241 / 0.126388862` |
+| Peak CUDA allocated/reserved | `5,606,945,792 / 5,758,779,392` bytes |
+
+Smoke receipt:
+[`data/licenses/voxcpm2_official_v1_cuda_smoke_v1.json`](../data/licenses/voxcpm2_official_v1_cuda_smoke_v1.json),
+SHA-256 `0c24a8325d5c1159b2ac2885ebb46d8e38386c984d6908822170a442ea3d6982`.
+WAV остаётся в ignored `models/` и не входит в Git. Это technical format/load evidence, не
+listening, Russian-intelligibility, acoustic-quality или identity evidence.
 
 ## Решение и следующий gate
 
-Artifact/source/history gate **пройден**. Старое локальное предположение `Python <3.13` удалено:
-точный current source требует `>=3.10`. Для воспроизводимости всё равно предпочтителен отдельный
-CPython 3.12; доступен system-managed Python `3.12.13`, но environment/dependency lock ещё не
-создан и не считается готовым.
+Artifact/source/history/runtime/smoke gate **пройден**. Старое предположение `Python <3.13`
+удалено: exact source требует `>=3.10`, а фактический runtime закреплён на `3.12.13`.
 
-Следующий безопасный этап — отдельно создать isolated runtime из exact source commit, закрепить
-dependency lock и выполнить один **non-candidate** Russian text-only CUDA smoke при физически
-заблокированной сети. Smoke обязан доказать local load, `48 kHz` output и фактические null/false
-parameters; detector inference запрещён. Только после успешного smoke допустим отдельный frozen
-Denis metadata selection contract.
+Следующий безопасный этап — отдельный frozen Denis metadata selection contract: target `79`,
+предварительный buffer без model/audio-quality selection, category balancing и literal/canonical
+text binding до materialization. Затем bona-fide decode/QA/VAD без backfill. Candidate TTS
+synthesis и detector inference всё ещё запрещены.

@@ -14,8 +14,9 @@ test; результаты не source-, speaker- или architecture-family-ind
 
 Для будущих unevaluated layers принят трёхуровневый evidence policy: основной независимый слой,
 external source/generator-family holdout с непроверенным TTS training-data overlap и same-family
-sensitivity test. Denis source intake/exposure и official VoxCPM2 artifact/source/history gates
-теперь завершены; это ещё не paired candidate, runtime/CUDA smoke, synthesis или inference result.
+sensitivity test. Denis source intake/exposure и official VoxCPM2 artifact/source/history/runtime
+gates вместе с одним non-candidate CUDA smoke завершены; это ещё не paired candidate, candidate
+synthesis или detector inference result.
 
 Этот файл намеренно краткий. Архитектура описана в
 [KazDeepScan_implementation_blueprint.md](KazDeepScan_implementation_blueprint.md), следующие
@@ -41,7 +42,11 @@ sensitivity test. Denis source intake/exposure и official VoxCPM2 artifact/sour
   `9` files / `4,960,731,703` bytes, `577` contiguous BF16 safetensors tensors, `316`-member
   AudioVAE ZIP и `312`-tensor weights-only state, tokenizer/source safety pass. History screen
   связал `95` manifests / `40,682` rows / `19,001` spoof rows и нашёл `0` VoxCPM rows, поэтому
-  generator family новый для проекта. Runtime/CUDA load и smoke ещё не выполнялись;
+  generator family новый для проекта. Exact official `uv.lock` установлен frozen в isolated
+  Python 3.12 (`160` distributions). После versioned pre-inference duplicate-`streaming` failure
+  без WAV corrected wrapper выполнил ровно один actual CUDA call внутри network namespace:
+  `0` network attempts, no reference/prompt/LoRA/normalizer/denoiser/retry, mono `48 kHz`,
+  `161,280` frames. Smoke не является listening/acoustic evidence и не повторяется;
   training-data overlap/default voice identity не подтверждены.
   MCSKL остаётся blocked из-за `78/73` participant и `CC BY` / `CC BY-NC-SA` конфликтов;
   VoxCPM2-KZ-Darwin не раскрывает provenance Kazakh LoRA/base достаточно и после RU VoxCPM2
@@ -277,11 +282,11 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
    immutable contract, preflight, execution lock и report без изменений. Не повторять inference,
    не использовать 12 final errors для tuning/replacement и не использовать UtrobinTTS как
    backfill. Новый research layer требует genuinely new source/route и отдельный contract.
-4. Denis source и official VoxCPM2 artifact/source/history gates завершены: сохранить exact
-   archive/model/source/receipt hashes, zero direct source overlap, likely speaker-lineage и
-   unverified TTS-training-overlap disclosures без изменений. Следующим создать isolated Python
-   3.12 dependency lock и выполнить только один non-candidate text-only CUDA smoke с внешним
-   network block. Selection/candidate synthesis/detector inference не выполнять.
+4. Denis source и official VoxCPM2 artifact/source/history/runtime/smoke gates завершены:
+   сохранить exact hashes, pre-inference failure, one-shot smoke receipt, likely speaker-lineage
+   и unverified TTS-training-overlap disclosures без изменений; smoke не повторять. Следующим
+   подготовить только frozen Denis metadata selection и bona-fide QA/VAD без backfill. Candidate
+   synthesis/detector inference пока не выполнять.
 5. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 

@@ -89,7 +89,6 @@ def generation_kwargs(text: str, expected: BoundText) -> dict[str, object]:
         "denoise": False,
         "retry_badcase": False,
         "retry_badcase_max_times": 1,
-        "streaming": False,
         "seed": VOXCPM2_FIXED_SEED,
     }
 

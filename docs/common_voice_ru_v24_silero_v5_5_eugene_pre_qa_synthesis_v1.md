@@ -46,5 +46,6 @@ Normal QA завершён в
 [separate receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_spoof_technical_qa_v1.md):
 `42` spoof rows retained and `33` insufficient-speech rejects are accounted. A failed synthetic
 QA row cannot be resynthesized, replaced или backfilled. Immutable 42-pair lock is published in
-[the pairing receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md); only two
-independent full-asset acoustic reviews may advance it toward a governed inference plan.
+[the pairing receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md); the blank
+[two-review acoustic packet](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_acoustic_gate_v1.md)
+is prepared, but only real independent full-asset reviews may advance it toward a governed plan.

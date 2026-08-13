@@ -87,7 +87,8 @@ checkpoint и строго ограниченный evaluation-контур:
   rows среди 18 605 historical spoof rows, но 1 265 legacy Silero rows исключают architecture-,
   vendor- и speaker-independence claims. Новый bona-fide pre-QA selection уже заморожен,
   materialized, literal-text bound и синтезирован в raw 75-row layer; technical QA оставил 42
-  spoof rows, exact 42-pair candidate заморожен, review и inference ещё не начаты;
+  spoof rows, exact 42-pair candidate и blank two-review acoustic packet заморожены; real review
+  и inference ещё не начаты;
 - перед любым выбором нового RU final набора весь full Common Voice `test` прошёл historical
   exposure screen, затем fixed V5.5 literal-text gate без lexical rewrite. Из `10 261` source
   records остаётся `5 600` в `1 337` client groups. Из них отдельный immutable receipt выбрал
@@ -381,4 +382,6 @@ Technical materialization этого slice описана в
 42-row technical-QA layer — в
 [QA receipt](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_spoof_technical_qa_v1.md), а
 84-asset immutable pair lock — в
-[pairing receipt](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md).
+[pairing receipt](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md), а blank
+two-review packet/forms — в
+[acoustic-gate receipt](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_acoustic_gate_v1.md).

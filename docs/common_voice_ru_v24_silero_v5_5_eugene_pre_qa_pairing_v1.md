@@ -30,6 +30,7 @@ text ID/text hash, and candidate assets pass license-ledger and SHA-256 asset va
 
 ## Следующий безопасный шаг
 
-Prepare one immutable 84-asset acoustic packet and two blank independent review worksheets tied
-to the exact candidate WAV hashes. There is no authorization for detector inference until two
-distinct real reviewers complete every row and the fail-closed gate reports all 84 assets passed.
+The immutable packet and two blank worksheets are now prepared in
+[the acoustic-gate receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_acoustic_gate_v1.md).
+There is no authorization for detector inference until two distinct real reviewers complete every
+row and the fail-closed gate reports all 84 assets passed.

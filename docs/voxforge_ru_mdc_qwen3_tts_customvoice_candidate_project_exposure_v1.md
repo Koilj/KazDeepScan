@@ -48,5 +48,6 @@ The separate immutable
 [XLS-R+SLS evaluation contract](research_xlsr_sls_stage_b_v2_voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1.md)
 is now prepared. It pins this receipt, the acoustic gate, exact candidate, selected checkpoint, a
 disjoint fixed calibration role, fixed `0.5` boundary, applicable license ledger, implementation
-hashes and new write-once output paths. The next safe step is its single no-logit preflight; only a
-successful preflight may authorize one inference run.
+hashes and new write-once output paths. Its single no-logit preflight has now passed all `1,134`
+bindings without logits. That successful preflight authorizes only the single write-once run under
+the unchanged contract.

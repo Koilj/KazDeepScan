@@ -1,7 +1,7 @@
 # XLS-R+SLS Stage-B v2 — VoxForge RU / Qwen3-TTS CustomVoice `aiden` contract v1
 
-**Статус:** immutable research evaluation contract prepared and technically validated without
-audio inference. No preflight receipt, execution lock, logits or detector result exists yet.
+**Статус:** immutable research evaluation contract and its single write-once `--validate-only`
+preflight are complete. No execution lock, logits or detector result exists yet.
 
 ## Fixed final layer
 
@@ -50,13 +50,18 @@ implementation dependencies, evidence, checkpoint, calibration and fresh write-o
 Unlike the earlier V5.5 wrapper, the final report path explicitly records
 `detector_inference_performed=true` only after final logits have completed.
 
-The three output paths under `artifacts/` are currently absent. Plan loading and strict input
-validation read no model logits and performed no detector inference.
+The single write-once preflight validated all `1,134` assets (`976` calibration + `158` final),
+all pinned evidence and CUDA/BF16 on Python `3.13.15`, Torch `2.11.0+cu128`, CUDA `12.8` and an
+NVIDIA GeForce RTX 5060 Ti. It performed no training, threshold selection or detector inference.
+Its ignored local receipt is
+`artifacts/xlsr-sls-stage-b-v2-voxforge-ru-mdc-qwen3-tts-customvoice-aiden-v1.preflight.json`,
+SHA-256 `4f9a56ab8de8fdb876d64c408032c468492c5ca813a34ad6bd846dd543312e5b`.
+The execution-lock and report paths remain absent.
 
 ## Следующий безопасный шаг
 
-Commit the contract and frozen ledger first. Then run exactly one `--validate-only` preflight. It
-must validate all `1,134` assets (`976` calibration + `158` final), pinned hashes, license scope,
-leakage, CUDA/BF16 and write a new preflight receipt without loading final logits. Only a successful
-preflight may authorize the single write-once inference run. Any contract/input/output mismatch
-must fail closed; do not replace assets, change calibration/boundary or retry around an error.
+The completed preflight authorizes exactly one write-once inference run under the unchanged plan.
+The runner must write the execution lock before calibration/final logits, fit temperature only on
+the fixed PyAra role and evaluate the final layer at the unchanged `0.5` boundary. Any
+contract/input/output mismatch must fail closed; do not replace assets, change
+calibration/boundary, repeat inference or retry around an evidence error.

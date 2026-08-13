@@ -427,6 +427,9 @@ inference. Следующий безопасный этап — отдельны
 описан в [VoxForge Qwen exposure receipt](docs/voxforge_ru_mdc_qwen3_tts_customvoice_candidate_project_exposure_v1.md).
 Такой contract теперь подготовлен: он pins Stage-B v2 checkpoint, disjoint 976-row PyAra
 calibration, fixed `0.5` boundary, three-source frozen ledger и новые write-once paths; plan
-SHA-256 `9e36b5d6a35cfa0b796ff24e62f3bfa78667d0b1d9da993f1863a2fe61c421cc`. Preflight и
-detector inference ещё не выполнялись; contract receipt —
+SHA-256 `9e36b5d6a35cfa0b796ff24e62f3bfa78667d0b1d9da993f1863a2fe61c421cc`. Contract receipt —
 [здесь](docs/research_xlsr_sls_stage_b_v2_voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1.md).
+После этого ровно один no-logit preflight проверил `1,134` assets и CUDA/BF16; local receipt
+SHA-256 `4f9a56ab8de8fdb876d64c408032c468492c5ca813a34ad6bd846dd543312e5b`, execution/report
+ещё отсутствуют. Теперь разрешён только единственный write-once inference run по неизменному
+contract.

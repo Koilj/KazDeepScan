@@ -168,8 +168,10 @@ test; результаты не source-, speaker- или architecture-family-ind
   authorize inference. A separate immutable Stage-B v2 contract is now prepared: fixed 976-row
   PyAra calibration, `0.5` boundary, three-source frozen ledger and fresh output paths; plan
   SHA-256 `9e36b5d6a35cfa0b796ff24e62f3bfa78667d0b1d9da993f1863a2fe61c421cc`. Static validation
-  found zero calibration/final overlap in all five leakage fields. Preflight and detector
-  inference have not been performed.
+  found zero calibration/final overlap in all five leakage fields. The single no-logit preflight
+  then validated all `1,134` assets and CUDA/BF16; receipt SHA-256
+  `4f9a56ab8de8fdb876d64c408032c468492c5ca813a34ad6bd846dd543312e5b`. It performed no
+  training, threshold selection or detector inference; execution/report still do not exist.
   UtrobinTTS remains rejected: `76` historical spoof rows carry its unversioned identifier.
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
@@ -238,11 +240,11 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
    повторять его, не менять candidate/reviews/checkpoint/calibration/boundary and не использовать
    final errors для tuning. Старые 55 Stage-D/v3 пар, 73-row selection и их rejections нельзя
    переиспользовать как «новый blind» тест.
-3. Для VoxForge RU не менять `79` exact pairs, completed forms, gate/exposure receipts или
-   immutable evaluation contract и не выполнять resynthesis/replacement/backfill. Выполнить ровно
-   один no-logit preflight на `1,134` assets; только при его успехе разрешён единственный
-   write-once inference run. Не менять checkpoint/calibration/`0.5` boundary и не использовать
-   UtrobinTTS как backfill.
+3. Для VoxForge RU не менять `79` exact pairs, completed forms, gate/exposure receipts, immutable
+   evaluation contract или completed preflight и не выполнять resynthesis/replacement/backfill.
+   Выполнить единственный write-once inference run с lock-before-logits, temperature только на
+   fixed PyAra calibration и boundary `0.5`. Не повторять run и не использовать UtrobinTTS как
+   backfill.
 4. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 

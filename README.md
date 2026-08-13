@@ -404,5 +404,7 @@ two-review technical gate — в
 pre-extraction project-exposure screen: `6,412` WAV, `194` source-provided contributor groups,
 `81` canonical text groups и `0/0/0/0/0` sample/two-text/group overlap. Затем metadata-only
 selection заморозил `81` records с уникальными text и conservative contributor groups; raw WAV
-не извлекались. Ограничения и следующий exact spoof-route gate описаны
+не извлекались. Первый UtrobinTTS candidate был отклонён: 76 historical spoof rows содержат его
+unversioned model identifier, поэтому exact-route novelty недоказуема. Ограничения и следующий
+source-discovery gate описаны
 в [VoxForge intake receipt](docs/data_sources_voxforge_ru_mdc_2026-08-13.md).

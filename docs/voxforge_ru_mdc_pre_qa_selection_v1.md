@@ -40,8 +40,10 @@ This selection created no `data/raw/voxforge*`, decoded WAV, manifest, synthetic
 model logit or metric. GPL-3.0-or-later and personal-research restrictions still apply, and the
 result is neither source-independent nor speaker-independent.
 
-The next permitted action is an exact **spoof-route review**: it must pin a text-only TTS runtime,
-weights/artifact hashes, license/rights scope, fixed public voice and generation parameters, and
-must prove that the route is not a reused historical evaluation route. Only a passed route receipt
+The attempted UtrobinTTS review is rejected because its unversioned historical model identifier
+was already used in `76` spoof rows; see the [route review](voxforge_ru_mdc_utrobinmv_vits_route_review_2026-08-13.md).
+The next permitted action is to find another exact **spoof route** whose identifier is absent from
+historical spoof manifests, then pin a text-only TTS runtime, weights/artifact hashes,
+license/rights scope, fixed public voice and generation parameters. Only a passed route receipt
 may authorize selection-bound WAV materialization and its full asset/technical QA; it still cannot
 authorize detector inference.

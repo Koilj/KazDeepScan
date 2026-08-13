@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "protocol_id": "voxforge-ru-mdc-utrobinmv-vits-female-exact-route-reconciliation-v1",
+  "reconciled_at": "2026-08-13T22:30:00+05:00",
+  "superseded_provisional_audit": {
+    "path": "data/manifests/voxforge_ru_mdc_utrobinmv_vits_female_exact_route_audit_v1.json",
+    "sha256": "8b193c389f75396db1b54544fa46b6fb8fc11a77fea82c807f5b455c30d7d935",
+    "provisional_exact_hash_route_overlap_rows": 0
+  },
+  "blocking_historical_evidence": {
+    "generator_name": "tts_ru_free_hf_vits_low_multispeaker",
+    "rows": 76,
+    "generator_versions": {
+      "unspecified_by_source": 76
+    },
+    "interpretation": "The historical model-name identifier matches the candidate repository name but lacks an immutable revision and weights hash. It may therefore be the same route, and zero overlap on the newly constructed full route tuple is not sufficient to establish novelty."
+  },
+  "claim_correction": {
+    "exact_generator_route_absent_from_historical_manifests": false,
+    "unseen_exact_generator_route": false,
+    "architecture_family_novelty": false,
+    "speaker_independence": false
+  },
+  "decision": {
+    "status": "rejected_pending_unprovable_historical_route_identity",
+    "model_lock_or_runtime_authorizes_selected_voxforge_wav_extraction": false,
+    "model_lock_or_runtime_authorizes_synthesis": false,
+    "model_lock_or_runtime_authorizes_detector_inference": false,
+    "license_ledger_entry_created": false
+  },
+  "preserved_safety_facts": {
+    "safetensors_bundle_hash_verified": true,
+    "model_load_performed": true,
+    "synthesis_performed": false,
+    "selected_voxforge_wav_extraction_performed": false,
+    "synthetic_audio_generated": false,
+    "detector_inference_performed": false
+  },
+  "follow_up": "A future candidate must have a generator identity absent from historical manifests or historical immutable revision/hash evidence sufficient to prove it differs. Do not use this candidate as a backfilled route."
+}

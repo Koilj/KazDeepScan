@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "source_id": "voxforge_ru_mdc_utrobinmv_vits_female_v1",
+  "model_repository": "utrobinmv/tts_ru_free_hf_vits_low_multispeaker",
+  "model_revision": "0e9a39581aac24f21487004f7e4f6c4c8c441de2",
+  "model_source_url": "https://huggingface.co/utrobinmv/tts_ru_free_hf_vits_low_multispeaker/tree/0e9a39581aac24f21487004f7e4f6c4c8c441de2",
+  "model_card_license_declaration": "Apache-2.0",
+  "license_evidence": {
+    "model_card_path": "README.md",
+    "model_card_sha256": "247d542603fbd28202e474049548ba1e79b5e2122bf617a84d915e074f8f02e7",
+    "upstream_model_license_file": "absent_at_pinned_revision",
+    "training_data_provenance": "not_disclosed_in_pinned_model_card",
+    "personal_research_decision": "accepted only for the current personal-research scope; no verified-speaker or commercial-rights claim"
+  },
+  "fixed_profile": {
+    "speaker_id": 0,
+    "speaker_label": "woman",
+    "voice_id": "utrobinmv_vits:woman:0",
+    "reference_audio": "forbidden",
+    "voice_cloning": "forbidden",
+    "random_speaker_profile": "forbidden",
+    "external_accent_or_text_model": "forbidden"
+  },
+  "security": {
+    "weights_format": "safetensors",
+    "weights_load_policy": "transformers VitsModel.from_pretrained(local_files_only=True, use_safetensors=True)",
+    "pickle_deserialization": "forbidden",
+    "safetensors_verification": {
+      "metadata": {
+        "format": "pt"
+      },
+      "tensor_entries": 708,
+      "all_entries_tensor_only": true
+    },
+    "local_runtime": "src/kds/data/utrobinmv_vits.py",
+    "local_runtime_sha256": "886e64d4a8c4a6d14fbe3b025818fd3bb28887dd42d9b8a1b2b94558f3f910de",
+    "runtime_load_succeeded": true,
+    "synthesis_performed": false
+  },
+  "model_lock": {
+    "path": "configs/research/voxforge_ru_mdc_utrobinmv_vits_female_v1_models.json",
+    "size_bytes": 4038,
+    "sha256": "3e1fed845c26abea6f7ab9e08db29d5cc12c91ee9b92c61823aa3cd929c86dbf"
+  },
+  "artifacts": {
+    "count": 6,
+    "total_size_bytes": 60366570,
+    "weights": {
+      "path": "model.safetensors",
+      "size_bytes": 60357152,
+      "published_lfs_sha256": "76c5bff701c1cc5a9032874e1b160fd086ab6e275c46b53e47157a503cc7bdd4",
+      "local_sha256": "76c5bff701c1cc5a9032874e1b160fd086ab6e275c46b53e47157a503cc7bdd4"
+    },
+    "all_files_are_pinned_in_model_lock": true
+  },
+  "scope": {
+    "usage_scope": "personal_research",
+    "training_or_calibration_use": "forbidden",
+    "detector_inference": "forbidden_until_immutable_plan_and_two_review_gate",
+    "selected_voxforge_wav_extraction": "forbidden_until_exact_route_review_and_text_compatibility_receipts_pass"
+  }
+}

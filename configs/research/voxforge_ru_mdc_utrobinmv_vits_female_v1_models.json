@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "protocol_id": "voxforge-ru-mdc-utrobinmv-vits-female-v1",
+  "models": [
+    {
+      "model_id": "utrobinmv_tts_ru_vits_female",
+      "destination": "utrobinmv_tts_ru_vits_female",
+      "generator_family": "vits_multispeaker_text_to_speech",
+      "generator_name": "UtrobinTTS Russian VITS",
+      "generator_version": "hf-0e9a39581aac24f21487004f7e4f6c4c8c441de2; safetensors-76c5bff701c1cc5a9032874e1b160fd086ab6e275c46b53e47157a503cc7bdd4; fixed-woman-0; wrapper-886e64d4a8c4a6d14fbe3b025818fd3bb28887dd42d9b8a1b2b94558f3f910de",
+      "license": "Apache-2.0 declaration in the pinned model-card metadata; accepted only for this project's personal-research scope, with no verified-speaker, commercial, training, calibration or re-hosting authorization",
+      "source_url": "https://huggingface.co/utrobinmv/tts_ru_free_hf_vits_low_multispeaker/tree/0e9a39581aac24f21487004f7e4f6c4c8c441de2",
+      "runtime": {
+        "kind": "transformers_vits_safetensors_fixed_female_cpu",
+        "model_config_path": "config.json",
+        "weights_path": "model.safetensors",
+        "vocab_path": "vocab.json",
+        "tokenizer_config_path": "tokenizer_config.json",
+        "special_tokens_map_path": "special_tokens_map.json",
+        "transformers_version": "5.14.1",
+        "device": "cpu",
+        "sample_rate": 16000,
+        "fixed_speaker_id": 0,
+        "fixed_speaker_label": "woman",
+        "fixed_voice_id": "utrobinmv_vits:woman:0",
+        "reference_audio_policy": "forbidden",
+        "voice_cloning": false,
+        "text_input_only": true,
+        "external_text_normalizer": "forbidden",
+        "external_stress_model": "forbidden",
+        "text_preparation": "lowercase_and_collapse_whitespace_only",
+        "unknown_token_policy": "reject",
+        "weights_format": "safetensors_only",
+        "per_text_rng_seed": "first_8_bytes_sha256_literal_utf8_source_text"
+      },
+      "artifacts": [
+        {
+          "relative_path": "README.md",
+          "url": "https://huggingface.co/utrobinmv/tts_ru_free_hf_vits_low_multispeaker/raw/0e9a39581aac24f21487004f7e4f6c4c8c441de2/README.md",
+          "expected_size_bytes": 6257,
+          "sha256": "247d542603fbd28202e474049548ba1e79b5e2122bf617a84d915e074f8f02e7"
+        },
+        {
+          "relative_path": "config.json",
+          "url": "https://huggingface.co/utrobinmv/tts_ru_free_hf_vits_low_multispeaker/raw/0e9a39581aac24f21487004f7e4f6c4c8c441de2/config.json",
+          "expected_size_bytes": 1741,
+          "sha256": "eb454624d290c9c55b607bdc510eff8bfc7a5801eac6c7ac3a96e780ffdd5946"
+        },
+        {
+          "relative_path": "model.safetensors",
+          "url": "https://huggingface.co/utrobinmv/tts_ru_free_hf_vits_low_multispeaker/resolve/0e9a39581aac24f21487004f7e4f6c4c8c441de2/model.safetensors",
+          "expected_size_bytes": 60357152,
+          "sha256": "76c5bff701c1cc5a9032874e1b160fd086ab6e275c46b53e47157a503cc7bdd4"
+        },
+        {
+          "relative_path": "special_tokens_map.json",
+          "url": "https://huggingface.co/utrobinmv/tts_ru_free_hf_vits_low_multispeaker/raw/0e9a39581aac24f21487004f7e4f6c4c8c441de2/special_tokens_map.json",
+          "expected_size_bytes": 279,
+          "sha256": "af8c98917af6cb493513e5f1f8a35efdc28fa82cac15b2bb5f065d64f8bc904d"
+        },
+        {
+          "relative_path": "tokenizer_config.json",
+          "url": "https://huggingface.co/utrobinmv/tts_ru_free_hf_vits_low_multispeaker/raw/0e9a39581aac24f21487004f7e4f6c4c8c441de2/tokenizer_config.json",
+          "expected_size_bytes": 634,
+          "sha256": "97758f536ef1b3c22c910e60d4c3867f1354a38700d9b82dd17cc823dcd3d0d6"
+        },
+        {
+          "relative_path": "vocab.json",
+          "url": "https://huggingface.co/utrobinmv/tts_ru_free_hf_vits_low_multispeaker/raw/0e9a39581aac24f21487004f7e4f6c4c8c441de2/vocab.json",
+          "expected_size_bytes": 507,
+          "sha256": "e7c43de47250ee869c9a37523af5ad29152c8250bf6a2658b59bfbac5b05e2d8"
+        }
+      ]
+    }
+  ]
+}

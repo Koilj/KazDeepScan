@@ -145,7 +145,9 @@ test; результаты не source-, speaker- или architecture-family-ind
   conservative contributor groups; raw aliases не versioned. Receipts SHA-256
   `0e8bd5c7d1e02bedc235adcb3bdb7ed3bc7efdd0ff7637339460e3f43c38272f`,
   `275367a9738bfcc017315cfb3799078c0c3ab1981a318098b0849eaf7893dffe` and
-  `18dc659ce30a6eaec03cdc27b74e709e066d556b142b063fc2a48b7c4fc1224f`.
+  `18dc659ce30a6eaec03cdc27b74e709e066d556b142b063fc2a48b7c4fc1224f`. Первый UtrobinTTS
+  route review rejected: `76` historical spoof rows carry the same unversioned model identifier,
+  so exact-route novelty is unprovable; no WAV extraction or synthesis was authorized.
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
 ## Актуальные результаты
@@ -213,10 +215,10 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
    повторять его, не менять candidate/reviews/checkpoint/calibration/boundary and не использовать
    final errors для tuning. Старые 55 Stage-D/v3 пар, 73-row selection и их rejections нельзя
    переиспользовать как «новый blind» тест.
-3. Для VoxForge RU выполнить отдельный exact spoof-route review: закрепить text-only TTS runtime,
-   weights/artifact hashes, license/rights scope, fixed public voice и параметры synthesis, а
-   также отсутствие reuse historical route. До его pass не извлекать WAV, не делать
-   synthesis/pairing и не запускать detector.
+3. Для VoxForge RU найти другой text-only TTS route, чьё model identifier отсутствует в historical
+   spoof manifests, затем закрепить runtime, weights/artifact hashes, license/rights scope, fixed
+   public voice и параметры synthesis. До его pass не извлекать WAV, не делать synthesis/pairing
+   и не запускать detector; UtrobinTTS нельзя использовать как backfill.
 4. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 
@@ -269,6 +271,7 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [VoxForge Russian source-level intake](docs/data_sources_voxforge_ru_mdc_2026-08-13.md)
 - [VoxForge Russian pre-extraction exposure screen](data/manifests/voxforge_ru_mdc_2026_05_metadata_exposure_screen_v1.json)
 - [VoxForge Russian frozen pre-QA selection](docs/voxforge_ru_mdc_pre_qa_selection_v1.md)
+- [VoxForge Russian rejected UtrobinTTS route review](docs/voxforge_ru_mdc_utrobinmv_vits_route_review_2026-08-13.md)
 - [Silero V5.5 RU / eugene route intake](docs/silero_v5_5_ru_eugene_intake_2026-08-13.md)
 - [Common Voice RU full-test metadata exposure screen](data/manifests/common_voice_ru_v24_full_test_metadata_exposure_screen_v1.json)
 - [Common Voice RU / Silero V5.5 literal-text screen](data/manifests/common_voice_ru_v24_full_test_silero_v5_5_literal_text_screen_v1.json)

@@ -85,6 +85,8 @@ Archive intake and exposure screen created no `data/raw/voxforge*` material, dec
 manifest, synthetic audio, model logit or metric; the subsequent selection remained metadata-only.
 Raw archive and WAV stay outside Git.
 
-The next permitted action is a separate exact spoof-route review. It still cannot authorize
-synthesis or detector inference: selection-bound WAV materialization, audio QA, pair lock,
-full-asset acoustic review and an immutable one-run evaluation contract remain required.
+The first separate exact spoof-route review was rejected because `76` historical spoof rows use
+the same unversioned UtrobinTTS model identifier. The next permitted action is a different route
+whose historical identity is provably absent. It still cannot authorize synthesis or detector
+inference: selection-bound WAV materialization, audio QA, pair lock, full-asset acoustic review
+and an immutable one-run evaluation contract remain required.

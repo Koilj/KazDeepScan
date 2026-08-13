@@ -11,6 +11,7 @@ from torch import Tensor
 from torch.utils.data import Dataset
 
 from kds.data.assets import resolve_asset_path
+from kds.data.augmentation import SymmetricTrainAugmentation, apply_symmetric_train_augmentation
 from kds.data.manifest import ManifestRow
 
 CropMode = Literal["train", "eval"]
@@ -24,12 +25,15 @@ class DatasetConfig:
     window_samples: int = 64_600
     mode: CropMode = "train"
     seed: str = "20260808"
+    augmentation: SymmetricTrainAugmentation | None = None
 
     def __post_init__(self) -> None:
         if self.sample_rate <= 0 or self.window_samples <= 0:
             raise ValueError("sample_rate and window_samples must be positive.")
         if not self.seed:
             raise ValueError("seed must not be empty.")
+        if self.augmentation is not None and self.mode != "train":
+            raise ValueError("Symmetric train augmentation is permitted only in mode='train'.")
 
 
 @dataclass(frozen=True, slots=True)
@@ -64,6 +68,14 @@ class ManifestAudioDataset(Dataset[AudioSample]):
         path = resolve_asset_path(self._config.audio_root, row.relative_path)
         waveform = self._load_normalized_audio(path)
         cropped = self._crop_or_pad(waveform, row.sample_id)
+        if self._config.augmentation is not None:
+            cropped = apply_symmetric_train_augmentation(
+                cropped,
+                sample_id=row.sample_id,
+                epoch=self._epoch,
+                sample_rate=self._config.sample_rate,
+                config=self._config.augmentation,
+            )
         return AudioSample(
             waveform=cropped,
             label=torch.tensor(LABEL_TO_INDEX[row.label], dtype=torch.float32),

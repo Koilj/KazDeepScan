@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "run_id": "xlsr-sls-v3-stage-d-dialogs-ru-v1",
+  "purpose": "research",
+  "protocol": {
+    "kind": "governed_one_time_v3_stage_d_ru_research_evaluation",
+    "quality_claim": "research_only_not_product_quality",
+    "stage_d_history": "exact_assets_were_evaluated_by_v2_but_v2_logits_errors_unloaded_and_prohibited_for_v3_selection",
+    "checkpoint_selection": "stage_a_and_stage_b_dev_loss_only",
+    "calibration": "temperature_only_on_pinned_pyara_role",
+    "decision_boundary": "fixed_calibrated_probability_0.5",
+    "pooled_language_metric": "prohibited",
+    "final_set_model_driven_selection": "prohibited_no_reselection_no_backfill",
+    "one_time_final_inference": "required_after_write_once_preflight"
+  },
+  "license_ledger": {
+    "path": "../../data/licenses/frozen/xlsr_sls_v3_governance_v1.csv",
+    "sha256": "9386aa3ace5b0b021c4af74312cf5bb910da0bb9d9537790ccd08601695c345f"
+  },
+  "v3_governance": {
+    "contract": {
+      "path": "xlsr_sls_v3_governance_v2.json",
+      "sha256": "cef05c3a5873ed7b31ba5e17c01317b24ce6d713bc7d220f729ea8c08792cfc5"
+    },
+    "receipt": {
+      "path": "../../data/manifests/xlsr_sls_v3_governance_v2.json",
+      "sha256": "1d60ddac74b038ec605f39abc820676593946aeea7c59458e5f11ff3d70851a0"
+    }
+  },
+  "checkpoint": {
+    "path": "../../models/xlsr-sls-stage-b-v3.pt",
+    "sha256": "43f36f79d83b1b620a3095e5e98514309d2c72d736fc4f29c0ca9edcd3b92ecc",
+    "stage_b_report": {
+      "path": "../../models/xlsr-sls-stage-b-v3-report.json",
+      "sha256": "5e9672b5cad31be68e22e2c103549fcfaf84d8a9df34f2b03264106025d100bf"
+    },
+    "stage_b_plan": {
+      "path": "xlsr_sls_stage_b_v3.json",
+      "sha256": "f9abeab72c9194c33a7d96f8f82f466596e14e642e15590bcfd78350e6635f3e"
+    },
+    "selected_trainable_state_sha256": "f2147364a8b33026c3a66fd59f871d002d460289e7a76d754d29f5b3b1bbbada"
+  },
+  "encoder": {
+    "checkpoint_dir": "../../models/xlsr-300m",
+    "revision": "1a640f32ac3e39899438a2931f9924c02f080a54",
+    "config": {
+      "path": "../../models/xlsr-300m/config.json",
+      "sha256": "0bffa0d0e98153e883b828d86491f3c6062cb563dc9d7a9cfd1790da30c286ac"
+    },
+    "weights": {
+      "path": "../../models/xlsr-300m/pytorch_model.bin",
+      "sha256": "d5e490574712ad0a6736923b9ed11d4cd51c78609c36205f704fc4e87b11d2e0"
+    }
+  },
+  "head": {
+    "attention_size": 128,
+    "classifier_size": 256,
+    "dropout": 0.2
+  },
+  "roles": {
+    "calibration": {
+      "manifest": {
+        "path": "../../data/manifests/pyara_ru_v7_stage_b_calibration_dev_1000_ready_v3.csv",
+        "sha256": "7fe2c89be7f02eea1abdfc369fc9c16185b0a395fa2526b5b2c58e361fa8fa31"
+      },
+      "selected_split": "dev",
+      "expected_rows": 976,
+      "expected_label_counts": {
+        "bonafide": 478,
+        "spoof": 498
+      }
+    },
+    "final_ru": {
+      "manifest": {
+        "path": "../../data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_candidate_v1.csv",
+        "sha256": "cd4ccc2be9fd0fa06bd3641f1e939499d93f111c5f6a5a636753adf97ac2891d"
+      },
+      "expected_rows": 110,
+      "expected_pairs": 55,
+      "expected_label_counts": {
+        "bonafide": 55,
+        "spoof": 55
+      },
+      "acoustic_gate": {
+        "path": "../../data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_acoustic_gate_report_v1.json",
+        "sha256": "ba604ab8487c258a7004540dd243ac61a72810c6bac141a2925323bd3dca9acb"
+      },
+      "pairing_receipt": {
+        "path": "../../data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_pairing_v1.json",
+        "sha256": "ae0a214335e3bb7627c13848adcb8cc3ae32ff48cf39a4afd8ccbad6318e326f"
+      },
+      "project_exposure_audit": {
+        "path": "../../data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_candidate_project_exposure_v1.json",
+        "sha256": "1851a88c43f902b37b65ce896175b8788ea9bcce307fd81ba7db3101711ffa88"
+      },
+      "route_audit": {
+        "path": "../../data/manifests/stage_d_ru_dialogs_vits2_exact_route_audit_v1.json",
+        "sha256": "f6a4ddd6bc334776d0029cbe3151c5e118815c38f160cb58f0e0ad7725a33d00"
+      }
+    }
+  },
+  "implementation": [
+    {
+      "path": "../../scripts/evaluate_xlsr_v3_stage_d.py",
+      "sha256": "bcde60414b50089e9ea23c79f0411d319ed8c7b913bd153cb4c7eccae7fc5224"
+    },
+    {
+      "path": "../../scripts/evaluate_xlsr_stage_d_dialogs_ru.py",
+      "sha256": "f7f53b23dc888d0dd6715e9a727eff2aaaa886f198b327f459a43db70f355fa5"
+    },
+    {
+      "path": "../../src/kds/data/assets.py",
+      "sha256": "b3a27d67596dd2e6aa70ac0aa54cf61fc0c967c1386e67888c5f89e123e4dba9"
+    },
+    {
+      "path": "../../src/kds/data/licenses.py",
+      "sha256": "35ba1184671e4896cc1af3a8612874caf716c4706444b496e8997f09b71aace7"
+    },
+    {
+      "path": "../../src/kds/data/manifest.py",
+      "sha256": "f1b709fc06cd9b465217afd62b80e5519bb9f24513da195326d4670a27fc61f8"
+    },
+    {
+      "path": "../../src/kds/data/stage_b_dev.py",
+      "sha256": "3a0b56f484461774717555a4c9696a2f7ac8f653207be2db6ce88524e94e497b"
+    },
+    {
+      "path": "../../src/kds/data/dataset.py",
+      "sha256": "1fb4b89c2b018d939206b31d509e4105a626c37045f718deb8d8565814afc243"
+    },
+    {
+      "path": "../../src/kds/eval/calibration.py",
+      "sha256": "bf34382fc5ecff15a7b7f1cba414b79ba13c29d3ffdcc6173369689d912c5b55"
+    },
+    {
+      "path": "../../src/kds/eval/metrics.py",
+      "sha256": "2e5ce453bcf3c59fecdafb7732d2ed84ae2a56354702fb7521d9390d2cc9bace"
+    },
+    {
+      "path": "../../src/kds/models/xlsr_sls.py",
+      "sha256": "470c213fee423a7aa895f882fe3618c8d1597e30e7f95b0cef697ed614d430b8"
+    },
+    {
+      "path": "../../src/kds/training/__init__.py",
+      "sha256": "37f4e20e86f2488ba3f34a7a70d4aabcf406f63e6fc321e8906ab9bb7a398faf"
+    },
+    {
+      "path": "../../src/kds/training/frozen_b0.py",
+      "sha256": "e9cc8cf0a7f3046596ad7f921c3b305dc7a096b0dfb233039558671615f49861"
+    }
+  ],
+  "inference": {
+    "sample_rate": 16000,
+    "window_samples": 64600,
+    "batch_size": 8,
+    "num_workers": 0,
+    "device": "cuda",
+    "precision": "bf16",
+    "calibrated_probability_boundary": 0.5,
+    "temperature_max_iter": 50
+  },
+  "outputs": {
+    "preflight": "../../artifacts/xlsr-sls-v3-stage-d-dialogs-ru-v1.preflight.json",
+    "execution_lock": "../../artifacts/xlsr-sls-v3-stage-d-dialogs-ru-v1.execution.json",
+    "report": "../../artifacts/xlsr-sls-v3-stage-d-dialogs-ru-v1.report.json"
+  }
+}

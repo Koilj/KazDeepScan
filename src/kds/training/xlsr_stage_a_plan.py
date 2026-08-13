@@ -11,6 +11,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import cast
 
+from kds.data.augmentation import SymmetricTrainAugmentation
 from kds.data.licenses import (
     APPROVED_LICENSE_STATUSES,
     LicenseLedgerEntry,
@@ -19,7 +20,8 @@ from kds.data.licenses import (
 )
 from kds.data.manifest import ManifestError, ManifestRow, load_manifest, validate_manifest
 
-XLSR_STAGE_A_PLAN_SCHEMA_VERSION = 1
+XLSR_STAGE_A_PLAN_SCHEMA_VERSION = 2
+_SUPPORTED_SCHEMA_VERSIONS = frozenset({1, XLSR_STAGE_A_PLAN_SCHEMA_VERSION})
 _RUN_ID = re.compile(r"[a-z0-9][a-z0-9._-]*")
 _SHA256 = re.compile(r"[0-9a-f]{64}")
 
@@ -77,6 +79,7 @@ class XlsrStageATrainingConfig:
     freeze_encoder: bool
     encoder_eval_mode: bool
     selection_metric: str
+    augmentation: SymmetricTrainAugmentation | None
 
 
 @dataclass(frozen=True, slots=True)
@@ -87,6 +90,7 @@ class XlsrStageAOutputs:
 
 @dataclass(frozen=True, slots=True)
 class XlsrStageAPlan:
+    schema_version: int
     run_id: str
     plan_path: Path
     plan_sha256: str
@@ -150,11 +154,12 @@ def load_xlsr_stage_a_plan(path: Path) -> XlsrStageAPlan:
         },
         "XLS-R Stage-A plan",
     )
-    if raw["schema_version"] != XLSR_STAGE_A_PLAN_SCHEMA_VERSION:
+    schema_version = _required_int(raw, "schema_version", "XLS-R Stage-A plan", minimum=1)
+    if schema_version not in _SUPPORTED_SCHEMA_VERSIONS:
         raise XlsrStageAPlanError(
             [
-                "XLS-R Stage-A schema_version must be "
-                f"{XLSR_STAGE_A_PLAN_SCHEMA_VERSION!r}, got {raw['schema_version']!r}."
+                "XLS-R Stage-A schema_version must be one of "
+                f"{sorted(_SUPPORTED_SCHEMA_VERSIONS)!r}, got {schema_version!r}."
             ]
         )
     if _required_string(raw, "purpose", "XLS-R Stage-A plan") != "research":
@@ -171,7 +176,7 @@ def load_xlsr_stage_a_plan(path: Path) -> XlsrStageAPlan:
     dev = _parse_selection(raw["dev"], "dev", base_directory)
     encoder = _parse_encoder(raw["encoder"], base_directory)
     head = _parse_head(raw["head"])
-    training = _parse_training(raw["training"])
+    training = _parse_training(raw["training"], schema_version)
     outputs = _parse_outputs(raw["outputs"], base_directory)
     if outputs.checkpoint == outputs.report:
         raise XlsrStageAPlanError(["Checkpoint and report output paths must be different."])
@@ -185,6 +190,7 @@ def load_xlsr_stage_a_plan(path: Path) -> XlsrStageAPlan:
     ):
         _verify_pinned_file(pinned, label)
     return XlsrStageAPlan(
+        schema_version=schema_version,
         run_id=run_id,
         plan_path=path.resolve(),
         plan_sha256=hashlib.sha256(plan_bytes).hexdigest(),
@@ -300,7 +306,7 @@ def xlsr_stage_a_plan_record(plan: XlsrStageAPlan) -> dict[str, object]:
         }
 
     return {
-        "schema_version": XLSR_STAGE_A_PLAN_SCHEMA_VERSION,
+        "schema_version": plan.schema_version,
         "run_id": plan.run_id,
         "purpose": "research",
         "plan_path": str(plan.plan_path),
@@ -382,30 +388,29 @@ def _parse_head(value: object) -> XlsrStageAHeadConfig:
     )
 
 
-def _parse_training(value: object) -> XlsrStageATrainingConfig:
+def _parse_training(value: object, schema_version: int) -> XlsrStageATrainingConfig:
     raw = _object(value, "training")
-    _expect_exact_keys(
-        raw,
-        {
-            "seed",
-            "epochs",
-            "batch_size",
-            "gradient_accumulation_steps",
-            "window_samples",
-            "sample_rate",
-            "learning_rate",
-            "weight_decay",
-            "gradient_clip_norm",
-            "num_workers",
-            "pin_memory",
-            "device",
-            "precision",
-            "freeze_encoder",
-            "encoder_eval_mode",
-            "selection_metric",
-        },
-        "training",
-    )
+    expected = {
+        "seed",
+        "epochs",
+        "batch_size",
+        "gradient_accumulation_steps",
+        "window_samples",
+        "sample_rate",
+        "learning_rate",
+        "weight_decay",
+        "gradient_clip_norm",
+        "num_workers",
+        "pin_memory",
+        "device",
+        "precision",
+        "freeze_encoder",
+        "encoder_eval_mode",
+        "selection_metric",
+    }
+    if schema_version >= 2:
+        expected.add("augmentation")
+    _expect_exact_keys(raw, expected, "training")
     device = _required_string(raw, "device", "training")
     precision = _required_string(raw, "precision", "training")
     freeze_encoder = _required_bool(raw, "freeze_encoder", "training")
@@ -447,7 +452,86 @@ def _parse_training(value: object) -> XlsrStageATrainingConfig:
         freeze_encoder=freeze_encoder,
         encoder_eval_mode=encoder_eval_mode,
         selection_metric=selection_metric,
+        augmentation=(
+            _parse_symmetric_augmentation(raw["augmentation"])
+            if schema_version >= 2
+            else None
+        ),
     )
+
+
+def _parse_symmetric_augmentation(value: object) -> SymmetricTrainAugmentation:
+    raw = _object(value, "training augmentation")
+    _expect_exact_keys(
+        raw,
+        {
+            "policy_id",
+            "applies_to",
+            "seed_namespace",
+            "channel_gain_db",
+            "codec_simulation",
+            "replay_simulation",
+        },
+        "training augmentation",
+    )
+    if _required_string(raw, "applies_to", "training augmentation") != "train_only_both_labels":
+        raise XlsrStageAPlanError(
+            ["training augmentation applies_to must be 'train_only_both_labels'."]
+        )
+    gain = _number_pair(raw["channel_gain_db"], "training augmentation channel_gain_db")
+    codec = _object(raw["codec_simulation"], "training augmentation codec_simulation")
+    _expect_exact_keys(
+        codec,
+        {"resample_rates_hz", "quantization_bits"},
+        "training augmentation codec_simulation",
+    )
+    rates_value = codec["resample_rates_hz"]
+    if not isinstance(rates_value, list) or not rates_value:
+        raise XlsrStageAPlanError(
+            ["training augmentation codec_simulation resample_rates_hz must be non-empty."]
+        )
+    rates = tuple(
+        _required_int({"value": item}, "value", "codec resample rate", minimum=1)
+        for item in rates_value
+    )
+    replay = _object(raw["replay_simulation"], "training augmentation replay_simulation")
+    _expect_exact_keys(
+        replay,
+        {"delay_ms", "attenuation"},
+        "training augmentation replay_simulation",
+    )
+    delay = _number_pair(replay["delay_ms"], "training augmentation replay delay_ms")
+    attenuation = _number_pair(
+        replay["attenuation"], "training augmentation replay attenuation"
+    )
+    try:
+        return SymmetricTrainAugmentation(
+            policy_id=_required_string(raw, "policy_id", "training augmentation"),
+            seed_namespace=_required_string(raw, "seed_namespace", "training augmentation"),
+            channel_gain_db_min=gain[0],
+            channel_gain_db_max=gain[1],
+            codec_resample_rates_hz=rates,
+            codec_quantization_bits=_required_int(
+                codec, "quantization_bits", "training augmentation codec_simulation", minimum=2
+            ),
+            replay_delay_ms_min=delay[0],
+            replay_delay_ms_max=delay[1],
+            replay_attenuation_min=attenuation[0],
+            replay_attenuation_max=attenuation[1],
+        )
+    except ValueError as error:
+        raise XlsrStageAPlanError([f"Invalid symmetric train augmentation: {error}"]) from error
+
+
+def _number_pair(value: object, label: str) -> tuple[float, float]:
+    if not isinstance(value, list) or len(value) != 2:
+        raise XlsrStageAPlanError([f"{label} must contain exactly two finite numbers."])
+    values = tuple(
+        _required_float({"value": item}, "value", label, minimum=-float("inf")) for item in value
+    )
+    if values[0] > values[1]:
+        raise XlsrStageAPlanError([f"{label} lower bound must not exceed upper bound."])
+    return (values[0], values[1])
 
 
 def _parse_outputs(value: object, base_directory: Path) -> XlsrStageAOutputs:

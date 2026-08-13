@@ -4,12 +4,13 @@
 
 **Scope:** personal research, без записи голосов людей, voice cloning и product/API score.
 
-**Состояние:** XLS-R+SLS v2 обучен и проверен на завершённых write-once research protocols,
-включая 167-pair RU/KK/mixed Stage C и отдельный 55-pair RU Stage D. Для Stage D через exact
-Dialogs-RU VITS2 Masha/neutral route завершены rights/model lock, synthesis, QA, exposure audit,
-two-review full-asset gate, immutable plan и один GPU inference run. Результаты остаются
-asset-level-blind evidence на момент запуска, но не source-, speaker- или
-architecture-family-independent; checkpoint не используется в API.
+**Состояние:** XLS-R+SLS v2 и отдельная v3 ветка завершены на write-once research protocols.
+v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
+train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
+провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2
+logits/errors не загружались. Exact final assets уже были оценены v2, поэтому v3 — не blind
+test; результаты не source-, speaker- или architecture-family-independent и checkpoint не
+используется в API.
 
 Этот файл намеренно краткий. Архитектура описана в
 [KazDeepScan_implementation_blueprint.md](KazDeepScan_implementation_blueprint.md), следующие
@@ -77,6 +78,14 @@ architecture-family-independent; checkpoint не используется в API
   Проектный exposure audit против 23 configs / 12 203 rows дал `0/0/0` sample/audio/text overlap.
   Обе full-asset acoustic review формы прошли до inference; preflight проверил 1 086 bindings,
   после чего выполнен ровно один GPU run.
+- v3 governance receipt проверил 3 587 assets и нулевые pairwise overlap между 1 471-row RuASD
+  train, 61-row Stage-A dev, 969-row Stage-B dev, 976-row calibration и 110-row final roles.
+  Augmentation `symmetric-channel-codec-replay-simulation-v1` применяется только на train и
+  выводит параметры без label. Stage A v3 выбрал epoch 3 (`dev_loss=0.42729345`), Stage B v3 —
+  epoch 4 (`dev_loss=0.18516177`).
+- v3 final plan SHA-256 `0f2d63826b728ea07b3bb418901230aa304b0b629d61bdb63162033865f26252`
+  успешно прошёл write-once preflight на 1 086 assets и выполнил один inference. Temperature
+  fitted только на 976-row calibration (`T=0.79692465`); threshold фиксирован на `0.5`.
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
 ## Актуальные результаты
@@ -93,20 +102,30 @@ architecture-family-independent; checkpoint не используется в API
 | Fresh Stage-C KK balanced accuracy | 0.9500 | 60 new exact pairs, asset-level blind |
 | Fresh Stage-C mixed balanced accuracy | 0.8070 | 57 new exact pairs, asset-level blind |
 | Stage-D RU Dialogs-RU balanced accuracy | 0.9727 | 55 fixed Common Voice/Dialog-RU pairs; one run |
+| v3 Stage-B dev loss | 0.18516 | epoch 4; only v3 checkpoint-selection role |
+| v3 Stage-D RU balanced accuracy | 0.9727 | 107/110; same 55 pairs previously evaluated by v2 |
 
 Общая pooled RU+KK+mixed accuracy намеренно не рассчитывается. Это не product quality и не
 speaker-independent result: используемые источники не дают достаточного verified speaker
 provenance.
 
-Calibration v3: `T=1.29954`, NLL `0.15976 -> 0.15424`, Brier `0.04955 -> 0.04830`, ECE
+Calibration confirmatory v2: `T=1.29954`, NLL `0.15976 -> 0.15424`, Brier `0.04955 -> 0.04830`, ECE
 `0.06444 -> 0.06497`. ECE немного ухудшился, поэтому нельзя утверждать улучшение всех аспектов
 calibration.
+
+Отдельная v3 calibration: `T=0.79692`, NLL `0.17983 -> 0.17593`, Brier `0.05744 -> 0.05766`,
+ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является основанием менять фиксированный порог
+или повторять final run.
 
 ## Зафиксированные ограничения
 
 - Завершённые Stage A/B/final/ToneSpeak plans не повторять и не изменять.
 - Завершённые Stage C и Stage D synthesis, preflight и inference не повторять и не изменять.
+- Не повторять Stage A v3, Stage B v3, v3 preflight или v3 final inference; не менять их
+  checkpoint/report hashes и не заменять/не добавлять Stage-D пары.
 - Final logits и ошибки не использовать для training, architecture, threshold или calibration.
+- Exact Stage-D pairs уже получили v2 predictions, поэтому v3 result нельзя называть blind или
+  unseen. v2 logits/errors не использовались для v3 решений, но это не отменяет history набора.
 - Выполненный KK acoustic gate подтверждает только качество exact bytes и не делает уже
   раскрытый результат blind задним числом.
 - Mixed layer является holdout для checkpoint v2, но не project-level blind.
@@ -124,15 +143,13 @@ calibration.
 
 ## Следующие действия
 
-1. Не повторять Stage-C/Stage-D runs и не использовать их final errors для tuning или выбора v3.
-2. До обучения v3 зафиксировать отдельный train/dev/calibration contract: источники, roles,
-   leakage checks, заранее заданную dev metric, symmetric channel/codec/replay augmentation и
-   новый calibration role.
-3. До v3 inference выпустить новый immutable v3 plan, который ссылается на уже frozen exact
-   55-pair Stage-D set без его изменения, донабора или reselection. Поскольку logits v2 уже
-   раскрыты, весь v3 train/dev/calibration design, checkpoint/threshold/augmentation choices и
-   calibration должны быть зафиксированы без обращения к Stage-D ошибкам. Выбор checkpoint —
-   только по v3 dev metric; затем по новому plan разрешён один v3 final inference run.
+1. Не повторять Stage-C/Stage-D/v3 runs и не использовать их final errors для tuning, выбора
+   checkpoint, temperature, threshold или augmentation.
+2. Если нужен следующий research result, сначала найти новый допустимый RU/KK/mixed source и
+   подготовить genuinely unevaluated final assets с новым immutable contract; старые 55 пар
+   нельзя переиспользовать как «новый blind» тест.
+3. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
+   deployment и product-calibration contract.
 
 Полный порядок и критерии остановки: [План реализации.md](План%20реализации.md).
 
@@ -144,9 +161,12 @@ calibration.
 - Final preflight: 3 991 asset bindings.
 - Stage-C preflight: 1 310 asset bindings; один GPU inference run, `334` exact final predictions.
 - Stage-D preflight: 1 086 asset bindings; один GPU inference run, `110` exact final predictions.
-- Точное implementation tree выполненного final plan: Git commit `52d6e6b`.
+- v3 Stage-D preflight: 1 086 asset bindings; один GPU inference run, `110` exact final
+  predictions; report SHA-256 `9f99a7bed878ecfc561831e5130ac92dd5c8b73cb9965fc51e8a4d00d66e50e3`.
+- Точное implementation tree исторического v2 final plan: Git commit `52d6e6b`.
 - Scope clarification: `b1368c9`.
-- Final plan SHA-256: `1dfc3ca866607191385b33b85a1ee67cb3981099c6fc836aef720c6c2610d4fc`.
+- Historical v2 final plan SHA-256: `1dfc3ca866607191385b33b85a1ee67cb3981099c6fc836aef720c6c2610d4fc`.
+- v3 final plan SHA-256: `0f2d63826b728ea07b3bb418901230aa304b0b629d61bdb63162033865f26252`.
 
 Для исторического `--validate-only` нужен отдельный checkout `52d6e6b`; final inference повторять
 нельзя. Предыдущая подробная версия этого файла остаётся доступна через
@@ -168,5 +188,6 @@ calibration.
 - [XLS-R Stage-C asset-level-blind evaluation](docs/research_xlsr_sls_stage_b_v2_fresh_suite_stage_c_v1.md)
 - [Stage-D Common Voice RU precheck](docs/stage_d_common_voice_ru_precheck_v1.md)
 - [Stage-D Dialogs-RU VITS2 / Masha-neutral](docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md)
+- [XLS-R+SLS v3 Stage-D governed evaluation](docs/research_xlsr_sls_v3_stage_d_dialogs_ru_v1.md)
 - [External RU spoof-source search](docs/russian_spoof_source_search_2026-08-11.md)
 - [License-ledger snapshots](docs/license_ledger_snapshots.md)

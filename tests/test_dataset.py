@@ -4,8 +4,11 @@ import hashlib
 from pathlib import Path
 
 import numpy as np
+import pytest
 import soundfile as sf
+import torch
 
+from kds.data.augmentation import SymmetricTrainAugmentation, apply_symmetric_train_augmentation
 from kds.data.dataset import DatasetConfig, ManifestAudioDataset
 from kds.data.manifest import ManifestRow
 from tests.factories import manifest_mapping
@@ -53,3 +56,44 @@ def test_dataset_changes_train_crop_deterministically_by_epoch(tmp_path: Path) -
     assert first.equal(repeated)
     assert first.numel() == 1_600
     assert next_epoch.numel() == 1_600
+
+
+def _augmentation() -> SymmetricTrainAugmentation:
+    return SymmetricTrainAugmentation(
+        policy_id="symmetric-channel-codec-replay-simulation-v1",
+        seed_namespace="test-augmentation",
+        channel_gain_db_min=-3.0,
+        channel_gain_db_max=3.0,
+        codec_resample_rates_hz=(8_000, 12_000),
+        codec_quantization_bits=8,
+        replay_delay_ms_min=10.0,
+        replay_delay_ms_max=20.0,
+        replay_attenuation_min=0.1,
+        replay_attenuation_max=0.2,
+    )
+
+
+def test_symmetric_train_augmentation_is_deterministic_and_label_agnostic() -> None:
+    waveform = torch.linspace(-0.4, 0.4, 1_600)
+    config = _augmentation()
+
+    first = apply_symmetric_train_augmentation(
+        waveform, sample_id="same-id", epoch=0, sample_rate=16_000, config=config
+    )
+    repeated = apply_symmetric_train_augmentation(
+        waveform, sample_id="same-id", epoch=0, sample_rate=16_000, config=config
+    )
+    next_epoch = apply_symmetric_train_augmentation(
+        waveform, sample_id="same-id", epoch=1, sample_rate=16_000, config=config
+    )
+
+    assert first.equal(repeated)
+    assert not first.equal(waveform)
+    assert not first.equal(next_epoch)
+    assert first.shape == waveform.shape
+    assert float(first.abs().max()) <= 1.0
+
+
+def test_dataset_rejects_train_augmentation_for_evaluation(tmp_path: Path) -> None:
+    with pytest.raises(ValueError, match="only in mode='train'"):
+        DatasetConfig(audio_root=tmp_path, mode="eval", augmentation=_augmentation())

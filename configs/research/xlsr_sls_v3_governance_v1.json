@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "contract_id": "xlsr-sls-v3-data-governance-v1",
+  "purpose": "research",
+  "license_ledger": {
+    "path": "../../data/licenses/frozen/xlsr_sls_v3_governance_v1.csv",
+    "sha256": "9386aa3ace5b0b021c4af74312cf5bb910da0bb9d9537790ccd08601695c345f"
+  },
+  "stage_a_plan": {
+    "path": "xlsr_sls_stage_a_v3.json",
+    "sha256": "2217b0556db350a7185eabf55309483027158ba7e2883850a69b1739a4d61eef"
+  },
+  "roles": [
+    {
+      "name": "train",
+      "use": "training_only",
+      "manifest": {
+        "path": "../../data/manifests/ruasd_ru_v1_full_research_2000_ready_v2.csv",
+        "sha256": "82518a2e4e40ef39fa3bcc0c197f717ef83e5f7310cfee53bf546a55fe3ba4cc"
+      },
+      "source_split": "train",
+      "expected_rows": 1471,
+      "expected_label_counts": {
+        "bonafide": 663,
+        "spoof": 808
+      },
+      "expected_source_ids": [
+        "ruasd_ru_v1_full"
+      ],
+      "expected_languages": [
+        "ru"
+      ]
+    },
+    {
+      "name": "stage_a_dev",
+      "use": "stage_a_model_selection_only",
+      "manifest": {
+        "path": "../../data/manifests/pyara_ru_v7_research_500_ready.csv",
+        "sha256": "3b8357c0acd7efbd603218e49536ab80046764301594ee1e4f7def68155a70eb"
+      },
+      "source_split": "dev",
+      "expected_rows": 61,
+      "expected_label_counts": {
+        "bonafide": 26,
+        "spoof": 35
+      },
+      "expected_source_ids": [
+        "pyara_ru_v7"
+      ],
+      "expected_languages": [
+        "ru"
+      ]
+    },
+    {
+      "name": "stage_b_dev",
+      "use": "stage_b_model_selection_only",
+      "manifest": {
+        "path": "../../data/manifests/pyara_ru_v7_fresh_dev_1000_ready_v3.csv",
+        "sha256": "39261826df9f51bbb23dcc8efa489c4f2c0bfe894361791fa99d63407bb3c4ea"
+      },
+      "source_split": "dev",
+      "expected_rows": 969,
+      "expected_label_counts": {
+        "bonafide": 474,
+        "spoof": 495
+      },
+      "expected_source_ids": [
+        "pyara_ru_v7"
+      ],
+      "expected_languages": [
+        "ru"
+      ]
+    },
+    {
+      "name": "calibration",
+      "use": "temperature_scaling_only",
+      "manifest": {
+        "path": "../../data/manifests/pyara_ru_v7_stage_b_calibration_dev_1000_ready_v3.csv",
+        "sha256": "7fe2c89be7f02eea1abdfc369fc9c16185b0a395fa2526b5b2c58e361fa8fa31"
+      },
+      "source_split": "dev",
+      "expected_rows": 976,
+      "expected_label_counts": {
+        "bonafide": 478,
+        "spoof": 498
+      },
+      "expected_source_ids": [
+        "pyara_ru_v7"
+      ],
+      "expected_languages": [
+        "ru"
+      ]
+    },
+    {
+      "name": "final_stage_d",
+      "use": "final_evaluation_only",
+      "manifest": {
+        "path": "../../data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_candidate_v1.csv",
+        "sha256": "cd4ccc2be9fd0fa06bd3641f1e939499d93f111c5f6a5a636753adf97ac2891d"
+      },
+      "source_split": "test",
+      "expected_rows": 110,
+      "expected_label_counts": {
+        "bonafide": 55,
+        "spoof": 55
+      },
+      "expected_source_ids": [
+        "common_voice_ru_v24",
+        "stage_d_ru_dialogs_vits2_masha_neutral_v1"
+      ],
+      "expected_languages": [
+        "ru"
+      ]
+    }
+  ],
+  "augmentation": {
+    "policy_id": "symmetric-channel-codec-replay-simulation-v1",
+    "applies_to": "train_only_both_labels",
+    "seed_namespace": "xlsr-sls-v3-augmentation-20260831",
+    "channel_gain_db": [
+      -6.0,
+      6.0
+    ],
+    "codec_simulation": {
+      "resample_rates_hz": [
+        8000,
+        12000
+      ],
+      "quantization_bits": 8
+    },
+    "replay_simulation": {
+      "delay_ms": [
+        20.0,
+        80.0
+      ],
+      "attenuation": [
+        0.08,
+        0.25
+      ]
+    }
+  },
+  "final_stage_d": {
+    "acoustic_gate": {
+      "path": "../../data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_acoustic_gate_report_v1.json",
+      "sha256": "ba604ab8487c258a7004540dd243ac61a72810c6bac141a2925323bd3dca9acb"
+    },
+    "pairing_receipt": {
+      "path": "../../data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_pairing_v1.json",
+      "sha256": "ae0a214335e3bb7627c13848adcb8cc3ae32ff48cf39a4afd8ccbad6318e326f"
+    }
+  },
+  "controls": {
+    "checkpoint_selection": "stage_b_dev_loss_only",
+    "calibration": "temperature_only_on_pinned_calibration_role",
+    "stage_d_v2_logits_and_errors": "prohibited_for_all_v3_decisions",
+    "stage_d_final_mutation": "prohibited_no_reselection_no_backfill",
+    "v3_final_inference": "new_immutable_plan_one_run_after_v3_dev_selection"
+  },
+  "implementation": [
+    {
+      "path": "../../scripts/validate_xlsr_v3_governance.py",
+      "sha256": "d0bc7eba558d63d00718fe181e2fb43f473f9ffa3d925be8a9f08f2877430323"
+    },
+    {
+      "path": "../../src/kds/data/augmentation.py",
+      "sha256": "5a5b9053f3642ab2b8d0c0695aeadc9b0628c0a8de5d8c28224791a208679268"
+    },
+    {
+      "path": "../../src/kds/data/dataset.py",
+      "sha256": "1fb4b89c2b018d939206b31d509e4105a626c37045f718deb8d8565814afc243"
+    },
+    {
+      "path": "../../src/kds/training/xlsr_stage_a_plan.py",
+      "sha256": "6952c5f8cb08ad16e3e48df39927e1b5c029866eb65f1b2f09088a6c385c3741"
+    },
+    {
+      "path": "../../scripts/train_xlsr_sls_stage_a.py",
+      "sha256": "3a671e7713b29e7f7be4ef1fb54c6fd75bf52c35ca3d3929d66216653fd9b58d"
+    }
+  ],
+  "output": "../../data/manifests/xlsr_sls_v3_governance_v1.json"
+}

@@ -73,6 +73,13 @@ checkpoint и строго ограниченный evaluation-контур:
   full-asset review формы прошли для всех 110 exact assets до inference; затем immutable plan
   выполнил ровно один GPU run. Это отдельный RU result, не source-, speaker- или
   architecture-independent evidence; повтор run и tuning по его ошибкам запрещены;
+- отдельная v3 ветка завершена по изолированному governance contract: train RuASD (1 471),
+  Stage-A PyAra dev (61), fresh Stage-B dev (969), calibration PyAra (976) и exact Stage-D final
+  (55 pairs) проверены на отсутствие leakage. Только train получает детерминированную
+  label-agnostic symmetric channel/codec/replay augmentation; Stage A выбрал epoch 3, Stage B —
+  epoch 4 только по своим dev loss. После write-once preflight выполнен один v3 final run;
+  Stage-D v2 logits/errors не загружались. Поскольку те же exact pairs уже оценивались v2,
+  этот v3 result не называется blind/unseen и не может использоваться для дальнейшей настройки;
 - explicit source-mixed research matrix и B0 runner, который не допускает overlap исходных
   corpus между train/dev/final-test и проверяет обычный sample/SHA-256/group/text leakage поверх
   этого;
@@ -109,6 +116,13 @@ selection; это не final quality. Полный pair-level report —
 предварительно зафиксированный RU research run с fixed boundary `0.5`, а не основание для
 подстройки v2/v3. Полный rights, QA, review и inference receipt —
 [Stage D Dialogs-RU](docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md).
+
+Независимо обученный XLS-R+SLS v3 на том же immutable Stage-D наборе дал `107/110` и balanced
+accuracy `0.9727`, с bonafide recall `0.9636`, spoof recall `0.9818` и `52/55` полностью верных
+пар. Его checkpoint был выбран только по v3 Stage-A/Stage-B dev loss, а temperature — только по
+disjoint calibration. Exact final assets уже были известны через v2, поэтому результат —
+governed confirmatory RU evidence, не новый blind test. Полный contract и receipt —
+[XLS-R+SLS v3 Stage-D](docs/research_xlsr_sls_v3_stage_d_dialogs_ru_v1.md).
 
 ## Требования
 
@@ -281,6 +295,10 @@ uv run python scripts/evaluate_xlsr_fresh_suite_stage_c.py \
 # docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md; локальные WAV, model bundle и artifacts/
 # не отслеживаются Git.
 
+# v3 training и его Stage-D final также уже завершены. Не запускать Stage A/B v3, preflight или
+# inference повторно: immutable plan, execution lock и результат описаны в
+# docs/research_xlsr_sls_v3_stage_d_dialogs_ru_v1.md.
+
 # Исторический синтаксис preflight для XLS-R+SLS Stage A v2.
 # Этот plan уже выполнен: write-once guard теперь ожидаемо отклонит и validate/profile/train.
 # Для нового эксперимента нужны новый run_id и новые output paths.
@@ -332,4 +350,6 @@ KSC2 single-AI mixed evidence review и ограничения альтерна�
 Stage-C contract зафиксированы в
 [docs/fresh_research_suite_stage_c_source_review_2026-08-12.md](docs/fresh_research_suite_stage_c_source_review_2026-08-12.md),
 а завершённый Stage-D RU contract — в
-[docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md](docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md).
+[docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md](docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md),
+а v3 governance/training/final receipt — в
+[docs/research_xlsr_sls_v3_stage_d_dialogs_ru_v1.md](docs/research_xlsr_sls_v3_stage_d_dialogs_ru_v1.md).

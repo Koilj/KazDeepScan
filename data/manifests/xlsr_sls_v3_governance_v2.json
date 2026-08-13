@@ -1,0 +1,142 @@
+{
+  "assets_validated": 3587,
+  "contract_id": "xlsr-sls-v3-data-governance-v2",
+  "contract_sha256": "cef05c3a5873ed7b31ba5e17c01317b24ce6d713bc7d220f729ea8c08792cfc5",
+  "controls": {
+    "calibration": "temperature_only_on_pinned_calibration_role",
+    "checkpoint_selection": "stage_a_and_stage_b_dev_loss_only",
+    "stage_d_final_mutation": "prohibited_no_reselection_no_backfill",
+    "stage_d_v2_logits_and_errors": "prohibited_for_all_v3_decisions",
+    "v3_final_inference": "new_immutable_plan_one_run_after_v3_dev_selection"
+  },
+  "final_stage_d": {
+    "acoustic_gate_sha256": "ba604ab8487c258a7004540dd243ac61a72810c6bac141a2925323bd3dca9acb",
+    "pairing_receipt_sha256": "ae0a214335e3bb7627c13848adcb8cc3ae32ff48cf39a4afd8ccbad6318e326f",
+    "retained_pairs": 55
+  },
+  "pairwise_overlap_counts": {
+    "calibration__final_stage_d": {
+      "parent_group_id": 0,
+      "sample_id": 0,
+      "sha256": 0,
+      "text_hash": 0
+    },
+    "stage_a_dev__calibration": {
+      "parent_group_id": 0,
+      "sample_id": 0,
+      "sha256": 0,
+      "text_hash": 0
+    },
+    "stage_a_dev__final_stage_d": {
+      "parent_group_id": 0,
+      "sample_id": 0,
+      "sha256": 0,
+      "text_hash": 0
+    },
+    "stage_a_dev__stage_b_dev": {
+      "parent_group_id": 0,
+      "sample_id": 0,
+      "sha256": 0,
+      "text_hash": 0
+    },
+    "stage_b_dev__calibration": {
+      "parent_group_id": 0,
+      "sample_id": 0,
+      "sha256": 0,
+      "text_hash": 0
+    },
+    "stage_b_dev__final_stage_d": {
+      "parent_group_id": 0,
+      "sample_id": 0,
+      "sha256": 0,
+      "text_hash": 0
+    },
+    "train__calibration": {
+      "parent_group_id": 0,
+      "sample_id": 0,
+      "sha256": 0,
+      "text_hash": 0
+    },
+    "train__final_stage_d": {
+      "parent_group_id": 0,
+      "sample_id": 0,
+      "sha256": 0,
+      "text_hash": 0
+    },
+    "train__stage_a_dev": {
+      "parent_group_id": 0,
+      "sample_id": 0,
+      "sha256": 0,
+      "text_hash": 0
+    },
+    "train__stage_b_dev": {
+      "parent_group_id": 0,
+      "sample_id": 0,
+      "sha256": 0,
+      "text_hash": 0
+    }
+  },
+  "roles": {
+    "calibration": {
+      "label_counts": {
+        "bonafide": 478,
+        "spoof": 498
+      },
+      "rows": 976
+    },
+    "final_stage_d": {
+      "label_counts": {
+        "bonafide": 55,
+        "spoof": 55
+      },
+      "rows": 110
+    },
+    "stage_a_dev": {
+      "label_counts": {
+        "bonafide": 26,
+        "spoof": 35
+      },
+      "rows": 61
+    },
+    "stage_b_dev": {
+      "label_counts": {
+        "bonafide": 474,
+        "spoof": 495
+      },
+      "rows": 969
+    },
+    "train": {
+      "label_counts": {
+        "bonafide": 663,
+        "spoof": 808
+      },
+      "rows": 1471
+    }
+  },
+  "schema_version": 1,
+  "stage_a": {
+    "augmentation": {
+      "channel_gain_db_max": 6.0,
+      "channel_gain_db_min": -6.0,
+      "codec_quantization_bits": 8,
+      "codec_resample_rates_hz": [
+        8000,
+        12000
+      ],
+      "policy_id": "symmetric-channel-codec-replay-simulation-v1",
+      "replay_attenuation_max": 0.25,
+      "replay_attenuation_min": 0.08,
+      "replay_delay_ms_max": 80.0,
+      "replay_delay_ms_min": 20.0,
+      "seed_namespace": "xlsr-sls-v3-augmentation-20260831"
+    },
+    "plan_sha256": "2217b0556db350a7185eabf55309483027158ba7e2883850a69b1739a4d61eef",
+    "role_rows": {
+      "dev": 61,
+      "train": 1471
+    },
+    "schema_version": 2
+  },
+  "status": "validated",
+  "v2_stage_d_logits_or_errors_loaded": false
+}

@@ -11,6 +11,7 @@ from dataclasses import asdict, dataclass, replace
 from pathlib import Path
 from typing import cast
 
+from kds.data.augmentation import SymmetricTrainAugmentation
 from kds.data.licenses import LicenseLedgerEntry
 from kds.data.manifest import ManifestRow, load_manifest
 from kds.training.xlsr_stage_a_plan import (
@@ -20,12 +21,14 @@ from kds.training.xlsr_stage_a_plan import (
     XlsrStageAPlanError,
     XlsrStageAProtocolReport,
     XlsrStageASelection,
+    _parse_symmetric_augmentation,
     load_xlsr_stage_a_plan,
     validate_and_select_xlsr_stage_a,
     xlsr_stage_a_plan_record,
 )
 
-XLSR_STAGE_B_PLAN_SCHEMA_VERSION = 1
+XLSR_STAGE_B_PLAN_SCHEMA_VERSION = 2
+_SUPPORTED_SCHEMA_VERSIONS = frozenset({1, XLSR_STAGE_B_PLAN_SCHEMA_VERSION})
 _RUN_ID = re.compile(r"[a-z0-9][a-z0-9._-]*")
 _SHA256 = re.compile(r"[0-9a-f]{64}")
 
@@ -40,6 +43,12 @@ class XlsrStageBPlanError(ValueError):
 class PinnedStageAHead:
     checkpoint: PinnedFile
     state_dict_sha256: str
+
+
+@dataclass(frozen=True, slots=True)
+class PinnedV3Governance:
+    contract: PinnedFile
+    receipt: PinnedFile
 
 
 @dataclass(frozen=True, slots=True)
@@ -61,6 +70,7 @@ class XlsrStageBTrainingConfig:
     last_encoder_blocks: int
     gradient_checkpointing: bool
     selection_metric: str
+    augmentation: SymmetricTrainAugmentation | None
 
 
 @dataclass(frozen=True, slots=True)
@@ -71,14 +81,17 @@ class XlsrStageBOutputs:
 
 @dataclass(frozen=True, slots=True)
 class XlsrStageBPlan:
+    schema_version: int
     run_id: str
     plan_path: Path
     plan_sha256: str
     base_plan_file: PinnedFile
     base_stage_a_plan: XlsrStageAPlan
     initial_head: PinnedStageAHead
+    v3_governance: PinnedV3Governance | None
     dev: XlsrStageASelection
     training: XlsrStageBTrainingConfig
+    implementation: tuple[PinnedFile, ...]
     outputs: XlsrStageBOutputs
 
 
@@ -100,27 +113,28 @@ def load_xlsr_stage_b_plan(path: Path) -> XlsrStageBPlan:
     except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
         raise XlsrStageBPlanError([f"Cannot read XLS-R Stage-B plan {path}: {error}"]) from error
     raw = _object(raw_value, "XLS-R Stage-B plan")
-    _expect_exact_keys(
-        raw,
-        {
-            "schema_version",
-            "run_id",
-            "purpose",
-            "base_stage_a_plan",
-            "initial_head",
-            "dev",
-            "training",
-            "outputs",
-        },
-        "XLS-R Stage-B plan",
-    )
-    if raw["schema_version"] != XLSR_STAGE_B_PLAN_SCHEMA_VERSION:
+    schema_version = _required_int(raw, "schema_version", "XLS-R Stage-B plan", minimum=1)
+    if schema_version not in _SUPPORTED_SCHEMA_VERSIONS:
         raise XlsrStageBPlanError(
             [
-                "XLS-R Stage-B schema_version must be "
-                f"{XLSR_STAGE_B_PLAN_SCHEMA_VERSION!r}, got {raw['schema_version']!r}."
+                "XLS-R Stage-B schema_version must be one of "
+                f"{sorted(_SUPPORTED_SCHEMA_VERSIONS)!r}, got {schema_version!r}."
             ]
         )
+    expected = {
+        "schema_version",
+        "run_id",
+        "purpose",
+        "base_stage_a_plan",
+        "initial_head",
+        "dev",
+        "training",
+        "outputs",
+    }
+    if schema_version >= 2:
+        expected.add("v3_governance")
+        expected.add("implementation")
+    _expect_exact_keys(raw, expected, "XLS-R Stage-B plan")
     if _required_string(raw, "purpose", "XLS-R Stage-B plan") != "research":
         raise XlsrStageBPlanError(["XLS-R Stage-B plans support purpose='research' only."])
     run_id = _required_string(raw, "run_id", "XLS-R Stage-B plan")
@@ -144,23 +158,50 @@ def load_xlsr_stage_b_plan(path: Path) -> XlsrStageBPlan:
         raise XlsrStageBPlanError(
             ["initial_head checkpoint must equal the base Stage-A checkpoint output path."]
         )
+    governance = (
+        _parse_v3_governance(raw["v3_governance"], base_directory)
+        if schema_version >= 2
+        else None
+    )
+    if governance is not None:
+        if base_plan.schema_version < 2:
+            raise XlsrStageBPlanError(["v3 governance requires a schema-version-2 Stage-A plan."])
+        _verify_pinned_file(governance.contract, "v3 governance contract")
+        _verify_pinned_file(governance.receipt, "v3 governance receipt")
     dev = _parse_dev(raw["dev"], base_directory)
     _verify_pinned_file(dev.manifest, "Stage-B dev manifest")
     if dev.manifest.path == base_plan.dev.manifest.path:
         raise XlsrStageBPlanError(["Stage B requires a fresh dev manifest, not Stage-A dev."])
-    training = _parse_training(raw["training"])
+    training = _parse_training(raw["training"], schema_version)
+    if training.augmentation != base_plan.training.augmentation:
+        raise XlsrStageBPlanError(
+            [
+                "Stage-B augmentation must exactly match the pinned base Stage-A "
+                "augmentation policy."
+            ]
+        )
+    if governance is not None:
+        _validate_v3_governance(governance, base_plan_file, dev, training)
+    implementation = (
+        _parse_implementation(raw["implementation"], base_directory) if schema_version >= 2 else ()
+    )
+    for pinned in implementation:
+        _verify_pinned_file(pinned, "Stage-B implementation")
     outputs = _parse_outputs(raw["outputs"], base_directory)
     if outputs.checkpoint == outputs.report:
         raise XlsrStageBPlanError(["Checkpoint and report output paths must be different."])
     return XlsrStageBPlan(
+        schema_version=schema_version,
         run_id=run_id,
         plan_path=path.resolve(),
         plan_sha256=hashlib.sha256(plan_bytes).hexdigest(),
         base_plan_file=base_plan_file,
         base_stage_a_plan=base_plan,
         initial_head=initial_head,
+        v3_governance=governance,
         dev=dev,
         training=training,
+        implementation=implementation,
         outputs=outputs,
     )
 
@@ -213,7 +254,7 @@ def validate_and_select_xlsr_stage_b(
 
 def xlsr_stage_b_plan_record(plan: XlsrStageBPlan) -> dict[str, object]:
     return {
-        "schema_version": XLSR_STAGE_B_PLAN_SCHEMA_VERSION,
+        "schema_version": plan.schema_version,
         "run_id": plan.run_id,
         "purpose": "research",
         "plan_path": str(plan.plan_path),
@@ -230,6 +271,20 @@ def xlsr_stage_b_plan_record(plan: XlsrStageBPlan) -> dict[str, object]:
             },
             "state_dict_sha256": plan.initial_head.state_dict_sha256,
         },
+        "v3_governance": (
+            {
+                "contract": {
+                    "path": str(plan.v3_governance.contract.path),
+                    "sha256": plan.v3_governance.contract.sha256,
+                },
+                "receipt": {
+                    "path": str(plan.v3_governance.receipt.path),
+                    "sha256": plan.v3_governance.receipt.sha256,
+                },
+            }
+            if plan.v3_governance is not None
+            else None
+        ),
         "dev": {
             "manifest": {
                 "path": str(plan.dev.manifest.path),
@@ -240,6 +295,9 @@ def xlsr_stage_b_plan_record(plan: XlsrStageBPlan) -> dict[str, object]:
             "expected_languages": list(plan.dev.expected_languages),
         },
         "training": asdict(plan.training),
+        "implementation": [
+            {"path": str(pinned.path), "sha256": pinned.sha256} for pinned in plan.implementation
+        ],
         "outputs": {
             "checkpoint": str(plan.outputs.checkpoint),
             "report": str(plan.outputs.report),
@@ -271,6 +329,78 @@ def _parse_initial_head(value: object, base_directory: Path) -> PinnedStageAHead
     )
 
 
+def _parse_v3_governance(value: object, base_directory: Path) -> PinnedV3Governance:
+    raw = _object(value, "v3_governance")
+    _expect_exact_keys(raw, {"contract", "receipt"}, "v3_governance")
+    return PinnedV3Governance(
+        contract=_parse_pinned_file(raw["contract"], "v3_governance contract", base_directory),
+        receipt=_parse_pinned_file(raw["receipt"], "v3_governance receipt", base_directory),
+    )
+
+
+def _parse_implementation(value: object, base_directory: Path) -> tuple[PinnedFile, ...]:
+    if not isinstance(value, list) or not value:
+        raise XlsrStageBPlanError(["implementation must be a non-empty pinned-file list."])
+    files = tuple(
+        _parse_pinned_file(item, "Stage-B implementation", base_directory) for item in value
+    )
+    if len({file.path for file in files}) != len(files):
+        raise XlsrStageBPlanError(["implementation paths must not contain duplicates."])
+    return files
+
+
+def _validate_v3_governance(
+    governance: PinnedV3Governance,
+    base_plan_file: PinnedFile,
+    dev: XlsrStageASelection,
+    training: XlsrStageBTrainingConfig,
+) -> None:
+    try:
+        contract_value: object = json.loads(governance.contract.path.read_bytes())
+        receipt_value: object = json.loads(governance.receipt.path.read_bytes())
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise XlsrStageBPlanError([f"Cannot read pinned v3 governance JSON: {error}"]) from error
+    contract = _object(contract_value, "v3 governance contract")
+    receipt = _object(receipt_value, "v3 governance receipt")
+    if contract.get("contract_id") != "xlsr-sls-v3-data-governance-v2":
+        raise XlsrStageBPlanError(["v3 governance contract must be the corrected v2 contract."])
+    if (
+        receipt.get("status") != "validated"
+        or receipt.get("contract_sha256") != governance.contract.sha256
+    ):
+        raise XlsrStageBPlanError(
+            ["v3 governance receipt is not a validated receipt for its contract."]
+        )
+    if receipt.get("v2_stage_d_logits_or_errors_loaded") is not False:
+        raise XlsrStageBPlanError(
+            ["v3 governance receipt must confirm Stage-D outputs were not read."]
+        )
+    plan_pin = _object(contract.get("stage_a_plan"), "v3 governance stage_a_plan")
+    if plan_pin.get("sha256") != base_plan_file.sha256:
+        raise XlsrStageBPlanError(["v3 governance contract does not pin this Stage-A plan."])
+    roles = contract.get("roles")
+    if not isinstance(roles, list):
+        raise XlsrStageBPlanError(["v3 governance contract roles must be a list."])
+    stage_b_roles = [
+        role for role in roles if isinstance(role, dict) and role.get("name") == "stage_b_dev"
+    ]
+    if len(stage_b_roles) != 1:
+        raise XlsrStageBPlanError(
+            ["v3 governance contract must contain exactly one stage_b_dev role."]
+        )
+    manifest = _object(stage_b_roles[0].get("manifest"), "v3 governance stage_b_dev manifest")
+    if manifest.get("sha256") != dev.manifest.sha256:
+        raise XlsrStageBPlanError(["Stage-B dev manifest does not match v3 governance."])
+    try:
+        expected_augmentation = _parse_stage_b_augmentation(contract.get("augmentation"))
+    except XlsrStageBPlanError as error:
+        raise XlsrStageBPlanError(
+            ["v3 governance augmentation is invalid: " + str(error)]
+        ) from error
+    if training.augmentation != expected_augmentation:
+        raise XlsrStageBPlanError(["Stage-B augmentation does not match v3 governance."])
+
+
 def _parse_dev(value: object, base_directory: Path) -> XlsrStageASelection:
     raw = _object(value, "dev")
     _expect_exact_keys(
@@ -289,31 +419,30 @@ def _parse_dev(value: object, base_directory: Path) -> XlsrStageASelection:
     )
 
 
-def _parse_training(value: object) -> XlsrStageBTrainingConfig:
+def _parse_training(value: object, schema_version: int) -> XlsrStageBTrainingConfig:
     raw = _object(value, "training")
-    _expect_exact_keys(
-        raw,
-        {
-            "seed",
-            "epochs",
-            "batch_size",
-            "gradient_accumulation_steps",
-            "window_samples",
-            "sample_rate",
-            "encoder_learning_rate",
-            "head_learning_rate",
-            "weight_decay",
-            "gradient_clip_norm",
-            "num_workers",
-            "pin_memory",
-            "device",
-            "precision",
-            "last_encoder_blocks",
-            "gradient_checkpointing",
-            "selection_metric",
-        },
-        "training",
-    )
+    expected = {
+        "seed",
+        "epochs",
+        "batch_size",
+        "gradient_accumulation_steps",
+        "window_samples",
+        "sample_rate",
+        "encoder_learning_rate",
+        "head_learning_rate",
+        "weight_decay",
+        "gradient_clip_norm",
+        "num_workers",
+        "pin_memory",
+        "device",
+        "precision",
+        "last_encoder_blocks",
+        "gradient_checkpointing",
+        "selection_metric",
+    }
+    if schema_version >= 2:
+        expected.add("augmentation")
+    _expect_exact_keys(raw, expected, "training")
     device = _required_string(raw, "device", "training")
     precision = _required_string(raw, "precision", "training")
     checkpointing = _required_bool(raw, "gradient_checkpointing", "training")
@@ -355,7 +484,17 @@ def _parse_training(value: object) -> XlsrStageBTrainingConfig:
         last_encoder_blocks=_required_int(raw, "last_encoder_blocks", "training", minimum=1),
         gradient_checkpointing=checkpointing,
         selection_metric=selection_metric,
+        augmentation=(
+            _parse_stage_b_augmentation(raw["augmentation"]) if schema_version >= 2 else None
+        ),
     )
+
+
+def _parse_stage_b_augmentation(value: object) -> SymmetricTrainAugmentation:
+    try:
+        return _parse_symmetric_augmentation(value)
+    except XlsrStageAPlanError as error:
+        raise XlsrStageBPlanError(error.issues) from error
 
 
 def _parse_outputs(value: object, base_directory: Path) -> XlsrStageBOutputs:

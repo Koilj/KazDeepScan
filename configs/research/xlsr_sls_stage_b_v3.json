@@ -1,0 +1,122 @@
+{
+  "schema_version": 2,
+  "run_id": "xlsr-sls-stage-b-v3",
+  "purpose": "research",
+  "base_stage_a_plan": {
+    "path": "xlsr_sls_stage_a_v3.json",
+    "sha256": "2217b0556db350a7185eabf55309483027158ba7e2883850a69b1739a4d61eef"
+  },
+  "initial_head": {
+    "checkpoint": {
+      "path": "../../models/xlsr-sls-stage-a-v3-head.pt",
+      "sha256": "439b0c0daeef77e4d530d723dec9c5e37836c6b410d6f16eafe95e6bc6c4c6c5"
+    },
+    "state_dict_sha256": "abcfbacbc20796af8deec9f0e1b5b3f67664e1c3202a9d97c2733dfef5603227"
+  },
+  "v3_governance": {
+    "contract": {
+      "path": "xlsr_sls_v3_governance_v2.json",
+      "sha256": "cef05c3a5873ed7b31ba5e17c01317b24ce6d713bc7d220f729ea8c08792cfc5"
+    },
+    "receipt": {
+      "path": "../../data/manifests/xlsr_sls_v3_governance_v2.json",
+      "sha256": "1d60ddac74b038ec605f39abc820676593946aeea7c59458e5f11ff3d70851a0"
+    }
+  },
+  "dev": {
+    "manifest": {
+      "path": "../../data/manifests/pyara_ru_v7_fresh_dev_1000_ready_v3.csv",
+      "sha256": "39261826df9f51bbb23dcc8efa489c4f2c0bfe894361791fa99d63407bb3c4ea"
+    },
+    "source_split": "dev",
+    "expected_source_ids": [
+      "pyara_ru_v7"
+    ],
+    "expected_languages": [
+      "ru"
+    ]
+  },
+  "training": {
+    "seed": 20260901,
+    "epochs": 15,
+    "batch_size": 4,
+    "gradient_accumulation_steps": 8,
+    "window_samples": 64600,
+    "sample_rate": 16000,
+    "encoder_learning_rate": 0.00001,
+    "head_learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 1.0,
+    "num_workers": 0,
+    "pin_memory": true,
+    "device": "cuda",
+    "precision": "bf16",
+    "last_encoder_blocks": 8,
+    "gradient_checkpointing": true,
+    "selection_metric": "dev_loss",
+    "augmentation": {
+      "policy_id": "symmetric-channel-codec-replay-simulation-v1",
+      "applies_to": "train_only_both_labels",
+      "seed_namespace": "xlsr-sls-v3-augmentation-20260831",
+      "channel_gain_db": [
+        -6.0,
+        6.0
+      ],
+      "codec_simulation": {
+        "resample_rates_hz": [
+          8000,
+          12000
+        ],
+        "quantization_bits": 8
+      },
+      "replay_simulation": {
+        "delay_ms": [
+          20.0,
+          80.0
+        ],
+        "attenuation": [
+          0.08,
+          0.25
+        ]
+      }
+    }
+  },
+  "implementation": [
+    {
+      "path": "../../scripts/train_xlsr_sls_stage_b.py",
+      "sha256": "f3ff6390d3799fd1ca0d408af532834c13e46cdc89718daf18703270af0a4e53"
+    },
+    {
+      "path": "../../src/kds/training/xlsr_stage_b_plan.py",
+      "sha256": "5c5f7d20c4ad5e6ac8842539ca1437dc3ddcd73c682c0c544ee5093760fd2115"
+    },
+    {
+      "path": "../../src/kds/training/xlsr_stage_a_plan.py",
+      "sha256": "6952c5f8cb08ad16e3e48df39927e1b5c029866eb65f1b2f09088a6c385c3741"
+    },
+    {
+      "path": "../../src/kds/data/augmentation.py",
+      "sha256": "5a5b9053f3642ab2b8d0c0695aeadc9b0628c0a8de5d8c28224791a208679268"
+    },
+    {
+      "path": "../../src/kds/data/dataset.py",
+      "sha256": "1fb4b89c2b018d939206b31d509e4105a626c37045f718deb8d8565814afc243"
+    },
+    {
+      "path": "../../src/kds/models/xlsr_sls.py",
+      "sha256": "470c213fee423a7aa895f882fe3618c8d1597e30e7f95b0cef697ed614d430b8"
+    },
+    {
+      "path": "../../src/kds/training/__init__.py",
+      "sha256": "37f4e20e86f2488ba3f34a7a70d4aabcf406f63e6fc321e8906ab9bb7a398faf"
+    },
+    {
+      "path": "../../src/kds/training/frozen_b0.py",
+      "sha256": "e9cc8cf0a7f3046596ad7f921c3b305dc7a096b0dfb233039558671615f49861"
+    }
+  ],
+  "outputs": {
+    "checkpoint": "../../models/xlsr-sls-stage-b-v3.pt",
+    "report": "../../models/xlsr-sls-stage-b-v3-report.json"
+  }
+}

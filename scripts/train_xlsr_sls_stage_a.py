@@ -188,6 +188,7 @@ def main() -> int:
             window_samples=plan.training.window_samples,
             mode="train",
             seed=seed,
+            augmentation=plan.training.augmentation,
         ),
     )
     dev_dataset = ManifestAudioDataset(

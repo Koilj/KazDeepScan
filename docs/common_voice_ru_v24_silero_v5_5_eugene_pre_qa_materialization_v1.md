@@ -51,8 +51,9 @@ inferences.
 
 ## Следующий безопасный шаг
 
-Bind the exact literal archive texts for only the 75 ready rows, then create exactly one
-fixed-profile V5.5/eugene synthetic WAV per bound text. The five rejected rows are permanently
-out of this candidate: no replacement, reselection, regeneration or backfill is authorized.
-The later full-asset acoustic reviews must cover the exact bona-fide and synthetic bytes before
-any paired evaluation plan can be prepared.
+Literal binding для всех 75 ready rows завершён в
+[отдельном receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_text_binding_v1.md). Следом
+разрешён ровно один fixed-profile V5.5/eugene synthetic WAV на каждый bound text. Пять
+rejections permanently out of this candidate: no replacement, reselection, regeneration или
+backfill. Later full-asset acoustic reviews must cover exact bona-fide and synthetic bytes
+before any paired evaluation plan can be prepared.

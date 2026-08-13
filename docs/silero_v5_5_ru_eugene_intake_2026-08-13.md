@@ -120,10 +120,11 @@ backfill. Raw manifest SHA-256 is
 `2b183adbfcac9b1a6022dd35c2f8b6ec8f111c01b4b3364596c53aff8906192a`; receipt SHA-256 is
 `da5f4a79cf0444d0f2e905c4f178760967306d3a393753736e72cc4a27a0da3e`.
 
-The next contract may bind literal archive texts only for the 75 ready rows and synthesize exactly
-one fixed-profile V5.5/eugene WAV per text. No failed row may be replaced, reselected or
-resynthesized. Two independent full-asset reviews, pairing and a new immutable plan remain
-necessary before detector inference.
+The [literal-text binding receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_text_binding_v1.md)
+now binds only the 75 ready rows to their exact archive sentences without rewrite. The next
+contract may synthesize exactly one fixed-profile V5.5/eugene WAV per bound text. No failed row
+may be replaced, reselected or resynthesized. Two independent full-asset reviews, pairing and a
+new immutable plan remain necessary before detector inference.
 
 The existing Common Voice archive guard now validates both size and SHA-256 before metadata read
 or extraction; see

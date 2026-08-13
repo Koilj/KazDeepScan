@@ -79,8 +79,9 @@ test; результаты не source-, speaker- или architecture-family-ind
   SHA-256, local wrapper разрешает только literal Russian text → built-in `eugene` at 48 kHz и
   запрещает reference audio, cloning, random profile, SSML и `voice_path`. Audit 56 historical
   manifests / 18 605 spoof rows нашёл `0` exact V5.5/eugene overlap, но `1 265` legacy Silero
-  rows исключают architecture-, vendor- и speaker-independence claims. Нет synthesis, review или
-  detector inference.
+  rows исключают architecture-, vendor- и speaker-independence claims. Literal-text binding
+  проверил все 75 ready rows against pinned archive без rewrite; synthesis, review и detector
+  inference ещё не начаты.
 - Full Common Voice RU v24 `test` metadata screen до extraction сравнил `10 261` records / `2 075`
   client groups с `12 313` configured-role rows и `39 850` rows в `85` manifest files. Строгое
   whole-client-group exclusion оставляет `6 211` records / `1 443` groups; это только capacity
@@ -91,8 +92,9 @@ test; результаты не source-, speaker- или architecture-family-ind
   выбрал из них `80` exact records: seeded two-stage rule берёт одну запись на отдельную client
   group, без audio/duration, detector/model output, metrics или final errors. `80/80` sample IDs,
   client groups и text hashes уникальны. Exact extraction и normal decode/QA/VAD опубликовали
-  `75` ready WAV; пять `insufficient_speech` rejections полностью учтены без backfill. Synthesis,
-  acoustic review и inference не начаты.
+  `75` ready WAV; пять `insufficient_speech` rejections полностью учтены без backfill. Exact
+  literal-text binding закрепил все 75 ready rows без rewrite. Synthesis, acoustic review и
+  inference не начаты.
 - Stage D строго привязал 73 frozen Common Voice RU текста, создал ровно 73 synthetic WAV и без
   backfill сохранил 55 binary pairs / 110 assets после 18 `insufficient_speech` rejects.
   Проектный exposure audit против 23 configs / 12 203 rows дал `0/0/0` sample/audio/text overlap.
@@ -218,5 +220,6 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [Common Voice RU / Silero V5.5 literal-text screen](data/manifests/common_voice_ru_v24_full_test_silero_v5_5_literal_text_screen_v1.json)
 - [Common Voice RU / Silero V5.5 immutable pre-QA selection](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_selection_v1.md)
 - [Common Voice RU / Silero V5.5 pre-QA materialization](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_materialization_v1.md)
+- [Common Voice RU / Silero V5.5 literal-text binding](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_text_binding_v1.md)
 - [External RU spoof-source search](docs/russian_spoof_source_search_2026-08-11.md)
 - [License-ledger snapshots](docs/license_ledger_snapshots.md)

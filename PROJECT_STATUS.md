@@ -91,8 +91,9 @@ test; результаты не source-, speaker- или architecture-family-ind
   receipt SHA-256 `6071deb2f60ca914e475611addf81ef2cf81b485c2b9b86826c5a135c0cca3ff`. The immutable
   V5.5 evaluation plan SHA-256 `cdf3fcbb496006478e575c024963cca497854dae1ce17775e58d95ae4d74cadf`
   pins the passing evidence, V2 checkpoint, 976-row calibration, frozen license ledger and
-  write-once paths. Preflight/detector inference have not started and distinct IDs do not
-  themselves prove organizational independence.
+  write-once paths. Its one preflight validated 1,060 assets with CUDA/BF16 and no logits,
+  SHA-256 `3df30bd5a70bcb471d57db4a85765658396e6a2491ab9937731018e37e4206f3`; detector inference
+  has not started and distinct IDs do not themselves prove organizational independence.
 - Full Common Voice RU v24 `test` metadata screen до extraction сравнил `10 261` records / `2 075`
   client groups с `12 313` configured-role rows и `39 850` rows в `85` manifest files. Строгое
   whole-client-group exclusion оставляет `6 211` records / `1 443` groups; это только capacity
@@ -185,11 +186,11 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 1. Не повторять Stage-C/Stage-D/v3 runs и не использовать их final errors для tuning, выбора
    checkpoint, temperature, threshold или augmentation.
 2. Новый RU route прошёл завершённые selection/materialization/text binding/synthesis/technical
-   QA/pair lock, 84-asset technical acoustic gate, zero-overlap project-exposure audit and one
-   immutable evaluation contract. Следом выполнить его единственный `--validate-only` preflight
-   (976 calibration + 84 final assets) without logits; до него не менять candidate, reviews,
-   calibration, checkpoint, threshold или generation. Старые 55 Stage-D/v3 пар, 73-row selection
-   и их rejections нельзя переиспользовать как «новый blind» тест.
+   QA/pair lock, 84-asset technical acoustic gate, zero-overlap project-exposure audit, immutable
+   evaluation contract and its 1,060-asset no-logit preflight. Следом выполнить ровно один
+   CUDA/BF16 inference run under that frozen contract; не менять candidate, reviews, calibration,
+   checkpoint, threshold или generation. Старые 55 Stage-D/v3 пар, 73-row selection и их
+   rejections нельзя переиспользовать как «новый blind» тест.
 3. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 
@@ -205,6 +206,8 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - Stage-D preflight: 1 086 asset bindings; один GPU inference run, `110` exact final predictions.
 - v3 Stage-D preflight: 1 086 asset bindings; один GPU inference run, `110` exact final
   predictions; report SHA-256 `9f99a7bed878ecfc561831e5130ac92dd5c8b73cb9965fc51e8a4d00d66e50e3`.
+- V5.5/eugene preflight: 1 060 asset bindings; no logits/inference; receipt SHA-256
+  `3df30bd5a70bcb471d57db4a85765658396e6a2491ab9937731018e37e4206f3`.
 - Точное implementation tree исторического v2 final plan: Git commit `52d6e6b`.
 - Scope clarification: `b1368c9`.
 - Historical v2 final plan SHA-256: `1dfc3ca866607191385b33b85a1ee67cb3981099c6fc836aef720c6c2610d4fc`.

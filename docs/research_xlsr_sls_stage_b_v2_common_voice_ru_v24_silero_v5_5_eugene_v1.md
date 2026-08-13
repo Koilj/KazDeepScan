@@ -1,7 +1,7 @@
 # XLS-R+SLS Stage-B v2 — Common Voice RU / Silero V5.5 `eugene` contract v1
 
-**Статус:** immutable research contract is prepared and its static inputs have been validated.
-No preflight, execution lock, calibration fit, detector inference, threshold selection or final
+**Статус:** immutable research contract and its one write-once `--validate-only` preflight are
+complete. No execution lock, calibration fit, detector inference, threshold selection or final
 metric has been performed.
 
 ## Fixed final layer
@@ -45,11 +45,16 @@ has SHA-256 `cdf3fcbb496006478e575c024963cca497854dae1ce17775e58d95ae4d74cadf`. 
 new V5.5-specific wrapper and its shared Stage-D numerical engine by SHA-256, plus every
 implementation dependency, input receipt and output path.
 
-The only safe next action is one `--validate-only` preflight over the 976 calibration plus 84 final
-assets. It must create its write-once receipt before any logits. Only if that receipt passes may
-the one CUDA/BF16 inference run create its execution lock and report. Candidate bytes, reviews,
-calibration role, checkpoint, boundary and code cannot be changed after preflight; a failed
-preflight does not authorize replacement, backfill, rerun or tuning.
+The write-once preflight validated all `1,060` assets (`976` calibration plus `84` final) and
+confirmed Python `3.13.15`, Torch `2.11.0+cu128`, CUDA `12.8` and BF16 support on an NVIDIA
+GeForce RTX 5060 Ti. It performed no training, threshold selection or detector inference. Its
+ignored local receipt is
+`artifacts/xlsr-sls-stage-b-v2-common-voice-ru-v24-silero-v5-5-eugene-v1.preflight.json`, SHA-256
+`3df30bd5a70bcb471d57db4a85765658396e6a2491ab9937731018e37e4206f3`.
+
+Only the one CUDA/BF16 inference run may now create its execution lock and report. Candidate
+bytes, reviews, calibration role, checkpoint, boundary and code cannot be changed after
+preflight; a failed subsequent run would not authorize replacement, backfill, rerun or tuning.
 
 This remains personal research rather than product quality. It is asset-level blind only: the
 candidate's base source, voice provenance and broader Silero family are not independent.

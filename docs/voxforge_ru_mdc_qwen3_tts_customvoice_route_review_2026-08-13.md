@@ -56,6 +56,8 @@ The previously rejected UtrobinTTS route remains rejected and cannot be used as 
 The frozen `81` pseudonymous selections were materialized from the byte-pinned archive and source
 technical QA retained `79`; two quiet rejects remain final. The `79` literal texts then completed
 exactly one synthesis each and synthetic technical QA retained all `79`; the exact `79`-pair lock
-is in the [pairing receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_pairing_v1.md).
-Independent acoustic/language review remains required. Detector inference stays prohibited until a
-separate immutable evaluation contract explicitly authorizes it.
+is in the [pairing receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_pairing_v1.md). Two full
+`158`-asset forms subsequently passed the
+[acoustic/language gate](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md).
+Detector inference stays prohibited until a current project-exposure audit and separate immutable
+evaluation contract explicitly authorize it.

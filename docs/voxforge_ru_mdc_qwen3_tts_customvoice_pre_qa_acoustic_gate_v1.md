@@ -1,7 +1,7 @@
 # VoxForge RU / Qwen3-TTS CustomVoice `aiden` — acoustic/language gate v1
 
-**Статус:** packet и две формы опубликованы; gate **pending**. Никакого acoustic decision или
-detector inference ещё нет.
+**Статус:** две completed 158-row формы прошли fail-closed gate. Все `158/158` exact assets
+получили по два полных `pass/yes/yes/yes/yes` решения. Detector inference не выполнялся.
 
 ## Immutable packet
 
@@ -13,17 +13,20 @@ fixed-Aiden spoof WAVs, grouped only by their exact shared text hash.
 - [acoustic packet](../data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_acoustic_packet_v1.csv):
   `158` rows, SHA-256 `59e6a83a9866412c12d3daf0d235d990e43548ef07c32eb2dd25baf5d5e3c3dc`;
 - [reviewer A form](../data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_acoustic_review_reviewer_a_v1.csv):
-  `158` pending rows, SHA-256 `fa2679deda16aa8d17676aea3626c8038c176ff96c113b2a54ef192dbd005bfa`;
+  `158` решений от `reviewer_1`, SHA-256
+  `9f07f7eaf1f5bd19e0345fd08218b3a218cfaa07342cee642e013d7f31bf490e`;
 - [reviewer B form](../data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_acoustic_review_reviewer_b_v1.csv):
-  `158` pending rows, SHA-256 `70f7e85ddf4c083a71df23cad8443d5981706d18846b68abb7d1bc49d1a44efe`.
+  `158` решений от `reviewer_2`, SHA-256
+  `559d60e6a04f21f7b2db7d8f582d92812e9e96a538e737e7537d4b5e102ef116`.
 
-The forms use distinct technical reviewer pseudo-IDs. This is a technical anti-duplication
-requirement, not proof of organizational independence.
+The evaluator accepted exactly two complete forms with distinct technical reviewer pseudo-IDs,
+matching packet SHA-256 and unchanged packet-bound fields. This is a technical anti-duplication
+requirement, not proof of organizational independence or of the actual review assignment.
 
-The three immutable CSV files intentionally retain CRLF line endings emitted by the standard CSV
-writer. `git diff --check` reports those CRLF bytes as trailing whitespace; they must not be
-normalized, because that would change the SHA-256 bindings above. All non-CSV staged paths are
-checked separately.
+The packet retains the original CRLF bytes emitted by the standard CSV writer. Filling the two
+response forms through the spreadsheet/editor workflow produced LF completed copies, as in the
+earlier Common Voice/Silero gate. The hashes above bind those exact completed bytes; none of the
+three versioned evidence files may now be normalized or edited.
 
 ## Как заполнить формы
 
@@ -37,12 +40,23 @@ SHA-256 remains the packet's `audio_sha256`, and independently changes every row
 
 The only passing decision is: both reviewers independently set `review_status=pass` and all four
 answers to `yes` for the same exact WAV. Any `fail`, `inconclusive`, `no`, `unknown`, missing
-decision or disagreement makes that asset ineligible; its full pair must be excluded without
-resynthesis, replacement or backfill.
+decision or disagreement would make that asset ineligible; its full pair would be excluded without
+resynthesis, replacement or backfill. In the completed forms no such decision occurred.
+
+The write-once
+[gate report](../data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_acoustic_gate_report_v1.json)
+has SHA-256 `bf7a6d84c7ecb71462c128b70f68d8f939ebece916fc11e87c6b9ac8afd26029`.
+It contains `316` review rows, `158` per-asset `pass` results and explicitly records
+`detector_inference_performed=false`. The report confirms only intelligibility, Russian
+audibility, literal-content preservation and absence of severe artifacts for these exact WAVs; it
+does not establish Russian-native speaker identity, source/speaker/vendor/architecture
+independence, calibration, product quality or detector performance.
 
 ## Следующий безопасный шаг
 
-Fill both forms independently and return them unchanged in schema and packet binding. Then run the
-gate evaluator to create a versioned report. Only if all `158` assets pass may a separate immutable
-evaluation contract decide whether one detector-inference run is authorized; that authorization is
-not created by this packet or by the reviews alone.
+Commit the completed gate as immutable evidence, then run a new candidate project-exposure audit
+against all currently versioned research contracts/manifests. Only a separately reviewed immutable
+evaluation contract may bind that audit, this gate, a fixed checkpoint/calibration/boundary,
+license limits and write-once output paths. The gate report's
+`evaluation_contract_authorized=true` permits preparation of that contract; it does not itself
+authorize or perform detector inference.

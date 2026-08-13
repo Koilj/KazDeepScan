@@ -47,7 +47,9 @@ passed the exact-route audit with `0` overlaps in `18,764` historical spoof rows
 
 The completed selection-bound [materialization](voxforge_ru_mdc_pre_qa_materialization_v1.md)
 retained `79/81` source rows after technical QA; two quiet rejects are accounted without
-replacement. The [literal-text binding](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_text_binding_v1.md)
-for only those `79` rows is now complete. The Qwen route uses a documented English baked token, so
-language/acoustic review is still mandatory. Synthetic pairing and detector inference remain
-prohibited until subsequent immutable receipts pass.
+replacement. Those exact rows subsequently completed literal-text binding, one-shot synthesis,
+technical QA, exact pairing and a full `158/158`
+[two-review gate](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md). The Qwen
+route still uses a documented English baked token, so the gate establishes only exact-asset
+Russian audibility and content preservation, not a Russian-native voice claim. Detector inference
+remains prohibited until a current project-exposure audit and separate immutable contract pass.

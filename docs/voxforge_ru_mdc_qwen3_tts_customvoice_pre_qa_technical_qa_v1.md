@@ -1,7 +1,7 @@
 # VoxForge RU / Qwen3-TTS CustomVoice `aiden` — technical QA v1
 
-**Статус:** completed raw-synthesis technical QA. Binary pairing, acoustic/language review and
-detector inference have not been performed.
+**Статус:** completed raw-synthesis technical QA. Binary pairing and the subsequent `158/158`
+two-review acoustic/language gate have completed; detector inference has not been performed.
 
 ## Вход и результат
 
@@ -37,8 +37,8 @@ and SHA-256 validation.
 
 ## Следующий безопасный шаг
 
-The exact `79`-pair lock is now published in the
-[pairing receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_pairing_v1.md). It does not
-authorize a language claim: the full `158` assets must receive two independent acoustic/language
-reviews before any detector evaluation; a rejected review asset reduces the candidate set without
-regeneration or replacement.
+The exact `79`-pair lock is published in the
+[pairing receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_pairing_v1.md), and the subsequent
+[two-review gate](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md) passed all
+`158` exact assets. That result is an exact-byte acoustic/language claim only. A current exposure
+audit and separate immutable evaluation contract remain mandatory before detector evaluation.

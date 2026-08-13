@@ -1,0 +1,1933 @@
+{
+  "all_assets_acoustically_verified": true,
+  "asset_results": [
+    {
+      "audio_sha256": "ed23fa183342f5e9f2fcfb3d3852b0622b3db4e1f5c64739b39ddb995d061df8",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:51ab27109362e7d087175ef3e148a7e7fc0dd1a7d8692c8e6639af96708aa008:prompt:ru_0036",
+      "text_hash": "00c277db7c60609c7fa5930f0b04f9b4383cc75b3668635cf8873d50025da117"
+    },
+    {
+      "audio_sha256": "560daa60f238f034976214a75e9ef3f4c6b2704ccf6b9b6c6599648e7eb20b07",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:aa804f6359e391398a61",
+      "text_hash": "00c277db7c60609c7fa5930f0b04f9b4383cc75b3668635cf8873d50025da117"
+    },
+    {
+      "audio_sha256": "7890c936627fced8052c8d95ebda1bf48a2ba28474aa0955ac810d6e85ad4798",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:4528e294049931237f06fb8025ac2fde59c1b50317568c54d0eebb0044992eff:prompt:ru_0082",
+      "text_hash": "015a1134b7366e048694b683ad700ddd0f81c705298569853f35f73121920935"
+    },
+    {
+      "audio_sha256": "11d1939c6ac614b33bc6a2dd72118527b27849ebc8ad42ec55b19f30ff501ffa",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:9f1c2791e1aecb233250",
+      "text_hash": "015a1134b7366e048694b683ad700ddd0f81c705298569853f35f73121920935"
+    },
+    {
+      "audio_sha256": "574c3b1d4096825ed534176a1708a5e5b2c95def8a90258b2187c4363d8de96e",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:7a382aafc7ad8e2c266997b2e4862dfbc87ed89c5364188ef8b1d09a088cb867:prompt:ru_0043",
+      "text_hash": "02f2a226fffc0a3c60dd02f9f4f1adee5136aa922b4ff65e003b0fd11a2c16bf"
+    },
+    {
+      "audio_sha256": "2f8df7f5ceb6b4feb5631a090cece77bd6e372e3ce6408d388b9e2da269c0fbe",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:d31af336a941b5bb2812",
+      "text_hash": "02f2a226fffc0a3c60dd02f9f4f1adee5136aa922b4ff65e003b0fd11a2c16bf"
+    },
+    {
+      "audio_sha256": "51a8b7d595bded5a9b9473ad3d489867eddaae8cdb78f6eadc48ebdbd8048c3e",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:fe4d774c3f4c3b4ed5fe1c7b5c1f95d92d97ef62060d33cab5c72c1eda59c5d4:prompt:ru_0045",
+      "text_hash": "032ca5e9a5158ae437074ad928a40d019e66aa4f04ad21f2a3ef5acd35d1029e"
+    },
+    {
+      "audio_sha256": "3ca1af800c976de7507fff1b62619f783d4915c79e51207b8aab81f07d64e238",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:6160432224675a1c42f8",
+      "text_hash": "032ca5e9a5158ae437074ad928a40d019e66aa4f04ad21f2a3ef5acd35d1029e"
+    },
+    {
+      "audio_sha256": "e578ed37a66524b1ead1395468eced2bbf09120323c1dd083734bc0ebc2587c6",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:28029c59eb2cee73e20a2d98485437f662607acbc4d16b5db56edd7847250970:prompt:ru_0037",
+      "text_hash": "03e27fb4aaef118ebde94b602a917c86d9dee8f8f0b33160ea27103fcdc81920"
+    },
+    {
+      "audio_sha256": "7985ac66a88f14c5b216c1621c8d72c3c24d42c68d67c66aa6f5eaeb5489684f",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:5f1e809e8e6b71b22666",
+      "text_hash": "03e27fb4aaef118ebde94b602a917c86d9dee8f8f0b33160ea27103fcdc81920"
+    },
+    {
+      "audio_sha256": "fd681887eda9448e11adcf74630452056f9682df2263857c0dd432571884fc97",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:7c4dc7f1f7de5e57af1eb3e02350457fd649ed108c0aebd7116306fedf811cf9:prompt:ru_0081",
+      "text_hash": "05a4c32e8a6833c589dddb3eb627e0ec22a5419bb12e7ebf8efbc24a86c6a75e"
+    },
+    {
+      "audio_sha256": "2701729b25ddc59a01e2327c4f68d445f2411292a0aacca57891c343efd25b4a",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:2468fff83ae4c258cd17",
+      "text_hash": "05a4c32e8a6833c589dddb3eb627e0ec22a5419bb12e7ebf8efbc24a86c6a75e"
+    },
+    {
+      "audio_sha256": "3b8be89a25c2611d2c14fa63a795acff6f3ec6b1665dd7df5a88bf83342d1c64",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:b284c82735638bac2baa8d1ba255dcc90bef435c415a269f03398117a360a13f:prompt:ru_0031",
+      "text_hash": "09f3b1605aa5a29e6ae6f1eb5c38be6c0999d7580a90c30069d88ba1308fafaa"
+    },
+    {
+      "audio_sha256": "91b18509e012ae7423e13295797247af550b2aabaa47fc123680470f3f2183be",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:9c263fddb8602100236d",
+      "text_hash": "09f3b1605aa5a29e6ae6f1eb5c38be6c0999d7580a90c30069d88ba1308fafaa"
+    },
+    {
+      "audio_sha256": "af31cf846e257dfefbd6a0d8d5e2df73388efa3b2badaf9c25983ab4c1fc39ff",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:40ab15715a9016906e603c6dc1e28204297e5c54c4cfa90c94eca9b53ffb25da:prompt:ru_0094",
+      "text_hash": "0ba49054de08c4e46bd7f89d3c1c9fe40841e3b8c96179d4bd6145e45edffbc2"
+    },
+    {
+      "audio_sha256": "cbab9eafc50df716b8e8c7ba2e1db9c878dcab253d152e6684196b43e5051bc0",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:e806519d214d8823ee92",
+      "text_hash": "0ba49054de08c4e46bd7f89d3c1c9fe40841e3b8c96179d4bd6145e45edffbc2"
+    },
+    {
+      "audio_sha256": "215634ff678a48eeed61a2f0427990b0f31e8a4184ebcca8a2758e0ef6fa6b95",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:553154fd2eff5761d12244ba3c7f1b49259a7805b7558a83598ba7eb9b35857f:prompt:ru_0063",
+      "text_hash": "0c15ca56883ab04e02dcf6bd1904342abbf6bb60545248d39bb4d5ad93e8f668"
+    },
+    {
+      "audio_sha256": "2aa95021b730ace1826eb8936cbaa2adac80cb09d4c8c7417cc4d09768971292",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:887c22bad0e4682b052b",
+      "text_hash": "0c15ca56883ab04e02dcf6bd1904342abbf6bb60545248d39bb4d5ad93e8f668"
+    },
+    {
+      "audio_sha256": "e656b2011c43eb3e827650c142e905d4c3ad9112cbce43615106355cc253fa22",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:242190e820951b9fb089c325a24d42a9b723c472fd15cc42025ba39d4b69463b:prompt:ru_0025",
+      "text_hash": "0e679c0c762905542b7fde0bdabaec6e88dbdc217b78fd6c624866da120db5cf"
+    },
+    {
+      "audio_sha256": "55f13a8448e02c8192cd92ea0fb606b36ccdb45e233fcd64328fb2f3ef997734",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:4e7f689e86b6867e8554",
+      "text_hash": "0e679c0c762905542b7fde0bdabaec6e88dbdc217b78fd6c624866da120db5cf"
+    },
+    {
+      "audio_sha256": "d6dfb3f513f530a500744b77ba32fa05e9add2cfee3acd357d61be14f38dc106",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:e9fabde2441259c4867d2b8716400ca2a1f68fec046dd4269639f7964d981ab2:prompt:ru_0040",
+      "text_hash": "106caab715c1f19d383221b3772066f21c25a10e497b9123e3d41fa40a5e4bc3"
+    },
+    {
+      "audio_sha256": "97adb0710ae874d70cc6a9055213e3ea47aa7f3264cca6752b66878f592225e6",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:1ff16a88d7ca837b4018",
+      "text_hash": "106caab715c1f19d383221b3772066f21c25a10e497b9123e3d41fa40a5e4bc3"
+    },
+    {
+      "audio_sha256": "97b27a52730aeaccda22df11f68297acc90107742edaa9019621a99f82f183eb",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:3311b81d44127cb620759f1293b97366ad16ce992dc79903a7fea031c02d0a31:prompt:ru_0071",
+      "text_hash": "17b42c6b88dbec6781dfd75a95515ed8b5cc79d84b87c3f8514500ea95485d20"
+    },
+    {
+      "audio_sha256": "cb8d9163523a61a77c6cfa62720d0e8c4ee8c8cf9556393746c26e290ffc7293",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:d3234788813d744de24e",
+      "text_hash": "17b42c6b88dbec6781dfd75a95515ed8b5cc79d84b87c3f8514500ea95485d20"
+    },
+    {
+      "audio_sha256": "62bfc3d6704d2d1cc4bb246b8ddabf47ac84aa471394b062187e3c15a806b0e8",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:9f1db9123526429a3c4a830e89ea6530b4b4e4e5f32b0a6a65135bd8dd438290:prompt:ru_0010",
+      "text_hash": "1d3321395e14f6cf4dd80204e2e80181721f9fb68689edbd4d5f9fcc8cfc3bba"
+    },
+    {
+      "audio_sha256": "148dfc15e2e7a6580a88d1b6b50b195f6f93cb6ea2d2ae9694b3cefe8966c53d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:24b9ead716ba1791ea1f",
+      "text_hash": "1d3321395e14f6cf4dd80204e2e80181721f9fb68689edbd4d5f9fcc8cfc3bba"
+    },
+    {
+      "audio_sha256": "6593c964cbf6ecd8b3afeb813f969e69475995d9f0f48f0022da7323deed5aa7",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:0c6b419b44c4397c4b84854ee200854bccb233a32e1ebf41f5bc0e9970a57242:prompt:ru_0078",
+      "text_hash": "25a2d0b010f7bffaf8484d78ca231194697839667c1098a903bdc6cf3986c837"
+    },
+    {
+      "audio_sha256": "f634c34827c2b249fd259b5362a94bccbf11a192e2f58edce6cfc458bdc822b2",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:eec008811fc732dac863",
+      "text_hash": "25a2d0b010f7bffaf8484d78ca231194697839667c1098a903bdc6cf3986c837"
+    },
+    {
+      "audio_sha256": "f4d0a144651b578b8ff25318ae9f250c4cdf5ce1d92e16f476444d49bc3ca085",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:1a21722239db47549eeadb6545f150d38e3b2cbd42912fdc62a7724588246baf:prompt:ru_0084",
+      "text_hash": "27b87e5ff53041cef952435b211bc61ecfd6a5c91e7fb542e4e1bda0196a4f68"
+    },
+    {
+      "audio_sha256": "ca36cc5dc58de4d256bb923d9290366f30498cc1c3d4ac6d9d2d7f787a92481b",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:faeff1b3814c5425bbeb",
+      "text_hash": "27b87e5ff53041cef952435b211bc61ecfd6a5c91e7fb542e4e1bda0196a4f68"
+    },
+    {
+      "audio_sha256": "a7cc97d7a7020fa55844f9ad1ecedb947ffebb70e96ab07c844802a1dd876973",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:69ccec5714f158bd84f1f86551b5ade3c0bf7736193dc314fa38996b07e427f4:prompt:ru_0018",
+      "text_hash": "286614b3819c9eb4188c30460b1c8dc4762b6bda439f7244374251831082144a"
+    },
+    {
+      "audio_sha256": "ce49016697628b025e4ad2424dad6c0f96fc1704d0af3cd9a5e1e66a020726cb",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:05cd514b815e7d910732",
+      "text_hash": "286614b3819c9eb4188c30460b1c8dc4762b6bda439f7244374251831082144a"
+    },
+    {
+      "audio_sha256": "a26ea7f5cf5b73d704c5fe9e89d717159c45880b48d3bc7081a5b2b2b075e368",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:5360f7374711b5025827008041e53b304e1e56cbc196c1089886a454e72293c9:prompt:ru_0004",
+      "text_hash": "29d3f0b98584fa601e2a45e4714fe370315148dd2842fb294e5c45f4f16eeff3"
+    },
+    {
+      "audio_sha256": "1bc6dd01ccee7110f2648c2addff9df109f3a3c64bcbd2acb61127d1151877fd",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:2e0f500ffdf3491c4f8d",
+      "text_hash": "29d3f0b98584fa601e2a45e4714fe370315148dd2842fb294e5c45f4f16eeff3"
+    },
+    {
+      "audio_sha256": "77ef720369b4d4ca72be7a7fc6aff21c49887d2936468d657443dc86a21af1e5",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:db5e33311cbf2ebec2cd4d243c36e11d4ae6c96e185aa28374d30535cbac301c:prompt:ru_0053",
+      "text_hash": "2dcd7c286a4db8382029dabf15375c1380e6dd9f1ac106877827e456b419a5f2"
+    },
+    {
+      "audio_sha256": "c506170b09843f69720d74ffa13821c34f85a7362b504a1270177c896401dd9b",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:3ff851efa84f3ef706c3",
+      "text_hash": "2dcd7c286a4db8382029dabf15375c1380e6dd9f1ac106877827e456b419a5f2"
+    },
+    {
+      "audio_sha256": "9e473300bfda43e9d13fa34ce207066852c54970b80f7998426c9c3a9f682ed9",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:4ea0821c6b1dcdb6443aba858dc893a78277b2c9e0ee923536fd98c531431dd1:prompt:ru_0093",
+      "text_hash": "2fb07fa78b8cc40b49e23990400f9613ab10d99f8c864a9c2122d3f31dfdc6b1"
+    },
+    {
+      "audio_sha256": "0c0dd847e505ad350ba33ecbd2e18f840c66df2668d6c81297b2c1c824e8be34",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:2e554e38e796def9bff9",
+      "text_hash": "2fb07fa78b8cc40b49e23990400f9613ab10d99f8c864a9c2122d3f31dfdc6b1"
+    },
+    {
+      "audio_sha256": "7a3135b8eb46a65bd6e997494d35e6d63dd77137f896a0ca573a2458bc234786",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:4f92779bb4cfd5eae995ab8291f159bf9de3ece76e2b17d60dd5cbf2593c1aa2:prompt:ru_0085",
+      "text_hash": "3d597365c359fec931bb87e7c6dafec022cbe79a19c5305b1549c2eb88b8a3f6"
+    },
+    {
+      "audio_sha256": "0e62d3c29f71692cb01adee7c0e76572eec5cea41f1b47db872d0efecbc54d3a",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:eb73f81cb49b58d771cc",
+      "text_hash": "3d597365c359fec931bb87e7c6dafec022cbe79a19c5305b1549c2eb88b8a3f6"
+    },
+    {
+      "audio_sha256": "6bfa3147926662f77d75c313b515beea9a9ea5803be9bd0915f777b932cbff60",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:f9f9440d82ce52d74408420fc3aaa72cbd59988a4612a048c59c3b9e29177106:prompt:ru_0061",
+      "text_hash": "51f49e40ff35268f3deaba5947d47f94be79a53f8572fe4b9239fba76960943c"
+    },
+    {
+      "audio_sha256": "60feb81187a60199502f5fbdf73ec04cf41e3a111421d4e0d2de5ad081f8b81c",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:03badf9ad3763f1daf7d",
+      "text_hash": "51f49e40ff35268f3deaba5947d47f94be79a53f8572fe4b9239fba76960943c"
+    },
+    {
+      "audio_sha256": "ac991769a7d3cf5350b177261fcd8ed535825e555dbede2b1fc81339d032ed8b",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:853f038d69b21acd34039a157ad2856b88bebfb91338f39b98bb7fb86b7f50f7:prompt:ru_0068",
+      "text_hash": "5212eb0fb22dbd4d23781f2127e25b13fc13e80b121cbb2abe58ff0754f52066"
+    },
+    {
+      "audio_sha256": "5f5094757dabdf8ecd8f79b6e4264f7f173e7ff9bb5e3d8ec872c4cbf9db88fd",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:001bf24ad6e91aa21b2d",
+      "text_hash": "5212eb0fb22dbd4d23781f2127e25b13fc13e80b121cbb2abe58ff0754f52066"
+    },
+    {
+      "audio_sha256": "001af62098ca5a17c0b0b2284d41ad02bb4c7f5d51711800848e19fb9de641f9",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:b361a531e8eac95decb933ab6c58fac4d6c19e461b513f966ee20659198a9e92:prompt:ru_0002",
+      "text_hash": "5813e5d263dc78bd7f6ea27b22877e0aa4551fd50ff4384358b10efdb1e8fbe1"
+    },
+    {
+      "audio_sha256": "964ecca3db2fade3030fe6e2ed9a17feacaaf4c42315f4be9183ddbf67a71ca5",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:fcd89cc4ac2a233ac07b",
+      "text_hash": "5813e5d263dc78bd7f6ea27b22877e0aa4551fd50ff4384358b10efdb1e8fbe1"
+    },
+    {
+      "audio_sha256": "8c442b373e03242310fcf5337a60189cd81c1fe5664073b3146270ef87e2a800",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:ea9623673a99952d8feb6db640855e2aed5323e4b175cfddaa7f91a419dac2b5:prompt:ru_0066",
+      "text_hash": "59f1df8f58f0a704302786b5c02c46a442dedc63d03cec4a28e05cae2416c59a"
+    },
+    {
+      "audio_sha256": "929094ea75dd49700f97c6ed70242fa077add6646d85b004bf3efb723e3de239",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:ad8fcbd02440119148cc",
+      "text_hash": "59f1df8f58f0a704302786b5c02c46a442dedc63d03cec4a28e05cae2416c59a"
+    },
+    {
+      "audio_sha256": "3d13c15e90e9f5cf2e1b9233d2e3cd33986244b655f460a0556b00c4dd407b61",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:7e2461f1144548d8c6f1b91e71edac996e6631a865ccd9ac1e45695a106114d2:prompt:ru_0013",
+      "text_hash": "66dd409823dc9dcfb242cb52369ec1e38d5960d0d427ef204c5ed11cf9bddabf"
+    },
+    {
+      "audio_sha256": "e554a7224a22e8400e9a644f2ac06b2c97080ce0cb444b3af0fbabfd1b0a8fad",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:d08972d67819472d08b5",
+      "text_hash": "66dd409823dc9dcfb242cb52369ec1e38d5960d0d427ef204c5ed11cf9bddabf"
+    },
+    {
+      "audio_sha256": "9eb07fa32b54dd3e3df2898ec93ca715ecfe7f6f2e6f09a605ef787d9e45d66c",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:b3d7a433b57422be9becaf2a3c3a96ca75c59c57f10f58ab327a45615a8340f6:prompt:ru_0017",
+      "text_hash": "6a4e6616041d4bd992e610faa136f8292474a422e53bbb581c18ece388f1507f"
+    },
+    {
+      "audio_sha256": "b785623d41438c751b2fde8219844612e8ca005465f5a5fc5da2e7d1e13ca24b",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:ca501bb63dc98188f915",
+      "text_hash": "6a4e6616041d4bd992e610faa136f8292474a422e53bbb581c18ece388f1507f"
+    },
+    {
+      "audio_sha256": "35917e44f2824147b70992bf71544708868befa112188357c41c359a843b2dfd",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:7ccbbee1e900945ca9a35fae86c851ad223b67a8819b81262986a90c41959e7e:prompt:ru_0015",
+      "text_hash": "6cbf385566deef9216dba8d96b52613d7dc3cbe52ad79631237c672891525f83"
+    },
+    {
+      "audio_sha256": "24d86f4f0d117bbc608296e70d99cf8535eacf7478053b2372c600fff5ce94d4",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:125cac71d34c91d2908c",
+      "text_hash": "6cbf385566deef9216dba8d96b52613d7dc3cbe52ad79631237c672891525f83"
+    },
+    {
+      "audio_sha256": "66901065c05db5862dcea0a7b430246286cbf6d3c7838ca6cb7a5db6e8c36a03",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:d13a9ae67a65fdec60473591bd88fe1802462f1c1b2e4d8dbc63f5b5002ae719:prompt:ru_0065",
+      "text_hash": "7073ee8e9bd41a26ecea54d10d82180ed427f562a33c3f14c71d36801d3ae21a"
+    },
+    {
+      "audio_sha256": "95852305edce418c144cfaedee734fc5072298db06598d5129452f32dc1e6dbb",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:7f00684d7f0c670f701c",
+      "text_hash": "7073ee8e9bd41a26ecea54d10d82180ed427f562a33c3f14c71d36801d3ae21a"
+    },
+    {
+      "audio_sha256": "a0f8fc40689a1cc6b0b4d97ed97206a7465e3cce4d039d6e8e5036400c0e2f28",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:68b83c038400696c089e9b6d87c34718567f4fed0341286b3330d41032b00f38:prompt:ru_0049",
+      "text_hash": "71ded13536a7ebbff6a1f4617c9c6c1ccf554e0d3023295efe865975957dfd94"
+    },
+    {
+      "audio_sha256": "050b1f74b7c4a27680c1299023aaf23d30a3dc962207009e75b943c4dadacdaa",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:79964597dd354d2d5ec6",
+      "text_hash": "71ded13536a7ebbff6a1f4617c9c6c1ccf554e0d3023295efe865975957dfd94"
+    },
+    {
+      "audio_sha256": "8437dbf86a432df35a07d8468b71fbb509a2133380476ffcec789e49861e56f0",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:03b82d7ce079b1f695b61554d4124dbd9af93f195b75945a1ab45a907b85475b:prompt:ru_0009",
+      "text_hash": "75a97bdbd3ebf02b18ddff117ae954b7ef11da546aa9ce854b5f59c98e1c2d2c"
+    },
+    {
+      "audio_sha256": "c03f9e9e1fd9316595183652d7fb32326d813c874932fd95397f961ee5a7a8c4",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:227843c6b77722017687",
+      "text_hash": "75a97bdbd3ebf02b18ddff117ae954b7ef11da546aa9ce854b5f59c98e1c2d2c"
+    },
+    {
+      "audio_sha256": "05f1e8e95deafaf85005747f8d6c7e29d8e2f0069d418f5701b76973f40d2ec9",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:b6775d84729ba0fff51549cc57b1898417506b1471139aa9025e35605ad6d516:prompt:ru_0044",
+      "text_hash": "793a393e7cb9ac2885eaf11fac28aece840360415750df5df604a8d287470df0"
+    },
+    {
+      "audio_sha256": "617a1e6741bcf0abe139c3f461caf70fe947fcb1dd828008ee698c90a3c29e62",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:f6cf0aa78b748bfb592a",
+      "text_hash": "793a393e7cb9ac2885eaf11fac28aece840360415750df5df604a8d287470df0"
+    },
+    {
+      "audio_sha256": "2083093fc8ec2468900d8bfb03f1c8df4fee5f1f671937d84c3f084c80c69494",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:cd84013e25589fcbf14d22b8ec9ccf865eacfc8d27b5a03a019fa4fa43ca4872:prompt:ru_0030",
+      "text_hash": "7ae0052a1f22bb0946cc1731f369ee4a56c8cf52599f2b158c617fe4e279cc95"
+    },
+    {
+      "audio_sha256": "42d8899c1c5eb49de452906f63282a2b068d109dc0d3b8c78c1763737b4aac18",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:0fd672dfcfc80551c4d9",
+      "text_hash": "7ae0052a1f22bb0946cc1731f369ee4a56c8cf52599f2b158c617fe4e279cc95"
+    },
+    {
+      "audio_sha256": "dd6ab8d278d4e7dc5eff1f5529e0e2d5f286d3af7424086a5f56e278e09f08df",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:aebf594efcfaf341ad021ffaaa34bfead906e822a73ce107557033d72fb5e8a2:prompt:ru_0069",
+      "text_hash": "7bd6b96aeaf9a714f282070c39b34f95fa5d527651df86098734d723fa701447"
+    },
+    {
+      "audio_sha256": "4d25c36ae13bc21b6145da15bcc5bab28d5a49b3c5f8e3a27ce5cc17183a9fcb",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:6772917e8e515af3d684",
+      "text_hash": "7bd6b96aeaf9a714f282070c39b34f95fa5d527651df86098734d723fa701447"
+    },
+    {
+      "audio_sha256": "54c53449edf3273fc2c89a080ad14b30f0bb152c3cc5132f5bef0f23e462c4e2",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:20d50f7ac35654a4a8ecdc3004ad06a3a69c4f7982507e43191f8bdf2cd8c0d2:prompt:ru_0014",
+      "text_hash": "7d4e89671802658713e39df7281f4bb22291d2f707447701bf4c10b2ff6754df"
+    },
+    {
+      "audio_sha256": "d42c1662624123645f454019e15f54307c8ead7c9e05552159e5137c44e5f9e3",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:8e658ed2d7fbb8618eda",
+      "text_hash": "7d4e89671802658713e39df7281f4bb22291d2f707447701bf4c10b2ff6754df"
+    },
+    {
+      "audio_sha256": "79d32ca6065df2f39dee4894895f9ac09dc96028283f20deb3730974b597ff3a",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:fa5d0c8e8dce52381e5a22d499ea798f4250915ba06ba0ec742fe2828d1f5355:prompt:ru_0038",
+      "text_hash": "7d9dcdbb3d568f0fd47492434849cdaafd24bffc10d4ceb0628bc1d65c5e2db8"
+    },
+    {
+      "audio_sha256": "f57334a494b942921674a7aecedf83e2d0e70ad4668f3c58b2e2a958945ab5fb",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:5361030f28fb1500b994",
+      "text_hash": "7d9dcdbb3d568f0fd47492434849cdaafd24bffc10d4ceb0628bc1d65c5e2db8"
+    },
+    {
+      "audio_sha256": "4d4ca8afd8bc3f9f96a26221d2c1d44583b4d7c47d4d209cbddf07e3fde17daa",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:3802aa2ec929c0fc99af228107cf60b9856c8aae5ead852716d7a8e553cf5c48:prompt:ru_0059",
+      "text_hash": "7fb393ecba16af6004df4a3e5e8a78222f3850c8b54d7e5e8fc92a54771cb43c"
+    },
+    {
+      "audio_sha256": "4976b047c4e69701826bfa135e645254d3c5ddde0d63b222f0cbf378c67ccb0d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:c5d51615b9eca4d7bb75",
+      "text_hash": "7fb393ecba16af6004df4a3e5e8a78222f3850c8b54d7e5e8fc92a54771cb43c"
+    },
+    {
+      "audio_sha256": "d25202bffd46b7cdefeda9bef19ab835d34fa46fdaca6d6fe5dc1c8ecb52a3a5",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:1a27b51dcd688597b7e89c8600f86d2ec64e5c7d03868255161e28fbd65da4b7:prompt:ru_0022",
+      "text_hash": "82e193a30845e7f5e6ce30cf7b7d54e3cde9ded4cf5716d45a99e99b9ca94a5c"
+    },
+    {
+      "audio_sha256": "b8426f37f7ec8c4fef5851e120979005fd5762448cfaea85b5d64995bc130245",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:f17409f0ea826f55d867",
+      "text_hash": "82e193a30845e7f5e6ce30cf7b7d54e3cde9ded4cf5716d45a99e99b9ca94a5c"
+    },
+    {
+      "audio_sha256": "69ee3fa25b35fa8e4a8c5628b32d2fd07304364680ed717feb8e6ea29f324d3a",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:76a56f670637b294efd170c40c5a472e048568dafd91f88e180c5e5a0607b9c3:prompt:ru_0024",
+      "text_hash": "832fa9cf05a6e5ceee1bc8c94f285a07ee7974406efbcf225ca27965a84e7b93"
+    },
+    {
+      "audio_sha256": "108cbcd9a472e40ecd65ab6f4a412e85245a047fa0a24d4350022bbe077e32c2",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:2f2a23436adc2e70653f",
+      "text_hash": "832fa9cf05a6e5ceee1bc8c94f285a07ee7974406efbcf225ca27965a84e7b93"
+    },
+    {
+      "audio_sha256": "11d16a8e497671ba333b7023ebbf67980bc319b72bb7ce46a4da146415ba2837",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:8b9c6b34a23da9643d2a6297964c974b18d3b455290723bb8a33e480790c9b39:prompt:ru_0088",
+      "text_hash": "8a0cf255b24de364f14537864bc5ab8ee094668c74dbb2c9c279b7a574973f97"
+    },
+    {
+      "audio_sha256": "16b6420847622967c9453fcc49fd8762f4549ed337b62767ddfa3c9a2afa2d58",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:8d16737f7060a93af517",
+      "text_hash": "8a0cf255b24de364f14537864bc5ab8ee094668c74dbb2c9c279b7a574973f97"
+    },
+    {
+      "audio_sha256": "e55f95a2b5f44d360b6c28092ef9c5ee12075b1631b5614ece4177eb340e1b03",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:af040be85fc59060d3fe2d4868e06ee0d0e372f9b086d8dae31fe9e1c1bfe2da:prompt:ru_0050",
+      "text_hash": "8c94caf31d1fa9382315e39434ba9e2789d70b071e5bb0dc6030d5115cfa2d70"
+    },
+    {
+      "audio_sha256": "295e4bed807a8990fdb874d86f78ad88e240183b6bd356b88ca13af3bcf014d2",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:3eec7731452954ac636b",
+      "text_hash": "8c94caf31d1fa9382315e39434ba9e2789d70b071e5bb0dc6030d5115cfa2d70"
+    },
+    {
+      "audio_sha256": "a2a824039fa07b593dae248dc6b2f23f6ceb7da59ee7b1008aed6ca082c1e632",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:87c6a1a4d58a8b519771da341f9d87c468160534d7bf1cae6bfb64375b80a9ab:prompt:ru_0086",
+      "text_hash": "8f4e0f69ac1adab6327cfe9e59bf3e75a5b69a37dc84149fefa1d20aacabbbde"
+    },
+    {
+      "audio_sha256": "8aded3887ea11d0627c5376259eee4bfc211f0bf0ea79a33674e3fcbdc624d3d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:3b063d83f11fce5586b4",
+      "text_hash": "8f4e0f69ac1adab6327cfe9e59bf3e75a5b69a37dc84149fefa1d20aacabbbde"
+    },
+    {
+      "audio_sha256": "dfa66dde456bd5f909156fd020bff1644ab82900029562ba49ced26a7338a129",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:e756f0d6235b5a7feddadff77bd910599c2c5409902d1a75ba6e784525b3c0b9:prompt:ru_0067",
+      "text_hash": "8f7df5c51ee628af08533c2cca6111c2e4ce6774c999af4c4614920a3e8891d6"
+    },
+    {
+      "audio_sha256": "44e7970e97ac9bc2903fce1b40c60e602a56d7e273ef486e787f9ec61a086885",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:9587e0efacd3c6ad6a7c",
+      "text_hash": "8f7df5c51ee628af08533c2cca6111c2e4ce6774c999af4c4614920a3e8891d6"
+    },
+    {
+      "audio_sha256": "712cf3df24dc6ecf94675e6e54e3a534d86a98c0a809b9784b588dbf6da2cbd2",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:bf07902b4a740f3de110e8ecd4b1241085065e70fd489ac37fb26b7719eb908a:prompt:ru_0100",
+      "text_hash": "9224f19e638722550a950fa63b66a5fcb20c11d6c6d50897bdac3f493ef421a9"
+    },
+    {
+      "audio_sha256": "976ea99f7f16a56a2f7b0c97efcff4fa80154b461f1faf9beb4d249acb71e1b9",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:eecc7d873ee549fdf6ad",
+      "text_hash": "9224f19e638722550a950fa63b66a5fcb20c11d6c6d50897bdac3f493ef421a9"
+    },
+    {
+      "audio_sha256": "a4c2e004f82fa77fce6fa73565b196bc9d306b6fd77044f815f0b067699af350",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:08513dfaa497128a0181f3acac57b9650ade135b8c1c339e2dc419b0bdda3e59:prompt:ru_0041",
+      "text_hash": "933f70782c8c99fef2dfaa6959e59efd33ea928393e13121cc1936c78d0e3692"
+    },
+    {
+      "audio_sha256": "f2ef396382e232875f8d41f8f2ad710cc25e1a987ff052a8124e78bbdf2506c4",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:f0cfd79e6304fb83b699",
+      "text_hash": "933f70782c8c99fef2dfaa6959e59efd33ea928393e13121cc1936c78d0e3692"
+    },
+    {
+      "audio_sha256": "a7d70480b96bb14a2e4d31d035919097ad3dcc4988ac2c119e64c2df55b45faa",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:050c9752c7f60cee2d0db2ee779ecdcfb93faa48bc7bdf902f873b34270ee291:prompt:ru_0062",
+      "text_hash": "9884e454e22a06ce7ce0ccf6e9a316d0987d5fa6b3d03e00089cf8f3fa931d98"
+    },
+    {
+      "audio_sha256": "5ec3a4e64137562dc00129f3cfdece61b4e98532038eca07835560cb60a05106",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:e10c5ca3e65f1489df76",
+      "text_hash": "9884e454e22a06ce7ce0ccf6e9a316d0987d5fa6b3d03e00089cf8f3fa931d98"
+    },
+    {
+      "audio_sha256": "246f1cef356fe256cd9fc40da36d9db999e3afec895bc58e5e4f004d0b704e35",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:e6266c1e3462c5001eec35edf613553fdfea43a5db1429f069065596af765d45:prompt:ru_0075",
+      "text_hash": "98a460c44832da8b47da1b280091a98abfd6051cff470b77e4d9003aa579c0ac"
+    },
+    {
+      "audio_sha256": "bcccf1639065b205901a5b009fee5796d888eb7c1922610c08e713fc8418e74c",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:17f662a5c09aab1e5d40",
+      "text_hash": "98a460c44832da8b47da1b280091a98abfd6051cff470b77e4d9003aa579c0ac"
+    },
+    {
+      "audio_sha256": "b98746d30a54d28b905e3677557de0322dcdb918b819974f17dd8f5499fbca09",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:b56a191049f9cbcdee5a3d5a6440ff3201dd9c4dff8738502c1cb43a1fc378e9:prompt:ru_0064",
+      "text_hash": "9905646c2970641a4ff60b68e6dded1e563ce70c2d6fef09b99e30bb7db8fa30"
+    },
+    {
+      "audio_sha256": "db498581f4edfa2bfc4934a610778de238b81accced95cc713b909df6142e043",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:c4c731b26af198731e36",
+      "text_hash": "9905646c2970641a4ff60b68e6dded1e563ce70c2d6fef09b99e30bb7db8fa30"
+    },
+    {
+      "audio_sha256": "9fe7fa94eab4989c8ca7368266c1e67eee79e086f71ba73ab96b77d58587aff6",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:40be98dc9d623e8970afa5211364d1ee18349acd5be3dcd1eec28f937bd3a712:prompt:ru_0080",
+      "text_hash": "9927b4d18c75e34f81fcee14802dbe116e6612854e9555c06441beaf3dda9034"
+    },
+    {
+      "audio_sha256": "73984737aa7f978fff1ba8d726f476ebc409581a9932544591d2b8f85584178a",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:8e8384691579b29f4263",
+      "text_hash": "9927b4d18c75e34f81fcee14802dbe116e6612854e9555c06441beaf3dda9034"
+    },
+    {
+      "audio_sha256": "87d0ded0cdeeb0139ebbfa38f3845179fce3b5232cd86d053c261bfff8057e8f",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:753d123cebe3cd8993343f08fb0476dc6cef8dc7ad3540a8eaeeb6032999c309:prompt:ru_0073",
+      "text_hash": "9a173921f0cdb179f2abd90d8c7a2477c3b9e30b1176fb5dfe3aa4b4c3709941"
+    },
+    {
+      "audio_sha256": "386cf0465a0926fbaf0a916d29a17a0f0f6223007bfb46adb7e35bc20e8cbde6",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:f5d9c75a0f868c824bc6",
+      "text_hash": "9a173921f0cdb179f2abd90d8c7a2477c3b9e30b1176fb5dfe3aa4b4c3709941"
+    },
+    {
+      "audio_sha256": "979606c5a654f0771c0616d9187c6cba78abfef907933fdd1f59f88e0b8c3486",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:da4db367d1e24650568ffd9aa416d3d2d4c4bcb9aa78e0146b399570cea258e9:prompt:ru_0035",
+      "text_hash": "9c60ef21d2ee4e019dc70c2d454b1b0f5d1442956e62b4831ec349abe6814441"
+    },
+    {
+      "audio_sha256": "c7f9d25fc82ffcca58adbfc61fe964af9aa4555f27aa9eacd8c5a354b6ad1284",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:c7e3fe4296f3c4f0dc5e",
+      "text_hash": "9c60ef21d2ee4e019dc70c2d454b1b0f5d1442956e62b4831ec349abe6814441"
+    },
+    {
+      "audio_sha256": "190594fa2154a237094001fa65328a7f0ee699db290c3bd3c2caa2d9d0add92d",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:2401aa67fc3a0e4fb2974ba1e6cf6463d9f7c4633924456eed289e939f20f4ce:prompt:ru_0034",
+      "text_hash": "9f67f74f3952768ae15d904ddb769dfa398f0e1ac789f9b6408b1f4bcda65ddf"
+    },
+    {
+      "audio_sha256": "9d63caf2970dc6fe068b56a4fd4e01eb8e9de821298689e99b7a82e8202c3ba0",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:c67d8f470d0fb90d8e22",
+      "text_hash": "9f67f74f3952768ae15d904ddb769dfa398f0e1ac789f9b6408b1f4bcda65ddf"
+    },
+    {
+      "audio_sha256": "5636c9eb35a7825963f401a025a45b11fd79c99badba9a3a8d8aad29ebcfd95d",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:9601d4ea7da204b2e5ede3c48c0e1440f162e3df3798a3e2d9543a122485d646:prompt:ru_0011",
+      "text_hash": "a136a92fa2c422d8607d769be2e121b0e8e9203e87c59d8a4c5f5e58c755ca0d"
+    },
+    {
+      "audio_sha256": "c9ac838d1d676bbf5989fc71d790f6c58e3394d615159454c85b26e8e0eb34af",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:42cad56edbb62f9c9bbb",
+      "text_hash": "a136a92fa2c422d8607d769be2e121b0e8e9203e87c59d8a4c5f5e58c755ca0d"
+    },
+    {
+      "audio_sha256": "d821dfe521b7828cb2a17d830e91b6a99e838902a5bb374527a78e0532842376",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:61d04f2a589aaaf20e01215d00fcba8e56eb3b04581cb38c2302bf93191b4900:prompt:ru_0077",
+      "text_hash": "a31d839d7908e49b34ea47243410d8fbc5f8b1552fa6bb0d32a748617e8c5ac5"
+    },
+    {
+      "audio_sha256": "d82de4937915120529106a35b756e1507cd910cd1de9d2b632b9a1a694f21e5e",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:0d1ffbcb16ada9af6f40",
+      "text_hash": "a31d839d7908e49b34ea47243410d8fbc5f8b1552fa6bb0d32a748617e8c5ac5"
+    },
+    {
+      "audio_sha256": "7987db017a6701a4b6407358c85eb1bfb5b2d4a9831ce6f4846ebafd27128c6a",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:be2a9e4ac96085d60da8ff71289e2605c39bfbcfed560cc217c499359868a01b:prompt:ru_0042",
+      "text_hash": "a3bb152d6847e5ffbcca56059d62004bafe22b46e02f93db6f7a9d9d2db4e788"
+    },
+    {
+      "audio_sha256": "0f7a5520ceae29108ecac11ef6b20423cab0ec484c9732f1b0b8863153e1be37",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:beff52efe893c42514da",
+      "text_hash": "a3bb152d6847e5ffbcca56059d62004bafe22b46e02f93db6f7a9d9d2db4e788"
+    },
+    {
+      "audio_sha256": "8c683a159ab219d2bb328e9ead93f6086cb0e3838178862bccc863df16fd45c9",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:bbd16ff48e566f46ecbe89722ad39761ef094e1e74ac026982c7f020d488b1f6:prompt:ru_0058",
+      "text_hash": "a47ba0dbf58d105aeb3a119fa43b8db0ad29be247612d7b4faeee5f6c97a78cd"
+    },
+    {
+      "audio_sha256": "c9a08ca727ad6f0dcab283a8fc5c9fbefdcd27436b30534cbac4c324793fda31",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:bc1fc828d1ab15feaa9c",
+      "text_hash": "a47ba0dbf58d105aeb3a119fa43b8db0ad29be247612d7b4faeee5f6c97a78cd"
+    },
+    {
+      "audio_sha256": "69311477a193a1770a3c99f99bf05b310c72cf645002145f33a3707b0e200d61",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:5dc3992191d83e7f5cd16fc45d752c072b2598fee2e87da566556941425394df:prompt:ru_0060",
+      "text_hash": "ac182ebe981e0bcca10e52fe3206cb47332dd50cb53ad51251c055e8abe58739"
+    },
+    {
+      "audio_sha256": "045bb34f44cb8c060eae959789d3e2083b1bff09d9cbb8bffd32249fcaf1c979",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:bbc1693d420261b63c63",
+      "text_hash": "ac182ebe981e0bcca10e52fe3206cb47332dd50cb53ad51251c055e8abe58739"
+    },
+    {
+      "audio_sha256": "46f766dcd15d34fa6c889f55fc436c81d5a947d31486925eddabb7d64c309597",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:f563558ffe0d01a1ca03ca0fad5fb8f2e89a7872e0a2821e3ac9336b37b5f7c9:prompt:ru_0095",
+      "text_hash": "ad9886d653ff552c0c88cd48f4b3b65d03650f845a21b346dc7a07953a3dd4be"
+    },
+    {
+      "audio_sha256": "a201080f81b438ef34f016d93c0f48d475f8b96bad2d41f4c0feeb178eef9fcd",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:a43b15b29d340a0cd53a",
+      "text_hash": "ad9886d653ff552c0c88cd48f4b3b65d03650f845a21b346dc7a07953a3dd4be"
+    },
+    {
+      "audio_sha256": "87480f913700d703daa043f63e6a30384163bc6757dd86c37d7c7cbf109e5aef",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:968fe74efce3bdbca95224d4d6813dff364824ad1881df07d3023bb91ff18320:prompt:ru_0079",
+      "text_hash": "b90c10d1a2fb9d483fd33f9a6c2b4b6afc3972f1d335f97c1c9400968317baa7"
+    },
+    {
+      "audio_sha256": "aff381886e8ea4f8cd927904ce761330fd94c780602246e6fc1f02d239a23c1b",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:716d5105922079585065",
+      "text_hash": "b90c10d1a2fb9d483fd33f9a6c2b4b6afc3972f1d335f97c1c9400968317baa7"
+    },
+    {
+      "audio_sha256": "8b4c01fdab18823e71212de7248fdc04203681d33b7809fa30a1d45accdb2f12",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:a168ed3ff87fbbdfab3187250014e8e61b8a7ba4814722f3aea95539ca9fcf21:prompt:ru_0008",
+      "text_hash": "badaef8270a22d017c41d4d66a44e6b18b2d65f8c613d51b93845ffcaedb246b"
+    },
+    {
+      "audio_sha256": "840bcdd35d9594130656a2cef80172689caeaf42d1a959a4d0d1c8999382d450",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:bedf22bee2a7b0599364",
+      "text_hash": "badaef8270a22d017c41d4d66a44e6b18b2d65f8c613d51b93845ffcaedb246b"
+    },
+    {
+      "audio_sha256": "f63e49d5ec6d9d677885839dd708a91ccd7fc11191288824b106c6a2854ae556",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:012c656f9989e18237158ad3c3072bec8ada151b95310a07ee52c4308a0ca9e5:prompt:ru_0055",
+      "text_hash": "bbbca0513088b2174fb5c5374785740ccc8a98fd72162bc95e993716f8bc272d"
+    },
+    {
+      "audio_sha256": "05ed9453f0eca290e8a9ec6fcdac774a9ef8962c29aa10a55c9c12d89fe8c955",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:8e29ae82cafb079bfeb8",
+      "text_hash": "bbbca0513088b2174fb5c5374785740ccc8a98fd72162bc95e993716f8bc272d"
+    },
+    {
+      "audio_sha256": "73a2fa4092a767c88d6e1590decf5a15d4d6efc2d787a5cc5632c25579a0325e",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:b01e7858766bf2c9888eb323329343b1a8bc16285630379ac099d49299063c31:prompt:ru_0099",
+      "text_hash": "bfa4ce54fc99232f374cf7059b6005b5ac19d6ab2b4bb7d1145f90d9f6ba45f5"
+    },
+    {
+      "audio_sha256": "53983a3997ef9e308f43f191b92d4e1a3355b5980e84c0bed695695f270f8909",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:41e60fac2f163a4d376f",
+      "text_hash": "bfa4ce54fc99232f374cf7059b6005b5ac19d6ab2b4bb7d1145f90d9f6ba45f5"
+    },
+    {
+      "audio_sha256": "7d5203e2d2376021c3936a74cada86de23ab380533fcdbc5c0e52b1643a0777a",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:447445decd771fa02e7c1a367f99cd715c0a81c492cd5093b8b88dd7a3452bc5:prompt:ru_0054",
+      "text_hash": "c00912f52abe2516888b66043d4dcc12f4b77010356a3b895aca698dfae61ccd"
+    },
+    {
+      "audio_sha256": "373ef83b5a40602fc32b7ffd1fe439a0088d60c1dd996599958feb7700709386",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:3cb7361e2d0051486990",
+      "text_hash": "c00912f52abe2516888b66043d4dcc12f4b77010356a3b895aca698dfae61ccd"
+    },
+    {
+      "audio_sha256": "c09dbf2498eaa1f2aae70360ffd81f2fed172cd7695ce27fd031a1b52ebfc2a4",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:0928c279e177a1fd26d4a3fdcb1c59d3227baa586300503abbbb297b14b2b22f:prompt:ru_0003",
+      "text_hash": "c5f55670a9a2005d49008231c56b28d65fb15813530fe4dc549f3af0f535a727"
+    },
+    {
+      "audio_sha256": "e47cbb6df4412dab39335b71e2b2a09e1efa27dc3d5563d27b34b0baafde7436",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:8d5c5906b80bdb98e8fd",
+      "text_hash": "c5f55670a9a2005d49008231c56b28d65fb15813530fe4dc549f3af0f535a727"
+    },
+    {
+      "audio_sha256": "eeaf196045a32226eaadeebaa78c99b13eabbee7b23b08cbe6f313588dc4b741",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:1c9f86fb5c2c48ca091a52282089866bde85fb4f9bc24ea5c18894c321856dc5:prompt:ru_0032",
+      "text_hash": "c7f27a664bf689206a491808c99d548552fc5c0bfe2fabc6971e653728102da3"
+    },
+    {
+      "audio_sha256": "8f7161c1f37951337807a3a2ca29d16c43a784bc719803c5b3586e535aa657bb",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:d81e7c7ac0ceffc19240",
+      "text_hash": "c7f27a664bf689206a491808c99d548552fc5c0bfe2fabc6971e653728102da3"
+    },
+    {
+      "audio_sha256": "fc83b33cf26a80364dac98c00acae5698e8217f4e54c59f2ca01d08059d75b59",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:4353dd43ee744b98a307f5fb7e19b6514763d864e8c3e18550d08eef77ea678a:prompt:ru_0056",
+      "text_hash": "c96d675335a5b527fbf3a73b6359dfff16f9cb665ce43f6918f01e1b85c615c8"
+    },
+    {
+      "audio_sha256": "4746066526a7eee1642643e7012696a5a8f260f8d3cd993c234980022aee5c4f",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:c8ab44bd8651b2e8d61d",
+      "text_hash": "c96d675335a5b527fbf3a73b6359dfff16f9cb665ce43f6918f01e1b85c615c8"
+    },
+    {
+      "audio_sha256": "63d5aa2469687c16ec92614c41fe4b19e28e09352c5bb7c229ccccc602ae38b9",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:35cfa88a1ce303994e63e0dd6fe476f920451556d272fb5f150ca58d87ee5ac2:prompt:ru_0051",
+      "text_hash": "cc903ab7c86b5c8213bf37d0de4373f2577fb1d119678409b25dc2d984901c0b"
+    },
+    {
+      "audio_sha256": "24ca7b69ecf0c5677f0053af0a110003b0835fa043e97069e0773f1432e67f66",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:cbfcf502482392d16214",
+      "text_hash": "cc903ab7c86b5c8213bf37d0de4373f2577fb1d119678409b25dc2d984901c0b"
+    },
+    {
+      "audio_sha256": "cefeab9ea7e0d609bb2007221ed3f156054477509b5de7005162bcdd7032103d",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:54bad2a506840e4315b603601d6baa74c97b926a6d527ec9fcedb94135161a1d:prompt:ru_0033",
+      "text_hash": "cee5a0689f271ea4ac1cf2d8575afaf53f78349df198a662788902b7560ba442"
+    },
+    {
+      "audio_sha256": "f6bbe29e79be5db1f855a43b1533a861b534de5418aa0532b99350c3087ac23a",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:622ad9cf714400089e68",
+      "text_hash": "cee5a0689f271ea4ac1cf2d8575afaf53f78349df198a662788902b7560ba442"
+    },
+    {
+      "audio_sha256": "584f5c06e64593586947ba8ba9935e8f6f8bd88a8b52cb19e0f4d554e865070d",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:3f0b4f0e054eaf4cd0d62e19797fe0b97cd0c5a18fafc3aaa5a241a8b2f7cce7:prompt:ru_0070",
+      "text_hash": "d6b672f415b9cc11b195a7d417c851f06b0fd412fce28a0584b25110103eacf0"
+    },
+    {
+      "audio_sha256": "a3a2b4f53824897562c3f9b080d19f78f384e28a5c8908f5c83935f82b3f05d2",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:de4d6ef8ca2777afdeb9",
+      "text_hash": "d6b672f415b9cc11b195a7d417c851f06b0fd412fce28a0584b25110103eacf0"
+    },
+    {
+      "audio_sha256": "c4c6fc91951cf1e2ba72c9162f0b1193090c4b108fbc9516f4fd2bcb09ee0315",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:d589fff06806c7b5dbe8029c084717986e0252cf0b86acb5c452aff3dda44de7:prompt:ru_0046",
+      "text_hash": "d907bc6aeb680a814d75e55ca0378b8581d34167213cad72449dd255f2c6ea75"
+    },
+    {
+      "audio_sha256": "8b977ad236a86a00c59f4bc35e98088c2b1d5443d37825717b9de504c3335e65",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:b77a389dca24388de7ec",
+      "text_hash": "d907bc6aeb680a814d75e55ca0378b8581d34167213cad72449dd255f2c6ea75"
+    },
+    {
+      "audio_sha256": "ac0bda53b24d76705b0d1acd0f2b5b79fa59c3c85b95601512678f6a6c3725f0",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:1ef932968fb7baca3a6d0a2a4b45938c561097615237f349d93b3156a1c16a2a:prompt:ru_0027",
+      "text_hash": "da308253aab90d5d753f1beacee0625a501ccae6a70e10fee426a2e475866a14"
+    },
+    {
+      "audio_sha256": "bb5c5b111db3d8fd20ccaa116c577de49fccca6b0ec6dc45ad974ceb24a64188",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:389e8bcaa6a6ccff700e",
+      "text_hash": "da308253aab90d5d753f1beacee0625a501ccae6a70e10fee426a2e475866a14"
+    },
+    {
+      "audio_sha256": "a4a3c0ce0eacf9a99ee84b8649aed100a149865908ca048869e05048b0592627",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:0602a309c0842a7526c6762629bb2bf2523f99b8d6ab053b117e86767c636343:prompt:ru_0052",
+      "text_hash": "e2259b7007fef6c3106e0bd6395cedd4c1c086912fa7a17f2ce3637ba0744990"
+    },
+    {
+      "audio_sha256": "69d784ba4c487a7c377f69b386bbf93a943b34264864c1547dbc3128ff97594b",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:82a941a530ece15bf27a",
+      "text_hash": "e2259b7007fef6c3106e0bd6395cedd4c1c086912fa7a17f2ce3637ba0744990"
+    },
+    {
+      "audio_sha256": "0aae0dd1f2ae2a8421585fe6613248f78d2655e3044b969b9c58d8c5d7288a8b",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:e1aec09bd93b0d29a93e5c62613caa41f36bdcf6dfe2d281c2d691750c92ec9b:prompt:ru_0039",
+      "text_hash": "e3f838634e87143f549b2154f71221981e44d036ce601a2faf7090e2dcf3b790"
+    },
+    {
+      "audio_sha256": "16cde57ee29fc8fa21b9838c47377c439d9a417a7175421234871954cb878672",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:b5a773c342afb2b9d5b9",
+      "text_hash": "e3f838634e87143f549b2154f71221981e44d036ce601a2faf7090e2dcf3b790"
+    },
+    {
+      "audio_sha256": "5b28d77d8cec294f6ed49f32c44250b0b4b5fe96d35f2b41d1daca3d6d8537c6",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:10ec653bebd3d160d2fb6d9b562f86500a68b9d2fa5404ef0ce3a8bf9b345c39:prompt:ru_0012",
+      "text_hash": "e501926c02370e6202a91c78153cc9e8ce0c6ac7887d04404834a0264f93221d"
+    },
+    {
+      "audio_sha256": "6d419a11ac161a6f2ee857d604b574e2e46b526ea51d12d4b3c7eef5998e9ad9",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:08e42b89c2fc22cefafa",
+      "text_hash": "e501926c02370e6202a91c78153cc9e8ce0c6ac7887d04404834a0264f93221d"
+    },
+    {
+      "audio_sha256": "f0384ff859d8758de6ce6c41ba518b85471e4ad3257269db83e2ad506a2249bd",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:710bef541f16f784febe6d68e47514b6aaebe5d1b234022997d0ee1aa195984b:prompt:ru_0074",
+      "text_hash": "e7248db87c91831fcc43bf245ca2f16e591b8e859ed71d95e910a0457e47bacf"
+    },
+    {
+      "audio_sha256": "1e5121008d25e57e5947fbe3db5593de4302439a7602325e27ce60a69bd2fbe8",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:89bb1cb02a67a288ab62",
+      "text_hash": "e7248db87c91831fcc43bf245ca2f16e591b8e859ed71d95e910a0457e47bacf"
+    },
+    {
+      "audio_sha256": "6f326dd1e489c5a8623f3e525f9b6084dfcc529a339fa5fa7d3f0bfb5808f103",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:337a397c2d60a372991c15d66525f1fa17037275dd14ac148ca4cbd2db9ac351:prompt:ru_0001",
+      "text_hash": "e7dab8ad7b1ad1813e718b208879e8268ad9376e6f6fddef9d258a5af02107f2"
+    },
+    {
+      "audio_sha256": "f8d3118daef7f5f42773e7bc26a0461df599874c052999eafcdd019b0b7bcfda",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:af6979d1d43baf851320",
+      "text_hash": "e7dab8ad7b1ad1813e718b208879e8268ad9376e6f6fddef9d258a5af02107f2"
+    },
+    {
+      "audio_sha256": "1bc61674638ad81e0fdf8232260e4bfc6d4cf1668216cb062a51ad02f279fe9d",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:5f8048d6f8577cbbba3b2bd243cecdac7031b4b28c08fe63ce674f1629d2735c:prompt:ru_0006",
+      "text_hash": "f032ace3e5930871ca9b71ec3f175f23bada28e3dcf41f4414b99b2229d9d380"
+    },
+    {
+      "audio_sha256": "c5d11737d28684dc456598474e843d63053f76959d7364ea617c4f5e38f33834",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:1d5320aacd2560d5bf8a",
+      "text_hash": "f032ace3e5930871ca9b71ec3f175f23bada28e3dcf41f4414b99b2229d9d380"
+    },
+    {
+      "audio_sha256": "482a890914c9d3e634efba840c82a4f14e8ae226eb6da0507a96fc6329e8ea36",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:8b0267fd7d42c2f4aae11b3debd11f7b595030966192fc8fdbb331915dd47af5:prompt:ru_0016",
+      "text_hash": "f2c3126412f64494c9edf7e3128d71c0cd4e225ec005f3fad3b76756e561bd47"
+    },
+    {
+      "audio_sha256": "b31b6eb3edef345d6636365d9c4ae3ce0563f18071873b6389443cceaede745f",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:ee1ed772bd6c6b3371ae",
+      "text_hash": "f2c3126412f64494c9edf7e3128d71c0cd4e225ec005f3fad3b76756e561bd47"
+    },
+    {
+      "audio_sha256": "f6361bd2446aa2f4cfcfa0810816bf28bd37de5e277472337809a308d8688c4d",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:f3c627400d8bcc3e71ca47876c34dee6c8af84f5b6e7987861dc3243abf9dc32:prompt:ru_0005",
+      "text_hash": "f8799fd853a9313a976569882abab1a17617918d46fb9cd8a0850e28118957d4"
+    },
+    {
+      "audio_sha256": "65541b3ddc1385d4d5ade1efd79028e2601b41c1443ddd518892950f58c16423",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:41477972f5ea644635ab",
+      "text_hash": "f8799fd853a9313a976569882abab1a17617918d46fb9cd8a0850e28118957d4"
+    },
+    {
+      "audio_sha256": "49eb9ca4ab7baff5a1d5ab52621d13af92780cfccfcf565614327f2a16ce8f93",
+      "decision": "pass",
+      "label": "bonafide",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_2026_05:submission:7b7cab5c4a0b8bae0f4c6b2917e91114dca074f2373a28acd48dff92bae5f74d:prompt:ru_0087",
+      "text_hash": "ff5fa09d83d28397669ab1932464a7066485643014a14c3575ef957b496f0bf1"
+    },
+    {
+      "audio_sha256": "f444cbefd9d94294a23a96ef5fbf880f8d15d67515bb60808ed3cf113c5d8e3d",
+      "decision": "pass",
+      "label": "spoof",
+      "review_count": 2,
+      "reviewers": [
+        "reviewer_1",
+        "reviewer_2"
+      ],
+      "sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:acb55cb3ca55324cbea2",
+      "text_hash": "ff5fa09d83d28397669ab1932464a7066485643014a14c3575ef957b496f0bf1"
+    }
+  ],
+  "decision_counts": {
+    "pass": 158
+  },
+  "detector_inference_performed": false,
+  "evaluation_contract_authorized": true,
+  "limitations": [
+    "The gate confirms only intelligibility, Russian audibility, literal-content preservation and absence of severe artifacts for these pinned WAVs.",
+    "Distinct reviewer pseudo-IDs are a technical minimum, not proof of organizational independence, architecture-family novelty, calibration or product quality."
+  ],
+  "packet": {
+    "assets": 158,
+    "pairs": 79,
+    "path": "data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_acoustic_packet_v1.csv",
+    "sha256": "59e6a83a9866412c12d3daf0d235d990e43548ef07c32eb2dd25baf5d5e3c3dc"
+  },
+  "protocol_id": "voxforge-ru-mdc-qwen3-tts-customvoice-aiden-pre-qa-acoustic-gate-v1",
+  "review_files": [
+    {
+      "path": "data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_acoustic_review_reviewer_a_v1.csv",
+      "reviewer_pseudo_id": "reviewer_1",
+      "rows": 158,
+      "sha256": "9f07f7eaf1f5bd19e0345fd08218b3a218cfaa07342cee642e013d7f31bf490e"
+    },
+    {
+      "path": "data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_acoustic_review_reviewer_b_v1.csv",
+      "reviewer_pseudo_id": "reviewer_2",
+      "rows": 158,
+      "sha256": "559d60e6a04f21f7b2db7d8f582d92812e9e96a538e737e7537d4b5e102ef116"
+    }
+  ],
+  "review_rows": 316,
+  "schema_version": 1
+}

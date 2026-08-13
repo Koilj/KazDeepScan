@@ -1,7 +1,8 @@
 # VoxForge RU / Qwen3-TTS CustomVoice `aiden` — literal-text binding v1
 
-**Статус:** completed write-once text binding. The downstream one-shot synthesis and technical QA
-are complete; pairing, acoustic review and detector inference are still prohibited.
+**Статус:** completed write-once text binding. The downstream one-shot synthesis, technical QA,
+exact pairing and `158/158` acoustic review gate are complete; detector inference has not been
+performed.
 
 ## Immutable inputs
 
@@ -17,5 +18,8 @@ The [non-candidate CUDA smoke](voxforge_ru_mdc_qwen3_tts_customvoice_cuda_smoke_
 one-shot [synthesis receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_synthesis_v1.md) and
 its [technical QA receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_technical_qa_v1.md) now
 account for all `79` bound rows, and the [exact pair lock](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_pairing_v1.md)
-now contains `79` pairs. No regeneration, replacement or backfill is permitted. The next separate
-gate is full acoustic/language review.
+contains `79` pairs. The subsequent
+[two-review gate](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md) passed all
+`158` exact assets. No regeneration, replacement or backfill is permitted. The next mandatory
+steps are a current project-exposure audit and a separate immutable evaluation contract before
+detector inference.

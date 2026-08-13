@@ -1,7 +1,8 @@
 # VoxForge RU / Qwen3-TTS CustomVoice `aiden` — pre-QA synthesis v1
 
-**Статус:** completed one-shot raw synthetic layer; normal technical QA has also completed.
-Pairing, full acoustic/language review and detector inference remain prohibited.
+**Статус:** completed one-shot raw synthetic layer; normal technical QA, exact pairing and the
+subsequent `158/158` two-review acoustic/language gate have completed. Detector inference has not
+been performed.
 
 ## Входы и зафиксированный route
 
@@ -36,7 +37,8 @@ are not added to Git.
 
 ## Следующий безопасный шаг
 
-Normal technical QA retained all `79` rows and the exact `79`-pair lock is now published in the
-[pairing receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_pairing_v1.md). No row may be
-resynthesized, replaced or backfilled; full two-review acoustic/language review must now pass
-before detector inference can be considered.
+Normal technical QA retained all `79` rows, the exact `79`-pair lock was published, and the
+subsequent [two-review gate](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md)
+passed every exact asset. No row may be resynthesized, replaced or backfilled. A current
+project-exposure audit and a separate immutable evaluation contract are still required before any
+detector inference can be considered.

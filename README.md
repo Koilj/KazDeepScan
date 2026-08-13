@@ -415,7 +415,11 @@ transcript, lexical rewrite или reselection; два `signal_too_quiet` reject
 Non-candidate CUDA smoke подтвердил 24 kHz mono output fixed Qwen route. One-shot synthesis затем
 сохранил `79/79` unique 24 kHz mono fixed-`aiden` WAV (`0` failures), а normal decode/quality/VAD
 QA сохранил `79/79` mono 16 kHz PCM-16 ready spoof assets (`0` rejects, no replacement/backfill),
-после чего immutable lock зафиксировал `79` exact text-matched pairs / `158` assets. Полный
-two-review acoustic/language packet и две pending формы также versioned, но ещё не заполнены.
-Это всё ещё не Russian-native/speaker claim и не detector inference; следующий ручной gate описан
-в [VoxForge Qwen acoustic-gate packet](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md).
+после чего immutable lock зафиксировал `79` exact text-matched pairs / `158` assets. Две
+independent full-asset формы затем прошли fail-closed acoustic/language gate: `158/158` exact WAV
+получили по два решения `pass/yes/yes/yes/yes`. Это exact-byte acoustic evidence, а не
+Russian-native/speaker/organizational-independence claim и не detector inference. Completed gate и
+его ограничения описаны в
+[VoxForge Qwen acoustic-gate receipt](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md);
+следующий безопасный этап — новый project-exposure audit и отдельный immutable evaluation
+contract.

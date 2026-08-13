@@ -157,9 +157,12 @@ test; результаты не source-, speaker- или architecture-family-ind
   24 kHz mono raw WAVs with `0` failed attempts; technical decode/quality/WebRTC-VAD QA retained
   `79/79` 16 kHz mono PCM-16 ready spoof rows with `0` rejects, reuse, resynthesis, replacement or
   backfill. Exact text-hash/text-ID pairing then froze `79` pairs / `158` assets without metric
-  selection. The immutable full `158`-asset acoustic/language packet and two empty review forms
-  are published, but the independent reviews are not yet complete; detector inference remains
-  prohibited.
+  selection. The immutable full `158`-asset acoustic/language packet and two completed forms then
+  passed the fail-closed gate: `158/158` assets have two `pass/yes/yes/yes/yes` decisions from
+  distinct pseudonymous reviewer IDs. Report SHA-256
+  `bf7a6d84c7ecb71462c128b70f68d8f939ebece916fc11e87c6b9ac8afd26029`; it confirms only
+  exact-byte acoustic/language criteria and records no detector inference. A current
+  project-exposure audit and separate immutable evaluation contract are still required.
   UtrobinTTS remains rejected: `76` historical spoof rows carry its unversioned identifier.
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
@@ -228,11 +231,11 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
    повторять его, не менять candidate/reviews/checkpoint/calibration/boundary and не использовать
    final errors для tuning. Старые 55 Stage-D/v3 пар, 73-row selection и их rejections нельзя
    переиспользовать как «новый blind» тест.
-3. Для VoxForge RU создать ровно один Qwen3-TTS CustomVoice / `aiden` WAV per `79` bound text и
-   выполнить technical synthetic QA; два source rejects не заменять и не backfill. Failed
-   synthesis/QA rows также не regenerate. До отдельных pair, full acoustic/language review и
-   immutable evaluation receipts не запускать detector; UtrobinTTS нельзя использовать как
-   backfill.
+3. Для VoxForge RU не менять `79` exact pairs, completed forms или gate report и не выполнять
+   resynthesis/replacement/backfill. Провести новый project-exposure audit против всех текущих
+   research contracts/manifests; только при нулевом overlap подготовить отдельный immutable
+   evaluation contract и no-logit preflight. До них detector не запускать; UtrobinTTS нельзя
+   использовать как backfill.
 4. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 

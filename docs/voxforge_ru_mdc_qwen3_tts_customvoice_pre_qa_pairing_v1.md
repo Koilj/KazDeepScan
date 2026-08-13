@@ -1,7 +1,7 @@
 # VoxForge RU / Qwen3-TTS CustomVoice `aiden` — immutable pairing v1
 
-**Статус:** completed exact binary pair lock. Full acoustic/language review and detector inference
-have not been performed.
+**Статус:** completed exact binary pair lock. The subsequent two-review acoustic/language gate
+passed all `158/158` assets; detector inference has not been performed.
 
 ## Pairing rule
 
@@ -35,7 +35,8 @@ no Russian-native, speaker identity, group or architecture-independence claim.
 
 ## Следующий безопасный шаг
 
-Publish a blind full-asset packet and two independent `158`-asset acoustic/language review forms.
-Each reviewer must judge the actual retained bytes. Any review rejection must exclude that exact
-pair without a new synthesis, replacement or backfill. Detector inference remains prohibited until
-the completed two-review gate is separately bound into an immutable evaluation contract.
+The full packet and two independent `158`-asset forms are now completed and bound by the
+[acoustic-gate receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md). The next
+safe step is a current project-exposure audit followed, only if clean, by a separate immutable
+evaluation contract. Detector inference remains prohibited until that contract and its no-logit
+preflight pass.

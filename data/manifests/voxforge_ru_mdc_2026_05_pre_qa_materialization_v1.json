@@ -1,0 +1,64 @@
+{
+  "archive": {
+    "expected_sha256": "7372c6f8d067b8d1651995ad8306b673acaf2cde705ee51295152b96c93de557",
+    "expected_size_bytes": 3795197539,
+    "identity_verified_before_metadata_read_and_extraction": true
+  },
+  "candidate_state": "frozen bona-fide extraction and technical decode/QA/VAD only",
+  "claims": {
+    "acoustic_review_performed": false,
+    "audio_extraction_performed": true,
+    "detector_inference_authorized": false,
+    "detector_inference_performed": false,
+    "future_synthesis_must_use_only_ready_frozen_texts": true,
+    "pairing_performed": false,
+    "synthetic_audio_generated": false,
+    "technical_decode_qa_vad_performed": true
+  },
+  "materialized_at": "2026-08-13T18:13:54Z",
+  "outputs": {
+    "raw_manifest": {
+      "path": "data/manifests/voxforge_ru_mdc_2026_05_pre_qa_raw_v1.csv",
+      "rows": 81,
+      "sha256": "be370c3018825f54daa54a641a387f2037cd699d3037a34da00704f713ca69be"
+    },
+    "ready_manifest": {
+      "path": "data/manifests/voxforge_ru_mdc_2026_05_pre_qa_ready_v1.csv",
+      "rows": 79,
+      "sha256": "001eba24021673327a17b7fc94418b334c902007cdee507ddba6a17a06f660e4"
+    }
+  },
+  "protocol_id": "voxforge-ru-mdc-pre-qa-materialization-v1",
+  "schema_version": 1,
+  "selection": {
+    "csv": {
+      "path": "data/manifests/voxforge_ru_mdc_2026_05_pre_qa_selection_v1.csv",
+      "rows": 81,
+      "sha256": "d181e24b290ee66cfc190a935b8d23132548306a17e3db1814b778d667202fb9"
+    },
+    "one_record_per_prompt_text_and_contributor_group": true,
+    "post_selection_backfill": false,
+    "receipt": {
+      "path": "data/manifests/voxforge_ru_mdc_2026_05_pre_qa_selection_v1.json",
+      "sha256": "18dc659ce30a6eaec03cdc27b74e709e066d556b142b063fc2a48b7c4fc1224f"
+    }
+  },
+  "technical_qa": {
+    "pipeline": "AudioPreparationPipeline: decode, mono PCM WAV 16 kHz, quality checks, WebRTC VAD",
+    "raw_rows": 81,
+    "ready_rows": 79,
+    "rejected_rows": [
+      {
+        "detail": "Audio is not trainable: rejected_quality (signal_too_quiet).",
+        "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_v1/voxforge_ru_061.wav",
+        "sample_id": "voxforge_ru_mdc_2026_05:submission:0fd9bff8a812c9e9db78055221739ec7f180dd4070d70429d2ba879d4e114b0a:prompt:ru_0089"
+      },
+      {
+        "detail": "Audio is not trainable: rejected_quality (signal_too_quiet).",
+        "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_v1/voxforge_ru_070.wav",
+        "sample_id": "voxforge_ru_mdc_2026_05:submission:2697e3a36b472bbe3eeed58ee26682e1801c7dded6b3341b9e3234d947e7c76a:prompt:ru_0076"
+      }
+    ],
+    "replacement_or_backfill": false
+  }
+}

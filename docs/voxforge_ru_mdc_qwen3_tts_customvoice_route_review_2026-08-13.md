@@ -53,8 +53,7 @@ The previously rejected UtrobinTTS route remains rejected and cannot be used as 
 
 ## Следующий безопасный шаг
 
-Resolve only the already frozen `81` pseudonymous VoxForge selections against the byte-pinned
-archive, extract those WAVs outside Git and perform source-asset/technical decode/QA/VAD with
-accounted rejects and no replacement. Then bind the same literal texts for exactly one synthesis
-per ready row. Pairing, acoustic review and detector inference stay prohibited until their own
-immutable receipts pass.
+The already frozen `81` pseudonymous selections have now been materialized from the byte-pinned
+archive and technical QA retained `79`; two quiet rejects are accounted with no replacement. Bind
+only the `79` ready literal source texts before exactly one synthesis per row. Pairing, acoustic
+review and detector inference stay prohibited until their own immutable receipts pass.

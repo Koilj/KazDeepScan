@@ -98,6 +98,8 @@ manifest, synthetic audio, model logit or metric; the subsequent selection remai
 Raw archive and WAV stay outside Git.
 
 The first separate exact spoof-route review remains rejected because `76` historical spoof rows
-use the same unversioned UtrobinTTS model identifier. The accepted Qwen route now authorizes only
-selection-bound WAV materialization and technical QA. It still cannot authorize pairing, acoustic
-review, detector inference, training, calibration or product use.
+use the same unversioned UtrobinTTS model identifier. The accepted Qwen route authorized the
+completed frozen 81-WAV materialization: technical QA retained `79` and recorded two quiet rejects
+without replacement; see the [materialization receipt](voxforge_ru_mdc_pre_qa_materialization_v1.md).
+It still cannot authorize synthetic pairing, acoustic review, detector inference, training,
+calibration or product use.

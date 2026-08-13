@@ -149,9 +149,10 @@ test; результаты не source-, speaker- или architecture-family-ind
   Q8_0 / fixed `aiden` теперь принят как exact text-only route: six locked files
   (`1,610,363,823` bytes), local CUDA runtime health и audit `59` manifests / `18,764` spoof
   rows дали `0` exact, legacy-identifier и `aiden` alias overlap. `aiden` documented as English,
-  so no Russian-native, speaker- or architecture-independence claim; no VoxForge WAV extraction,
-  synthesis or detector inference yet. UtrobinTTS remains rejected: `76` historical spoof rows
-  carry its unversioned identifier.
+  so no Russian-native, speaker- or architecture-independence claim. The one frozen 81-WAV
+  VoxForge materialization then passed archive rebinding and technical decode/QA/VAD: `79` ready,
+  `2` `signal_too_quiet` rejects, no replacement. No synthesis, pairing or detector inference
+  yet. UtrobinTTS remains rejected: `76` historical spoof rows carry its unversioned identifier.
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
 ## Актуальные результаты
@@ -219,11 +220,11 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
    повторять его, не менять candidate/reviews/checkpoint/calibration/boundary and не использовать
    final errors для tuning. Старые 55 Stage-D/v3 пар, 73-row selection и их rejections нельзя
    переиспользовать как «новый blind» тест.
-3. Для VoxForge RU materialize только уже frozen `81` selection из byte-pinned archive, выполнить
-   source-asset/technical decode/QA/VAD с accounted rejects и без replacement, затем separately
-   bind literal text для one-shot Qwen3-TTS CustomVoice / `aiden` synthesis. До отдельных pair,
-   full acoustic/language review и immutable evaluation receipts не запускать detector; UtrobinTTS
-   нельзя использовать как backfill.
+3. Для VoxForge RU создать separate immutable literal-text binding ровно для `79` ready rows;
+   два `signal_too_quiet` rejects не заменять и не backfill. Затем разрешён exactly one Qwen3-TTS
+   CustomVoice / `aiden` synthesis per bound text. До отдельных pair, full acoustic/language
+   review и immutable evaluation receipts не запускать detector; UtrobinTTS нельзя использовать
+   как backfill.
 4. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 
@@ -277,6 +278,7 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [VoxForge Russian pre-extraction exposure screen](data/manifests/voxforge_ru_mdc_2026_05_metadata_exposure_screen_v1.json)
 - [VoxForge Russian frozen pre-QA selection](docs/voxforge_ru_mdc_pre_qa_selection_v1.md)
 - [VoxForge Russian accepted Qwen3-TTS CustomVoice route](docs/voxforge_ru_mdc_qwen3_tts_customvoice_route_review_2026-08-13.md)
+- [VoxForge Russian pre-QA materialization](docs/voxforge_ru_mdc_pre_qa_materialization_v1.md)
 - [VoxForge Russian rejected UtrobinTTS route review](docs/voxforge_ru_mdc_utrobinmv_vits_route_review_2026-08-13.md)
 - [Silero V5.5 RU / eugene route intake](docs/silero_v5_5_ru_eugene_intake_2026-08-13.md)
 - [Common Voice RU full-test metadata exposure screen](data/manifests/common_voice_ru_v24_full_test_metadata_exposure_screen_v1.json)

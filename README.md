@@ -62,10 +62,17 @@ checkpoint и строго ограниченный evaluation-контур:
   формы прошли до inference (`167/167` exact synthetic WAV); затем ровно один Stage-C GPU run
   оценил 50 RU, 60 KK и 57 mixed pairs. Это asset-level-blind research evidence, не source- или
   speaker-independent result; повтор run и tuning по его final errors запрещены;
-- для следующего Stage-D RU слоя подготовлен 73-row Common Voice bona-fide candidate без model
-  output. Он прошёл configured-role exposure audit, но пока не имеет допустимого нового spoof
-  counterpart: Russian Piper и MMS уже представлены в historical RuASD roles, поэтому synthesis
-  и inference не разрешены;
+- отдельный Stage-D RU слой завершён строго по frozen Common Voice v24 текстам: новый exact
+  checkpoint/runtime route Dialogs-RU VITS2, fixed `Masha`/`neutral`, прошёл rights/artifact и
+  route-exposure lock. Это только personal-research route: model repository не содержит
+  отдельного `LICENSE`, поэтому OpenRAIL declaration и dataset license не являются broad
+  commercial clearance. Generic historical `vits2TTS` не позволяет заявлять architecture-family
+  novelty;
+- Stage D создал ровно 73 synthetic WAV без замены текстов; technical QA оставил 55 binary pairs
+  и отклонил 18 пар как `insufficient_speech` без resynthesis/backfill. Две независимые
+  full-asset review формы прошли для всех 110 exact assets до inference; затем immutable plan
+  выполнил ровно один GPU run. Это отдельный RU result, не source-, speaker- или
+  architecture-independent evidence; повтор run и tuning по его ошибкам запрещены;
 - explicit source-mixed research matrix и B0 runner, который не допускает overlap исходных
   corpus между train/dev/final-test и проверяет обычный sample/SHA-256/group/text leakage поверх
   этого;
@@ -96,6 +103,12 @@ epoch 5 по fresh PyAra dev loss `0.17405`, accuracy `0.9216` и balanced accur
 KSC2/Silero exploratory stress-test проведён с write-once plan и без calibration/threshold
 selection; это не final quality. Полный pair-level report —
 [здесь](docs/research_xlsr_sls_stage_b_ksc2_mixed_exploratory_30.md).
+
+Отдельный Stage-D Dialogs-RU VITS2 / Masha-neutral layer дал balanced accuracy `0.9727`
+(`107/110`; 55 exact pairs), bona-fide recall `0.9455` и spoof recall `1.0000`. Это один
+предварительно зафиксированный RU research run с fixed boundary `0.5`, а не основание для
+подстройки v2/v3. Полный rights, QA, review и inference receipt —
+[Stage D Dialogs-RU](docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md).
 
 ## Требования
 
@@ -263,6 +276,11 @@ uv run python scripts/evaluate_xlsr_fresh_suite_stage_c.py \
 # --validate-only повторно. Execution lock и report намеренно блокируют повторные inference.
 # Calibration выполнялась только на pinned PyAra role; threshold и pooled metric не выбирались.
 
+# Stage D Dialogs-RU также уже завершён. Не запускайте его synthesis, preflight или inference:
+# write-once outputs намеренно запрещают повтор. Его versioned receipts и результат находятся в
+# docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md; локальные WAV, model bundle и artifacts/
+# не отслеживаются Git.
+
 # Исторический синтаксис preflight для XLS-R+SLS Stage A v2.
 # Этот plan уже выполнен: write-once guard теперь ожидаемо отклонит и validate/profile/train.
 # Для нового эксперимента нужны новый run_id и новые output paths.
@@ -310,6 +328,8 @@ uv run python scripts/evaluate_xlsr_research_final.py \
 KSC2 single-AI mixed evidence review и ограничения альтернативных LID/ASR sources — в
 [docs/ksc2_mixed_ai_review_v1.md](docs/ksc2_mixed_ai_review_v1.md); готовый bona-fide candidate
 и результат технического TTS smoke-test — в
-[docs/ksc2_mixed_candidate_v1.md](docs/ksc2_mixed_candidate_v1.md). Следующий source/rights gate
-и точная fresh-asset ёмкость зафиксированы в
-[docs/fresh_research_suite_stage_c_source_review_2026-08-12.md](docs/fresh_research_suite_stage_c_source_review_2026-08-12.md).
+[docs/ksc2_mixed_candidate_v1.md](docs/ksc2_mixed_candidate_v1.md). Fresh-source capacity и
+Stage-C contract зафиксированы в
+[docs/fresh_research_suite_stage_c_source_review_2026-08-12.md](docs/fresh_research_suite_stage_c_source_review_2026-08-12.md),
+а завершённый Stage-D RU contract — в
+[docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md](docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md).

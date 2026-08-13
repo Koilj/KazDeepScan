@@ -1,0 +1,97 @@
+{
+  "input_manifest": "data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_raw_73.csv",
+  "reused_rows": 0,
+  "published_rows": 55,
+  "rejected_rows": [
+    {
+      "sample_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1:f95aeb47cc3545263ce1",
+      "relative_path": "raw/stage_d_ru_dialogs_vits2_masha_neutral_v1/slices/frozen_common_voice_73/96a5458dc63a9fe30c95-b9cbd1d4fda7.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1:b793905faff4a7481f18",
+      "relative_path": "raw/stage_d_ru_dialogs_vits2_masha_neutral_v1/slices/frozen_common_voice_73/b25a9fdf4ba0a91ecc63-27229e0b815e.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1:cf80a78a05df6fbbdc58",
+      "relative_path": "raw/stage_d_ru_dialogs_vits2_masha_neutral_v1/slices/frozen_common_voice_73/cd644a01aac745eabafc-b9631065ba2d.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1:3faed2264aa17e7fb2fb",
+      "relative_path": "raw/stage_d_ru_dialogs_vits2_masha_neutral_v1/slices/frozen_common_voice_73/eecff7b93c64934cb265-659906c3cc4c.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1:a2575125b31eac187a94",
+      "relative_path": "raw/stage_d_ru_dialogs_vits2_masha_neutral_v1/slices/frozen_common_voice_73/faa0e7c3e2d2e130daf2-00d5bdaceb7e.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1:5d38dfe2f736faa59893",
+      "relative_path": "raw/stage_d_ru_dialogs_vits2_masha_neutral_v1/slices/frozen_common_voice_73/8ef3d9b5ead5cb3a0ba6-e16e068928f4.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1:cfa6db3b8cdd51cc03d9",
+      "relative_path": "raw/stage_d_ru_dialogs_vits2_masha_neutral_v1/slices/frozen_common_voice_73/26434ff4814ea88b288b-d668e058e780.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1:8a2ba384d52207afcfc8",
+      "relative_path": "raw/stage_d_ru_dialogs_vits2_masha_neutral_v1/slices/frozen_common_voice_73/b6df92ed45f55f3e0731-62febfed91dc.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1:aca7f730762e73a82eb4",
+      "relative_path": "raw/stage_d_ru_dialogs_vits2_masha_neutral_v1/slices/frozen_common_voice_73/b1caa035ffc6aae1dd0c-09654939eff3.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1:069d9c9723901f8eeee5",
+      "relative_path": "raw/stage_d_ru_dialogs_vits2_masha_neutral_v1/slices/frozen_common_voice_73/29d1038bdda06261a3da-4fdf0bd8bf3d.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1:6dac582ae49cfbf00cc3",
+      "relative_path": "raw/stage_d_ru_dialogs_vits2_masha_neutral_v1/slices/frozen_common_voice_73/becfa558440a3987c6a6-80ca819623d5.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1:57dc98307fcd7cf77839",
+      "relative_path": "raw/stage_d_ru_dialogs_vits2_masha_neutral_v1/slices/frozen_common_voice_73/beca1be2bdd8497e7d53-670423c224ca.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1:c36932e188cf386fc357",
+      "relative_path": "raw/stage_d_ru_dialogs_vits2_masha_neutral_v1/slices/frozen_common_voice_73/eddadbb5257197950dd3-107acc650089.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1:3ce859b46bf994a2e6fd",
+      "relative_path": "raw/stage_d_ru_dialogs_vits2_masha_neutral_v1/slices/frozen_common_voice_73/cc96f559a35bb294f5aa-83b36c979057.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1:bf4514efd7c4a611e63f",
+      "relative_path": "raw/stage_d_ru_dialogs_vits2_masha_neutral_v1/slices/frozen_common_voice_73/d792c2fe872a320ccc69-548cbd72ad38.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1:cd8fe1e0dfd2e6b83110",
+      "relative_path": "raw/stage_d_ru_dialogs_vits2_masha_neutral_v1/slices/frozen_common_voice_73/12f79464bdf45e47bf47-c6b4e6e97baa.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1:18344324b237f175f871",
+      "relative_path": "raw/stage_d_ru_dialogs_vits2_masha_neutral_v1/slices/frozen_common_voice_73/98aa530271f1277458ed-52d2075bb8a5.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1:b8ed8ed54f8ac81bbb84",
+      "relative_path": "raw/stage_d_ru_dialogs_vits2_masha_neutral_v1/slices/frozen_common_voice_73/c20a6c53d9f43f7bf7ba-7bf3dc67cc74.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    }
+  ]
+}

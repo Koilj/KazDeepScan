@@ -1,0 +1,702 @@
+{
+  "bound_at": "2026-08-13T00:00:00Z",
+  "candidate_manifest": {
+    "path": "data/manifests/common_voice_ru_v24_first_250_test_unexposed_candidate_v2.csv",
+    "rows": 73,
+    "sha256": "d9ef5b0e91e960e5bf76a43274587a6483ac10e431d391f1ba119c71a05b330f"
+  },
+  "common_voice_archive": {
+    "path": "/home/ruslan/Downloads/cv-corpus-24.0-2025-12-05-ru.tar.gz",
+    "sha256": "9a2ed32a0574f74f505cd7740a599f0b9edc9f52ba1e7d6624b66f258db4c0ea",
+    "size_bytes": 7008716262
+  },
+  "input_contract": {
+    "detector_or_metric_used": false,
+    "external_normalizer_or_stress_model": "forbidden",
+    "synthesis_uses_literal_source_text": true,
+    "text_replacement_or_reselection": "forbidden",
+    "tokenizer_drops_are_disclosed_not_rewritten": true,
+    "upstream_basic_cleaner": "lowercase_and_collapse_whitespace_only"
+  },
+  "model_lock": {
+    "path": "configs/research/dialogs_ru_vits2_masha_neutral_v1_models.json",
+    "sha256": "c516526c916781ca332fc3b7cd14055c35b0c59bd1e1d15baef723e4d0bb6142"
+  },
+  "protocol_id": "stage-d-common-voice-ru-literal-text-binding-v1",
+  "rows": [
+    {
+      "literal_text_sha256": "c13ae26515cb5e39d55d3bee77ca95064a971a6e86cd80cfe90bcce5250f589b",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_18896725",
+      "source_split": "train",
+      "text_hash": "c13ae26515cb5e39d55d3bee77ca95064a971a6e86cd80cfe90bcce5250f589b",
+      "text_id": "f64b572244a30feff385e6dd53ae76081257cccdc2d984aa6388efd8dc08eea7",
+      "upstream_basic_cleaner_text_sha256": "324fafda4b22a1927184308823539f5dca7213ca0f0b140c52e0c26fbd26612e",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "f6cb7fa79d09b0d8227c52a2b391c85736c1b4c93e73b4eaa0583d85b2f39f3a",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_18897268",
+      "source_split": "train",
+      "text_hash": "f6cb7fa79d09b0d8227c52a2b391c85736c1b4c93e73b4eaa0583d85b2f39f3a",
+      "text_id": "033be5af636c66bac9cd81130fc19a7e7bb344d02a32c27afa27cddcc4748652",
+      "upstream_basic_cleaner_text_sha256": "1d5472399fd9503e06bfd83a9280f99f624f27bf2ef40338c3aca72b318abc5b",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "e1a2272d2bd048e153923b87e1c21ac37415e1e457a5e7091b7984757ba450b3",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_18898766",
+      "source_split": "train",
+      "text_hash": "e1a2272d2bd048e153923b87e1c21ac37415e1e457a5e7091b7984757ba450b3",
+      "text_id": "fe1243ce234619b12897f07a6e7a92b265b5c674d823f377af3b094418f5dfc9",
+      "upstream_basic_cleaner_text_sha256": "01cbc4e84449cc813d8882e024b3e5d826f45205f383f70704ed4b37a84fff5a",
+      "upstream_tokenizer_dropped_characters": [
+        "–"
+      ]
+    },
+    {
+      "literal_text_sha256": "b9cbd1d4fda7c85c5e93b5ad1fc8c03fe709f7ed624b09b2637f3d290671bdbf",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_18899168",
+      "source_split": "train",
+      "text_hash": "b9cbd1d4fda7c85c5e93b5ad1fc8c03fe709f7ed624b09b2637f3d290671bdbf",
+      "text_id": "230513a612aa363d0cc22b1035214c72e5c2534abdf214517e3130e76ddab1ed",
+      "upstream_basic_cleaner_text_sha256": "e598d2cb953dc6c88bb1836d4c7f94565916f56fdf5137d17caa1eb45b49b007",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "27229e0b815e466a0408de2b4a03953b636554254987aa121087416658bd75c4",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_18965631",
+      "source_split": "test",
+      "text_hash": "27229e0b815e466a0408de2b4a03953b636554254987aa121087416658bd75c4",
+      "text_id": "073810cd4c249b9ea251b9a4bbcb7694d01ae07d749d596ace2f966733b0d933",
+      "upstream_basic_cleaner_text_sha256": "b832abbf67faab1b1235d801e99e16cf004aa6635cfb7a7db72044d04d0653a7",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "d1503abaed4f18f5a948d23eac20ddb26b32d949ad28b72cc9482627d1226aed",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_18985101",
+      "source_split": "dev",
+      "text_hash": "d1503abaed4f18f5a948d23eac20ddb26b32d949ad28b72cc9482627d1226aed",
+      "text_id": "958d5ae7e20e6054d1d997d0d92851c7305bb345f695a19e5cb3c0d0bdb6cf4f",
+      "upstream_basic_cleaner_text_sha256": "0889b328c7e425a75732be5fde8878194f2c4a74e6756dc5c5a3d068eb66a0a9",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "86ea6e26aa9e0696851eab164257a37a3f1b44ceebf1a6fa84c18beb1c32e2ad",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19037051",
+      "source_split": "dev",
+      "text_hash": "86ea6e26aa9e0696851eab164257a37a3f1b44ceebf1a6fa84c18beb1c32e2ad",
+      "text_id": "5aa197aa9ae92b4aca8ac2e907f995f6ebdee45c450169a717ea23c5b78d7713",
+      "upstream_basic_cleaner_text_sha256": "40e53b79dac4cebacdf6c90d823feaa924fa3a259cc9502fb15652dbefeb7384",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "5a8f8c4b564bf10242ce9e074ce01b367e8e791ebe20f49a3932688c13f16791",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19060448",
+      "source_split": "dev",
+      "text_hash": "5a8f8c4b564bf10242ce9e074ce01b367e8e791ebe20f49a3932688c13f16791",
+      "text_id": "72ef5f52739f5982641a85f9bbf43230903dd45e698a6061b53a4bca0982b187",
+      "upstream_basic_cleaner_text_sha256": "95074b7e8012cd8576f45213f2ae6de99653820eb6ca32fa74d569d4ad3bdf82",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "9b5dfa1bce9ab1a4ba611b75e13a4c5ff56135d36b8161f90fefa94b8246c805",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19060454",
+      "source_split": "dev",
+      "text_hash": "9b5dfa1bce9ab1a4ba611b75e13a4c5ff56135d36b8161f90fefa94b8246c805",
+      "text_id": "70d8cc8d3409b6676699fc000a53097de7ffa0b66b6d4918e5cc73ccf796de97",
+      "upstream_basic_cleaner_text_sha256": "c6a5438dce42c7baeed35d556007e397379f314f4a9bc5b72d4c2dc9ee7fc17c",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "b9631065ba2de14c6df01031b0dd9b24b203aa75283d0b19ee1685b149e5ce37",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19212549",
+      "source_split": "test",
+      "text_hash": "b9631065ba2de14c6df01031b0dd9b24b203aa75283d0b19ee1685b149e5ce37",
+      "text_id": "0290b8bd6442be0ff912089e518109330ae3f014593610ab69a2bf8d88ab8f3a",
+      "upstream_basic_cleaner_text_sha256": "60a39fc4adf96eda991bfbe66f7931ac8510a302e6a4208657079d7e42818eea",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "a92bde67cb73b3973ed6247ff1c22ca0cca213b878915c9308707a8a8e042dd9",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19443479",
+      "source_split": "test",
+      "text_hash": "a92bde67cb73b3973ed6247ff1c22ca0cca213b878915c9308707a8a8e042dd9",
+      "text_id": "562f562cd712618f9248bf6c1844417baa5506e46363e42812bd2176e3ba8003",
+      "upstream_basic_cleaner_text_sha256": "067acf590b4bf1f77650e661eb8514304cb1a950001f5f8017df11226cbb3844",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "14e464b0c3e6b7818568b9a8fd16116952f7d91d2bcf4e948b9406844c234c52",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19493072",
+      "source_split": "train",
+      "text_hash": "14e464b0c3e6b7818568b9a8fd16116952f7d91d2bcf4e948b9406844c234c52",
+      "text_id": "67be50fe67cdb619dc9856e8846bf6e8b91ff44a736c1214337dc4d9e914abed",
+      "upstream_basic_cleaner_text_sha256": "78c2692905fb427af7a32e31e01f5adea0ecc4df35fc3d7177b040f16502daba",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "659906c3cc4ca814be66afc0ba1b2fc001604f3c4a12b8744943522738cc529e",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19897865",
+      "source_split": "train",
+      "text_hash": "659906c3cc4ca814be66afc0ba1b2fc001604f3c4a12b8744943522738cc529e",
+      "text_id": "c119a03082b414e13002c5343760e493e15c26b4402067fa3d1cc300f1c4d971",
+      "upstream_basic_cleaner_text_sha256": "c4d9d0ca471b57da1b086b2c94b8644f7c78597ba431f07edc90cc082151676c",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "5a9f5423a401f48f1203f321aee8da3807cfba9cd976edf00192bd13286c8eb1",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_19921690",
+      "source_split": "test",
+      "text_hash": "5a9f5423a401f48f1203f321aee8da3807cfba9cd976edf00192bd13286c8eb1",
+      "text_id": "d57dd829592ee9615eec4eaed65bf96eda00684eafab86fdebb52c65b4ff6a69",
+      "upstream_basic_cleaner_text_sha256": "e9a2ffada1054ad0bea1e706235f282df0698c732171a92bd047fad21c97c75e",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "9aeea260d9043790bab61eb95dc811d5ecee26a44f79baa7354df8c0b5cf6daf",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20106140",
+      "source_split": "train",
+      "text_hash": "9aeea260d9043790bab61eb95dc811d5ecee26a44f79baa7354df8c0b5cf6daf",
+      "text_id": "e55b7457028e6b968b6bdfa2a1a7bbfad6a9d9cf1bf7e2b8a99151f1f5107e3e",
+      "upstream_basic_cleaner_text_sha256": "948548151b0d3a4e47b303fae81647b645cfc137899d0badcd1ecfdbd46910ff",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "93a312cfce9443af4835ab43a578603de37c3542655c9fdeb64e260176663875",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20115954",
+      "source_split": "dev",
+      "text_hash": "93a312cfce9443af4835ab43a578603de37c3542655c9fdeb64e260176663875",
+      "text_id": "e462fa1b1c66260c653e1d1f037577d90c4ccc7c5ac7926a8a25fedae954add4",
+      "upstream_basic_cleaner_text_sha256": "9e8da284244eec8d9e3a6566d1e25404c71b2504a2deeefedb10e1d98f425530",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "5eadfc3baab248f3187d74c6ef4f2bce746736bec1d586f7d52ada01b897e074",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20142393",
+      "source_split": "test",
+      "text_hash": "5eadfc3baab248f3187d74c6ef4f2bce746736bec1d586f7d52ada01b897e074",
+      "text_id": "e80007821fe272fcf23f3497203570c8725d97b5c859d53ff4970bf24ef8cfbb",
+      "upstream_basic_cleaner_text_sha256": "e347293e3d591e5e0f52452dca03e20fc2019a8c9654dc0c3064c0cb5d655617",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "02465160549355a4e80dad614ca7745a9df014484658df7ba9692bc3e7073311",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20200314",
+      "source_split": "test",
+      "text_hash": "02465160549355a4e80dad614ca7745a9df014484658df7ba9692bc3e7073311",
+      "text_id": "f15428c57f642d4bd20e7996d0ea0a1b2bb2719f9b2eb7bb47df1580da225466",
+      "upstream_basic_cleaner_text_sha256": "6d9648f072d130dfe24ede914aa68bd1796a0fe3ac1d19febb1881d5a5253050",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "a598fd1ef4711bbda21ba5417c0bcbb29ea00d616cb51ce39ef377bb139de1bc",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20250022",
+      "source_split": "dev",
+      "text_hash": "a598fd1ef4711bbda21ba5417c0bcbb29ea00d616cb51ce39ef377bb139de1bc",
+      "text_id": "00dd6a3a76ae19cd63aa2ab3179acc37fa94c9a23abc3d85297ba24291ccfcf5",
+      "upstream_basic_cleaner_text_sha256": "310bb8e3fffb13c573abbd1b23ed66324cb93c7e5beec1423587f05ab5b93d68",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "239e8a95ab74f6aec8c1887fab13987ae06e587aa8c695441f5971750209adfe",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20294701",
+      "source_split": "test",
+      "text_hash": "239e8a95ab74f6aec8c1887fab13987ae06e587aa8c695441f5971750209adfe",
+      "text_id": "00cf38be0834f4c55f899f0505acbab74e5cb4d55126359818a01c10a34a16fa",
+      "upstream_basic_cleaner_text_sha256": "5cfe1b8153beb8e2eb7386e416fe12d2e9eb5f20a3d193f97a7495f0206bcdc1",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "39e748873f2549c81ef5ecb88c685f5e664397b5a59ea02edcd2dbee1ff47605",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20294934",
+      "source_split": "test",
+      "text_hash": "39e748873f2549c81ef5ecb88c685f5e664397b5a59ea02edcd2dbee1ff47605",
+      "text_id": "09f40b92ef42fdfa2c3fbf372bca3f6beea521bc141512b9e00f8bfe53ad4047",
+      "upstream_basic_cleaner_text_sha256": "cbf5c940c26333929925ac9e3ddeb092df201860df563302e410aeba8878ca78",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "090fe38c6c91e49baccfe0790cecdae7cb6df9018b9f26e4b09aaee4ffc16558",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20399801",
+      "source_split": "test",
+      "text_hash": "090fe38c6c91e49baccfe0790cecdae7cb6df9018b9f26e4b09aaee4ffc16558",
+      "text_id": "7acbf23f79577114a70e91409651a56ac00bf51bbd8e7ae3e1dc512bf1c6c2d6",
+      "upstream_basic_cleaner_text_sha256": "c58cf19d8d54f5b23879a76e1c6288d98f7135326f98bcff9afeec215f602422",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "d77495a13307fbfbf8c0bbe53ddb35c23ac395d90fa7a3b2133469767f7a561f",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20559909",
+      "source_split": "test",
+      "text_hash": "d77495a13307fbfbf8c0bbe53ddb35c23ac395d90fa7a3b2133469767f7a561f",
+      "text_id": "17a51e56c360bf4b1dfcdbdbe4a8c1da39e74409f5fa695fe2c20188bcc9dc5c",
+      "upstream_basic_cleaner_text_sha256": "ee0500f0dff5b432967a7dcdd79eb6376fa644d9fb8b6017ae6fcdeed2b98b95",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "7eb35cbe860f3b50a99dcc2f2a83f35c14c8ca236d9326f7c448ff9dbdb344b9",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20750909",
+      "source_split": "dev",
+      "text_hash": "7eb35cbe860f3b50a99dcc2f2a83f35c14c8ca236d9326f7c448ff9dbdb344b9",
+      "text_id": "3ba1350f73805d16689855c77b738aede2d2c6989df8fb4af595557b1d852f93",
+      "upstream_basic_cleaner_text_sha256": "0fd33b2ebacb0ac3cc837ea187d09279e765723b0b0a747741b8aac714055303",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "f28c033fcf1c401e64c2e41107eb9cad4a586a2c83e2b69f53e228018e99735b",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_20772011",
+      "source_split": "test",
+      "text_hash": "f28c033fcf1c401e64c2e41107eb9cad4a586a2c83e2b69f53e228018e99735b",
+      "text_id": "2784d6f3866f7e14f04c43987431bae7c6739783a1fdc7f3085671463229b5f4",
+      "upstream_basic_cleaner_text_sha256": "d0173dcc61215e8ebf479e7453c96781bda78d385421026590060e8114feee4a",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "f1f67fe0de3c7d7a8e6bdff06a854c71a6a0da73968d498b968db4c55b70eb08",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_21757652",
+      "source_split": "dev",
+      "text_hash": "f1f67fe0de3c7d7a8e6bdff06a854c71a6a0da73968d498b968db4c55b70eb08",
+      "text_id": "ab62b01e89460d0d72a8d0ef4723b436c97aca814a9dfe4e1eaf04c0005d6f0b",
+      "upstream_basic_cleaner_text_sha256": "43d8fe34d8bc7d73e130fa4625004c80edad275ba52cc7acd137873fb8bafb82",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "e49b04a1bba09f13386312f09214ecfd6b2a230dfea540a8c96f4403f1a48970",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_21835345",
+      "source_split": "dev",
+      "text_hash": "e49b04a1bba09f13386312f09214ecfd6b2a230dfea540a8c96f4403f1a48970",
+      "text_id": "b515b0ad06e9de951bcfdd09735808cf983db6be1d558b83f07ae7c2f53a379a",
+      "upstream_basic_cleaner_text_sha256": "313cfd4a8897c9de15383b7ab687a7b59ff7a201b032f5d6da7215aa266d9e6d",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "524ade73719163b2142b036992e0071c21ee03234454a41f97a270098676ab7a",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_21950378",
+      "source_split": "train",
+      "text_hash": "524ade73719163b2142b036992e0071c21ee03234454a41f97a270098676ab7a",
+      "text_id": "c07742ced8c5775dd45dbfacbeb46402448281085499c5c5f9f1a08769b448ba",
+      "upstream_basic_cleaner_text_sha256": "c4696c08c609e2ad0a4347c0d2a3d4b81014e8520265eb3192d2f6309571d6ea",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "00d5bdaceb7ed55bd319245d23bc01eeac4cfa0b22439ab7f65c480221eaac40",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_22253505",
+      "source_split": "dev",
+      "text_hash": "00d5bdaceb7ed55bd319245d23bc01eeac4cfa0b22439ab7f65c480221eaac40",
+      "text_id": "e105bce7102dff4f96e81051f67883b1ab0f7eea1a4e2ebbcd7a967694e74aac",
+      "upstream_basic_cleaner_text_sha256": "cd2be19bebb6ddc9e943f6ed5e4897c1207618cea274a7e5654cb1e2196f2fdf",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "6bedc777d7014ae08da0c0a1dde9f8eabbac4b54f41059c962b2b3c911658fb9",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_22370226",
+      "source_split": "train",
+      "text_hash": "6bedc777d7014ae08da0c0a1dde9f8eabbac4b54f41059c962b2b3c911658fb9",
+      "text_id": "e8ba105e29f68e85d879be271900f5606a64b35b10b63ead0e14747dd4ab5a15",
+      "upstream_basic_cleaner_text_sha256": "2854c76c7a937f4575c91bc93197ad7c08c22c12bb556f2ee7bf782a47e86ff3",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "52da69be8d30c28958b1351830c7c9caa95c3749275adaf9b1d16c68f926a648",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_22470667",
+      "source_split": "train",
+      "text_hash": "52da69be8d30c28958b1351830c7c9caa95c3749275adaf9b1d16c68f926a648",
+      "text_id": "f4bbb144e27286f1df2cd28d40e4ee03d82bc6374baed3d5a76e650bbfe0f7e7",
+      "upstream_basic_cleaner_text_sha256": "9d6a3eb4c8e45671f06d5a965dd8c756ff35373916a78bf490f387824a72fd9c",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "6ea937f020638e097f646e2d643e7aec01a294ae9eb9a9bbef87509a16738dfb",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_22686987",
+      "source_split": "train",
+      "text_hash": "6ea937f020638e097f646e2d643e7aec01a294ae9eb9a9bbef87509a16738dfb",
+      "text_id": "fc4781a660039fd6d5307a69b91d8b0458fe60ad35abc8b6376423dc55f85d52",
+      "upstream_basic_cleaner_text_sha256": "4a6d2453fcdd5d9063a1f2ee293379040dd9430fd9655eff66d76183ef82d833",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "502c5fb14ab56ea6e4b41493eda06664d91dd2a58bcfc0f1cbff3224010c8657",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_22850687",
+      "source_split": "train",
+      "text_hash": "502c5fb14ab56ea6e4b41493eda06664d91dd2a58bcfc0f1cbff3224010c8657",
+      "text_id": "48923874a6eae794b187ff0a62aafd92a54eff7d8f2472896c899fb09ea69350",
+      "upstream_basic_cleaner_text_sha256": "ca02c0d6b89c2bfe8c9e42f8bc1bae4b9d152667d9cb15d3b2602cd4acbceabb",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "44a6939f98e484d1ac8a0dd483a541a8cea0da7630bf63c928d8aea5285b4f82",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_23233906",
+      "source_split": "test",
+      "text_hash": "44a6939f98e484d1ac8a0dd483a541a8cea0da7630bf63c928d8aea5285b4f82",
+      "text_id": "54f8b61ecf6b7c0b9bf27ce8d40d9ef8f0241045df28d9d62e24348055d28aab",
+      "upstream_basic_cleaner_text_sha256": "6387760f4bc9c7c5ba29dd7f83115d9c9698d17386b1195b01d31eb73c73c667",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "e16e068928f4f3215061d0c8264315da3fd8af0e9cf03c6126e9d91bd03e2399",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_23407084",
+      "source_split": "train",
+      "text_hash": "e16e068928f4f3215061d0c8264315da3fd8af0e9cf03c6126e9d91bd03e2399",
+      "text_id": "643efcfc03fa5040f8f4d6675d3919ded7c151655d53cb0314f23c0d91c47f3f",
+      "upstream_basic_cleaner_text_sha256": "4aaf5972aacb36348ef2e6fae1b1ef6c4d04693e649c11085aa496b90559cce5",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "d668e058e780f8db8ba019b46f61cdae4c7e6e6dfefb3088bc624a607af632d3",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_23734194",
+      "source_split": "test",
+      "text_hash": "d668e058e780f8db8ba019b46f61cdae4c7e6e6dfefb3088bc624a607af632d3",
+      "text_id": "1574eab4090df673b43f396d2770bf5ab7afab41d4601197efdf2f730e01a047",
+      "upstream_basic_cleaner_text_sha256": "50364f80ca3355a24119b1f3ea2eb659f0c878f23ec0527c4ec9b30818658c5f",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "63df66fdf9580c7a22e2472c5f4fb71f75a2b03d003a23ab46cd39d82dc6cd29",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_23760848",
+      "source_split": "train",
+      "text_hash": "63df66fdf9580c7a22e2472c5f4fb71f75a2b03d003a23ab46cd39d82dc6cd29",
+      "text_id": "0c85c557dbdbaca63a60f362bbeb171e791fa212f217d22e4d2f5ad22a392516",
+      "upstream_basic_cleaner_text_sha256": "746bbed70053bb28ee22943d055fd4c6639e512550cf69677a94376b9b4cb4d3",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "a6204bd0d01dbe631f7caeaca21fce16753f088e75c3c26f62d1d8908df49071",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_23949386",
+      "source_split": "test",
+      "text_hash": "a6204bd0d01dbe631f7caeaca21fce16753f088e75c3c26f62d1d8908df49071",
+      "text_id": "f4ffade4ecb6bfd7088f487c7f9d40bfc63f9e59f0b1f75d3636035837cecd6c",
+      "upstream_basic_cleaner_text_sha256": "032275e6a13e91722fff9bf3208f69bb6929366f29ee13cc0e9465ea76aa377f",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "ff93dbc941da428d99ba2a5cf44f7856bc1abfc85753bfaf0ff693d68fad0d62",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_24254803",
+      "source_split": "test",
+      "text_hash": "ff93dbc941da428d99ba2a5cf44f7856bc1abfc85753bfaf0ff693d68fad0d62",
+      "text_id": "348a8e47a2a703b5c807c9c4f5dff35a03fbf715dc142c0b7871bab43bbb4068",
+      "upstream_basic_cleaner_text_sha256": "770bd0f2098c1b4d548ace5f34694c757418ce3ffad4060a55533bca1be9cdf1",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "62febfed91dc59b0bec736733149d67d30fedfa7b3ad253291945d3165a0db58",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_24838951",
+      "source_split": "dev",
+      "text_hash": "62febfed91dc59b0bec736733149d67d30fedfa7b3ad253291945d3165a0db58",
+      "text_id": "a53c4f08bc51c5429d2a667b5b551bea2ef443f67f90df31991c345994421594",
+      "upstream_basic_cleaner_text_sha256": "056222d9b4b3104fab407243003fbe251672c2416aca7c695c28d9ac45134197",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "09654939eff30daee07d9c217ae9cc24d8149e6182a26ca144fdfb0ebd6ede01",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25001732",
+      "source_split": "dev",
+      "text_hash": "09654939eff30daee07d9c217ae9cc24d8149e6182a26ca144fdfb0ebd6ede01",
+      "text_id": "0d8127dd5df46e8482c48770f8a988d87d3b6daccfd0c52b4d38fb2c81fc0b61",
+      "upstream_basic_cleaner_text_sha256": "a6090311ae6c1876bd61e7d60fc26dc8c695602d93d2dc183e5c9744faff0f53",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "e32c38747fe47208175cee519f13d78d56281d74e8ecd14732b09b40e39cffee",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25011416",
+      "source_split": "test",
+      "text_hash": "e32c38747fe47208175cee519f13d78d56281d74e8ecd14732b09b40e39cffee",
+      "text_id": "0e607920b2760ac3b868cdea5913acd3d2d36a48710f12da5cd3fdb456ea2ffd",
+      "upstream_basic_cleaner_text_sha256": "bffbda246f273065738c5850eab8c0438f886a38c05c7fc2382828cc6bc884c6",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "4fdf0bd8bf3d4d8e67cbf3250e6e253b72d04ef31de8c81bbe356ed5584fe7d7",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25405436",
+      "source_split": "train",
+      "text_hash": "4fdf0bd8bf3d4d8e67cbf3250e6e253b72d04ef31de8c81bbe356ed5584fe7d7",
+      "text_id": "a8b0de6f2f1239a3307df321bbb4e81529becdf1f67eef58c9f6c0de2a54c703",
+      "upstream_basic_cleaner_text_sha256": "c0fc1ad762e7321db21fafea3962da96275d3192c96e076d2f0ef922a592f958",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "3d08e60fc38f3bc991f359dc815a16006b48468a16e8d48d8a021516bebd3ec8",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25836829",
+      "source_split": "dev",
+      "text_hash": "3d08e60fc38f3bc991f359dc815a16006b48468a16e8d48d8a021516bebd3ec8",
+      "text_id": "3bdf3c5a3fe18ad00ae4307f05071b1d8b43dd9158951ffe0f24ad67825b21a0",
+      "upstream_basic_cleaner_text_sha256": "5901eb626708e98a5feffa483f7866ceed54d1271fb667ffc4dd9d44c809743c",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "00d78959ddf3e53dc29a3742d53cfcfc85a1ddebf3656934216242539849ca35",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25836924",
+      "source_split": "dev",
+      "text_hash": "00d78959ddf3e53dc29a3742d53cfcfc85a1ddebf3656934216242539849ca35",
+      "text_id": "3616c73e41866a26760ec2ac3856b9b948580b932c06bbac3961d2b3a33e6cd3",
+      "upstream_basic_cleaner_text_sha256": "1d8757d3a5b75ba7bd4d5fa114cc595ee0bd3fbdf64dd59c2023ca3feb28c32b",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "832b453cc2b4ff1e8f86f20a86899c52801b3624c064dedd1308ebad4b62523e",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_25845242",
+      "source_split": "dev",
+      "text_hash": "832b453cc2b4ff1e8f86f20a86899c52801b3624c064dedd1308ebad4b62523e",
+      "text_id": "3ec41ce86bb56603ff42898cdead4c3e0ab912b6391e115c51f7ba8bbc1e1fb5",
+      "upstream_basic_cleaner_text_sha256": "dc13b30487ed5847fd50240bc0143785d8306bd790a5ec588e7d2faafd0ee4cf",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "80ca819623d5dd9e6c2e29612495f64de787cea8e5a9033e3ad39cf8936c7103",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26293963",
+      "source_split": "test",
+      "text_hash": "80ca819623d5dd9e6c2e29612495f64de787cea8e5a9033e3ad39cf8936c7103",
+      "text_id": "690b45f76094409ff9fc16192385c644fdd1d7f01e450ddd68996c643d6ec939",
+      "upstream_basic_cleaner_text_sha256": "8d99c80eee963bfabde93bc689b1a8eadb4d1cd89bd4f409b5b08e641aa4e072",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "49411a00a0348526252ffc9d4d7543fb94172f6169007e7c57b739ee595eacac",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26529610",
+      "source_split": "train",
+      "text_hash": "49411a00a0348526252ffc9d4d7543fb94172f6169007e7c57b739ee595eacac",
+      "text_id": "8150e5c0d30646c91d09824331a97c4a8118c396a80e1e79cfc6ee95c6746634",
+      "upstream_basic_cleaner_text_sha256": "1dfb3b320ea1b04bcc343b92d4c800860e82e5af8dbcbe3fc20e141be7ee1f76",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "fec33cee68128ae25c9a8548276312f1fded4e387e618a1c909d83b57650829a",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26771152",
+      "source_split": "test",
+      "text_hash": "fec33cee68128ae25c9a8548276312f1fded4e387e618a1c909d83b57650829a",
+      "text_id": "8c443dd57a7b9bbaa9b9f5ecec7c2368db366e2c286ea9410b9c5e0c02bc1016",
+      "upstream_basic_cleaner_text_sha256": "3624e6ecd3544f948c68f164a7be228c735c5cc6095561141fe0efab9412baf9",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "1f2b4be21d8c43d3bf7d2602e1c736c61cf32a9a25cd5ef4249cae2e213626ae",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26824491",
+      "source_split": "test",
+      "text_hash": "1f2b4be21d8c43d3bf7d2602e1c736c61cf32a9a25cd5ef4249cae2e213626ae",
+      "text_id": "93e544092832ce3422c0dc10df7b19954233cd5a08969fbcf33a6f8c441006f4",
+      "upstream_basic_cleaner_text_sha256": "c8333121239f6cc11d90e165b70f397bdeb8ba6836b74b6fcd8dbe6f4462bd38",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "08132a5829906d007af02d8e465064faa31dc3d3eb0f48e4a1c3683f3c31c028",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_26908262",
+      "source_split": "train",
+      "text_hash": "08132a5829906d007af02d8e465064faa31dc3d3eb0f48e4a1c3683f3c31c028",
+      "text_id": "a35369da2bf921784e14444869aa5b9b92ba6b3791395ed627a3fa6e570080b5",
+      "upstream_basic_cleaner_text_sha256": "485cf8dc910a1a67093c627522714a30c4ed3cd9861562a124cf9ea702c39afc",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "c1d3237b122fe54ad052535856d6dd0b4673526dd9a5ab2479dc12f67765408b",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27060856",
+      "source_split": "train",
+      "text_hash": "c1d3237b122fe54ad052535856d6dd0b4673526dd9a5ab2479dc12f67765408b",
+      "text_id": "2ccdd445bc6bd2cb348535fbe69ab3db469e9344095ac80dce135a1488e62ec8",
+      "upstream_basic_cleaner_text_sha256": "e8ad3a040957f2cf1bfc506122a39ff94de41259221df85a86749853e8de7f56",
+      "upstream_tokenizer_dropped_characters": [
+        "–",
+        "…"
+      ]
+    },
+    {
+      "literal_text_sha256": "d4c33de6a852ef6abd570af7d06699a3ef8c8cc1945544e433715d115483b848",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_27194970",
+      "source_split": "dev",
+      "text_hash": "d4c33de6a852ef6abd570af7d06699a3ef8c8cc1945544e433715d115483b848",
+      "text_id": "aa58fabce3d52a464f2c94393ddd662f1ff18e86457e120b51ae3509441d21b3",
+      "upstream_basic_cleaner_text_sha256": "11a9b8259831b7e164867fb29afa7de6da1a2f53f1e625530eddc0a55d9ae44e",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "53bafb5c6a31c9014955f27b8be737704004daa919a4b8337675dd89943507ba",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28305906",
+      "source_split": "test",
+      "text_hash": "53bafb5c6a31c9014955f27b8be737704004daa919a4b8337675dd89943507ba",
+      "text_id": "ec144ee5ce67ebff26631f6f04ec5c24fa8c0d27b6db9b26bd2d6769df7d2db6",
+      "upstream_basic_cleaner_text_sha256": "09bec65ed553b3564919be18d8c017d0927326c10585694e0c1fa65894ca0a18",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "670423c224caba8d700ffa8eec4c1e40280c0a31aeff53861f04637d042df53f",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28335483",
+      "source_split": "train",
+      "text_hash": "670423c224caba8d700ffa8eec4c1e40280c0a31aeff53861f04637d042df53f",
+      "text_id": "edcae177e9fc9790f81344769b0ae6dfc0bfb87fa82dd3bcdc8ee100c15b3087",
+      "upstream_basic_cleaner_text_sha256": "4c2d185a1143e71e9a3d1151b6b4f28553b6d3d276ff5d304fc856efe81c5a85",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "177d223cd941f61ed2aab646619c86bf2fb35cdc3b25b9a62bcaf5301e865012",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_28902791",
+      "source_split": "test",
+      "text_hash": "177d223cd941f61ed2aab646619c86bf2fb35cdc3b25b9a62bcaf5301e865012",
+      "text_id": "20e91f7f7cb524765c500e56d8716e57404d145bf61c821d1436881676d3394b",
+      "upstream_basic_cleaner_text_sha256": "3cda94f01c5ac9eb58cf7cee40702093423cf4ec74b3edacb25fc3d6d8d6e9d4",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "107acc650089d0cd04413544f3c9ea039951d38533a7ec3c806fd37075ff8121",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_30520231",
+      "source_split": "test",
+      "text_hash": "107acc650089d0cd04413544f3c9ea039951d38533a7ec3c806fd37075ff8121",
+      "text_id": "cbfee2978304abbc4ffaeecece9565db171d3f8abbea0bbca3eb23c919df3074",
+      "upstream_basic_cleaner_text_sha256": "39fb580c58deddc7efd2596923f5af54c64b29d4b7a4d995db7fde6569881583",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "feb149d1ef05a7b91d01daf233b671f0a3f863169cb85155113e7e3d05fdad66",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_30744976",
+      "source_split": "dev",
+      "text_hash": "feb149d1ef05a7b91d01daf233b671f0a3f863169cb85155113e7e3d05fdad66",
+      "text_id": "47c6ac002570993d7ee50e81ab9a98d33fd8cdd54828b9c64af25256a82789e2",
+      "upstream_basic_cleaner_text_sha256": "1833ea7f5f709448425be5abe13a26eb20c3d7ec6d0e1d6d9b23eddbea269675",
+      "upstream_tokenizer_dropped_characters": [
+        "—"
+      ]
+    },
+    {
+      "literal_text_sha256": "83b36c97905767beaa053fb8514a1f6fded0f792896b6eb56a2a7fb3f497d7aa",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_31377227",
+      "source_split": "train",
+      "text_hash": "83b36c97905767beaa053fb8514a1f6fded0f792896b6eb56a2a7fb3f497d7aa",
+      "text_id": "be17aa68958d54f6113e21cfbb6e95a10840b191c655c88a83373649b63e8616",
+      "upstream_basic_cleaner_text_sha256": "5a0721171471ef60e68a783e024a631bd297d990fa3241d424b859a608ecb7bf",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "548cbd72ad38d4271641a2ad6628d2cda67ae3fac465dd03924c03c541bfcb21",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_31377229",
+      "source_split": "train",
+      "text_hash": "548cbd72ad38d4271641a2ad6628d2cda67ae3fac465dd03924c03c541bfcb21",
+      "text_id": "5c532e7b52fffa1def2a6e02d4e1b60cbc7f0d09db1d0e6fa46c6a26a30c9893",
+      "upstream_basic_cleaner_text_sha256": "15e9fa2e94380ddfb1ad4e92835cf80ccf5232782bb66ca20fa059f909c64e89",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "1d4662357af932426cf59f806702de5e18e5ac7e65c611510fe7ae43ca38d6d2",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_31868716",
+      "source_split": "dev",
+      "text_hash": "1d4662357af932426cf59f806702de5e18e5ac7e65c611510fe7ae43ca38d6d2",
+      "text_id": "9cb259cebbe1e343bdbebd18348befb046e909ddf7066664e81dce1a3e532323",
+      "upstream_basic_cleaner_text_sha256": "ef95e108e02245f6e0283dd70174ba12c0427f9369a4747c0bc0f634f7fae82e",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "66cc280a72caac040fd3e82129cfd4fc9411e8bab4bf39478752b76794198d6a",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_32128735",
+      "source_split": "test",
+      "text_hash": "66cc280a72caac040fd3e82129cfd4fc9411e8bab4bf39478752b76794198d6a",
+      "text_id": "e211f0cd53241093e9fa6bb55c582e0071c9bb5ad2c9c3adf25f661f5083c52b",
+      "upstream_basic_cleaner_text_sha256": "ff9b228dabc22f41f78a86b635821b8bdb4504262730e62dc1fad259328b7521",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "c6b4e6e97baa568da0f70db833428dc2a85bbd872fe56ba9d5ad168e19bb22c0",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_32642633",
+      "source_split": "dev",
+      "text_hash": "c6b4e6e97baa568da0f70db833428dc2a85bbd872fe56ba9d5ad168e19bb22c0",
+      "text_id": "08463a3cf7c7411539247b6ab1e1a35f666eb6f84a006a6db8ab004852fca9a9",
+      "upstream_basic_cleaner_text_sha256": "b7386d3fdc9c9c6b485831a43d1d369303dec8b14787fdc035b5552de393f4aa",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "be324b95bb40d1c42c3c3825a505f9872799503faeb40bbb110a9a5b85e4f08a",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_32642634",
+      "source_split": "dev",
+      "text_hash": "be324b95bb40d1c42c3c3825a505f9872799503faeb40bbb110a9a5b85e4f08a",
+      "text_id": "0a31bdc02dd380c34eacd54b0928f83528aaf3148943fdd39ca2cf4aa9c50c70",
+      "upstream_basic_cleaner_text_sha256": "87775ea6e7a1e15cdfa8537cc12026a3a561e9a2d5f0a439cc5186db748440fc",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "52d2075bb8a574cadc632202bad067ebd739bee4466c3ebf5e2a01aa1e0ab39c",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_37050378",
+      "source_split": "dev",
+      "text_hash": "52d2075bb8a574cadc632202bad067ebd739bee4466c3ebf5e2a01aa1e0ab39c",
+      "text_id": "1cbda86a44b5e217695ae02a554d2b1a508a0d6f594e924033fe6a4870f09f50",
+      "upstream_basic_cleaner_text_sha256": "225a48147f932ac32aa0e792fa8207f25228be677a071c4601c42c5d156af8a0",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "a1f0b07e747712de8f7b7482fae7b62926fba49db7e9641ebf630865ab1c1584",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_37423523",
+      "source_split": "train",
+      "text_hash": "a1f0b07e747712de8f7b7482fae7b62926fba49db7e9641ebf630865ab1c1584",
+      "text_id": "5a8f80b40b3303ba4ecd002228769c36cebbf0c45d5820ea02fad42e10a8d2cf",
+      "upstream_basic_cleaner_text_sha256": "87f97a856f0a36b4dfddabfc398f31135d567be9aa49334863e9538425417a96",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "7bf3dc67cc74c5985923aff44fcdd16bfb93ec971684909dbdda79fb24a75ba4",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_37423741",
+      "source_split": "train",
+      "text_hash": "7bf3dc67cc74c5985923aff44fcdd16bfb93ec971684909dbdda79fb24a75ba4",
+      "text_id": "5bd7dadc1317646a271c268c4ad7f84cac04f8b255cca74c1b1634f9a148b9a9",
+      "upstream_basic_cleaner_text_sha256": "91269e96c1a072288d86347f9f0f73d448fa33db107152923f5bd5ba23ae1d9f",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "0d74ec6d7ff71e383e121880b8da45ad464dac2a05647f3abcdec6992b7624ac",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_37449138",
+      "source_split": "test",
+      "text_hash": "0d74ec6d7ff71e383e121880b8da45ad464dac2a05647f3abcdec6992b7624ac",
+      "text_id": "5bd285adea030dbc14c03a34e615e2ed28ea0921245114c5db1849bb4510328b",
+      "upstream_basic_cleaner_text_sha256": "80c02c1d9b50f7503aa34834a6a393650e981d1e802f970a8b110d04a84fee8a",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "38e7225e38685642740eb29c3e261feb1360ebded648670774e9e295ada73a61",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_37710086",
+      "source_split": "dev",
+      "text_hash": "38e7225e38685642740eb29c3e261feb1360ebded648670774e9e295ada73a61",
+      "text_id": "65559b9ef080efd77041c8a93835713271ed11b7182dfedba449310db9b38f37",
+      "upstream_basic_cleaner_text_sha256": "e4bc7bb7daf98ae758df1271c6841602bfd63b13cc440f9a98ed947629ffbcb9",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "5578a0792763725649d85d908e18878a4abe573fc3c21ca96d63d82dd63b6227",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_38551682",
+      "source_split": "train",
+      "text_hash": "5578a0792763725649d85d908e18878a4abe573fc3c21ca96d63d82dd63b6227",
+      "text_id": "88ab7ad4614da2938ebc964e0e7ebf336b38d2304220d0f2b8a7e5a96f09edc8",
+      "upstream_basic_cleaner_text_sha256": "968c32b13395132938fd596e7c3435e05a80292852b08c569d8a254ba457b3da",
+      "upstream_tokenizer_dropped_characters": [
+        "–"
+      ]
+    },
+    {
+      "literal_text_sha256": "3b2fa566fc3661a1137114b76dae1437913c58211174f800c05bbb97c6941d6f",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_39779292",
+      "source_split": "dev",
+      "text_hash": "3b2fa566fc3661a1137114b76dae1437913c58211174f800c05bbb97c6941d6f",
+      "text_id": "a1923a3114681b6d29b4fb68c58e1a827cd7f75cf7149abb1dbaa61f889c026f",
+      "upstream_basic_cleaner_text_sha256": "a31b150f1613520a87347b0a8c95275a9473668e1e61958425a65efe1f9fa774",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "85bd446efecb453050a6a19d87c1e3c493a13755c1373d57eb04a678d948ebe9",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_39966368",
+      "source_split": "test",
+      "text_hash": "85bd446efecb453050a6a19d87c1e3c493a13755c1373d57eb04a678d948ebe9",
+      "text_id": "bc0284f5067f1e5cfa3f6e1728c069410c9bcc0b1536ac21922b2ef4a16b34d2",
+      "upstream_basic_cleaner_text_sha256": "d5cd4d5dd7ad11fe4b1166808d69be11a8733c63248f59270af8353ec8d1d37e",
+      "upstream_tokenizer_dropped_characters": []
+    },
+    {
+      "literal_text_sha256": "b3eaf74510206a8a24fe71ae335e8a72279c9d4f91b653bf97b7e1a057cdcfa1",
+      "sample_id": "common_voice_ru_v24:common_voice_ru_41420614",
+      "source_split": "dev",
+      "text_hash": "b3eaf74510206a8a24fe71ae335e8a72279c9d4f91b653bf97b7e1a057cdcfa1",
+      "text_id": "cb9474ea2d81a27a725d11dcdc3e94549a3ef0b64918f1a5fee2e0db54982022",
+      "upstream_basic_cleaner_text_sha256": "7895759dc99696f1fde9cf13e10580ea8fd52cb3ecfc911864ca7d91cbe813fb",
+      "upstream_tokenizer_dropped_characters": []
+    }
+  ],
+  "rows_by_original_common_voice_split": {
+    "dev": 24,
+    "test": 25,
+    "train": 24
+  },
+  "rows_with_tokenizer_drops": 4,
+  "schema_version": 1,
+  "text_binding_sha256": "4c8d4478ae7bc7d8253ce0f7e9ad6251843123d77922e543da37ca7bb599a4fd"
+}

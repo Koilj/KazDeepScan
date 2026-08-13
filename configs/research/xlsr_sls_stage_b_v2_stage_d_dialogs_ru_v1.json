@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "run_id": "xlsr-sls-stage-b-v2-stage-d-dialogs-ru-v1",
+  "purpose": "research",
+  "protocol": {
+    "kind": "asset_level_blind_single_ru_layer_research_evaluation",
+    "quality_claim": "research_only_not_product_quality",
+    "test_novelty": "exact_assets_never_inferred_project_wide_not_source_or_speaker_independent",
+    "calibration": "temperature_only_on_pinned_pyara_role",
+    "decision_boundary": "fixed_calibrated_probability_0.5",
+    "pooled_language_metric": "prohibited",
+    "final_set_model_driven_selection": "prohibited"
+  },
+  "license_ledger": {
+    "path": "../../data/licenses/frozen/xlsr_sls_stage_b_v2_stage_d_dialogs_ru_v1.csv",
+    "sha256": "d14cdd6fdd235fe2e511178ac4b3ba6aed5e632eb3656c0560d55e5bfbdb787c"
+  },
+  "checkpoint": {
+    "path": "../../models/xlsr-sls-stage-b-v2.pt",
+    "sha256": "e112c5c93f2a5af0c567b85eccac0a617c37fa79b4d7cc2b29b4b3289f2764cd",
+    "stage_b_report": {
+      "path": "../../models/xlsr-sls-stage-b-v2-report.json",
+      "sha256": "cca5bf61976f07207d15976497b030420c274c6c1c5a194c4d37db2728f4c651"
+    },
+    "selected_trainable_state_sha256": "d03adfe2ebfe7b7361b2a0d9b7902ef7251f7faf139d37a30531e2211e2dd738"
+  },
+  "encoder": {
+    "checkpoint_dir": "../../models/xlsr-300m",
+    "revision": "1a640f32ac3e39899438a2931f9924c02f080a54",
+    "config": {
+      "path": "../../models/xlsr-300m/config.json",
+      "sha256": "0bffa0d0e98153e883b828d86491f3c6062cb563dc9d7a9cfd1790da30c286ac"
+    },
+    "weights": {
+      "path": "../../models/xlsr-300m/pytorch_model.bin",
+      "sha256": "d5e490574712ad0a6736923b9ed11d4cd51c78609c36205f704fc4e87b11d2e0"
+    }
+  },
+  "head": {
+    "attention_size": 128,
+    "classifier_size": 256,
+    "dropout": 0.2
+  },
+  "roles": {
+    "calibration": {
+      "manifest": {
+        "path": "../../data/manifests/pyara_ru_v7_stage_b_calibration_dev_1000_ready_v3.csv",
+        "sha256": "7fe2c89be7f02eea1abdfc369fc9c16185b0a395fa2526b5b2c58e361fa8fa31"
+      },
+      "selected_split": "dev",
+      "expected_rows": 976
+    },
+    "final_ru": {
+      "manifest": {
+        "path": "../../data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_candidate_v1.csv",
+        "sha256": "cd4ccc2be9fd0fa06bd3641f1e939499d93f111c5f6a5a636753adf97ac2891d"
+      },
+      "expected_rows": 110,
+      "expected_pairs": 55,
+      "acoustic_gate": {
+        "path": "../../data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_acoustic_gate_report_v1.json",
+        "sha256": "ba604ab8487c258a7004540dd243ac61a72810c6bac141a2925323bd3dca9acb"
+      },
+      "project_exposure_audit": {
+        "path": "../../data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_candidate_project_exposure_v1.json",
+        "sha256": "1851a88c43f902b37b65ce896175b8788ea9bcce307fd81ba7db3101711ffa88"
+      },
+      "route_audit": {
+        "path": "../../data/manifests/stage_d_ru_dialogs_vits2_exact_route_audit_v1.json",
+        "sha256": "f6a4ddd6bc334776d0029cbe3151c5e118815c38f160cb58f0e0ad7725a33d00"
+      }
+    }
+  },
+  "implementation": [
+    {
+      "path": "../../scripts/evaluate_xlsr_stage_d_dialogs_ru.py",
+      "sha256": "f7f53b23dc888d0dd6715e9a727eff2aaaa886f198b327f459a43db70f355fa5"
+    },
+    {
+      "path": "../../src/kds/data/assets.py",
+      "sha256": "b3a27d67596dd2e6aa70ac0aa54cf61fc0c967c1386e67888c5f89e123e4dba9"
+    },
+    {
+      "path": "../../src/kds/data/dataset.py",
+      "sha256": "efd0b5224213ed8ee1fb81c58e937ba0455ee6d1713dc93797065bb34ac0487c"
+    },
+    {
+      "path": "../../src/kds/data/licenses.py",
+      "sha256": "35ba1184671e4896cc1af3a8612874caf716c4706444b496e8997f09b71aace7"
+    },
+    {
+      "path": "../../src/kds/data/manifest.py",
+      "sha256": "f1b709fc06cd9b465217afd62b80e5519bb9f24513da195326d4670a27fc61f8"
+    },
+    {
+      "path": "../../src/kds/data/stage_b_dev.py",
+      "sha256": "3a0b56f484461774717555a4c9696a2f7ac8f653207be2db6ce88524e94e497b"
+    },
+    {
+      "path": "../../src/kds/eval/calibration.py",
+      "sha256": "bf34382fc5ecff15a7b7f1cba414b79ba13c29d3ffdcc6173369689d912c5b55"
+    },
+    {
+      "path": "../../src/kds/eval/metrics.py",
+      "sha256": "2e5ce453bcf3c59fecdafb7732d2ed84ae2a56354702fb7521d9390d2cc9bace"
+    },
+    {
+      "path": "../../src/kds/models/__init__.py",
+      "sha256": "5697351cdc4ee0836fc5068d7ed93a1d9b54e454c709261fda286e609e3bd9d2"
+    },
+    {
+      "path": "../../src/kds/models/xlsr_sls.py",
+      "sha256": "470c213fee423a7aa895f882fe3618c8d1597e30e7f95b0cef697ed614d430b8"
+    },
+    {
+      "path": "../../src/kds/training/__init__.py",
+      "sha256": "37f4e20e86f2488ba3f34a7a70d4aabcf406f63e6fc321e8906ab9bb7a398faf"
+    },
+    {
+      "path": "../../src/kds/training/b0.py",
+      "sha256": "4827c686e2692ff429c6a94195534d5cf4d2ee7ea108675740b0f06f59016118"
+    },
+    {
+      "path": "../../src/kds/training/frozen_b0.py",
+      "sha256": "e9cc8cf0a7f3046596ad7f921c3b305dc7a096b0dfb233039558671615f49861"
+    },
+    {
+      "path": "../../pyproject.toml",
+      "sha256": "debc12027b79900ad127dbc125efa0d931d8f7181509056cbdd9f49554467e39"
+    },
+    {
+      "path": "../../uv.lock",
+      "sha256": "61314bb9c647eab9f53c898143757ed17c321a9812e56e05fc9928f3ea5183a1"
+    }
+  ],
+  "inference": {
+    "sample_rate": 16000,
+    "window_samples": 64600,
+    "batch_size": 4,
+    "num_workers": 0,
+    "device": "cuda",
+    "precision": "bf16",
+    "calibrated_probability_boundary": 0.5,
+    "temperature_max_iter": 50
+  },
+  "outputs": {
+    "preflight": "../../artifacts/xlsr-sls-stage-b-v2-stage-d-dialogs-ru-v1.preflight.json",
+    "execution_lock": "../../artifacts/xlsr-sls-stage-b-v2-stage-d-dialogs-ru-v1.execution.json",
+    "report": "../../artifacts/xlsr-sls-stage-b-v2-stage-d-dialogs-ru-v1.report.json"
+  }
+}

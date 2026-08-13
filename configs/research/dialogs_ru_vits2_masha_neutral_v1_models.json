@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stage-d-dialogs-ru-vits2-masha-neutral-v1",
+  "models": [
+    {
+      "model_id": "dialogs_ru_vits2_masha_neutral",
+      "destination": "dialogs_ru_vits2_masha_neutral",
+      "generator_family": "vits2_emotion_conditioned_tts",
+      "generator_name": "Dialogs-RU Expressive Russian TTS",
+      "generator_version": "hf-af7eabc15d087fce701de7261190ccb747c3bc7a; checkpoint-b565b7b5311bd29102f15d2700c69ea71569605bc756fb5bb49d98afdc5e1e43; weights-only-wrapper-188ed0e0d2a8db916160b75f51462cf59fe24bce60a919e88fedd7fa76846c71",
+      "license": "Dialogs-RU model card OpenRAIL declaration; Dialogs dataset OpenRAIL license revision e25ba617b2b56bd1dbf255d3905c51bd8da3d31f explicitly covers models trained on the dataset and their outputs; permitted for the project's personal-research scope subject to its use restrictions",
+      "source_url": "https://huggingface.co/frappuccino/dialogs-ru-vits2/tree/af7eabc15d087fce701de7261190ccb747c3bc7a",
+      "runtime": {
+        "kind": "dialogs_ru_vits2_weights_only_cpu",
+        "source_directory": "upstream",
+        "config_path": "upstream/config.json",
+        "checkpoint_path": "weights/averaged_G_615000.pth",
+        "upstream_revision": "af7eabc15d087fce701de7261190ccb747c3bc7a",
+        "checkpoint_published_lfs_sha256": "b565b7b5311bd29102f15d2700c69ea71569605bc756fb5bb49d98afdc5e1e43",
+        "torch_load_policy": "weights_only_true_strict_state_dict",
+        "wrapper_module": "src/kds/data/dialogs_ru_vits2.py",
+        "wrapper_sha256": "188ed0e0d2a8db916160b75f51462cf59fe24bce60a919e88fedd7fa76846c71",
+        "device": "cpu",
+        "sample_rate": 22050,
+        "fixed_speaker_id": 0,
+        "fixed_speaker_label": "Masha",
+        "fixed_emotion_id": 0,
+        "fixed_emotion_label": "neutral",
+        "fixed_voice_id": "dialogs_ru_vits2:Masha:neutral",
+        "reference_audio_policy": "forbidden",
+        "voice_cloning": false,
+        "text_input_only": true,
+        "external_text_normalizer": "forbidden",
+        "external_stress_model": "forbidden",
+        "text_cleaner": "upstream-basic_cleaners-lowercase-collapse-whitespace",
+        "noise_scale": 0.667,
+        "noise_scale_w": 0.8,
+        "length_scale": 1.0,
+        "per_text_rng_seed": "first_8_bytes_sha256_literal_utf8_source_text"
+      },
+      "artifacts": [
+        {
+          "relative_path": "upstream/README.md",
+          "url": "https://huggingface.co/frappuccino/dialogs-ru-vits2/raw/af7eabc15d087fce701de7261190ccb747c3bc7a/README.md",
+          "expected_size_bytes": 5427,
+          "sha256": "e493e045d8396b42693fd38dff5b82decc3840d4f03d517fde66e22fc17ad933"
+        },
+        {
+          "relative_path": "upstream/config.json",
+          "url": "https://huggingface.co/frappuccino/dialogs-ru-vits2/raw/af7eabc15d087fce701de7261190ccb747c3bc7a/config.json",
+          "expected_size_bytes": 2139,
+          "sha256": "d798db0beb86848cc3fd0e1d6754e49ef546abbb2f251d3c5b2f132a87fb1da7"
+        },
+        {
+          "relative_path": "upstream/S_monotonic_align.py",
+          "url": "https://huggingface.co/frappuccino/dialogs-ru-vits2/raw/af7eabc15d087fce701de7261190ccb747c3bc7a/S_monotonic_align.py",
+          "expected_size_bytes": 3767,
+          "sha256": "0e146dd541e34264045145a6be66bb2f21ab016577fcbf02eea721c846e9a351"
+        },
+        {
+          "relative_path": "upstream/attentions.py",
+          "url": "https://huggingface.co/frappuccino/dialogs-ru-vits2/raw/af7eabc15d087fce701de7261190ccb747c3bc7a/attentions.py",
+          "expected_size_bytes": 20192,
+          "sha256": "cffff4c1be3361d7f2f7ad0ef080c5b6dad07b2c9c8d3876926901ac4a104155"
+        },
+        {
+          "relative_path": "upstream/commons.py",
+          "url": "https://huggingface.co/frappuccino/dialogs-ru-vits2/raw/af7eabc15d087fce701de7261190ccb747c3bc7a/commons.py",
+          "expected_size_bytes": 4778,
+          "sha256": "f223dc1df791d2fb2953cfebd7014a7bc2a6ed614c05de6c17c7b44718a42cdd"
+        },
+        {
+          "relative_path": "upstream/models.py",
+          "url": "https://huggingface.co/frappuccino/dialogs-ru-vits2/raw/af7eabc15d087fce701de7261190ccb747c3bc7a/models.py",
+          "expected_size_bytes": 63411,
+          "sha256": "e26c0d3b73e4753eb4a802d57ef0b2fc5014863d5c88e1b897356bcc5e7290ce"
+        },
+        {
+          "relative_path": "upstream/modules.py",
+          "url": "https://huggingface.co/frappuccino/dialogs-ru-vits2/raw/af7eabc15d087fce701de7261190ccb747c3bc7a/modules.py",
+          "expected_size_bytes": 13166,
+          "sha256": "f6514eaf7fab47d866ee0f9da94ca6ab6e45ebaf246151408da20dd14f242a75"
+        },
+        {
+          "relative_path": "upstream/pqmf.py",
+          "url": "https://huggingface.co/frappuccino/dialogs-ru-vits2/raw/af7eabc15d087fce701de7261190ccb747c3bc7a/pqmf.py",
+          "expected_size_bytes": 4510,
+          "sha256": "0fa98f714f022602e3abbac850cb911c4ea4be81e131fc4bff2d1d7c475659c3"
+        },
+        {
+          "relative_path": "upstream/stft.py",
+          "url": "https://huggingface.co/frappuccino/dialogs-ru-vits2/raw/af7eabc15d087fce701de7261190ccb747c3bc7a/stft.py",
+          "expected_size_bytes": 12016,
+          "sha256": "f29d68063bfeed72795d1b3f7f4202a8e57c76e8f42cb7a794790c117dbd29a1"
+        },
+        {
+          "relative_path": "upstream/transforms.py",
+          "url": "https://huggingface.co/frappuccino/dialogs-ru-vits2/raw/af7eabc15d087fce701de7261190ccb747c3bc7a/transforms.py",
+          "expected_size_bytes": 8490,
+          "sha256": "9d95e518610c35581c4f1c3b4e8eeca91b7c3d6899e7f0ebb86a0387394d3046"
+        },
+        {
+          "relative_path": "upstream/text/__init__.py",
+          "url": "https://huggingface.co/frappuccino/dialogs-ru-vits2/raw/af7eabc15d087fce701de7261190ccb747c3bc7a/text/__init__.py",
+          "expected_size_bytes": 527,
+          "sha256": "ecc9b1e5f6a246bf32c73a2719cef94c0be6d46a2acbf16877a9d6df7bf4746c"
+        },
+        {
+          "relative_path": "upstream/text/cleaners.py",
+          "url": "https://huggingface.co/frappuccino/dialogs-ru-vits2/raw/af7eabc15d087fce701de7261190ccb747c3bc7a/text/cleaners.py",
+          "expected_size_bytes": 532,
+          "sha256": "24005ea0321df3d9de1b75256db0cb435da79002487ee52e6ed78cf37a14a841"
+        },
+        {
+          "relative_path": "upstream/text/symbols.py",
+          "url": "https://huggingface.co/frappuccino/dialogs-ru-vits2/raw/af7eabc15d087fce701de7261190ccb747c3bc7a/text/symbols.py",
+          "expected_size_bytes": 373,
+          "sha256": "d2b0295ff1e8b1e87f1baeaa2b065f91f3ace46e2b153db9a13db87af5deb0e1"
+        },
+        {
+          "relative_path": "license/DIALOGS_DATASET_OPENRAIL_LICENSE.md",
+          "url": "https://huggingface.co/datasets/langswap/dialogs-ru-emotional-conversations/raw/e25ba617b2b56bd1dbf255d3905c51bd8da3d31f/LICENSE.md",
+          "expected_size_bytes": 3736,
+          "sha256": "e136a6af001dd43a9002f20f39dd56d200afa9a6d408e28a625d90c9a0c22143"
+        },
+        {
+          "relative_path": "weights/averaged_G_615000.pth",
+          "url": "https://huggingface.co/frappuccino/dialogs-ru-vits2/resolve/af7eabc15d087fce701de7261190ccb747c3bc7a/averaged_G_615000.pth",
+          "expected_size_bytes": 529555187,
+          "sha256": "b565b7b5311bd29102f15d2700c69ea71569605bc756fb5bb49d98afdc5e1e43"
+        }
+      ]
+    }
+  ]
+}

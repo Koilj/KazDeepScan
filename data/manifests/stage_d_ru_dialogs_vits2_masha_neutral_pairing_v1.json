@@ -1,0 +1,61 @@
+{
+  "counts": {
+    "candidate_assets": 110,
+    "frozen_base_rows": 73,
+    "raw_spoof_rows": 73,
+    "ready_spoof_rows": 55,
+    "retained_pairs": 55,
+    "technical_qa_rejected_spoof_rows": 18
+  },
+  "created_at": "2026-08-13T13:45:00+05:00",
+  "decision_rule": {
+    "detector_inference_authorized": false,
+    "detector_inference_performed": false,
+    "metric_or_detector_based_selection": false,
+    "post_selection_backfill": false,
+    "qa_reject_excludes_entire_pair": true,
+    "resynthesis_after_qa": false
+  },
+  "full_asset_acoustic_gate_passed": false,
+  "inputs": {
+    "audio_rejections": {
+      "path": "data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_audio_rejections_v1.json",
+      "sha256": "0d539d7c740ca7d0d41420b3738227bbea6d8e3df0c1d4b2df282cc57fef569d"
+    },
+    "base_manifest": {
+      "path": "data/manifests/common_voice_ru_v24_first_250_test_unexposed_candidate_v2.csv",
+      "sha256": "d9ef5b0e91e960e5bf76a43274587a6483ac10e431d391f1ba119c71a05b330f"
+    },
+    "license_ledger": {
+      "path": "data/licenses/license_ledger.csv",
+      "sha256": "76bbc1db9fa2d479abe3928a9fb40765ad73621927a561fc268707252a045c58"
+    },
+    "raw_spoof_manifest": {
+      "path": "data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_raw_73.csv",
+      "sha256": "1ad28f28a74593dac38b174464fccaebe7cd4e222dfd764fff7fe26da1766441"
+    },
+    "ready_spoof_manifest": {
+      "path": "data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_ready_73.csv",
+      "sha256": "f79a974806a54abedd1c97bfaf8e7c9cf4e1b41043fe94a24f20b8cfbd2eeb8b"
+    },
+    "route_audit": {
+      "path": "data/manifests/stage_d_ru_dialogs_vits2_exact_route_audit_v1.json",
+      "sha256": "f6a4ddd6bc334776d0029cbe3151c5e118815c38f160cb58f0e0ad7725a33d00"
+    },
+    "synthesis_report": {
+      "path": "data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_synthesis_v1.json",
+      "sha256": "978cb1ad25408b2d5ce7948d5d213368154c519bfa5d95cdb4b99c8255df55d8"
+    },
+    "text_binding": {
+      "path": "data/manifests/stage_d_common_voice_ru_literal_text_binding_v1.json",
+      "sha256": "59dbb43393a8b15d969985dce653395af6a3cf558eb899912a2bd29af7ef5d7f"
+    }
+  },
+  "output_candidate": {
+    "path": "data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_candidate_v1.csv",
+    "rows": 110,
+    "sha256": "cd4ccc2be9fd0fa06bd3641f1e939499d93f111c5f6a5a636753adf97ac2891d"
+  },
+  "protocol_id": "stage-d-dialogs-ru-masha-neutral-pairing-v1",
+  "schema_version": 1
+}

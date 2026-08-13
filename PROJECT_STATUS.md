@@ -4,10 +4,12 @@
 
 **Scope:** personal research, без записи голосов людей, voice cloning и product/API score.
 
-**Состояние:** XLS-R+SLS v2 обучен и проверен на двух write-once research protocols. Для нового
-167-pair RU/KK/mixed Stage-C candidate через exact KazakhTTS route завершены synthesis, QA,
-exposure audit, two-review full-asset gate, immutable plan и один GPU inference run. Результат
-asset-level blind, но не source- или speaker-independent; checkpoint не используется в API.
+**Состояние:** XLS-R+SLS v2 обучен и проверен на завершённых write-once research protocols,
+включая 167-pair RU/KK/mixed Stage C и отдельный 55-pair RU Stage D. Для Stage D через exact
+Dialogs-RU VITS2 Masha/neutral route завершены rights/model lock, synthesis, QA, exposure audit,
+two-review full-asset gate, immutable plan и один GPU inference run. Результаты остаются
+asset-level-blind evidence на момент запуска, но не source-, speaker- или
+architecture-family-independent; checkpoint не используется в API.
 
 Этот файл намеренно краткий. Архитектура описана в
 [KazDeepScan_implementation_blueprint.md](KazDeepScan_implementation_blueprint.md), следующие
@@ -65,11 +67,16 @@ asset-level blind, но не source- или speaker-independent; checkpoint не
   logit, execution-lock SHA-256
   `7d692542e6397c64ac0379eca34564d16f1fd670d5deb93e7a9a940695c2ccdb`, report SHA-256
   `2cb7198a6ec03f2c6424748dde3263731d87ff6b0b557f59b0463b7f74cc5e32`.
-- Для будущего Stage-D RU слоя без model output подготовлен 73-row Common Voice bona-fide
-  candidate. Он проходит configured-role exposure audit против 12 203 строк, но пока не имеет
-  допустимого нового spoof counterpart и не является evaluation suite. Russian Piper и MMS
-  отвергнуты из-за historical RuASD route overlap; подробности в
-  [Stage-D Common Voice precheck](docs/stage_d_common_voice_ru_precheck_v1.md).
+- Dialogs-RU VITS2 / fixed Masha-neutral принят только как `unseen_exact_generator_route`:
+  pinned model revision и 15 required files проверены по size/SHA-256; local wrapper fail closed
+  использует `torch.load(weights_only=True)`, не принимает reference audio и фиксирует
+  speaker/emotion IDs. Audit 53 historical spoof manifests / 18 422 rows не нашёл exact-route
+  или Masha-alias overlap; generic RuASD `vits2TTS` исключает claim новой architecture family.
+- Stage D строго привязал 73 frozen Common Voice RU текста, создал ровно 73 synthetic WAV и без
+  backfill сохранил 55 binary pairs / 110 assets после 18 `insufficient_speech` rejects.
+  Проектный exposure audit против 23 configs / 12 203 rows дал `0/0/0` sample/audio/text overlap.
+  Обе full-asset acoustic review формы прошли до inference; preflight проверил 1 086 bindings,
+  после чего выполнен ровно один GPU run.
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
 ## Актуальные результаты
@@ -85,6 +92,7 @@ asset-level blind, но не source- или speaker-independent; checkpoint не
 | Fresh Stage-C RU balanced accuracy | 0.9000 | 50 new exact pairs, asset-level blind |
 | Fresh Stage-C KK balanced accuracy | 0.9500 | 60 new exact pairs, asset-level blind |
 | Fresh Stage-C mixed balanced accuracy | 0.8070 | 57 new exact pairs, asset-level blind |
+| Stage-D RU Dialogs-RU balanced accuracy | 0.9727 | 55 fixed Common Voice/Dialog-RU pairs; one run |
 
 Общая pooled RU+KK+mixed accuracy намеренно не рассчитывается. Это не product quality и не
 speaker-independent result: используемые источники не дают достаточного verified speaker
@@ -97,6 +105,7 @@ calibration.
 ## Зафиксированные ограничения
 
 - Завершённые Stage A/B/final/ToneSpeak plans не повторять и не изменять.
+- Завершённые Stage C и Stage D synthesis, preflight и inference не повторять и не изменять.
 - Final logits и ошибки не использовать для training, architecture, threshold или calibration.
 - Выполненный KK acoustic gate подтверждает только качество exact bytes и не делает уже
   раскрытый результат blind задним числом.
@@ -107,26 +116,34 @@ calibration.
   spoof-класса и с unresolved rights/privacy provenance. Dusha — human emotion corpus, не spoof.
 - Абсолютная architecture novelty больше не используется: historical RuASD manifests не дают
   architecture IDs. Проверяется exact checkpoint/runtime route; component и voice overlaps
-  раскрываются отдельно. IMS Toucan не выбран, KazakhTTS route принят.
+  раскрываются отдельно. IMS Toucan не выбран, KazakhTTS и Dialogs-RU exact routes приняты.
+- Dialogs-RU model repository в pinned revision не содержит собственного `LICENSE`. Его model-card
+  OpenRAIL declaration и pinned dataset license допускают только зафиксированный personal-research
+  scope, а не broad commercial clearance.
 - Research checkpoint нельзя подключать к API risk score.
 
 ## Следующие действия
 
-1. Не повторять Stage-C run и не использовать его final errors для tuning.
-2. Не использовать 73-row Stage-D Common Voice candidate до появления и проверки нового RU
-   text-only spoof route; Piper/MMS/RHVoice не переиспользовать.
-3. Только после complete paired suite и pre-inference two-review gate решать, нужен ли model v3;
-   его train/dev/calibration contract должен быть отдельным от final suite.
+1. Не повторять Stage-C/Stage-D runs и не использовать их final errors для tuning или выбора v3.
+2. До обучения v3 зафиксировать отдельный train/dev/calibration contract: источники, roles,
+   leakage checks, заранее заданную dev metric, symmetric channel/codec/replay augmentation и
+   новый calibration role.
+3. До v3 inference выпустить новый immutable v3 plan, который ссылается на уже frozen exact
+   55-pair Stage-D set без его изменения, донабора или reselection. Поскольку logits v2 уже
+   раскрыты, весь v3 train/dev/calibration design, checkpoint/threshold/augmentation choices и
+   calibration должны быть зафиксированы без обращения к Stage-D ошибкам. Выбор checkpoint —
+   только по v3 dev metric; затем по новому plan разрешён один v3 final inference run.
 
 Полный порядок и критерии остановки: [План реализации.md](План%20реализации.md).
 
 ## Проверка и воспроизводимость
 
 - Ruff: успешно.
-- mypy: 142 source files без ошибок.
-- pytest: 213 tests успешно.
+- mypy: успешно.
+- pytest: успешно.
 - Final preflight: 3 991 asset bindings.
 - Stage-C preflight: 1 310 asset bindings; один GPU inference run, `334` exact final predictions.
+- Stage-D preflight: 1 086 asset bindings; один GPU inference run, `110` exact final predictions.
 - Точное implementation tree выполненного final plan: Git commit `52d6e6b`.
 - Scope clarification: `b1368c9`.
 - Final plan SHA-256: `1dfc3ca866607191385b33b85a1ee67cb3981099c6fc836aef720c6c2610d4fc`.
@@ -150,5 +167,6 @@ calibration.
 - [Stage C KazakhTTS normalized candidate и full-asset gate](docs/fresh_suite_stage_c_kazakhtts_candidate_v1.md)
 - [XLS-R Stage-C asset-level-blind evaluation](docs/research_xlsr_sls_stage_b_v2_fresh_suite_stage_c_v1.md)
 - [Stage-D Common Voice RU precheck](docs/stage_d_common_voice_ru_precheck_v1.md)
+- [Stage-D Dialogs-RU VITS2 / Masha-neutral](docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md)
 - [External RU spoof-source search](docs/russian_spoof_source_search_2026-08-11.md)
 - [License-ledger snapshots](docs/license_ledger_snapshots.md)

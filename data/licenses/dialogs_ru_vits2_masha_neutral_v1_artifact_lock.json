@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "source_id": "stage_d_ru_dialogs_vits2_masha_neutral_v1",
+  "model_repository": "frappuccino/dialogs-ru-vits2",
+  "model_revision": "af7eabc15d087fce701de7261190ccb747c3bc7a",
+  "model_source_url": "https://huggingface.co/frappuccino/dialogs-ru-vits2/tree/af7eabc15d087fce701de7261190ccb747c3bc7a",
+  "model_card_license_declaration": "OpenRAIL",
+  "license_evidence": {
+    "model_card_path": "README.md",
+    "model_card_sha256": "e493e045d8396b42693fd38dff5b82decc3840d4f03d517fde66e22fc17ad933",
+    "upstream_model_license_file": "absent_at_pinned_revision",
+    "training_dataset": "langswap/dialogs-ru-emotional-conversations",
+    "training_dataset_revision": "e25ba617b2b56bd1dbf255d3905c51bd8da3d31f",
+    "training_dataset_license_path": "LICENSE.md",
+    "training_dataset_license_sha256": "e136a6af001dd43a9002f20f39dd56d200afa9a6d408e28a625d90c9a0c22143",
+    "personal_research_decision": "permitted subject to OpenRAIL use restrictions"
+  },
+  "fixed_profile": {
+    "speaker_id": 0,
+    "speaker_label": "Masha",
+    "emotion_id": 0,
+    "emotion_label": "neutral",
+    "voice_id": "dialogs_ru_vits2:Masha:neutral",
+    "reference_audio": "forbidden",
+    "voice_cloning": "forbidden",
+    "random_speaker_or_emotion_profile": "forbidden"
+  },
+  "security": {
+    "upstream_tts_py_uses_unsafe_torch_load": true,
+    "upstream_tts_py_not_executed": true,
+    "local_runtime": "src/kds/data/dialogs_ru_vits2.py",
+    "local_runtime_sha256": "188ed0e0d2a8db916160b75f51462cf59fe24bce60a919e88fedd7fa76846c71",
+    "checkpoint_load_policy": "torch.load(weights_only=True, map_location=cpu) then exact strict tensor state_dict",
+    "checkpoint_weights_only_verification": {
+      "payload_type": "dict",
+      "state_type": "OrderedDict",
+      "state_entries": 616,
+      "all_entries_string_tensor": true
+    }
+  },
+  "model_lock": {
+    "path": "configs/research/dialogs_ru_vits2_masha_neutral_v1_models.json",
+    "size_bytes": 7386,
+    "sha256": "c516526c916781ca332fc3b7cd14055c35b0c59bd1e1d15baef723e4d0bb6142"
+  },
+  "artifacts": {
+    "count": 15,
+    "total_size_bytes": 529698251,
+    "checkpoint": {
+      "path": "averaged_G_615000.pth",
+      "size_bytes": 529555187,
+      "published_lfs_sha256": "b565b7b5311bd29102f15d2700c69ea71569605bc756fb5bb49d98afdc5e1e43",
+      "local_sha256": "b565b7b5311bd29102f15d2700c69ea71569605bc756fb5bb49d98afdc5e1e43"
+    },
+    "all_files_are_pinned_in_model_lock": true
+  },
+  "historical_novelty_boundary": {
+    "candidate_claim": "unseen_exact_generator_route",
+    "architecture_family_claim": false,
+    "reason": "RuASD stores generic vits2TTS identifiers without a checkpoint/runtime version; it cannot prove architecture-family novelty.",
+    "audit_path": "data/manifests/stage_d_ru_dialogs_vits2_exact_route_audit_v1.json",
+    "audit_sha256": "f6a4ddd6bc334776d0029cbe3151c5e118815c38f160cb58f0e0ad7725a33d00",
+    "historical_spoof_rows_audited": 18422,
+    "exact_route_overlap_rows": 0
+  },
+  "scope": {
+    "usage_scope": "personal_research",
+    "training_or_calibration_use": "forbidden",
+    "detector_inference": "forbidden_until_immutable_plan_and_two_review_gate"
+  }
+}

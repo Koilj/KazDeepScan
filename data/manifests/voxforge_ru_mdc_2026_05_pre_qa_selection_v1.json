@@ -1,0 +1,63 @@
+{
+  "archive": {
+    "expected_sha256": "7372c6f8d067b8d1651995ad8306b673acaf2cde705ee51295152b96c93de557",
+    "expected_size_bytes": 3795197539,
+    "identity_verified_before_metadata_read": true
+  },
+  "candidate_state": "immutable metadata selection only; no WAV extraction, synthesis, QA, acoustic review, pairing, or detector inference",
+  "claims": {
+    "audio_extraction_performed": false,
+    "detector_inference_authorized": false,
+    "detector_inference_performed": false,
+    "future_extraction_must_use_only_selected_source_members": true,
+    "metadata_exposure_screen_required": true,
+    "pairing_performed": false,
+    "qa_or_acoustic_review_performed": false,
+    "qa_rejects_must_not_trigger_backfill": true,
+    "selection_frozen": true,
+    "synthetic_audio_generated": false
+  },
+  "inputs": {
+    "metadata_exposure_screen": {
+      "path": "data/manifests/voxforge_ru_mdc_2026_05_metadata_exposure_screen_v1.json",
+      "sha256": "275367a9738bfcc017315cfb3799078c0c3ab1981a318098b0849eaf7893dffe"
+    },
+    "source_audit_receipt": {
+      "path": "data/licenses/voxforge_ru_mdc_2026_05_artifact_audit_receipt.json",
+      "sha256": "0e8bd5c7d1e02bedc235adcb3bdb7ed3bc7efdd0ff7637339460e3f43c38272f"
+    }
+  },
+  "output_selection": {
+    "path": "data/manifests/voxforge_ru_mdc_2026_05_pre_qa_selection_v1.csv",
+    "rows": 81,
+    "sha256": "d181e24b290ee66cfc190a935b8d23132548306a17e3db1814b778d667202fb9"
+  },
+  "protocol_id": "voxforge-ru-mdc-pre-qa-selection-v1",
+  "schema_version": 1,
+  "selected_at": "2026-08-13T19:43:25+05:00",
+  "selected_entries_fingerprint_sha256": "7f1c27c38ae7aef4fa6fd5f68e24ef75246299a3a4ceba644b00d283a8fead09",
+  "selection_policy": {
+    "contributor_matching": "seeded deterministic augmenting-path maximum matching of selected canonical prompt-text groups to distinct contributor groups",
+    "exactly_one_record_per_selected_canonical_prompt_text_group": true,
+    "exactly_one_record_per_selected_contributor_group": true,
+    "kind": "seeded_maximum_text_to_contributor_matching",
+    "post_selection_backfill": false,
+    "record_ranking": "ascending SHA-256(seed + NUL + 'record-in-text-contributor:' + text_hash + ':' + parent_group_id + NUL + sample_id), then sample_id",
+    "requested_text_groups": 81,
+    "selected_canonical_prompt_text_groups": 81,
+    "selected_contributor_groups": 81,
+    "selected_original_prompt_text_groups": 81,
+    "selected_records": 81,
+    "selection_seed": "2026-08-13-voxforge-ru-mdc-pre-qa-candidate-v1",
+    "selection_uses_audio_or_duration": false,
+    "selection_uses_detector_or_model_output": false,
+    "selection_uses_model_metrics_or_final_errors": false,
+    "text_group_ranking": "ascending SHA-256(seed + NUL + 'prompt-text-group' + NUL + text_hash), then text_hash"
+  },
+  "survivor_pool": {
+    "metadata_screen_canonical_prompt_text_groups": 81,
+    "metadata_screen_contributor_groups": 194,
+    "metadata_screen_records": 6412,
+    "source_id": "voxforge_ru_mdc_2026_05"
+  }
+}

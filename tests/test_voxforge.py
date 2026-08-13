@@ -11,6 +11,7 @@ import pytest
 import kds.data.voxforge as voxforge
 import kds.eval.voxforge_metadata_screen as metadata_screen
 from kds.data.manifest import ManifestRow
+from kds.eval.candidate_exposure import CandidateExposureError
 
 
 def _wav_bytes() -> bytes:
@@ -183,7 +184,7 @@ def test_metadata_screen_taints_every_record_in_contributor_group(
     )
 
     assert [identity.sample_id for identity in screen.surviving] == [
-        "voxforge_ru_mdc_2026_05:submission-b:three"
+        metadata_screen.voxforge_metadata_identity(records[2]).sample_id
     ]
     strict = screen.receipt["strict_group_exclusion"]
     overlaps = screen.receipt["direct_overlap_record_counts"]
@@ -191,3 +192,58 @@ def test_metadata_screen_taints_every_record_in_contributor_group(
     assert strict["excluded_records"] == 2
     assert overlaps["configured_roles"]["prompt_text_hash"] == 1
     assert overlaps["manifest_inventory"]["prompt_text_hash"] == 1
+
+
+def test_pre_qa_selection_matches_unique_text_and_contributor_groups() -> None:
+    records = (
+        voxforge.VoxForgeRuRecord("submission-a", "alias-a", "one", "text-one", "text-one."),
+        voxforge.VoxForgeRuRecord("submission-a", "alias-a", "two", "text-two", "text-two."),
+        voxforge.VoxForgeRuRecord("submission-b", "alias-b", "two", "text-two", "text-two."),
+        voxforge.VoxForgeRuRecord("submission-b", "alias-b", "three", "text-three", "text-three."),
+        voxforge.VoxForgeRuRecord("submission-c", "alias-c", "three", "text-three", "text-three."),
+    )
+    identities = tuple(metadata_screen.voxforge_metadata_identity(record) for record in records)
+    screen = metadata_screen.VoxForgeMetadataScreen(
+        identities=identities,
+        surviving=identities,
+        receipt={
+            "strict_group_exclusion": {
+                "surviving_records": 5,
+                "surviving_contributor_groups": 3,
+            }
+        },
+    )
+
+    selection = metadata_screen.select_voxforge_ru_mdc_pre_qa_candidate(
+        records=records,
+        metadata_screen=screen,
+        selection_seed="voxforge-selection-test-v1",
+        requested_text_groups=3,
+        selected_at="2026-08-13T00:00:00Z",
+    )
+    repeated = metadata_screen.select_voxforge_ru_mdc_pre_qa_candidate(
+        records=records,
+        metadata_screen=screen,
+        selection_seed="voxforge-selection-test-v1",
+        requested_text_groups=3,
+        selected_at="2026-08-13T00:00:00Z",
+    )
+
+    assert selection == repeated
+    assert [entry.selection_rank for entry in selection.entries] == [1, 2, 3]
+    assert len({entry.parent_group_id for entry in selection.entries}) == 3
+    assert len({entry.prompt_text_hash for entry in selection.entries}) == 3
+    assert len({entry.original_prompt_text_hash for entry in selection.entries}) == 3
+    assert all("submission-a" not in entry.sample_id for entry in selection.entries)
+    assert all("submission-a" not in entry.submission_pseudo_id for entry in selection.entries)
+    assert selection.receipt["selection_policy"]["kind"] == (
+        "seeded_maximum_text_to_contributor_matching"
+    )
+    with pytest.raises(CandidateExposureError, match="exceeds"):
+        metadata_screen.select_voxforge_ru_mdc_pre_qa_candidate(
+            records=records,
+            metadata_screen=screen,
+            selection_seed="voxforge-selection-test-v1",
+            requested_text_groups=4,
+            selected_at="2026-08-13T00:00:00Z",
+        )

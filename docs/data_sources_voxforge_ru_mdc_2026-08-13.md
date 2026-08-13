@@ -1,7 +1,8 @@
 # VoxForge Russian / Mozilla Data Collective — source-level intake, 13 августа 2026
 
-**Статус:** completed source-level archive intake. Это ещё не candidate, не extraction и не
-разрешение на synthesis, training, calibration или detector inference.
+**Статус:** completed source-level archive intake, screen и metadata-only selection. Это ещё не
+audio candidate, extraction и не разрешение на synthesis, training, calibration или detector
+inference.
 
 ## Exact artifact и лицензия
 
@@ -65,18 +66,25 @@ with every then-current configured role and full manifest inventory.
 
 Strict whole-contributor-group exclusion tainted `0` groups: all `6,412` records, `194`
 contributor groups and `81` canonical text groups survive. The screen intentionally has no WAV
-SHA-256 comparison because it is pre-extraction; an exact asset audit remains mandatory after a
-future frozen selection. Immutable screen receipt SHA-256:
+SHA-256 comparison because it is pre-extraction; an exact asset audit remains mandatory after the
+completed frozen selection. Immutable screen receipt SHA-256:
 `275367a9738bfcc017315cfb3799078c0c3ab1981a318098b0849eaf7893dffe` —
 [versioned receipt](../data/manifests/voxforge_ru_mdc_2026_05_metadata_exposure_screen_v1.json).
 
+## Frozen pre-QA selection
+
+The metadata-only selection is complete: it selected all `81` canonical prompt-text groups and
+matched them to `81` distinct conservative contributor groups, with one source record per match.
+It binds the source audit and this screen, preserves both text-hash layers, excludes raw aliases
+from versioned output and forbids backfill. The immutable details and next gate are in the
+[selection receipt](voxforge_ru_mdc_pre_qa_selection_v1.md).
+
 ## Запреты и следующий gate
 
-This stage created no `data/raw/voxforge*` material, manifest, candidate, selection, synthetic
-audio, model logit or metric. Raw archive and WAV stay outside Git.
+Archive intake and exposure screen created no `data/raw/voxforge*` material, decoded WAV,
+manifest, synthetic audio, model logit or metric; the subsequent selection remained metadata-only.
+Raw archive and WAV stay outside Git.
 
-The next permitted action is a separately frozen, limited bona-fide selection policy. It must
-bind a seed, selected text/group rule and a candidate size no greater than the surviving `81`
-text groups. It still cannot authorize synthesis or detector inference: a separate exact spoof
-route, audio QA, pair lock, full-asset acoustic review and immutable one-run evaluation contract
-remain required.
+The next permitted action is a separate exact spoof-route review. It still cannot authorize
+synthesis or detector inference: selection-bound WAV materialization, audio QA, pair lock,
+full-asset acoustic review and an immutable one-run evaluation contract remain required.

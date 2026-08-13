@@ -402,6 +402,7 @@ two-review technical gate — в
 [execution reconciliation receipt](data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_execution_reconciliation_v1.json).
 Новый VoxForge Russian bona-fide source прошёл byte-locked GPL/transcript intake и strict
 pre-extraction project-exposure screen: `6,412` WAV, `194` source-provided contributor groups,
-`81` canonical text groups и `0/0/0/0/0` sample/two-text/group overlap. Raw WAV не извлекались
-и candidate не выбран. Ограничения и следующий frozen selection gate описаны
+`81` canonical text groups и `0/0/0/0/0` sample/two-text/group overlap. Затем metadata-only
+selection заморозил `81` records с уникальными text и conservative contributor groups; raw WAV
+не извлекались. Ограничения и следующий exact spoof-route gate описаны
 в [VoxForge intake receipt](docs/data_sources_voxforge_ru_mdc_2026-08-13.md).

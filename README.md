@@ -247,16 +247,18 @@ uv run python scripts/prepare_fresh_suite_stage_c_acoustic_gate.py evaluate \
   --evaluated-at 2026-08-12T00:00:00Z \
   --output-report data/manifests/fresh_suite_stage_c_kazakhtts_full_acoustic_gate_report_v1.json
 
-# Suite v1 уже оценён и повторно не запускается. Следующее имя plan — только шаблон:
-# файл создаётся вместе с новым suite и ранее не раскрытыми final assets. Сначала
-# проверить такой заранее зафиксированный run-plan без обучения и final inference:
-uv run python scripts/train_b0_unseen_suite.py \
-  --plan configs/research/unseen_generator_b0_run_v2.json \
+# После full-asset pass Stage-C XLS-R plan выполняется только один раз. Сначала
+# validate-only проверяет pinned assets, права, gate, exposure audit и CUDA/BF16 без inference.
+uv run python scripts/evaluate_xlsr_fresh_suite_stage_c.py \
+  --plan configs/research/xlsr_sls_stage_b_v2_fresh_suite_stage_c_v1.json \
   --audio-root data --validate-only
 
-# После успешного preflight новый protocol выполняется ровно один раз той же командой
-# без --validate-only. Seed, model/training config, входные SHA-256 и output пути
-# берутся только из plan, а не из аргументов запуска.
+# После успешного preflight неизменённая команда без --validate-only запускает ровно один
+# GPU inference run. Calibration выполняется только на pinned PyAra role; threshold и pooled
+# metric не выбираются. Появившийся execution lock или report запрещает повтор.
+uv run python scripts/evaluate_xlsr_fresh_suite_stage_c.py \
+  --plan configs/research/xlsr_sls_stage_b_v2_fresh_suite_stage_c_v1.json \
+  --audio-root data
 
 # Исторический синтаксис preflight для XLS-R+SLS Stage A v2.
 # Этот plan уже выполнен: write-once guard теперь ожидаемо отклонит и validate/profile/train.

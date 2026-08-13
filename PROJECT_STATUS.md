@@ -1,14 +1,14 @@
 # KazDeepScan — текущий статус
 
-**Обновлено:** 12 августа 2026
+**Обновлено:** 13 августа 2026
 
 **Scope:** personal research, без записи голосов людей, voice cloning и product/API score.
 
 **Состояние:** XLS-R+SLS v2 обучен и один раз проверен; post-inference two-review KK acoustic
 gate завершён для всех 304 exact assets. Для следующего blind research suite опубликован новый
-167-pair RU/KK/mixed candidate через exact KazakhTTS route. Synthesis, QA, rejection accounting
-и project-exposure audit завершены; detector inference запрещён до заполнения двух full-asset
-review forms и фиксации нового immutable plan.
+167-pair RU/KK/mixed candidate через exact KazakhTTS route. Synthesis, QA, rejection accounting,
+project-exposure audit и full-asset acoustic gate завершены. Immutable XLS-R Stage-C plan создан,
+его validate-only preflight прошёл; единственный GPU inference run ещё не выполнялся.
 
 Этот файл намеренно краткий. Архитектура описана в
 [KazDeepScan_implementation_blueprint.md](KazDeepScan_implementation_blueprint.md), следующие
@@ -56,8 +56,12 @@ review forms и фиксации нового immutable plan.
   mixed exact pairs (`334` candidate assets).
 - Project-exposure audit сравнил candidate с 15 manifests / 11 869 rows из 21 research config:
   overlap по `sample_id`, audio SHA-256 и `text_hash` равен `0/0/0`.
-- Full-asset packet на все 167 QA-ready synthetic WAV и две fail-closed reviewer forms готовы.
-  Человеческие решения ещё не внесены; inference и immutable plan пока заблокированы.
+- Две независимые full-asset формы заполнены и строго проверены: `334` review rows,
+  `167/167` exact synthetic WAV получили `pass`; receipt SHA-256
+  `9a12f235072ce5ae4c3bd6bb0616a804a710abea74f3c3b387cebe12baf8153c`.
+- New Stage-C XLS-R plan закрепляет candidate, full acoustic gate, project-exposure audit, frozen
+  five-source license snapshot, calibration role, implementation hashes и новые write-once paths.
+  Preflight подтвердил `1 310` asset bindings (`976` calibration, `100 RU`, `120 KK`, `114 mixed`).
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
 ## Актуальные результаты
@@ -97,19 +101,17 @@ calibration.
 
 ## Следующие действия
 
-1. Заполнить две 167-row full-asset review формы независимыми reviewer IDs и решениями.
-2. Строго оценить формы и опубликовать write-once acoustic-gate report.
-3. После pass зафиксировать ledger snapshot, implementation hashes и immutable output paths.
-4. Выполнить один validate-only preflight и один GPU inference run. Только затем решать,
-   нужен ли model v3.
+1. Выполнить ровно один GPU inference run по frozen Stage-C plan.
+2. Опубликовать report с confidence intervals и раздельными RU/KK/mixed метриками.
+3. Только затем решать, нужен ли model v3.
 
 Полный порядок и критерии остановки: [План реализации.md](План%20реализации.md).
 
 ## Проверка и воспроизводимость
 
 - Ruff: успешно.
-- mypy: 140 source files без ошибок.
-- pytest: 211 tests успешно.
+- mypy: 142 source files без ошибок.
+- pytest: 213 tests успешно.
 - Final preflight: 3 991 asset bindings.
 - Точное implementation tree выполненного final plan: Git commit `52d6e6b`.
 - Scope clarification: `b1368c9`.

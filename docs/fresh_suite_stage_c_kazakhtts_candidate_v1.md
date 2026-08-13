@@ -46,8 +46,11 @@ route overlap `0`. Это доказывает asset/text/route freshness тол
 Packet содержит все 167 QA-ready synthetic assets, exact audio SHA, исходный текст,
 нормализованный synthesis text и их bindings. Обе формы созданы с fail-closed значениями
 `inconclusive/unknown/unknown/unknown/unknown`. Для pass каждая строка у двух разных reviewers
-должна стать `pass/yes/yes/yes/no`. До публикации успешного write-once report нельзя создавать
-immutable inference plan и запускать detector.
+должна стать `pass/yes/yes/yes/no`. Обе независимые формы заполнены: все 334 решения строгого
+контракта прошли, `167/167` exact synthetic assets получили итог `pass`. Write-once receipt
+`fresh_suite_stage_c_kazakhtts_full_acoustic_gate_report_v1.json` имеет SHA-256
+`9a12f235072ce5ae4c3bd6bb0616a804a710abea74f3c3b387cebe12baf8153c` и разрешает только
+создание immutable inference plan; detector inference до исполнения такого plan не выполнялся.
 
 ## Ключевые артефакты
 
@@ -63,8 +66,9 @@ immutable inference plan и запускать detector.
 | `fresh_suite_stage_c_candidate_v1.csv` | `64d2f54d59f05eeb9211db7fba3280036798fc94c91b30440122001caca215c9` |
 | `fresh_suite_stage_c_candidate_project_exposure_v1.json` | `f9d2980e5577d1955df6eb098bf380fe4be8d89fcc29bb618d50f37ee72037cc` |
 | `fresh_suite_stage_c_kazakhtts_full_acoustic_gate_packet_v1.csv` | `6b4ada9ffd10b3c1cb1c30f6b1794b483e4ec31017333b7401cff31d414f5d14` |
-| `fresh_suite_stage_c_kazakhtts_full_acoustic_review_reviewer_1.csv` | `60a455fc517af27c9fa2874f8a46a33c29ddb0e21d9b8322ceef40ca65dd5d46` |
-| `fresh_suite_stage_c_kazakhtts_full_acoustic_review_reviewer_2.csv` | `62a6bf9d5963f081ec6bc643d60ad0bc9fdd7807fd5bb9cf28d27560121cd41c` |
+| `fresh_suite_stage_c_kazakhtts_full_acoustic_review_reviewer_1.csv` | `0e797abd78170de4b453ece05cd47e4ebdbd9bdd457f490b1ad1c5163aac9697` |
+| `fresh_suite_stage_c_kazakhtts_full_acoustic_review_reviewer_2.csv` | `03616fec42b78c6b3d29caad57d665e52a4c202cf9dd4bd5f8d90231273e3421` |
+| `fresh_suite_stage_c_kazakhtts_full_acoustic_gate_report_v1.json` | `9a12f235072ce5ae4c3bd6bb0616a804a710abea74f3c3b387cebe12baf8153c` |
 
 Raw/processed WAV и model weights остаются локальными и исключены из Git; manifests и receipts
 фиксируют их exact bytes.

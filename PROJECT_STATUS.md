@@ -152,9 +152,9 @@ test; результаты не source-, speaker- или architecture-family-ind
   so no Russian-native, speaker- or architecture-independence claim. The one frozen 81-WAV
   VoxForge materialization then passed archive rebinding and technical decode/QA/VAD: `79` ready,
   `2` `signal_too_quiet` rejects, no replacement. Literal-text binding revalidated the same `79`
-  prompt/group/hash rows without text persistence or rewrite; no synthesis, pairing or detector
-  inference yet. UtrobinTTS remains rejected: `76` historical spoof rows carry its unversioned
-  identifier.
+  prompt/group/hash rows without text persistence or rewrite. A non-candidate CUDA smoke passed
+  with one temporary 24 kHz mono Russian WAV; no selected synthesis, pairing or detector inference
+  yet. UtrobinTTS remains rejected: `76` historical spoof rows carry its unversioned identifier.
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
 ## Актуальные результаты
@@ -282,6 +282,7 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [VoxForge Russian accepted Qwen3-TTS CustomVoice route](docs/voxforge_ru_mdc_qwen3_tts_customvoice_route_review_2026-08-13.md)
 - [VoxForge Russian pre-QA materialization](docs/voxforge_ru_mdc_pre_qa_materialization_v1.md)
 - [VoxForge Russian Qwen literal-text binding](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_text_binding_v1.md)
+- [VoxForge Russian Qwen CUDA smoke](docs/voxforge_ru_mdc_qwen3_tts_customvoice_cuda_smoke_v1.md)
 - [VoxForge Russian rejected UtrobinTTS route review](docs/voxforge_ru_mdc_utrobinmv_vits_route_review_2026-08-13.md)
 - [Silero V5.5 RU / eugene route intake](docs/silero_v5_5_ru_eugene_intake_2026-08-13.md)
 - [Common Voice RU full-test metadata exposure screen](data/manifests/common_voice_ru_v24_full_test_metadata_exposure_screen_v1.json)

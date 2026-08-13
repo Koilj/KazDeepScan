@@ -12,4 +12,4 @@ Receipt: [text binding JSON](../data/manifests/voxforge_ru_mdc_qwen3_tts_customv
 
 ## Следующий безопасный шаг
 
-Generate exactly one local Qwen3-TTS CustomVoice / fixed `aiden` WAV per bound row, using the locked local talker, codec, CUDA runtime, literal text and recorded deterministic seed. A failed synthesis or technical-QA row permanently reduces the set: no regeneration, replacement or backfill. Pairing, acoustic/language review and detector inference remain separately prohibited.
+The [non-candidate CUDA smoke](voxforge_ru_mdc_qwen3_tts_customvoice_cuda_smoke_v1.md) passed. Generate exactly one local Qwen3-TTS CustomVoice / fixed `aiden` WAV per bound row, using the locked local talker, codec, CUDA runtime, literal text and recorded deterministic seed. A failed synthesis or technical-QA row permanently reduces the set: no regeneration, replacement or backfill. Pairing, acoustic/language review and detector inference remain separately prohibited.

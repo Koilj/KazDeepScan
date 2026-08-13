@@ -412,5 +412,6 @@ Russian-native/speaker/architecture-independence claim и не synthesis: `aiden
 UtrobinTTS candidate остаётся отклонённым (76 unversioned historical rows). Ограничения и
 literal-text binding завершён: `79/79` ready rows снова связаны с archive prompts без хранения
 transcript, lexical rewrite или reselection; два `signal_too_quiet` rejects остаются исключёнными.
-Следующий one-shot synthesis gate описан в
+Non-candidate CUDA smoke подтвердил 24 kHz mono output fixed Qwen route; следующий one-shot
+synthesis gate описан в
 [VoxForge text-binding receipt](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_text_binding_v1.md).

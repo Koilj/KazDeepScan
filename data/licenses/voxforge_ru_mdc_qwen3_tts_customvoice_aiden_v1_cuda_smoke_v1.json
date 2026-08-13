@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "protocol_id": "voxforge-ru-mdc-qwen3-tts-customvoice-aiden-cuda-smoke-v1",
+  "tested_at": "2026-08-13T18:23:50Z",
+  "scope": "non-candidate temporary runtime smoke; no VoxForge selection text, WAV, pairing, review or detector inference",
+  "inputs": {
+    "model_lock": {
+      "path": "configs/research/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1_models.json",
+      "sha256": "6ec1a828ad72738341a3226e73cde65ca9a87b3ee11fac43f2ca40173dd98d8d"
+    },
+    "artifact_lock": {
+      "path": "data/licenses/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1_artifact_lock.json",
+      "sha256": "94a8d1515b0062e5382202dc723fef474ec47bdf09c9d353cfa02bb1d5569855"
+    },
+    "local_wrapper": {
+      "path": "src/kds/data/qwen3_tts_customvoice.py",
+      "sha256": "f02d93fd7ee064539771a868c5033bc163bec1c94c838eb1152c52eb7eb677b7"
+    }
+  },
+  "fixed_route": {
+    "backend": "qwen3-tts-customvoice",
+    "voice": "aiden",
+    "target_language": "ru",
+    "device": "cuda",
+    "reference_audio": "forbidden",
+    "voice_cloning": "forbidden",
+    "voice_design": "forbidden",
+    "runtime_auto_download": "forbidden"
+  },
+  "input": {
+    "kind": "non_candidate_russian_runtime_smoke",
+    "literal_text_persisted": false,
+    "literal_text_utf8_bytes": 98,
+    "literal_text_sha256": "907d7afda07e86dcbdcef7f9d87dbc052fef52fb5ebe82e53a05bb2410aafb08",
+    "rng_seed": 2424142589
+  },
+  "output": {
+    "temporary_file_deleted_after_validation": true,
+    "sha256": "e93d90be1c84f84fe5a6b4e195cf94d49f9261e57f6ba9bab4c7e4375966a5f2",
+    "sample_rate_hz": 24000,
+    "channels": 1,
+    "frames": 94080,
+    "duration_seconds": 3.92
+  },
+  "claims": {
+    "runtime_load_and_synthesis_passed": true,
+    "selected_voxforge_text_or_audio_used": false,
+    "selected_voxforge_synthetic_audio_generated": false,
+    "pairing_performed": false,
+    "acoustic_review_performed": false,
+    "detector_inference_performed": false,
+    "detector_inference_authorized": false
+  }
+}

@@ -404,7 +404,11 @@ two-review technical gate — в
 pre-extraction project-exposure screen: `6,412` WAV, `194` source-provided contributor groups,
 `81` canonical text groups и `0/0/0/0/0` sample/two-text/group overlap. Затем metadata-only
 selection заморозил `81` records с уникальными text и conservative contributor groups; raw WAV
-не извлекались. Первый UtrobinTTS candidate был отклонён: 76 historical spoof rows содержат его
-unversioned model identifier, поэтому exact-route novelty недоказуема. Ограничения и следующий
-source-discovery gate описаны
-в [VoxForge intake receipt](docs/data_sources_voxforge_ru_mdc_2026-08-13.md).
+не извлекались. Новый Qwen3-TTS CustomVoice Q8_0 / fixed `aiden` route прошёл local
+six-artifact/CUDA verification и exact-route audit: `0` overlaps в `18,764` historical spoof
+rows (`59` manifests), включая `0` legacy Qwen identifiers и `0` `aiden` aliases. Это не
+Russian-native/speaker/architecture-independence claim и не synthesis: `aiden` документирован
+как English token, поэтому обязательны source QA и full acoustic/language review. Первый
+UtrobinTTS candidate остаётся отклонённым (76 unversioned historical rows). Ограничения и
+следующий materialization gate описаны в
+[Qwen route receipt](docs/voxforge_ru_mdc_qwen3_tts_customvoice_route_review_2026-08-13.md).

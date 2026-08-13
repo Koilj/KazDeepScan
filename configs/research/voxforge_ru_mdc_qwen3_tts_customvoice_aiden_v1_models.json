@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "protocol_id": "voxforge-ru-mdc-qwen3-tts-customvoice-aiden-v1",
+  "models": [
+    {
+      "model_id": "qwen3_tts_0_6b_customvoice_aiden_q8_0",
+      "destination": "qwen3_tts_0_6b_customvoice_aiden_q8_0",
+      "generator_family": "qwen3_tts_customvoice_gguf",
+      "generator_name": "Qwen3-TTS 0.6B CustomVoice Q8_0 GGUF",
+      "generator_version": "talker-cstr-29094dcb46f19b0898616aa9aeb876aa9aa6e086-5227dcbc4df7c5533341d111cc469fa491a48e722b23dd10f553181b52dff2d9; codec-cstr-344e279551177654762e5c7d39e217834325f222-70dc95dbfdd9aa5d9d406236ff771d061bf17b0cda02a72513953355606e719b; crispasr-v0.8.28-99e990ae-c2413af7d5e70a166b74fe96f5afb6d7463f1414a5ac2dea7cd982da9f83f827; fixed-aiden; wrapper-f02d93fd7ee064539771a868c5033bc163bec1c94c838eb1152c52eb7eb677b7",
+      "license": "Apache-2.0: Qwen CustomVoice and tokenizer model cards, cstr GGUF conversion cards, and CrispASR runtime release; permitted only for this project's personal-research scope with no training, calibration, product, re-hosting, verified-speaker or speaker-independence claim",
+      "source_url": "https://huggingface.co/cstr/qwen3-tts-0.6b-customvoice-GGUF/tree/29094dcb46f19b0898616aa9aeb876aa9aa6e086",
+      "runtime": {
+        "kind": "crispasr_qwen3_tts_customvoice_gguf_fixed_aiden_cuda",
+        "talker_path": "talker/qwen3-tts-12hz-0.6b-customvoice-q8_0.gguf",
+        "codec_path": "codec/qwen3-tts-tokenizer-12hz.gguf",
+        "runtime_archive_path": "runtime/crispasr-linux-x86_64-cuda.tar.gz",
+        "runtime_directory": "runtime/crispasr-linux-x86_64-cuda",
+        "runtime_executable_path": "runtime/crispasr-linux-x86_64-cuda/crispasr",
+        "runtime_version": "0.8.28",
+        "runtime_source_revision": "99e990aeeb3bd281b836cf2813ec85f24d4e408e",
+        "runtime_release_asset": "crispasr-linux-x86_64-cuda.tar.gz",
+        "runtime_backend": "qwen3-tts-customvoice",
+        "runtime_archive_members": {
+          "crispasr-linux-x86_64-cuda/LICENSE": {
+            "size_bytes": 1078,
+            "sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d"
+          },
+          "crispasr-linux-x86_64-cuda/THIRD_PARTY_NOTICES.txt": {
+            "size_bytes": 28622,
+            "sha256": "d2b67421a4275e393e2d1a0d6ade8a12548dd5132e22c6e5fba9a7ee0bdb546a"
+          },
+          "crispasr-linux-x86_64-cuda/crispasr": {
+            "size_bytes": 170050784,
+            "sha256": "c2413af7d5e70a166b74fe96f5afb6d7463f1414a5ac2dea7cd982da9f83f827"
+          },
+          "crispasr-linux-x86_64-cuda/crispasr-quantize": {
+            "size_bytes": 164436216,
+            "sha256": "27def48c0630a4ede17eb6a7edd81e06cf8f4029d1adadabe09907e33f7c5322"
+          },
+          "crispasr-linux-x86_64-cuda/libc2pa_c.so": {
+            "size_bytes": 22118992,
+            "sha256": "8ac6b5e0e2099027f6174e0da237a2f410f01960738a75a059756940512a42a7"
+          },
+          "crispasr-linux-x86_64-cuda/libgfortran.so.5": {
+            "size_bytes": 3041240,
+            "sha256": "489cd322d8de0e6c24339a3d2a3f70e6f96b8ac7243cab45f778bd94321746bb"
+          },
+          "crispasr-linux-x86_64-cuda/libgomp.so.1": {
+            "size_bytes": 317400,
+            "sha256": "6614be17eb88703ed9cb912926a6fbe04a92ffd13bb3777ca6bd3dd4ad72c351"
+          },
+          "crispasr-linux-x86_64-cuda/libopenblas.so.0": {
+            "size_bytes": 38433320,
+            "sha256": "ed784f384be7a0e865d79901ca7ef6692a129e13148ae2e618471be77d5f26d5"
+          },
+          "crispasr-linux-x86_64-cuda/libquadmath.so.0": {
+            "size_bytes": 293504,
+            "sha256": "d0602793b236634a6b3fad159e1b29f7604b8922eef88d924dd875496a73cd77"
+          }
+        },
+        "cuda_runtime_policy": "require_project_venv_cuda12_runtime_and_cublas12",
+        "device": "cuda",
+        "sample_rate": 24000,
+        "fixed_speaker_name": "aiden",
+        "fixed_voice_id": "qwen3_tts_customvoice:aiden",
+        "target_language": "ru",
+        "reference_audio_policy": "forbidden",
+        "voice_cloning": false,
+        "voice_design": "forbidden",
+        "text_input_only": true,
+        "external_text_normalizer": "forbidden",
+        "external_stress_model": "forbidden",
+        "literal_text_policy": "pass_literal_utf8_source_text_as_one_argv_value",
+        "temperature": 0.9,
+        "max_new_tokens": 512,
+        "per_text_rng_seed": "first_4_bytes_sha256_literal_utf8_source_text_big_endian",
+        "wrapper_module": "src/kds/data/qwen3_tts_customvoice.py",
+        "wrapper_sha256": "f02d93fd7ee064539771a868c5033bc163bec1c94c838eb1152c52eb7eb677b7"
+      },
+      "artifacts": [
+        {
+          "relative_path": "talker/README.md",
+          "url": "https://huggingface.co/cstr/qwen3-tts-0.6b-customvoice-GGUF/raw/29094dcb46f19b0898616aa9aeb876aa9aa6e086/README.md",
+          "expected_size_bytes": 7583,
+          "sha256": "019d8c743f43d7f1a86fe48ab02a7f1fe7b4f1b45022ccffc8447fb12f8b0076"
+        },
+        {
+          "relative_path": "talker/qwen3-tts-12hz-0.6b-customvoice-q8_0.gguf",
+          "url": "https://huggingface.co/cstr/qwen3-tts-0.6b-customvoice-GGUF/resolve/29094dcb46f19b0898616aa9aeb876aa9aa6e086/qwen3-tts-12hz-0.6b-customvoice-q8_0.gguf",
+          "expected_size_bytes": 967980192,
+          "sha256": "5227dcbc4df7c5533341d111cc469fa491a48e722b23dd10f553181b52dff2d9"
+        },
+        {
+          "relative_path": "codec/README.md",
+          "url": "https://huggingface.co/cstr/qwen3-tts-tokenizer-12hz-GGUF/raw/344e279551177654762e5c7d39e217834325f222/README.md",
+          "expected_size_bytes": 4968,
+          "sha256": "f874e0c58c89683fecc447b204f7a215673ce04e6be6858282a16b4e72cf1621"
+        },
+        {
+          "relative_path": "codec/qwen3-tts-tokenizer-12hz.gguf",
+          "url": "https://huggingface.co/cstr/qwen3-tts-tokenizer-12hz-GGUF/resolve/344e279551177654762e5c7d39e217834325f222/qwen3-tts-tokenizer-12hz.gguf",
+          "expected_size_bytes": 358453280,
+          "sha256": "70dc95dbfdd9aa5d9d406236ff771d061bf17b0cda02a72513953355606e719b"
+        },
+        {
+          "relative_path": "runtime/LICENSE",
+          "url": "https://raw.githubusercontent.com/CrispStrobe/CrispASR/99e990aeeb3bd281b836cf2813ec85f24d4e408e/LICENSE",
+          "expected_size_bytes": 1078,
+          "sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d"
+        },
+        {
+          "relative_path": "runtime/crispasr-linux-x86_64-cuda.tar.gz",
+          "url": "https://github.com/CrispStrobe/CrispASR/releases/download/v0.8.28/crispasr-linux-x86_64-cuda.tar.gz",
+          "expected_size_bytes": 283916722,
+          "sha256": "1143faf24c77ac0b8f4edc6513e836406cff4a2d9c8445a4f852c8e52af5d673"
+        }
+      ]
+    }
+  ]
+}

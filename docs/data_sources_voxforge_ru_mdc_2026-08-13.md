@@ -79,14 +79,25 @@ It binds the source audit and this screen, preserves both text-hash layers, excl
 from versioned output and forbids backfill. The immutable details and next gate are in the
 [selection receipt](voxforge_ru_mdc_pre_qa_selection_v1.md).
 
+## Принятый exact spoof route
+
+Qwen3-TTS CustomVoice `0.6B` Q8_0 GGUF with its separate 12 Hz codec, CrispASR `v0.8.28` CUDA
+runtime and fixed baked `aiden` token прошёл six-artifact SHA-256 lock и health check. Its exact
+family/name/version is absent from `18,764` historical spoof rows in `59` manifests; legacy Qwen
+CustomVoice identifiers and `aiden` aliases are also absent. The detailed immutable evidence is
+in the [route review](voxforge_ru_mdc_qwen3_tts_customvoice_route_review_2026-08-13.md).
+
+This proves only an unseen exact route. The voice token is documented as English, not as a verified
+Russian person or group; architecture and speaker independence claims remain forbidden. The route
+check generated no audio and did not read any VoxForge WAV.
+
 ## Запреты и следующий gate
 
 Archive intake and exposure screen created no `data/raw/voxforge*` material, decoded WAV,
 manifest, synthetic audio, model logit or metric; the subsequent selection remained metadata-only.
 Raw archive and WAV stay outside Git.
 
-The first separate exact spoof-route review was rejected because `76` historical spoof rows use
-the same unversioned UtrobinTTS model identifier. The next permitted action is a different route
-whose historical identity is provably absent. It still cannot authorize synthesis or detector
-inference: selection-bound WAV materialization, audio QA, pair lock, full-asset acoustic review
-and an immutable one-run evaluation contract remain required.
+The first separate exact spoof-route review remains rejected because `76` historical spoof rows
+use the same unversioned UtrobinTTS model identifier. The accepted Qwen route now authorizes only
+selection-bound WAV materialization and technical QA. It still cannot authorize pairing, acoustic
+review, detector inference, training, calibration or product use.

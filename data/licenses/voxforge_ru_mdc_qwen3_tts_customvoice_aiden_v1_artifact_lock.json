@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "source_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1",
+  "artifact_verified_at": "2026-08-13T18:01:33Z",
+  "model": {
+    "upstream_repository": "Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice",
+    "upstream_model_card_url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice",
+    "conversion_repository": "cstr/qwen3-tts-0.6b-customvoice-GGUF",
+    "conversion_revision": "29094dcb46f19b0898616aa9aeb876aa9aa6e086",
+    "conversion_source_url": "https://huggingface.co/cstr/qwen3-tts-0.6b-customvoice-GGUF/tree/29094dcb46f19b0898616aa9aeb876aa9aa6e086",
+    "tokenizer_repository": "cstr/qwen3-tts-tokenizer-12hz-GGUF",
+    "tokenizer_revision": "344e279551177654762e5c7d39e217834325f222",
+    "tokenizer_source_url": "https://huggingface.co/cstr/qwen3-tts-tokenizer-12hz-GGUF/tree/344e279551177654762e5c7d39e217834325f222",
+    "license_declaration": "Apache-2.0 on the locked conversion and tokenizer model cards; both identify the Apache-2.0 Qwen upstreams",
+    "russian_support_evidence": "The locked tokenizer model card lists ru; the Qwen CustomVoice upstream card declares Russian support. The selected baked Aiden token is documented as English and is not a verified Russian speaker identity.",
+    "training_data_provenance": "not disclosed by the locked conversion card; no claim beyond the current personal-research scope"
+  },
+  "fixed_profile": {
+    "voice_id": "qwen3_tts_customvoice:aiden",
+    "speaker_name": "aiden",
+    "speaker_description": "fixed baked CustomVoice token documented as English (M), not a verified person or Russian speaker group",
+    "target_language": "ru",
+    "sample_rate_hz": 24000,
+    "reference_audio": "forbidden",
+    "voice_cloning": "forbidden",
+    "voice_design_instruction": "forbidden",
+    "external_text_normalizer_or_stress_model": "forbidden",
+    "runtime_auto_download": "forbidden",
+    "literal_text_policy": "one original UTF-8 source string is passed as one argv value without rewrite",
+    "rng_seed": "first four bytes of SHA-256(literal UTF-8 source text), big-endian",
+    "temperature": 0.9,
+    "max_new_tokens": 512
+  },
+  "model_lock": {
+    "path": "configs/research/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1_models.json",
+    "size_bytes": 6746,
+    "sha256": "6ec1a828ad72738341a3226e73cde65ca9a87b3ee11fac43f2ca40173dd98d8d"
+  },
+  "artifacts": {
+    "count": 6,
+    "total_size_bytes": 1610363823,
+    "all_local_size_and_sha256_checks_passed": true,
+    "all_artifacts": "exactly the six paths and hashes in the model lock; no runtime or model auto-download is allowed"
+  },
+  "runtime": {
+    "repository": "CrispStrobe/CrispASR",
+    "source_revision": "99e990aeeb3bd281b836cf2813ec85f24d4e408e",
+    "release_version": "0.8.28",
+    "release_asset": "crispasr-linux-x86_64-cuda.tar.gz",
+    "license": "MIT",
+    "archive_sha256": "1143faf24c77ac0b8f4edc6513e836406cff4a2d9c8445a4f852c8e52af5d673",
+    "safe_extraction": "rejects escaping paths, links, unknown or duplicate members; verifies every allowed extracted member size and SHA-256 before atomic publication",
+    "inner_members_verified": {
+      "crispasr-linux-x86_64-cuda/LICENSE": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d",
+      "crispasr-linux-x86_64-cuda/THIRD_PARTY_NOTICES.txt": "d2b67421a4275e393e2d1a0d6ade8a12548dd5132e22c6e5fba9a7ee0bdb546a",
+      "crispasr-linux-x86_64-cuda/crispasr": "c2413af7d5e70a166b74fe96f5afb6d7463f1414a5ac2dea7cd982da9f83f827",
+      "crispasr-linux-x86_64-cuda/crispasr-quantize": "27def48c0630a4ede17eb6a7edd81e06cf8f4029d1adadabe09907e33f7c5322",
+      "crispasr-linux-x86_64-cuda/libc2pa_c.so": "8ac6b5e0e2099027f6174e0da237a2f410f01960738a75a059756940512a42a7",
+      "crispasr-linux-x86_64-cuda/libgfortran.so.5": "489cd322d8de0e6c24339a3d2a3f70e6f96b8ac7243cab45f778bd94321746bb",
+      "crispasr-linux-x86_64-cuda/libgomp.so.1": "6614be17eb88703ed9cb912926a6fbe04a92ffd13bb3777ca6bd3dd4ad72c351",
+      "crispasr-linux-x86_64-cuda/libopenblas.so.0": "ed784f384be7a0e865d79901ca7ef6692a129e13148ae2e618471be77d5f26d5",
+      "crispasr-linux-x86_64-cuda/libquadmath.so.0": "d0602793b236634a6b3fad159e1b29f7604b8922eef88d924dd875496a73cd77"
+    },
+    "runtime_health": {
+      "passed": true,
+      "version_output": "0.8.28 / 99e990ae / ggml backends cpu,cuda",
+      "required_backend": "qwen3-tts-customvoice",
+      "device": "NVIDIA GeForce RTX 5060 Ti",
+      "driver_version": "595.84",
+      "project_cuda12_libraries": {
+        "libcudart.so.12": "c3a75b33af334a3486d197dbd1584a2985183ba4688d237a2be5f2f679329920",
+        "libcublas.so.12": "031ce6c2cbfbb9468f040527cab5c599069ce5609e73e28f87503881063eac21",
+        "libcublasLt.so.12": "10b5e6631cf8115c661eb895ed1533826308b58f7956466f53d236a40c9b622c"
+      }
+    },
+    "local_wrapper": {
+      "path": "src/kds/data/qwen3_tts_customvoice.py",
+      "sha256": "f02d93fd7ee064539771a868c5033bc163bec1c94c838eb1152c52eb7eb677b7",
+      "policy": "local GGUF paths only; exposes only the fixed aiden, Russian, CUDA text-only command"
+    }
+  },
+  "route_audit": {
+    "path": "data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_exact_route_audit_v1.json",
+    "sha256": "234e1a49ecc06f4fc7025c4e713af858279d4c35b1d366b4ab052d7a847f5513",
+    "historical_spoof_rows": 18764,
+    "historical_spoof_manifests": 59,
+    "exact_route_overlap_rows": 0,
+    "historical_qwen3_customvoice_identifier_rows": 0,
+    "fixed_aiden_alias_overlap_rows": 0,
+    "architecture_family_overlap_rows": 0
+  },
+  "scope": {
+    "usage_scope": "personal_research_only",
+    "training_or_calibration": "forbidden",
+    "detector_inference": "forbidden_until_a_separate_immutable_evaluation_contract",
+    "selected_voxforge_wav_extraction": "authorized only for the already frozen selection, followed by source-asset and technical QA",
+    "synthetic_pairing": "forbidden_until_selection-bound bona-fide QA and a separate literal-text binding",
+    "acoustic_or_language_quality": "unverified; full independent acoustic review is mandatory before detector inference",
+    "speaker_independence_claim": "forbidden",
+    "architecture_family_novelty_claim": "forbidden",
+    "commercial_or_product_use": "forbidden"
+  },
+  "claims": {
+    "artifact_lock_passed": true,
+    "exact_checkpoint_runtime_route_unseen_in_historical_manifests": true,
+    "synthesis_performed": false,
+    "selection_bound_voxforge_wav_extraction_performed": false,
+    "detector_inference_performed": false
+  }
+}

@@ -58,8 +58,14 @@ checkpoint и строго ограниченный evaluation-контур:
   Tacotron2 + ParallelWaveGAN прошёл rights/artifact/config/exposure и CUDA technical-smoke
   checks без cloning/reference audio. Exact route новый, но Male2 speaker alias уже встречался
   через Piper, поэтому speaker-independence не заявляется. Два pre-inference listening review
-  одобрили `kk`, `ru` и `mixed` только для подготовки нового candidate. Full-asset packet и две
-  167-row fail-closed формы теперь готовы; detector inference запрещён до их полного pass;
+  одобрили `kk`, `ru` и `mixed` только для подготовки нового candidate. Обе full-asset 167-row
+  формы прошли до inference (`167/167` exact synthetic WAV); затем ровно один Stage-C GPU run
+  оценил 50 RU, 60 KK и 57 mixed pairs. Это asset-level-blind research evidence, не source- или
+  speaker-independent result; повтор run и tuning по его final errors запрещены;
+- для следующего Stage-D RU слоя подготовлен 73-row Common Voice bona-fide candidate без model
+  output. Он прошёл configured-role exposure audit, но пока не имеет допустимого нового spoof
+  counterpart: Russian Piper и MMS уже представлены в historical RuASD roles, поэтому synthesis
+  и inference не разрешены;
 - explicit source-mixed research matrix и B0 runner, который не допускает overlap исходных
   corpus между train/dev/final-test и проверяет обычный sample/SHA-256/group/text leakage поверх
   этого;

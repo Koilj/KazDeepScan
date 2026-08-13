@@ -82,8 +82,12 @@ test; результаты не source-, speaker- или architecture-family-ind
   rows исключают architecture-, vendor- и speaker-independence claims. Literal-text binding
   проверил все 75 ready rows against pinned archive без rewrite, а exact CPU route создал один
   raw 48 kHz WAV на каждый text. Technical QA оставил 42 spoof WAV и учёл 33
-  `insufficient_speech` rejects; immutable pairing locked exactly 42/42 pairs. Blank 84-asset
-  packet/forms готовы, но real review и detector inference ещё не начаты.
+  `insufficient_speech` rejects; immutable pairing locked exactly 42/42 pairs. Two completed
+  84-row forms with distinct pseudonymous IDs passed the strict technical acoustic gate: every
+  exact asset has two `pass/yes/yes/yes/yes` decisions, gate-report SHA-256
+  `cb9604a6a2c41fa16ce6e0c8c1947e44c0d0d21d626b88ccbf90673c872c3631`. This authorizes only a
+  new immutable evaluation contract; detector inference has not started and distinct IDs do not
+  themselves prove organizational independence.
 - Full Common Voice RU v24 `test` metadata screen до extraction сравнил `10 261` records / `2 075`
   client groups с `12 313` configured-role rows и `39 850` rows в `85` manifest files. Строгое
   whole-client-group exclusion оставляет `6 211` records / `1 443` groups; это только capacity
@@ -173,11 +177,12 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 
 1. Не повторять Stage-C/Stage-D/v3 runs и не использовать их final errors для tuning, выбора
    checkpoint, temperature, threshold или augmentation.
-2. Новый RU route, historical exposure, literal-text screen и `80`-record pre-QA selection уже
-   закреплены; exact extraction/QA/VAD оставил `75` ready rows. Следом bind literal texts только
-   для них, затем выполнить один fixed-profile synthesis WAV per text без replacement/backfill.
-   Старые 55 Stage-D/v3 пар, 73-row selection и их rejections нельзя переиспользовать как
-   «новый blind» тест.
+2. Новый RU route прошёл завершённые selection/materialization/text binding/synthesis/technical
+   QA/pair lock и 84-asset technical acoustic gate. Следом подготовить один immutable evaluation
+   contract, pinning the passing gate, project exposure and route audit; до его preflight/run не
+   менять candidate, reviews, calibration, checkpoint, threshold или generation. Старые 55
+   Stage-D/v3 пар, 73-row selection и их rejections нельзя переиспользовать как «новый blind»
+   тест.
 3. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 

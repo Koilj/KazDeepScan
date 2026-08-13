@@ -26,7 +26,7 @@ def test_build_packet_requires_exact_84_asset_candidate() -> None:
     assert {row.label for row in packet} == {"bonafide", "spoof"}
 
 
-def test_blank_review_templates_fail_closed() -> None:
+def test_completed_review_forms_authorize_the_technical_gate() -> None:
     packet = Path(
         "data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_acoustic_packet_v1.csv"
     )
@@ -47,6 +47,6 @@ def test_blank_review_templates_fail_closed() -> None:
 
     report, results = evaluate(packet, reviews)
 
-    assert report["all_assets_acoustically_verified"] is False
-    assert report["evaluation_contract_authorized"] is False
-    assert {result.decision for result in results} == {"not_eligible"}
+    assert report["all_assets_acoustically_verified"] is True
+    assert report["evaluation_contract_authorized"] is True
+    assert {result.decision for result in results} == {"pass"}

@@ -410,7 +410,7 @@ rows (`59` manifests), включая `0` legacy Qwen identifiers и `0` `aiden`
 Russian-native/speaker/architecture-independence claim и не synthesis: `aiden` документирован
 как English token, поэтому обязательны source QA и full acoustic/language review. Первый
 UtrobinTTS candidate остаётся отклонённым (76 unversioned historical rows). Ограничения и
-следующий literal-text binding gate описаны в
-[VoxForge materialization receipt](docs/voxforge_ru_mdc_pre_qa_materialization_v1.md): из `81`
-atomically extracted source WAV technical QA/VAD оставил `79`, с двумя `signal_too_quiet` rejects
-без replacement.
+literal-text binding завершён: `79/79` ready rows снова связаны с archive prompts без хранения
+transcript, lexical rewrite или reselection; два `signal_too_quiet` rejects остаются исключёнными.
+Следующий one-shot synthesis gate описан в
+[VoxForge text-binding receipt](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_text_binding_v1.md).

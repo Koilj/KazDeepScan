@@ -31,7 +31,7 @@ review is still mandatory later.
 
 ## Следующий безопасный шаг
 
-Create a separate immutable literal-text binding for exactly the `79` ready rows, retaining both
-source text hashes and the two accounted rejects. Only that binding may authorize exactly one
-Qwen3-TTS CustomVoice / `aiden` WAV per ready source text; no replacement, pair lock or detector
-inference is yet allowed.
+The separate [literal-text binding](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_text_binding_v1.md)
+for exactly the `79` ready rows is complete, retaining both source transcript hashes and the two
+accounted rejects. It authorizes exactly one Qwen3-TTS CustomVoice / `aiden` WAV per bound text;
+no replacement, pair lock or detector inference is yet allowed.

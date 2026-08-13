@@ -53,7 +53,7 @@ The previously rejected UtrobinTTS route remains rejected and cannot be used as 
 
 ## Следующий безопасный шаг
 
-The already frozen `81` pseudonymous selections have now been materialized from the byte-pinned
-archive and technical QA retained `79`; two quiet rejects are accounted with no replacement. Bind
-only the `79` ready literal source texts before exactly one synthesis per row. Pairing, acoustic
-review and detector inference stay prohibited until their own immutable receipts pass.
+The already frozen `81` pseudonymous selections have been materialized from the byte-pinned archive
+and technical QA retained `79`; two quiet rejects are accounted with no replacement. The `79`
+literal texts are bound. Exactly one synthesis per bound row is next; pairing, acoustic review and
+detector inference stay prohibited until their own immutable receipts pass.

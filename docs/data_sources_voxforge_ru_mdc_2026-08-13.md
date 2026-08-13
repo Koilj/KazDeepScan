@@ -100,6 +100,8 @@ Raw archive and WAV stay outside Git.
 The first separate exact spoof-route review remains rejected because `76` historical spoof rows
 use the same unversioned UtrobinTTS model identifier. The accepted Qwen route authorized the
 completed frozen 81-WAV materialization: technical QA retained `79` and recorded two quiet rejects
-without replacement; see the [materialization receipt](voxforge_ru_mdc_pre_qa_materialization_v1.md).
-It still cannot authorize synthetic pairing, acoustic review, detector inference, training,
-calibration or product use.
+without replacement. The `79` text hashes were then separately bound to their exact archive prompts
+without storing or rewriting the transcript; see the
+[text-binding receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_text_binding_v1.md). The next
+gate is one-shot synthesis and technical synthetic QA only; pairing, acoustic review, detector
+inference, training, calibration and product use remain unauthorized.

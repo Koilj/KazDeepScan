@@ -157,7 +157,9 @@ test; результаты не source-, speaker- или architecture-family-ind
   24 kHz mono raw WAVs with `0` failed attempts; technical decode/quality/WebRTC-VAD QA retained
   `79/79` 16 kHz mono PCM-16 ready spoof rows with `0` rejects, reuse, resynthesis, replacement or
   backfill. Exact text-hash/text-ID pairing then froze `79` pairs / `158` assets without metric
-  selection. Full acoustic/language review and detector inference remain prohibited.
+  selection. The immutable full `158`-asset acoustic/language packet and two empty review forms
+  are published, but the independent reviews are not yet complete; detector inference remains
+  prohibited.
   UtrobinTTS remains rejected: `76` historical spoof rows carry its unversioned identifier.
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
@@ -290,6 +292,7 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [VoxForge Russian Qwen one-shot synthesis](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_synthesis_v1.md)
 - [VoxForge Russian Qwen technical QA](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_technical_qa_v1.md)
 - [VoxForge Russian Qwen immutable pair lock](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_pairing_v1.md)
+- [VoxForge Russian Qwen acoustic/language gate packet](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md)
 - [VoxForge Russian rejected UtrobinTTS route review](docs/voxforge_ru_mdc_utrobinmv_vits_route_review_2026-08-13.md)
 - [Silero V5.5 RU / eugene route intake](docs/silero_v5_5_ru_eugene_intake_2026-08-13.md)
 - [Common Voice RU full-test metadata exposure screen](data/manifests/common_voice_ru_v24_full_test_metadata_exposure_screen_v1.json)

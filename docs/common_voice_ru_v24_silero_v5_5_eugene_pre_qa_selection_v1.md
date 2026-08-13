@@ -65,5 +65,6 @@ verified the exact source text of all 75 ready rows without rewrite. The subsequ
 raw fixed-profile WAV per bound text. The subsequent
 [technical-QA receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_spoof_technical_qa_v1.md)
 retained `42` and accounted `33` rejects. The matching
-[42-pair lock](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md) is frozen; two
-independent full-asset reviews remain required before any detector inference.
+[42-pair lock](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md) is frozen and has
+passed its subsequent technical acoustic gate; a new immutable contract and preflight remain
+required before any detector inference.

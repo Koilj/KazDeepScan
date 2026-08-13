@@ -1,7 +1,7 @@
 # Common Voice RU v24 / Silero V5.5 `eugene` — spoof technical QA v1
 
-**Статус:** raw synthesis layer fully accounted by normal technical QA. Acoustic review, binary
-pairing и detector inference не начаты.
+**Статус:** raw synthesis layer fully accounted by normal technical QA. The later binary pair lock
+and technical acoustic gate are complete; detector inference has not started.
 
 ## Вход и результат
 
@@ -36,6 +36,7 @@ the ready assets and both raw/ready manifests pass license-ledger and SHA-256 as
 
 The exact 42-pair candidate is now frozen in
 [pairing receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md). It does not use
-the remaining 33 bona fide-only rows or any old Stage-D/v3 pair as a substitute. The blank
-[acoustic-gate packet](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_acoustic_gate_v1.md) is
-ready for real independent review; every retained byte must pass before any new inference plan.
+the remaining 33 bona fide-only rows or any old Stage-D/v3 pair as a substitute. The completed
+[acoustic gate](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_acoustic_gate_v1.md) passed all
+exact retained bytes. Only a separate immutable contract may authorize one inference run; no
+replacement, backfill or tuning is permitted.

@@ -1,7 +1,7 @@
 # Common Voice RU v24 / Silero V5.5 `eugene` — literal-text binding v1
 
-**Статус:** завершён write-once binding текста для candidate; это ещё не synthesis, acoustic
-review, binary pairing или detector inference.
+**Статус:** завершён write-once binding текста для candidate. Later synthesis, binary pairing and
+the technical acoustic gate are complete; detector inference has not been performed.
 
 ## Неизменяемые входы
 
@@ -35,5 +35,5 @@ row-binding digest `1f202d97df4c1f4cf94a2460fbbef99a54d338fddcb93efaeaaf89ee7db7
 QA retained `42` rows и accounted `33` rejects в
 [QA receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_spoof_technical_qa_v1.md). Synthesis/
 QA failure permanently уменьшает candidate: replacement, regeneration и backfill запрещены.
-Immutable 42-pair lock now exists; до двух независимых full-asset acoustic reviews detector
-inference и настройка по candidate запрещены.
+The immutable 42-pair lock and full technical acoustic gate now exist. Detector inference and any
+tuning remain forbidden until a separate immutable contract is prepared and passes preflight.

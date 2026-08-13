@@ -46,3 +46,8 @@ architecture-family independence, calibration, product quality, or a detector re
 The completed gate authorizes one new evaluation contract only. A fail, missing decision, altered
 binding or incomplete form would fail closed and would not authorize resynthesis, replacement,
 backfill, selective omission or tuning.
+
+The subsequent [project-exposure audit](../data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_candidate_project_exposure_v1.json)
+checked all 30 already-versioned research configurations and their 17 referenced manifests
+(`12,313` rows). It found zero overlap in candidate `sample_id`, audio SHA-256 or `text_hash`.
+That audit also does not authorize inference; it is an input to the separate contract.

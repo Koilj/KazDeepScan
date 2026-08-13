@@ -86,8 +86,10 @@ test; результаты не source-, speaker- или architecture-family-ind
   84-row forms with distinct pseudonymous IDs passed the strict technical acoustic gate: every
   exact asset has two `pass/yes/yes/yes/yes` decisions, gate-report SHA-256
   `cb9604a6a2c41fa16ce6e0c8c1947e44c0d0d21d626b88ccbf90673c872c3631`. This authorizes only a
-  new immutable evaluation contract; detector inference has not started and distinct IDs do not
-  themselves prove organizational independence.
+  new immutable evaluation contract. Its project-exposure audit covered 30 configured research
+  files, 17 referenced manifests and 12,313 prior rows; sample/audio/text overlap is `0/0/0`,
+  receipt SHA-256 `6071deb2f60ca914e475611addf81ef2cf81b485c2b9b86826c5a135c0cca3ff`. Detector
+  inference has not started and distinct IDs do not themselves prove organizational independence.
 - Full Common Voice RU v24 `test` metadata screen до extraction сравнил `10 261` records / `2 075`
   client groups с `12 313` configured-role rows и `39 850` rows в `85` manifest files. Строгое
   whole-client-group exclusion оставляет `6 211` records / `1 443` groups; это только capacity
@@ -101,8 +103,10 @@ test; результаты не source-, speaker- или architecture-family-ind
   `75` ready WAV; пять `insufficient_speech` rejections полностью учтены без backfill. Exact
   literal-text binding закрепил все 75 ready rows без rewrite, а V5.5/eugene synthesis создал
   один raw WAV per bound text. Synthetic technical QA оставил 42 rows и учёл 33 rejects без
-  resynthesis/backfill; immutable candidate locked matching 42 bona fide/spoof pairs. Blank
-  acoustic packet/forms prepared; real review и inference не начаты.
+  resynthesis/backfill; immutable candidate locked matching 42 bona fide/spoof pairs. Completed
+  acoustic gate passed all 84 exact assets, and project-exposure audit against all 30 then-current
+  configs / 17 referenced manifests / 12,313 rows found `0/0/0` sample/audio/text overlap.
+  Detector inference remains unperformed.
 - Stage D строго привязал 73 frozen Common Voice RU текста, создал ровно 73 synthetic WAV и без
   backfill сохранил 55 binary pairs / 110 assets после 18 `insufficient_speech` rejects.
   Проектный exposure audit против 23 configs / 12 203 rows дал `0/0/0` sample/audio/text overlap.
@@ -178,11 +182,11 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 1. Не повторять Stage-C/Stage-D/v3 runs и не использовать их final errors для tuning, выбора
    checkpoint, temperature, threshold или augmentation.
 2. Новый RU route прошёл завершённые selection/materialization/text binding/synthesis/technical
-   QA/pair lock и 84-asset technical acoustic gate. Следом подготовить один immutable evaluation
-   contract, pinning the passing gate, project exposure and route audit; до его preflight/run не
-   менять candidate, reviews, calibration, checkpoint, threshold или generation. Старые 55
-   Stage-D/v3 пар, 73-row selection и их rejections нельзя переиспользовать как «новый blind»
-   тест.
+   QA/pair lock, 84-asset technical acoustic gate and a zero-overlap project-exposure audit.
+   Следом подготовить один immutable evaluation contract, pinning these receipts, fixed
+   checkpoint/calibration/boundary and write-once outputs; до его preflight/run не менять
+   candidate, reviews, calibration, checkpoint, threshold или generation. Старые 55 Stage-D/v3
+   пар, 73-row selection и их rejections нельзя переиспользовать как «новый blind» тест.
 3. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 
@@ -234,5 +238,6 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [Common Voice RU / Silero V5.5 spoof technical QA](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_spoof_technical_qa_v1.md)
 - [Common Voice RU / Silero V5.5 immutable pairing](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md)
 - [Common Voice RU / Silero V5.5 acoustic gate](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_acoustic_gate_v1.md)
+- [Common Voice RU / Silero V5.5 project-exposure audit](data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_candidate_project_exposure_v1.json)
 - [External RU spoof-source search](docs/russian_spoof_source_search_2026-08-11.md)
 - [License-ledger snapshots](docs/license_ledger_snapshots.md)

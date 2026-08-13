@@ -1,7 +1,7 @@
 # Common Voice RU v24 / Silero V5.5 `eugene` — pre-QA synthesis v1
 
-**Статус:** completed raw synthetic layer and technical decode/QA/VAD accounting; acoustic review,
-binary pairing и detector inference ещё не выполнены.
+**Статус:** completed raw synthetic layer and technical decode/QA/VAD accounting; later pairing
+and acoustic technical review are complete, but detector inference has not been performed.
 
 ## Входы и строгий route
 
@@ -14,8 +14,9 @@ literal-text binding `75/75`, exact-route audit и pinned Common Voice archive. 
 
 Единственный permitted call route — local CPU, built-in fixed `eugene`, literal source text,
 48 kHz, no reference audio, cloning, random profile, SSML, `voice_path` или external
-normalizer. CC-BY-NC-SA-4.0 ограничивает результат personal-research scope; product, training,
-calibration и detector inference не разрешены.
+normalizer. CC-BY-NC-SA-4.0 ограничивает результат personal-research scope; product, training
+and calibration are prohibited. Detector inference remains forbidden until a new immutable
+contract pins the completed two-review gate.
 
 ## Результат
 
@@ -46,6 +47,6 @@ Normal QA завершён в
 [separate receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_spoof_technical_qa_v1.md):
 `42` spoof rows retained and `33` insufficient-speech rejects are accounted. A failed synthetic
 QA row cannot be resynthesized, replaced или backfilled. Immutable 42-pair lock is published in
-[the pairing receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md); the blank
-[two-review acoustic packet](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_acoustic_gate_v1.md)
-is prepared, but only real independent full-asset reviews may advance it toward a governed plan.
+[the pairing receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md); the completed
+[two-review acoustic gate](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_acoustic_gate_v1.md)
+now permits preparation of, but is not itself, a governed inference plan.

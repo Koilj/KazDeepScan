@@ -59,6 +59,7 @@ bona fide rejections permanently out of this candidate: no replacement, reselect
 regeneration или backfill. Synthetic technical QA has retained `42` of the 75 raw spoof rows and
 accounted the other 33 in
 [its receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_spoof_technical_qa_v1.md). The
-[42-pair lock](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md) is now frozen;
-later full-asset acoustic reviews must cover its exact retained bona-fide and synthetic bytes
-before any evaluation plan can be prepared.
+[42-pair lock](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md) passed its later
+full-asset technical acoustic review. A project-exposure audit now confirms that its exact
+candidate bytes and texts do not overlap prior configured roles. An immutable contract and
+preflight remain required before any detector inference.

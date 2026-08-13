@@ -1,7 +1,7 @@
 # Common Voice RU v24 / Silero V5.5 `eugene` — immutable pairing v1
 
-**Статус:** exact technical-QA-retained pair lock completed. Two-review acoustic gate and detector
-inference have not started.
+**Статус:** exact technical-QA-retained pair lock completed. The subsequent full 84-asset
+technical acoustic gate passed; detector inference has not started.
 
 ## Pair rule and accounting
 
@@ -30,7 +30,8 @@ text ID/text hash, and candidate assets pass license-ledger and SHA-256 asset va
 
 ## Следующий безопасный шаг
 
-The immutable packet and two blank worksheets are now prepared in
-[the acoustic-gate receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_acoustic_gate_v1.md).
-There is no authorization for detector inference until two distinct real reviewers complete every
-row and the fail-closed gate reports all 84 assets passed.
+The [acoustic-gate receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_acoustic_gate_v1.md)
+records a full `84/84` technical pass. A project-exposure audit now confirms zero exact
+sample/audio/text overlap with all 30 currently configured research roles. This pair lock may
+advance only to one separate immutable contract; no inference, resynthesis, replacement, backfill
+or error-driven tuning has occurred.

@@ -90,7 +90,9 @@ checkpoint и строго ограниченный evaluation-контур:
   spoof rows и exact 42-pair candidate заморожены. Две 84-row forms с distinct pseudonymous
   reviewer IDs прошли strict technical acoustic gate: `84/84` exact assets получили по два
   `pass/yes/yes/yes/yes` решения. Это authorizes только новый immutable evaluation contract;
-  detector inference ещё не начат, а distinct IDs сами не доказывают organizational independence;
+  subsequent exposure audit against 30 configured research contracts / 17 manifests / 12,313
+  prior rows found `0/0/0` sample/audio/text overlap. Detector inference ещё не начат, а distinct
+  IDs сами не доказывают organizational independence;
 - перед любым выбором нового RU final набора весь full Common Voice `test` прошёл historical
   exposure screen, затем fixed V5.5 literal-text gate без lexical rewrite. Из `10 261` source
   records остаётся `5 600` в `1 337` client groups. Из них отдельный immutable receipt выбрал
@@ -386,4 +388,6 @@ Technical materialization этого slice описана в
 84-asset immutable pair lock — в
 [pairing receipt](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md), а completed
 two-review technical gate — в
-[acoustic-gate receipt](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_acoustic_gate_v1.md).
+[acoustic-gate receipt](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_acoustic_gate_v1.md),
+а его project-exposure audit — в
+[versioned receipt](data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_candidate_project_exposure_v1.json).

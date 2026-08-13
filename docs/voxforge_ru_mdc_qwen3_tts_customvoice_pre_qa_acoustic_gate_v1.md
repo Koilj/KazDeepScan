@@ -1,7 +1,8 @@
 # VoxForge RU / Qwen3-TTS CustomVoice `aiden` — acoustic/language gate v1
 
 **Статус:** две completed 158-row формы прошли fail-closed gate. Все `158/158` exact assets
-получили по два полных `pass/yes/yes/yes/yes` решения. Detector inference не выполнялся.
+получили по два полных `pass/yes/yes/yes/yes` решения. Gate report remains a pre-inference record;
+the subsequent immutable contract completed exactly one detector run.
 
 ## Immutable packet
 
@@ -52,7 +53,7 @@ audibility, literal-content preservation and absence of severe artifacts for the
 does not establish Russian-native speaker identity, source/speaker/vendor/architecture
 independence, calibration, product quality or detector performance.
 
-## Следующий безопасный шаг
+## Follow-on state
 
 The completed gate is immutable evidence. The subsequent
 [project-exposure audit](voxforge_ru_mdc_qwen3_tts_customvoice_candidate_project_exposure_v1.md)
@@ -61,3 +62,6 @@ covered `33` research configs / `18` referenced manifests / `12,397` prior rows 
 bind that audit, this gate, a fixed checkpoint/calibration/boundary, license limits and write-once
 output paths. The gate report's `evaluation_contract_authorized=true` permits preparation of that
 contract; it does not itself authorize or perform detector inference.
+That contract and its preflight subsequently passed, and the single
+[write-once result](research_xlsr_sls_stage_b_v2_voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1.md)
+is now complete. Preserve the gate bytes and do not repeat inference or tune on final errors.

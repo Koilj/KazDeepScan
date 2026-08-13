@@ -1,7 +1,8 @@
 # XLS-R+SLS Stage-B v2 — VoxForge RU / Qwen3-TTS CustomVoice `aiden` contract v1
 
-**Статус:** immutable research evaluation contract and its single write-once `--validate-only`
-preflight are complete. No execution lock, logits or detector result exists yet.
+**Статус:** immutable research evaluation contract, its single write-once `--validate-only`
+preflight and exactly one CUDA/BF16 inference run are complete. Repeat inference and error-driven
+tuning are forbidden.
 
 ## Fixed final layer
 
@@ -53,15 +54,42 @@ Unlike the earlier V5.5 wrapper, the final report path explicitly records
 The single write-once preflight validated all `1,134` assets (`976` calibration + `158` final),
 all pinned evidence and CUDA/BF16 on Python `3.13.15`, Torch `2.11.0+cu128`, CUDA `12.8` and an
 NVIDIA GeForce RTX 5060 Ti. It performed no training, threshold selection or detector inference.
-Its ignored local receipt is
+Its immutable ignored local receipt is
 `artifacts/xlsr-sls-stage-b-v2-voxforge-ru-mdc-qwen3-tts-customvoice-aiden-v1.preflight.json`,
 SHA-256 `4f9a56ab8de8fdb876d64c408032c468492c5ca813a34ad6bd846dd543312e5b`.
-The execution-lock and report paths remain absent.
+
+## One-time final result
+
+The runner wrote its execution lock before calibration/final logits; its SHA-256 is
+`286c4e680defb01217b138da604096d29a7615d632bab18cff7653ac867e3c94`. The final report has
+SHA-256 `7da4df67f756addbc4bcd21868e294a62a150985479f30aad7e8f93bdbc96dff`, `status=ok`,
+`mode=one_time_gpu_inference` and correctly records `detector_inference_performed=true`.
+The versioned [completion receipt](../data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_evaluation_completion_v1.json)
+binds the plan, preflight, execution lock, report and metrics; its SHA-256 is
+`68be1164fc137fd87fbb5abd0902775b2c896be597ab451e29f58b3ad9a1539c`.
+
+Temperature was fitted only on the fixed 976-row PyAra calibration role (`1.299543`; NLL
+`0.159755 -> 0.154239`, Brier `0.049547 -> 0.048298`). ECE changed
+`0.064438 -> 0.064971`, so calibration did not improve on every measure. Threshold selection was
+not performed. With the pre-pinned calibrated boundary `0.5`, the exact 158-asset layer produced:
+
+| Metric | Result |
+| --- | ---: |
+| Accuracy, Wilson 95% CI | 146/158 = 0.9241 [0.8719, 0.9560] |
+| Bona-fide recall | 74/79 = 0.9367 [0.8603, 0.9727] |
+| Spoof recall | 72/79 = 0.9114 [0.8282, 0.9564] |
+| Balanced accuracy | 0.9241 |
+| Pairs with both assets correct | 67/79 = 0.8481 [0.7530, 0.9109] |
+
+The run completed in `12.84` seconds and used peak allocated VRAM `1,645,827,072` bytes. The 12
+misclassified assets belong to 12 different pairs; this fact and individual final errors must not
+be used for tuning, replacement, threshold selection or another run.
 
 ## Следующий безопасный шаг
 
-The completed preflight authorizes exactly one write-once inference run under the unchanged plan.
-The runner must write the execution lock before calibration/final logits, fit temperature only on
-the fixed PyAra role and evaluate the final layer at the unchanged `0.5` boundary. Any
-contract/input/output mismatch must fail closed; do not replace assets, change
-calibration/boundary, repeat inference or retry around an evidence error.
+Preserve the candidate, gate/audit receipts, plan, preflight, execution lock and report unchanged.
+Do not repeat inference, inspect final errors for tuning, change checkpoint/calibration/boundary,
+replace failed assets or present this fixed source-linked layer as source-, speaker-, vendor- or
+architecture-independent evidence. A future research layer requires a genuinely new source and
+route under a new contract; product/API work still requires a separate commercial-rights,
+verified-speaker, privacy, calibration and deployment decision.

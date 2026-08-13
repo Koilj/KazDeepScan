@@ -37,7 +37,7 @@ The separate historical route audit covers generator-route evidence. Together th
 that the exact assets/texts are absent from prior configured model roles and the exact pinned route
 was absent from its historical spoof inventory.
 
-## Ограничения и следующий безопасный шаг
+## Ограничения и follow-on state
 
 The audit does not prove source, speaker, vendor, architecture-family, Russian-native-voice or
 organizational reviewer independence. VoxForge GPL-3.0-or-later and the project's personal-research
@@ -46,8 +46,10 @@ scope still apply. The audit contains `detector_inference_performed=false` and
 
 The separate immutable
 [XLS-R+SLS evaluation contract](research_xlsr_sls_stage_b_v2_voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1.md)
-is now prepared. It pins this receipt, the acoustic gate, exact candidate, selected checkpoint, a
+subsequently pinned this receipt, the acoustic gate, exact candidate, selected checkpoint, a
 disjoint fixed calibration role, fixed `0.5` boundary, applicable license ledger, implementation
-hashes and new write-once output paths. Its single no-logit preflight has now passed all `1,134`
-bindings without logits. That successful preflight authorizes only the single write-once run under
-the unchanged contract.
+hashes and new write-once output paths. Its single no-logit preflight passed all `1,134`
+bindings without logits. The separately authorized single
+[write-once run](research_xlsr_sls_stage_b_v2_voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1.md)
+then completed. This audit remains a pre-inference record; preserve it and do not rerun or tune on
+the final errors.

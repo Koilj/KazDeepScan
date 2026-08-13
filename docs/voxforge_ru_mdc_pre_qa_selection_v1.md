@@ -34,7 +34,7 @@ The outputs retain only hashed submission/contributor identities and prompt IDs;
 contributor alias or transcript text is committed. A later materializer must resolve the selected
 pseudonymous IDs only against the byte-pinned local archive and must reject any changed binding.
 
-## Ограничения и следующий безопасный gate
+## Ограничения и follow-on state
 
 This selection created no `data/raw/voxforge*`, decoded WAV, manifest, synthetic WAV, pair,
 model logit or metric. GPL-3.0-or-later and personal-research restrictions still apply, and the
@@ -52,4 +52,7 @@ technical QA, exact pairing and a full `158/158`
 [two-review gate](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md). The Qwen
 route still uses a documented English baked token, so the gate establishes only exact-asset
 Russian audibility and content preservation, not a Russian-native voice claim. Detector inference
-remains prohibited until a current project-exposure audit and separate immutable contract pass.
+was subsequently completed exactly once under the immutable
+[XLS-R+SLS contract](research_xlsr_sls_stage_b_v2_voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1.md).
+The selection and its two rejects remain unchanged; repeat inference and error-driven tuning are
+prohibited.

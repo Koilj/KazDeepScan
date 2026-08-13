@@ -1,8 +1,7 @@
 # VoxForge RU / Qwen3-TTS CustomVoice `aiden` — literal-text binding v1
 
 **Статус:** completed write-once text binding. The downstream one-shot synthesis, technical QA,
-exact pairing and `158/158` acoustic review gate are complete; detector inference has not been
-performed.
+exact pairing, `158/158` acoustic review gate and exactly one governed detector run are complete.
 
 ## Immutable inputs
 
@@ -20,6 +19,7 @@ its [technical QA receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_technica
 account for all `79` bound rows, and the [exact pair lock](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_pairing_v1.md)
 contains `79` pairs. The subsequent
 [two-review gate](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md) passed all
-`158` exact assets. No regeneration, replacement or backfill is permitted. The next mandatory
-steps are a current project-exposure audit and a separate immutable evaluation contract before
-detector inference.
+`158` exact assets. No regeneration, replacement or backfill is permitted. The mandatory
+exposure/contract/preflight steps subsequently passed and exactly one inference run completed; see
+the [final receipt](research_xlsr_sls_stage_b_v2_voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1.md).
+Repeat inference and final-error tuning are prohibited.

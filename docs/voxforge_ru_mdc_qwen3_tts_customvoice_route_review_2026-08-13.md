@@ -59,5 +59,6 @@ exactly one synthesis each and synthetic technical QA retained all `79`; the exa
 is in the [pairing receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_pairing_v1.md). Two full
 `158`-asset forms subsequently passed the
 [acoustic/language gate](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md).
-Detector inference stays prohibited until a current project-exposure audit and separate immutable
-evaluation contract explicitly authorize it.
+The subsequent project-exposure audit, immutable evaluation contract and preflight passed, and
+exactly one [detector run](research_xlsr_sls_stage_b_v2_voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1.md)
+completed. Repeat inference and error-driven tuning are prohibited.

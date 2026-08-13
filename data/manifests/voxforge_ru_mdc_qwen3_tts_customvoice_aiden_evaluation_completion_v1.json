@@ -1,0 +1,78 @@
+{
+  "actual_execution": {
+    "detector_inference_performed": true,
+    "final_sample_results": 158,
+    "mode": "one_time_gpu_inference",
+    "one_time_execution": true,
+    "report_status": "ok",
+    "rerun_authorized": false
+  },
+  "calibration": {
+    "manifest_sha256": "7fe2c89be7f02eea1abdfc369fc9c16185b0a395fa2526b5b2c58e361fa8fa31",
+    "records": 976,
+    "temperature": 1.2995432615280151,
+    "threshold_selection_performed": false
+  },
+  "execution_lock": {
+    "path": "artifacts/xlsr-sls-stage-b-v2-voxforge-ru-mdc-qwen3-tts-customvoice-aiden-v1.execution.json",
+    "sha256": "286c4e680defb01217b138da604096d29a7615d632bab18cff7653ac867e3c94"
+  },
+  "final_ru": {
+    "accuracy": {
+      "correct": 146,
+      "examples": 158,
+      "value": 0.9240506329113924,
+      "wilson_95_lower": 0.8719482390426628,
+      "wilson_95_upper": 0.9560225477781606
+    },
+    "balanced_accuracy": 0.9240506329113924,
+    "bonafide_recall": {
+      "correct": 74,
+      "examples": 79,
+      "value": 0.9367088607594937
+    },
+    "expected_calibration_error_15_bins": 0.06518301367759705,
+    "pairs_both_correct": {
+      "correct": 67,
+      "examples": 79,
+      "value": 0.8481012658227848,
+      "wilson_95_lower": 0.7530014556229535,
+      "wilson_95_upper": 0.9109173210736826
+    },
+    "spoof_recall": {
+      "correct": 72,
+      "examples": 79,
+      "value": 0.9113924050632911
+    }
+  },
+  "limitations": {
+    "architecture_family_independent": false,
+    "organizational_reviewer_independence_proven": false,
+    "product_quality": false,
+    "russian_native_voice": false,
+    "source_independent": false,
+    "speaker_independent": false,
+    "vendor_family_independent": false
+  },
+  "plan": {
+    "path": "configs/research/xlsr_sls_stage_b_v2_voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1.json",
+    "sha256": "9e36b5d6a35cfa0b796ff24e62f3bfa78667d0b1d9da993f1863a2fe61c421cc"
+  },
+  "preflight": {
+    "path": "artifacts/xlsr-sls-stage-b-v2-voxforge-ru-mdc-qwen3-tts-customvoice-aiden-v1.preflight.json",
+    "sha256": "4f9a56ab8de8fdb876d64c408032c468492c5ca813a34ad6bd846dd543312e5b"
+  },
+  "protocol_id": "xlsr-sls-stage-b-v2-voxforge-ru-mdc-qwen3-tts-customvoice-aiden-execution-completion-v1",
+  "report": {
+    "detector_inference_performed": true,
+    "path": "artifacts/xlsr-sls-stage-b-v2-voxforge-ru-mdc-qwen3-tts-customvoice-aiden-v1.report.json",
+    "sha256": "7da4df67f756addbc4bcd21868e294a62a150985479f30aad7e8f93bdbc96dff"
+  },
+  "schema_version": 1,
+  "started_at": "2026-08-13T19:24:02.359165+00:00",
+  "write_once_integrity": {
+    "execution_lock_overwritten": false,
+    "report_overwritten": false,
+    "report_repaired_in_place": false
+  }
+}

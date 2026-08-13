@@ -171,7 +171,13 @@ test; результаты не source-, speaker- или architecture-family-ind
   found zero calibration/final overlap in all five leakage fields. The single no-logit preflight
   then validated all `1,134` assets and CUDA/BF16; receipt SHA-256
   `4f9a56ab8de8fdb876d64c408032c468492c5ca813a34ad6bd846dd543312e5b`. It performed no
-  training, threshold selection or detector inference; execution/report still do not exist.
+  training, threshold selection or detector inference. Exactly one lock-before-logits run then
+  fitted temperature only on PyAra (`T=1.299543`) and evaluated the frozen layer: `146/158`,
+  balanced accuracy `0.9241`, bona-fide recall `74/79`, spoof recall `72/79`, fully correct pairs
+  `67/79`. Execution/report SHA-256 are
+  `286c4e680defb01217b138da604096d29a7615d632bab18cff7653ac867e3c94` and
+  `7da4df67f756addbc4bcd21868e294a62a150985479f30aad7e8f93bdbc96dff`; the report correctly
+  records inference as performed. Repeat run and final-error tuning are prohibited.
   UtrobinTTS remains rejected: `76` historical spoof rows carry its unversioned identifier.
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
@@ -191,6 +197,7 @@ test; результаты не source-, speaker- или architecture-family-ind
 | Stage-D RU Dialogs-RU balanced accuracy | 0.9727 | 55 fixed Common Voice/Dialog-RU pairs; one run |
 | v3 Stage-B dev loss | 0.18516 | epoch 4; only v3 checkpoint-selection role |
 | v3 Stage-D RU balanced accuracy | 0.9727 | 107/110; same 55 pairs previously evaluated by v2 |
+| VoxForge RU / Qwen Aiden balanced accuracy | 0.9241 | 146/158; 79 fixed pairs; exactly one run |
 
 Общая pooled RU+KK+mixed accuracy намеренно не рассчитывается. Это не product quality и не
 speaker-independent result: используемые источники не дают достаточного verified speaker
@@ -210,6 +217,9 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - Завершённые Stage C и Stage D synthesis, preflight и inference не повторять и не изменять.
 - Не повторять Stage A v3, Stage B v3, v3 preflight или v3 final inference; не менять их
   checkpoint/report hashes и не заменять/не добавлять Stage-D пары.
+- Не повторять VoxForge/Qwen preflight или inference; не менять его exact pairs, reviews,
+  exposure receipt, contract, calibration/boundary или artifacts и не использовать 12 final
+  errors для tuning/replacement.
 - Final logits и ошибки не использовать для training, architecture, threshold или calibration.
 - Exact Stage-D pairs уже получили v2 predictions, поэтому v3 result нельзя называть blind или
   unseen. v2 logits/errors не использовались для v3 решений, но это не отменяет history набора.
@@ -240,11 +250,10 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
    повторять его, не менять candidate/reviews/checkpoint/calibration/boundary and не использовать
    final errors для tuning. Старые 55 Stage-D/v3 пар, 73-row selection и их rejections нельзя
    переиспользовать как «новый blind» тест.
-3. Для VoxForge RU не менять `79` exact pairs, completed forms, gate/exposure receipts, immutable
-   evaluation contract или completed preflight и не выполнять resynthesis/replacement/backfill.
-   Выполнить единственный write-once inference run с lock-before-logits, temperature только на
-   fixed PyAra calibration и boundary `0.5`. Не повторять run и не использовать UtrobinTTS как
-   backfill.
+3. Для VoxForge RU сохранить `79` exact pairs, completed forms, gate/exposure/completion receipts,
+   immutable contract, preflight, execution lock и report без изменений. Не повторять inference,
+   не использовать 12 final errors для tuning/replacement и не использовать UtrobinTTS как
+   backfill. Новый research layer требует genuinely new source/route и отдельный contract.
 4. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 
@@ -307,6 +316,7 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [VoxForge Russian Qwen acoustic/language gate](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md)
 - [VoxForge Russian Qwen project-exposure audit](docs/voxforge_ru_mdc_qwen3_tts_customvoice_candidate_project_exposure_v1.md)
 - [VoxForge Russian Qwen immutable XLS-R+SLS contract](docs/research_xlsr_sls_stage_b_v2_voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1.md)
+- [VoxForge Russian Qwen one-time execution completion](data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_evaluation_completion_v1.json)
 - [VoxForge Russian rejected UtrobinTTS route review](docs/voxforge_ru_mdc_utrobinmv_vits_route_review_2026-08-13.md)
 - [Silero V5.5 RU / eugene route intake](docs/silero_v5_5_ru_eugene_intake_2026-08-13.md)
 - [Common Voice RU full-test metadata exposure screen](data/manifests/common_voice_ru_v24_full_test_metadata_exposure_screen_v1.json)

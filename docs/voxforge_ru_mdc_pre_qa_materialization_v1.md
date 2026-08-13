@@ -1,7 +1,7 @@
 # VoxForge RU — pre-QA materialization v1, 13 августа 2026
 
-**Статус:** completed frozen bona-fide extraction and technical QA. Subsequent synthesis, pairing
-and the `158/158` acoustic/language gate are complete; detector inference has not been performed.
+**Статус:** completed frozen bona-fide extraction and technical QA. Subsequent synthesis, pairing,
+the `158/158` acoustic/language gate and exactly one governed detector run are complete.
 
 ## Immutable inputs and outputs
 
@@ -30,11 +30,13 @@ Qwen route remains fixed to its documented English `aiden` token. The subsequent
 passed, but only establishes Russian audibility and content preservation for the exact reviewed
 bytes; it does not establish a Russian-native voice.
 
-## Следующий безопасный шаг
+## Follow-on state
 
 The separate [literal-text binding](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_text_binding_v1.md)
 for exactly the `79` ready rows retained both source transcript hashes and the two accounted
 rejects. Exactly one Qwen3-TTS CustomVoice / `aiden` WAV per bound text, technical QA, pair lock
 and the [two-review gate](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md) are
-now complete. No replacement/backfill is allowed; a current project-exposure audit and separate
-immutable evaluation contract are required before detector inference.
+now complete. The subsequent project-exposure audit, immutable evaluation contract and preflight
+passed, and exactly one final run completed; see the
+[final receipt](research_xlsr_sls_stage_b_v2_voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1.md).
+No replacement/backfill, repeat inference or final-error tuning is allowed.

@@ -117,6 +117,11 @@ checkpoint и строго ограниченный evaluation-контур:
   rejection сохранён. Silero V4 technical smoke-test создал 10 технически готовых WAV, но пока
   не создаёт acoustic language-quality claim. Отдельный input-pinned research candidate содержит
   30 QA/VAD-ready exact bona-fide/spoof pairs и явно отмечает эту границу provenance;
+- VoxForge RU / fixed Qwen CustomVoice `aiden` route завершён по write-once protocol: `79` exact
+  pairs прошли full two-review gate и current exposure audit, immutable Stage-B v2 contract и
+  no-logit preflight. Единственный CUDA/BF16 run дал `146/158`, balanced accuracy `0.9241`,
+  bona-fide recall `74/79`, spoof recall `72/79` и `67/79` fully correct pairs. Это
+  source-linked personal-research evidence; rerun и tuning по final errors запрещены;
 - FastAPI health/readiness/upload scaffold, который не выдаёт score без обученного,
   калиброванного model release.
 
@@ -422,14 +427,18 @@ Russian-native/speaker/organizational-independence claim и не detector infere
 его ограничения описаны в
 [VoxForge Qwen acoustic-gate receipt](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md);
 последующий project-exposure audit pinned `33` current configs / `18` referenced manifests /
-`12,397` prior rows и нашёл `0/0/0` sample/audio/text overlap. Он не запускал и не разрешал
-inference. Следующий безопасный этап — отдельный immutable evaluation contract; полный audit
-описан в [VoxForge Qwen exposure receipt](docs/voxforge_ru_mdc_qwen3_tts_customvoice_candidate_project_exposure_v1.md).
-Такой contract теперь подготовлен: он pins Stage-B v2 checkpoint, disjoint 976-row PyAra
+`12,397` prior rows и нашёл `0/0/0` sample/audio/text overlap. Он сам не запускал и не разрешал
+inference; полный audit описан в
+[VoxForge Qwen exposure receipt](docs/voxforge_ru_mdc_qwen3_tts_customvoice_candidate_project_exposure_v1.md).
+Последующий immutable evaluation contract закрепил Stage-B v2 checkpoint, disjoint 976-row PyAra
 calibration, fixed `0.5` boundary, three-source frozen ledger и новые write-once paths; plan
 SHA-256 `9e36b5d6a35cfa0b796ff24e62f3bfa78667d0b1d9da993f1863a2fe61c421cc`. Contract receipt —
 [здесь](docs/research_xlsr_sls_stage_b_v2_voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1.md).
 После этого ровно один no-logit preflight проверил `1,134` assets и CUDA/BF16; local receipt
-SHA-256 `4f9a56ab8de8fdb876d64c408032c468492c5ca813a34ad6bd846dd543312e5b`, execution/report
-ещё отсутствуют. Теперь разрешён только единственный write-once inference run по неизменному
-contract.
+SHA-256 `4f9a56ab8de8fdb876d64c408032c468492c5ca813a34ad6bd846dd543312e5b`. Единственный
+write-once inference run затем дал `146/158` correct, balanced accuracy `0.9241`, recall
+`74/79` bona-fide и `72/79` spoof, `67/79` fully correct pairs. Execution/report SHA-256:
+`286c4e680defb01217b138da604096d29a7615d632bab18cff7653ac867e3c94` /
+`7da4df67f756addbc4bcd21868e294a62a150985479f30aad7e8f93bdbc96dff`. Repeat run и tuning
+по final errors запрещены; это не source/speaker/vendor/architecture independence или product
+quality.

@@ -65,6 +65,11 @@ asset-level blind, но не source- или speaker-independent; checkpoint не
   logit, execution-lock SHA-256
   `7d692542e6397c64ac0379eca34564d16f1fd670d5deb93e7a9a940695c2ccdb`, report SHA-256
   `2cb7198a6ec03f2c6424748dde3263731d87ff6b0b557f59b0463b7f74cc5e32`.
+- Для будущего Stage-D RU слоя без model output подготовлен 73-row Common Voice bona-fide
+  candidate. Он проходит configured-role exposure audit против 12 203 строк, но пока не имеет
+  допустимого нового spoof counterpart и не является evaluation suite. Russian Piper и MMS
+  отвергнуты из-за historical RuASD route overlap; подробности в
+  [Stage-D Common Voice precheck](docs/stage_d_common_voice_ru_precheck_v1.md).
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
 ## Актуальные результаты
@@ -108,8 +113,10 @@ calibration.
 ## Следующие действия
 
 1. Не повторять Stage-C run и не использовать его final errors для tuning.
-2. Решить отдельно, нужен ли model v3; если да, готовить новый train/dev/calibration contract и
-   прежде нераскрытый final suite.
+2. Не использовать 73-row Stage-D Common Voice candidate до появления и проверки нового RU
+   text-only spoof route; Piper/MMS/RHVoice не переиспользовать.
+3. Только после complete paired suite и pre-inference two-review gate решать, нужен ли model v3;
+   его train/dev/calibration contract должен быть отдельным от final suite.
 
 Полный порядок и критерии остановки: [План реализации.md](План%20реализации.md).
 
@@ -142,5 +149,6 @@ calibration.
 - [Stage C frozen selection и bona-fide materialization](docs/fresh_suite_stage_c_selection_v1.md)
 - [Stage C KazakhTTS normalized candidate и full-asset gate](docs/fresh_suite_stage_c_kazakhtts_candidate_v1.md)
 - [XLS-R Stage-C asset-level-blind evaluation](docs/research_xlsr_sls_stage_b_v2_fresh_suite_stage_c_v1.md)
+- [Stage-D Common Voice RU precheck](docs/stage_d_common_voice_ru_precheck_v1.md)
 - [External RU spoof-source search](docs/russian_spoof_source_search_2026-08-11.md)
 - [License-ledger snapshots](docs/license_ledger_snapshots.md)

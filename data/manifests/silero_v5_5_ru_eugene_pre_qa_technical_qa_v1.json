@@ -1,0 +1,210 @@
+{
+  "claims": {
+    "acoustic_review_performed": false,
+    "binary_pairing_performed": false,
+    "detector_inference_authorized": false,
+    "detector_inference_performed": false,
+    "future_pairing_must_use_only_retained_ready_spoof_rows": true,
+    "synthetic_audio_generated": true,
+    "technical_decode_qa_vad_performed": true
+  },
+  "inputs": {
+    "raw_manifest": {
+      "path": "data/manifests/silero_v5_5_ru_eugene_pre_qa_raw_v1.csv",
+      "rows": 75,
+      "sha256": "82b220dbe4663d472a01d9e85e0d7f2309577fe772a0275a27dffeb7102460ae"
+    },
+    "rejection_report": {
+      "path": "data/manifests/silero_v5_5_ru_eugene_pre_qa_rejections_v1.json",
+      "sha256": "46a46887c3cf760c8ada215e40a8868b4290584a66e684f8daf447cca1b84f85"
+    },
+    "synthesis_receipt": {
+      "path": "data/manifests/silero_v5_5_ru_eugene_pre_qa_synthesis_v1.json",
+      "sha256": "61f5e81712c602fc8ee857f008527878e77a7ccf1e73af277bf3d803c75e9ab6"
+    }
+  },
+  "outputs": {
+    "ready_manifest": {
+      "path": "data/manifests/silero_v5_5_ru_eugene_pre_qa_ready_v1.csv",
+      "rows": 42,
+      "sha256": "60df83502521fb225dbf8af44f80395c6493c9c4fc698a06fdb0c567b74a7036"
+    }
+  },
+  "protocol_id": "common-voice-ru-v24-silero-v5-5-eugene-pre-qa-spoof-technical-qa-v1",
+  "published_at": "2026-08-13T17:47:21+05:00",
+  "schema_version": 1,
+  "technical_qa": {
+    "pipeline": "AudioPreparationPipeline: decode, mono PCM WAV 16 kHz, quality checks, WebRTC VAD",
+    "raw_rows": 75,
+    "ready_rows": 42,
+    "rejected_rows": [
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/ff101cdf623dd9f8a741-6830aa36f812.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:08992fd66a6ea1c8"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/6be977859108af55254d-0d9ec1d224f0.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:0e10291bf665ee92"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/d24ab9ea86a84d3e0987-5cf5d6b1b371.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:0ed7f52f617e760f"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/8f99074a1b5c51428c27-c0d4b8c38c52.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:1335b889e959866c"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/c7e6145743507a6cf4fe-183588b00c16.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:13a8f3e0ffbd6999"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/080c1044834782d7806a-6dd2fcc725dd.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:163cd74a1d22e8bc"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/3be604d07065bf840c29-1d9f8f4e277a.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:1cbc1f7ba0bc1dbc"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/812b26ba683050639df2-0dd897e79bb3.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:29ddfae04215d28f"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/77512a69fa832b925fd3-96d600b1bba6.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:35f379e94e37d829"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/261dacab3e65f0aea719-21fa8eac4e3b.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:379991c51171806d"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/a13eee8ec236389e90cd-0890f1e5d06a.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:3d1909aca3fdb8d9"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/0f11e1d382b54760112c-adc7cfc53ee3.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:3de1453530baff9e"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/97511a84b04a1888ffae-ac7d30f7c6ce.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:431d88a9e8497d1b"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/83e2ea6de68f579557c5-a9b2f1cc3afd.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:4f5a6ba11f9a2b19"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/fd86ddc80009d20aef73-d30bcc2c50db.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:5850a0ced62e6cd6"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/5c8f817dd367faeb68d8-c074b4ffcaa3.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:62bf77e0c4c41e4b"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/51c9f3863d4003d8b3a2-b456a610e1cd.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:6504b76add961887"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/9b94a82999ce2269d257-0353a4291869.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:6895f76ccb31b698"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/15f49d68433ac0287d70-f698a08ed76c.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:6ab78e17d387e0d9"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/5a077f9a5ad0c3b1e06d-4ebcbc84586e.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:6c95b30991b6f112"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/d86fdb4bf7db172c6abc-98ef45de8d92.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:7ae8f268f427b3ce"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/5f12ac17a66765253dc3-55ce3cb5141d.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:814354df0cb740b8"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/ffa50521e4147f499e51-0cc147d614d3.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:8363e9e10ba6e96e"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/e4fac1b38a64221136e0-75bfe61bfd5e.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:92473cfc005aca51"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/f7e19dc22cf2bf6c7863-1095ba3bf596.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:973efdbd9400b877"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/4c7d714629cd111159e1-befd22e683ec.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:985b754ef1b7e78b"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/2389d12bbdf3cb28481f-ebe174d9610d.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:b0f53e120209d3c9"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/a26dcd36a74e1dac60a9-86f32276f213.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:b80f04f9a159665a"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/94ffb34ed2e5ab3e4044-2c7fc48ce876.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:ca922e8b0c58f360"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/04bcce39f9a673b02c31-104115d8baab.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:e2f120b6015d6657"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/2df749c253a82d6bc9b6-e2c2c8f76546.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:e8201a3a88276007"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/6910eb635c7e5276b5c0-82e5e4a98f1e.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:f143f571e94d9de1"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/silero_v5_5_ru_eugene_v1/slices/common_voice_ru_v24_pre_qa_v1/6e742eac88a0ddd21a45-169979c4ffe6.wav",
+        "sample_id": "silero_v5_5_ru_eugene_v1:f436a7f8e5fe5dec"
+      }
+    ],
+    "resynthesis_or_replacement_or_backfill": false,
+    "reused_rows": 0
+  }
+}

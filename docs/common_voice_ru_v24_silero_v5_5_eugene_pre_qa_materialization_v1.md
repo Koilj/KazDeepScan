@@ -56,6 +56,8 @@ Literal binding для всех 75 ready rows завершён в
 fixed-profile V5.5/eugene WAV — в
 [synthesis receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_synthesis_v1.md). Пять
 bona fide rejections permanently out of this candidate: no replacement, reselection,
-regeneration или backfill. Next normal synthetic technical QA may only reduce the 75 raw spoof
-rows; later full-asset acoustic reviews must cover exact retained bona-fide and synthetic bytes
-before any paired evaluation plan can be prepared.
+regeneration или backfill. Synthetic technical QA has retained `42` of the 75 raw spoof rows and
+accounted the other 33 in
+[its receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_spoof_technical_qa_v1.md). Later
+full-asset acoustic reviews must cover exact retained bona-fide and synthetic bytes before any
+paired evaluation plan can be prepared.

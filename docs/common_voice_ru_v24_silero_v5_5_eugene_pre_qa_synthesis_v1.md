@@ -1,7 +1,7 @@
 # Common Voice RU v24 / Silero V5.5 `eugene` — pre-QA synthesis v1
 
-**Статус:** completed raw synthetic layer; technical decode/QA/VAD, acoustic review, binary
-pairing и detector inference ещё не выполнены.
+**Статус:** completed raw synthetic layer and technical decode/QA/VAD accounting; acoustic review,
+binary pairing и detector inference ещё не выполнены.
 
 ## Входы и строгий route
 
@@ -42,7 +42,8 @@ bound text. This correction did not select, replace, backfill, QA or review any 
 
 ## Следующий безопасный шаг
 
-Run normal decode/mono-16-kHz quality/WebRTC-VAD QA on the 75 raw spoof assets, account every
-rejection and publish only the retained subset. A failed synthetic QA row cannot be resynthesized,
-replaced или backfilled. Только после immutable pairing и two independent full-asset acoustic
-reviews можно готовить новый governed inference plan.
+Normal QA завершён в
+[separate receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_spoof_technical_qa_v1.md):
+`42` spoof rows retained and `33` insufficient-speech rejects are accounted. A failed synthetic
+QA row cannot be resynthesized, replaced или backfilled. Только после immutable 42-pair lock и
+two independent full-asset acoustic reviews можно готовить новый governed inference plan.

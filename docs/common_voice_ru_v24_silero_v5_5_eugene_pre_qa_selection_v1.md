@@ -62,6 +62,8 @@ accounts for all 80 frozen MP3s: 75 reached ready WAV and five were rejected for
 [literal-text binding receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_text_binding_v1.md)
 verified the exact source text of all 75 ready rows without rewrite. The subsequent
 [synthesis receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_synthesis_v1.md) stores one
-raw fixed-profile WAV per bound text. Synthetic technical QA may only reduce that raw layer; two
+raw fixed-profile WAV per bound text. The subsequent
+[technical-QA receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_spoof_technical_qa_v1.md)
+retained `42` and accounted `33` rejects. Only matching 42-text pairs can advance; two
 independent full-asset reviews and a new immutable paired plan remain required before any detector
 inference.

@@ -36,8 +36,7 @@ are not added to Git.
 
 ## Следующий безопасный шаг
 
-Normal technical QA already retained all `79` rows in
-[its separate receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_technical_qa_v1.md).
-The next permissible operation is an immutable `79`-pair lock against exactly the retained
-VoxForge bona-fide rows. No row may be resynthesized, replaced or backfilled; full two-review
-acoustic/language review must then pass before detector inference can be considered.
+Normal technical QA retained all `79` rows and the exact `79`-pair lock is now published in the
+[pairing receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_pairing_v1.md). No row may be
+resynthesized, replaced or backfilled; full two-review acoustic/language review must now pass
+before detector inference can be considered.

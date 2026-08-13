@@ -16,5 +16,6 @@ Receipt: [text binding JSON](../data/manifests/voxforge_ru_mdc_qwen3_tts_customv
 The [non-candidate CUDA smoke](voxforge_ru_mdc_qwen3_tts_customvoice_cuda_smoke_v1.md), the
 one-shot [synthesis receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_synthesis_v1.md) and
 its [technical QA receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_technical_qa_v1.md) now
-account for all `79` bound rows. No regeneration, replacement or backfill is permitted. The next
-separate gate is exact binary pairing, followed by full acoustic/language review.
+account for all `79` bound rows, and the [exact pair lock](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_pairing_v1.md)
+now contains `79` pairs. No regeneration, replacement or backfill is permitted. The next separate
+gate is full acoustic/language review.

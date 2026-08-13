@@ -414,7 +414,7 @@ literal-text binding завершён: `79/79` ready rows снова связа�
 transcript, lexical rewrite или reselection; два `signal_too_quiet` rejects остаются исключёнными.
 Non-candidate CUDA smoke подтвердил 24 kHz mono output fixed Qwen route. One-shot synthesis затем
 сохранил `79/79` unique 24 kHz mono fixed-`aiden` WAV (`0` failures), а normal decode/quality/VAD
-QA сохранил `79/79` mono 16 kHz PCM-16 ready spoof assets (`0` rejects, no replacement/backfill).
-Это всё ещё не Russian-native/speaker claim и не pairing, acoustic/language review или detector
-inference; следующий gate описан в
-[VoxForge Qwen technical-QA receipt](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_technical_qa_v1.md).
+QA сохранил `79/79` mono 16 kHz PCM-16 ready spoof assets (`0` rejects, no replacement/backfill),
+после чего immutable lock зафиксировал `79` exact text-matched pairs / `158` assets. Это всё ещё
+не Russian-native/speaker claim и не acoustic/language review или detector inference; следующий
+gate описан в [VoxForge Qwen pairing receipt](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_pairing_v1.md).

@@ -1,0 +1,54 @@
+{
+  "counts": {
+    "candidate_assets": 158,
+    "frozen_ready_bona_fide_rows": 79,
+    "raw_spoof_rows": 79,
+    "ready_spoof_rows": 79,
+    "retained_pairs": 79,
+    "technical_qa_rejected_spoof_rows": 0
+  },
+  "created_at": "2026-08-13T18:50:50Z",
+  "decision_rule": {
+    "detector_inference_authorized": false,
+    "detector_inference_performed": false,
+    "exact_text_hash_and_text_id_match": true,
+    "metric_or_detector_based_selection": false,
+    "post_selection_backfill": false,
+    "qa_reject_excludes_entire_pair": true,
+    "resynthesis_after_qa": false
+  },
+  "full_asset_acoustic_gate_passed": false,
+  "inputs": {
+    "base_manifest": {
+      "path": "data/manifests/voxforge_ru_mdc_2026_05_pre_qa_ready_v1.csv",
+      "sha256": "001eba24021673327a17b7fc94418b334c902007cdee507ddba6a17a06f660e4"
+    },
+    "license_ledger": {
+      "path": "data/licenses/license_ledger.csv",
+      "sha256": "c80428c9557b9278ea2057a833202cc2d81b0aba7685482fe218660027873a2a"
+    },
+    "raw_spoof_manifest": {
+      "path": "data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_raw_v1.csv",
+      "sha256": "d378466b47dc4e05e575457ebdda5677ad685465df7d70cc6a9c2d7207f0f990"
+    },
+    "ready_spoof_manifest": {
+      "path": "data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_ready_v1.csv",
+      "sha256": "18ac2f20a90f30c3fe55444eb7d81761712e0be41151cf90f3118eab70f7174c"
+    },
+    "synthesis_receipt": {
+      "path": "data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_synthesis_v1.json",
+      "sha256": "dd9414b215ea9203454ea651cd781acb8f9b7b8def9df7b53155f4b373e477d5"
+    },
+    "technical_qa_receipt": {
+      "path": "data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_technical_qa_v1.json",
+      "sha256": "aa60514236798829d5e61d90f3cd2591fca10ea0b76f2248c4d0a740cfa85a4b"
+    }
+  },
+  "output_candidate": {
+    "path": "data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_pairs_v1.csv",
+    "rows": 158,
+    "sha256": "d1a4e77632cde94ca836202557cfcfc5b6c6b10f4e8b45cc148ee270fca9e91b"
+  },
+  "protocol_id": "voxforge-ru-mdc-qwen3-tts-customvoice-aiden-pre-qa-pairing-v1",
+  "schema_version": 1
+}

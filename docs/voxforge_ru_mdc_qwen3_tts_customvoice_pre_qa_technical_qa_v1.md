@@ -37,7 +37,8 @@ and SHA-256 validation.
 
 ## Следующий безопасный шаг
 
-Freeze only exact text-matched bona-fide/spoof pairs from the `79` retained VoxForge rows. This
-does not authorize a language claim: the resulting full `158` assets must receive two independent
-acoustic/language reviews before any detector evaluation; a rejected review asset reduces the
-candidate set without regeneration or replacement.
+The exact `79`-pair lock is now published in the
+[pairing receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_pairing_v1.md). It does not
+authorize a language claim: the full `158` assets must receive two independent acoustic/language
+reviews before any detector evaluation; a rejected review asset reduces the candidate set without
+regeneration or replacement.

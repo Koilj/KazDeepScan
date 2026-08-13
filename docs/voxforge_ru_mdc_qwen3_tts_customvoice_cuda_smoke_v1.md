@@ -6,6 +6,9 @@ The exact locked local GGUF talker, codec and CUDA runtime generated one tempora
 
 The immutable [smoke receipt](../data/licenses/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1_cuda_smoke_v1.json) records input/output hashes without storing the temporary text or audio.
 
-## Следующий безопасный шаг
+## Follow-on state
 
-The bound `79` ready VoxForge texts may now each receive exactly one fixed-route synthetic WAV. Every technical synthesis or QA failure is final for that row; no regeneration, replacement or backfill is permitted.
+The bound `79` rows subsequently completed their single permitted synthesis and technical QA;
+see the [synthesis receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_synthesis_v1.md). Any
+future technical or review failure remains final for that row: no regeneration, replacement or
+backfill is permitted.

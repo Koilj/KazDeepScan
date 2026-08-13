@@ -1,0 +1,848 @@
+{
+  "artifact_lock": {
+    "path": "data/licenses/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1_artifact_lock.json",
+    "sha256": "94a8d1515b0062e5382202dc723fef474ec47bdf09c9d353cfa02bb1d5569855"
+  },
+  "base_manifest": {
+    "path": "data/manifests/voxforge_ru_mdc_2026_05_pre_qa_ready_v1.csv",
+    "rows": 79,
+    "sha256": "001eba24021673327a17b7fc94418b334c902007cdee507ddba6a17a06f660e4"
+  },
+  "claims": {
+    "acoustic_review_performed": false,
+    "binary_pairing_performed": false,
+    "detector_inference_authorized": false,
+    "detector_inference_performed": false,
+    "synthetic_audio_generated": true,
+    "technical_decode_qa_vad_performed": false
+  },
+  "created_at": "2026-08-13T18:35:11Z",
+  "failed_attempts": [],
+  "generated": [
+    {
+      "audio_sha256": "510f6298bc695fef09b44d1610dff4095d4d5af0cc1203c18677fd2b8f46da8e",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:012c656f9989e18237158ad3c3072bec8ada151b95310a07ee52c4308a0ca9e5:prompt:ru_0055",
+      "duration_s": 10.0,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/059ff7359756d4943000-bbbca0513088.wav",
+      "rng_seed": 3149701201,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:8e29ae82cafb079bfeb8",
+      "text_hash": "bbbca0513088b2174fb5c5374785740ccc8a98fd72162bc95e993716f8bc272d",
+      "text_id": "ru_0055"
+    },
+    {
+      "audio_sha256": "3f0eb3c091fffeae34e36860298f4ebc52ca65cc8b660362b29410beff530492",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:03b82d7ce079b1f695b61554d4124dbd9af93f195b75945a1ab45a907b85475b:prompt:ru_0009",
+      "duration_s": 7.36,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/bd6fd0b5d3338a6916ac-75a97bdbd3eb.wav",
+      "rng_seed": 1974041563,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:227843c6b77722017687",
+      "text_hash": "75a97bdbd3ebf02b18ddff117ae954b7ef11da546aa9ce854b5f59c98e1c2d2c",
+      "text_id": "ru_0009"
+    },
+    {
+      "audio_sha256": "15bf8781d5cb2f5bea718f213c876283432a6232842a3f3023d97f4a787389a1",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:050c9752c7f60cee2d0db2ee779ecdcfb93faa48bc7bdf902f873b34270ee291:prompt:ru_0062",
+      "duration_s": 5.04,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/e6477d3ebfd3e50285c7-9884e454e22a.wav",
+      "rng_seed": 2558846036,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:e10c5ca3e65f1489df76",
+      "text_hash": "9884e454e22a06ce7ce0ccf6e9a316d0987d5fa6b3d03e00089cf8f3fa931d98",
+      "text_id": "ru_0062"
+    },
+    {
+      "audio_sha256": "834b06fadfe3620cf543e0dbc3e6d2af82cd8d0b100c90675e9094918050c07d",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:0602a309c0842a7526c6762629bb2bf2523f99b8d6ab053b117e86767c636343:prompt:ru_0052",
+      "duration_s": 5.92,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/5b7b4ae0d6caead5f659-e2259b7007fe.wav",
+      "rng_seed": 3794115440,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:82a941a530ece15bf27a",
+      "text_hash": "e2259b7007fef6c3106e0bd6395cedd4c1c086912fa7a17f2ce3637ba0744990",
+      "text_id": "ru_0052"
+    },
+    {
+      "audio_sha256": "4d09aa5d9a4be5b5e62e9f3f6cd1f9ed371638349f418fa374c84fa90ae33679",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:08513dfaa497128a0181f3acac57b9650ade135b8c1c339e2dc419b0bdda3e59:prompt:ru_0041",
+      "duration_s": 4.72,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/93be51a802c053c76375-933f70782c8c.wav",
+      "rng_seed": 2470408312,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:f0cfd79e6304fb83b699",
+      "text_hash": "933f70782c8c99fef2dfaa6959e59efd33ea928393e13121cc1936c78d0e3692",
+      "text_id": "ru_0041"
+    },
+    {
+      "audio_sha256": "1df58c55a58f4cf34a9343d093768f682a9c6d1087dbe36c1510dfe0bef374b4",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:0928c279e177a1fd26d4a3fdcb1c59d3227baa586300503abbbb297b14b2b22f:prompt:ru_0003",
+      "duration_s": 4.4,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/3bb5ce85da39309cc65d-c5f55670a9a2.wav",
+      "rng_seed": 3321190000,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:8d5c5906b80bdb98e8fd",
+      "text_hash": "c5f55670a9a2005d49008231c56b28d65fb15813530fe4dc549f3af0f535a727",
+      "text_id": "ru_0003"
+    },
+    {
+      "audio_sha256": "0806054fe3ea4543551526c8e05342b006b07c4fe10f211bb6cffcfd35dba315",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:0c6b419b44c4397c4b84854ee200854bccb233a32e1ebf41f5bc0e9970a57242:prompt:ru_0078",
+      "duration_s": 5.76,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/dbce151d12ac80b06289-25a2d0b010f7.wav",
+      "rng_seed": 631427248,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:eec008811fc732dac863",
+      "text_hash": "25a2d0b010f7bffaf8484d78ca231194697839667c1098a903bdc6cf3986c837",
+      "text_id": "ru_0078"
+    },
+    {
+      "audio_sha256": "dd1e917c4fe21bf0cad336bfccfc5e08feccdeb01120be99a335051fd6a590a9",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:10ec653bebd3d160d2fb6d9b562f86500a68b9d2fa5404ef0ce3a8bf9b345c39:prompt:ru_0012",
+      "duration_s": 6.24,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/5d4fdcb0e9b37169878b-e501926c0237.wav",
+      "rng_seed": 3842085484,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:08e42b89c2fc22cefafa",
+      "text_hash": "e501926c02370e6202a91c78153cc9e8ce0c6ac7887d04404834a0264f93221d",
+      "text_id": "ru_0012"
+    },
+    {
+      "audio_sha256": "59a3b1a91537de0864c66bdc917abfca76c68fcc663ee449a64e5c9950f3d6f2",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:1a21722239db47549eeadb6545f150d38e3b2cbd42912fdc62a7724588246baf:prompt:ru_0084",
+      "duration_s": 5.04,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/d29d500fce1dcc487cb5-27b87e5ff530.wav",
+      "rng_seed": 666402399,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:faeff1b3814c5425bbeb",
+      "text_hash": "27b87e5ff53041cef952435b211bc61ecfd6a5c91e7fb542e4e1bda0196a4f68",
+      "text_id": "ru_0084"
+    },
+    {
+      "audio_sha256": "ca2ec99c5614f03d12129fd75cddd2b19adf18def96bfcce3a64527da44363a2",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:1a27b51dcd688597b7e89c8600f86d2ec64e5c7d03868255161e28fbd65da4b7:prompt:ru_0022",
+      "duration_s": 4.48,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/1bc699faf8b12cfd9826-82e193a30845.wav",
+      "rng_seed": 2195821475,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:f17409f0ea826f55d867",
+      "text_hash": "82e193a30845e7f5e6ce30cf7b7d54e3cde9ded4cf5716d45a99e99b9ca94a5c",
+      "text_id": "ru_0022"
+    },
+    {
+      "audio_sha256": "9743126262ba5f3a7ce0f24ae1b4dfc43d12ca684b41879e15a20d849685a191",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:1c9f86fb5c2c48ca091a52282089866bde85fb4f9bc24ea5c18894c321856dc5:prompt:ru_0032",
+      "duration_s": 5.6,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/801802be27b79fbec8ef-c7f27a664bf6.wav",
+      "rng_seed": 3354557030,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:d81e7c7ac0ceffc19240",
+      "text_hash": "c7f27a664bf689206a491808c99d548552fc5c0bfe2fabc6971e653728102da3",
+      "text_id": "ru_0032"
+    },
+    {
+      "audio_sha256": "e1cf5fdabb505c933be01941d40a585e2c32d36e308b3a6c6573d3a869a70d2d",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:1ef932968fb7baca3a6d0a2a4b45938c561097615237f349d93b3156a1c16a2a:prompt:ru_0027",
+      "duration_s": 4.56,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/81bf264ed77678bfd351-da308253aab9.wav",
+      "rng_seed": 3660612179,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:389e8bcaa6a6ccff700e",
+      "text_hash": "da308253aab90d5d753f1beacee0625a501ccae6a70e10fee426a2e475866a14",
+      "text_id": "ru_0027"
+    },
+    {
+      "audio_sha256": "c06bb657283eae71594efcc01ae74b60aee3cffcbff61b8d048f3c3a0a73971c",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:20d50f7ac35654a4a8ecdc3004ad06a3a69c4f7982507e43191f8bdf2cd8c0d2:prompt:ru_0014",
+      "duration_s": 5.76,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/b7e9fd7ebdc882fdcd17-7d4e89671802.wav",
+      "rng_seed": 2102298983,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:8e658ed2d7fbb8618eda",
+      "text_hash": "7d4e89671802658713e39df7281f4bb22291d2f707447701bf4c10b2ff6754df",
+      "text_id": "ru_0014"
+    },
+    {
+      "audio_sha256": "d9477e1f945b43c70699ff15035602ea5f21cb1ba1e0a6c42b1747c6643447db",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:2401aa67fc3a0e4fb2974ba1e6cf6463d9f7c4633924456eed289e939f20f4ce:prompt:ru_0034",
+      "duration_s": 7.28,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/3cf5e45027ee768611fe-9f67f74f3952.wav",
+      "rng_seed": 2674390863,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:c67d8f470d0fb90d8e22",
+      "text_hash": "9f67f74f3952768ae15d904ddb769dfa398f0e1ac789f9b6408b1f4bcda65ddf",
+      "text_id": "ru_0034"
+    },
+    {
+      "audio_sha256": "5d067e9d2fdad012688ab03ffffba829e033e1c5f6d4eeddba31ea76b284bad3",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:242190e820951b9fb089c325a24d42a9b723c472fd15cc42025ba39d4b69463b:prompt:ru_0025",
+      "duration_s": 4.16,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/ddeb230556879c5d8df3-0e679c0c7629.wav",
+      "rng_seed": 241671180,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:4e7f689e86b6867e8554",
+      "text_hash": "0e679c0c762905542b7fde0bdabaec6e88dbdc217b78fd6c624866da120db5cf",
+      "text_id": "ru_0025"
+    },
+    {
+      "audio_sha256": "1ead31819d9f8c5bce1df6a4a1b7b73f8da9dd923457c197cc4285f55d0af6a3",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:28029c59eb2cee73e20a2d98485437f662607acbc4d16b5db56edd7847250970:prompt:ru_0037",
+      "duration_s": 5.44,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/9bf7c5ff9792e0efcb42-03e27fb4aaef.wav",
+      "rng_seed": 65175476,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:5f1e809e8e6b71b22666",
+      "text_hash": "03e27fb4aaef118ebde94b602a917c86d9dee8f8f0b33160ea27103fcdc81920",
+      "text_id": "ru_0037"
+    },
+    {
+      "audio_sha256": "f2396789eb0e2896eda1dbc2c108a966b40136d26cf56d8b71c29d2e8fa7ef30",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:3311b81d44127cb620759f1293b97366ad16ce992dc79903a7fea031c02d0a31:prompt:ru_0071",
+      "duration_s": 5.44,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/1bb172b852c02c59e453-17b42c6b88db.wav",
+      "rng_seed": 397683819,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:d3234788813d744de24e",
+      "text_hash": "17b42c6b88dbec6781dfd75a95515ed8b5cc79d84b87c3f8514500ea95485d20",
+      "text_id": "ru_0071"
+    },
+    {
+      "audio_sha256": "1a5737979c69dbbede8a245cc17631f708421a2ca605207cb52e9dab938ee121",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:337a397c2d60a372991c15d66525f1fa17037275dd14ac148ca4cbd2db9ac351:prompt:ru_0001",
+      "duration_s": 10.16,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/be96339168d570da3602-e7dab8ad7b1a.wav",
+      "rng_seed": 3889871021,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:af6979d1d43baf851320",
+      "text_hash": "e7dab8ad7b1ad1813e718b208879e8268ad9376e6f6fddef9d258a5af02107f2",
+      "text_id": "ru_0001"
+    },
+    {
+      "audio_sha256": "94c7e3669b2423c556cf6bf423104b556ff9959960e3966840c0c53dfc137bf1",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:35cfa88a1ce303994e63e0dd6fe476f920451556d272fb5f150ca58d87ee5ac2:prompt:ru_0051",
+      "duration_s": 4.32,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/c1f383d5c233cb4da77e-cc903ab7c86b.wav",
+      "rng_seed": 3432004279,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:cbfcf502482392d16214",
+      "text_hash": "cc903ab7c86b5c8213bf37d0de4373f2577fb1d119678409b25dc2d984901c0b",
+      "text_id": "ru_0051"
+    },
+    {
+      "audio_sha256": "bc42e92c2177ab20d016ca96629a2e0556567e8a59d2c4f7bcbd3322b34e76d3",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:3802aa2ec929c0fc99af228107cf60b9856c8aae5ead852716d7a8e553cf5c48:prompt:ru_0059",
+      "duration_s": 6.8,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/d9828b88edb498407549-7fb393ecba16.wav",
+      "rng_seed": 2142475244,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:c5d51615b9eca4d7bb75",
+      "text_hash": "7fb393ecba16af6004df4a3e5e8a78222f3850c8b54d7e5e8fc92a54771cb43c",
+      "text_id": "ru_0059"
+    },
+    {
+      "audio_sha256": "0b30dbf13d13eecaa108c26341792f7a44a7d497185119875a61d07ead3e8fb2",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:3f0b4f0e054eaf4cd0d62e19797fe0b97cd0c5a18fafc3aaa5a241a8b2f7cce7:prompt:ru_0070",
+      "duration_s": 4.96,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/22ef4b435f7ba6e0b13f-d6b672f415b9.wav",
+      "rng_seed": 3602281204,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:de4d6ef8ca2777afdeb9",
+      "text_hash": "d6b672f415b9cc11b195a7d417c851f06b0fd412fce28a0584b25110103eacf0",
+      "text_id": "ru_0070"
+    },
+    {
+      "audio_sha256": "4a2758f52c8850be8761fe879f07d7502f5407c8c4c46fca3b78ae65c0d7aa37",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:40ab15715a9016906e603c6dc1e28204297e5c54c4cfa90c94eca9b53ffb25da:prompt:ru_0094",
+      "duration_s": 8.8,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/7c2930dc260872368f2c-0ba49054de08.wav",
+      "rng_seed": 195334228,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:e806519d214d8823ee92",
+      "text_hash": "0ba49054de08c4e46bd7f89d3c1c9fe40841e3b8c96179d4bd6145e45edffbc2",
+      "text_id": "ru_0094"
+    },
+    {
+      "audio_sha256": "3430a76367570525cd9124cc30cede4b0eb8c8f454d89c4b4701ff00e03343ea",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:40be98dc9d623e8970afa5211364d1ee18349acd5be3dcd1eec28f937bd3a712:prompt:ru_0080",
+      "duration_s": 10.8,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/ad9521465a38d7d81eaa-9927b4d18c75.wav",
+      "rng_seed": 2569516241,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:8e8384691579b29f4263",
+      "text_hash": "9927b4d18c75e34f81fcee14802dbe116e6612854e9555c06441beaf3dda9034",
+      "text_id": "ru_0080"
+    },
+    {
+      "audio_sha256": "09bef7fc6b8dd42ef3fa848cd65d9b6b05136dda637f48199b5bc79782f26af6",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:4353dd43ee744b98a307f5fb7e19b6514763d864e8c3e18550d08eef77ea678a:prompt:ru_0056",
+      "duration_s": 5.84,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/a906c6503c750c574f44-c96d675335a5.wav",
+      "rng_seed": 3379390291,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:c8ab44bd8651b2e8d61d",
+      "text_hash": "c96d675335a5b527fbf3a73b6359dfff16f9cb665ce43f6918f01e1b85c615c8",
+      "text_id": "ru_0056"
+    },
+    {
+      "audio_sha256": "9528249903ca27acca9637643c723dd91c4f121de9076cd64415ed93473e3fed",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:447445decd771fa02e7c1a367f99cd715c0a81c492cd5093b8b88dd7a3452bc5:prompt:ru_0054",
+      "duration_s": 3.52,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/4b88f706a346def8474d-c00912f52abe.wav",
+      "rng_seed": 3221820149,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:3cb7361e2d0051486990",
+      "text_hash": "c00912f52abe2516888b66043d4dcc12f4b77010356a3b895aca698dfae61ccd",
+      "text_id": "ru_0054"
+    },
+    {
+      "audio_sha256": "f49c0ad624577fad196d3f6beb08b19516bae17a75eb4848af0aa2ab5f921fc9",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:4528e294049931237f06fb8025ac2fde59c1b50317568c54d0eebb0044992eff:prompt:ru_0082",
+      "duration_s": 6.0,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/533ccc5552c36079dd66-015a1134b736.wav",
+      "rng_seed": 22679860,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:9f1c2791e1aecb233250",
+      "text_hash": "015a1134b7366e048694b683ad700ddd0f81c705298569853f35f73121920935",
+      "text_id": "ru_0082"
+    },
+    {
+      "audio_sha256": "f85ab7f7790d6c7d7b1a5516908a47a36698a118b935cecd3de1a45c9eba1eb3",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:4ea0821c6b1dcdb6443aba858dc893a78277b2c9e0ee923536fd98c531431dd1:prompt:ru_0093",
+      "duration_s": 7.36,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/820871884fdc10b3b58c-2fb07fa78b8c.wav",
+      "rng_seed": 800096167,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:2e554e38e796def9bff9",
+      "text_hash": "2fb07fa78b8cc40b49e23990400f9613ab10d99f8c864a9c2122d3f31dfdc6b1",
+      "text_id": "ru_0093"
+    },
+    {
+      "audio_sha256": "64e9d182ab0963ffa436ee4088c05b02be5bdd7fa7358adb3205b21555555f2d",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:4f92779bb4cfd5eae995ab8291f159bf9de3ece76e2b17d60dd5cbf2593c1aa2:prompt:ru_0085",
+      "duration_s": 6.64,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/2e6fc5667ceae3be805b-3d597365c359.wav",
+      "rng_seed": 1029272421,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:eb73f81cb49b58d771cc",
+      "text_hash": "3d597365c359fec931bb87e7c6dafec022cbe79a19c5305b1549c2eb88b8a3f6",
+      "text_id": "ru_0085"
+    },
+    {
+      "audio_sha256": "300d718daeb226afa429bb5498284c09d7f548fb578d81c77f96d260f5c351b9",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:51ab27109362e7d087175ef3e148a7e7fc0dd1a7d8692c8e6639af96708aa008:prompt:ru_0036",
+      "duration_s": 14.8,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/08ee8d65903e8512e418-00c277db7c60.wav",
+      "rng_seed": 12744667,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:aa804f6359e391398a61",
+      "text_hash": "00c277db7c60609c7fa5930f0b04f9b4383cc75b3668635cf8873d50025da117",
+      "text_id": "ru_0036"
+    },
+    {
+      "audio_sha256": "3efdcaceec806853c1b6e7dd4591865afb2affd793203a8dfdb81a0b304b16c4",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:5360f7374711b5025827008041e53b304e1e56cbc196c1089886a454e72293c9:prompt:ru_0004",
+      "duration_s": 7.92,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/6bc3d32dbb129ac2d20e-29d3f0b98584.wav",
+      "rng_seed": 701755577,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:2e0f500ffdf3491c4f8d",
+      "text_hash": "29d3f0b98584fa601e2a45e4714fe370315148dd2842fb294e5c45f4f16eeff3",
+      "text_id": "ru_0004"
+    },
+    {
+      "audio_sha256": "d43f68093c3bd89c92a9304b7b5bc8f000d4edbf8d9a6db4c56deb3f046e4e96",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:54bad2a506840e4315b603601d6baa74c97b926a6d527ec9fcedb94135161a1d:prompt:ru_0033",
+      "duration_s": 9.76,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/3ebf2672a101c7cffcd1-cee5a0689f27.wav",
+      "rng_seed": 3471155304,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:622ad9cf714400089e68",
+      "text_hash": "cee5a0689f271ea4ac1cf2d8575afaf53f78349df198a662788902b7560ba442",
+      "text_id": "ru_0033"
+    },
+    {
+      "audio_sha256": "e6fee92e8d50dd407fe6f966403c051c52197ff6a7c6208a9bd37edc898308a9",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:553154fd2eff5761d12244ba3c7f1b49259a7805b7558a83598ba7eb9b35857f:prompt:ru_0063",
+      "duration_s": 3.6,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/1296f852b2dd924a54d2-0c15ca56883a.wav",
+      "rng_seed": 202754646,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:887c22bad0e4682b052b",
+      "text_hash": "0c15ca56883ab04e02dcf6bd1904342abbf6bb60545248d39bb4d5ad93e8f668",
+      "text_id": "ru_0063"
+    },
+    {
+      "audio_sha256": "265acb67dd67dd95e2b690bd2bd11bc925d2027298409572b3e8b89be90bfe5f",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:5dc3992191d83e7f5cd16fc45d752c072b2598fee2e87da566556941425394df:prompt:ru_0060",
+      "duration_s": 4.4,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/aca15996c0053d82d5ee-ac182ebe981e.wav",
+      "rng_seed": 2887265982,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:bbc1693d420261b63c63",
+      "text_hash": "ac182ebe981e0bcca10e52fe3206cb47332dd50cb53ad51251c055e8abe58739",
+      "text_id": "ru_0060"
+    },
+    {
+      "audio_sha256": "cfcd122b914c6fe89033c6248dbedbb44911e1815fab0dbd66bdb272253ed960",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:5f8048d6f8577cbbba3b2bd243cecdac7031b4b28c08fe63ce674f1629d2735c:prompt:ru_0006",
+      "duration_s": 4.8,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/bbf4c2bbf5e630d6fcde-f032ace3e593.wav",
+      "rng_seed": 4029852899,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:1d5320aacd2560d5bf8a",
+      "text_hash": "f032ace3e5930871ca9b71ec3f175f23bada28e3dcf41f4414b99b2229d9d380",
+      "text_id": "ru_0006"
+    },
+    {
+      "audio_sha256": "3c82c25bf523c287b60ef59563ee951e9a58d7e06f9a18e80aa6a9e99cf18c27",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:61d04f2a589aaaf20e01215d00fcba8e56eb3b04581cb38c2302bf93191b4900:prompt:ru_0077",
+      "duration_s": 9.76,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/86d88e82d6fc7da1335c-a31d839d7908.wav",
+      "rng_seed": 2736620445,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:0d1ffbcb16ada9af6f40",
+      "text_hash": "a31d839d7908e49b34ea47243410d8fbc5f8b1552fa6bb0d32a748617e8c5ac5",
+      "text_id": "ru_0077"
+    },
+    {
+      "audio_sha256": "a4948df51bd05412a15a8d2620545620f4c6921ddbd412384fd6d0dbd1312bcc",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:68b83c038400696c089e9b6d87c34718567f4fed0341286b3330d41032b00f38:prompt:ru_0049",
+      "duration_s": 3.28,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/fea4f224284044f86fb6-71ded13536a7.wav",
+      "rng_seed": 1910427957,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:79964597dd354d2d5ec6",
+      "text_hash": "71ded13536a7ebbff6a1f4617c9c6c1ccf554e0d3023295efe865975957dfd94",
+      "text_id": "ru_0049"
+    },
+    {
+      "audio_sha256": "ee61586f524403b08a8d14009320f62eb99cfc45c61fafa2077c18092bf0460d",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:69ccec5714f158bd84f1f86551b5ade3c0bf7736193dc314fa38996b07e427f4:prompt:ru_0018",
+      "duration_s": 3.92,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/2c4506e425f4d461c8d4-286614b3819c.wav",
+      "rng_seed": 677778611,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:05cd514b815e7d910732",
+      "text_hash": "286614b3819c9eb4188c30460b1c8dc4762b6bda439f7244374251831082144a",
+      "text_id": "ru_0018"
+    },
+    {
+      "audio_sha256": "168280e026e3689a9a42b38985ce04e639f693c7145966d0218e74f845ec805a",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:710bef541f16f784febe6d68e47514b6aaebe5d1b234022997d0ee1aa195984b:prompt:ru_0074",
+      "duration_s": 4.16,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/9c436713d7a4f9738b40-e7248db87c91.wav",
+      "rng_seed": 3877932472,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:89bb1cb02a67a288ab62",
+      "text_hash": "e7248db87c91831fcc43bf245ca2f16e591b8e859ed71d95e910a0457e47bacf",
+      "text_id": "ru_0074"
+    },
+    {
+      "audio_sha256": "89a85ede3f83ad57f5200846aea63c3d21da3985303c03a966bb3742c32578f3",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:753d123cebe3cd8993343f08fb0476dc6cef8dc7ad3540a8eaeeb6032999c309:prompt:ru_0073",
+      "duration_s": 7.12,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/796760d36bbb1734ca0b-9a173921f0cd.wav",
+      "rng_seed": 2585213217,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:f5d9c75a0f868c824bc6",
+      "text_hash": "9a173921f0cdb179f2abd90d8c7a2477c3b9e30b1176fb5dfe3aa4b4c3709941",
+      "text_id": "ru_0073"
+    },
+    {
+      "audio_sha256": "affe4265074b2579aafb6613272e4e65a94eab0b673608916972f8a8e16ad837",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:76a56f670637b294efd170c40c5a472e048568dafd91f88e180c5e5a0607b9c3:prompt:ru_0024",
+      "duration_s": 5.36,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/1b460eb613f7ecb2d278-832fa9cf05a6.wav",
+      "rng_seed": 2200938959,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:2f2a23436adc2e70653f",
+      "text_hash": "832fa9cf05a6e5ceee1bc8c94f285a07ee7974406efbcf225ca27965a84e7b93",
+      "text_id": "ru_0024"
+    },
+    {
+      "audio_sha256": "ad0a4e1238ac268fb029c6f63e1832e93b51333d77ca2c01ac7a8265a2e4adab",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:7a382aafc7ad8e2c266997b2e4862dfbc87ed89c5364188ef8b1d09a088cb867:prompt:ru_0043",
+      "duration_s": 5.6,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/8424fdef0c2cac39532a-02f2a226fffc.wav",
+      "rng_seed": 49455654,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:d31af336a941b5bb2812",
+      "text_hash": "02f2a226fffc0a3c60dd02f9f4f1adee5136aa922b4ff65e003b0fd11a2c16bf",
+      "text_id": "ru_0043"
+    },
+    {
+      "audio_sha256": "6a51fecf2ebc5770f2e60819920afd518cef6353320a5c0af235e660e9e386f1",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:7b7cab5c4a0b8bae0f4c6b2917e91114dca074f2373a28acd48dff92bae5f74d:prompt:ru_0087",
+      "duration_s": 6.08,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/37e636302bd4bd981fa4-ff5fa09d83d2.wav",
+      "rng_seed": 4284457117,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:acb55cb3ca55324cbea2",
+      "text_hash": "ff5fa09d83d28397669ab1932464a7066485643014a14c3575ef957b496f0bf1",
+      "text_id": "ru_0087"
+    },
+    {
+      "audio_sha256": "1b81289a056f7b47575d9312b14b95e86d2b1b15cfc58a6e97a76986a29b6313",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:7c4dc7f1f7de5e57af1eb3e02350457fd649ed108c0aebd7116306fedf811cf9:prompt:ru_0081",
+      "duration_s": 5.36,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/e2d6458aeacafe561127-05a4c32e8a68.wav",
+      "rng_seed": 94683950,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:2468fff83ae4c258cd17",
+      "text_hash": "05a4c32e8a6833c589dddb3eb627e0ec22a5419bb12e7ebf8efbc24a86c6a75e",
+      "text_id": "ru_0081"
+    },
+    {
+      "audio_sha256": "c2db1eec5b9ae16cdf5c26f3adb111b53c3c4430bb7d7d58ec0d17fd6c530516",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:7ccbbee1e900945ca9a35fae86c851ad223b67a8819b81262986a90c41959e7e:prompt:ru_0015",
+      "duration_s": 8.48,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/d6134937e56a3417cf59-6cbf385566de.wav",
+      "rng_seed": 1824471125,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:125cac71d34c91d2908c",
+      "text_hash": "6cbf385566deef9216dba8d96b52613d7dc3cbe52ad79631237c672891525f83",
+      "text_id": "ru_0015"
+    },
+    {
+      "audio_sha256": "1fe71eaba341d1f74235f4b753bbd0523003dc195c381f4a2b89332eb9ef2870",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:7e2461f1144548d8c6f1b91e71edac996e6631a865ccd9ac1e45695a106114d2:prompt:ru_0013",
+      "duration_s": 8.16,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/012a0aec92cdce38100c-66dd409823dc.wav",
+      "rng_seed": 1725776024,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:d08972d67819472d08b5",
+      "text_hash": "66dd409823dc9dcfb242cb52369ec1e38d5960d0d427ef204c5ed11cf9bddabf",
+      "text_id": "ru_0013"
+    },
+    {
+      "audio_sha256": "9a1ef9c2cd2b65dd8c5152705c8d9bc3ec03de9327906d95b948b5ff8f8c9d0d",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:853f038d69b21acd34039a157ad2856b88bebfb91338f39b98bb7fb86b7f50f7:prompt:ru_0068",
+      "duration_s": 5.2,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/aa298a1b6dc650285c8c-5212eb0fb22d.wav",
+      "rng_seed": 1376971535,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:001bf24ad6e91aa21b2d",
+      "text_hash": "5212eb0fb22dbd4d23781f2127e25b13fc13e80b121cbb2abe58ff0754f52066",
+      "text_id": "ru_0068"
+    },
+    {
+      "audio_sha256": "62114e4b53520ac5542c34b92b198c65625aedd35ee68254be28a3da579dae5e",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:87c6a1a4d58a8b519771da341f9d87c468160534d7bf1cae6bfb64375b80a9ab:prompt:ru_0086",
+      "duration_s": 7.84,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/51aaa21c2330c736d023-8f4e0f69ac1a.wav",
+      "rng_seed": 2404257641,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:3b063d83f11fce5586b4",
+      "text_hash": "8f4e0f69ac1adab6327cfe9e59bf3e75a5b69a37dc84149fefa1d20aacabbbde",
+      "text_id": "ru_0086"
+    },
+    {
+      "audio_sha256": "30bfae9074727fcd7c561398ea5b721c0a16d8a015dd306f67c09ed9976dc134",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:8b0267fd7d42c2f4aae11b3debd11f7b595030966192fc8fdbb331915dd47af5:prompt:ru_0016",
+      "duration_s": 5.52,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/824701eb2a827ab032d6-f2c3126412f6.wav",
+      "rng_seed": 4072870500,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:ee1ed772bd6c6b3371ae",
+      "text_hash": "f2c3126412f64494c9edf7e3128d71c0cd4e225ec005f3fad3b76756e561bd47",
+      "text_id": "ru_0016"
+    },
+    {
+      "audio_sha256": "7bf0a6111e0c985a110c503de1f6552fe51ba6b79443e98f9dfabc62aaad48f1",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:8b9c6b34a23da9643d2a6297964c974b18d3b455290723bb8a33e480790c9b39:prompt:ru_0088",
+      "duration_s": 6.96,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/ca1dd4f9154175af0bdd-8a0cf255b24d.wav",
+      "rng_seed": 2316104277,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:8d16737f7060a93af517",
+      "text_hash": "8a0cf255b24de364f14537864bc5ab8ee094668c74dbb2c9c279b7a574973f97",
+      "text_id": "ru_0088"
+    },
+    {
+      "audio_sha256": "c0a96b098e2188f710a6f302cd711e2116ce007a9224dd67bedc1fe7c0c66f16",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:9601d4ea7da204b2e5ede3c48c0e1440f162e3df3798a3e2d9543a122485d646:prompt:ru_0011",
+      "duration_s": 12.0,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/b1c00dd62475b22b70b4-a136a92fa2c4.wav",
+      "rng_seed": 2704714031,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:42cad56edbb62f9c9bbb",
+      "text_hash": "a136a92fa2c422d8607d769be2e121b0e8e9203e87c59d8a4c5f5e58c755ca0d",
+      "text_id": "ru_0011"
+    },
+    {
+      "audio_sha256": "8b411b7a83015707f108b3870ae0dc77d31a1076cf4a88bb02ca8281b6765bad",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:968fe74efce3bdbca95224d4d6813dff364824ad1881df07d3023bb91ff18320:prompt:ru_0079",
+      "duration_s": 5.52,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/c063a25c7696cdf57bac-b90c10d1a2fb.wav",
+      "rng_seed": 3104575697,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:716d5105922079585065",
+      "text_hash": "b90c10d1a2fb9d483fd33f9a6c2b4b6afc3972f1d335f97c1c9400968317baa7",
+      "text_id": "ru_0079"
+    },
+    {
+      "audio_sha256": "65c16246f472bdb10882ec70643b3c05be1d77a86ab5aa4fe97fdf70051a4c8a",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:9f1db9123526429a3c4a830e89ea6530b4b4e4e5f32b0a6a65135bd8dd438290:prompt:ru_0010",
+      "duration_s": 7.36,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/fbe2f129e9d26ebf9a91-1d3321395e14.wav",
+      "rng_seed": 489890105,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:24b9ead716ba1791ea1f",
+      "text_hash": "1d3321395e14f6cf4dd80204e2e80181721f9fb68689edbd4d5f9fcc8cfc3bba",
+      "text_id": "ru_0010"
+    },
+    {
+      "audio_sha256": "26f80010b99472b4c731efec6929e5def94c4029fbbba28bb055159c6059da0f",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:a168ed3ff87fbbdfab3187250014e8e61b8a7ba4814722f3aea95539ca9fcf21:prompt:ru_0008",
+      "duration_s": 9.28,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/fc147694ce56636797e6-badaef8270a2.wav",
+      "rng_seed": 3134910338,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:bedf22bee2a7b0599364",
+      "text_hash": "badaef8270a22d017c41d4d66a44e6b18b2d65f8c613d51b93845ffcaedb246b",
+      "text_id": "ru_0008"
+    },
+    {
+      "audio_sha256": "1642d20d524d70a63e87c4d28415d6c2bde5f722bce8866dfacad83dd3cfcc60",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:aebf594efcfaf341ad021ffaaa34bfead906e822a73ce107557033d72fb5e8a2:prompt:ru_0069",
+      "duration_s": 5.52,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/055b045e0d66d94a684d-7bd6b96aeaf9.wav",
+      "rng_seed": 2077669738,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:6772917e8e515af3d684",
+      "text_hash": "7bd6b96aeaf9a714f282070c39b34f95fa5d527651df86098734d723fa701447",
+      "text_id": "ru_0069"
+    },
+    {
+      "audio_sha256": "12204c92e5831c98e3d02c3f345154ea640ac57cedaac6ab2f29df9051bbcd22",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:af040be85fc59060d3fe2d4868e06ee0d0e372f9b086d8dae31fe9e1c1bfe2da:prompt:ru_0050",
+      "duration_s": 5.28,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/27a20dd3bad6dcfbcab7-8c94caf31d1f.wav",
+      "rng_seed": 2358561523,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:3eec7731452954ac636b",
+      "text_hash": "8c94caf31d1fa9382315e39434ba9e2789d70b071e5bb0dc6030d5115cfa2d70",
+      "text_id": "ru_0050"
+    },
+    {
+      "audio_sha256": "5ce84fa02ce8e0b0a45de95ed8dcffbeaa551957ad0f586734b47a40d2f4dd3f",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:b01e7858766bf2c9888eb323329343b1a8bc16285630379ac099d49299063c31:prompt:ru_0099",
+      "duration_s": 4.8,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/0f32beaa94adfd97429f-bfa4ce54fc99.wav",
+      "rng_seed": 3215248980,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:41e60fac2f163a4d376f",
+      "text_hash": "bfa4ce54fc99232f374cf7059b6005b5ac19d6ab2b4bb7d1145f90d9f6ba45f5",
+      "text_id": "ru_0099"
+    },
+    {
+      "audio_sha256": "b790a875881f3e7e947fad914c4a8adf4c4d87e55d12b8c616f8b0606dd0d544",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:b284c82735638bac2baa8d1ba255dcc90bef435c415a269f03398117a360a13f:prompt:ru_0031",
+      "duration_s": 5.2,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/0fc8946d7cd0a041e809-09f3b1605aa5.wav",
+      "rng_seed": 166965600,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:9c263fddb8602100236d",
+      "text_hash": "09f3b1605aa5a29e6ae6f1eb5c38be6c0999d7580a90c30069d88ba1308fafaa",
+      "text_id": "ru_0031"
+    },
+    {
+      "audio_sha256": "5c266969910b6f42aa6c3996c3516ee00d5fc30daf677db685a21dc1957412b9",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:b361a531e8eac95decb933ab6c58fac4d6c19e461b513f966ee20659198a9e92:prompt:ru_0002",
+      "duration_s": 6.32,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/0d65d8533a6f47f33270-5813e5d263dc.wav",
+      "rng_seed": 1477699026,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:fcd89cc4ac2a233ac07b",
+      "text_hash": "5813e5d263dc78bd7f6ea27b22877e0aa4551fd50ff4384358b10efdb1e8fbe1",
+      "text_id": "ru_0002"
+    },
+    {
+      "audio_sha256": "52cf1dc474cedef0c8eef5a2dda23737237c9154228d73249aca0c276869aea7",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:b3d7a433b57422be9becaf2a3c3a96ca75c59c57f10f58ab327a45615a8340f6:prompt:ru_0017",
+      "duration_s": 7.68,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/4104c465aae38ec5a816-6a4e6616041d.wav",
+      "rng_seed": 1783522838,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:ca501bb63dc98188f915",
+      "text_hash": "6a4e6616041d4bd992e610faa136f8292474a422e53bbb581c18ece388f1507f",
+      "text_id": "ru_0017"
+    },
+    {
+      "audio_sha256": "f5dafa9d236927c3e38494e1736ad8d00ebda1c8159875311dd399b76b3008bd",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:b56a191049f9cbcdee5a3d5a6440ff3201dd9c4dff8738502c1cb43a1fc378e9:prompt:ru_0064",
+      "duration_s": 10.88,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/23f31e5b6e01929d9e8c-9905646c2970.wav",
+      "rng_seed": 2567267436,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:c4c731b26af198731e36",
+      "text_hash": "9905646c2970641a4ff60b68e6dded1e563ce70c2d6fef09b99e30bb7db8fa30",
+      "text_id": "ru_0064"
+    },
+    {
+      "audio_sha256": "41849fdd1ceb3ec80a7c19ef4008378ec7f0f4cf821280fdf6ffe2f9447e9b81",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:b6775d84729ba0fff51549cc57b1898417506b1471139aa9025e35605ad6d516:prompt:ru_0044",
+      "duration_s": 4.72,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/50bb4cda8eae16cfe986-793a393e7cb9.wav",
+      "rng_seed": 2033858878,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:f6cf0aa78b748bfb592a",
+      "text_hash": "793a393e7cb9ac2885eaf11fac28aece840360415750df5df604a8d287470df0",
+      "text_id": "ru_0044"
+    },
+    {
+      "audio_sha256": "619e1b3820a57cb454048d3810f79e07e7244a00f51ce3bd60e37124007ce9fe",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:bbd16ff48e566f46ecbe89722ad39761ef094e1e74ac026982c7f020d488b1f6:prompt:ru_0058",
+      "duration_s": 4.08,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/5e24f2d4911e9ccaca94-a47ba0dbf58d.wav",
+      "rng_seed": 2759565531,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:bc1fc828d1ab15feaa9c",
+      "text_hash": "a47ba0dbf58d105aeb3a119fa43b8db0ad29be247612d7b4faeee5f6c97a78cd",
+      "text_id": "ru_0058"
+    },
+    {
+      "audio_sha256": "809e0d8728a47c0741182d13b1dd1e3897d6f71264262678c59dbd775416053c",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:be2a9e4ac96085d60da8ff71289e2605c39bfbcfed560cc217c499359868a01b:prompt:ru_0042",
+      "duration_s": 5.28,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/0fca9c070d0503d5002a-a3bb152d6847.wav",
+      "rng_seed": 2746946861,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:beff52efe893c42514da",
+      "text_hash": "a3bb152d6847e5ffbcca56059d62004bafe22b46e02f93db6f7a9d9d2db4e788",
+      "text_id": "ru_0042"
+    },
+    {
+      "audio_sha256": "56422da18f4a921ab5747f4ecab4d91b21cbb67339afbfcdb6aa04ba9a02d9c9",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:bf07902b4a740f3de110e8ecd4b1241085065e70fd489ac37fb26b7719eb908a:prompt:ru_0100",
+      "duration_s": 5.68,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/3986b454f9f97d750013-9224f19e6387.wav",
+      "rng_seed": 2451894686,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:eecc7d873ee549fdf6ad",
+      "text_hash": "9224f19e638722550a950fa63b66a5fcb20c11d6c6d50897bdac3f493ef421a9",
+      "text_id": "ru_0100"
+    },
+    {
+      "audio_sha256": "f0d311b3c2b16b233f8bcfb0536131e78007211512708f78f3af5277c3c3144b",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:cd84013e25589fcbf14d22b8ec9ccf865eacfc8d27b5a03a019fa4fa43ca4872:prompt:ru_0030",
+      "duration_s": 6.48,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/e41464117cc450256f9d-7ae0052a1f22.wav",
+      "rng_seed": 2061501738,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:0fd672dfcfc80551c4d9",
+      "text_hash": "7ae0052a1f22bb0946cc1731f369ee4a56c8cf52599f2b158c617fe4e279cc95",
+      "text_id": "ru_0030"
+    },
+    {
+      "audio_sha256": "5e00e2fefcd8b7bb2e7b973204682c0c5c47027940e4203da29a7ee2fb058583",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:d13a9ae67a65fdec60473591bd88fe1802462f1c1b2e4d8dbc63f5b5002ae719:prompt:ru_0065",
+      "duration_s": 13.52,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/80627ac6674bc2132829-7073ee8e9bd4.wav",
+      "rng_seed": 1886645902,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:7f00684d7f0c670f701c",
+      "text_hash": "7073ee8e9bd41a26ecea54d10d82180ed427f562a33c3f14c71d36801d3ae21a",
+      "text_id": "ru_0065"
+    },
+    {
+      "audio_sha256": "3fb57fd69cf4b36aff28aa268eb6f8d0a885075c08def2351ae3b0ce93e46c60",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:d589fff06806c7b5dbe8029c084717986e0252cf0b86acb5c452aff3dda44de7:prompt:ru_0046",
+      "duration_s": 7.04,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/cf4b836343acece0e0fd-d907bc6aeb68.wav",
+      "rng_seed": 3641162858,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:b77a389dca24388de7ec",
+      "text_hash": "d907bc6aeb680a814d75e55ca0378b8581d34167213cad72449dd255f2c6ea75",
+      "text_id": "ru_0046"
+    },
+    {
+      "audio_sha256": "e2a0fdccb4fd1d5ed8c6e5879f11e5ad84aa5eb40a00671ee3200f8cc42c7cf1",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:da4db367d1e24650568ffd9aa416d3d2d4c4bcb9aa78e0146b399570cea258e9:prompt:ru_0035",
+      "duration_s": 7.12,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/6a6247461d1cadff0ea5-9c60ef21d2ee.wav",
+      "rng_seed": 2623598369,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:c7e3fe4296f3c4f0dc5e",
+      "text_hash": "9c60ef21d2ee4e019dc70c2d454b1b0f5d1442956e62b4831ec349abe6814441",
+      "text_id": "ru_0035"
+    },
+    {
+      "audio_sha256": "fa8d7948e00ca66e8376364dc505d3c1a6d24ad32778dbdc8a4c38915f67fc8a",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:db5e33311cbf2ebec2cd4d243c36e11d4ae6c96e185aa28374d30535cbac301c:prompt:ru_0053",
+      "duration_s": 9.04,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/0d38c171c17021792a15-2dcd7c286a4d.wav",
+      "rng_seed": 768441384,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:3ff851efa84f3ef706c3",
+      "text_hash": "2dcd7c286a4db8382029dabf15375c1380e6dd9f1ac106877827e456b419a5f2",
+      "text_id": "ru_0053"
+    },
+    {
+      "audio_sha256": "41646b6619700a6555fee584c117d73cb3726742051c50cc13cec018869805af",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:e1aec09bd93b0d29a93e5c62613caa41f36bdcf6dfe2d281c2d691750c92ec9b:prompt:ru_0039",
+      "duration_s": 3.76,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/bc6fb9b1c593586241d7-e3f838634e87.wav",
+      "rng_seed": 3824695395,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:b5a773c342afb2b9d5b9",
+      "text_hash": "e3f838634e87143f549b2154f71221981e44d036ce601a2faf7090e2dcf3b790",
+      "text_id": "ru_0039"
+    },
+    {
+      "audio_sha256": "a75b6cb385e2246f074a658d1612e98c1c9642f3e8966ca49208cb570c2a168b",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:e6266c1e3462c5001eec35edf613553fdfea43a5db1429f069065596af765d45:prompt:ru_0075",
+      "duration_s": 8.24,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/48de4af902678856630a-98a460c44832.wav",
+      "rng_seed": 2560909508,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:17f662a5c09aab1e5d40",
+      "text_hash": "98a460c44832da8b47da1b280091a98abfd6051cff470b77e4d9003aa579c0ac",
+      "text_id": "ru_0075"
+    },
+    {
+      "audio_sha256": "8d52bffea60563dca20f32759924521b160dab9affbf2922e5cf13ce11a4a67d",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:e756f0d6235b5a7feddadff77bd910599c2c5409902d1a75ba6e784525b3c0b9:prompt:ru_0067",
+      "duration_s": 7.6,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/1f89c8720084b1dc7cae-8f7df5c51ee6.wav",
+      "rng_seed": 2407396805,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:9587e0efacd3c6ad6a7c",
+      "text_hash": "8f7df5c51ee628af08533c2cca6111c2e4ce6774c999af4c4614920a3e8891d6",
+      "text_id": "ru_0067"
+    },
+    {
+      "audio_sha256": "c1d81391d4ab116a0251d36b5779e7158ea54657fb6b545c128fa4e4bb0c4ae7",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:e9fabde2441259c4867d2b8716400ca2a1f68fec046dd4269639f7964d981ab2:prompt:ru_0040",
+      "duration_s": 4.4,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/8fcdb39714253c763852-106caab715c1.wav",
+      "rng_seed": 275557047,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:1ff16a88d7ca837b4018",
+      "text_hash": "106caab715c1f19d383221b3772066f21c25a10e497b9123e3d41fa40a5e4bc3",
+      "text_id": "ru_0040"
+    },
+    {
+      "audio_sha256": "2fcc135cc40b6318dd69df3b57d5367801381138ba6723196b02e525833e5084",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:ea9623673a99952d8feb6db640855e2aed5323e4b175cfddaa7f91a419dac2b5:prompt:ru_0066",
+      "duration_s": 6.0,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/2a81c441fdbb6cae6646-59f1df8f58f0.wav",
+      "rng_seed": 1509023631,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:ad8fcbd02440119148cc",
+      "text_hash": "59f1df8f58f0a704302786b5c02c46a442dedc63d03cec4a28e05cae2416c59a",
+      "text_id": "ru_0066"
+    },
+    {
+      "audio_sha256": "940536f9b7a88c73c209c5f82a1c56215f01ca4f7efe8cad616456b5674c271b",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:f3c627400d8bcc3e71ca47876c34dee6c8af84f5b6e7987861dc3243abf9dc32:prompt:ru_0005",
+      "duration_s": 7.68,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/5cb973c08feabc63422e-f8799fd853a9.wav",
+      "rng_seed": 4168720344,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:41477972f5ea644635ab",
+      "text_hash": "f8799fd853a9313a976569882abab1a17617918d46fb9cd8a0850e28118957d4",
+      "text_id": "ru_0005"
+    },
+    {
+      "audio_sha256": "9936119124fd43031c19956eabb0f749e1320daa4297c150c9aae05505d4fdd0",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:f563558ffe0d01a1ca03ca0fad5fb8f2e89a7872e0a2821e3ac9336b37b5f7c9:prompt:ru_0095",
+      "duration_s": 4.56,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/c7efd098d9b689dc9624-ad9886d653ff.wav",
+      "rng_seed": 2912454358,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:a43b15b29d340a0cd53a",
+      "text_hash": "ad9886d653ff552c0c88cd48f4b3b65d03650f845a21b346dc7a07953a3dd4be",
+      "text_id": "ru_0095"
+    },
+    {
+      "audio_sha256": "ed7ca69a022e74aab2d48574266a7de268f6fce78508226a76ea75edc69ea012",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:f9f9440d82ce52d74408420fc3aaa72cbd59988a4612a048c59c3b9e29177106:prompt:ru_0061",
+      "duration_s": 6.48,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/c7475e8e0879eec6aecd-51f49e40ff35.wav",
+      "rng_seed": 1374985792,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:03badf9ad3763f1daf7d",
+      "text_hash": "51f49e40ff35268f3deaba5947d47f94be79a53f8572fe4b9239fba76960943c",
+      "text_id": "ru_0061"
+    },
+    {
+      "audio_sha256": "f262ec9472fcc75275f5490f217ba447e7242a4eae5e620d1b4ed60aaba8eb6c",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:fa5d0c8e8dce52381e5a22d499ea798f4250915ba06ba0ec742fe2828d1f5355:prompt:ru_0038",
+      "duration_s": 6.64,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/7c0d0395043e2a47d6cb-7d9dcdbb3d56.wav",
+      "rng_seed": 2107493819,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:5361030f28fb1500b994",
+      "text_hash": "7d9dcdbb3d568f0fd47492434849cdaafd24bffc10d4ceb0628bc1d65c5e2db8",
+      "text_id": "ru_0038"
+    },
+    {
+      "audio_sha256": "c53d08bc6e6c1f596ccd95d91258f4ed627b988d45b860437573bc6c8ddc600b",
+      "base_sample_id": "voxforge_ru_mdc_2026_05:submission:fe4d774c3f4c3b4ed5fe1c7b5c1f95d92d97ef62060d33cab5c72c1eda59c5d4:prompt:ru_0045",
+      "duration_s": 4.8,
+      "relative_path": "raw/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1/slices/pre_qa/97c3715e35c38e95ea35-032ca5e9a515.wav",
+      "rng_seed": 53257705,
+      "spoof_sample_id": "voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1:6160432224675a1c42f8",
+      "text_hash": "032ca5e9a5158ae437074ad928a40d019e66aa4f04ad21f2a3ef5acd35d1029e",
+      "text_id": "ru_0045"
+    }
+  ],
+  "generation_policy": {
+    "device": "cuda:0",
+    "exactly_one_attempt_per_bound_text": true,
+    "exactly_one_synthetic_per_bound_base": true,
+    "failed_attempt_rows": 0,
+    "fixed_profile": "qwen3_tts_customvoice:aiden",
+    "post_selection_replacement_or_backfill": false,
+    "reference_audio_or_voice_cloning_used": false,
+    "resynthesis_after_failure": "forbidden",
+    "successful_one_to_one_synthetic_rows": 79,
+    "voice_design_used": false
+  },
+  "model_lock": {
+    "fixed_speaker": "aiden",
+    "model_id": "qwen3_tts_0_6b_customvoice_aiden_q8_0",
+    "path": "configs/research/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1_models.json",
+    "sample_rate": 24000,
+    "sha256": "6ec1a828ad72738341a3226e73cde65ca9a87b3ee11fac43f2ca40173dd98d8d"
+  },
+  "output_manifest": {
+    "path": "data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_raw_v1.csv",
+    "rows": 79,
+    "sha256": "d378466b47dc4e05e575457ebdda5677ad685465df7d70cc6a9c2d7207f0f990"
+  },
+  "protocol_id": "voxforge-ru-mdc-qwen3-tts-customvoice-aiden-pre-qa-synthesis-v1",
+  "route_audit": {
+    "path": "data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_exact_route_audit_v1.json",
+    "sha256": "234e1a49ecc06f4fc7025c4e713af858279d4c35b1d366b4ab052d7a847f5513"
+  },
+  "schema_version": 1,
+  "text_binding": {
+    "path": "data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_text_binding_v1.json",
+    "rows": 79,
+    "sha256": "cedd26e3149bc5212772ef1699a180a489fac5c59e89f65bb299f229ee965d4a"
+  }
+}

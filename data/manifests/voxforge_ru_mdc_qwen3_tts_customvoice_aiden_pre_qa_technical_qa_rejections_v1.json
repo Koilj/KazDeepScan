@@ -1,0 +1,6 @@
+{
+  "input_manifest": "data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_raw_v1.csv",
+  "reused_rows": 0,
+  "published_rows": 79,
+  "rejected_rows": []
+}

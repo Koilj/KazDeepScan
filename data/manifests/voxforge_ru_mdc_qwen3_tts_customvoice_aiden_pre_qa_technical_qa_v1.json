@@ -1,0 +1,44 @@
+{
+  "claims": {
+    "acoustic_review_performed": false,
+    "binary_pairing_performed": false,
+    "detector_inference_authorized": false,
+    "detector_inference_performed": false,
+    "future_pairing_must_use_only_retained_ready_spoof_rows": true,
+    "synthetic_audio_generated": true,
+    "technical_decode_qa_vad_performed": true
+  },
+  "inputs": {
+    "raw_manifest": {
+      "path": "data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_raw_v1.csv",
+      "rows": 79,
+      "sha256": "d378466b47dc4e05e575457ebdda5677ad685465df7d70cc6a9c2d7207f0f990"
+    },
+    "rejection_report": {
+      "path": "data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_technical_qa_rejections_v1.json",
+      "sha256": "68af32e27db479074786c0d4509459b3113eb07fb9886578c14beda6d99e832f"
+    },
+    "synthesis_receipt": {
+      "path": "data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_synthesis_v1.json",
+      "sha256": "dd9414b215ea9203454ea651cd781acb8f9b7b8def9df7b53155f4b373e477d5"
+    }
+  },
+  "outputs": {
+    "ready_manifest": {
+      "path": "data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_ready_v1.csv",
+      "rows": 79,
+      "sha256": "18ac2f20a90f30c3fe55444eb7d81761712e0be41151cf90f3118eab70f7174c"
+    }
+  },
+  "protocol_id": "voxforge-ru-mdc-qwen3-tts-customvoice-aiden-pre-qa-technical-qa-v1",
+  "published_at": "2026-08-13T18:44:12Z",
+  "schema_version": 1,
+  "technical_qa": {
+    "pipeline": "AudioPreparationPipeline: decode, mono PCM WAV 16 kHz, quality checks, WebRTC VAD",
+    "raw_rows": 79,
+    "ready_rows": 79,
+    "rejected_rows": [],
+    "resynthesis_or_replacement_or_backfill": false,
+    "reused_rows": 0
+  }
+}

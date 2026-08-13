@@ -138,7 +138,7 @@ test; результаты не source-, speaker- или architecture-family-ind
   `3,795,197,539`-byte archive SHA-256
   `7372c6f8d067b8d1651995ad8306b673acaf2cde705ee51295152b96c93de557`, GPL-3.0-or-later
   notices/text, `644` submissions, `6,412` transcript-bound mono 48 kHz WAV и `194`
-  source-provided contributor groups. Raw WAV не извлекались; `81` canonical prompt texts
+  source-provided contributor groups. На metadata-only screen raw WAV не извлекались; `81` canonical prompt texts
   прошли strict pre-extraction screen: all `6,412` records / `194` contributor groups survive;
   overlap `0/0/0/0/0` against both transcript layers, sample and group keys in 31 configs / 90
   manifests. Immutable metadata-only selection затем зафиксировал `81` records с unique text и
@@ -153,8 +153,11 @@ test; результаты не source-, speaker- или architecture-family-ind
   VoxForge materialization then passed archive rebinding and technical decode/QA/VAD: `79` ready,
   `2` `signal_too_quiet` rejects, no replacement. Literal-text binding revalidated the same `79`
   prompt/group/hash rows without text persistence or rewrite. A non-candidate CUDA smoke passed
-  with one temporary 24 kHz mono Russian WAV; no selected synthesis, pairing or detector inference
-  yet. UtrobinTTS remains rejected: `76` historical spoof rows carry its unversioned identifier.
+  with one temporary 24 kHz mono Russian WAV. The completed one-shot Qwen run then created `79/79`
+  24 kHz mono raw WAVs with `0` failed attempts; technical decode/quality/WebRTC-VAD QA retained
+  `79/79` 16 kHz mono PCM-16 ready spoof rows with `0` rejects, reuse, resynthesis, replacement or
+  backfill. Pairing, full acoustic/language review and detector inference remain prohibited.
+  UtrobinTTS remains rejected: `76` historical spoof rows carry its unversioned identifier.
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
 ## Актуальные результаты
@@ -283,6 +286,8 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [VoxForge Russian pre-QA materialization](docs/voxforge_ru_mdc_pre_qa_materialization_v1.md)
 - [VoxForge Russian Qwen literal-text binding](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_text_binding_v1.md)
 - [VoxForge Russian Qwen CUDA smoke](docs/voxforge_ru_mdc_qwen3_tts_customvoice_cuda_smoke_v1.md)
+- [VoxForge Russian Qwen one-shot synthesis](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_synthesis_v1.md)
+- [VoxForge Russian Qwen technical QA](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_technical_qa_v1.md)
 - [VoxForge Russian rejected UtrobinTTS route review](docs/voxforge_ru_mdc_utrobinmv_vits_route_review_2026-08-13.md)
 - [Silero V5.5 RU / eugene route intake](docs/silero_v5_5_ru_eugene_intake_2026-08-13.md)
 - [Common Voice RU full-test metadata exposure screen](data/manifests/common_voice_ru_v24_full_test_metadata_exposure_screen_v1.json)

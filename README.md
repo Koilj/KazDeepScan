@@ -403,8 +403,8 @@ two-review technical gate — в
 Новый VoxForge Russian bona-fide source прошёл byte-locked GPL/transcript intake и strict
 pre-extraction project-exposure screen: `6,412` WAV, `194` source-provided contributor groups,
 `81` canonical text groups и `0/0/0/0/0` sample/two-text/group overlap. Затем metadata-only
-selection заморозил `81` records с уникальными text и conservative contributor groups; raw WAV
-не извлекались. Новый Qwen3-TTS CustomVoice Q8_0 / fixed `aiden` route прошёл local
+selection заморозил `81` records с уникальными text и conservative contributor groups; на этом
+этапе raw WAV не извлекались. Новый Qwen3-TTS CustomVoice Q8_0 / fixed `aiden` route прошёл local
 six-artifact/CUDA verification и exact-route audit: `0` overlaps в `18,764` historical spoof
 rows (`59` manifests), включая `0` legacy Qwen identifiers и `0` `aiden` aliases. Это не
 Russian-native/speaker/architecture-independence claim и не synthesis: `aiden` документирован
@@ -412,6 +412,9 @@ Russian-native/speaker/architecture-independence claim и не synthesis: `aiden
 UtrobinTTS candidate остаётся отклонённым (76 unversioned historical rows). Ограничения и
 literal-text binding завершён: `79/79` ready rows снова связаны с archive prompts без хранения
 transcript, lexical rewrite или reselection; два `signal_too_quiet` rejects остаются исключёнными.
-Non-candidate CUDA smoke подтвердил 24 kHz mono output fixed Qwen route; следующий one-shot
-synthesis gate описан в
-[VoxForge text-binding receipt](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_text_binding_v1.md).
+Non-candidate CUDA smoke подтвердил 24 kHz mono output fixed Qwen route. One-shot synthesis затем
+сохранил `79/79` unique 24 kHz mono fixed-`aiden` WAV (`0` failures), а normal decode/quality/VAD
+QA сохранил `79/79` mono 16 kHz PCM-16 ready spoof assets (`0` rejects, no replacement/backfill).
+Это всё ещё не Russian-native/speaker claim и не pairing, acoustic/language review или detector
+inference; следующий gate описан в
+[VoxForge Qwen technical-QA receipt](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_technical_qa_v1.md).

@@ -51,9 +51,11 @@ This proves only that the exact pinned route was absent from stored historical m
 not prove architecture-family novelty or speaker independence; those claims remain forbidden.
 The previously rejected UtrobinTTS route remains rejected and cannot be used as a backfill.
 
-## Следующий безопасный шаг
+## Follow-on state
 
-The already frozen `81` pseudonymous selections have been materialized from the byte-pinned archive
-and technical QA retained `79`; two quiet rejects are accounted with no replacement. The `79`
-literal texts are bound. Exactly one synthesis per bound row is next; pairing, acoustic review and
-detector inference stay prohibited until their own immutable receipts pass.
+The frozen `81` pseudonymous selections were materialized from the byte-pinned archive and source
+technical QA retained `79`; two quiet rejects remain final. The `79` literal texts then completed
+exactly one synthesis each and synthetic technical QA retained all `79`; see the
+[synthesis receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_synthesis_v1.md). Exact pair
+locking and then independent acoustic/language review remain required. Detector inference stays
+prohibited until a separate immutable evaluation contract explicitly authorizes it.

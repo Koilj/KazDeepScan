@@ -1,6 +1,7 @@
 # VoxForge RU / Qwen3-TTS CustomVoice `aiden` — literal-text binding v1
 
-**Статус:** completed write-once text binding. No synthetic WAV, pairing, acoustic review or detector inference was performed.
+**Статус:** completed write-once text binding. The downstream one-shot synthesis and technical QA
+are complete; pairing, acoustic review and detector inference are still prohibited.
 
 ## Immutable inputs
 
@@ -10,6 +11,10 @@ All `79/79` rows re-bound to the same source prompt, contributor-group and both 
 
 Receipt: [text binding JSON](../data/manifests/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_pre_qa_text_binding_v1.json), SHA-256 `cedd26e3149bc5212772ef1699a180a489fac5c59e89f65bb299f229ee965d4a`; deterministic binding digest `fb2cef2bb3d2fe8628885ddef16c4acc5eed7e940f9d2aec77c76d2cf9ed5581`.
 
-## Следующий безопасный шаг
+## Follow-on state
 
-The [non-candidate CUDA smoke](voxforge_ru_mdc_qwen3_tts_customvoice_cuda_smoke_v1.md) passed. Generate exactly one local Qwen3-TTS CustomVoice / fixed `aiden` WAV per bound row, using the locked local talker, codec, CUDA runtime, literal text and recorded deterministic seed. A failed synthesis or technical-QA row permanently reduces the set: no regeneration, replacement or backfill. Pairing, acoustic/language review and detector inference remain separately prohibited.
+The [non-candidate CUDA smoke](voxforge_ru_mdc_qwen3_tts_customvoice_cuda_smoke_v1.md), the
+one-shot [synthesis receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_synthesis_v1.md) and
+its [technical QA receipt](voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_technical_qa_v1.md) now
+account for all `79` bound rows. No regeneration, replacement or backfill is permitted. The next
+separate gate is exact binary pairing, followed by full acoustic/language review.

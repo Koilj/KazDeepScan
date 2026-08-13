@@ -425,3 +425,8 @@ Russian-native/speaker/organizational-independence claim и не detector infere
 `12,397` prior rows и нашёл `0/0/0` sample/audio/text overlap. Он не запускал и не разрешал
 inference. Следующий безопасный этап — отдельный immutable evaluation contract; полный audit
 описан в [VoxForge Qwen exposure receipt](docs/voxforge_ru_mdc_qwen3_tts_customvoice_candidate_project_exposure_v1.md).
+Такой contract теперь подготовлен: он pins Stage-B v2 checkpoint, disjoint 976-row PyAra
+calibration, fixed `0.5` boundary, three-source frozen ledger и новые write-once paths; plan
+SHA-256 `9e36b5d6a35cfa0b796ff24e62f3bfa78667d0b1d9da993f1863a2fe61c421cc`. Preflight и
+detector inference ещё не выполнялись; contract receipt —
+[здесь](docs/research_xlsr_sls_stage_b_v2_voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1.md).

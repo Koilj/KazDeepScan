@@ -44,7 +44,9 @@ organizational reviewer independence. VoxForge GPL-3.0-or-later and the project'
 scope still apply. The audit contains `detector_inference_performed=false` and
 `detector_inference_authorized=false`.
 
-The next safe step is to prepare and review a separate immutable XLS-R+SLS evaluation contract. It
-must pin this receipt, the acoustic gate, exact candidate, selected checkpoint, a disjoint fixed
-calibration role, fixed `0.5` boundary, applicable license ledger, implementation hashes and new
-write-once output paths. Only its successful no-logit preflight may authorize one inference run.
+The separate immutable
+[XLS-R+SLS evaluation contract](research_xlsr_sls_stage_b_v2_voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1.md)
+is now prepared. It pins this receipt, the acoustic gate, exact candidate, selected checkpoint, a
+disjoint fixed calibration role, fixed `0.5` boundary, applicable license ledger, implementation
+hashes and new write-once output paths. The next safe step is its single no-logit preflight; only a
+successful preflight may authorize one inference run.

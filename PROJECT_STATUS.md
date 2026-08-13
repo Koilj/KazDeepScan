@@ -165,7 +165,11 @@ test; результаты не source-, speaker- или architecture-family-ind
   project-exposure audit pinned `33` configs / `18` referenced manifests / `12,397` prior rows and
   found `0/0/0` sample/audio/text overlap; receipt SHA-256
   `8696bfbea8d9f59451881bcf6ee875ff235c2e281c7b9ddbe5be4ecf74804a72`. It also did not
-  authorize inference. A separate immutable evaluation contract is still required.
+  authorize inference. A separate immutable Stage-B v2 contract is now prepared: fixed 976-row
+  PyAra calibration, `0.5` boundary, three-source frozen ledger and fresh output paths; plan
+  SHA-256 `9e36b5d6a35cfa0b796ff24e62f3bfa78667d0b1d9da993f1863a2fe61c421cc`. Static validation
+  found zero calibration/final overlap in all five leakage fields. Preflight and detector
+  inference have not been performed.
   UtrobinTTS remains rejected: `76` historical spoof rows carry its unversioned identifier.
 - FastAPI health/readiness/upload scaffold работает fail closed и не выдаёт model score.
 
@@ -234,11 +238,11 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
    повторять его, не менять candidate/reviews/checkpoint/calibration/boundary and не использовать
    final errors для tuning. Старые 55 Stage-D/v3 пар, 73-row selection и их rejections нельзя
    переиспользовать как «новый blind» тест.
-3. Для VoxForge RU не менять `79` exact pairs, completed forms, gate report или clean exposure
-   receipt и не выполнять resynthesis/replacement/backfill. Подготовить отдельный immutable
-   evaluation contract с fixed checkpoint/calibration/`0.5` boundary/license ledger и новыми
-   write-once paths, затем выполнить no-logit preflight. До успешного contract/preflight detector
-   не запускать; UtrobinTTS нельзя использовать как backfill.
+3. Для VoxForge RU не менять `79` exact pairs, completed forms, gate/exposure receipts или
+   immutable evaluation contract и не выполнять resynthesis/replacement/backfill. Выполнить ровно
+   один no-logit preflight на `1,134` assets; только при его успехе разрешён единственный
+   write-once inference run. Не менять checkpoint/calibration/`0.5` boundary и не использовать
+   UtrobinTTS как backfill.
 4. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 
@@ -300,6 +304,7 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [VoxForge Russian Qwen immutable pair lock](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_pairing_v1.md)
 - [VoxForge Russian Qwen acoustic/language gate](docs/voxforge_ru_mdc_qwen3_tts_customvoice_pre_qa_acoustic_gate_v1.md)
 - [VoxForge Russian Qwen project-exposure audit](docs/voxforge_ru_mdc_qwen3_tts_customvoice_candidate_project_exposure_v1.md)
+- [VoxForge Russian Qwen immutable XLS-R+SLS contract](docs/research_xlsr_sls_stage_b_v2_voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1.md)
 - [VoxForge Russian rejected UtrobinTTS route review](docs/voxforge_ru_mdc_utrobinmv_vits_route_review_2026-08-13.md)
 - [Silero V5.5 RU / eugene route intake](docs/silero_v5_5_ru_eugene_intake_2026-08-13.md)
 - [Common Voice RU full-test metadata exposure screen](data/manifests/common_voice_ru_v24_full_test_metadata_exposure_screen_v1.json)

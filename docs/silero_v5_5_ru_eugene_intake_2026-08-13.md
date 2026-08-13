@@ -126,8 +126,9 @@ now binds only the 75 ready rows to their exact archive sentences without rewrit
 one fixed-profile V5.5/eugene raw WAV per bound text. Its
 [technical-QA receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_spoof_technical_qa_v1.md)
 retained `42` rows and accounted `33` insufficient-speech rejects. No failed row may be replaced,
-reselected or resynthesized; only matching 42-text pairs may advance to two independent
-full-asset reviews, pairing and a new immutable plan before detector inference.
+reselected or resynthesized; the matching
+[42-pair lock](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md) may advance only to
+two independent full-asset reviews before detector inference.
 
 The existing Common Voice archive guard now validates both size and SHA-256 before metadata read
 or extraction; see

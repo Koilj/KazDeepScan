@@ -64,6 +64,6 @@ verified the exact source text of all 75 ready rows without rewrite. The subsequ
 [synthesis receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_synthesis_v1.md) stores one
 raw fixed-profile WAV per bound text. The subsequent
 [technical-QA receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_spoof_technical_qa_v1.md)
-retained `42` and accounted `33` rejects. Only matching 42-text pairs can advance; two
-independent full-asset reviews and a new immutable paired plan remain required before any detector
-inference.
+retained `42` and accounted `33` rejects. The matching
+[42-pair lock](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md) is frozen; two
+independent full-asset reviews remain required before any detector inference.

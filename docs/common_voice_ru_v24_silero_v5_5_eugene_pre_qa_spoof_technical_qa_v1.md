@@ -34,7 +34,8 @@ the ready assets and both raw/ready manifests pass license-ledger and SHA-256 as
 
 ## Следующий безопасный шаг
 
-Create a new immutable pair lock from only the exact 42 retained spoof rows and their matching
-42 of the original 75 ready bona fide rows. It must not use the remaining 33 bona fide-only rows
-or any old Stage-D/v3 pair as a substitute. Full-asset acoustic review must then independently
-pass for every retained bona-fide and spoof byte before any new inference plan can be made.
+The exact 42-pair candidate is now frozen in
+[pairing receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md). It does not use
+the remaining 33 bona fide-only rows or any old Stage-D/v3 pair as a substitute. Full-asset
+acoustic review must independently pass for every retained bona-fide and spoof byte before any
+new inference plan can be made.

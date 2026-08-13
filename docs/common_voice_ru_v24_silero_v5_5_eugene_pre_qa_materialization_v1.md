@@ -58,6 +58,7 @@ fixed-profile V5.5/eugene WAV — в
 bona fide rejections permanently out of this candidate: no replacement, reselection,
 regeneration или backfill. Synthetic technical QA has retained `42` of the 75 raw spoof rows and
 accounted the other 33 in
-[its receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_spoof_technical_qa_v1.md). Later
-full-asset acoustic reviews must cover exact retained bona-fide and synthetic bytes before any
-paired evaluation plan can be prepared.
+[its receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_spoof_technical_qa_v1.md). The
+[42-pair lock](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md) is now frozen;
+later full-asset acoustic reviews must cover its exact retained bona-fide and synthetic bytes
+before any evaluation plan can be prepared.

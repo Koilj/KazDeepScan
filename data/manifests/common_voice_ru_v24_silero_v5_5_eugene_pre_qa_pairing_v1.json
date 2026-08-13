@@ -1,0 +1,61 @@
+{
+  "counts": {
+    "candidate_assets": 84,
+    "frozen_ready_bona_fide_rows": 75,
+    "raw_spoof_rows": 75,
+    "ready_spoof_rows": 42,
+    "retained_pairs": 42,
+    "technical_qa_rejected_spoof_rows": 33
+  },
+  "created_at": "2026-08-13T17:51:53+05:00",
+  "decision_rule": {
+    "detector_inference_authorized": false,
+    "detector_inference_performed": false,
+    "metric_or_detector_based_selection": false,
+    "post_selection_backfill": false,
+    "qa_reject_excludes_entire_pair": true,
+    "resynthesis_after_qa": false
+  },
+  "full_asset_acoustic_gate_passed": false,
+  "inputs": {
+    "base_manifest": {
+      "path": "data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_ready_v1.csv",
+      "sha256": "2b183adbfcac9b1a6022dd35c2f8b6ec8f111c01b4b3364596c53aff8906192a"
+    },
+    "license_ledger": {
+      "path": "data/licenses/license_ledger.csv",
+      "sha256": "c004dc864dc3dfca93753e1084539508a9b899aa5873fd9e7fc1838534c8bbd8"
+    },
+    "raw_spoof_manifest": {
+      "path": "data/manifests/silero_v5_5_ru_eugene_pre_qa_raw_v1.csv",
+      "sha256": "82b220dbe4663d472a01d9e85e0d7f2309577fe772a0275a27dffeb7102460ae"
+    },
+    "ready_spoof_manifest": {
+      "path": "data/manifests/silero_v5_5_ru_eugene_pre_qa_ready_v1.csv",
+      "sha256": "60df83502521fb225dbf8af44f80395c6493c9c4fc698a06fdb0c567b74a7036"
+    },
+    "route_audit": {
+      "path": "data/manifests/silero_v5_5_ru_eugene_exact_route_audit_v1.json",
+      "sha256": "5850d8d36bb72191f7e9a9516edec14552bcf1fe83aecea154a9bb90964fb955"
+    },
+    "synthesis_receipt": {
+      "path": "data/manifests/silero_v5_5_ru_eugene_pre_qa_synthesis_v1.json",
+      "sha256": "61f5e81712c602fc8ee857f008527878e77a7ccf1e73af277bf3d803c75e9ab6"
+    },
+    "technical_qa_receipt": {
+      "path": "data/manifests/silero_v5_5_ru_eugene_pre_qa_technical_qa_v1.json",
+      "sha256": "e9c9fccbba13272cf537e5bad0e9ce70bd2dcd47fbd309bdb4469208453e46db"
+    },
+    "text_binding": {
+      "path": "data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_text_binding_v1.json",
+      "sha256": "8418fb0f8725e1408cc7b60886f0e981c90fc255715f147e93c76175ab3978d0"
+    }
+  },
+  "output_candidate": {
+    "path": "data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairs_v1.csv",
+    "rows": 84,
+    "sha256": "9227455d70c30f6f931902951421abb86b62627513feeb1cfc8530cb38bf2d71"
+  },
+  "protocol_id": "common-voice-ru-v24-silero-v5-5-eugene-pre-qa-pairing-v1",
+  "schema_version": 1
+}

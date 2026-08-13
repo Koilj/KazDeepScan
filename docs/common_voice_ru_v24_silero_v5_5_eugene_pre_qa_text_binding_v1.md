@@ -34,6 +34,6 @@ row-binding digest `1f202d97df4c1f4cf94a2460fbbef99a54d338fddcb93efaeaaf89ee7db7
 [synthesis receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_synthesis_v1.md), а technical
 QA retained `42` rows и accounted `33` rejects в
 [QA receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_spoof_technical_qa_v1.md). Synthesis/
-QA failure permanently уменьшает candidate: replacement, regeneration и backfill запрещены. До
-двух независимых full-asset acoustic reviews и нового immutable paired plan detector inference и
-настройка по candidate запрещены.
+QA failure permanently уменьшает candidate: replacement, regeneration и backfill запрещены.
+Immutable 42-pair lock now exists; до двух независимых full-asset acoustic reviews detector
+inference и настройка по candidate запрещены.

@@ -82,7 +82,8 @@ test; результаты не source-, speaker- или architecture-family-ind
   rows исключают architecture-, vendor- и speaker-independence claims. Literal-text binding
   проверил все 75 ready rows against pinned archive без rewrite, а exact CPU route создал один
   raw 48 kHz WAV на каждый text. Technical QA оставил 42 spoof WAV и учёл 33
-  `insufficient_speech` rejects; review и detector inference ещё не начаты.
+  `insufficient_speech` rejects; immutable pairing locked exactly 42/42 pairs. Review и detector
+  inference ещё не начаты.
 - Full Common Voice RU v24 `test` metadata screen до extraction сравнил `10 261` records / `2 075`
   client groups с `12 313` configured-role rows и `39 850` rows в `85` manifest files. Строгое
   whole-client-group exclusion оставляет `6 211` records / `1 443` groups; это только capacity
@@ -96,7 +97,8 @@ test; результаты не source-, speaker- или architecture-family-ind
   `75` ready WAV; пять `insufficient_speech` rejections полностью учтены без backfill. Exact
   literal-text binding закрепил все 75 ready rows без rewrite, а V5.5/eugene synthesis создал
   один raw WAV per bound text. Synthetic technical QA оставил 42 rows и учёл 33 rejects без
-  resynthesis/backfill; acoustic review и inference не начаты.
+  resynthesis/backfill; immutable candidate locked matching 42 bona fide/spoof pairs. Acoustic
+  review и inference не начаты.
 - Stage D строго привязал 73 frozen Common Voice RU текста, создал ровно 73 synthetic WAV и без
   backfill сохранил 55 binary pairs / 110 assets после 18 `insufficient_speech` rejects.
   Проектный exposure audit против 23 configs / 12 203 rows дал `0/0/0` sample/audio/text overlap.
@@ -225,5 +227,6 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [Common Voice RU / Silero V5.5 literal-text binding](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_text_binding_v1.md)
 - [Common Voice RU / Silero V5.5 pre-QA synthesis](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_synthesis_v1.md)
 - [Common Voice RU / Silero V5.5 spoof technical QA](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_spoof_technical_qa_v1.md)
+- [Common Voice RU / Silero V5.5 immutable pairing](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_pairing_v1.md)
 - [External RU spoof-source search](docs/russian_spoof_source_search_2026-08-11.md)
 - [License-ledger snapshots](docs/license_ledger_snapshots.md)

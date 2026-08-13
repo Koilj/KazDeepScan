@@ -52,6 +52,11 @@ def test_common_voice_archive_metadata_and_slice_are_validated_atomically(
     monkeypatch.setattr(
         common_voice, "COMMON_VOICE_RU_V24_ARCHIVE_EXPECTED_SIZE_BYTES", archive.stat().st_size
     )
+    monkeypatch.setattr(
+        common_voice,
+        "COMMON_VOICE_RU_V24_ARCHIVE_EXPECTED_SHA256",
+        hashlib.sha256(archive.read_bytes()).hexdigest(),
+    )
     output_parent = tmp_path / "output"
     output_parent.mkdir()
 
@@ -102,3 +107,17 @@ def test_common_voice_metadata_rejects_path_traversal() -> None:
 
     with pytest.raises(common_voice.CommonVoiceIngestionError, match="Invalid Common Voice clip"):
         common_voice._parse_metadata_tsv(content, "train", "train.tsv")
+
+
+def test_common_voice_archive_rejects_sha256_mismatch(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    archive = tmp_path / common_voice.COMMON_VOICE_RU_V24_ARCHIVE_NAME
+    _write_small_common_voice_archive(archive)
+    monkeypatch.setattr(
+        common_voice, "COMMON_VOICE_RU_V24_ARCHIVE_EXPECTED_SIZE_BYTES", archive.stat().st_size
+    )
+    monkeypatch.setattr(common_voice, "COMMON_VOICE_RU_V24_ARCHIVE_EXPECTED_SHA256", "0" * 64)
+
+    with pytest.raises(common_voice.CommonVoiceIngestionError, match="SHA-256 mismatch"):
+        common_voice.inspect_common_voice_archive(archive)

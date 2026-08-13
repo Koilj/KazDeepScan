@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "protocol_id": "silero-v5-5-ru-eugene-text-only-research-v1",
+  "models": [
+    {
+      "model_id": "silero_v5_5_ru_eugene",
+      "destination": "silero_v5_5_ru",
+      "generator_family": "silero_v5_5_ru_torchpackage_tts",
+      "generator_name": "Silero V5.5 RU fixed eugene text-only TTS",
+      "generator_version": "Silero v5_5_ru package SHA-256 50081637b602126ee06cb3bc8a744d25651d2da149ee8864b9a379bfdd934437; source d9355348e2781dc8fa25a135d1602c530afae24c; wrapper SHA-256 9841a7361d9d8c07e81778cbb2609ccd2195a9e53af9e58d021318c0828560f1",
+      "license": "Silero repository and V5.5 RU package CC-BY-NC-SA-4.0; only the project's personal-research scope is permitted",
+      "source_url": "https://github.com/snakers4/silero-models/tree/d9355348e2781dc8fa25a135d1602c530afae24c",
+      "runtime": {
+        "kind": "silero_v5_5_ru_fixed_eugene_torchpackage",
+        "package_path": "v5_5_ru.pt",
+        "source_archive_path": "source.tar.gz",
+        "sample_rate": 48000,
+        "fixed_speaker": "eugene",
+        "reference_audio_policy": "forbidden",
+        "voice_cloning": false,
+        "text_input_only": true,
+        "ssml": "forbidden",
+        "voice_path": "forbidden",
+        "symbol_durs": "forbidden",
+        "return_timestamps": "forbidden",
+        "external_text_normalizer": "forbidden",
+        "wrapper_module": "src/kds/data/silero_v5_5.py"
+      },
+      "artifacts": [
+        {
+          "relative_path": "v5_5_ru.pt",
+          "url": "https://models.silero.ai/models/tts/ru/v5_5_ru.pt",
+          "expected_size_bytes": 145420684,
+          "sha256": "50081637b602126ee06cb3bc8a744d25651d2da149ee8864b9a379bfdd934437"
+        },
+        {
+          "relative_path": "source.tar.gz",
+          "url": "https://github.com/snakers4/silero-models/archive/d9355348e2781dc8fa25a135d1602c530afae24c.tar.gz",
+          "expected_size_bytes": 789187,
+          "sha256": "cca6d3e6e34e03f9fe30c4e33ee2de8e89aa384f95bc0f3143c51af7a72765aa"
+        }
+      ]
+    }
+  ]
+}

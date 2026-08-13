@@ -15,8 +15,8 @@ checkpoint и строго ограниченный evaluation-контур:
 - CSV-манифест с проверкой прав, происхождения и leakage между split-ами.
 - KSC / OpenSLR SLR102 downloader с проверкой размера и gzip CRC, а также ingestion только из
   чистого архива; metadata и транскрипции берутся из его `Meta/` + `Transcriptions/`;
-- Common Voice Russian v24 intake с tar whitelist, атомарным MP3 slice extraction и
-  leakage-safe split по связанным client/text группам;
+- Common Voice Russian v24 intake с pinned размером и SHA-256 archive, tar whitelist,
+  атомарным MP3 slice extraction и leakage-safe split по связанным client/text группам;
 - ML-DF v1 Italian intake с archive/CRC/metadata whitelist и изолированным cross-lingual
   OOD manifest; он не используется как Russian/Kazakh training или calibration data;
 - RuASD: fake-only shard для OOD и full-release intake для personal-research binary slices;
@@ -42,9 +42,10 @@ checkpoint и строго ограниченный evaluation-контур:
 - для exact 304-asset FLEURS KK/Silero layer завершён отдельный post-inference two-review gate:
   packet не содержал predictions, обе полные формы прошли строгую проверку, `304/304` assets
   получили `pass`; статус уже раскрытой метрики при этом не повышен;
-- для следующего asset-level-blind suite опубликован source inventory v2: полный pinned FLEURS
-  release оставляет 55 RU и 197 KK fresh text groups, из которых сейчас QA-ready 60 KK; второй
-  disjoint KSC2 semantic pass довёл fresh QA-ready mixed слой с 1 до 58 groups;
+- historical Stage-C source inventory v2 зафиксировал тогдашние 55 RU и 197 KK fresh text
+  groups; после завершённых selection/QA/inference pinned FLEURS RU больше не имеет usable
+  unevaluated capacity для следующего final. Второй disjoint KSC2 semantic pass довёл historical
+  fresh QA-ready mixed слой с 1 до 58 groups;
 - до synthesis заморожена all-eligible selection policy: 55 RU, 60 KK и 58 mixed groups без
   model-based отбора и backfill. Bona-fide QA оставил 50/60/58 rows; пять тихих RU recordings
   получили accounted rejection, combined ready слой содержит 168 rows;
@@ -80,6 +81,12 @@ checkpoint и строго ограниченный evaluation-контур:
   epoch 4 только по своим dev loss. После write-once preflight выполнен один v3 final run;
   Stage-D v2 logits/errors не загружались. Поскольку те же exact pairs уже оценивались v2,
   этот v3 result не называется blind/unseen и не может использоваться для дальнейшей настройки;
+- новый Silero V5.5 RU `eugene` закреплён только как exact text-only checkpoint/runtime route:
+  hash-pinned package, source, ZIP/dispatcher audit и fail-closed wrapper запрещают reference
+  audio, cloning, random profile, SSML и `voice_path`. Route audit видит 0 exact V5.5/eugene
+  rows среди 18 605 historical spoof rows, но 1 265 legacy Silero rows исключают architecture-,
+  vendor- и speaker-independence claims. Synthesis, bona-fide selection, review и inference ещё
+  не начаты;
 - explicit source-mixed research matrix и B0 runner, который не допускает overlap исходных
   corpus между train/dev/final-test и проверяет обычный sample/SHA-256/group/text leakage поверх
   этого;
@@ -353,3 +360,6 @@ Stage-C contract зафиксированы в
 [docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md](docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md),
 а v3 governance/training/final receipt — в
 [docs/research_xlsr_sls_v3_stage_d_dialogs_ru_v1.md](docs/research_xlsr_sls_v3_stage_d_dialogs_ru_v1.md).
+Проверенный, но ещё не оценённый Silero V5.5 route и точная безопасная процедура для нового
+Common Voice RU slice описаны в
+[docs/silero_v5_5_ru_eugene_intake_2026-08-13.md](docs/silero_v5_5_ru_eugene_intake_2026-08-13.md).

@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "source_id": "silero_v5_5_ru_eugene_v1",
+  "model_repository": "snakers4/silero-models",
+  "model_source_url": "https://github.com/snakers4/silero-models/tree/d9355348e2781dc8fa25a135d1602c530afae24c",
+  "model_source_revision": "d9355348e2781dc8fa25a135d1602c530afae24c",
+  "upstream_model_url": "https://models.silero.ai/models/tts/ru/v5_5_ru.pt",
+  "license": {
+    "identifier": "CC-BY-NC-SA-4.0",
+    "evidence_path": "LICENSE",
+    "scope_decision": "Permitted only for this project's personal-research scope; commercial or product use is not authorized. Attribution and share-alike conditions remain applicable."
+  },
+  "fixed_route": {
+    "language": "ru",
+    "package_version": "v5_5_ru",
+    "runtime_kind": "silero_v5_5_ru_fixed_eugene_torchpackage",
+    "speaker": "eugene",
+    "sample_rate": 48000,
+    "input": "literal Russian text only; whitespace collapse only",
+    "reference_audio": "forbidden",
+    "voice_cloning": "forbidden",
+    "random_profile": "forbidden",
+    "ssml": "forbidden",
+    "voice_path": "forbidden",
+    "symbol_durs": "forbidden",
+    "return_timestamps": "forbidden",
+    "external_text_normalizer": "forbidden"
+  },
+  "artifacts": {
+    "count": 2,
+    "total_size_bytes": 146209871,
+    "package": {
+      "path": "data/raw/silero_v5_5_ru/v5_5_ru.pt",
+      "size_bytes": 145420684,
+      "sha256": "50081637b602126ee06cb3bc8a744d25651d2da149ee8864b9a379bfdd934437"
+    },
+    "source_archive": {
+      "path": "data/raw/silero_v5_5_ru/source.tar.gz",
+      "size_bytes": 789187,
+      "sha256": "cca6d3e6e34e03f9fe30c4e33ee2de8e89aa384f95bc0f3143c51af7a72765aa"
+    }
+  },
+  "package_static_audit": {
+    "root": "questions_public_eugene_int_intensity",
+    "member_count": 584,
+    "uncompressed_size_bytes": 145562749,
+    "zip_crc": "passed",
+    "wrapper_member": "questions_public_eugene_int_intensity/multi_acc_v3_package.py",
+    "wrapper_sha256": "393e53dd0e732b7a800605d0d477b6c8dd0b5b64917ad9cd27db06da46f6aa51",
+    "dispatcher_member": "questions_public_eugene_int_intensity/tts_models/model",
+    "dispatcher_sha256": "208b2f257714ce47671bc4853764ba3345b7ebbe255a25b54926699df8c9c13c",
+    "loader": "torch.package.PackageImporter only after outer package hash, ZIP, path, wrapper and dispatcher allow-list checks",
+    "loaded_on": "cpu",
+    "loaded_class": "TTSModelMultiAcc_v3",
+    "reported_speakers": [
+      "aidar",
+      "baya",
+      "kseniya",
+      "eugene",
+      "xenia"
+    ]
+  },
+  "model_lock": {
+    "path": "configs/research/silero_v5_5_ru_eugene_v1_models.json",
+    "size_bytes": 2032,
+    "sha256": "39fc9f4748286593ff39fe51688212215c312b4b1d880dc9539e7f43d9ce8edd"
+  },
+  "local_wrapper": {
+    "path": "src/kds/data/silero_v5_5.py",
+    "size_bytes": 15266,
+    "sha256": "9841a7361d9d8c07e81778cbb2609ccd2195a9e53af9e58d021318c0828560f1"
+  },
+  "historical_novelty_boundary": {
+    "candidate_claim": "new exact checkpoint/runtime/fixed-eugene route only",
+    "architecture_family_claim": false,
+    "vendor_family_independence_claim": false,
+    "speaker_independence_claim": false,
+    "audit_path": "data/manifests/silero_v5_5_ru_eugene_exact_route_audit_v1.json",
+    "audit_sha256": "5850d8d36bb72191f7e9a9516edec14552bcf1fe83aecea154a9bb90964fb955",
+    "historical_spoof_rows_audited": 18605,
+    "historical_exact_route_overlap_rows": 0,
+    "historical_legacy_silero_rows": 1265
+  },
+  "scope": {
+    "training_or_calibration_use": "forbidden",
+    "detector_inference": "forbidden_until_new_immutable_contract_and_two_review_gate",
+    "audio_synthesis": "not_started",
+    "bona_fide_selection": "not_started"
+  },
+  "verified_at": "2026-08-13T00:00:00Z"
+}

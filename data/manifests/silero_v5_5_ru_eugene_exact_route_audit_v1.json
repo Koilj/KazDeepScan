@@ -1,0 +1,491 @@
+{
+  "audited_at": "2026-08-13T00:00:00Z",
+  "claims": {
+    "architecture_family_novelty": false,
+    "detector_inference_authorized": false,
+    "detector_inference_performed": false,
+    "exact_generator_route_absent_from_historical_manifests": true,
+    "reference_audio_or_voice_cloning_used": false,
+    "speaker_independence": false,
+    "vendor_family_independence": false
+  },
+  "exposure_inputs": [
+    {
+      "path": "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv",
+      "rows": 304,
+      "sha256": "e23f1ce80dbc866eafd4fe1f488f2f55c5705bef1bd9b12e33ce80632328dac2",
+      "size_bytes": 274129,
+      "spoof_rows": 152
+    },
+    {
+      "path": "data/manifests/fleurs_ru_kk_v1_silero_v4_test_raw.csv",
+      "rows": 366,
+      "sha256": "39fd20db4b65703a0a76448e72470153a2d1542218ba76c5c236ffcf2b6db15d",
+      "size_bytes": 455537,
+      "spoof_rows": 366
+    },
+    {
+      "path": "data/manifests/fleurs_ru_kk_v1_silero_v4_test_ready.csv",
+      "rows": 366,
+      "sha256": "04a84895241944017310ae7b74ea2d16812c30f17f2b1027ea85e045ca6ed7b2",
+      "size_bytes": 450413,
+      "spoof_rows": 366
+    },
+    {
+      "path": "data/manifests/fleurs_ru_v1_espeakng_raw_75.csv",
+      "rows": 75,
+      "sha256": "504d986ce9534fff927b327e104cb0e897eeed54937288572beb815876b20838",
+      "size_bytes": 90498,
+      "spoof_rows": 75
+    },
+    {
+      "path": "data/manifests/fleurs_ru_v1_espeakng_ready_75.csv",
+      "rows": 75,
+      "sha256": "8bcab40578a5dac1f3f96dba6265be19f0f62300c5b6ae2c65560bcccdbf1db8",
+      "size_bytes": 88392,
+      "spoof_rows": 75
+    },
+    {
+      "path": "data/manifests/fleurs_ru_v1_espeakng_test_75.csv",
+      "rows": 150,
+      "sha256": "65b12c43df18fcf7d1ea6b38d2e951cc505963241f5d821092b035b56c9a3af8",
+      "size_bytes": 131143,
+      "spoof_rows": 75
+    },
+    {
+      "path": "data/manifests/fleurs_ru_v1_silero_v4_test_214.csv",
+      "rows": 428,
+      "sha256": "8afd2d461495eb4b16c6e4de89ea731536d41ff73d7ea7152bfb1ea20e23ec1b",
+      "size_bytes": 385207,
+      "spoof_rows": 214
+    },
+    {
+      "path": "data/manifests/fresh_suite_stage_c_candidate_v1.csv",
+      "rows": 334,
+      "sha256": "64d2f54d59f05eeb9211db7fba3280036798fc94c91b30440122001caca215c9",
+      "size_bytes": 406791,
+      "spoof_rows": 167
+    },
+    {
+      "path": "data/manifests/fresh_suite_stage_c_kazakhtts_raw_v1.csv",
+      "rows": 96,
+      "sha256": "77fb2c66f3d7176c075ff151ffeee0d8c3062b98c76ef2a0bbb4834b0e0224d1",
+      "size_bytes": 158359,
+      "spoof_rows": 96
+    },
+    {
+      "path": "data/manifests/fresh_suite_stage_c_kazakhtts_raw_v2.csv",
+      "rows": 168,
+      "sha256": "bae3d8bf2d92ac280715468c3326adf04bc187d87598c519c0c34f047cc12ee4",
+      "size_bytes": 302700,
+      "spoof_rows": 168
+    },
+    {
+      "path": "data/manifests/fresh_suite_stage_c_kazakhtts_ready_v2.csv",
+      "rows": 167,
+      "sha256": "3f91a91ecc7627964fe15fe57ba0e443a976a692202122d64107ea81add27b78",
+      "size_bytes": 294672,
+      "spoof_rows": 167
+    },
+    {
+      "path": "data/manifests/fresh_suite_stage_c_kk_candidate_v1.csv",
+      "rows": 120,
+      "sha256": "f6c7e0297ba5eff2798642cd87696a6d379ed164b877928e0ed3fa219929eda8",
+      "size_bytes": 138382,
+      "spoof_rows": 60
+    },
+    {
+      "path": "data/manifests/fresh_suite_stage_c_mixed_candidate_v1.csv",
+      "rows": 114,
+      "sha256": "4d263e57af47cc9921e95212150a58cdc57ed42de0e870286d43b625094ae020",
+      "size_bytes": 153476,
+      "spoof_rows": 57
+    },
+    {
+      "path": "data/manifests/fresh_suite_stage_c_ru_candidate_v1.csv",
+      "rows": 100,
+      "sha256": "803f65c92c7c0145f49f5826bda3795543225a0dd2bc8b688028a1a297eb28fb",
+      "size_bytes": 115593,
+      "spoof_rows": 50
+    },
+    {
+      "path": "data/manifests/ksc2_mixed_v1_silero_v4_candidate_30.csv",
+      "rows": 60,
+      "sha256": "dafa33d424da8efab19d849afeeeb11c279d2e6c10ff187f3a57cada76c6c4a8",
+      "size_bytes": 66415,
+      "spoof_rows": 30
+    },
+    {
+      "path": "data/manifests/ksc2_mixed_v1_silero_v4_raw.csv",
+      "rows": 31,
+      "sha256": "a42e8206f6c7d1deaf6da510fe242edd809f05d43d9cac69f49f74001f3ad742",
+      "size_bytes": 44986,
+      "spoof_rows": 31
+    },
+    {
+      "path": "data/manifests/ksc2_mixed_v1_silero_v4_ready.csv",
+      "rows": 30,
+      "sha256": "6d0f72dfa05418608378d7e5d1f5c3e58b322213253bd89af454f4de40ee33eb",
+      "size_bytes": 43338,
+      "spoof_rows": 30
+    },
+    {
+      "path": "data/manifests/ksc_derived_kk_v1_smoke_raw_14.csv",
+      "rows": 14,
+      "sha256": "9447f26a082a23e3f1847ba730b0ab39ed16bf2bf18943c3f1dfd5e743482bf1",
+      "size_bytes": 13626,
+      "spoof_rows": 14
+    },
+    {
+      "path": "data/manifests/ksc_derived_kk_v1_smoke_ready_14.csv",
+      "rows": 14,
+      "sha256": "02b795483a4a8cd41e37da826e0d815992a509a658b7ba131c3c2c8f4b06cdcb",
+      "size_bytes": 13704,
+      "spoof_rows": 14
+    },
+    {
+      "path": "data/manifests/ksc_derived_kk_v1_smoke_test_14.csv",
+      "rows": 28,
+      "sha256": "217469d6ef5a4f055a7305f60c64c9dd3f4970d3eab94aa44a5b57a60d70c450",
+      "size_bytes": 21449,
+      "spoof_rows": 14
+    },
+    {
+      "path": "data/manifests/ksc_derived_kk_v1_spoof_raw_968.csv",
+      "rows": 968,
+      "sha256": "6ecdaaf3d17653d4a2b1025c362280c52e37440400767a5fb9d051699a1c1c92",
+      "size_bytes": 931102,
+      "spoof_rows": 968
+    },
+    {
+      "path": "data/manifests/ksc_derived_kk_v1_spoof_ready_921.csv",
+      "rows": 921,
+      "sha256": "7c2f294d1e5c5df89d59745a3a4b9ab30715d7fa316869a81b1ff22fa03892cf",
+      "size_bytes": 879107,
+      "spoof_rows": 921
+    },
+    {
+      "path": "data/manifests/ksc_derived_kk_v1_spoof_ready_968.csv",
+      "rows": 920,
+      "sha256": "1bc93ac1aea07f8064f3fc4c1d58b6a9e12d85e13117d9d22c3d5c5b2141f7b1",
+      "size_bytes": 878180,
+      "spoof_rows": 920
+    },
+    {
+      "path": "data/manifests/ksc_derived_kk_v1_test_921.csv",
+      "rows": 1842,
+      "sha256": "aed7c7f98236244d65598f48e761988806797568cd9a1c539b315ef2c15917f7",
+      "size_bytes": 1389456,
+      "spoof_rows": 921
+    },
+    {
+      "path": "data/manifests/ksc_derived_kk_v2_kazemotts_raw_402.csv",
+      "rows": 402,
+      "sha256": "249f8786bca10d3128cc11186b81cd667667e0443314e566557a1fc562bd3651",
+      "size_bytes": 449228,
+      "spoof_rows": 402
+    },
+    {
+      "path": "data/manifests/ksc_derived_kk_v2_kazemotts_ready_402.csv",
+      "rows": 359,
+      "sha256": "5cf4149ee668f2d83b96437a4e99adf855a42137ac06516285e351f9aae83904",
+      "size_bytes": 392566,
+      "spoof_rows": 359
+    },
+    {
+      "path": "data/manifests/ksc_derived_kk_v2_kazemotts_test_359.csv",
+      "rows": 718,
+      "sha256": "2553ba1f174f18589796b086be777a24992ed26242dc061c101929cd383ebb5e",
+      "size_bytes": 591613,
+      "spoof_rows": 359
+    },
+    {
+      "path": "data/manifests/ksc_derived_kk_v3_sparktts_raw_387.csv",
+      "rows": 387,
+      "sha256": "57fb25f7d63e08993e7d513e915aedba1f757de35b970cf45b500a4b51696abe",
+      "size_bytes": 457336,
+      "spoof_rows": 387
+    },
+    {
+      "path": "data/manifests/ksc_derived_kk_v3_sparktts_ready_387.csv",
+      "rows": 381,
+      "sha256": "2af29dc46ce421c469cef67eeb2eee876c62bf4e2939d2641805127afe89bf62",
+      "size_bytes": 444905,
+      "spoof_rows": 381
+    },
+    {
+      "path": "data/manifests/ksc_derived_kk_v3_sparktts_test_381.csv",
+      "rows": 762,
+      "sha256": "4f903fdf95fc64584d923448efc6c1f01eee65d6a476baa661107efda0841364",
+      "size_bytes": 656087,
+      "spoof_rows": 381
+    },
+    {
+      "path": "data/manifests/ksc_derived_kk_v4_espeakng_raw_407.csv",
+      "rows": 407,
+      "sha256": "0b2bd269164aba8957ef137c5f9c6f981fb3953673cddb35f23feb21520cce7e",
+      "size_bytes": 455417,
+      "spoof_rows": 407
+    },
+    {
+      "path": "data/manifests/ksc_derived_kk_v4_espeakng_ready_407.csv",
+      "rows": 358,
+      "sha256": "da5603839746c907598c32c9f698ce74192515745bf2fdcdf9a18b9788ae59c2",
+      "size_bytes": 393435,
+      "spoof_rows": 358
+    },
+    {
+      "path": "data/manifests/ksc_derived_kk_v4_espeakng_test_358.csv",
+      "rows": 716,
+      "sha256": "7e7920177887c8dc23b91a60e61080663b2d9f9e2f047cce593d238bc3802db4",
+      "size_bytes": 591910,
+      "spoof_rows": 358
+    },
+    {
+      "path": "data/manifests/ml_df_it_v1_ood_200.csv",
+      "rows": 200,
+      "sha256": "7e7eee52f6add9c69dc5777b160d289ece7155ce3cbe742c2a117bb45b44b5be",
+      "size_bytes": 108751,
+      "spoof_rows": 100
+    },
+    {
+      "path": "data/manifests/ml_df_it_v1_ood_200_ready.csv",
+      "rows": 192,
+      "sha256": "951582973a8f31aca4585f2136e68e35267a62568e988910d4ad417e2a759da8",
+      "size_bytes": 105854,
+      "spoof_rows": 98
+    },
+    {
+      "path": "data/manifests/pyara_ru_v7_fresh_dev_1000.csv",
+      "rows": 1000,
+      "sha256": "445ab1421cd89fb15ab5881ad0d1c3c942b058611a23e44fe1deb638a6501979",
+      "size_bytes": 641705,
+      "spoof_rows": 500
+    },
+    {
+      "path": "data/manifests/pyara_ru_v7_fresh_dev_1000_ready.csv",
+      "rows": 973,
+      "sha256": "c102db08c8f72bf5f9499bbd10d2d1375d926c2c529ae39035f853087b212d04",
+      "size_bytes": 646309,
+      "spoof_rows": 498
+    },
+    {
+      "path": "data/manifests/pyara_ru_v7_fresh_dev_1000_ready_v2.csv",
+      "rows": 970,
+      "sha256": "7ae57e0714b5a245079902e06adaca7a02c423418e2e37bfded6d55c6db0d2f0",
+      "size_bytes": 644294,
+      "spoof_rows": 496
+    },
+    {
+      "path": "data/manifests/pyara_ru_v7_fresh_dev_1000_ready_v3.csv",
+      "rows": 969,
+      "sha256": "39261826df9f51bbb23dcc8efa489c4f2c0bfe894361791fa99d63407bb3c4ea",
+      "size_bytes": 643601,
+      "spoof_rows": 495
+    },
+    {
+      "path": "data/manifests/pyara_ru_v7_research_500.csv",
+      "rows": 500,
+      "sha256": "d51f56cbd32494753fc2d1187f60b6f5c0a667f14cb832d382fb7c164e8ef8c6",
+      "size_bytes": 324361,
+      "spoof_rows": 250
+    },
+    {
+      "path": "data/manifests/pyara_ru_v7_research_500_ready.csv",
+      "rows": 481,
+      "sha256": "3b8357c0acd7efbd603218e49536ab80046764301594ee1e4f7def68155a70eb",
+      "size_bytes": 324015,
+      "spoof_rows": 249
+    },
+    {
+      "path": "data/manifests/pyara_ru_v7_stage_b_calibration_dev_1000.csv",
+      "rows": 1000,
+      "sha256": "3de5f1187c25bc84947e138d69ce2949e742a4ed86d36d9cd00e70112f8e9d07",
+      "size_bytes": 655727,
+      "spoof_rows": 500
+    },
+    {
+      "path": "data/manifests/pyara_ru_v7_stage_b_calibration_dev_1000_ready.csv",
+      "rows": 978,
+      "sha256": "a2386bae340d198dc3b64d7b64bbc1090c4ad856022029b7ada35f709c7129ad",
+      "size_bytes": 649544,
+      "spoof_rows": 500
+    },
+    {
+      "path": "data/manifests/pyara_ru_v7_stage_b_calibration_dev_1000_ready_v2.csv",
+      "rows": 977,
+      "sha256": "3704f4da82ff02066260fbbd472952771bf721b3890f9f8bfac71dbd403fa879",
+      "size_bytes": 648857,
+      "spoof_rows": 499
+    },
+    {
+      "path": "data/manifests/pyara_ru_v7_stage_b_calibration_dev_1000_ready_v3.csv",
+      "rows": 976,
+      "sha256": "7fe2c89be7f02eea1abdfc369fc9c16185b0a395fa2526b5b2c58e361fa8fa31",
+      "size_bytes": 648160,
+      "spoof_rows": 498
+    },
+    {
+      "path": "data/manifests/ruasd_ru_v1_full_research_2000.csv",
+      "rows": 2000,
+      "sha256": "2e4370bd61c3e10ecceb0cb1732e965c6c97ac4978e14ce82cd956536cec7726",
+      "size_bytes": 1786788,
+      "spoof_rows": 1000
+    },
+    {
+      "path": "data/manifests/ruasd_ru_v1_full_research_2000_ready.csv",
+      "rows": 1814,
+      "sha256": "bad6981d86d7c620ad1cda32208e3d5e6cb00b7985a242a35ba279b4e2226072",
+      "size_bytes": 1568428,
+      "spoof_rows": 998
+    },
+    {
+      "path": "data/manifests/ruasd_ru_v1_full_research_2000_ready_v2.csv",
+      "rows": 1815,
+      "sha256": "82518a2e4e40ef39fa3bcc0c197f717ef83e5f7310cfee53bf546a55fe3ba4cc",
+      "size_bytes": 1554791,
+      "spoof_rows": 998
+    },
+    {
+      "path": "data/manifests/ruasd_ru_v1_full_research_2000_v2.csv",
+      "rows": 2000,
+      "sha256": "c9162c554e92548b0fa6896e89cdec06297d2b800ecc87ab76cdb7f2750ea13d",
+      "size_bytes": 1777885,
+      "spoof_rows": 1000
+    },
+    {
+      "path": "data/manifests/ruasd_ru_v1_shard000000_ood_100.csv",
+      "rows": 100,
+      "sha256": "1526f3e4540502ae930043c1784cffa731081cdd6bd020a71953ce546d0709f9",
+      "size_bytes": 75907,
+      "spoof_rows": 100
+    },
+    {
+      "path": "data/manifests/ruasd_ru_v1_shard000000_ood_100_ready.csv",
+      "rows": 100,
+      "sha256": "ea9d5cb3f20a3f516aeeefb45b0183e5bb220bb8be42fb6b15622c8590f379e7",
+      "size_bytes": 75381,
+      "spoof_rows": 100
+    },
+    {
+      "path": "data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_candidate_v1.csv",
+      "rows": 110,
+      "sha256": "cd4ccc2be9fd0fa06bd3641f1e939499d93f111c5f6a5a636753adf97ac2891d",
+      "size_bytes": 158875,
+      "spoof_rows": 55
+    },
+    {
+      "path": "data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_raw_73.csv",
+      "rows": 73,
+      "sha256": "1ad28f28a74593dac38b174464fccaebe7cd4e222dfd764fff7fe26da1766441",
+      "size_bytes": 150014,
+      "spoof_rows": 73
+    },
+    {
+      "path": "data/manifests/stage_d_ru_dialogs_vits2_masha_neutral_ready_73.csv",
+      "rows": 55,
+      "sha256": "f79a974806a54abedd1c97bfaf8e7c9cf4e1b41043fe94a24f20b8cfbd2eeb8b",
+      "size_bytes": 110813,
+      "spoof_rows": 55
+    },
+    {
+      "path": "data/manifests/tone_speak_ru_v1_ood_raw_100.csv",
+      "rows": 100,
+      "sha256": "3957dcc8daa1ea59f994c6221607a521248ff815065ab7b41b3902061c384191",
+      "size_bytes": 77070,
+      "spoof_rows": 100
+    },
+    {
+      "path": "data/manifests/tone_speak_ru_v1_ood_ready_100.csv",
+      "rows": 100,
+      "sha256": "45527f97ddbb5be65ea12ff8a8ed7b723e9d1135aff0cde71addd95366dc84a0",
+      "size_bytes": 79100,
+      "spoof_rows": 100
+    }
+  ],
+  "legacy_silero_evidence": {
+    "examples": [
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:a8178027e3839777",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:086bfb4472b6fe9c",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:5400c039ee89b91f",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:991b27a154c69832",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:3a85d1899a9560ab",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:e9275bb927372274",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:6d65d9670fb7727a",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:ba8e12a9d13cbb86",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:66a187528ccbdd47",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:3c1702b694cb9854",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:4f395dddd9be8cb1",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:fbd406f681a1ea50",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:58285db04c8035af",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:7caf86b43a5ea126",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:04da74268f148959",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:d787905038c8ca21",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:f4f90586f5cbfce9",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:0a3ac9adb0d1011b",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:dcc0dd09fb71e631",
+      "data/manifests/fleurs_kk_v1_silero_v4_test_152.csv:fleurs_ru_kk_v1_silero_v4:57f9ebf20a85530a"
+    ],
+    "interpretation": "Historical manifests include Silero V4 routes and generic unpinned Silero labels. They prevent a vendor-family or architecture-family novelty claim, but do not prove reuse of the pinned V5.5 package/runtime/eugene route.",
+    "routes": [
+      {
+        "generator_family": "fastpitch_hifigan_torchscript_tts",
+        "generator_name": "Silero V4 Cyrillic FastPitch + HiFi-GAN fixed-profile TTS",
+        "generator_version": "Silero v4_cyrillic hosted model SHA-256 5e3862319e13883ea105cd4db835273c7febde62ff82d98d1ccf596607f8673f; source d9355348e2781dc8fa25a135d1602c530afae24c",
+        "rows": 1189
+      },
+      {
+        "generator_family": "tts",
+        "generator_name": "sileroTTS",
+        "generator_version": "unspecified_by_source",
+        "rows": 76
+      }
+    ],
+    "rows": 1265
+  },
+  "model_lock": {
+    "artifact_sha256": [
+      "50081637b602126ee06cb3bc8a744d25651d2da149ee8864b9a379bfdd934437",
+      "cca6d3e6e34e03f9fe30c4e33ee2de8e89aa384f95bc0f3143c51af7a72765aa"
+    ],
+    "model_id": "silero_v5_5_ru_eugene",
+    "path": "configs/research/silero_v5_5_ru_eugene_v1_models.json",
+    "sha256": "39fc9f4748286593ff39fe51688212215c312b4b1d880dc9539e7f43d9ce8edd",
+    "size_bytes": 2032
+  },
+  "protocol_id": "silero-v5-5-ru-eugene-exact-route-audit-v1",
+  "route_gate": {
+    "architecture_independence_claim": false,
+    "candidate_route": {
+      "generator_family": "silero_v5_5_ru_torchpackage_tts",
+      "generator_name": "Silero V5.5 RU fixed eugene text-only TTS",
+      "generator_version": "Silero v5_5_ru package SHA-256 50081637b602126ee06cb3bc8a744d25651d2da149ee8864b9a379bfdd934437; source d9355348e2781dc8fa25a135d1602c530afae24c; wrapper SHA-256 9841a7361d9d8c07e81778cbb2609ccd2195a9e53af9e58d021318c0828560f1"
+    },
+    "exact_route_overlap_rows": 0,
+    "exposure_manifest_count": 56,
+    "exposure_spoof_rows": 18605,
+    "fixed_voice_alias_overlap": {
+      "eugene": {
+        "examples": [],
+        "rows": 0
+      }
+    },
+    "generator_family_overlap_examples": [],
+    "generator_family_overlap_rows": 0,
+    "interpretation": "Only the exact checkpoint-bound manifest route is proven unseen. Historical architecture metadata is incomplete; voice alias overlap is disclosed separately.",
+    "novelty_claim": "unseen_exact_generator_route",
+    "observed_exact_route_count": 315,
+    "speaker_independence_claim": false
+  },
+  "runtime_policy": {
+    "fixed_voice_id": "eugene",
+    "reference_audio": "forbidden",
+    "sample_rate": 48000,
+    "ssml": "forbidden",
+    "symbol_durs": "forbidden",
+    "text_input_only": true,
+    "voice_cloning": false,
+    "voice_path": "forbidden"
+  },
+  "schema_version": 1
+}

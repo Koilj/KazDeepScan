@@ -18,9 +18,10 @@ pseudo-ID; он используется только как opaque ключ gro
 
 ## Archive и raw slice
 
-Безопасный intake принимает только ожидаемые 10 TSV и MP3 по пути `ru/clips/<name>.mp3`.
-Он не вызывает `tar.extractall`, отклоняет symlink/неожиданные members и публикует slice только
-после полного прохода archive в staging directory.
+Безопасный intake до чтения metadata или extraction повторно сверяет exact размер и SHA-256
+archive с pinned source identity. Затем он принимает только ожидаемые 10 TSV и MP3 по пути
+`ru/clips/<name>.mp3`, не вызывает `tar.extractall`, отклоняет symlink/неожиданные members и
+публикует slice только после полного прохода archive в staging directory.
 
 Проверенный archive содержит `201 326` MP3 и все ожидаемые metadata files. Из официальных
 `train/dev/test.tsv` выбран детерминированный `first-250`: по 250 записей из каждого исходного
@@ -65,3 +66,19 @@ uv run python scripts/preprocess_manifest.py \
 
 Каждый output должен быть новым: ingestion, preprocessing и manifest writer отказываются
 перезаписывать имеющиеся results.
+
+## Pre-extraction screen для следующего RU final candidate
+
+Новый full-archive metadata-only screen не выбирает и не materializes клипы. После pinned
+size/SHA-256 validation он проверил все `10 261` официальных RU `test` records (`2 075` client
+groups) против `12 313` configured-role rows и `39 850` строк из `85` manifest-файлов по
+`sample_id`, `text_hash`, `parent_group_id` и `speaker_pseudo_id`. Любой direct overlap исключает
+весь client group: остаётся `6 211` records / `1 443` groups. Receipt:
+`data/manifests/common_voice_ru_v24_full_test_metadata_exposure_screen_v1.json`, SHA-256
+`f862ae667195c733c7deb6bf25f304a6287890ca87d4dc0ee7cb5e06aa6f46b3`.
+
+Это не selection и не разрешение на extraction, synthesis или inference: следующий contract
+обязан сначала проверить literal-text compatibility выбранного fixed TTS wrapper без lexical
+rewrite, затем отдельно frozen bind size/seed и exact survivors до создания raw assets.
+Historical first-250 intake, Stage-D `73` selection, уже scored `55` pairs и `18` rejected
+partners не являются допустимым резервом или backfill для нового blind candidate.

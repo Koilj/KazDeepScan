@@ -31,9 +31,10 @@ test; результаты не source-, speaker- или architecture-family-ind
 - Один write-once confirmatory RU/KK/mixed run завершён.
 - Post-inference KK acoustic gate завершён: две полные формы, 608 решений и `304/304` exact
   assets с итогом `pass`; write-once receipt опубликован.
-- Fresh-source inventory v2 повторно проверил полный pinned FLEURS release и KSC2 evidence:
-  доступны 55 RU release-level groups, 60 QA-ready + 137 ещё не обработанных KK groups и 58
-  QA-ready mixed groups; 2 541 KSC2 candidates остаются без semantic review.
+- Historical fresh-source inventory v2 повторно проверил полный pinned FLEURS release и KSC2
+  evidence. После завершённых Stage-C selection/QA/inference pinned FLEURS RU больше не имеет
+  usable unevaluated groups; historical KSC2 inventory всё ещё указывает 137 не обработанных KK
+  groups и 2 541 candidates без semantic review, но они не заменяют новый RU bona-fide source.
 - Для mixed Stage C опубликован disjoint 59-row single-AI semantic-review delta: 57 rows прошли
   QA/VAD, 2 отклонены с полным accounting. Это устранило статистически непригодный размер 1,
   но не заменяет будущий human acoustic gate.
@@ -73,6 +74,17 @@ test; результаты не source-, speaker- или architecture-family-ind
   использует `torch.load(weights_only=True)`, не принимает reference audio и фиксирует
   speaker/emotion IDs. Audit 53 historical spoof manifests / 18 422 rows не нашёл exact-route
   или Masha-alias overlap; generic RuASD `vits2TTS` исключает claim новой architecture family.
+- Silero V5.5 RU / fixed `eugene` принят только как новый exact route для будущего RU
+  personal-research candidate: `v5_5_ru.pt` (`145420684` bytes) и source archive pinned по
+  SHA-256, local wrapper разрешает только literal Russian text → built-in `eugene` at 48 kHz и
+  запрещает reference audio, cloning, random profile, SSML и `voice_path`. Audit 56 historical
+  manifests / 18 605 spoof rows нашёл `0` exact V5.5/eugene overlap, но `1 265` legacy Silero
+  rows исключают architecture-, vendor- и speaker-independence claims. Нет synthesis, bona-fide
+  selection, review или detector inference.
+- Full Common Voice RU v24 `test` metadata screen до extraction сравнил `10 261` records / `2 075`
+  client groups с `12 313` configured-role rows и `39 850` rows в `85` manifest files. Строгое
+  whole-client-group exclusion оставляет `6 211` records / `1 443` groups; это только capacity
+  receipt без selection, audio extraction, synthesis, QA/review или inference.
 - Stage D строго привязал 73 frozen Common Voice RU текста, создал ровно 73 synthetic WAV и без
   backfill сохранил 55 binary pairs / 110 assets после 18 `insufficient_speech` rejects.
   Проектный exposure audit против 23 configs / 12 203 rows дал `0/0/0` sample/audio/text overlap.
@@ -139,15 +151,19 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - Dialogs-RU model repository в pinned revision не содержит собственного `LICENSE`. Его model-card
   OpenRAIL declaration и pinned dataset license допускают только зафиксированный personal-research
   scope, а не broad commercial clearance.
+- Silero V5.5 RU имеет CC-BY-NC-SA-4.0: route ограничен personal research, не авторизован для
+  product/commercial use и не является доказательством новой architecture/vendor/speaker family.
 - Research checkpoint нельзя подключать к API risk score.
 
 ## Следующие действия
 
 1. Не повторять Stage-C/Stage-D/v3 runs и не использовать их final errors для tuning, выбора
    checkpoint, temperature, threshold или augmentation.
-2. Если нужен следующий research result, сначала найти новый допустимый RU/KK/mixed source и
-   подготовить genuinely unevaluated final assets с новым immutable contract; старые 55 пар
-   нельзя переиспользовать как «новый blind» тест.
+2. Новый RU route и full source-wide Common Voice screen уже закреплены. Следом без lexical
+   rewrite применить V5.5 literal-text gate к `6 211` screen survivors, затем выбрать явные
+   size/seed, version selection receipt и freeze exact clips без backfill до extraction. Старые
+   55 Stage-D/v3 пар, 73-row selection и их rejections нельзя переиспользовать как «новый blind»
+   тест.
 3. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 
@@ -189,5 +205,7 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [Stage-D Common Voice RU precheck](docs/stage_d_common_voice_ru_precheck_v1.md)
 - [Stage-D Dialogs-RU VITS2 / Masha-neutral](docs/stage_d_dialogs_ru_vits2_intake_2026-08-13.md)
 - [XLS-R+SLS v3 Stage-D governed evaluation](docs/research_xlsr_sls_v3_stage_d_dialogs_ru_v1.md)
+- [Silero V5.5 RU / eugene route intake](docs/silero_v5_5_ru_eugene_intake_2026-08-13.md)
+- [Common Voice RU full-test metadata exposure screen](data/manifests/common_voice_ru_v24_full_test_metadata_exposure_screen_v1.json)
 - [External RU spoof-source search](docs/russian_spoof_source_search_2026-08-11.md)
 - [License-ledger snapshots](docs/license_ledger_snapshots.md)

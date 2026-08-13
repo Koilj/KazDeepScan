@@ -15,11 +15,15 @@ from typing import TypeVar
 
 import soundfile as sf  # type: ignore[import-untyped]
 
+from kds.data.assets import sha256_file
 from kds.data.manifest import ManifestRow
 
 COMMON_VOICE_RU_V24_SOURCE_ID = "common_voice_ru_v24"
 COMMON_VOICE_RU_V24_ARCHIVE_NAME = "cv-corpus-24.0-2025-12-05-ru.tar.gz"
 COMMON_VOICE_RU_V24_ARCHIVE_EXPECTED_SIZE_BYTES = 7_008_716_262
+COMMON_VOICE_RU_V24_ARCHIVE_EXPECTED_SHA256 = (
+    "9a2ed32a0574f74f505cd7740a599f0b9edc9f52ba1e7d6624b66f258db4c0ea"
+)
 COMMON_VOICE_RU_V24_ARCHIVE_ROOT = "cv-corpus-24.0-2025-12-05"
 COMMON_VOICE_RU_V24_LOCALE = "ru"
 COMMON_VOICE_RU_V24_DIRECTORY = f"{COMMON_VOICE_RU_V24_ARCHIVE_ROOT}/{COMMON_VOICE_RU_V24_LOCALE}"
@@ -225,7 +229,7 @@ def select_common_voice_records(
     return selected
 
 
-def _validate_archive_size(archive: Path) -> None:
+def _validate_archive_identity(archive: Path) -> None:
     if not archive.is_file():
         raise CommonVoiceIngestionError(f"Common Voice archive does not exist: {archive}")
     actual_size = archive.stat().st_size
@@ -234,6 +238,13 @@ def _validate_archive_size(archive: Path) -> None:
             "Common Voice archive size mismatch: "
             f"expected {COMMON_VOICE_RU_V24_ARCHIVE_EXPECTED_SIZE_BYTES} bytes, "
             f"got {actual_size}. Refusing extraction; acquire a clean archive before continuing."
+        )
+    actual_sha256 = sha256_file(archive)
+    if actual_sha256 != COMMON_VOICE_RU_V24_ARCHIVE_EXPECTED_SHA256:
+        raise CommonVoiceIngestionError(
+            "Common Voice archive SHA-256 mismatch: "
+            f"expected {COMMON_VOICE_RU_V24_ARCHIVE_EXPECTED_SHA256}, got {actual_sha256}. "
+            "Refusing extraction; acquire a clean archive before continuing."
         )
 
 
@@ -268,9 +279,9 @@ def _is_expected_member(member: tarfile.TarInfo) -> bool:
 
 
 def inspect_common_voice_archive(archive: Path) -> CommonVoiceArchiveReport:
-    """Validate expected size, gzip CRC, strict tar layout, and unique MP3 members."""
+    """Validate pinned bytes, gzip CRC, strict tar layout, and unique MP3 members."""
 
-    _validate_archive_size(archive)
+    _validate_archive_identity(archive)
     audio_names: set[str] = set()
     metadata_files: set[str] = set()
     expected_metadata = {
@@ -313,7 +324,7 @@ def load_common_voice_metadata_from_archive(
 ) -> list[CommonVoiceRecord]:
     """Read requested official Common Voice split TSVs from a verified archive."""
 
-    _validate_archive_size(archive)
+    _validate_archive_identity(archive)
     requested_splits = _requested_splits(splits)
     wanted_members = {_metadata_member_name(split): split for split in requested_splits}
     expected_metadata = {
@@ -384,7 +395,7 @@ def extract_common_voice_audio_slice(
         raise CommonVoiceIngestionError(
             f"Common Voice extraction parent does not exist: {destination.parent}"
         )
-    _validate_archive_size(archive)
+    _validate_archive_identity(archive)
 
     extracted: dict[str, Path] = {}
     seen_audio_names: set[str] = set()

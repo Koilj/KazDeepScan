@@ -110,9 +110,20 @@ QA yield. Selection did not use audio/duration, detector output, metrics or fina
 selected sample IDs, client groups and text hashes are unique. It does not repurpose the old
 `55`, old `73`, their `18` rejected partners or remaining first-250 source-intake records.
 
-The next contract may extract only the frozen `clip_name` values and run normal decode/QA/VAD.
-No failed row may be replaced, reselected or resynthesized. Two independent full-asset reviews,
-pairing and a new immutable plan remain necessary before detector inference.
+## Frozen extraction and technical QA
+
+The exact 80 `clip_name` values have now been extracted and passed through normal decode/QA/VAD;
+the [materialization receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_materialization_v1.md)
+records `75` ready WAVs and five `insufficient_speech` rejections, with no reuse, replacement or
+backfill. Raw manifest SHA-256 is
+`5543e1e88b688cb79b4401a7ef68ba525d75321cbe98a4837bf7347867a2a9a5`; ready manifest SHA-256 is
+`2b183adbfcac9b1a6022dd35c2f8b6ec8f111c01b4b3364596c53aff8906192a`; receipt SHA-256 is
+`da5f4a79cf0444d0f2e905c4f178760967306d3a393753736e72cc4a27a0da3e`.
+
+The next contract may bind literal archive texts only for the 75 ready rows and synthesize exactly
+one fixed-profile V5.5/eugene WAV per text. No failed row may be replaced, reselected or
+resynthesized. Two independent full-asset reviews, pairing and a new immutable plan remain
+necessary before detector inference.
 
 The existing Common Voice archive guard now validates both size and SHA-256 before metadata read
 or extraction; see

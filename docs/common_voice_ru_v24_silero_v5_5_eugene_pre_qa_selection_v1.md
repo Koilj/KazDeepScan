@@ -51,11 +51,13 @@ step.
 
 ## Ограничения и следующий безопасный шаг
 
-No MP3 was extracted, no WAV was created, no synthetic audio was generated, and no QA, review or
-detector inference happened. The historical `55` Stage-D/v3 pairs, historical `73` selection and
-its `18` QA rejects are not a reserve and cannot be used for backfill.
+At the time of selection, no MP3 was extracted, no WAV was created, no synthetic audio was
+generated, and no QA, review or detector inference had happened. The historical `55` Stage-D/v3
+pairs, historical `73` selection and its `18` QA rejects are not a reserve and cannot be used for
+backfill.
 
-Следующий отдельный write-once этап может extract только эти `80` `clip_name` values, then run
-normal decode/QA/VAD. Any rejection removes its pair; it does not authorize replacement,
-reselection or resynthesis. Two independent full-asset reviews and a new immutable paired plan
-remain required before any detector inference.
+The subsequent [materialization receipt](common_voice_ru_v24_silero_v5_5_eugene_pre_qa_materialization_v1.md)
+accounts for all 80 frozen MP3s: 75 reached ready WAV and five were rejected for
+`insufficient_speech`, with no replacement or backfill. The next separate write-once step is
+literal-text binding for only the ready 75 rows; two independent full-asset reviews and a new
+immutable paired plan remain required before any detector inference.

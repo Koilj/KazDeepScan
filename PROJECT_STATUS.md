@@ -90,7 +90,9 @@ test; результаты не source-, speaker- или architecture-family-ind
   strict group exclusion доступны `5 600` records / `1 337` groups. Immutable pre-QA receipt
   выбрал из них `80` exact records: seeded two-stage rule берёт одну запись на отдельную client
   group, без audio/duration, detector/model output, metrics или final errors. `80/80` sample IDs,
-  client groups и text hashes уникальны; extraction, synthesis, QA/review и inference не начаты.
+  client groups и text hashes уникальны. Exact extraction и normal decode/QA/VAD опубликовали
+  `75` ready WAV; пять `insufficient_speech` rejections полностью учтены без backfill. Synthesis,
+  acoustic review и inference не начаты.
 - Stage D строго привязал 73 frozen Common Voice RU текста, создал ровно 73 synthetic WAV и без
   backfill сохранил 55 binary pairs / 110 assets после 18 `insufficient_speech` rejects.
   Проектный exposure audit против 23 configs / 12 203 rows дал `0/0/0` sample/audio/text overlap.
@@ -166,7 +168,8 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 1. Не повторять Stage-C/Stage-D/v3 runs и не использовать их final errors для tuning, выбора
    checkpoint, temperature, threshold или augmentation.
 2. Новый RU route, historical exposure, literal-text screen и `80`-record pre-QA selection уже
-   закреплены. Следом extract только frozen clip names, затем normal decode/QA/VAD без backfill.
+   закреплены; exact extraction/QA/VAD оставил `75` ready rows. Следом bind literal texts только
+   для них, затем выполнить один fixed-profile synthesis WAV per text без replacement/backfill.
    Старые 55 Stage-D/v3 пар, 73-row selection и их rejections нельзя переиспользовать как
    «новый blind» тест.
 3. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
@@ -214,5 +217,6 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [Common Voice RU full-test metadata exposure screen](data/manifests/common_voice_ru_v24_full_test_metadata_exposure_screen_v1.json)
 - [Common Voice RU / Silero V5.5 literal-text screen](data/manifests/common_voice_ru_v24_full_test_silero_v5_5_literal_text_screen_v1.json)
 - [Common Voice RU / Silero V5.5 immutable pre-QA selection](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_selection_v1.md)
+- [Common Voice RU / Silero V5.5 pre-QA materialization](docs/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_materialization_v1.md)
 - [External RU spoof-source search](docs/russian_spoof_source_search_2026-08-11.md)
 - [License-ledger snapshots](docs/license_ledger_snapshots.md)

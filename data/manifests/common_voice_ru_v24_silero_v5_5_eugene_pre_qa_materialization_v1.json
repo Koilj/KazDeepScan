@@ -1,0 +1,80 @@
+{
+  "archive": {
+    "expected_sha256": "9a2ed32a0574f74f505cd7740a599f0b9edc9f52ba1e7d6624b66f258db4c0ea",
+    "expected_size_bytes": 7008716262,
+    "identity_verified_before_metadata_read_and_extraction": true,
+    "path": "/home/ruslan/Downloads/cv-corpus-24.0-2025-12-05-ru.tar.gz"
+  },
+  "candidate_state": "frozen bona-fide extraction and normal decode/QA/VAD only; no synthetic audio, acoustic review, pairing, or detector inference",
+  "claims": {
+    "acoustic_review_performed": false,
+    "audio_extraction_performed": true,
+    "detector_inference_authorized": false,
+    "detector_inference_performed": false,
+    "future_synthesis_must_use_only_ready_frozen_texts": true,
+    "synthetic_audio_generated": false,
+    "technical_decode_qa_vad_performed": true
+  },
+  "materialized_at": "2026-08-13T17:12:59+05:00",
+  "outputs": {
+    "raw_manifest": {
+      "path": "data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_raw_v1.csv",
+      "rows": 80,
+      "sha256": "5543e1e88b688cb79b4401a7ef68ba525d75321cbe98a4837bf7347867a2a9a5"
+    },
+    "ready_manifest": {
+      "path": "data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_ready_v1.csv",
+      "rows": 75,
+      "sha256": "2b183adbfcac9b1a6022dd35c2f8b6ec8f111c01b4b3364596c53aff8906192a"
+    }
+  },
+  "protocol_id": "common-voice-ru-v24-silero-v5-5-eugene-pre-qa-materialization-v1",
+  "schema_version": 1,
+  "selection": {
+    "csv": {
+      "path": "data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_selection_v1.csv",
+      "rows": 80,
+      "sha256": "73eaf22706419b275517500ebb25973510e8dcccaa94a54f45b4fe2a787f6b50"
+    },
+    "one_record_per_client_group": true,
+    "post_selection_backfill": false,
+    "receipt": {
+      "path": "data/manifests/common_voice_ru_v24_silero_v5_5_eugene_pre_qa_selection_v1.json",
+      "sha256": "a7f0a1b5c3a152c87692e5e9d7d4ac2e02b2b64d9b6933f7f79f29b4e6b6d7ad"
+    }
+  },
+  "technical_qa": {
+    "pipeline": "AudioPreparationPipeline: decode, mono PCM WAV 16 kHz, quality checks, WebRTC VAD",
+    "raw_rows": 80,
+    "ready_rows": 75,
+    "rejected_rows": [
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/common_voice_ru_v24/slices/silero_v5_5_eugene_pre_qa_v1/clips/common_voice_ru_31484806.mp3",
+        "sample_id": "common_voice_ru_v24:common_voice_ru_31484806"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/common_voice_ru_v24/slices/silero_v5_5_eugene_pre_qa_v1/clips/common_voice_ru_23930527.mp3",
+        "sample_id": "common_voice_ru_v24:common_voice_ru_23930527"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/common_voice_ru_v24/slices/silero_v5_5_eugene_pre_qa_v1/clips/common_voice_ru_29139003.mp3",
+        "sample_id": "common_voice_ru_v24:common_voice_ru_29139003"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/common_voice_ru_v24/slices/silero_v5_5_eugene_pre_qa_v1/clips/common_voice_ru_22979785.mp3",
+        "sample_id": "common_voice_ru_v24:common_voice_ru_22979785"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/common_voice_ru_v24/slices/silero_v5_5_eugene_pre_qa_v1/clips/common_voice_ru_28625655.mp3",
+        "sample_id": "common_voice_ru_v24:common_voice_ru_28625655"
+      }
+    ],
+    "replacement_or_backfill": false,
+    "reused_rows": 0
+  }
+}

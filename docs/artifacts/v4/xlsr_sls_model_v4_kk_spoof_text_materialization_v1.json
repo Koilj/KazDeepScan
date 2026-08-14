@@ -1,0 +1,53 @@
+{
+  "accounting": {
+    "route_rows": {
+      "kk-kazemotts-v1": 1800,
+      "kk-mms-kaz-v1": 1800,
+      "kk-piper-issai-high-v1": 1800,
+      "kk-sparktts-v1": 1800
+    },
+    "unique_text_hashes": 7200,
+    "unique_transcript_members": 7200,
+    "verified_transcripts": 7200
+  },
+  "bindings": {
+    "candidate_csv": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_train_candidates_v2.csv",
+      "sha256": "9a88442e32593147b07d55a13ee8ba4e97656d4deec0d6837e225c3b05436e43"
+    },
+    "ksc2_audit": {
+      "compressed_sha256": "43d1ee6725d737a438125a13997a0abde4159de84ef17d1706fe7921e8632cbe",
+      "path": "docs/artifacts/v4/ksc2_gate_a_audit_v1.json",
+      "sha256": "71c8633bdbf45aefdda4fdbaaa78acc4d32b22bc52d64a2d3926a49efcf79f32"
+    },
+    "selection_governance": {
+      "path": "docs/artifacts/v4/xlsr_sls_model_v4_train_candidate_selection_governance_v1.json",
+      "sha256": "5cb05bfa21e761258b54b28a2e1e086db18add62fa6916098cbf927d7d755ff1"
+    },
+    "source_decode_receipt": {
+      "path": "docs/artifacts/v4/xlsr_sls_model_v4_source_decode_qa_v1.json",
+      "sha256": "634416a0bd7b450ece58a0bad6b55f202ff78d9acd269648d5bfddb83864fe0d"
+    }
+  },
+  "claims": {
+    "exact_transcript_allow_list_extracted": true,
+    "full_ksc2_archive_hash_and_crc_reverified": true,
+    "new_dataset_search_performed": false,
+    "normalized_text_hashes_verified": true,
+    "synthesis_performed": false,
+    "training_authorized": false
+  },
+  "created_at": "2026-08-14T18:00:00+06:00",
+  "next_gate": "execute the separately frozen four-route v4 KK synthesis plan; retain complete success/failure accounting and do not train before audio QA",
+  "outputs": {
+    "inventory": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_text_inventory_v1.csv",
+      "rows": 7200,
+      "sha256": "f98f33d13eecc483ef3a05676e53636eb0f3e987afc10f5870041ce1889f5752"
+    },
+    "transcript_directory": "data/raw/v4/xlsr_sls_model_v4_kk_spoof_texts_v1"
+  },
+  "protocol_id": "xlsr-sls-model-v4-kk-spoof-text-materialization-v1",
+  "schema_version": 1,
+  "state": "kk_spoof_texts_verified_synthesis_pending"
+}

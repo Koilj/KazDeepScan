@@ -22,11 +22,13 @@ Python distribution metadata намеренно остаётся `0.1.0`: её �
 Source materialization извлёк `21 600` RuASD/KSC2 assets; exact raw-audio gate допустил `21 598`
 и учёл две historical TeraTTS collisions. Decode/QA/VAD и audio leakage gate заморозил по
 `5 000` RU bona-fide, RU spoof и KK bona-fide строк и принял `proceed_20k_balanced`; KK spoof
-synthesis на `5 000` ещё pending. Speaker independence и training не заявлены. Подробности:
+synthesis на `5 000` ещё pending, его `7 200` frozen KSC2 text inputs уже exact-проверены.
+Speaker independence и training не заявлены. Подробности:
 [Gate A capacity](docs/artifacts/v4/gate_a_2026-08-14.md),
 [frozen train candidates](docs/artifacts/v4/train_candidate_selection_2026-08-14.md) и
 [source raw materialization](docs/artifacts/v4/source_raw_materialization_2026-08-14.md) и
-[source decode/QA](docs/artifacts/v4/source_decode_qa_2026-08-14.md).
+[source decode/QA](docs/artifacts/v4/source_decode_qa_2026-08-14.md),
+[KK spoof texts](docs/artifacts/v4/kk_spoof_text_materialization_2026-08-14.md).
 
 Быстрый старт из clone:
 

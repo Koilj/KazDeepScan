@@ -2,7 +2,8 @@
 
 **Статус:** capacity/integrity, frozen metadata selection v2 и source decode/QA/audio-leakage
 gate завершены. Source train заморожен на `15 000` строк (`3 × 5 000`); принято
-`proceed_20k_balanced`. Следующий gate — `5 000` KK spoof через четыре train-only TTS-family.
+`proceed_20k_balanced`. Все `7 200` KK spoof texts exact-проверены; следующий gate — synthesis
+`5 000` ready rows через четыре train-only TTS-family.
 
 **Дата локального аудита:** 14 августа 2026 года.
 
@@ -205,6 +206,10 @@ Source decode/QA gate обработал все `21 598` rows, оставил `1
 historical near-hit и заморозил `15 000` source train rows (`3 × 5 000`). Exact decoded history
 и within-pool collisions равны нулю. Решение `proceed_20k_balanced`, полный accounting и hashes:
 [source decode/QA](artifacts/v4/source_decode_qa_2026-08-14.md).
+
+KK spoof text materialization повторно проверила полный KSC2 multipart archive и exact извлекла
+`7 200` unique transcripts (`4 × 1 800`, в каждой route `1 500` target + `300` reserve). Ни
+один synthetic WAV ещё не создан: [KK spoof texts](artifacts/v4/kk_spoof_text_materialization_2026-08-14.md).
 
 ## 5. Подготовка v4 data
 

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "protocol_id": "xlsr-sls-model-v4-gate-a-v1",
+  "purpose": "personal_research",
+  "inventory": {
+    "file_globs": [
+      "configs/research/**/*.json",
+      "data/licenses/**/*.csv",
+      "data/licenses/**/*.json",
+      "data/manifests/**/*.csv",
+      "data/manifests/**/*.json",
+      "artifacts/*.json",
+      "docs/**/*.md"
+    ]
+  },
+  "targets": {
+    "preferred_train_rows": 24000,
+    "minimum_train_rows": 20000,
+    "maximum_train_rows": 30000,
+    "preferred_rows_per_cell": 6000,
+    "minimum_rows_per_cell": 5000,
+    "final_rows_per_cell": 500,
+    "minimum_train_tts_families": 4
+  },
+  "sources": {
+    "ruasd": {
+      "ledger_source_id": "ruasd_ru_v1_full",
+      "catalog_path": "data/licenses/ruasd_v1_artifact_catalog.csv",
+      "raw_bonafide_record_key": "real/raw/real_speech",
+      "raw_spoof_record_key": "fake/raw/tts",
+      "excluded_subset_keys": ["real/raw/CommonVoice"],
+      "history_source_ids": ["ruasd_ru_v1_full", "ruasd_ru_v1_shard000000"]
+    },
+    "common_voice": {
+      "ledger_source_id": "common_voice_ru_v24"
+    },
+    "ksc2": {
+      "ledger_source_id": "ksc2_v1",
+      "artifact_lock_path": "data/licenses/ksc2_v1_artifact_lock.json",
+      "allowed_train_components": [
+        "Train/parliament",
+        "Train/podcasts",
+        "Train/radio",
+        "Train/talkshow",
+        "Train/tv_news"
+      ],
+      "history_source_ids": ["ksc2_v1"]
+    },
+    "tts_routes": [
+      {
+        "route_id": "kk-piper-mms-v1",
+        "ledger_source_id": "ksc_derived_kk_v1",
+        "lock_path": "configs/research/ksc_derived_kk_v1_models.json",
+        "model_root": "models/research/ksc_derived_kk_v1"
+      },
+      {
+        "route_id": "kk-kazemotts-v1",
+        "ledger_source_id": "ksc_derived_kk_v2_kazemotts",
+        "lock_path": "configs/research/kazemotts_kk_v1_models.json",
+        "model_root": "models/research/kazemotts_kk_v1"
+      },
+      {
+        "route_id": "kk-sparktts-v1",
+        "ledger_source_id": "ksc_derived_kk_v3_sparktts",
+        "lock_path": "configs/research/sparktts_kk_v1_models.json",
+        "model_root": "models/research/sparktts_kk_v1"
+      },
+      {
+        "route_id": "kk-espeakng-v1",
+        "ledger_source_id": "ksc_derived_kk_v4_espeakng",
+        "lock_path": "configs/research/espeakng_kk_v1_models.json",
+        "model_root": "models/research/espeakng_kk_v1"
+      }
+    ]
+  },
+  "claims": {
+    "local_sources_only": true,
+    "speaker_independence": "not_verified_speaker_independent",
+    "capacity_is_pre_qa": true,
+    "training_authorized_by_gate_a": false,
+    "synthesis_authorized_by_gate_a": false
+  }
+}

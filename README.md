@@ -14,10 +14,13 @@ Python distribution metadata намеренно остаётся `0.1.0`: её �
 `uv.lock` уже закреплены SHA-256 в завершённых write-once run plans. Release identity доступен
 через `kds --version`, OpenAPI и Git tag без нарушения этих historical contracts.
 
-Подготовлен только design-документ будущей расширенной research-модели v4:
-[план XLS-R+SLS v4](docs/kazdeepscan_v4_implementation_plan.md). V4 data, configs, checkpoint и
-inference ещё не создавались; первым разрешённым этапом остаётся новый local capacity/exposure
-audit.
+Реализация расширенной research-модели v4 начата по отдельному
+[плану XLS-R+SLS v4](docs/kazdeepscan_v4_implementation_plan.md). Capacity/integrity часть Gate A
+завершена с решением `proceed_24k`: exact local archives, лицензии, текущая project history и
+пять локальных KK TTS-family проверены. Это только достаточная pre-QA candidate capacity, не
+готовые 24 000 строк. Row-level часть Gate A — frozen role selection и leakage graph — ещё не
+завершена; synthesis/training не запускались. Подробный receipt:
+[v4 Gate A capacity](docs/artifacts/v4/gate_a_2026-08-14.md).
 
 Быстрый старт из clone:
 

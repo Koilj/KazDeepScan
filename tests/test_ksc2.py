@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import gzip
 import io
+import json
 import tarfile
 from pathlib import Path
 
@@ -12,6 +13,7 @@ from kds.data.ksc2 import (
     Ksc2AuditError,
     audit_ksc2_archive,
     extract_ksc2_mixed_annotation_candidates,
+    write_ksc2_audit_report,
 )
 
 
@@ -73,6 +75,46 @@ def test_ksc2_audit_streams_parts_once_and_collects_layout(tmp_path: Path) -> No
     assert report.metadata_member_examples == ("ISSAI_KSC2/Test/metadata.csv",)
     assert len(report.parts) == 10
     assert len(report.compressed_sha256) == 64
+
+
+def test_ksc2_audit_reports_part_progress(tmp_path: Path) -> None:
+    expected_sizes = _write_parts(
+        tmp_path,
+        [
+            ("ISSAI_KSC2/Test/crowdsourced/a.flac", b"flac"),
+            ("ISSAI_KSC2/Test/crowdsourced/a.txt", b"text"),
+        ],
+    )
+    events: list[tuple[int, int, str]] = []
+
+    audit_ksc2_archive(
+        tmp_path,
+        expected_sizes=expected_sizes,
+        progress_callback=lambda completed, total, name: events.append(
+            (completed, total, name)
+        ),
+    )
+
+    assert events[0] == (1, 10, f"{KSC2_ARCHIVE_BASENAME}.partaa")
+    assert events[-1] == (10, 10, f"{KSC2_ARCHIVE_BASENAME}.partaj")
+
+
+def test_ksc2_audit_report_is_atomic_and_never_overwrites(tmp_path: Path) -> None:
+    expected_sizes = _write_parts(
+        tmp_path,
+        [
+            ("ISSAI_KSC2/Test/crowdsourced/a.flac", b"flac"),
+            ("ISSAI_KSC2/Test/crowdsourced/a.txt", b"text"),
+        ],
+    )
+    audit = audit_ksc2_archive(tmp_path, expected_sizes=expected_sizes)
+    report = tmp_path / "report.json"
+
+    write_ksc2_audit_report(report, audit)
+
+    assert json.loads(report.read_text(encoding="utf-8"))["audio_files"] == 1
+    with pytest.raises(Ksc2AuditError, match="Unsafe KSC2 audit report destination"):
+        write_ksc2_audit_report(report, audit)
 
 
 def test_ksc2_audit_rejects_symlink_members(tmp_path: Path) -> None:

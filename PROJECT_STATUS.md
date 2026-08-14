@@ -11,11 +11,13 @@ product/API risk score. Raw audio и model weights не входят в Git/rele
 user-audio route возвращает только явно некалиброванный research signal.
 
 **Состояние:** текущий v1.0 Research plan завершён. XLS-R+SLS v2 и отдельная v3 ветка завершены
-на write-once research protocols.
-Будущая XLS-R+SLS model v4 пока существует только как
-[design-план](docs/kazdeepscan_v4_implementation_plan.md): её manifests, configs, checkpoint и
-final test не созданы, а exact eligible train count ещё должен быть подтверждён новым
-capacity/exposure audit.
+на write-once research protocols. Реализация XLS-R+SLS model v4 начата по отдельному
+[плану](docs/kazdeepscan_v4_implementation_plan.md). Capacity/integrity часть Gate A завершена с
+`proceed_24k`: повторно проверены exact RuASD/Common Voice/KSC2 bytes, current project history,
+лицензии и пять локальных KK TTS-family. Row-level selection/leakage часть Gate A ещё не
+завершена. Решение разрешает только frozen candidate selection; 24 000 ready rows,
+speaker-independence, synthesis, training, checkpoint и новый final ещё не заявлены. Детали и
+hashes: [v4 Gate A capacity](docs/artifacts/v4/gate_a_2026-08-14.md).
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2
@@ -47,7 +49,8 @@ RuASD TAR, неиспользуемый `ffplay` и Italian ML-DF OOD media byte
 
 Этот файл намеренно краткий. Архитектура описана в
 [KazDeepScan_implementation_blueprint.md](KazDeepScan_implementation_blueprint.md), следующие
-действия — в [План реализации.md](План%20реализации.md), детальные receipts — в `docs/`.
+действия — в [План реализации.md](План%20реализации.md), новые подробные receipts — в
+`docs/artifacts/`.
 
 ## Что готово
 

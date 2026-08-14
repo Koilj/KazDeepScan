@@ -9,9 +9,13 @@ from __future__ import annotations
 
 import gzip
 import hashlib
+import json
+import shutil
 import tarfile
+import tempfile
 from collections import Counter
-from dataclasses import dataclass
+from collections.abc import Callable
+from dataclasses import asdict, dataclass
 from pathlib import Path, PurePosixPath
 from typing import BinaryIO, cast
 
@@ -25,6 +29,7 @@ KSC2_METADATA_SUFFIXES = frozenset({".csv", ".json", ".tsv", ".yaml", ".yml"})
 KSC2_METADATA_MEMBER_EXAMPLE_LIMIT = 100
 KSC2_MIXED_ANNOTATION_COMPONENTS = frozenset({"Test/podcasts", "Test/talkshow", "Test/radio"})
 KSC2_ANNOTATION_MAX_MEMBER_BYTES = 64 * 1024 * 1024
+Ksc2AuditProgressCallback = Callable[[int, int, str], None]
 
 
 class Ksc2AuditError(ValueError):
@@ -76,7 +81,12 @@ class Ksc2AnnotationCandidate:
 class _MultipartReader:
     """Expose ordered archive parts as one read-only binary stream and hash every byte once."""
 
-    def __init__(self, parts: tuple[Path, ...]) -> None:
+    def __init__(
+        self,
+        parts: tuple[Path, ...],
+        *,
+        progress_callback: Ksc2AuditProgressCallback | None = None,
+    ) -> None:
         self._parts = parts
         self._index = 0
         self._handle: BinaryIO | None = None
@@ -84,6 +94,7 @@ class _MultipartReader:
         self._part_receipts: list[Ksc2PartReceipt] = []
         self._archive_digest = hashlib.sha256()
         self._closed = False
+        self._progress_callback = progress_callback
 
     def readable(self) -> bool:
         return True
@@ -111,6 +122,8 @@ class _MultipartReader:
                 sha256=self._current_digest.hexdigest(),
             )
         )
+        if self._progress_callback is not None:
+            self._progress_callback(len(self._part_receipts), len(self._parts), path.name)
         self._current_digest = None
 
     def read(self, size: int = -1) -> bytes:
@@ -224,7 +237,10 @@ def _logical_member_stem(path: PurePosixPath, suffix: str) -> tuple[str, bool]:
 
 
 def audit_ksc2_archive(
-    parts_directory: Path, *, expected_sizes: tuple[int, ...] = KSC2_PART_EXPECTED_SIZES
+    parts_directory: Path,
+    *,
+    expected_sizes: tuple[int, ...] = KSC2_PART_EXPECTED_SIZES,
+    progress_callback: Ksc2AuditProgressCallback | None = None,
 ) -> Ksc2ArchiveAudit:
     """Stream every part once, validate gzip/TAR structure, and return a compact receipt.
 
@@ -233,7 +249,7 @@ def audit_ksc2_archive(
     """
 
     paths = ksc2_part_paths(parts_directory, expected_sizes=expected_sizes)
-    reader = _MultipartReader(paths)
+    reader = _MultipartReader(paths, progress_callback=progress_callback)
     directories = 0
     regular_files = 0
     content_bytes = 0
@@ -305,6 +321,23 @@ def audit_ksc2_archive(
         metadata_files=metadata_files,
         metadata_member_examples=tuple(metadata_member_examples),
     )
+
+
+def write_ksc2_audit_report(path: Path, audit: Ksc2ArchiveAudit) -> None:
+    """Atomically publish a new KSC2 JSON receipt without replacing history."""
+
+    if path.exists() or not path.parent.is_dir():
+        raise Ksc2AuditError(f"Unsafe KSC2 audit report destination: {path}")
+    try:
+        with tempfile.TemporaryDirectory(prefix="kds-ksc2-report-", dir=path.parent) as stage_dir:
+            staged_path = Path(stage_dir) / path.name
+            staged_path.write_text(
+                json.dumps(asdict(audit), ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+                encoding="utf-8",
+            )
+            shutil.move(str(staged_path), path)
+    except OSError as error:
+        raise Ksc2AuditError(f"Cannot write KSC2 audit report: {path}") from error
 
 
 def _copy_member_and_hash(archive: tarfile.TarFile, member: tarfile.TarInfo, output: Path) -> str:

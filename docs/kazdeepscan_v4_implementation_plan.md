@@ -1,16 +1,18 @@
 # KazDeepScan XLS-R+SLS v4 — план реализации расширенного train
 
-**Статус:** design-only, реализация не начата.
+**Статус:** реализация начата; capacity/integrity часть Gate A завершена (`proceed_24k`),
+row-level часть Gate A не завершена.
 
 **Дата локального аудита:** 14 августа 2026 года.
 
 **Scope:** только personal research; не product model, не fraud detector и не калиброванная
 вероятность.
 
-Этот документ является единственным подробным планом v4. Он не разрешает запуск intake,
-synthesis, training или final inference и не меняет v1/v2/v3, их manifests, checkpoints,
-execution locks, reports или write-once результаты. Перед началом каждого этапа создаются новые
-versioned contracts и новые output paths.
+Этот документ является единственным подробным планом v4. Завершённый capacity/integrity preflight
+разрешает только подготовку frozen candidate selection и row-level leakage graph; это оставшаяся
+часть Gate A, без которой synthesis, training и final inference не разрешены. V1/v2/v3, их
+manifests, checkpoints, execution locks, reports и write-once результаты не меняются. Перед
+началом каждого следующего этапа создаются новые versioned contracts и новые output paths.
 
 Название `model v4` не связано с уже существующим историческим contract
 `source-mixed-research-v4-sparktts-final-test`. Чтобы не столкнуться с ним по `run_id` или путям,
@@ -52,18 +54,21 @@ leakage policy.
 
 | Источник | Подтверждённая локальная ёмкость | Решение для v4 |
 | --- | --- | --- |
-| RuASD full | `585 353` paired rows: raw `147 097` bona-fide + `228 266` spoof, augmented `104 998` + `104 992`; 250 TAR совпали с pinned catalog | Использовать только raw и только в train. Исключить augmented, всю `bonafide/CommonVoice` strata (`31 456` rows), все исторические v1/v2/v3 keys и любые неразрешимые collisions. До нового QA остаётся верхняя candidate-оценка `115 641` bona-fide + `228 266` spoof, а не готовый объём. |
-| Common Voice RU v24 | exact archive `7 008 716 262` bytes / `201 326` MP3. Исторический full-test screen оставлял `6 211` rows / `1 443` client groups; literal V5.5 gate — `5 600` / `1 337` | Новый RU final-only source. Старый screen предшествует последующим 80-row selection и 42-pair evaluation, поэтому его числа нельзя считать текущим clean count. До selection нужен новый whole-client-group exposure screen по полному project history. |
-| KSC2 | exact multipart archive `80 809 122 212` bytes / `645 860` paired FLAC; один лишний transcript исключён. В пяти новых `Test` components подтверждены `6 023` pairs. `crowdsourced` и `tts` запрещены | Основной KK bona-fide train reservoir только после нового component-level audit. Использовать nonlegacy components; legacy KSC/KazakhTTS2 lineage, historical reviewed/evaluated rows и все whole groups с overlap исключить. |
+| RuASD full | Fresh Gate A подтвердил `585 353` paired rows и SHA-256 всех 250 TAR: raw `147 097` bona-fide + `228 266` spoof, augmented `104 998` + `104 992` | Только raw/train. После исключения Common Voice strata и консервативного historical accounting pre-QA верхние оценки равны `113 649` bona-fide и `226 166` spoof; это не ready rows. |
+| Common Voice RU v24 | Fresh whole-history screen exact архива оставил `5 882` rows / `1 363` client groups | RU final-only reservoir; selection, extraction и QA ещё не выполнялись. |
+| KSC2 | Fresh Gate A подтвердил 10 exact parts, `645 860` paired FLAC и один лишний transcript. Пять разрешённых Train components содержат `202 961` пар до консервативного historical accounting | Основной KK bona-fide train reservoir. `crowdsourced`, `tts`, legacy lineage и historical collisions запрещены; текущая pre-QA верхняя оценка `202 870`, не ready rows. |
 | KSC2 mixed layer | `2 632` extracted candidates; `91` semantic decisions, `88` QA-ready; `2 541` rows остаются unknown | Не считать pending rows ни `mixed`, ни чистыми `kk`. Historical 30-pair и Stage-C rows не включать в v4 final. Mixed не входит в обязательные 24 000 RU/KK train rows и может стать только отдельным будущим layer. |
 | Explicit KK synthetic | `921` Piper/MMS + `359` KazEmoTTS + `381` Spark-TTS + `358` eSpeak NG accepted WAV, всего `2 019` по четырём family | Exact bytes уже были frozen final tests и не входят в v4 train/final по умолчанию. Проверенные model bundles можно применить к новым train-only KSC2 texts по отдельным v4 contracts. |
 | Другие synthetic RU/KK | local ToneSpeak release содержит `6 998` embedded RU MP3; отдельно сохранены accepted Silero, Dialogs-RU, Qwen, KazakhTTS, eSpeak и VoxCPM2 assets | Каждый route проходит v4 eligibility gate. Historical final/failed routes, запрет training/calibration в receipts и family exposure сохраняются. VoxCPM2 Denis route остаётся `stop_below_minimum_60` и не открывается повторно. |
 | Другие локальные bona-fide | PyAra, KSC SLR102, FLEURS RU/KK, VoxForge RU и Denis присутствуют локально и имеют versioned audits | Разрешены только как source-exclusive dev/calibration/final candidates после проверки current ledger и lineage. Новые datasets не ищутся, пока этот inventory не исчерпан. |
 
-Итог аудита: целевые `24 000` train rows реалистичны по raw capacity. Однако точное число
-**безопасно eligible** строк сейчас не сертифицировано, потому что ещё нет общего v4 exposure
-graph, fresh KSC2 train-component inventory и QA результатов. До завершения Gate A нельзя писать,
-что v4 располагает `24 000 ready` или что speaker-disjointness доказана.
+Итог capacity/integrity части Gate A: решение `proceed_24k` подтверждает достаточную локальную
+pre-QA candidate capacity. Проверены 429 versioned project-history files, 99 manifest files /
+40 942 rows с versioned дубликатами и пять exact локальных KK TTS-family. Точное число
+**безопасно eligible** строк ещё не сертифицировано: оставшаяся row-level часть Gate A должна
+построить общий leakage graph, после чего остаются decode/QA/VAD. Нельзя писать, что v4 уже
+располагает `24 000 ready` или что speaker-disjointness доказана. Канонический подробный
+результат: [v4 Gate A capacity](artifacts/v4/gate_a_2026-08-14.md).
 
 Требование использовать локальные synthetic выполняется без подмены ролей: unexposed RuASD и
 ToneSpeak assets могут стать train candidates, а hash-pinned KK TTS bundles — создать fresh
@@ -306,15 +311,16 @@ cleanup выполняется отдельным docs-only этапом до v4
 разделить source lineage, неполном rejection accounting, неизвестном overwrite, попадании final
 data в tuning, несоответствии hash или попытке повторить write-once run.
 
-## 11. Что не сделано этим документом
+## 11. Текущий незавершённый scope
 
-- не созданы v4 manifests/configs/checkpoint/directories;
+- создан отдельный Gate A config и versioned receipts, но train/dev/calibration/final manifests
+  и checkpoint ещё не созданы;
 - не извлечён и не изменён ни один audio asset;
 - не запускались synthesis, QA, training, calibration или inference;
 - не изменены v1/v2/v3 и существующие immutable receipts;
 - не искались и не скачивались новые datasets/models;
-- `24 000 ready` не заявлены: подтверждена только достаточная raw candidate capacity.
+- `24 000 ready` не заявлены: подтверждена только достаточная pre-QA candidate capacity.
 
-Первый безопасный практический шаг после отдельного разрешения на реализацию — только Gate A:
-новый read-only local capacity/exposure audit с versioned receipt. До его завершения нельзя
-создавать v4 split или synthetic WAV.
+Следующий безопасный шаг — завершить row-level часть Gate A: заморозить source roles, quotas,
+seeds и reserve order, построить canonical leakage graph и опубликовать candidate/rejection
+accounting. До её завершения нельзя создавать synthetic WAV или начинать training.

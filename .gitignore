@@ -25,6 +25,9 @@ data/augment_cache/
 /models/
 checkpoints/
 artifacts/
+# Versioned text/JSON research receipts live here; generated run outputs stay ignored above.
+!docs/artifacts/
+!docs/artifacts/**
 *.wav
 *.flac
 *.mp3

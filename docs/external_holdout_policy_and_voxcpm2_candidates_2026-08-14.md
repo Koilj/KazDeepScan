@@ -1,9 +1,10 @@
 # Evidence tiers and VoxCPM2 holdout candidates — 14 августа 2026
 
-**Статус:** policy, Denis 1.0 source intake/exposure и official VoxCPM2
-artifact/source/project-history gates завершены. Runtime environment/CUDA smoke, frozen
-selection, synthesis и detector inference не выполнялись. Denis archive и VoxCPM2 model/source
-bytes проверены вне Git; MCSKL и VoxCPM2-KZ-Darwin локально не загружались.
+**Статус:** policy, Denis 1.0 source intake/current exposure/frozen selection/bona-fide QA/VAD и
+official VoxCPM2 artifact/source/project-history/runtime/CUDA-smoke gates завершены. Denis QA
+оставил minimum layer `64/79` без backfill. Candidate synthesis и detector inference не
+выполнялись. Denis archive и VoxCPM2 model/source bytes проверены вне Git; MCSKL и
+VoxCPM2-KZ-Darwin локально не загружались.
 
 **Scope:** personal research. Ранее выполненные write-once runs, их manifests, reports, hashes и
 запреты на повтор остаются неизменными.
@@ -97,8 +98,8 @@ download `1764973737766-ru_RU-denis.tar.gz` имеет `109,594,943` bytes и SH
 `75e2c63c5082df7623c6a98c529718b22015dfbd2d38a1ea328635f4dd4ccf9b`. Он содержит `1,150`
 exact unique UTF-8 text/audio pairs; все `1,150` payloads полностью декодируются как 48-kHz
 stereo Ogg/Opus, хотя members имеют `.webm` suffix. Decoded duration — `6,719.465` s; `1,143`
-rows имеют duration `>=2.5` s до VAD/acoustic QA. Source gate поэтому подтверждает feasibility
-minimum `60` и target `79`, но ещё не ready-candidate status.
+rows имеют duration `>=2.5` s до VAD/acoustic QA. На source-gate этапе это подтверждало только
+feasibility minimum `60` и target `79`; последующий frozen QA/VAD оставил `64` ready rows.
 
 ### Историческая speaker-lineage экспозиция
 
@@ -148,9 +149,9 @@ Denis/OHF material в training data; Apache-2.0 weights/code license сама п
 
 ## 6. Решение по Denis 1.0 × official VoxCPM2
 
-**Source и VoxCPM2 artifact/source/project-history gates пройдены; route принят для следующего
-изолированного runtime/CUDA smoke уровня external holdout.** Exact source sample/audio/text
-overlap равен нулю по `34` configs и `95` manifest files; отдельный history screen проверил
+**Source, VoxCPM2 artifact/source/project-history/runtime/smoke и Denis selection/QA gates
+пройдены для minimum external-holdout layer.** Exact source sample/audio/text overlap равен нулю
+по current pre-selection scope `35` configs и `95` manifest files; history screen проверил
 `40,682` rows / `19,001` spoof rows и нашёл `0` VoxCPM rows. Generator family новый, но
 historical speaker-lineage ограничение остаётся. Если runtime и последующие gates пройдут,
 допустимая маркировка результата:
@@ -160,9 +161,9 @@ historical speaker-lineage ограничение остаётся. Если run
 > speaker; not speaker-robust or speaker-independent; personal research only.
 
 Это полезнее ещё одного exact-route test на Common Voice/VoxForge и historical TTS family, но не
-закрывает основной independent/speaker-robust evidence gap. Artifact gate сам по себе не
-разрешает candidate selection, synthesis или detector inference; разрешён только следующий
-отдельно закреплённый non-candidate smoke.
+закрывает основной independent/speaker-robust evidence gap. Последующие smoke, Denis selection
+и bona-fide QA/VAD выполнены отдельными write-once gates. Synthetic generation и detector
+inference по-прежнему не разрешены.
 
 ## 7. MCSKL × VoxCPM2-KZ-Darwin
 
@@ -213,10 +214,9 @@ sensitivity/source-diversity test**, а не вторым новым generator-f
    bytes/SHA-256 закреплены несмотря на отличие browser/source-card filenames.
 2. **Завершено:** read-only intake проверил gzip/TAR safety, `1,150` text/audio bindings, полный
    decode, derived duration, rights limitations и feasibility `60/79`.
-3. **Завершено:** source-wide sample/audio/three-text-hash screen дал zero direct overlap;
-   historical lineage receipt уточнил `12` unique Piper Denis samples. Selection, VAD и acoustic
-   QA ещё не выполнены; если после них меньше `60` строк — stop без backfill, `60–78` допустимы
-   только как minimum layer, `79+` позволяют frozen target `79` без speaker-robust claim.
+3. **Завершено:** current source-wide sample/audio/three-text-hash screen v2 дал zero direct
+   overlap по `35` configs / `95` manifests; historical lineage осталась `12` unique Piper Denis
+   samples. Frozen metadata target содержит ровно `79` rows с category balance `27/26/26`.
 4. **Завершено:** official VoxCPM2 model revision и source commit, `9` model files, source TAR,
    safetensors, AudioVAE weights-only load, tokenizer/source code, narrow wrapper и historical
    generator-family exposure закреплены.
@@ -224,6 +224,9 @@ sensitivity/source-diversity test**, а не вторым новым generator-f
    versioned как pre-generation failure без WAV, после correction ровно один actual non-candidate
    CUDA smoke дал `48 kHz` mono output при `0` network attempts и null/false forbidden controls.
    Smoke не повторять.
-6. Следующим отдельным contract заморозить Denis metadata selection/buffer и выполнить
-   bona-fide decode/QA/VAD без backfill. Candidate synthesis и write-once evaluation требуют
-   новых последующих contracts.
+6. **Завершено:** exact extraction и normal decode/QA/VAD оставили `64/79` ready rows; все `15`
+   rejects — `insufficient_speech`, reuse/replacement/backfill `0/false/false`. Target 79 не
+   достигнут, но заранее установленный minimum 60 пройден.
+7. Следующим отдельным contract закрепить literal/canonical binding и one-shot VoxCPM2 synthesis
+   только для 64 ready texts. Detector inference требует последующих synthetic QA, exact pair
+   lock, двух independent reviews, current exposure audit и write-once evaluation contract.

@@ -1,8 +1,9 @@
 # Official OpenBMB VoxCPM2 — artifact/source/runtime gate, 14 августа 2026
 
 **Статус:** exact model/source artifacts, project-history novelty, isolated runtime и один
-non-candidate CUDA text-only smoke завершены. Candidate selection/synthesis и detector inference
-не выполнялись; smoke повторять запрещено.
+non-candidate CUDA text-only smoke завершены. Denis frozen metadata selection и bona-fide QA/VAD
+также завершены (`64/79` ready, no backfill); candidate synthesis и detector inference не
+выполнялись, smoke повторять запрещено.
 
 **Допустимая будущая роль:** personal-research external source/generator-family holdout для
 Denis 1.0. Это не подтверждает отсутствие Denis/аналогичных записей в training data модели,
@@ -127,7 +128,8 @@ listening, Russian-intelligibility, acoustic-quality или identity evidence.
 Artifact/source/history/runtime/smoke gate **пройден**. Старое предположение `Python <3.13`
 удалено: exact source требует `>=3.10`, а фактический runtime закреплён на `3.12.13`.
 
-Следующий безопасный этап — отдельный frozen Denis metadata selection contract: target `79`,
-предварительный buffer без model/audio-quality selection, category balancing и literal/canonical
-text binding до materialization. Затем bona-fide decode/QA/VAD без backfill. Candidate TTS
-synthesis и detector inference всё ещё запрещены.
+Denis metadata selection уже заморожен: target `79`, category balance `27/26/26`, ranking без
+duration/audio-quality/model signals. Bona-fide decode/QA/VAD оставил `64` ready rows и `15`
+`insufficient_speech` rejects без backfill. Следующий безопасный этап — отдельный immutable
+64-row literal/canonical text-binding и one-shot synthesis contract. Candidate TTS до contract и
+detector inference до synthetic QA/pair/review/exposure/evaluation gates запрещены.

@@ -130,7 +130,7 @@ checkpoint и строго ограниченный evaluation-контур:
   `TTS training-data overlap unverified` и same-family sensitivity test. Минимум снижен до `60`
   готовых пар при цели `79`; cloning-capable TTS допустим только в offline text-only default
   voice contract без reference/prompt audio, normalizer, denoiser и retry. Denis 1.0 source
-  intake/exposure screen пройден: `1,150` exact pairs, `1,143` rows `>=2.5` s и zero direct
+  intake/current exposure screen пройден: `1,150` exact pairs, `1,143` rows `>=2.5` s и zero direct
   sample/audio/text overlap. Но source single-speaker и likely speaker-lineage exposed через `12`
   unique historical `ru_RU-denis-medium` samples (`11` train, `1` dev). Official VoxCPM2
   artifact/source/history gate также пройден: exact `9` model files / `4,960,731,703` bytes,
@@ -139,9 +139,12 @@ checkpoint и строго ограниченный evaluation-контур:
   generator family. Isolated Python 3.12 frozen-lock runtime и единственный non-candidate CUDA
   smoke также завершены: one actual call, `0` network attempts, no reference/prompt audio,
   normalizer, denoiser или retry; output `48 kHz` mono. Предшествующий duplicate-`streaming`
-  interface failure зафиксирован и произошёл до generation/WAV. Training-data overlap остаётся
-  unverified; следующий gate — frozen Denis metadata selection и bona-fide QA/VAD без backfill;
-  MCSKL/VoxCPM2-KZ-Darwin остаётся blocked review и после RU route считается той же family;
+  interface failure зафиксирован и произошёл до generation/WAV. Frozen Denis metadata selection
+  затем закрепил target `79` с category balance `27/26/26`; normal bona-fide QA/VAD оставил
+  minimum layer `64` и отклонил `15` `insufficient_speech` rows без backfill. Training-data
+  overlap остаётся unverified; следующий gate — отдельный 64-row literal/canonical binding и
+  one-shot synthesis contract. MCSKL/VoxCPM2-KZ-Darwin остаётся blocked review и после RU route
+  считается той же family;
 - FastAPI health/readiness/upload scaffold, который не выдаёт score без обученного,
   калиброванного model release.
 
@@ -466,6 +469,8 @@ quality.
 Политика силы будущих доказательств, проверка Denis/VoxCPM2 и условный MCSKL/KZ route описаны в
 [external holdout policy/source review](docs/external_holdout_policy_and_voxcpm2_candidates_2026-08-14.md).
 Завершённый exact Denis archive/source-exposure intake и ограничения speaker lineage
-зафиксированы в [source receipt](docs/data_sources_denis_1_0_mdc_2026-08-14.md), а exact
+зафиксированы в [source receipt](docs/data_sources_denis_1_0_mdc_2026-08-14.md), frozen 79-row
+selection и `64/79` bona-fide QA/VAD — в
+[materialization receipt](docs/denis_1_0_mdc_pre_qa_materialization_v1.md), а exact
 VoxCPM2 artifact/source/history gate — в
 [model/source receipt](docs/data_sources_voxcpm2_official_2026-08-14.md).

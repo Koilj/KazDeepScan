@@ -1,0 +1,82 @@
+{
+  "archive": {
+    "expected_sha256": "75e2c63c5082df7623c6a98c529718b22015dfbd2d38a1ea328635f4dd4ccf9b",
+    "expected_size_bytes": 109594943,
+    "identity_verified_before_selection": true
+  },
+  "candidate_state": "immutable metadata-only target selection; no disk extraction, audio-quality selection, QA/VAD, synthesis, acoustic review, pairing, or detector inference",
+  "claims": {
+    "acoustic_review_performed": false,
+    "audio_extraction_performed": false,
+    "detector_inference_authorized": false,
+    "detector_inference_performed": false,
+    "external_human_source_holdout": true,
+    "future_extraction_must_use_only_selected_source_members": true,
+    "pairing_performed": false,
+    "qa_rejects_must_not_trigger_replacement_or_backfill": true,
+    "selection_frozen": true,
+    "single_speaker": true,
+    "source_exposure_screen_required": true,
+    "speaker_independent": false,
+    "synthetic_audio_generated": false,
+    "technical_decode_qa_vad_performed": false,
+    "training_data_overlap_unverified": true
+  },
+  "inputs": {
+    "source_audit_receipt": {
+      "path": "data/licenses/denis_1_0_mdc_artifact_audit_receipt.json",
+      "sha256": "bcc4e0852b0ebeab0e0ba33f0e3ee5b11903f399a62c5442614686f5b47b489b"
+    },
+    "source_exposure_screen": {
+      "path": "data/manifests/denis_1_0_mdc_source_exposure_screen_v2.json",
+      "sha256": "d140918a60d437f41d209b57803058179bb1d8cfd7ae8e7db217788d0b9841cb"
+    }
+  },
+  "output_selection": {
+    "path": "data/manifests/denis_1_0_mdc_pre_qa_selection_v1.csv",
+    "rows": 79,
+    "sha256": "04f927ac2e85d27c098e931ff08bdd9a0c086aa24e599611a687d695e60418f7"
+  },
+  "protocol_id": "denis-1-0-mdc-pre-qa-selection-v1",
+  "schema_version": 1,
+  "selected_at": "2026-08-14T07:02:30+05:00",
+  "selected_entries_fingerprint_sha256": "790947848dbe50c3b1c4623b8cbf6de78fcbcf1f4ceaec3ad9146f6b5a1ea96c",
+  "selection_policy": {
+    "category_order": [
+      "0000000001_0300000050_General",
+      "4000000001_4000000300_CustomerService",
+      "3000000001_3000000300_Chat"
+    ],
+    "category_ranking": "ascending SHA-256(seed + NUL + 'category' + NUL + category), then category",
+    "interleave": "one ranked row per seeded category order per round",
+    "kind": "seeded_category_balanced_round_robin",
+    "literal_and_canonical_text_hashes_bound_before_materialization": true,
+    "post_selection_replacement_or_backfill": false,
+    "record_ranking": "within each category, ascending SHA-256(seed + NUL + 'record-in-category:' + category + NUL + sample_id), then sample_id",
+    "requested_records": 79,
+    "selected_category_counts": {
+      "0000000001_0300000050_General": 27,
+      "3000000001_3000000300_Chat": 26,
+      "4000000001_4000000300_CustomerService": 26
+    },
+    "selected_records": 79,
+    "selected_speaker_groups": 1,
+    "selection_seed": "2026-08-14-denis-1-0-mdc-pre-qa-candidate-v1",
+    "selection_uses_audio_or_duration": false,
+    "selection_uses_audio_quality_or_vad": false,
+    "selection_uses_detector_or_model_output": false,
+    "selection_uses_model_metrics_or_final_errors": false,
+    "single_source_speaker_group_retained_for_every_row": true,
+    "target_pairs": 79
+  },
+  "survivor_pool": {
+    "source_categories": {
+      "0000000001_0300000050_General": 550,
+      "3000000001_3000000300_Chat": 300,
+      "4000000001_4000000300_CustomerService": 300
+    },
+    "source_id": "denis_1_0_mdc",
+    "source_records": 1150,
+    "source_speaker_groups": 1
+  }
+}

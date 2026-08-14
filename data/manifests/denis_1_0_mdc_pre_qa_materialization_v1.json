@@ -1,0 +1,189 @@
+{
+  "archive": {
+    "decoded_container_and_codec": "Ogg/Opus",
+    "expected_sha256": "75e2c63c5082df7623c6a98c529718b22015dfbd2d38a1ea328635f4dd4ccf9b",
+    "expected_size_bytes": 109594943,
+    "identity_verified_before_extraction": true,
+    "source_member_suffix": ".webm"
+  },
+  "candidate_state": "frozen bona-fide source extraction and normal decode/QA/VAD only; no synthesis, acoustic review, pairing, or detector inference",
+  "claims": {
+    "acoustic_review_performed": false,
+    "audio_extraction_performed": true,
+    "detector_inference_authorized": false,
+    "detector_inference_performed": false,
+    "external_human_source_holdout": true,
+    "future_synthesis_must_use_only_ready_frozen_texts": true,
+    "generator_family_holdout_pending_candidate_synthesis": true,
+    "pairing_performed": false,
+    "single_speaker": true,
+    "speaker_independent": false,
+    "speaker_robust": false,
+    "synthetic_audio_generated": false,
+    "technical_decode_qa_vad_performed": true,
+    "training_data_overlap_unverified": true
+  },
+  "materialized_at": "2026-08-14T07:05:00+05:00",
+  "outputs": {
+    "raw_manifest": {
+      "path": "data/manifests/denis_1_0_mdc_pre_qa_raw_v1.csv",
+      "rows": 79,
+      "sha256": "055be5875ad590b71be850308f73b813da9bd802156a2ae76c2125375dc4ed20"
+    },
+    "ready_manifest": {
+      "path": "data/manifests/denis_1_0_mdc_pre_qa_ready_v1.csv",
+      "rows": 64,
+      "sha256": "ae71cca7dcc2854cccca67565f81a0696acc665a6648b9889f5d9abd267891d8"
+    }
+  },
+  "protocol_id": "denis-1-0-mdc-pre-qa-materialization-v1",
+  "schema_version": 1,
+  "selection": {
+    "csv": {
+      "path": "data/manifests/denis_1_0_mdc_pre_qa_selection_v1.csv",
+      "rows": 79,
+      "sha256": "04f927ac2e85d27c098e931ff08bdd9a0c086aa24e599611a687d695e60418f7"
+    },
+    "post_selection_replacement_or_backfill": false,
+    "receipt": {
+      "path": "data/manifests/denis_1_0_mdc_pre_qa_selection_v1.json",
+      "sha256": "5e9dd93290eece14f738cab06e665d61a47d0e79cb5e1730198574471b2fc37c"
+    },
+    "single_speaker_group": "denis_1_0_mdc:speaker:single",
+    "target_pairs": 79
+  },
+  "target_outcome": {
+    "actual_ready_pairs": 64,
+    "minimum_ready_pairs": 60,
+    "status": "minimum_60_met_but_target_not_met",
+    "target_ready_pairs": 79
+  },
+  "technical_qa": {
+    "pipeline": "AudioPreparationPipeline: ffprobe/ffmpeg decode, mono PCM-16 WAV 16 kHz, RMS/clipping/DC measurement, WebRTC VAD",
+    "raw_rows": 79,
+    "ready_by_category": {
+      "0000000001_0300000050_General": 23,
+      "3000000001_3000000300_Chat": 17,
+      "4000000001_4000000300_CustomerService": 24
+    },
+    "ready_rows": 64,
+    "rejected_by_category": {
+      "0000000001_0300000050_General": 4,
+      "3000000001_3000000300_Chat": 9,
+      "4000000001_4000000300_CustomerService": 2
+    },
+    "rejected_rows": 15,
+    "rejection_reason_counts": {
+      "insufficient_speech": 15
+    },
+    "rejections": [
+      {
+        "category": "0000000001_0300000050_General",
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "reason": "insufficient_speech",
+        "relative_path": "raw/denis_1_0_mdc_pre_qa_v1/denis_ru_010.webm",
+        "sample_id": "denis_1_0_mdc:0000000001_0300000050_General/0100000002"
+      },
+      {
+        "category": "3000000001_3000000300_Chat",
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "reason": "insufficient_speech",
+        "relative_path": "raw/denis_1_0_mdc_pre_qa_v1/denis_ru_015.webm",
+        "sample_id": "denis_1_0_mdc:3000000001_3000000300_Chat/3000000200"
+      },
+      {
+        "category": "3000000001_3000000300_Chat",
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "reason": "insufficient_speech",
+        "relative_path": "raw/denis_1_0_mdc_pre_qa_v1/denis_ru_018.webm",
+        "sample_id": "denis_1_0_mdc:3000000001_3000000300_Chat/3000000197"
+      },
+      {
+        "category": "3000000001_3000000300_Chat",
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "reason": "insufficient_speech",
+        "relative_path": "raw/denis_1_0_mdc_pre_qa_v1/denis_ru_030.webm",
+        "sample_id": "denis_1_0_mdc:3000000001_3000000300_Chat/3000000289"
+      },
+      {
+        "category": "4000000001_4000000300_CustomerService",
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "reason": "insufficient_speech",
+        "relative_path": "raw/denis_1_0_mdc_pre_qa_v1/denis_ru_041.webm",
+        "sample_id": "denis_1_0_mdc:4000000001_4000000300_CustomerService/4000000236"
+      },
+      {
+        "category": "3000000001_3000000300_Chat",
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "reason": "insufficient_speech",
+        "relative_path": "raw/denis_1_0_mdc_pre_qa_v1/denis_ru_048.webm",
+        "sample_id": "denis_1_0_mdc:3000000001_3000000300_Chat/3000000033"
+      },
+      {
+        "category": "3000000001_3000000300_Chat",
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "reason": "insufficient_speech",
+        "relative_path": "raw/denis_1_0_mdc_pre_qa_v1/denis_ru_051.webm",
+        "sample_id": "denis_1_0_mdc:3000000001_3000000300_Chat/3000000184"
+      },
+      {
+        "category": "4000000001_4000000300_CustomerService",
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "reason": "insufficient_speech",
+        "relative_path": "raw/denis_1_0_mdc_pre_qa_v1/denis_ru_056.webm",
+        "sample_id": "denis_1_0_mdc:4000000001_4000000300_CustomerService/4000000283"
+      },
+      {
+        "category": "3000000001_3000000300_Chat",
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "reason": "insufficient_speech",
+        "relative_path": "raw/denis_1_0_mdc_pre_qa_v1/denis_ru_057.webm",
+        "sample_id": "denis_1_0_mdc:3000000001_3000000300_Chat/3000000005"
+      },
+      {
+        "category": "0000000001_0300000050_General",
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "reason": "insufficient_speech",
+        "relative_path": "raw/denis_1_0_mdc_pre_qa_v1/denis_ru_058.webm",
+        "sample_id": "denis_1_0_mdc:0000000001_0300000050_General/0100000030"
+      },
+      {
+        "category": "3000000001_3000000300_Chat",
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "reason": "insufficient_speech",
+        "relative_path": "raw/denis_1_0_mdc_pre_qa_v1/denis_ru_063.webm",
+        "sample_id": "denis_1_0_mdc:3000000001_3000000300_Chat/3000000047"
+      },
+      {
+        "category": "0000000001_0300000050_General",
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "reason": "insufficient_speech",
+        "relative_path": "raw/denis_1_0_mdc_pre_qa_v1/denis_ru_064.webm",
+        "sample_id": "denis_1_0_mdc:0000000001_0300000050_General/0100000015"
+      },
+      {
+        "category": "3000000001_3000000300_Chat",
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "reason": "insufficient_speech",
+        "relative_path": "raw/denis_1_0_mdc_pre_qa_v1/denis_ru_075.webm",
+        "sample_id": "denis_1_0_mdc:3000000001_3000000300_Chat/3000000081"
+      },
+      {
+        "category": "3000000001_3000000300_Chat",
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "reason": "insufficient_speech",
+        "relative_path": "raw/denis_1_0_mdc_pre_qa_v1/denis_ru_078.webm",
+        "sample_id": "denis_1_0_mdc:3000000001_3000000300_Chat/3000000193"
+      },
+      {
+        "category": "0000000001_0300000050_General",
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "reason": "insufficient_speech",
+        "relative_path": "raw/denis_1_0_mdc_pre_qa_v1/denis_ru_079.webm",
+        "sample_id": "denis_1_0_mdc:0000000001_0300000050_General/0100000062"
+      }
+    ],
+    "replacement_or_backfill": false,
+    "reused_rows": 0
+  }
+}

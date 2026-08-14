@@ -14,9 +14,10 @@ test; результаты не source-, speaker- или architecture-family-ind
 
 Для будущих unevaluated layers принят трёхуровневый evidence policy: основной независимый слой,
 external source/generator-family holdout с непроверенным TTS training-data overlap и same-family
-sensitivity test. Denis source intake/exposure и official VoxCPM2 artifact/source/history/runtime
-gates вместе с одним non-candidate CUDA smoke завершены; это ещё не paired candidate, candidate
-synthesis или detector inference result.
+sensitivity test. Denis source/current-exposure/frozen-selection/bona-fide-QA и official VoxCPM2
+artifact/source/history/runtime gates вместе с одним non-candidate CUDA smoke завершены. Denis
+оставил minimum `64/79` ready layer без backfill; это ещё не paired candidate, candidate synthesis
+или detector inference result.
 
 Этот файл намеренно краткий. Архитектура описана в
 [KazDeepScan_implementation_blueprint.md](KazDeepScan_implementation_blueprint.md), следующие
@@ -31,13 +32,16 @@ synthesis или detector inference result.
   mutable-ledger строки загружаются без обрезания comma-containing `notes`, frozen snapshots
   не изменены.
 - Source-specific intake и аудиты RU/KK/mixed datasets; raw audio и weights исключены из Git.
-- Denis 1.0 read-only source intake/exposure screen завершён без disk extraction, synthesis или
-  inference: exact archive `109,594,943` bytes / SHA-256 `75e2c6…ccf9b`, `1,150` paired unique
+- Denis 1.0 source intake/current pre-selection exposure завершены: exact archive `109,594,943`
+  bytes / SHA-256 `75e2c6…ccf9b`, `1,150` paired unique
   texts/audio, `1,150` complete Ogg/Opus decodes и `1,143` rows `>=2.5` s. Direct sample/audio/
-  three-text-hash overlap равен нулю по `34` configs и `95` manifest files. Human source новый,
+  three-text-hash overlap равен нулю по `35` configs и `95` manifest files. Human source новый,
   но corpus single-speaker, а `12` unique historical `ru_RU-denis-medium` samples (`11` train,
   `1` dev) делают speaker lineage likely exposed. Route остаётся external holdout с
-  `TTS training-data overlap unverified`, не speaker-independent/robust evidence.
+  `TTS training-data overlap unverified`, не speaker-independent/robust evidence. Metadata-only
+  target заморозил `79` exact rows с category balance `27/26/26`; decode/QA/VAD оставил `64`
+  ready (`23/17/24`) и `15` `insufficient_speech` rejects (`4/9/2`) без reuse/replacement/
+  backfill. Minimum 60 пройден, target 79 не достигнут.
   Official OpenBMB VoxCPM2 exact model revision `bffb3d…` и source commit `ee8161…` закреплены:
   `9` files / `4,960,731,703` bytes, `577` contiguous BF16 safetensors tensors, `316`-member
   AudioVAE ZIP и `312`-tensor weights-only state, tokenizer/source safety pass. History screen
@@ -282,11 +286,13 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
    immutable contract, preflight, execution lock и report без изменений. Не повторять inference,
    не использовать 12 final errors для tuning/replacement и не использовать UtrobinTTS как
    backfill. Новый research layer требует genuinely new source/route и отдельный contract.
-4. Denis source и official VoxCPM2 artifact/source/history/runtime/smoke gates завершены:
+4. Denis source/current-exposure/selection/QA и official VoxCPM2 artifact/source/history/runtime/
+   smoke gates завершены:
    сохранить exact hashes, pre-inference failure, one-shot smoke receipt, likely speaker-lineage
-   и unverified TTS-training-overlap disclosures без изменений; smoke не повторять. Следующим
-   подготовить только frozen Denis metadata selection и bona-fide QA/VAD без backfill. Candidate
-   synthesis/detector inference пока не выполнять.
+   и unverified TTS-training-overlap disclosures без изменений; smoke не повторять. Exact 79-row
+   selection, 64 ready rows и 15 rejects не менять и не backfill. Следующим подготовить отдельный
+   64-row literal/canonical binding и one-shot synthesis contract; synthesis до contract и
+   detector inference до последующих gates не выполнять.
 5. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 
@@ -297,6 +303,10 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - Ruff: успешно.
 - mypy: успешно.
 - pytest: успешно.
+- Denis pre-QA: current exposure v2 SHA-256 `d140918a60d437f41d209b57803058179bb1d8cfd7ae8e7db217788d0b9841cb`;
+  selection/materialization receipts SHA-256 `5e9dd93290eece14f738cab06e665d61a47d0e79cb5e1730198574471b2fc37c` /
+  `c36fc8bcc60c16d5d2493c4bf8b77719f32ca3d9da9ba15d51054b9ee16d5386`; exact asset
+  validation `79/79` raw и `64/64` ready.
 - Final preflight: 3 991 asset bindings.
 - Stage-C preflight: 1 310 asset bindings; один GPU inference run, `334` exact final predictions.
 - Stage-D preflight: 1 086 asset bindings; один GPU inference run, `110` exact final predictions.
@@ -367,4 +377,5 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [License-ledger snapshots](docs/license_ledger_snapshots.md)
 - [External holdout policy и VoxCPM2 candidate review](docs/external_holdout_policy_and_voxcpm2_candidates_2026-08-14.md)
 - [Denis 1.0 source intake и exposure screen](docs/data_sources_denis_1_0_mdc_2026-08-14.md)
+- [Denis frozen selection и bona-fide QA/VAD](docs/denis_1_0_mdc_pre_qa_materialization_v1.md)
 - [Official OpenBMB VoxCPM2 artifact/source/history gate](docs/data_sources_voxcpm2_official_2026-08-14.md)

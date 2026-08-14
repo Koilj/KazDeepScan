@@ -13,6 +13,7 @@ import json
 import shutil
 import tarfile
 import tempfile
+import unicodedata
 from collections import Counter
 from collections.abc import Callable
 from dataclasses import asdict, dataclass
@@ -76,6 +77,18 @@ class Ksc2AnnotationCandidate:
     audio_sha256: str
     transcript: str
     transcript_sha256: str
+
+
+@dataclass(frozen=True, slots=True)
+class Ksc2TextCandidate:
+    """One exact paired KSC2 member with text identities but no extracted audio."""
+
+    candidate_id: str
+    component: str
+    archive_audio_member: str
+    archive_transcript_member: str
+    transcript_sha256: str
+    canonical_text_sha256: str
 
 
 class _MultipartReader:
@@ -338,6 +351,116 @@ def write_ksc2_audit_report(path: Path, audit: Ksc2ArchiveAudit) -> None:
             shutil.move(str(staged_path), path)
     except OSError as error:
         raise Ksc2AuditError(f"Cannot write KSC2 audit report: {path}") from error
+
+
+def scan_ksc2_text_candidates(
+    parts_directory: Path,
+    *,
+    allowed_components: frozenset[str],
+    expected_compressed_sha256: str,
+    expected_sizes: tuple[int, ...] = KSC2_PART_EXPECTED_SIZES,
+    progress_callback: Ksc2AuditProgressCallback | None = None,
+) -> tuple[Ksc2TextCandidate, ...]:
+    """Read exact paired text identities for selected components without extracting audio."""
+
+    if not allowed_components or any(
+        not component.startswith("Train/")
+        or component.endswith("/crowdsourced")
+        or component.endswith("/tts")
+        for component in allowed_components
+    ):
+        raise Ksc2AuditError("KSC2 text scan requires explicit nonlegacy Train components.")
+    expected_hash = expected_compressed_sha256.lower()
+    if len(expected_hash) != 64 or any(
+        character not in "0123456789abcdef" for character in expected_hash
+    ):
+        raise Ksc2AuditError("KSC2 text scan expected SHA-256 is invalid.")
+    paths = ksc2_part_paths(parts_directory, expected_sizes=expected_sizes)
+    reader = _MultipartReader(paths, progress_callback=progress_callback)
+    audio_by_stem: dict[str, tuple[str, str]] = {}
+    text_by_stem: dict[str, tuple[str, str, str]] = {}
+    try:
+        with gzip.GzipFile(fileobj=cast(BinaryIO, reader), mode="rb") as gzip_stream:
+            with tarfile.open(fileobj=gzip_stream, mode="r|") as archive:
+                for member in archive:
+                    path = _safe_member_path(member)
+                    if member.isdir():
+                        continue
+                    if not member.isfile():
+                        raise Ksc2AuditError(
+                            f"KSC2 archive contains an unsupported member type: {member.name!r}."
+                        )
+                    component = _component_name(path)
+                    if component not in allowed_components:
+                        continue
+                    extension = path.suffix.lower()
+                    if extension in KSC2_AUDIO_SUFFIXES:
+                        logical_stem, _repeated = _logical_member_stem(path, extension)
+                        if logical_stem in audio_by_stem:
+                            raise Ksc2AuditError(
+                                f"Duplicate KSC2 selected audio member: {logical_stem!r}."
+                            )
+                        audio_by_stem[logical_stem] = (component, path.as_posix())
+                    elif extension == KSC2_TRANSCRIPT_SUFFIX:
+                        logical_stem, _repeated = _logical_member_stem(
+                            path, KSC2_TRANSCRIPT_SUFFIX
+                        )
+                        if logical_stem in text_by_stem:
+                            raise Ksc2AuditError(
+                                f"Duplicate KSC2 selected transcript member: {logical_stem!r}."
+                            )
+                        transcript, transcript_sha256 = _read_text_member_and_hash(
+                            archive, member
+                        )
+                        canonical_text = " ".join(
+                            unicodedata.normalize("NFKC", transcript).split()
+                        )
+                        if not canonical_text:
+                            raise Ksc2AuditError(
+                                f"KSC2 selected transcript is empty: {member.name!r}."
+                            )
+                        text_by_stem[logical_stem] = (
+                            path.as_posix(),
+                            transcript_sha256,
+                            hashlib.sha256(canonical_text.encode("utf-8")).hexdigest(),
+                        )
+        # Reaching gzip EOF verifies the stream CRC.
+    except (OSError, EOFError, gzip.BadGzipFile, tarfile.TarError) as error:
+        raise Ksc2AuditError(f"KSC2 selected-text scan failed: {error}") from error
+    finally:
+        reader.close()
+    if len(reader.part_receipts) != len(paths) or reader.compressed_sha256 != expected_hash:
+        raise Ksc2AuditError("KSC2 selected-text scan did not verify the exact full archive.")
+    audio_stems = set(audio_by_stem)
+    text_stems = set(text_by_stem)
+    audio_only = audio_stems.difference(text_stems)
+    text_only = text_stems.difference(audio_stems)
+    # The pinned release has one known transcript-only Train/radio member. It is excluded.
+    if audio_only or len(text_only) > 1:
+        raise Ksc2AuditError(
+            "KSC2 selected components have unexpected unpaired members: "
+            f"audio_only={len(audio_only)}, text_only={len(text_only)}."
+        )
+    candidates: list[Ksc2TextCandidate] = []
+    for logical_stem in sorted(audio_stems.intersection(text_stems)):
+        component, audio_member = audio_by_stem[logical_stem]
+        transcript_member, transcript_sha256, canonical_text_sha256 = text_by_stem[
+            logical_stem
+        ]
+        candidate_id = logical_stem.removeprefix(f"{KSC2_ARCHIVE_ROOT}/")
+        candidates.append(
+            Ksc2TextCandidate(
+                candidate_id=candidate_id,
+                component=component,
+                archive_audio_member=audio_member,
+                archive_transcript_member=transcript_member,
+                transcript_sha256=transcript_sha256,
+                canonical_text_sha256=canonical_text_sha256,
+            )
+        )
+    if not candidates:
+        raise Ksc2AuditError("KSC2 selected components contain no paired candidates.")
+    return tuple(candidates)
 
 
 def _copy_member_and_hash(archive: tarfile.TarFile, member: tarfile.TarInfo, output: Path) -> str:

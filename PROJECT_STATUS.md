@@ -14,10 +14,13 @@ user-audio route возвращает только явно некалибров
 на write-once research protocols. Реализация XLS-R+SLS model v4 начата по отдельному
 [плану](docs/kazdeepscan_v4_implementation_plan.md). Capacity/integrity часть Gate A завершена с
 `proceed_24k`: повторно проверены exact RuASD/Common Voice/KSC2 bytes, current project history,
-лицензии и пять локальных KK TTS-family. Row-level selection/leakage часть Gate A ещё не
-завершена. Решение разрешает только frozen candidate selection; 24 000 ready rows,
-speaker-independence, synthesis, training, checkpoint и новый final ещё не заявлены. Детали и
-hashes: [v4 Gate A capacity](docs/artifacts/v4/gate_a_2026-08-14.md).
+лицензии и локальные KK TTS-family. Канонический v2 role contract заморозил `28 800`
+metadata-only train candidates (`7 200` на cell, включая `1 200` QA reserve), исключил
+historical sample/text collisions и разделил source/TTS-family roots между v4-ролями. Audio
+hash/fingerprint leakage, QA/VAD и speaker provenance ещё не закрыты. Поэтому 24 000 ready rows,
+speaker-independence, synthesis, training, checkpoint и новый final не заявлены. Детали:
+[capacity](docs/artifacts/v4/gate_a_2026-08-14.md) и
+[selection](docs/artifacts/v4/train_candidate_selection_2026-08-14.md).
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2

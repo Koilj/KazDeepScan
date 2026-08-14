@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import gzip
+import hashlib
 import io
 import json
 import tarfile
@@ -13,6 +14,7 @@ from kds.data.ksc2 import (
     Ksc2AuditError,
     audit_ksc2_archive,
     extract_ksc2_mixed_annotation_candidates,
+    scan_ksc2_text_candidates,
     write_ksc2_audit_report,
 )
 
@@ -115,6 +117,33 @@ def test_ksc2_audit_report_is_atomic_and_never_overwrites(tmp_path: Path) -> Non
     assert json.loads(report.read_text(encoding="utf-8"))["audio_files"] == 1
     with pytest.raises(Ksc2AuditError, match="Unsafe KSC2 audit report destination"):
         write_ksc2_audit_report(report, audit)
+
+
+def test_ksc2_text_scan_keeps_only_allowed_paired_train_components(tmp_path: Path) -> None:
+    expected_sizes = _write_parts(
+        tmp_path,
+        [
+            ("ISSAI_KSC2/Train/radio/a.flac", b"flac"),
+            ("ISSAI_KSC2/Train/radio/a.txt", "  Қазақ   мәтіні\n".encode()),
+            ("ISSAI_KSC2/Train/radio/orphan.txt", b"orphan"),
+            ("ISSAI_KSC2/Test/crowdsourced/b.flac", b"flac"),
+            ("ISSAI_KSC2/Test/crowdsourced/b.txt", b"ignored"),
+        ],
+    )
+    archive_hash = audit_ksc2_archive(tmp_path, expected_sizes=expected_sizes).compressed_sha256
+
+    candidates = scan_ksc2_text_candidates(
+        tmp_path,
+        allowed_components=frozenset({"Train/radio"}),
+        expected_compressed_sha256=archive_hash,
+        expected_sizes=expected_sizes,
+    )
+
+    assert len(candidates) == 1
+    assert candidates[0].candidate_id == "Train/radio/a"
+    assert candidates[0].canonical_text_sha256 == hashlib.sha256(
+        "Қазақ мәтіні".encode()
+    ).hexdigest()
 
 
 def test_ksc2_audit_rejects_symlink_members(tmp_path: Path) -> None:

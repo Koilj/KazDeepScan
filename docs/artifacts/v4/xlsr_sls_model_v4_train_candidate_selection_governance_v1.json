@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "protocol_id": "xlsr-sls-model-v4-train-candidate-selection-governance-v1",
+  "created_at": "2026-08-14T15:00:00+06:00",
+  "status": "canonical_metadata_selection_v2_audio_gate_pending",
+  "superseded_packet": {
+    "version": 1,
+    "status": "rejected_before_audio_materialization",
+    "config": {
+      "path": "configs/research/v4/xlsr_sls_model_v4_roles_and_selection_v1.json",
+      "sha256": "2c1aa3787e9fd6342d8d90f4e91d6b08094c19c898a3c2243a931886746967b9"
+    },
+    "candidate_csv": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_train_candidates_v1.csv",
+      "sha256": "ce1b38f149cf18a5dd5bb5f8c91f9236024c33dc77401a110c499a7b5a859315",
+      "rows": 28800
+    },
+    "receipt": {
+      "path": "docs/artifacts/v4/xlsr_sls_model_v4_train_candidate_selection_v1.json",
+      "sha256": "3306a73bc22540969841f41eb874aa17053fae9a491a5bf6cc68d4c2f788ae0a"
+    },
+    "reasons": [
+      "google_fleurs corpus family crossed calibration and final locale roles",
+      "eSpeak family crossed KK train and RU calibration roles"
+    ],
+    "downstream_use_authorized": false
+  },
+  "canonical_packet": {
+    "version": 2,
+    "status": "metadata_only_source_materialization_allowed",
+    "config": {
+      "path": "configs/research/v4/xlsr_sls_model_v4_roles_and_selection_v2.json",
+      "sha256": "f04324f995d67fb7e21266eb1dfe019a0bd0744563e82c0553f2371cda0cb11b"
+    },
+    "candidate_csv": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_train_candidates_v2.csv",
+      "sha256": "9a88442e32593147b07d55a13ee8ba4e97656d4deec0d6837e225c3b05436e43",
+      "rows": 28800,
+      "cell_counts": {
+        "kk/bonafide": 7200,
+        "kk/spoof": 7200,
+        "ru/bonafide": 7200,
+        "ru/spoof": 7200
+      }
+    },
+    "receipt": {
+      "path": "docs/artifacts/v4/xlsr_sls_model_v4_train_candidate_selection_v2.json",
+      "sha256": "79c19b7a69588d8baf1a4eb5d8e9cc4b1ab6752b2c6352b19b0912fd5d23f2ae"
+    },
+    "verified_intersections": {
+      "historical_sample_id": 0,
+      "historical_exact_or_canonical_text_hash": 0
+    },
+    "role_isolation": "source-lineage and TTS-family roots are pairwise disjoint across v4 roles",
+    "source_audio_materialization_authorized": true,
+    "synthesis_authorized": false,
+    "training_authorized": false
+  },
+  "receipt_reconciliation": {
+    "affected_receipt": "docs/artifacts/v4/xlsr_sls_model_v4_train_candidate_selection_v2.json",
+    "affected_field": "claims.historical_exact_assets_selected",
+    "recorded_value": false,
+    "correct_interpretation": "no selected historical sample-id or exact/canonical-text collision",
+    "unsupported_interpretation": "absence of exact audio collision",
+    "exact_audio_collision_status": "not_checked_audio_unmaterialized",
+    "resolution": "preserve the write-once receipt and require this reconciliation for downstream use"
+  },
+  "next_gate": "materialize only v2 source candidates; compute raw and decoded audio hashes, QA/VAD metrics and near-audio fingerprints; close historical and cross-role audio leakage before any synthesis"
+}

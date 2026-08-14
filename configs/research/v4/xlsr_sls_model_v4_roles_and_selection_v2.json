@@ -1,0 +1,108 @@
+{
+  "schema_version": 2,
+  "protocol_id": "xlsr-sls-model-v4-roles-and-selection-v2",
+  "purpose": "personal_research",
+  "capacity_receipt": {
+    "path": "docs/artifacts/v4/xlsr_sls_model_v4_gate_a_receipt_v1.json",
+    "sha256": "699d2665922e939169cef8f5a9eb6a19c2989b88964112d081a3c35b8438613a",
+    "required_decision": "proceed_24k"
+  },
+  "selection": {
+    "seed": "xlsr-sls-model-v4-train-candidates-20260814-v1",
+    "target_rows_per_cell": 6000,
+    "candidate_rows_per_cell": 7200,
+    "ruasd": {
+      "excluded_subsets": ["CommonVoice"],
+      "require_source_text": true,
+      "min_per_stratum": 100,
+      "max_per_stratum": 7200
+    },
+    "ksc2": {
+      "component_quotas": {
+        "Train/parliament": 1440,
+        "Train/podcasts": 1440,
+        "Train/radio": 1440,
+        "Train/talkshow": 1440,
+        "Train/tv_news": 1440
+      }
+    },
+    "kk_spoof_generators": [
+      {
+        "route_id": "kk-piper-issai-high-v1",
+        "generator_family": "piper_neural_tts",
+        "quota": 1800
+      },
+      {
+        "route_id": "kk-mms-kaz-v1",
+        "generator_family": "mms_vits_tts",
+        "quota": 1800
+      },
+      {
+        "route_id": "kk-kazemotts-v1",
+        "generator_family": "gradtts_hifigan_emotional_tts",
+        "quota": 1800
+      },
+      {
+        "route_id": "kk-sparktts-v1",
+        "generator_family": "llm_bicodec_controlled_tts",
+        "quota": 1800
+      }
+    ]
+  },
+  "roles": {
+    "train": {
+      "ru_bonafide": "ruasd_ru_v1_full:raw:non_common_voice",
+      "ru_spoof": "ruasd_ru_v1_full:raw:tts",
+      "kk_bonafide": "ksc2_v1:nonlegacy_train",
+      "kk_spoof": "fresh_ksc2_train_text_synthesis:four_train_only_families"
+    },
+    "dev": {
+      "ru": "pyara_ru_v7:historical_dev_role_reuse_only",
+      "kk_bonafide": "ksc_slr102:dev_only",
+      "kk_spoof": "silero_v4_kk:dev_only",
+      "selection_metric": "dev_loss_only"
+    },
+    "calibration": {
+      "ru_bonafide": "voxforge_ru_mdc_2026_05:fresh_exact_assets:calibration_candidate_pending_gate",
+      "ru_spoof": "espeakng_ru:calibration_only",
+      "kk": "not_available_from_disjoint_local_lineage",
+      "purpose": "ru_temperature_only"
+    },
+    "final": {
+      "ru_bonafide": "common_voice_ru_v24:fresh_client_groups:final_only",
+      "ru_spoof": "qwen3_tts_customvoice_aiden:fresh_text_only:final_only",
+      "kk_bonafide": "google_fleurs_kk_v1:fresh_groups:final_only",
+      "kk_spoof": "kazakhtts2_tacotron2_pwg:fresh_text_only:final_only",
+      "target_rows_per_cell": 500,
+      "project_history_claim": "exact_assets_fresh_but_generator_families_previously_studied"
+    }
+  },
+  "role_isolation": {
+    "source_lineage_roots": {
+      "train": ["ruasd_ru_v1_full", "ksc2_v1"],
+      "dev": ["pyara_ru_v7", "ksc_slr102"],
+      "calibration": ["voxforge_ru_mdc_2026_05"],
+      "final": ["common_voice_ru_v24", "google_fleurs_kk_v1"]
+    },
+    "tts_family_roots": {
+      "train": [
+        "ruasd_source_tts_families_unverified",
+        "piper_neural_tts",
+        "mms_vits_tts",
+        "gradtts_hifigan_emotional_tts",
+        "llm_bicodec_controlled_tts"
+      ],
+      "dev": ["silero_v4_tts"],
+      "calibration": ["espeakng_formant_tts"],
+      "final": ["qwen3_customvoice_tts", "tacotron2_parallelwavegan_tts"]
+    }
+  },
+  "claims": {
+    "speaker_independence": "not_verified_speaker_independent",
+    "calibration_language_scope": "ru_only",
+    "kk_probability_claim": false,
+    "historical_final_assets_allowed": false,
+    "synthesis_authorized": false,
+    "training_authorized": false
+  }
+}

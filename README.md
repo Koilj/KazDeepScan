@@ -16,11 +16,12 @@ Python distribution metadata намеренно остаётся `0.1.0`: её �
 
 Реализация расширенной research-модели v4 начата по отдельному
 [плану XLS-R+SLS v4](docs/kazdeepscan_v4_implementation_plan.md). Capacity/integrity часть Gate A
-завершена с решением `proceed_24k`: exact local archives, лицензии, текущая project history и
-пять локальных KK TTS-family проверены. Это только достаточная pre-QA candidate capacity, не
-готовые 24 000 строк. Row-level часть Gate A — frozen role selection и leakage graph — ещё не
-завершена; synthesis/training не запускались. Подробный receipt:
-[v4 Gate A capacity](docs/artifacts/v4/gate_a_2026-08-14.md).
+завершена с решением `proceed_24k`. Канонический v2 role contract и metadata-only train pool
+также заморожены: `28 800` кандидатов, по `7 200` на каждую `RU/KK × bona-fide/spoof` cell,
+с нулевым historical sample/text overlap и раздельными source/TTS-family roots между v4-ролями.
+Raw/decoded audio leakage, QA/VAD и speaker provenance ещё не закрыты; `24 000 ready`,
+synthesis и training не заявлены. Подробности: [Gate A capacity](docs/artifacts/v4/gate_a_2026-08-14.md)
+и [frozen train candidates](docs/artifacts/v4/train_candidate_selection_2026-08-14.md).
 
 Быстрый старт из clone:
 

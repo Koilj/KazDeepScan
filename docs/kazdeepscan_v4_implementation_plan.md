@@ -1,16 +1,17 @@
 # KazDeepScan XLS-R+SLS v4 — план реализации расширенного train
 
-**Статус:** реализация начата; capacity/integrity часть Gate A завершена (`proceed_24k`),
-row-level часть Gate A не завершена.
+**Статус:** capacity/integrity Gate A завершён (`proceed_24k`); frozen metadata selection v2
+завершён; source-audio materialization, audio leakage и QA/VAD не завершены.
 
 **Дата локального аудита:** 14 августа 2026 года.
 
 **Scope:** только personal research; не product model, не fraud detector и не калиброванная
 вероятность.
 
-Этот документ является единственным подробным планом v4. Завершённый capacity/integrity preflight
-разрешает только подготовку frozen candidate selection и row-level leakage graph; это оставшаяся
-часть Gate A, без которой synthesis, training и final inference не разрешены. V1/v2/v3, их
+Этот документ является единственным подробным планом v4. Завершённые capacity audit и
+metadata-only selection разрешают только materialization канонических v2 source candidates.
+До raw/decoded audio hashes, fingerprints и QA/VAD synthesis, training и final inference не
+разрешены. V1/v2/v3, их
 manifests, checkpoints, execution locks, reports и write-once результаты не меняются. Перед
 началом каждого следующего этапа создаются новые versioned contracts и новые output paths.
 
@@ -65,8 +66,9 @@ leakage policy.
 Итог capacity/integrity части Gate A: решение `proceed_24k` подтверждает достаточную локальную
 pre-QA candidate capacity. Проверены 429 versioned project-history files, 99 manifest files /
 40 942 rows с versioned дубликатами и пять exact локальных KK TTS-family. Точное число
-**безопасно eligible** строк ещё не сертифицировано: оставшаяся row-level часть Gate A должна
-построить общий leakage graph, после чего остаются decode/QA/VAD. Нельзя писать, что v4 уже
+**безопасно eligible** ready-строк ещё не сертифицировано: frozen v2 selection доказал только
+sample/text exclusion и role-root isolation; audio часть leakage graph требует materialization.
+После неё остаются decode/QA/VAD. Нельзя писать, что v4 уже
 располагает `24 000 ready` или что speaker-disjointness доказана. Канонический подробный
 результат: [v4 Gate A capacity](artifacts/v4/gate_a_2026-08-14.md).
 
@@ -103,14 +105,15 @@ ID или объявить разные datasets разными людьми б�
 
 - `RU bona-fide = 6 000`: raw RuASD, но без внутренней Common Voice strata, augmented rows и
   project-history closure.
-- `RU spoof = 6 000`: raw RuASD с заранее ограниченной квотой на subset и, только если новый
-  ledger snapshot разрешит, fresh unevaluated ToneSpeak rows. Нельзя считать 37 RuASD subset
-  names 37 доказанными architecture family; family claims делаются только после provenance map.
+- `RU spoof = 6 000`: raw RuASD с заранее ограниченной квотой на subset. ToneSpeak не входит в
+  canonical v2 train role. Нельзя считать RuASD subset names доказанными architecture family;
+  family claims делаются только после provenance map.
 - `KK bona-fide = 6 000`: KSC2 nonlegacy train components после исключения `crowdsourced`,
   `tts`, legacy KSC/KazakhTTS2 и всех historical groups/texts.
-- `KK spoof = 6 000`: по одному fresh output на frozen KK train text. Квота распределяется
-  примерно поровну между train-only Piper/MMS, KazEmoTTS, Spark-TTS и eSpeak NG; пятая family
-  допускается только если она не зарезервирована для final и проходит rights/route gate.
+- `KK spoof = 6 000`: по одному fresh output на frozen KK train text. V2 pre-QA pool распределён
+  по `1 800` строк между четырьмя train-only family: Piper, MMS, KazEmoTTS и Spark-TTS. eSpeak
+  исключён из train и зарезервирован только для RU calibration, чтобы family roots не пересекали
+  роли.
 
 Для каждой cell сначала создаётся oversubscribed pre-QA pool с заранее объявленным reserve
 order. QA может убрать плохие assets; оно не может выбирать строки по detector score. После
@@ -119,19 +122,17 @@ order. QA может убрать плохие assets; оно не может в
 
 ### 3.2. Dev и calibration
 
-Preferred dev — отдельный bilingual binary layer из локальных sources, отсутствующих в train и
-final. Возможный RU source — PyAra; возможный KK source — KSC SLR102 только если lineage audit
-докажет, что KSC2 train полностью исключил включённые в KSC/KazakhTTS2 компоненты и exact/near
-overlap. Synthetic dev family не должна присутствовать в train или final.
+V2 резервирует dev как отдельный bilingual binary layer: RU PyAra и KK KSC SLR102/Silero V4.
+KSC2 train использует только пять явно разрешённых nonlegacy Train components; materialization
+gate всё равно обязан доказать отсутствие exact/near overlap с KSC SLR102. Synthetic dev family
+не присутствует в train, calibration или final.
 
 Calibration получает третий source set и не участвует в выборе epoch, architecture или
-augmentation. Локальный кандидат для RU — новые VoxForge rows и отдельный calibration-only
-synthetic source. Для KK сейчас нет автоматически одобренного четвёртого независимого
-bona-fide source. Поэтому Gate A должен выбрать один из двух честных вариантов:
-
-- найти достаточный local-only KK source lineage и сделать bilingual calibration; или
-- оставить calibration RU-only, не калибровать KK score и не называть общий v4 output
-  probability.
+augmentation. V2 резервирует fresh exact VoxForge RU rows и eSpeak RU как calibration candidates;
+их права, unused text/groups и audio leakage должны пройти отдельный gate до создания calibration
+manifest. Для KK нет автоматически одобренного четвёртого независимого bona-fide source, поэтому
+зафиксирован RU-only вариант: KK score не калибруется и общий v4 output не называется
+probability.
 
 Нельзя использовать одну FLEURS/KSC/Common Voice lineage сразу в dev, calibration и final ради
 симметричной таблицы. Если после полного локального аудита строгий bilingual four-role contract
@@ -183,6 +184,11 @@ Gate A ничего не обучает и не синтезирует. Его o
 
 Gate A запрещено упрощать из-за стоимости полного streaming audit. Нельзя считать старый
 metadata screen актуальным после появления новых manifests.
+
+Metadata portion завершена каноническим v2 packet: `28 800` rows, `4 × 7 200`, нулевые
+historical sample/text intersections и disjoint role roots. V1 отклонён до materialization из-за
+FLEURS corpus-family и eSpeak family crossing. Точные hashes и reconciliation:
+[frozen train candidates](artifacts/v4/train_candidate_selection_2026-08-14.md).
 
 ## 5. Подготовка v4 data
 
@@ -267,7 +273,7 @@ v4 решения.
 configs/research/v4/          новые contracts и training configs
 data/manifests/v4/            versioned raw/ready/frozen manifests и machine receipts
 data/licenses/frozen/         отдельные immutable v4 ledger snapshots
-docs/v4/                      human-readable audit, QA, training и final receipts
+docs/artifacts/v4/            human-readable и machine audit/QA/training/final receipts
 data/raw/v4/                  локальные raw assets, Git-ignored
 data/processed/v4/            локальные normalized assets, Git-ignored
 checkpoints/xlsr-sls-model-v4/ checkpoints, Git-ignored
@@ -286,7 +292,7 @@ paths и отказываться от overwrite.
 - `PROJECT_STATUS.md` — только текущий завершённый этап, действующие ограничения и следующий gate;
 - `План реализации.md` — короткая текущая roadmap и ссылка на этот v4 plan;
 - `KazDeepScan_implementation_blueprint.md` — стабильная архитектура;
-- `docs/v4/` — подробные versioned audits, QA, training/final receipts;
+- `docs/artifacts/v4/` — подробные versioned audits, QA, training/final receipts;
 - `data/manifests/v4/` и `data/licenses/frozen/` — machine-readable truth и exact hashes.
 
 Исторические числа не копируются в README/status/roadmap. В них остаётся одна ссылка на
@@ -313,14 +319,15 @@ data в tuning, несоответствии hash или попытке повт
 
 ## 11. Текущий незавершённый scope
 
-- создан отдельный Gate A config и versioned receipts, но train/dev/calibration/final manifests
-  и checkpoint ещё не созданы;
+- capacity gate и canonical metadata selection v2 завершены: `28 800` rows, но ready
+  train/dev/calibration/final manifests и checkpoint ещё не созданы;
 - не извлечён и не изменён ни один audio asset;
 - не запускались synthesis, QA, training, calibration или inference;
 - не изменены v1/v2/v3 и существующие immutable receipts;
 - не искались и не скачивались новые datasets/models;
 - `24 000 ready` не заявлены: подтверждена только достаточная pre-QA candidate capacity.
 
-Следующий безопасный шаг — завершить row-level часть Gate A: заморозить source roles, quotas,
-seeds и reserve order, построить canonical leakage graph и опубликовать candidate/rejection
-accounting. До её завершения нельзя создавать synthetic WAV или начинать training.
+Следующий безопасный шаг — materialize только source rows из canonical v2: извлечь RuASD/KSC2
+audio в новые Git-ignored paths, посчитать raw/decoded hashes и near-audio fingerprints,
+выполнить QA/VAD и закрыть historical/cross-role audio leakage. До успешного receipt нельзя
+создавать synthetic WAV или начинать training.

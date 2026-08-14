@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "protocol_id": "xlsr-sls-model-v4-kk-spoof-synthesis-v1",
+  "created_at": "2026-08-14T09:00:00Z",
+  "state": "frozen_pre_synthesis",
+  "inputs": {
+    "candidate_csv": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_train_candidates_v2.csv",
+      "sha256": "9a88442e32593147b07d55a13ee8ba4e97656d4deec0d6837e225c3b05436e43",
+      "rows": 28800
+    },
+    "selection_governance": {
+      "path": "docs/artifacts/v4/xlsr_sls_model_v4_train_candidate_selection_governance_v1.json",
+      "sha256": "5cb05bfa21e761258b54b28a2e1e086db18add62fa6916098cbf927d7d755ff1",
+      "rows": null
+    },
+    "source_decode_receipt": {
+      "path": "docs/artifacts/v4/xlsr_sls_model_v4_source_decode_qa_v1.json",
+      "sha256": "634416a0bd7b450ece58a0bad6b55f202ff78d9acd269648d5bfddb83864fe0d",
+      "rows": null
+    },
+    "text_inventory": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_text_inventory_v1.csv",
+      "sha256": "f98f33d13eecc483ef3a05676e53636eb0f3e987afc10f5870041ce1889f5752",
+      "rows": 7200
+    },
+    "text_receipt": {
+      "path": "docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_text_materialization_v1.json",
+      "sha256": "54c9b7a24435e6c9c183d90fcbcb528c7ef041bcc9e38c29808c5699ae4123b8",
+      "rows": null
+    },
+    "license_ledger": {
+      "path": "data/licenses/license_ledger.csv",
+      "sha256": "e0428ea721472b8cd57601a4f0aa59dd943854b66d7229ca9a5e05349ee6b809",
+      "rows": null
+    },
+    "synthesis_contract_module": {
+      "path": "src/kds/data/v4_synthesis.py",
+      "sha256": "bf285d427d59e1e0ec0dddea70505b05e6216b8bb6b58d0db447f96d23feaca3",
+      "rows": null
+    },
+    "synthesis_runtime_module": {
+      "path": "src/kds/data/v4_synthesis_run.py",
+      "sha256": "52217c3ea8cbb05fd3f867a60be3cb9aaeb605178a3b5de037995fe450a6ac7e",
+      "rows": null
+    },
+    "runner_script": {
+      "path": "scripts/synthesize_v4_kk_spoof.py",
+      "sha256": "b10fbbdf759c71174a0f3dfa994e3ad28b7c943805dfe0e2de6d2e98b5e7b462",
+      "rows": null
+    }
+  },
+  "outputs": {
+    "output_root": "raw/v4/xlsr_sls_model_v4_kk_spoof_raw_v1",
+    "runtime_root": "artifacts/v4/xlsr_sls_model_v4_kk_spoof_synthesis_v1",
+    "manifest_directory": "data/manifests/v4",
+    "receipt_directory": "docs/artifacts/v4"
+  },
+  "generation": {
+    "base_seed": "20260814",
+    "attempted_per_route": 1800,
+    "target_candidates_per_route": 1500,
+    "reserve_candidates_per_route": 300,
+    "frozen_ready_per_route": 1250,
+    "piper_binary": ".venv/bin/piper"
+  },
+  "routes": [
+    {
+      "route_id": "kk-piper-issai-high-v1",
+      "generator_family": "piper_neural_tts",
+      "adapter": "piper",
+      "model_lock": {
+        "path": "configs/research/ksc_derived_kk_v1_models.json",
+        "sha256": "0b47a62fe467f7bfe95724a366e0a223ae28a7a14510acc7bb3936702f1c8d9f",
+        "rows": null
+      },
+      "model_root": "models/research/ksc_derived_kk_v1",
+      "model_id": "piper_kk_issai_high",
+      "adapter_source": {
+        "path": "scripts/synthesize_ksc_derived_kk.py",
+        "sha256": "de54f23a177814873a2c47d6710a1cb79c0bbd119a0d84f9874d3ecab0a1f667",
+        "rows": null
+      }
+    },
+    {
+      "route_id": "kk-mms-kaz-v1",
+      "generator_family": "mms_vits_tts",
+      "adapter": "mms",
+      "model_lock": {
+        "path": "configs/research/ksc_derived_kk_v1_models.json",
+        "sha256": "0b47a62fe467f7bfe95724a366e0a223ae28a7a14510acc7bb3936702f1c8d9f",
+        "rows": null
+      },
+      "model_root": "models/research/ksc_derived_kk_v1",
+      "model_id": "mms_tts_kaz",
+      "adapter_source": {
+        "path": "scripts/synthesize_ksc_derived_kk.py",
+        "sha256": "de54f23a177814873a2c47d6710a1cb79c0bbd119a0d84f9874d3ecab0a1f667",
+        "rows": null
+      }
+    },
+    {
+      "route_id": "kk-kazemotts-v1",
+      "generator_family": "gradtts_hifigan_emotional_tts",
+      "adapter": "kazemotts",
+      "model_lock": {
+        "path": "configs/research/kazemotts_kk_v1_models.json",
+        "sha256": "a88c900f2217f49f129087012095b4c8cc99f7da4d9bae568ff9e95fe6d5e67b",
+        "rows": null
+      },
+      "model_root": "models/research/kazemotts_kk_v1",
+      "model_id": "kazemotts_gradtts_hifigan",
+      "adapter_source": {
+        "path": "scripts/synthesize_ksc_kazemotts.py",
+        "sha256": "e3ffedeb1c8c35b04fa6669f959431aeaa763525ab5c67e4803afc75aea1bf31",
+        "rows": null
+      }
+    },
+    {
+      "route_id": "kk-sparktts-v1",
+      "generator_family": "llm_bicodec_controlled_tts",
+      "adapter": "sparktts",
+      "model_lock": {
+        "path": "configs/research/sparktts_kk_v1_models.json",
+        "sha256": "bc0febaf0f4b0113d21df3583add2ae60106cc0f315148eaf52f81bc6f9e1c45",
+        "rows": null
+      },
+      "model_root": "models/research/sparktts_kk_v1",
+      "model_id": "sparktts_kazakh_controlled",
+      "adapter_source": {
+        "path": "scripts/synthesize_ksc_sparktts.py",
+        "sha256": "6f6af28ff547aff3a55b70b1b94fcccd05e48fb3ea061e3499e62c04c8ca2bd9",
+        "rows": null
+      }
+    }
+  ],
+  "prohibitions": {
+    "network": true,
+    "reference_audio": true,
+    "voice_cloning": true,
+    "detector_or_logit_feedback": true,
+    "output_overwrite": true,
+    "new_dataset_search": true
+  }
+}

@@ -5,6 +5,9 @@ gate завершены. Source train заморожен на `15 000` стро�
 `proceed_20k_balanced`. Все `7 200` KK spoof texts exact-проверены; следующий gate — synthesis
 `5 000` ready rows через четыре train-only TTS-family.
 
+Four-route hash-pinned offline synthesis contract и resumable runner уже готовы. Предварительный
+Piper preflight не создал WAV, но final-contract preflight после исправления route-isolated bindings ещё pending.
+
 **Дата локального аудита:** 14 августа 2026 года.
 
 **Scope:** только personal research; не product model, не fraud detector и не калиброванная
@@ -210,6 +213,9 @@ historical near-hit и заморозил `15 000` source train rows (`3 × 5 00
 KK spoof text materialization повторно проверила полный KSC2 multipart archive и exact извлекла
 `7 200` unique transcripts (`4 × 1 800`, в каждой route `1 500` target + `300` reserve). Ни
 один synthetic WAV ещё не создан: [KK spoof texts](artifacts/v4/kk_spoof_text_materialization_2026-08-14.md).
+Отдельный synthesis plan hash-bind'ит inputs, runner и четыре model/adapter route, запрещает
+network/reference audio/cloning/detector feedback и публикует только полный route accounting:
+[KK spoof synthesis](artifacts/v4/kk_spoof_synthesis_plan_2026-08-14.md).
 
 ## 5. Подготовка v4 data
 

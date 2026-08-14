@@ -16,8 +16,10 @@ test; результаты не source-, speaker- или architecture-family-ind
 external source/generator-family holdout с непроверенным TTS training-data overlap и same-family
 sensitivity test. Denis source/current-exposure/frozen-selection/bona-fide-QA и official VoxCPM2
 artifact/source/history/runtime gates вместе с одним non-candidate CUDA smoke завершены. Denis
-оставил minimum `64/79` ready layer без backfill; это ещё не paired candidate, candidate synthesis
-или detector inference result.
+оставил minimum `64/79` bona-fide layer без backfill. Последующий frozen VoxCPM2 run создал
+`64/64` raw spoof WAV, но synthetic QA/VAD сохранил только `53` и отклонил `11` как
+`insufficient_speech`. Minimum `60` не достигнут: route остановлен до pairing/reviews/exposure/
+detector inference.
 
 Этот файл намеренно краткий. Архитектура описана в
 [KazDeepScan_implementation_blueprint.md](KazDeepScan_implementation_blueprint.md), следующие
@@ -52,6 +54,12 @@ artifact/source/history/runtime gates вместе с одним non-candidate C
   `0` network attempts, no reference/prompt/LoRA/normalizer/denoiser/retry, mono `48 kHz`,
   `161,280` frames. Smoke не является listening/acoustic evidence и не повторяется;
   training-data overlap/default voice identity не подтверждены.
+  Frozen 64-row candidate contract впоследствии исполнен один раз: один model load, `64/64`
+  successful generation attempts, raw duration `276.00` s, без network/retry/resynthesis/backfill.
+  Единственный normal decode/technical-QA/VAD pass дал `53` ready mono PCM16 `16 kHz` rows
+  (`251.52` s) и `11` final `insufficient_speech` rejects. Предустановленный minimum `60` не
+  достигнут; technical receipt имеет status `stop_below_minimum_60`, pair lock и detector
+  inference запрещены.
   MCSKL остаётся blocked из-за `78/73` participant и `CC BY` / `CC BY-NC-SA` конфликтов;
   VoxCPM2-KZ-Darwin не раскрывает provenance Kazakh LoRA/base достаточно и после RU VoxCPM2
   является same-family sensitivity, не новым generator-family layer.
@@ -293,8 +301,11 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
    selection, 64 ready rows и 15 rejects не менять и не backfill. Отдельный immutable 64-row
    literal/canonical binding и one-attempt synthesis contract завершён до candidate WAV; receipt
    SHA-256 `943a9595968996f29da1a13f213e28419fc2c7b5215df790e4d4c440528f2b7b`.
-   Следующим выполнить ровно один frozen offline synthesis run и normal synthetic QA/VAD без
-   retry/replacement/backfill; detector inference до последующих gates не выполнять.
+   One-shot synthesis и normal synthetic QA/VAD также завершены: `64/64` raw generated,
+   `53` ready, `11` `insufficient_speech`, no retry/replacement/backfill. Frozen minimum `60`
+   не достигнут, поэтому status `stop_below_minimum_60` сохранять без pair lock, reviews или
+   detector inference. Для нового evaluation layer нужен отдельный genuinely new source/route и
+   новый pre-outcome contract; эти 11 rows нельзя пересинтезировать или заменять.
 5. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 
@@ -311,8 +322,14 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
   validation `79/79` raw и `64/64` ready.
 - Denis × VoxCPM2 binding: exact `64` ready rows, receipt SHA-256
   `943a9595968996f29da1a13f213e28419fc2c7b5215df790e4d4c440528f2b7b`, row fingerprint
-  `b28d1ff99bc50b5dc6879b75a7dee018cef3a0767508cfde2fc660f9156204c0`; synthesis и detector
-  inference не выполнялись.
+  `b28d1ff99bc50b5dc6879b75a7dee018cef3a0767508cfde2fc660f9156204c0`.
+- Denis × VoxCPM2 synthesis/QA: raw/synthesis/ready/rejection/QA SHA-256
+  `45c8d5c9fb4d9f9bd9b5745add9b6e738111928b2b5c42a8779e030377195362` /
+  `b827ba8208d4d44fdaeefaabeaa841355ed580aa253b261dead766a3a16ee83b` /
+  `f90a634b80364a3a70046cf66354dbc7c11459f15a375b1e3a61c1f440e3028a` /
+  `38c4da79e2bd0a50168fabb1817f866c6dacbbcd657c8ee18e6846a45e058ecb` /
+  `ca46362313f50f79043dd559f8d739185b51d8cb0dc9dcc0f5dc659e5b02951c`;
+  `64` raw, `53` ready, `11` final rejects, detector inference не выполнялся.
 - Final preflight: 3 991 asset bindings.
 - Stage-C preflight: 1 310 asset bindings; один GPU inference run, `334` exact final predictions.
 - Stage-D preflight: 1 086 asset bindings; один GPU inference run, `110` exact final predictions.
@@ -386,3 +403,4 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [Denis frozen selection и bona-fide QA/VAD](docs/denis_1_0_mdc_pre_qa_materialization_v1.md)
 - [Official OpenBMB VoxCPM2 artifact/source/history gate](docs/data_sources_voxcpm2_official_2026-08-14.md)
 - [Denis × official VoxCPM2 immutable 64-row text binding](docs/denis_1_0_mdc_voxcpm2_pre_qa_text_binding_v1.md)
+- [Denis × official VoxCPM2 one-shot synthesis и technical QA](docs/denis_1_0_mdc_voxcpm2_pre_qa_synthesis_and_technical_qa_v1.md)

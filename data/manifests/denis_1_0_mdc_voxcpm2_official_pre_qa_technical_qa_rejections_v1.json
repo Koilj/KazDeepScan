@@ -1,0 +1,62 @@
+{
+  "input_manifest": "data/manifests/denis_1_0_mdc_voxcpm2_official_pre_qa_raw_v1.csv",
+  "reused_rows": 0,
+  "published_rows": 53,
+  "rejected_rows": [
+    {
+      "sample_id": "voxcpm2_official_text_only_v1:d25dd655a6c5c36004ec",
+      "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/3f0ab5eab2bd17c5a476-7758a3cb5b0f.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "voxcpm2_official_text_only_v1:36da5dbb1588a0010f2e",
+      "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/5bba6dcb8b29357ec725-90daa45c3d6b.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "voxcpm2_official_text_only_v1:425de4df80a1240e7b7b",
+      "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/f9e786ddbaea15298cd3-7400efa8228f.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "voxcpm2_official_text_only_v1:719f1d4d752e3760653d",
+      "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/4d8b4eeec582d0510c06-f5f1188070c5.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "voxcpm2_official_text_only_v1:75aac31a7b77903bef40",
+      "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/02cad5171290ae3c1bc6-265eadf0d92b.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "voxcpm2_official_text_only_v1:c37786a2467ba217a12f",
+      "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/4cee57ff5311857a4e61-bc415ffa326e.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "voxcpm2_official_text_only_v1:6af1bae2b307448df302",
+      "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/5d5f5d701346a32fd5c8-bcc5496f32a9.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "voxcpm2_official_text_only_v1:abd6abc85749c2c8eb7f",
+      "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/5bd2f5d710503878f0bd-f241c315ef8f.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "voxcpm2_official_text_only_v1:45d6333b2f85951fb3e2",
+      "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/dbf1937dc9b7b4d92fc9-4132f2e668c2.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "voxcpm2_official_text_only_v1:ed3567ea87d29e4bfc9c",
+      "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/e7c47b5a2384364eff5d-86e781fead02.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    },
+    {
+      "sample_id": "voxcpm2_official_text_only_v1:964dc55475fbadfcaedf",
+      "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/394fa2980e9b15873665-edfe5ddcdc45.wav",
+      "detail": "Audio is not trainable: insufficient_speech (insufficient_speech)."
+    }
+  ]
+}

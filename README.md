@@ -142,9 +142,12 @@ checkpoint и строго ограниченный evaluation-контур:
   interface failure зафиксирован и произошёл до generation/WAV. Frozen Denis metadata selection
   затем закрепил target `79` с category balance `27/26/26`; normal bona-fide QA/VAD оставил
   minimum layer `64` и отклонил `15` `insufficient_speech` rows без backfill. Training-data
-  overlap остаётся unverified; следующий gate — отдельный 64-row literal/canonical binding и
-  one-shot synthesis contract. MCSKL/VoxCPM2-KZ-Darwin остаётся blocked review и после RU route
-  считается той же family;
+  overlap остаётся unverified. Отдельный 64-row literal/canonical binding и one-shot synthesis
+  contract затем были исполнены без отклонений от protocol: один model load, `64/64` generation
+  calls, `0` failures и `0` network attempts. Synthetic decode/QA/VAD сохранил только `53` rows
+  и отклонил `11` как `insufficient_speech`; заранее замороженный minimum `60` не достигнут,
+  поэтому route остановлен без pair lock, reviews или detector inference. MCSKL/VoxCPM2-KZ-Darwin
+  остаётся blocked review и после RU route считается той же family;
 - FastAPI health/readiness/upload scaffold, который не выдаёт score без обученного,
   калиброванного model release.
 
@@ -477,6 +480,8 @@ VoxCPM2 artifact/source/history gate — в
 [immutable 64-row text binding](docs/denis_1_0_mdc_voxcpm2_pre_qa_text_binding_v1.md) уже
 закрепил literal/collapse-whitespace/NFKC hashes, exact runtime/program hashes, один model load,
 ровно одну attempt на каждый ready text и будущие write-once synthesis/QA paths. Plaintext не
-сохранён; candidate WAV ещё не создавались. Следующий безопасный шаг — один offline VoxCPM2 run,
-затем normal synthetic decode/QA/VAD без retry, replacement или backfill. Detector inference
-остаётся запрещён.
+сохранён. Последующий [one-shot synthesis и technical-QA receipt](docs/denis_1_0_mdc_voxcpm2_pre_qa_synthesis_and_technical_qa_v1.md)
+зафиксировал `64/64` successful raw WAV и один normal synthetic decode/QA/VAD pass: `53` ready,
+`11` `insufficient_speech`, reuse/retry/replacement/backfill `0/false/false/false`. Это ниже
+неизменяемого minimum `60`, поэтому `stop_below_minimum_60` окончателен для этого frozen route:
+pairing, acoustic review и detector inference не выполнялись и не разрешены.

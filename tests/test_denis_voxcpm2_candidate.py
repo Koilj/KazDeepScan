@@ -14,7 +14,7 @@ from kds.data.denis_voxcpm2_candidate import (
     DenisVoxCPM2CandidateError,
     denis_voxcpm2_spoof_row,
 )
-from kds.data.manifest import ManifestRow
+from kds.data.manifest import ManifestRow, load_manifest
 from kds.data.research_tts import ResearchTtsModel
 from kds.data.voxcpm2_text_only import bind_text, generation_kwargs
 from scripts.publish_denis_mdc_voxcpm2_pre_qa_spoof_ready import rejection_accounting
@@ -202,3 +202,68 @@ def test_current_64_row_binding_pins_every_future_program_before_synthesis() -> 
     )
     for program in receipt["frozen_programs"].values():
         assert sha256_file(Path(program["path"])) == program["sha256"]
+
+
+def test_current_one_shot_synthesis_and_qa_stop_below_frozen_minimum() -> None:
+    manifest_directory = Path("data/manifests")
+    raw_manifest = manifest_directory / (
+        "denis_1_0_mdc_voxcpm2_official_pre_qa_raw_v1.csv"
+    )
+    synthesis_receipt = manifest_directory / (
+        "denis_1_0_mdc_voxcpm2_official_pre_qa_synthesis_v1.json"
+    )
+    ready_manifest = manifest_directory / (
+        "denis_1_0_mdc_voxcpm2_official_pre_qa_ready_v1.csv"
+    )
+    rejection_report = manifest_directory / (
+        "denis_1_0_mdc_voxcpm2_official_pre_qa_technical_qa_rejections_v1.json"
+    )
+    qa_receipt = manifest_directory / (
+        "denis_1_0_mdc_voxcpm2_official_pre_qa_technical_qa_v1.json"
+    )
+
+    assert sha256_file(raw_manifest) == (
+        "45c8d5c9fb4d9f9bd9b5745add9b6e738111928b2b5c42a8779e030377195362"
+    )
+    assert sha256_file(synthesis_receipt) == (
+        "b827ba8208d4d44fdaeefaabeaa841355ed580aa253b261dead766a3a16ee83b"
+    )
+    assert sha256_file(ready_manifest) == (
+        "f90a634b80364a3a70046cf66354dbc7c11459f15a375b1e3a61c1f440e3028a"
+    )
+    assert sha256_file(rejection_report) == (
+        "38c4da79e2bd0a50168fabb1817f866c6dacbbcd657c8ee18e6846a45e058ecb"
+    )
+    assert sha256_file(qa_receipt) == (
+        "ca46362313f50f79043dd559f8d739185b51d8cb0dc9dcc0f5dc659e5b02951c"
+    )
+
+    synthesis = json.loads(synthesis_receipt.read_text(encoding="utf-8"))
+    qa = json.loads(qa_receipt.read_text(encoding="utf-8"))
+    assert len(load_manifest(raw_manifest)) == 64
+    assert len(load_manifest(ready_manifest)) == 53
+    policy = synthesis["generation_policy"]
+    assert policy["bound_rows"] == 64
+    assert policy["attempted_rows"] == 64
+    assert policy["successful_rows"] == 64
+    assert policy["failed_attempt_rows"] == 0
+    assert policy["model_loads"] == 1
+    assert policy["retry_or_resynthesis_used"] is False
+    assert policy["post_selection_replacement_or_backfill"] is False
+    assert synthesis["network_policy"]["observed_upstream_network_attempts"] == 0
+    assert qa["technical_qa"]["ready_rows"] == 53
+    assert qa["technical_qa"]["rejected_rows"] == 11
+    assert qa["technical_qa"]["rejection_reason_counts"] == {
+        "insufficient_speech": 11
+    }
+    assert qa["technical_qa"]["reused_rows"] == 0
+    assert qa["technical_qa"]["resynthesis_replacement_or_backfill"] is False
+    assert qa["target_outcome"] == {
+        "minimum_ready_pairs": 60,
+        "target_ready_pairs": 64,
+        "actual_ready_pairs": 53,
+        "status": "stop_below_minimum_60",
+    }
+    assert qa["claims"]["binary_pairing_performed"] is False
+    assert qa["claims"]["detector_inference_authorized"] is False
+    assert qa["claims"]["speaker_independent"] is False

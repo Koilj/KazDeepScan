@@ -2,8 +2,9 @@
 
 **Статус:** policy, Denis 1.0 source intake/current exposure/frozen selection/bona-fide QA/VAD и
 official VoxCPM2 artifact/source/project-history/runtime/CUDA-smoke gates завершены. Denis QA
-оставил minimum layer `64/79` без backfill. Candidate synthesis и detector inference не
-выполнялись. Denis archive и VoxCPM2 model/source bytes проверены вне Git; MCSKL и
+оставил minimum layer `64/79` без backfill. Единственный candidate synthesis дал `64/64` raw,
+но synthetic QA/VAD оставил `53` и остановил route ниже minimum `60`; detector inference не
+выполнялся. Denis archive и VoxCPM2 model/source bytes проверены вне Git; MCSKL и
 VoxCPM2-KZ-Darwin локально не загружались.
 
 **Scope:** personal research. Ранее выполненные write-once runs, их manifests, reports, hashes и
@@ -153,8 +154,7 @@ Denis/OHF material в training data; Apache-2.0 weights/code license сама п
 пройдены для minimum external-holdout layer.** Exact source sample/audio/text overlap равен нулю
 по current pre-selection scope `35` configs и `95` manifest files; history screen проверил
 `40,682` rows / `19,001` spoof rows и нашёл `0` VoxCPM rows. Generator family новый, но
-historical speaker-lineage ограничение остаётся. Если runtime и последующие gates пройдут,
-допустимая маркировка результата:
+historical speaker-lineage ограничение остаётся. Допустимая маркировка artifacts остаётся:
 
 > external human-source- and generator-family-disjoint RU holdout; TTS training-data overlap
 > unverified; likely historical speaker-lineage exposure through RuASD Piper Denis; single
@@ -166,8 +166,9 @@ bona-fide QA/VAD и
 [immutable 64-row text binding](denis_1_0_mdc_voxcpm2_pre_qa_text_binding_v1.md) выполнены
 отдельными write-once gates. Binding до candidate WAV закрепил exact runtime/program hashes,
 одну attempt на каждый ready text и запреты reference/prompt audio, normalizer, denoiser, retry,
-replacement и backfill. Synthetic generation ещё не выполнялась; detector inference по-прежнему
-не разрешён.
+replacement и backfill. Последующий один run выполнил `64/64` attempts, но technical QA оставил
+`53` и отклонил `11` `insufficient_speech`. Status `stop_below_minimum_60` означает, что pair
+lock, reviews, exposure audit и detector inference для этого route не разрешены.
 
 ## 7. MCSKL × VoxCPM2-KZ-Darwin
 
@@ -235,6 +236,10 @@ sensitivity/source-diversity test**, а не вторым новым generator-f
    для `64` ready texts, exact runtime/program hashes, одну attempt на row и будущие synthesis/QA
    paths; receipt SHA-256
    `943a9595968996f29da1a13f213e28419fc2c7b5215df790e4d4c440528f2b7b`.
-8. Следующим выполнить один frozen offline VoxCPM2 run и normal synthetic decode/QA/VAD без
-   retry/replacement/backfill. Detector inference требует последующих exact pair lock, двух
-   independent reviews, current exposure audit и write-once evaluation contract.
+8. **Завершено:** один frozen offline VoxCPM2 run создал `64/64` raw rows при одном model load,
+   `0` failures/network attempts и без retry/resynthesis/backfill. Один normal synthetic
+   decode/QA/VAD pass сохранил `53`, отклонил `11` `insufficient_speech` и закрепил
+   `stop_below_minimum_60`.
+9. Для этого frozen route остановиться: не создавать pair lock/reviews/exposure/evaluation
+   contract и не выполнять detector inference. Новый evaluation layer требует отдельного
+   genuinely new source/route и нового pre-outcome contract; current rejects не заменять.

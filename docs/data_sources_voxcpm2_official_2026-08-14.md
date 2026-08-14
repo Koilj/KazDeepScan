@@ -3,12 +3,13 @@
 **Статус:** exact model/source artifacts, project-history novelty, isolated runtime и один
 non-candidate CUDA text-only smoke завершены. Denis frozen metadata selection и bona-fide QA/VAD
 также завершены (`64/79` ready, no backfill); subsequent immutable 64-row text-binding и
-one-attempt contract закреплены до candidate WAV. Candidate synthesis и detector inference не
-выполнялись, smoke повторять запрещено.
+one-attempt contract были закреплены до candidate WAV. Candidate synthesis и synthetic QA/VAD
+завершены один раз: `64/64` raw, `53` ready, `11` final rejects, `stop_below_minimum_60`.
+Detector inference не выполнялся и для этого route запрещён; smoke/synthesis не повторять.
 
-**Допустимая будущая роль:** personal-research external source/generator-family holdout для
-Denis 1.0. Это не подтверждает отсутствие Denis/аналогичных записей в training data модели,
-идентичность default voice или speaker independence.
+**Допустимая роль artifacts:** stopped personal-research external source/generator-family holdout
+candidate для Denis 1.0. Это не подтверждает отсутствие Denis/аналогичных записей в training
+data модели, идентичность default voice или speaker independence и не образует evaluation layer.
 
 ## Exact artifacts
 
@@ -134,6 +135,10 @@ duration/audio-quality/model signals. Bona-fide decode/QA/VAD оставил `64
 `insufficient_speech` rejects без backfill. Отдельный
 [immutable 64-row literal/canonical/NFKC binding](denis_1_0_mdc_voxcpm2_pre_qa_text_binding_v1.md)
 и one-attempt synthesis contract уже завершён; receipt SHA-256
-`943a9595968996f29da1a13f213e28419fc2c7b5215df790e4d4c440528f2b7b`. Следующий безопасный
-этап — один frozen offline synthesis run и normal synthetic decode/QA/VAD без
-retry/replacement/backfill. Detector inference до pair/review/exposure/evaluation gates запрещён.
+`943a9595968996f29da1a13f213e28419fc2c7b5215df790e4d4c440528f2b7b`. Единственный frozen
+offline synthesis run затем дал `64/64` raw WAV при одном model load, `0` network attempts и без
+retry/resynthesis/backfill. Один normal synthetic decode/QA/VAD pass сохранил `53` rows и
+отклонил `11` `insufficient_speech`; minimum `60` не достигнут. Technical receipt закрепил
+`stop_below_minimum_60`, поэтому pair/review/exposure/evaluation/inference gates для этого route
+не открываются. Подробности:
+[synthesis/technical-QA receipt](denis_1_0_mdc_voxcpm2_pre_qa_synthesis_and_technical_qa_v1.md).

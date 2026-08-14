@@ -2,7 +2,8 @@
 
 **Статус:** completed write-once metadata selection и source-bound technical materialization.
 Это minimum `64`-row bona-fide layer, не target-`79` success, не paired candidate, не acoustic
-review и не detector result.
+review и не detector result. Downstream VoxCPM2 route впоследствии остановлен после synthetic
+QA на `53` ready rows, ниже frozen minimum `60`.
 
 ## Current pre-selection exposure gate
 
@@ -77,10 +78,11 @@ selection, replacement или backfill по QA outcome запрещены.
 > unverified; likely historical Denis speaker-lineage exposure; single-speaker; not
 > speaker-independent or speaker-robust; personal research only.
 
-Generator-family часть пока только route eligibility: synthetic half ещё не создана. Отдельный
+Generator-family часть дошла только до остановленного technical candidate gate. Отдельный
 [immutable 64-row VoxCPM2 text-binding/one-attempt contract](denis_1_0_mdc_voxcpm2_pre_qa_text_binding_v1.md)
-уже завершён до candidate WAV и закрепил exact ready manifest, model/runtime/program hashes,
-seed/parameters и запрет reference/prompt audio, normalizer, denoiser, retry, replacement и
-backfill. Следующий этап — один frozen offline synthesis run и normal synthetic decode/QA/VAD;
-detector inference остаётся запрещён до exact pair lock, двух независимых full-asset acoustic
-reviews, current exposure audit и отдельного write-once evaluation contract.
+закрепил exact ready manifest, model/runtime/program hashes, seed/parameters и запрет
+reference/prompt audio, normalizer, denoiser, retry, replacement и backfill. Его единственный
+run создал `64/64` raw spoof WAV; normal synthetic decode/QA/VAD сохранил `53` и отклонил `11`
+как `insufficient_speech`. Frozen minimum `60` не достигнут, поэтому
+`stop_below_minimum_60` запрещает exact pair lock, reviews и detector inference для этого route.
+Полный outcome: [synthesis/technical-QA receipt](denis_1_0_mdc_voxcpm2_pre_qa_synthesis_and_technical_qa_v1.md).

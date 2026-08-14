@@ -1,0 +1,121 @@
+{
+  "claims": {
+    "acoustic_review_performed": false,
+    "binary_pairing_performed": false,
+    "detector_inference_authorized": false,
+    "detector_inference_performed": false,
+    "external_source_and_generator_family_holdout": true,
+    "future_pairing_must_use_only_retained_ready_spoof_rows": true,
+    "single_bonafide_speaker": true,
+    "speaker_independent": false,
+    "speaker_robust": false,
+    "synthetic_audio_generated": true,
+    "technical_decode_qa_vad_performed": true,
+    "training_data_overlap_unverified": true
+  },
+  "inputs": {
+    "raw_manifest": {
+      "path": "data/manifests/denis_1_0_mdc_voxcpm2_official_pre_qa_raw_v1.csv",
+      "rows": 64,
+      "sha256": "45c8d5c9fb4d9f9bd9b5745add9b6e738111928b2b5c42a8779e030377195362"
+    },
+    "rejection_report": {
+      "path": "data/manifests/denis_1_0_mdc_voxcpm2_official_pre_qa_technical_qa_rejections_v1.json",
+      "sha256": "38c4da79e2bd0a50168fabb1817f866c6dacbbcd657c8ee18e6846a45e058ecb"
+    },
+    "synthesis_receipt": {
+      "path": "data/manifests/denis_1_0_mdc_voxcpm2_official_pre_qa_synthesis_v1.json",
+      "sha256": "b827ba8208d4d44fdaeefaabeaa841355ed580aa253b261dead766a3a16ee83b"
+    },
+    "text_binding": {
+      "path": "data/manifests/denis_1_0_mdc_voxcpm2_official_pre_qa_text_binding_v1.json",
+      "rows": 64,
+      "sha256": "943a9595968996f29da1a13f213e28419fc2c7b5215df790e4d4c440528f2b7b"
+    }
+  },
+  "outputs": {
+    "ready_manifest": {
+      "path": "data/manifests/denis_1_0_mdc_voxcpm2_official_pre_qa_ready_v1.csv",
+      "rows": 53,
+      "sha256": "f90a634b80364a3a70046cf66354dbc7c11459f15a375b1e3a61c1f440e3028a"
+    }
+  },
+  "protocol_id": "denis-1-0-mdc-voxcpm2-official-pre-qa-technical-qa-v1",
+  "published_at": "2026-08-14T11:50:00+05:00",
+  "schema_version": 1,
+  "target_outcome": {
+    "actual_ready_pairs": 53,
+    "minimum_ready_pairs": 60,
+    "status": "stop_below_minimum_60",
+    "target_ready_pairs": 64
+  },
+  "technical_qa": {
+    "bound_rows": 64,
+    "pipeline": "AudioPreparationPipeline: decode, mono PCM-16 WAV 16 kHz, RMS/clipping/DC measurement, WebRTC VAD",
+    "ready_rows": 53,
+    "rejected_rows": 11,
+    "rejection_reason_counts": {
+      "insufficient_speech": 11
+    },
+    "rejections": [
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/5bba6dcb8b29357ec725-90daa45c3d6b.wav",
+        "sample_id": "voxcpm2_official_text_only_v1:36da5dbb1588a0010f2e"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/f9e786ddbaea15298cd3-7400efa8228f.wav",
+        "sample_id": "voxcpm2_official_text_only_v1:425de4df80a1240e7b7b"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/dbf1937dc9b7b4d92fc9-4132f2e668c2.wav",
+        "sample_id": "voxcpm2_official_text_only_v1:45d6333b2f85951fb3e2"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/5d5f5d701346a32fd5c8-bcc5496f32a9.wav",
+        "sample_id": "voxcpm2_official_text_only_v1:6af1bae2b307448df302"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/4d8b4eeec582d0510c06-f5f1188070c5.wav",
+        "sample_id": "voxcpm2_official_text_only_v1:719f1d4d752e3760653d"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/02cad5171290ae3c1bc6-265eadf0d92b.wav",
+        "sample_id": "voxcpm2_official_text_only_v1:75aac31a7b77903bef40"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/394fa2980e9b15873665-edfe5ddcdc45.wav",
+        "sample_id": "voxcpm2_official_text_only_v1:964dc55475fbadfcaedf"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/5bd2f5d710503878f0bd-f241c315ef8f.wav",
+        "sample_id": "voxcpm2_official_text_only_v1:abd6abc85749c2c8eb7f"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/4cee57ff5311857a4e61-bc415ffa326e.wav",
+        "sample_id": "voxcpm2_official_text_only_v1:c37786a2467ba217a12f"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/3f0ab5eab2bd17c5a476-7758a3cb5b0f.wav",
+        "sample_id": "voxcpm2_official_text_only_v1:d25dd655a6c5c36004ec"
+      },
+      {
+        "detail": "Audio is not trainable: insufficient_speech (insufficient_speech).",
+        "relative_path": "raw/denis_1_0_mdc_voxcpm2_official_pre_qa_v1/e7c47b5a2384364eff5d-86e781fead02.wav",
+        "sample_id": "voxcpm2_official_text_only_v1:ed3567ea87d29e4bfc9c"
+      }
+    ],
+    "resynthesis_replacement_or_backfill": false,
+    "reused_rows": 0,
+    "synthesis_raw_rows": 64
+  }
+}

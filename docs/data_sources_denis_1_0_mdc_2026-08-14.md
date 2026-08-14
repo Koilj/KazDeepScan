@@ -2,7 +2,9 @@
 
 **Статус:** completed source-level intake, current source-exposure screen, frozen 79-row metadata
 selection и bona-fide decode/QA/VAD. Technical QA оставил `64` ready rows без backfill; это ещё
-не synthetic half, paired candidate, acoustic review или detector inference.
+не было paired candidate. Downstream one-shot VoxCPM2 synthesis создал `64/64` raw, а synthetic
+QA/VAD сохранил `53` и закрепил `stop_below_minimum_60`; paired candidate, acoustic review и
+detector inference не создавались.
 
 **Допустимая роль:** personal-research external holdout only. Источник single-speaker и имеет
 вероятную historical speaker-lineage экспозицию; speaker-disjoint, speaker-independent и
@@ -130,6 +132,9 @@ Official OpenBMB VoxCPM2 artifact/source/history gate уже завершён: e
 checkpoint safety, narrow offline text-only wrapper и нулевой historical VoxCPM route закреплены;
 isolated runtime и единственный non-candidate CUDA smoke также прошли. Отдельный
 [immutable literal/canonical/NFKC binding](denis_1_0_mdc_voxcpm2_pre_qa_text_binding_v1.md) и
-one-attempt contract только для exact `64` ready texts уже завершён до candidate WAV. Следующий
-этап — один frozen offline synthesis run и normal synthetic decode/QA/VAD без
-retry/replacement/backfill; detector inference до всех последующих gates запрещён.
+one-attempt contract только для exact `64` ready texts был завершён до candidate WAV. Его
+единственный offline run создал `64/64` raw spoof WAV; normal synthetic decode/QA/VAD сохранил
+`53`, отклонил `11` `insufficient_speech` и опубликовал `stop_below_minimum_60` без
+retry/replacement/backfill. Поэтому paired evaluation layer из Denis не создан и detector
+inference не разрешён. Полный outcome:
+[synthesis/technical-QA receipt](denis_1_0_mdc_voxcpm2_pre_qa_synthesis_and_technical_qa_v1.md).

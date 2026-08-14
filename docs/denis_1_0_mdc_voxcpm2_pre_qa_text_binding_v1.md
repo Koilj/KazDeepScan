@@ -1,8 +1,10 @@
 # Denis 1.0 × official VoxCPM2 — immutable text binding v1
 
-**Статус:** completed pre-synthesis write-once gate. Ровно `64` Denis ready texts связаны с
-exact model/runtime и будущими synthesis/QA paths до первого candidate WAV. Synthetic audio,
-acoustic review, pairing и detector inference не выполнялись.
+**Статус receipt:** completed pre-synthesis write-once gate. Ровно `64` Denis ready texts были
+связаны с exact model/runtime и synthesis/QA paths до первого candidate WAV. Claims внутри
+immutable binding описывают именно тот момент. Forward outcome уже опубликован отдельно:
+`64/64` synthesis success, `53` technical-QA ready, `11` final rejects и
+`stop_below_minimum_60`; pairing, acoustic review и detector inference не выполнялись.
 
 ## Frozen inputs
 
@@ -55,7 +57,7 @@ Exact frozen program hashes:
 имеет SHA-256 `943a9595968996f29da1a13f213e28419fc2c7b5215df790e4d4c440528f2b7b`;
 row fingerprint — `b28d1ff99bc50b5dc6879b75a7dee018cef3a0767508cfde2fc660f9156204c0`.
 
-## Claims и следующий безопасный этап
+## Claims и фактический downstream outcome
 
 Маркировка не расширяется:
 
@@ -64,8 +66,8 @@ row fingerprint — `b28d1ff99bc50b5dc6879b75a7dee018cef3a0767508cfde2fc660f9156
 > not speaker-independent or speaker-robust; default synthetic voice identity unknown;
 > personal research only.
 
-Следующий безопасный этап — выполнить один committed runner в frozen offline runtime, завершить
-все `64` attempts без retry/backfill, затем ровно один normal decode/QA/VAD pass над полученными
-raw WAV и опубликовать technical-QA receipt. Detector inference остаётся запрещён до exact pair
-lock, двух независимых full-asset acoustic/language reviews, current project-exposure audit и
-отдельного write-once evaluation contract.
+Committed runner и normal decode/QA/VAD были выполнены ровно по этому contract. Результат
+зафиксирован в [synthesis/technical-QA receipt](denis_1_0_mdc_voxcpm2_pre_qa_synthesis_and_technical_qa_v1.md):
+`64/64` raw generated, `53` ready, `11` `insufficient_speech`, no retry/replacement/backfill.
+Поскольку frozen minimum `60` не достигнут, downstream status — `stop_below_minimum_60`.
+Exact pair lock, reviews, exposure audit и detector inference для этого route не разрешены.

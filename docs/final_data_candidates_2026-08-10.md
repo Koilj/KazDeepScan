@@ -6,7 +6,8 @@
 > [review от 14 августа](external_holdout_policy_and_voxcpm2_candidates_2026-08-14.md). Denis
 > source intake и official VoxCPM2 artifact/source/history/runtime/smoke gates завершены. Frozen
 > Denis selection зафиксировал 79 rows, а bona-fide QA/VAD оставил minimum layer `64` без
-> backfill; следующий gate — отдельный 64-row text-binding/one-shot synthesis contract.
+> backfill. Последующий 64-row binding/one-shot synthesis дал `64/64` raw, но synthetic QA/VAD
+> оставил `53`, поэтому exact route завершён `stop_below_minimum_60` без pairing или inference.
 
 Проверка проведена 10–11 августа 2026 года. В этот список включён только источник,
 который не является частью RuASD/KSC2, публикует исходное аудио и транскрипты с

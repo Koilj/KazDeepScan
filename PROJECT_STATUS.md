@@ -21,11 +21,9 @@ materialization извлёк `21 600` RuASD/KSC2 assets; exact raw-audio gate д
 отклонил две historical TeraTTS collisions. Decode/QA/VAD и exact/near-audio gate оставил
 `18 930` eligible source rows и заморозил по `5 000` RU bona-fide, RU spoof и KK bona-fide.
 Принято `proceed_20k_balanced`; следующий gate — `5 000` KK spoof через четыре train-only
-TTS-family. Все `7 200` frozen KSC2 text inputs (`4 × 1 800`) уже извлечены и exact-проверены;
-synthesis contract и resumable local runner заморожены; final-contract preflight всех четырёх
-маршрутов успешно прошёл на local CUDA. MMS и KazEmoTTS routes завершили по `1 800/1 800`
-(`1 500` target + `300` reserve) без runtime reject; Piper и SparkTTS запущены через append-only
-local journals. Общий audio QA/leakage gate,
+TTS-family. Все `7 200` frozen KSC2 text inputs (`4 × 1 800`) извлечены и exact-проверены;
+synthesis contract и resumable local runner завершили четыре routes по `1 800/1 800` raw WAV
+(`1 500` target + `300` reserve на family) без runtime reject. Общий audio QA/leakage gate,
 speaker-independence, training, checkpoint и новый final не
 заявлены. Детали:
 [capacity](docs/artifacts/v4/gate_a_2026-08-14.md) и
@@ -35,7 +33,9 @@ speaker-independence, training, checkpoint и новый final не
 [KK spoof texts](docs/artifacts/v4/kk_spoof_text_materialization_2026-08-14.md) и
 [synthesis plan](docs/artifacts/v4/kk_spoof_synthesis_plan_2026-08-14.md),
 [MMS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_mms_kaz_v1_synthesis_v1.json) и
-[KazEmoTTS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_kazemotts_v1_synthesis_v1.json).
+[KazEmoTTS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_kazemotts_v1_synthesis_v1.json),
+[Piper synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_piper_issai_high_v1_synthesis_v1.json) и
+[SparkTTS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_sparktts_v1_synthesis_v1.json).
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2

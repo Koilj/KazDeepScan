@@ -22,12 +22,10 @@ Python distribution metadata намеренно остаётся `0.1.0`: её �
 Source materialization извлёк `21 600` RuASD/KSC2 assets; exact raw-audio gate допустил `21 598`
 и учёл две historical TeraTTS collisions. Decode/QA/VAD и audio leakage gate заморозил по
 `5 000` RU bona-fide, RU spoof и KK bona-fide строк и принял `proceed_20k_balanced`; KK spoof
-synthesis на `5 000` ещё pending, его `7 200` frozen KSC2 text inputs уже exact-проверены.
-Для четырёх-route synthesis создан hash-pinned offline contract и resume-safe runner. Final-contract
-preflight всех четырёх маршрутов успешно прошёл на local CUDA. MMS и KazEmoTTS routes завершили
-по `1 800/1 800` WAV (`1 500` target + `300` reserve) без runtime reject; Piper и SparkTTS
-запущены через append-only local journals. Общий decode/QA/VAD/leakage gate, speaker independence
-и training не заявлены. Подробности:
+synthesis создал `7 200/7 200` raw WAV из exact-проверенных frozen KSC2 texts. Four-route
+hash-pinned runner завершил по `1 800/1 800` WAV на Piper, MMS, KazEmoTTS и SparkTTS (`1 500`
+target + `300` reserve на family), без runtime reject. Общий decode/QA/VAD/leakage gate,
+speaker independence и training не заявлены. Подробности:
 [Gate A capacity](docs/artifacts/v4/gate_a_2026-08-14.md),
 [frozen train candidates](docs/artifacts/v4/train_candidate_selection_2026-08-14.md) и
 [source raw materialization](docs/artifacts/v4/source_raw_materialization_2026-08-14.md) и
@@ -35,7 +33,9 @@ preflight всех четырёх маршрутов успешно прошёл
 [KK spoof texts](docs/artifacts/v4/kk_spoof_text_materialization_2026-08-14.md) и
 [synthesis plan](docs/artifacts/v4/kk_spoof_synthesis_plan_2026-08-14.md),
 [MMS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_mms_kaz_v1_synthesis_v1.json) и
-[KazEmoTTS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_kazemotts_v1_synthesis_v1.json).
+[KazEmoTTS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_kazemotts_v1_synthesis_v1.json),
+[Piper synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_piper_issai_high_v1_synthesis_v1.json) и
+[SparkTTS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_sparktts_v1_synthesis_v1.json).
 
 Быстрый старт из clone:
 

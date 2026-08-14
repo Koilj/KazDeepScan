@@ -1,0 +1,115 @@
+{
+  "accounting": {
+    "attempted": 1800,
+    "rejected_runtime": 0,
+    "rejection_reasons": {},
+    "reserve_succeeded": 300,
+    "succeeded": 1800,
+    "target_succeeded": 1500,
+    "voice_counts": {
+      "ISSAI_KazakhTTS2_F1": 300,
+      "ISSAI_KazakhTTS2_F2": 300,
+      "ISSAI_KazakhTTS2_F3": 300,
+      "ISSAI_KazakhTTS2_M2": 300,
+      "ISSAI_KazakhTTS_F1_Raya": 300,
+      "ISSAI_KazakhTTS_M1_Iseke": 300
+    }
+  },
+  "bindings": {
+    "candidate_csv": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_train_candidates_v2.csv",
+      "rows": 28800,
+      "sha256": "9a88442e32593147b07d55a13ee8ba4e97656d4deec0d6837e225c3b05436e43"
+    },
+    "license_ledger": {
+      "path": "data/licenses/license_ledger.csv",
+      "rows": null,
+      "sha256": "e0428ea721472b8cd57601a4f0aa59dd943854b66d7229ca9a5e05349ee6b809"
+    },
+    "plan": {
+      "path": "configs/research/v4/xlsr_sls_model_v4_kk_spoof_synthesis_v1.json",
+      "sha256": "4735fa343ee3a97809fab8b4c5d4854963be8680e778c40b3e35e97041e971f9"
+    },
+    "runner_script": {
+      "path": "scripts/synthesize_v4_kk_spoof.py",
+      "rows": null,
+      "sha256": "b10fbbdf759c71174a0f3dfa994e3ad28b7c943805dfe0e2de6d2e98b5e7b462"
+    },
+    "runtime_journal": {
+      "path": "artifacts/v4/xlsr_sls_model_v4_kk_spoof_synthesis_v1/kk_piper_issai_high_v1.jsonl",
+      "rows": 3600,
+      "sha256": "12b7503333724d6754cc9728e697a91f9da0a733928cd4d212d923dbb6d1a3f7"
+    },
+    "selection_governance": {
+      "path": "docs/artifacts/v4/xlsr_sls_model_v4_train_candidate_selection_governance_v1.json",
+      "rows": null,
+      "sha256": "5cb05bfa21e761258b54b28a2e1e086db18add62fa6916098cbf927d7d755ff1"
+    },
+    "source_decode_receipt": {
+      "path": "docs/artifacts/v4/xlsr_sls_model_v4_source_decode_qa_v1.json",
+      "rows": null,
+      "sha256": "634416a0bd7b450ece58a0bad6b55f202ff78d9acd269648d5bfddb83864fe0d"
+    },
+    "synthesis_contract_module": {
+      "path": "src/kds/data/v4_synthesis.py",
+      "rows": null,
+      "sha256": "bf285d427d59e1e0ec0dddea70505b05e6216b8bb6b58d0db447f96d23feaca3"
+    },
+    "synthesis_runtime_module": {
+      "path": "src/kds/data/v4_synthesis_run.py",
+      "rows": null,
+      "sha256": "52217c3ea8cbb05fd3f867a60be3cb9aaeb605178a3b5de037995fe450a6ac7e"
+    },
+    "text_inventory": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_text_inventory_v1.csv",
+      "rows": 7200,
+      "sha256": "f98f33d13eecc483ef3a05676e53636eb0f3e987afc10f5870041ce1889f5752"
+    },
+    "text_receipt": {
+      "path": "docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_text_materialization_v1.json",
+      "rows": null,
+      "sha256": "54c9b7a24435e6c9c183d90fcbcb528c7ef041bcc9e38c29808c5699ae4123b8"
+    }
+  },
+  "claims": {
+    "audio_qa_completed": false,
+    "detector_or_logit_feedback": false,
+    "local_offline_text_only_tts": true,
+    "new_dataset_search_performed": false,
+    "output_overwrite": false,
+    "reference_audio_or_voice_cloning": false,
+    "training_authorized": false
+  },
+  "created_at": "2026-08-14T19:53:43Z",
+  "next_gate": "canonical decode, QA/VAD and historical/current audio leakage screening; then frozen target/reserve selection without detector feedback",
+  "outputs": {
+    "raw_manifest": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_kk_piper_issai_high_v1_raw_v1.csv",
+      "rows": 1800,
+      "sha256": "634be0db86ae13577a7bbd6fe586354eb099bb83982c9e52719933e5227d20ad"
+    },
+    "synthesis_inventory": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_kk_piper_issai_high_v1_synthesis_inventory_v1.csv",
+      "rows": 1800,
+      "sha256": "d179cadfa8a6dbdd0a891034d3573e62a456dce8df07ca83224c4642c3788bd3"
+    }
+  },
+  "protocol_id": "xlsr-sls-model-v4-kk-spoof-synthesis-v1",
+  "route": {
+    "adapter_source": {
+      "path": "scripts/synthesize_ksc_derived_kk.py",
+      "rows": null,
+      "sha256": "de54f23a177814873a2c47d6710a1cb79c0bbd119a0d84f9874d3ecab0a1f667"
+    },
+    "generator_family": "piper_neural_tts",
+    "model_id": "piper_kk_issai_high",
+    "model_lock": {
+      "path": "configs/research/ksc_derived_kk_v1_models.json",
+      "rows": null,
+      "sha256": "0b47a62fe467f7bfe95724a366e0a223ae28a7a14510acc7bb3936702f1c8d9f"
+    },
+    "route_id": "kk-piper-issai-high-v1"
+  },
+  "schema_version": 1,
+  "state": "route_synthesis_complete_qa_pending"
+}

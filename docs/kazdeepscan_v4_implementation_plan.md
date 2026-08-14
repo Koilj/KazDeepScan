@@ -2,13 +2,11 @@
 
 **Статус:** capacity/integrity, frozen metadata selection v2 и source decode/QA/audio-leakage
 gate завершены. Source train заморожен на `15 000` строк (`3 × 5 000`); принято
-`proceed_20k_balanced`. Все `7 200` KK spoof texts exact-проверены; следующий gate — synthesis
-`5 000` ready rows через четыре train-only TTS-family.
+`proceed_20k_balanced`. Все `7 200` KK spoof texts exact-проверены и превращены в raw WAV;
+следующий gate — выбрать `5 000` ready rows через общий QA/VAD/audio-leakage screen.
 
-Four-route hash-pinned offline synthesis contract и resumable runner уже готовы. Final-contract
-preflight всех четырёх маршрутов успешно прошёл на local CUDA; MMS и KazEmoTTS routes завершили
-по `1 800/1 800` WAV без runtime reject. Piper и SparkTTS запущены через append-only local journals;
-общий audio QA/leakage gate pending.
+Four-route hash-pinned offline synthesis contract и resumable runner завершили все four routes:
+`7 200/7 200` raw WAV (`4 × 1 800`) без runtime reject. Общий audio QA/leakage gate pending.
 
 **Дата локального аудита:** 14 августа 2026 года.
 
@@ -213,15 +211,18 @@ historical near-hit и заморозил `15 000` source train rows (`3 × 5 00
 [source decode/QA](artifacts/v4/source_decode_qa_2026-08-14.md).
 
 KK spoof text materialization повторно проверила полный KSC2 multipart archive и exact извлекла
-`7 200` unique transcripts (`4 × 1 800`, в каждой route `1 500` target + `300` reserve). Ни
-один synthetic WAV ещё не создан: [KK spoof texts](artifacts/v4/kk_spoof_text_materialization_2026-08-14.md).
+`7 200` unique transcripts (`4 × 1 800`, в каждой route `1 500` target + `300` reserve).
+Все `7 200` synthetic raw WAV теперь созданы без runtime reject:
+[KK spoof texts](artifacts/v4/kk_spoof_text_materialization_2026-08-14.md).
 Отдельный synthesis plan hash-bind'ит inputs, runner и четыре model/adapter route, запрещает
 network/reference audio/cloning/detector feedback и публикует только полный route accounting:
 [KK spoof synthesis](artifacts/v4/kk_spoof_synthesis_plan_2026-08-14.md).
-MMS и KazEmoTTS routes опубликовали по `1 800` raw rows (`1 500` target + `300` reserve) без
-runtime rejection; это ещё не готовые train rows до common gate:
+Все four routes опубликовали по `1 800` raw rows (`1 500` target + `300` reserve) без runtime
+rejection; это ещё не готовые train rows до common gate:
 [MMS synthesis](artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_mms_kaz_v1_synthesis_v1.json) и
-[KazEmoTTS synthesis](artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_kazemotts_v1_synthesis_v1.json).
+[KazEmoTTS synthesis](artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_kazemotts_v1_synthesis_v1.json),
+[Piper synthesis](artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_piper_issai_high_v1_synthesis_v1.json) и
+[SparkTTS synthesis](artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_sparktts_v1_synthesis_v1.json).
 
 ## 5. Подготовка v4 data
 
@@ -357,11 +358,11 @@ data в tuning, несоответствии hash или попытке повт
   dev/calibration/final manifests и checkpoint ещё не созданы;
 - materialized raw audio находится только в новом Git-ignored v4 namespace; historical audio
   assets не изменялись;
-- не запускались synthesis, QA, training, calibration или inference;
+- raw synthesis завершён без runtime reject; common QA/VAD/audio-leakage, training, calibration и
+  inference не запускались;
 - не изменены v1/v2/v3 и существующие immutable receipts;
 - не искались и не скачивались новые datasets/models;
 - `24 000 ready` не заявлены: подтверждена только достаточная pre-QA candidate capacity.
 
-Следующий безопасный шаг — синтезировать frozen v2 KK spoof pool через Piper/MMS/KazEmoTTS/
-Spark-TTS в новых Git-ignored namespaces, провести тот же QA/VAD и audio-leakage gate и
-заморозить ровно `5 000` (`4 × 1 250`) строк. До успешного receipt training запрещён.
+Следующий безопасный шаг — провести общий QA/VAD и audio-leakage gate для четырёх completed
+routes и заморозить ровно `5 000` (`4 × 1 250`) строк. До успешного receipt training запрещён.

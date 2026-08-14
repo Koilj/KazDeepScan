@@ -1,8 +1,8 @@
 # KazDeepScan XLS-R+SLS v4 — план реализации расширенного train
 
-**Статус:** capacity/integrity Gate A и frozen metadata selection v2 завершены; source-audio
-materialization извлёк `21 600` RuASD/KSC2 assets и допустил `21 598` после exact raw-audio
-gate. Canonical decode, near-audio leakage и QA/VAD не завершены.
+**Статус:** capacity/integrity, frozen metadata selection v2 и source decode/QA/audio-leakage
+gate завершены. Source train заморожен на `15 000` строк (`3 × 5 000`); принято
+`proceed_20k_balanced`. Следующий gate — `5 000` KK spoof через четыре train-only TTS-family.
 
 **Дата локального аудита:** 14 августа 2026 года.
 
@@ -10,9 +10,9 @@ gate. Canonical decode, near-audio leakage и QA/VAD не завершены.
 вероятность.
 
 Этот документ является единственным подробным планом v4. Завершённые capacity audit,
-metadata-only selection и exact raw-audio materialization разрешают только canonical decode,
-fingerprint/leakage audit и QA/VAD source candidates. До их завершения synthesis, training и
-final inference не разрешены. V1/v2/v3, их
+metadata-only selection и source decode/QA разрешают только frozen KK spoof synthesis и его
+QA/leakage gate. До frozen balanced `20 000` train synthesis других ролей, training и final
+inference не разрешены. V1/v2/v3, их
 manifests, checkpoints, execution locks, reports и write-once результаты не меняются. Перед
 началом каждого следующего этапа создаются новые versioned contracts и новые output paths.
 
@@ -23,13 +23,14 @@ manifests, checkpoints, execution locks, reports и write-once результа�
 ## 1. Цель и критерий готовности
 
 Цель — обучить отдельный XLS-R+SLS v4 checkpoint на `20 000–30 000` прошедших QA исходных
-train-записях. Предпочтительный frozen target — `24 000` строк:
+train-записях. Первоначальный preferred target `24 000` не прошёл source QA: RU bona-fide
+оставил `5 706` eligible. Без outcome-driven backfill текущий frozen target — `20 000` строк:
 
 | Язык | bona-fide | spoof | Всего |
 | --- | ---: | ---: | ---: |
-| RU | 6 000 | 6 000 | 12 000 |
-| KK | 6 000 | 6 000 | 12 000 |
-| **Всего** | **12 000** | **12 000** | **24 000** |
+| RU | 5 000 | 5 000 | 10 000 |
+| KK | 5 000 | 5 000 | 10 000 |
+| **Всего** | **10 000** | **10 000** | **20 000** |
 
 В target считаются только уникальные base recordings после decode, QA и VAD. Augmentation,
 повторные окна одного файла и regenerated variants не увеличивают размер набора. Допустимый
@@ -106,15 +107,16 @@ ID или объявить разные datasets разными людьми б�
 
 ### 3.1. Train: preferred target 24 000
 
-- `RU bona-fide = 6 000`: raw RuASD, но без внутренней Common Voice strata, augmented rows и
+- `RU bona-fide = 5 000`: raw RuASD, но без внутренней Common Voice strata, augmented rows и
   project-history closure.
-- `RU spoof = 6 000`: raw RuASD с заранее ограниченной квотой на subset. ToneSpeak не входит в
+- `RU spoof = 5 000`: raw RuASD с заранее ограниченной квотой на subset. ToneSpeak не входит в
   canonical v2 train role. Нельзя считать RuASD subset names доказанными architecture family;
   family claims делаются только после provenance map.
-- `KK bona-fide = 6 000`: KSC2 nonlegacy train components после исключения `crowdsourced`,
+- `KK bona-fide = 5 000`: KSC2 nonlegacy train components после исключения `crowdsourced`,
   `tts`, legacy KSC/KazakhTTS2 и всех historical groups/texts.
-- `KK spoof = 6 000`: по одному fresh output на frozen KK train text. V2 pre-QA pool распределён
-  по `1 800` строк между четырьмя train-only family: Piper, MMS, KazEmoTTS и Spark-TTS. eSpeak
+- `KK spoof = 5 000`: по одному fresh output на frozen KK train text. V2 pre-QA pool распределён
+  по `1 800` строк между четырьмя train-only family: Piper, MMS, KazEmoTTS и Spark-TTS; frozen
+  target — `1 250` ready на family. eSpeak
   исключён из train и зарезервирован только для RU calibration, чтобы family roots не пересекали
   роли.
 
@@ -198,6 +200,11 @@ Source materialization завершила exact raw-audio часть для `21 
 collision со старым RuASD OOD-100 manifest, без replacement/backfill. Decoded hashes,
 near-audio fingerprints и QA/VAD остаются обязательным следующим gate:
 [source raw materialization](artifacts/v4/source_raw_materialization_2026-08-14.md).
+
+Source decode/QA gate обработал все `21 598` rows, оставил `18 930` eligible, исключил один
+historical near-hit и заморозил `15 000` source train rows (`3 × 5 000`). Exact decoded history
+и within-pool collisions равны нулю. Решение `proceed_20k_balanced`, полный accounting и hashes:
+[source decode/QA](artifacts/v4/source_decode_qa_2026-08-14.md).
 
 ## 5. Подготовка v4 data
 
@@ -328,9 +335,9 @@ data в tuning, несоответствии hash или попытке повт
 
 ## 11. Текущий незавершённый scope
 
-- capacity gate, canonical metadata selection v2 и source raw materialization завершены:
-  извлечено `21 600`, exact raw gate допустил `21 598`, но ready train/dev/calibration/final
-  manifests и checkpoint ещё не созданы;
+- capacity gate, canonical metadata selection v2 и source raw/decode/QA завершены: `18 930`
+  source rows eligible, `15 000` frozen в train source manifest; полный balanced train,
+  dev/calibration/final manifests и checkpoint ещё не созданы;
 - materialized raw audio находится только в новом Git-ignored v4 namespace; historical audio
   assets не изменялись;
 - не запускались synthesis, QA, training, calibration или inference;
@@ -338,7 +345,6 @@ data в tuning, несоответствии hash или попытке повт
 - не искались и не скачивались новые datasets/models;
 - `24 000 ready` не заявлены: подтверждена только достаточная pre-QA candidate capacity.
 
-Следующий безопасный шаг — canonical decode `21 598` eligible source rows в новый Git-ignored
-processed namespace, decoded hashes и near-audio fingerprints, QA/VAD и closure historical/
-cross-role audio leakage. До успешного receipt нельзя создавать synthetic WAV или начинать
-training.
+Следующий безопасный шаг — синтезировать frozen v2 KK spoof pool через Piper/MMS/KazEmoTTS/
+Spark-TTS в новых Git-ignored namespaces, провести тот же QA/VAD и audio-leakage gate и
+заморозить ровно `5 000` (`4 × 1 250`) строк. До успешного receipt training запрещён.

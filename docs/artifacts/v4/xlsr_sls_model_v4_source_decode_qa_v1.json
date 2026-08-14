@@ -1,0 +1,110 @@
+{
+  "accounting": {
+    "decision_counts": {
+      "kk/bonafide|eligible|": 6027,
+      "kk/bonafide|rejected|insufficient_speech": 1173,
+      "ru/bonafide|eligible|": 5706,
+      "ru/bonafide|pending_near_audio_review|near_audio_review_required": 1,
+      "ru/bonafide|rejected|excessive_clipping": 3,
+      "ru/bonafide|rejected|insufficient_speech": 1486,
+      "ru/bonafide|rejected|signal_too_quiet": 4,
+      "ru/spoof|eligible|": 7197,
+      "ru/spoof|rejected|signal_too_quiet": 1
+    },
+    "historical_exact_decoded_collisions": 0,
+    "historical_fingerprinted_hashes": 28008,
+    "historical_near_review_candidates_excluded": 1,
+    "historical_unavailable_hashes": 392,
+    "historical_unavailable_scope": "ML-DF Italian OOD only",
+    "historical_unique_manifest_hashes": 28400,
+    "ready_cell_counts": {
+      "kk/bonafide": 6027,
+      "ru/bonafide": 5706,
+      "ru/spoof": 7197
+    },
+    "ready_eligible_rows": 18930,
+    "source_rows": 21598,
+    "within_pool_exact_decoded_duplicates": 0,
+    "within_pool_near_review_candidates_excluded": 0
+  },
+  "audio_contract": {
+    "decode": "ffmpeg mono pcm_s16le 16000 Hz",
+    "fingerprint_version": "kds-speech-spectral-phash-v1",
+    "minimum_speech_seconds": 2.5,
+    "near_audio_hamming_threshold": 12,
+    "near_audio_speech_duration_ratio": 0.15,
+    "qa": "QualityPolicy defaults plus WebRTC VAD defaults"
+  },
+  "balanced_train_decision": {
+    "actual_source_bottleneck_cell": "ru/bonafide",
+    "actual_source_bottleneck_eligible": 5706,
+    "decision": "proceed_20k_balanced",
+    "final_train_target": 20000,
+    "frozen_source_cells": {
+      "kk/bonafide": 5000,
+      "ru/bonafide": 5000,
+      "ru/spoof": 5000
+    },
+    "pending_kk_spoof_target": 5000,
+    "previous_preferred_target": 24000,
+    "replacement_or_backfill": false,
+    "target_per_language_label_cell": 5000
+  },
+  "bindings": {
+    "decode_journal": {
+      "path": "artifacts/v4/xlsr_sls_model_v4_source_decode_qa_v1/source_decode_qa.jsonl",
+      "rows": 21598,
+      "sha256": "a9b9a581001fab2ac65a9e57ec796cd2737d9dfba2953c9d116ca38e4ea3f465"
+    },
+    "historical_fingerprint_journal": {
+      "path": "artifacts/v4/xlsr_sls_model_v4_source_decode_qa_v1/historical_audio_fingerprints.jsonl",
+      "rows": 28008,
+      "sha256": "89d6cf5e76dc983f6b1e735b6d7ff04fb462df9a8b6e1c43d0b362d55943ac8f"
+    },
+    "license_ledger": {
+      "path": "data/licenses/license_ledger.csv",
+      "sha256": "e0428ea721472b8cd57601a4f0aa59dd943854b66d7229ca9a5e05349ee6b809"
+    },
+    "source_materialization_receipt": {
+      "path": "docs/artifacts/v4/xlsr_sls_model_v4_source_raw_materialization_v1.json",
+      "sha256": "246009d1d8e16bcdf354736efc7ebff297a4b560f3dced15eedd95f8cff6cfc7"
+    }
+  },
+  "claims": {
+    "decoded_exact_audio_screen_performed": true,
+    "kk_spoof_synthesis_authorized": true,
+    "near_audio_hits_excluded_from_frozen_source_train": true,
+    "near_audio_screen_performed": true,
+    "new_dataset_search_performed": false,
+    "speaker_independence": "not_verified_speaker_independent",
+    "technical_decode_qa_vad_performed": true,
+    "training_authorized": false
+  },
+  "created_at": "2026-08-14T17:00:00+06:00",
+  "next_gate": "synthesize the frozen canonical v2 KK spoof candidates through Piper, MMS, KazEmoTTS and Spark-TTS in new v4 namespaces; run the same decode/QA/VAD and leakage gates; freeze exactly 5000 eligible rows",
+  "outputs": {
+    "decode_inventory": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_source_decode_qa_inventory_v1.csv",
+      "rows": 21598,
+      "sha256": "8815000a16d778a83c3d22474c24bcbba41a74f8964177d26b992b83a1af262d"
+    },
+    "frozen_source_train_manifest": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_source_train_frozen_v1.csv",
+      "rows": 15000,
+      "sha256": "f174e60e4cc13e58779ad3c1556a3aa20d737538dc696636f11ec440a8d11025"
+    },
+    "historical_fingerprint_inventory": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_historical_audio_fingerprints_v1.csv",
+      "rows": 28400,
+      "sha256": "ff48f80b0729a8b2c40d02cf0b5f830c11d27d87380fedae6ba57264a0708e08"
+    },
+    "ready_manifest": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_source_ready_v1.csv",
+      "rows": 18930,
+      "sha256": "30ff4902842556f6fa7f50ad2dfb9152bb89b0fa383f8a4dd93bd32f39af2183"
+    }
+  },
+  "protocol_id": "xlsr-sls-model-v4-source-decode-qa-v1",
+  "schema_version": 1,
+  "state": "source_train_frozen_15000_kk_spoof_synthesis_authorized"
+}

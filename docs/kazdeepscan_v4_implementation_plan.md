@@ -6,9 +6,10 @@ gate завершены. Source train заморожен на `15 000` стро�
 следующий gate — выбрать `5 000` ready rows через общий QA/VAD/audio-leakage screen.
 
 Four-route hash-pinned offline synthesis contract и resumable runner завершили все four routes:
-`7 200/7 200` raw WAV (`4 × 1 800`) без runtime reject. Общий audio QA/leakage gate pending.
+`7 200/7 200` raw WAV (`4 × 1 800`) без runtime reject. Общий hash-pinned audio QA/leakage gate
+frozen before processing.
 
-**Дата локального аудита:** 14 августа 2026 года.
+**Дата локального аудита:** 15 августа 2026 года.
 
 **Scope:** только personal research; не product model, не fraud detector и не калиброванная
 вероятность.
@@ -223,6 +224,8 @@ rejection; это ещё не готовые train rows до common gate:
 [KazEmoTTS synthesis](artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_kazemotts_v1_synthesis_v1.json),
 [Piper synthesis](artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_piper_issai_high_v1_synthesis_v1.json) и
 [SparkTTS synthesis](artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_sparktts_v1_synthesis_v1.json).
+Общий gate reuse'ит canonical v4 decode/QA/VAD и screens all current/historical audio before
+fixed `4 × 1,250` freeze: [KK spoof audio gate](artifacts/v4/kk_spoof_audio_gate_2026-08-15.md).
 
 ## 5. Подготовка v4 data
 

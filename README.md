@@ -25,7 +25,8 @@ Source materialization извлёк `21 600` RuASD/KSC2 assets; exact raw-audio 
 synthesis создал `7 200/7 200` raw WAV из exact-проверенных frozen KSC2 texts. Four-route
 hash-pinned runner завершил по `1 800/1 800` WAV на Piper, MMS, KazEmoTTS и SparkTTS (`1 500`
 target + `300` reserve на family), без runtime reject. Общий decode/QA/VAD/leakage gate,
-speaker independence и training не заявлены. Подробности:
+speaker independence и training не заявлены; его hash-pinned contract frozen before processing.
+Подробности:
 [Gate A capacity](docs/artifacts/v4/gate_a_2026-08-14.md),
 [frozen train candidates](docs/artifacts/v4/train_candidate_selection_2026-08-14.md) и
 [source raw materialization](docs/artifacts/v4/source_raw_materialization_2026-08-14.md) и
@@ -35,7 +36,8 @@ speaker independence и training не заявлены. Подробности:
 [MMS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_mms_kaz_v1_synthesis_v1.json) и
 [KazEmoTTS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_kazemotts_v1_synthesis_v1.json),
 [Piper synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_piper_issai_high_v1_synthesis_v1.json) и
-[SparkTTS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_sparktts_v1_synthesis_v1.json).
+[SparkTTS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_sparktts_v1_synthesis_v1.json),
+[common audio gate](docs/artifacts/v4/kk_spoof_audio_gate_2026-08-15.md).
 
 Быстрый старт из clone:
 

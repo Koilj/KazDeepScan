@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "protocol_id": "xlsr-sls-model-v4-kk-spoof-audio-gate-v1",
+  "created_at": "2026-08-15T00:30:00Z",
+  "state": "frozen_pre_qa",
+  "inputs": {
+    "source_decode_receipt": {
+      "path": "docs/artifacts/v4/xlsr_sls_model_v4_source_decode_qa_v1.json",
+      "sha256": "634416a0bd7b450ece58a0bad6b55f202ff78d9acd269648d5bfddb83864fe0d",
+      "rows": null
+    },
+    "source_decode_inventory": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_source_decode_qa_inventory_v1.csv",
+      "sha256": "8815000a16d778a83c3d22474c24bcbba41a74f8964177d26b992b83a1af262d",
+      "rows": 21598
+    },
+    "historical_fingerprint_inventory": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_historical_audio_fingerprints_v1.csv",
+      "sha256": "ff48f80b0729a8b2c40d02cf0b5f830c11d27d87380fedae6ba57264a0708e08",
+      "rows": 28400
+    },
+    "license_ledger": {
+      "path": "data/licenses/license_ledger.csv",
+      "sha256": "e0428ea721472b8cd57601a4f0aa59dd943854b66d7229ca9a5e05349ee6b809",
+      "rows": null
+    },
+    "synthesis_plan": {
+      "path": "configs/research/v4/xlsr_sls_model_v4_kk_spoof_synthesis_v1.json",
+      "sha256": "4735fa343ee3a97809fab8b4c5d4854963be8680e778c40b3e35e97041e971f9",
+      "rows": null
+    },
+    "audio_gate_module": {
+      "path": "src/kds/data/v4_audio_gate.py",
+      "sha256": "6878f3fe47ce889c56fb78379eab21d101f64085677d981d4b108d5e0adda654",
+      "rows": null
+    },
+    "runner_script": {
+      "path": "scripts/run_v4_kk_spoof_audio_gate.py",
+      "sha256": "03c8f65c34e897ca1648de3c3df8b3e3b6a9999f44895e7d52bad952f8801708",
+      "rows": null
+    }
+  },
+  "routes": [
+    {
+      "route_id": "kk-piper-issai-high-v1",
+      "raw_manifest": {
+        "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_kk_piper_issai_high_v1_raw_v1.csv",
+        "sha256": "634be0db86ae13577a7bbd6fe586354eb099bb83982c9e52719933e5227d20ad",
+        "rows": 1800
+      },
+      "synthesis_inventory": {
+        "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_kk_piper_issai_high_v1_synthesis_inventory_v1.csv",
+        "sha256": "d179cadfa8a6dbdd0a891034d3573e62a456dce8df07ca83224c4642c3788bd3",
+        "rows": 1800
+      },
+      "synthesis_receipt": {
+        "path": "docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_piper_issai_high_v1_synthesis_v1.json",
+        "sha256": "ea5fcebf8a87a289ffd7411874e7cd99d9ab33e49f33cc1ba15a568fc4a33f8b",
+        "rows": null
+      }
+    },
+    {
+      "route_id": "kk-mms-kaz-v1",
+      "raw_manifest": {
+        "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_kk_mms_kaz_v1_raw_v1.csv",
+        "sha256": "28c14bc57ff6513f1e7b069a6d819d9f92e53f2b2310e08ef710be48ae6fdd83",
+        "rows": 1800
+      },
+      "synthesis_inventory": {
+        "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_kk_mms_kaz_v1_synthesis_inventory_v1.csv",
+        "sha256": "a353fc76fb7cc3235d5250e7ebf6a5554c83a386cc12a9ed4d330d46ecf405de",
+        "rows": 1800
+      },
+      "synthesis_receipt": {
+        "path": "docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_mms_kaz_v1_synthesis_v1.json",
+        "sha256": "d918828275d4915cfb5adceb059925d431dbf612bfc01912da3da15ae75e23a3",
+        "rows": null
+      }
+    },
+    {
+      "route_id": "kk-kazemotts-v1",
+      "raw_manifest": {
+        "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_kk_kazemotts_v1_raw_v1.csv",
+        "sha256": "ef2f78d90770034c69bd2eb08885cad286632c479fc6dfcfacffe479f1995489",
+        "rows": 1800
+      },
+      "synthesis_inventory": {
+        "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_kk_kazemotts_v1_synthesis_inventory_v1.csv",
+        "sha256": "af7dd6807591e65fe28035d4f213c8354385c6392ab5e7943e7cacc96992c5ff",
+        "rows": 1800
+      },
+      "synthesis_receipt": {
+        "path": "docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_kazemotts_v1_synthesis_v1.json",
+        "sha256": "4668a027befa45a09ba46a817fef66c61bc0e1e552b1c4ea5ad3024ffe9f1417",
+        "rows": null
+      }
+    },
+    {
+      "route_id": "kk-sparktts-v1",
+      "raw_manifest": {
+        "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_kk_sparktts_v1_raw_v1.csv",
+        "sha256": "7f56101fb0843981fd3d778d2c71f7e1a53a679d901ce785e194f58ce176ec2d",
+        "rows": 1800
+      },
+      "synthesis_inventory": {
+        "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_kk_sparktts_v1_synthesis_inventory_v1.csv",
+        "sha256": "3834cbc616f41c518163e31742b4b9c9a898bbab55cac9ac133bc6fdb116eca4",
+        "rows": 1800
+      },
+      "synthesis_receipt": {
+        "path": "docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_sparktts_v1_synthesis_v1.json",
+        "sha256": "1ca268f65d85c045dc2769aeb7c9c3eaebed32da913bcb10f576539817837f26",
+        "rows": null
+      }
+    }
+  ],
+  "outputs": {
+    "processed_root": "processed/v4/xlsr_sls_model_v4_kk_spoof_decode_qa_v1",
+    "runtime_root": "artifacts/v4/xlsr_sls_model_v4_kk_spoof_decode_qa_v1",
+    "output_inventory": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_decode_qa_inventory_v1.csv",
+    "output_ready_manifest": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_ready_v1.csv",
+    "output_frozen_manifest": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_train_frozen_v1.csv",
+    "output_receipt": "docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_audio_gate_v1.json"
+  },
+  "selection": {
+    "attempted_per_route": 1800,
+    "target_per_route": 1500,
+    "reserve_per_route": 300,
+    "frozen_ready_per_route": 1250,
+    "order": "target_then_reserve_then_selection_rank",
+    "detector_feedback": "prohibited",
+    "backfill_outside_frozen_reserve": "prohibited"
+  },
+  "prohibitions": {
+    "network": true,
+    "detector_or_logit_feedback": true,
+    "resynthesis": true,
+    "output_overwrite": true,
+    "new_dataset_search": true
+  }
+}

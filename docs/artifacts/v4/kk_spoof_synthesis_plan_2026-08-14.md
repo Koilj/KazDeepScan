@@ -1,10 +1,11 @@
 # XLS-R+SLS model v4 — KK spoof synthesis plan v1
 
-**Status:** frozen pre-synthesis contract. Предварительный Piper local preflight проверил complete
-hash-pinned Piper/MMS bundle и six declared Piper controls; он не создал WAV. Этот preflight
-предшествовал исправлению route-isolated runtime bindings, поэтому final-contract preflight обязателен
-до synthesis. Training remains forbidden until all four routes complete and the shared
-decode/QA/leakage gate freezes exactly 5,000 KK spoof rows.
+**Status:** frozen pre-synthesis contract. Final-contract preflight успешно проверил complete
+hash-pinned local bundles и controls всех четырёх маршрутов на local CUDA: Piper (`6`), MMS
+(`1`), KazEmoTTS (`18`) и SparkTTS (`12`) profiles. Все four invocations returned
+`preflight_ok` with `1,800` pending tasks each and created neither WAV nor journal. Training
+remains forbidden until all four routes complete and the shared decode/QA/leakage gate freezes
+exactly 5,000 KK spoof rows.
 
 Machine contract:
 [xlsr_sls_model_v4_kk_spoof_synthesis_v1.json](../../configs/research/v4/xlsr_sls_model_v4_kk_spoof_synthesis_v1.json)

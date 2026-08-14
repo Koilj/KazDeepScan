@@ -5,8 +5,8 @@ gate завершены. Source train заморожен на `15 000` стро�
 `proceed_20k_balanced`. Все `7 200` KK spoof texts exact-проверены; следующий gate — synthesis
 `5 000` ready rows через четыре train-only TTS-family.
 
-Four-route hash-pinned offline synthesis contract и resumable runner уже готовы. Предварительный
-Piper preflight не создал WAV, но final-contract preflight после исправления route-isolated bindings ещё pending.
+Four-route hash-pinned offline synthesis contract и resumable runner уже готовы. Final-contract
+preflight всех четырёх маршрутов успешно прошёл на local CUDA и не создал WAV/journal.
 
 **Дата локального аудита:** 14 августа 2026 года.
 

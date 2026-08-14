@@ -22,8 +22,8 @@ materialization извлёк `21 600` RuASD/KSC2 assets; exact raw-audio gate д
 `18 930` eligible source rows и заморозил по `5 000` RU bona-fide, RU spoof и KK bona-fide.
 Принято `proceed_20k_balanced`; следующий gate — `5 000` KK spoof через четыре train-only
 TTS-family. Все `7 200` frozen KSC2 text inputs (`4 × 1 800`) уже извлечены и exact-проверены;
-synthesis contract и resumable local runner заморожены; предварительный Piper preflight не создал WAV,
-но final-contract preflight после исправления route-isolated bindings и маршрутные synthesis outputs ещё pending.
+synthesis contract и resumable local runner заморожены; final-contract preflight всех четырёх
+маршрутов успешно прошёл на local CUDA без WAV/journal, маршрутные synthesis outputs ещё pending.
 Speaker-independence, training, checkpoint и новый final не
 заявлены. Детали:
 [capacity](docs/artifacts/v4/gate_a_2026-08-14.md) и

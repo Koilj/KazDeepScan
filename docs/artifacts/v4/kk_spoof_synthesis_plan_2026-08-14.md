@@ -7,10 +7,11 @@ hash-pinned local bundles и controls всех четырёх маршрутов
 remains forbidden until all four routes complete and the shared decode/QA/leakage gate freezes
 exactly 5,000 KK spoof rows.
 
-**Run state:** MMS route завершил `1,800/1,800` local text-only WAVs (`1,500` target + `300`
-reserve) with `0` runtime rejects; его full accounting закреплён в
-[MMS synthesis receipt](xlsr_sls_model_v4_kk_spoof_kk_mms_kaz_v1_synthesis_v1.json). Piper,
-KazEmoTTS и SparkTTS ещё pending; MMS rows не являются QA-ready или training-authorized.
+**Run state:** MMS и KazEmoTTS routes завершили each `1,800/1,800` local text-only WAVs
+(`1,500` target + `300` reserve) with `0` runtime rejects. Full accounting закреплён в
+[MMS synthesis receipt](xlsr_sls_model_v4_kk_spoof_kk_mms_kaz_v1_synthesis_v1.json) и
+[KazEmoTTS synthesis receipt](xlsr_sls_model_v4_kk_spoof_kk_kazemotts_v1_synthesis_v1.json).
+Piper и SparkTTS ещё pending; completed rows не являются QA-ready или training-authorized.
 
 Machine contract:
 [xlsr_sls_model_v4_kk_spoof_synthesis_v1.json](../../configs/research/v4/xlsr_sls_model_v4_kk_spoof_synthesis_v1.json)

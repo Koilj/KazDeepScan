@@ -23,8 +23,8 @@ materialization извлёк `21 600` RuASD/KSC2 assets; exact raw-audio gate д
 Принято `proceed_20k_balanced`; следующий gate — `5 000` KK spoof через четыре train-only
 TTS-family. Все `7 200` frozen KSC2 text inputs (`4 × 1 800`) уже извлечены и exact-проверены;
 synthesis contract и resumable local runner заморожены; final-contract preflight всех четырёх
-маршрутов успешно прошёл на local CUDA. MMS route завершил `1 800/1 800` (`1 500` target + `300`
-reserve) без runtime reject; Piper, KazEmoTTS и SparkTTS ещё pending. Общий audio QA/leakage gate,
+маршрутов успешно прошёл на local CUDA. MMS и KazEmoTTS routes завершили по `1 800/1 800`
+(`1 500` target + `300` reserve) без runtime reject; Piper и SparkTTS ещё pending. Общий audio QA/leakage gate,
 speaker-independence, training, checkpoint и новый final не
 заявлены. Детали:
 [capacity](docs/artifacts/v4/gate_a_2026-08-14.md) и
@@ -33,7 +33,8 @@ speaker-independence, training, checkpoint и новый final не
 [source decode/QA](docs/artifacts/v4/source_decode_qa_2026-08-14.md),
 [KK spoof texts](docs/artifacts/v4/kk_spoof_text_materialization_2026-08-14.md) и
 [synthesis plan](docs/artifacts/v4/kk_spoof_synthesis_plan_2026-08-14.md),
-[MMS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_mms_kaz_v1_synthesis_v1.json).
+[MMS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_mms_kaz_v1_synthesis_v1.json) и
+[KazEmoTTS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_kazemotts_v1_synthesis_v1.json).
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2

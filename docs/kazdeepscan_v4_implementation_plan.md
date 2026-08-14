@@ -6,8 +6,8 @@ gate завершены. Source train заморожен на `15 000` стро�
 `5 000` ready rows через четыре train-only TTS-family.
 
 Four-route hash-pinned offline synthesis contract и resumable runner уже готовы. Final-contract
-preflight всех четырёх маршрутов успешно прошёл на local CUDA; MMS route завершил `1 800/1 800`
-WAV без runtime reject. Piper, KazEmoTTS и SparkTTS, а также общий audio QA/leakage gate, pending.
+preflight всех четырёх маршрутов успешно прошёл на local CUDA; MMS и KazEmoTTS routes завершили
+по `1 800/1 800` WAV без runtime reject. Piper, SparkTTS и общий audio QA/leakage gate pending.
 
 **Дата локального аудита:** 14 августа 2026 года.
 
@@ -217,9 +217,10 @@ KK spoof text materialization повторно проверила полный K
 Отдельный synthesis plan hash-bind'ит inputs, runner и четыре model/adapter route, запрещает
 network/reference audio/cloning/detector feedback и публикует только полный route accounting:
 [KK spoof synthesis](artifacts/v4/kk_spoof_synthesis_plan_2026-08-14.md).
-MMS route опубликовал `1 800` raw rows (`1 500` target + `300` reserve) без runtime rejection;
-это ещё не готовые train rows до common gate:
-[MMS synthesis](artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_mms_kaz_v1_synthesis_v1.json).
+MMS и KazEmoTTS routes опубликовали по `1 800` raw rows (`1 500` target + `300` reserve) без
+runtime rejection; это ещё не готовые train rows до common gate:
+[MMS synthesis](artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_mms_kaz_v1_synthesis_v1.json) и
+[KazEmoTTS synthesis](artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_kazemotts_v1_synthesis_v1.json).
 
 ## 5. Подготовка v4 data
 

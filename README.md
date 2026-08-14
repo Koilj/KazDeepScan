@@ -24,14 +24,16 @@ Source materialization извлёк `21 600` RuASD/KSC2 assets; exact raw-audio 
 `5 000` RU bona-fide, RU spoof и KK bona-fide строк и принял `proceed_20k_balanced`; KK spoof
 synthesis на `5 000` ещё pending, его `7 200` frozen KSC2 text inputs уже exact-проверены.
 Для четырёх-route synthesis создан hash-pinned offline contract и resume-safe runner. Final-contract
-preflight всех четырёх маршрутов успешно прошёл на local CUDA и не создал WAV/journal; synthesis
-ещё pending. Speaker independence и training не заявлены. Подробности:
+preflight всех четырёх маршрутов успешно прошёл на local CUDA. MMS route завершил `1 800/1 800`
+WAV (`1 500` target + `300` reserve), без runtime reject; Piper, KazEmoTTS и SparkTTS ещё pending.
+Общий decode/QA/VAD/leakage gate, speaker independence и training не заявлены. Подробности:
 [Gate A capacity](docs/artifacts/v4/gate_a_2026-08-14.md),
 [frozen train candidates](docs/artifacts/v4/train_candidate_selection_2026-08-14.md) и
 [source raw materialization](docs/artifacts/v4/source_raw_materialization_2026-08-14.md) и
 [source decode/QA](docs/artifacts/v4/source_decode_qa_2026-08-14.md),
 [KK spoof texts](docs/artifacts/v4/kk_spoof_text_materialization_2026-08-14.md) и
-[synthesis plan](docs/artifacts/v4/kk_spoof_synthesis_plan_2026-08-14.md).
+[synthesis plan](docs/artifacts/v4/kk_spoof_synthesis_plan_2026-08-14.md),
+[MMS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_mms_kaz_v1_synthesis_v1.json).
 
 Быстрый старт из clone:
 

@@ -2,7 +2,8 @@
 
 **Статус:** exact model/source artifacts, project-history novelty, isolated runtime и один
 non-candidate CUDA text-only smoke завершены. Denis frozen metadata selection и bona-fide QA/VAD
-также завершены (`64/79` ready, no backfill); candidate synthesis и detector inference не
+также завершены (`64/79` ready, no backfill); subsequent immutable 64-row text-binding и
+one-attempt contract закреплены до candidate WAV. Candidate synthesis и detector inference не
 выполнялись, smoke повторять запрещено.
 
 **Допустимая будущая роль:** personal-research external source/generator-family holdout для
@@ -130,6 +131,9 @@ Artifact/source/history/runtime/smoke gate **пройден**. Старое пр
 
 Denis metadata selection уже заморожен: target `79`, category balance `27/26/26`, ranking без
 duration/audio-quality/model signals. Bona-fide decode/QA/VAD оставил `64` ready rows и `15`
-`insufficient_speech` rejects без backfill. Следующий безопасный этап — отдельный immutable
-64-row literal/canonical text-binding и one-shot synthesis contract. Candidate TTS до contract и
-detector inference до synthetic QA/pair/review/exposure/evaluation gates запрещены.
+`insufficient_speech` rejects без backfill. Отдельный
+[immutable 64-row literal/canonical/NFKC binding](denis_1_0_mdc_voxcpm2_pre_qa_text_binding_v1.md)
+и one-attempt synthesis contract уже завершён; receipt SHA-256
+`943a9595968996f29da1a13f213e28419fc2c7b5215df790e4d4c440528f2b7b`. Следующий безопасный
+этап — один frozen offline synthesis run и normal synthetic decode/QA/VAD без
+retry/replacement/backfill. Detector inference до pair/review/exposure/evaluation gates запрещён.

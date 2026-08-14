@@ -473,4 +473,10 @@ quality.
 selection и `64/79` bona-fide QA/VAD — в
 [materialization receipt](docs/denis_1_0_mdc_pre_qa_materialization_v1.md), а exact
 VoxCPM2 artifact/source/history gate — в
-[model/source receipt](docs/data_sources_voxcpm2_official_2026-08-14.md).
+[model/source receipt](docs/data_sources_voxcpm2_official_2026-08-14.md). Последующий
+[immutable 64-row text binding](docs/denis_1_0_mdc_voxcpm2_pre_qa_text_binding_v1.md) уже
+закрепил literal/collapse-whitespace/NFKC hashes, exact runtime/program hashes, один model load,
+ровно одну attempt на каждый ready text и будущие write-once synthesis/QA paths. Plaintext не
+сохранён; candidate WAV ещё не создавались. Следующий безопасный шаг — один offline VoxCPM2 run,
+затем normal synthetic decode/QA/VAD без retry, replacement или backfill. Detector inference
+остаётся запрещён.

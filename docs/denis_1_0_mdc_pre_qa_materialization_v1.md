@@ -77,10 +77,10 @@ selection, replacement или backfill по QA outcome запрещены.
 > unverified; likely historical Denis speaker-lineage exposure; single-speaker; not
 > speaker-independent or speaker-robust; personal research only.
 
-Generator-family часть пока только route eligibility: synthetic half ещё не создана. Следующий
-безопасный этап — отдельный immutable 64-row VoxCPM2 literal/canonical text-binding и one-shot
-synthesis contract с exact ready manifest, model/runtime hashes, seed/parameters и запретом
-reference/prompt audio, normalizer, denoiser, retry, replacement и backfill. До такого contract
-candidate synthesis не выполнять; detector inference остаётся запрещён до synthetic QA, exact
-pair lock, двух независимых full-asset acoustic reviews, current exposure audit и отдельного
-write-once evaluation contract.
+Generator-family часть пока только route eligibility: synthetic half ещё не создана. Отдельный
+[immutable 64-row VoxCPM2 text-binding/one-attempt contract](denis_1_0_mdc_voxcpm2_pre_qa_text_binding_v1.md)
+уже завершён до candidate WAV и закрепил exact ready manifest, model/runtime/program hashes,
+seed/parameters и запрет reference/prompt audio, normalizer, denoiser, retry, replacement и
+backfill. Следующий этап — один frozen offline synthesis run и normal synthetic decode/QA/VAD;
+detector inference остаётся запрещён до exact pair lock, двух независимых full-asset acoustic
+reviews, current exposure audit и отдельного write-once evaluation contract.

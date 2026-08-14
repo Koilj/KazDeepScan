@@ -128,6 +128,8 @@ rejection list находятся в [selection/materialization receipt](denis_1
 
 Official OpenBMB VoxCPM2 artifact/source/history gate уже завершён: exact snapshot/source,
 checkpoint safety, narrow offline text-only wrapper и нулевой historical VoxCPM route закреплены;
-isolated runtime и единственный non-candidate CUDA smoke также прошли. Следующий отдельный этап —
-immutable literal/canonical binding и one-shot synthesis contract только для exact `64` ready
-texts. Candidate synthesis до contract, а detector inference до всех последующих gates запрещены.
+isolated runtime и единственный non-candidate CUDA smoke также прошли. Отдельный
+[immutable literal/canonical/NFKC binding](denis_1_0_mdc_voxcpm2_pre_qa_text_binding_v1.md) и
+one-attempt contract только для exact `64` ready texts уже завершён до candidate WAV. Следующий
+этап — один frozen offline synthesis run и normal synthetic decode/QA/VAD без
+retry/replacement/backfill; detector inference до всех последующих gates запрещён.

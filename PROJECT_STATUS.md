@@ -290,9 +290,11 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
    smoke gates завершены:
    сохранить exact hashes, pre-inference failure, one-shot smoke receipt, likely speaker-lineage
    и unverified TTS-training-overlap disclosures без изменений; smoke не повторять. Exact 79-row
-   selection, 64 ready rows и 15 rejects не менять и не backfill. Следующим подготовить отдельный
-   64-row literal/canonical binding и one-shot synthesis contract; synthesis до contract и
-   detector inference до последующих gates не выполнять.
+   selection, 64 ready rows и 15 rejects не менять и не backfill. Отдельный immutable 64-row
+   literal/canonical binding и one-attempt synthesis contract завершён до candidate WAV; receipt
+   SHA-256 `943a9595968996f29da1a13f213e28419fc2c7b5215df790e4d4c440528f2b7b`.
+   Следующим выполнить ровно один frozen offline synthesis run и normal synthetic QA/VAD без
+   retry/replacement/backfill; detector inference до последующих gates не выполнять.
 5. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
 
@@ -307,6 +309,10 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
   selection/materialization receipts SHA-256 `5e9dd93290eece14f738cab06e665d61a47d0e79cb5e1730198574471b2fc37c` /
   `c36fc8bcc60c16d5d2493c4bf8b77719f32ca3d9da9ba15d51054b9ee16d5386`; exact asset
   validation `79/79` raw и `64/64` ready.
+- Denis × VoxCPM2 binding: exact `64` ready rows, receipt SHA-256
+  `943a9595968996f29da1a13f213e28419fc2c7b5215df790e4d4c440528f2b7b`, row fingerprint
+  `b28d1ff99bc50b5dc6879b75a7dee018cef3a0767508cfde2fc660f9156204c0`; synthesis и detector
+  inference не выполнялись.
 - Final preflight: 3 991 asset bindings.
 - Stage-C preflight: 1 310 asset bindings; один GPU inference run, `334` exact final predictions.
 - Stage-D preflight: 1 086 asset bindings; один GPU inference run, `110` exact final predictions.
@@ -379,3 +385,4 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - [Denis 1.0 source intake и exposure screen](docs/data_sources_denis_1_0_mdc_2026-08-14.md)
 - [Denis frozen selection и bona-fide QA/VAD](docs/denis_1_0_mdc_pre_qa_materialization_v1.md)
 - [Official OpenBMB VoxCPM2 artifact/source/history gate](docs/data_sources_voxcpm2_official_2026-08-14.md)
+- [Denis × official VoxCPM2 immutable 64-row text binding](docs/denis_1_0_mdc_voxcpm2_pre_qa_text_binding_v1.md)

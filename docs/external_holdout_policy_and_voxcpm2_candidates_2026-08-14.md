@@ -161,9 +161,13 @@ historical speaker-lineage ограничение остаётся. Если run
 > speaker; not speaker-robust or speaker-independent; personal research only.
 
 Это полезнее ещё одного exact-route test на Common Voice/VoxForge и historical TTS family, но не
-закрывает основной independent/speaker-robust evidence gap. Последующие smoke, Denis selection
-и bona-fide QA/VAD выполнены отдельными write-once gates. Synthetic generation и detector
-inference по-прежнему не разрешены.
+закрывает основной independent/speaker-robust evidence gap. Последующие smoke, Denis selection,
+bona-fide QA/VAD и
+[immutable 64-row text binding](denis_1_0_mdc_voxcpm2_pre_qa_text_binding_v1.md) выполнены
+отдельными write-once gates. Binding до candidate WAV закрепил exact runtime/program hashes,
+одну attempt на каждый ready text и запреты reference/prompt audio, normalizer, denoiser, retry,
+replacement и backfill. Synthetic generation ещё не выполнялась; detector inference по-прежнему
+не разрешён.
 
 ## 7. MCSKL × VoxCPM2-KZ-Darwin
 
@@ -227,6 +231,10 @@ sensitivity/source-diversity test**, а не вторым новым generator-f
 6. **Завершено:** exact extraction и normal decode/QA/VAD оставили `64/79` ready rows; все `15`
    rejects — `insufficient_speech`, reuse/replacement/backfill `0/false/false`. Target 79 не
    достигнут, но заранее установленный minimum 60 пройден.
-7. Следующим отдельным contract закрепить literal/canonical binding и one-shot VoxCPM2 synthesis
-   только для 64 ready texts. Detector inference требует последующих synthetic QA, exact pair
-   lock, двух independent reviews, current exposure audit и write-once evaluation contract.
+7. **Завершено:** отдельный immutable contract закрепил literal/canonical/NFKC binding только
+   для `64` ready texts, exact runtime/program hashes, одну attempt на row и будущие synthesis/QA
+   paths; receipt SHA-256
+   `943a9595968996f29da1a13f213e28419fc2c7b5215df790e4d4c440528f2b7b`.
+8. Следующим выполнить один frozen offline VoxCPM2 run и normal synthetic decode/QA/VAD без
+   retry/replacement/backfill. Detector inference требует последующих exact pair lock, двух
+   independent reviews, current exposure audit и write-once evaluation contract.

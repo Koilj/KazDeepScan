@@ -31,6 +31,66 @@ uv run uvicorn services.api.main:app --host 127.0.0.1 --port 8000
 
 Ожидаемая строка версии: `kds 0.1.0 (KazDeepScan v1.0 Research)`.
 
+## Локальный research inference пользовательского аудио
+
+После tagged v1.0 добавлен отдельный opt-in contract
+[`b0-user-audio-local-research-v1`](configs/inference/b0_user_audio_local_research_v1.json).
+Он не вызывает frozen evaluation runners, не читает evaluation manifests, не создаёт execution
+locks и не изменяет завершённые результаты. Старый `services.api.main:app` остаётся fail-closed
+без product scorer.
+
+Контур использует локальный Git-ignored checkpoint
+`models/b0-unseen-generator-suite-v1.pt` только read-only. Contract требует exact SHA-256
+`7b620af0c7e20788550b432c1d428b4e29e0a9c57cedc2fa549687c46b200539`; веса не входят в Git и
+не скачиваются автоматически. Сначала проверьте наличие exact checkpoint:
+
+```bash
+.venv/bin/kds validate-research-inference
+```
+
+Затем передайте собственный файл, находящийся вне project roots `data/`, `models/`,
+`artifacts/`, `checkpoints/`:
+
+```bash
+export KDS_FFMPEG_BINARY="$PWD/.tools/ffmpeg/bin/ffmpeg"
+export KDS_FFPROBE_BINARY="$PWD/.tools/ffmpeg/bin/ffprobe"
+
+.venv/bin/kds research-infer /absolute/path/to/user-audio.wav \
+  --mime-type audio/wav \
+  --acknowledge-research-only
+```
+
+`uncalibrated_spoof_score` — sigmoid от агрегированного raw logit, а не вероятность. Поля
+`calibrated`, `probability_claim`, `fraud_claim` и `product_grade` всегда `false`; output содержит
+явное предупреждение. `bonafide_like`/`spoof_like` означает только сторону зафиксированной
+нулевой research boundary. Training-data overlap пользовательского файла не проверен, а модель
+не является speaker-independent.
+
+Отдельный local research API запускается только с явным contract:
+
+```bash
+export KDS_RESEARCH_INFERENCE_CONTRACT="$PWD/configs/inference/b0_user_audio_local_research_v1.json"
+export KDS_FFMPEG_BINARY="$PWD/.tools/ffmpeg/bin/ffmpeg"
+export KDS_FFPROBE_BINARY="$PWD/.tools/ffmpeg/bin/ffprobe"
+
+.venv/bin/uvicorn \
+  kds.serving.research_api:create_research_app_from_environment \
+  --factory --host 127.0.0.1 --port 8001
+```
+
+```bash
+curl -F "audio=@/absolute/path/to/user-audio.wav;type=audio/wav" \
+  -F "acknowledge_research_only=true" \
+  -F "confirm_external_user_audio=true" \
+  http://127.0.0.1:8001/v1/research/analyze
+```
+
+API требует отдельное подтверждение, что upload является внешним пользовательским файлом, а не
+frozen project asset. Он сохраняет upload только во временном private directory и применяет лимиты
+`50 MiB / 10 min`, удаляет файл после запроса и не возвращает `risk_score`. Полный contract,
+ограничения и QA описаны в
+[local user-audio research inference v1](docs/research_user_audio_inference_v1.md).
+
 Текущее реализованное состояние включает проверяемый фундамент данных, обученный research
 checkpoint и строго ограниченный evaluation-контур:
 

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "contract_id": "b0-user-audio-local-research-v1",
+  "purpose": "research_user_audio_only",
+  "input_scope": {
+    "allowed": "user_supplied_external_audio_only",
+    "prohibited_project_roots": [
+      "../../data",
+      "../../models",
+      "../../artifacts",
+      "../../checkpoints"
+    ],
+    "training_data_overlap": "unverified"
+  },
+  "checkpoint": {
+    "path": "../../models/b0-unseen-generator-suite-v1.pt",
+    "sha256": "7b620af0c7e20788550b432c1d428b4e29e0a9c57cedc2fa549687c46b200539",
+    "state_dict_sha256": "a586c3234c01fd04ecf70a1b14be38b2a9611b12f5ebbfa951433f3a7f9024de",
+    "model_id": "b0-unseen-generator-suite-v1",
+    "architecture": "b0_logmel_cnn",
+    "training_purpose": "research",
+    "model_config": {
+      "sample_rate": 16000,
+      "n_fft": 512,
+      "hop_length": 160,
+      "n_mels": 80,
+      "dropout": 0.2
+    }
+  },
+  "preprocessing": {
+    "target_sample_rate": 16000,
+    "minimum_speech_seconds": 2.5,
+    "window_samples": 64600,
+    "hop_samples": 32000,
+    "short_window_policy": "repeat_to_window",
+    "vad_scope": "speech_segments_only"
+  },
+  "inference": {
+    "device": "cpu",
+    "batch_size": 16,
+    "aggregation": "duration_weighted_mean_raw_logit",
+    "score_transform": "sigmoid_uncalibrated",
+    "raw_logit_boundary": 0.0,
+    "repeat_completed_evaluation_prohibited": true
+  },
+  "output_semantics": {
+    "score_name": "uncalibrated_spoof_score",
+    "calibrated": false,
+    "probability_claim": false,
+    "fraud_claim": false,
+    "product_grade": false,
+    "warning": "Результат является некалиброванным исследовательским сигналом сходства. Он не является вероятностью, идентификацией говорящего, доказательством мошенничества или product-grade оценкой и не должен использоваться для автоматических решений."
+  },
+  "limitations": [
+    "uncalibrated_score_not_probability",
+    "training_data_overlap_unverified",
+    "not_speaker_independent",
+    "not_fraud_determination",
+    "not_product_grade"
+  ]
+}

@@ -7,7 +7,8 @@
 `pyproject.toml` и `uv.lock` являются hash-pinned inputs завершённых write-once runs.
 
 **Scope:** завершённый personal-research toolkit, без записи голосов людей, voice cloning и
-product/API score. Raw audio, model weights и scorer не входят в Git/release.
+product/API risk score. Raw audio и model weights не входят в Git/release. Отдельный post-v1.0
+user-audio route возвращает только явно некалиброванный research signal.
 
 **Состояние:** текущий v1.0 Research plan завершён. XLS-R+SLS v2 и отдельная v3 ветка завершены
 на write-once research protocols.
@@ -26,6 +27,13 @@ artifact/source/history/runtime gates вместе с одним non-candidate C
 `64/64` raw spoof WAV, но synthetic QA/VAD сохранил только `53` и отклонил `11` как
 `insufficient_speech`. Minimum `60` не достигнут: route остановлен до pairing/reviews/exposure/
 detector inference.
+
+Post-v1.0 local user inference v1 завершён отдельным contract и не меняет frozen evaluation:
+exact Git-ignored B0 checkpoint проверяется по file/state SHA-256, CPU scoring работает только для
+external user audio вне project data/model roots, а CLI/API требуют явный research-only
+acknowledgment. Output называется `uncalibrated_spoof_score`, не содержит `risk_score` и всегда
+фиксирует `calibrated=false`, `probability_claim=false`, `fraud_claim=false`,
+`product_grade=false`. Existing `services.api.main:app` остаётся `model_unavailable`.
 
 Этот файл намеренно краткий. Архитектура описана в
 [KazDeepScan_implementation_blueprint.md](KazDeepScan_implementation_blueprint.md), следующие
@@ -284,7 +292,8 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
   scope, а не broad commercial clearance.
 - Silero V5.5 RU имеет CC-BY-NC-SA-4.0: route ограничен personal research, не авторизован для
   product/commercial use и не является доказательством новой architecture/vendor/speaker family.
-- Research checkpoint нельзя подключать к API risk score.
+- Research checkpoint нельзя подключать к product API risk score. Разрешён только отдельный
+  uncalibrated user-audio contract без probability/fraud/product claims.
 
 ## Действия после v1.0 Research
 
@@ -317,6 +326,9 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
    новый pre-outcome contract; эти 11 rows нельзя пересинтезировать или заменять.
 5. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
+6. Local user inference применять только к внешним пользовательским файлам с явным
+   acknowledgment. Не передавать ему frozen project assets, не трактовать score как вероятность
+   или fraud verdict и не использовать пользовательские результаты для tuning.
 
 Полный порядок и критерии остановки: [План реализации.md](План%20реализации.md).
 
@@ -324,7 +336,7 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 
 - Ruff: успешно.
 - mypy: успешно.
-- pytest: `307 passed`, `0 failed`, `0 skipped`; optional ToneSpeak Parquet tests выполняются с
+- pytest: `318 passed`, `0 failed`, `0 skipped`; optional ToneSpeak Parquet tests выполняются с
   exact Linux test overlay `pyarrow==22.0.0`, не изменяющим исторический `uv.lock`.
 - Denis pre-QA: current exposure v2 SHA-256 `d140918a60d437f41d209b57803058179bb1d8cfd7ae8e7db217788d0b9841cb`;
   selection/materialization receipts SHA-256 `5e9dd93290eece14f738cab06e665d61a47d0e79cb5e1730198574471b2fc37c` /
@@ -366,6 +378,7 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 
 - [KazDeepScan v1.0 Research release contract](docs/kazdeepscan_v1_0_research_release.md)
 - [KazDeepScan v1.0 Research machine receipt](data/releases/kazdeepscan_v1_0_research_release_receipt.json)
+- [Local user-audio research inference v1](docs/research_user_audio_inference_v1.md)
 - [RuASD v2](docs/research_ruasd_full_v2.md)
 - [XLS-R Stage A v2](docs/research_xlsr_sls_stage_a_v2.md)
 - [XLS-R Stage B v2](docs/research_xlsr_sls_stage_b_v2.md)

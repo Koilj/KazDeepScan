@@ -3,6 +3,15 @@
 Все значимые изменения KazDeepScan фиксируются здесь. Immutable research receipts и более
 подробная история находятся в `PROJECT_STATUS.md` и `docs/`.
 
+## Post-v1.0 — local user-audio research inference v1 — 2026-08-14
+
+- добавлен strict `research_user_audio_only` contract с file/state SHA-256 checkpoint gate;
+- добавлены `kds validate-research-inference` и opt-in `kds research-infer`;
+- добавлен отдельный `/v1/research/analyze` ASGI factory с обязательным acknowledgment;
+- output явно uncalibrated, не содержит `risk_score` и запрещает probability/fraud/product claims;
+- frozen evaluation runners, manifests, execution locks, reports и tagged v1.0 release не
+  изменены и не перезапущены.
+
 ## [v1.0.0-research] — 2026-08-14
 
 Первый завершённый personal-research release.

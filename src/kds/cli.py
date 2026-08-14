@@ -5,8 +5,9 @@ import json
 from pathlib import Path
 
 from kds import __release__, __version__
-from kds.audio.contracts import AudioPipelineError
+from kds.audio.contracts import AudioLimits, AudioPipelineError, PreparationStatus
 from kds.audio.pipeline import AudioPreparationPipeline
+from kds.audio.windows import WindowConfig
 from kds.data.assets import validate_assets
 from kds.data.consents import (
     ConsentRegistryError,
@@ -31,6 +32,10 @@ from kds.data.unseen_generator_ood import (
     UnseenGeneratorSuiteError,
     load_unseen_generator_suite,
     validate_unseen_generator_suite,
+)
+
+DEFAULT_RESEARCH_INFERENCE_CONTRACT = Path(
+    "configs/inference/b0_user_audio_local_research_v1.json"
 )
 
 
@@ -252,6 +257,138 @@ def _assign_splits(arguments: argparse.Namespace) -> int:
     return 0
 
 
+def _validate_research_inference(arguments: argparse.Namespace) -> int:
+    from kds.inference import ResearchInferenceContractError, load_research_inference_engine
+
+    try:
+        engine = load_research_inference_engine(Path(arguments.contract))
+    except ResearchInferenceContractError as error:
+        print(json.dumps({"status": "error", "issues": list(error.issues)}, ensure_ascii=False))
+        return 2
+    contract = engine.contract
+    print(
+        json.dumps(
+            {
+                "status": "ready",
+                "research_only": True,
+                "contract_id": contract.contract_id,
+                "contract_sha256": contract.sha256,
+                "model_version": engine.model_version,
+                "checkpoint_sha256": contract.checkpoint.sha256,
+                "calibrated": contract.calibrated,
+                "probability_claim": contract.probability_claim,
+                "fraud_claim": contract.fraud_claim,
+                "product_grade": contract.product_grade,
+                "warning": contract.warning,
+                "limitations": list(contract.limitations),
+            },
+            ensure_ascii=False,
+        )
+    )
+    return 0
+
+
+def _research_infer(arguments: argparse.Namespace) -> int:
+    from kds.inference import (
+        ResearchInferenceContractError,
+        ResearchInferenceError,
+        assert_user_audio_path_allowed,
+        file_sha256,
+        load_research_inference_engine,
+    )
+
+    if not arguments.acknowledge_research_only:
+        from kds.inference import RESEARCH_ONLY_WARNING
+
+        print(
+            json.dumps(
+                {
+                    "status": "error",
+                    "code": "research_acknowledgement_required",
+                    "warning": RESEARCH_ONLY_WARNING,
+                },
+                ensure_ascii=False,
+            )
+        )
+        return 2
+    try:
+        engine = load_research_inference_engine(Path(arguments.contract))
+        source = assert_user_audio_path_allowed(engine.contract, Path(arguments.path))
+        input_sha256 = file_sha256(source)
+        preprocessing = engine.contract.preprocessing
+        pipeline = AudioPreparationPipeline(
+            limits=AudioLimits(
+                target_sample_rate=preprocessing.target_sample_rate,
+                minimum_speech_seconds=preprocessing.minimum_speech_seconds,
+            ),
+            window_config=WindowConfig(
+                samples=preprocessing.window_samples,
+                hop_samples=preprocessing.hop_samples,
+            ),
+        )
+        prepared = pipeline.prepare(source, arguments.mime_type)
+        result = engine.score(prepared) if prepared.status is PreparationStatus.READY else None
+    except AudioPipelineError as error:
+        print(
+            json.dumps(
+                {"status": "error", "code": error.code.value, "detail": error.detail},
+                ensure_ascii=False,
+            )
+        )
+        return 2
+    except (ResearchInferenceContractError, ResearchInferenceError) as error:
+        issues = (
+            list(error.issues)
+            if isinstance(error, ResearchInferenceContractError)
+            else [str(error)]
+        )
+        print(json.dumps({"status": "error", "issues": issues}, ensure_ascii=False))
+        return 2
+
+    contract = engine.contract
+    payload: dict[str, object] = {
+        "status": "ok" if result is not None else prepared.status.value,
+        "research_only": True,
+        "contract_id": contract.contract_id,
+        "contract_sha256": contract.sha256,
+        "model_version": engine.model_version,
+        "input_sha256": input_sha256,
+        "speech_seconds": round(prepared.speech_seconds, 6),
+        "quality_flags": list(prepared.quality_flags),
+        "raw_spoof_logit": None,
+        "uncalibrated_spoof_score": None,
+        "interpretation": None,
+        "calibrated": contract.calibrated,
+        "probability_claim": contract.probability_claim,
+        "fraud_claim": contract.fraud_claim,
+        "product_grade": contract.product_grade,
+        "warning": contract.warning,
+        "limitations": list(contract.limitations),
+        "windows": [],
+    }
+    if result is not None:
+        payload.update(
+            {
+                "raw_spoof_logit": result.raw_spoof_logit,
+                "uncalibrated_spoof_score": result.uncalibrated_spoof_score,
+                "interpretation": result.interpretation,
+                "windows": [
+                    {
+                        "start_s": window.start_s,
+                        "end_s": window.end_s,
+                        "real_samples": window.real_samples,
+                        "raw_spoof_logit": window.raw_spoof_logit,
+                        "uncalibrated_spoof_score": window.uncalibrated_spoof_score,
+                        "interpretation": window.interpretation,
+                    }
+                    for window in result.windows
+                ],
+            }
+        )
+    print(json.dumps(payload, ensure_ascii=False, allow_nan=False))
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="kds", description="KazDeepScan audited personal-research data and audio utilities"
@@ -338,6 +475,35 @@ def build_parser() -> argparse.ArgumentParser:
     )
     assign.add_argument("--reassign-ood", action="store_true")
     assign.set_defaults(handler=_assign_splits)
+
+    validate_research = subparsers.add_parser(
+        "validate-research-inference",
+        help="Verify the separate research-only user-audio contract and local checkpoint",
+    )
+    validate_research.add_argument(
+        "--contract",
+        default=str(DEFAULT_RESEARCH_INFERENCE_CONTRACT),
+        help="Strict versioned user-inference contract JSON",
+    )
+    validate_research.set_defaults(handler=_validate_research_inference)
+
+    research_infer = subparsers.add_parser(
+        "research-infer",
+        help="Score one external user audio file with an uncalibrated research-only model",
+    )
+    research_infer.add_argument("path", help="External user audio; project data/model roots fail")
+    research_infer.add_argument("--mime-type", default=None)
+    research_infer.add_argument(
+        "--contract",
+        default=str(DEFAULT_RESEARCH_INFERENCE_CONTRACT),
+        help="Strict versioned user-inference contract JSON",
+    )
+    research_infer.add_argument(
+        "--acknowledge-research-only",
+        action="store_true",
+        help="Confirm that the uncalibrated result is not fraud proof or a product decision",
+    )
+    research_infer.set_defaults(handler=_research_infer)
     return parser
 
 

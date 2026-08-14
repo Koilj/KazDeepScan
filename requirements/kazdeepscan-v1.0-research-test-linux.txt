@@ -1,0 +1,6 @@
+# Exact Linux x86_64 test overlay for Python 3.11-3.13.
+# pyproject.toml and uv.lock are intentionally immutable inputs to completed write-once runs.
+pyarrow==22.0.0 \
+    --hash=sha256:35ad0f0378c9359b3f297299c3309778bb03b8612f987399a0333a560b43862d \
+    --hash=sha256:c6c791b09c57ed76a18b03f2631753a4960eefbbca80f846da8baefc6491fcfe \
+    --hash=sha256:e0a15757fccb38c410947df156f9749ae4a3c89b2393741a50521f39a8cf202a

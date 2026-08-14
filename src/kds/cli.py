@@ -4,6 +4,7 @@ import argparse
 import json
 from pathlib import Path
 
+from kds import __release__, __version__
 from kds.audio.contracts import AudioPipelineError
 from kds.audio.pipeline import AudioPreparationPipeline
 from kds.data.assets import validate_assets
@@ -252,7 +253,12 @@ def _assign_splits(arguments: argparse.Namespace) -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="kds", description="KazDeepScan data and audio utilities")
+    parser = argparse.ArgumentParser(
+        prog="kds", description="KazDeepScan audited personal-research data and audio utilities"
+    )
+    parser.add_argument(
+        "--version", action="version", version=f"%(prog)s {__version__} ({__release__})"
+    )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     inspect_audio = subparsers.add_parser(

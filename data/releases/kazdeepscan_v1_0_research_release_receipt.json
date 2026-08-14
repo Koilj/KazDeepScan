@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "release_id": "kazdeepscan-v1.0-research",
+  "release_name": "KazDeepScan v1.0 Research",
+  "source_release_version": "1.0.0-research",
+  "python_distribution_version": "0.1.0",
+  "git_tag": "v1.0.0-research",
+  "release_parent_commit": "7e60b3ed37c32dd19b617ec5c926dba9332a7881",
+  "audited_at": "2026-08-14T12:12:14+05:00",
+  "scope": "completed_personal_research_toolkit",
+  "qa_status": "passed_for_atomic_release_commit_and_tag",
+  "immutable_package_inputs": {
+    "pyproject.toml": "debc12027b79900ad127dbc125efa0d931d8f7181509056cbdd9f49554467e39",
+    "uv.lock": "61314bb9c647eab9f53c898143757ed17c321a9812e56e05fc9928f3ea5183a1",
+    "reason": "These files are SHA-256-pinned inputs to completed write-once research run plans and must not be changed for release renaming."
+  },
+  "test_overlay": {
+    "path": "requirements/kazdeepscan-v1.0-research-test-linux.txt",
+    "sha256": "922e67e8b2c280bff55c7dd119d2d6279812991352349555c8b466ccdc790fec",
+    "package": "pyarrow==22.0.0",
+    "platform": "CPython 3.11-3.13; Linux x86_64",
+    "hash_check": "required"
+  },
+  "quality_gates": {
+    "pytest": {
+      "collected": 307,
+      "passed": 307,
+      "failed": 0,
+      "skipped": 0,
+      "tone_speak_parquet_tests_passed": 5
+    },
+    "ruff": "passed",
+    "mypy_strict": {
+      "status": "passed",
+      "source_files_checked": 214
+    },
+    "manifest_license_validation": {
+      "status": "passed",
+      "manifest": "data/manifests/denis_1_0_mdc_voxcpm2_official_pre_qa_ready_v1.csv",
+      "manifest_sha256": "f90a634b80364a3a70046cf66354dbc7c11459f15a375b1e3a61c1f440e3028a",
+      "rows": 53
+    },
+    "api_contract": {
+      "healthz": 200,
+      "readyz_without_scorer": 503,
+      "analyze_without_scorer": 503,
+      "risk_score_without_scorer": false,
+      "openapi_version": "1.0.0-research"
+    },
+    "distribution": {
+      "sdist_built": "kazdeepscan-0.1.0.tar.gz",
+      "wheel_built": "kazdeepscan-0.1.0-py3-none-any.whl",
+      "clean_wheel_install_smoke": "passed",
+      "cli_version": "kds 0.1.0 (KazDeepScan v1.0 Research)",
+      "bundled_raw_audio_or_model_weights": false
+    }
+  },
+  "denis_voxcpm2_final_state": {
+    "status": "stop_below_minimum_60",
+    "target_pairs": 79,
+    "raw_generated": 64,
+    "ready": 53,
+    "insufficient_speech": 11,
+    "retry_or_replacement": false,
+    "backfill": false,
+    "detector_inference": false,
+    "technical_qa_receipt": "data/manifests/denis_1_0_mdc_voxcpm2_official_pre_qa_technical_qa_v1.json",
+    "technical_qa_receipt_sha256": "ca46362313f50f79043dd559f8d739185b51d8cb0dc9dcc0f5dc659e5b02951c",
+    "marking": [
+      "external source/generator-family holdout",
+      "training-data overlap unverified",
+      "single-speaker",
+      "not speaker-independent"
+    ]
+  },
+  "release_excludes": [
+    "raw or processed audio",
+    "model weights or automatically selected checkpoint",
+    "ready RiskScorer or product risk score",
+    "speaker identity or fraud proof",
+    "commercial or data-rights clearance",
+    "authorization to repeat write-once inference or tune on final errors"
+  ],
+  "publication_rule": "The annotated Git tag must point to the atomic commit containing this receipt; main and the tag must be pushed without force to the configured GitHub origin."
+}

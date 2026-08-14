@@ -10,6 +10,7 @@ from uuid import UUID, uuid4
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile, status
 from pydantic import BaseModel, Field
 
+from kds import __release_version__
 from kds.audio.contracts import AudioLimits, PreparationStatus
 from kds.audio.pipeline import AudioPreparationPipeline, PreparedAudio
 
@@ -132,7 +133,7 @@ async def persist_upload(upload: UploadFile, destination: Path, maximum_bytes: i
 
 def create_app(service: AnalysisService | None = None) -> FastAPI:
     service = service or AnalysisService()
-    app = FastAPI(title="KazDeepScan API", version="0.1.0")
+    app = FastAPI(title="KazDeepScan Research API", version=__release_version__)
 
     @app.get("/healthz", response_model=HealthResponse)
     async def healthz() -> HealthResponse:

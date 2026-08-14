@@ -1,8 +1,35 @@
-# KazDeepScan
+# KazDeepScan v1.0 Research
 
 KazDeepScan — локальный personal-research проект для исследования признаков
 синтезированности русской, казахской и смешанной речи. Это не идентификация говорящего,
 не доказательство мошенничества и не развёрнутый сервис оценки риска.
+
+**Source release:** `KazDeepScan v1.0 Research` (`1.0.0-research`), Git tag
+`v1.0.0-research`. Текущий personal-research scope завершён и может использоваться как
+воспроизводимый toolkit для аудита audio/manifests/licenses, preprocessing, frozen research
+protocols и локального fail-closed API scaffold. Raw datasets, model weights и готовый risk
+scorer в Git release не входят.
+
+Python distribution metadata намеренно остаётся `0.1.0`: её содержащие `pyproject.toml` и
+`uv.lock` уже закреплены SHA-256 в завершённых write-once run plans. Release identity доступен
+через `kds --version`, OpenAPI и Git tag без нарушения этих historical contracts.
+
+Быстрый старт из clone:
+
+```bash
+uv sync --all-extras --locked
+uv run kds --version
+uv run kds validate-manifest data/manifests/denis_1_0_mdc_voxcpm2_official_pre_qa_ready_v1.csv \
+  --license-ledger data/licenses/license_ledger.csv
+uv run uvicorn services.api.main:app --host 127.0.0.1 --port 8000
+```
+
+`GET /healthz` должен вернуть `200`. `GET /readyz` и готовый `POST /v1/analyze` без отдельно
+авторизованного scorer должны вернуть `503 model_unavailable`; это обязательная safety boundary,
+а не поломка release. Полный release contract и ограничения находятся в
+[KazDeepScan v1.0 Research release](docs/kazdeepscan_v1_0_research_release.md).
+
+Ожидаемая строка версии: `kds 0.1.0 (KazDeepScan v1.0 Research)`.
 
 Текущее реализованное состояние включает проверяемый фундамент данных, обученный research
 checkpoint и строго ограниченный evaluation-контур:
@@ -193,10 +220,17 @@ CPU-сборкой.
 
 ```bash
 uv sync --all-extras --locked
-uv run pytest
-uv run ruff check src tests
-uv run mypy src
+uv pip install --require-hashes \
+  -r requirements/kazdeepscan-v1.0-research-test-linux.txt
+.venv/bin/kds --version
+.venv/bin/pytest
+.venv/bin/ruff check src tests scripts services
+.venv/bin/mypy src scripts services
 ```
+
+Exact `pyarrow==22.0.0` overlay предназначен для CPython 3.11–3.13 на Linux x86_64 и включает
+ToneSpeak Parquet tests. На другой platform основной locked environment остаётся usable, но эти
+optional tests будут module-level skipped до установки совместимого `pyarrow>=18,<23`.
 
 В текущей рабочей машине локальная, не отслеживаемая Git сборка FFmpeg находится в
 `.tools/ffmpeg`. Чтобы использовать её с CLI, передайте пути явно:

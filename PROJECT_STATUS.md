@@ -2,9 +2,15 @@
 
 **Обновлено:** 14 августа 2026
 
-**Scope:** personal research, без записи голосов людей, voice cloning и product/API score.
+**Source release:** KazDeepScan v1.0 Research (`1.0.0-research`, tag
+`v1.0.0-research`). Python distribution metadata сохранено как `0.1.0`, потому что
+`pyproject.toml` и `uv.lock` являются hash-pinned inputs завершённых write-once runs.
 
-**Состояние:** XLS-R+SLS v2 и отдельная v3 ветка завершены на write-once research protocols.
+**Scope:** завершённый personal-research toolkit, без записи голосов людей, voice cloning и
+product/API score. Raw audio, model weights и scorer не входят в Git/release.
+
+**Состояние:** текущий v1.0 Research plan завершён. XLS-R+SLS v2 и отдельная v3 ветка завершены
+на write-once research protocols.
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2
@@ -280,7 +286,10 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
   product/commercial use и не является доказательством новой architecture/vendor/speaker family.
 - Research checkpoint нельзя подключать к API risk score.
 
-## Следующие действия
+## Действия после v1.0 Research
+
+Для завершения v1.0 дополнительные ML runs, sources или detector tests не требуются. Следующие
+пункты относятся только к будущей v1.x/v2 development и не являются долгом текущего release.
 
 1. Не повторять Stage-C/Stage-D/v3 runs и не использовать их final errors для tuning, выбора
    checkpoint, temperature, threshold или augmentation.
@@ -315,7 +324,8 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 
 - Ruff: успешно.
 - mypy: успешно.
-- pytest: успешно.
+- pytest: `307 passed`, `0 failed`, `0 skipped`; optional ToneSpeak Parquet tests выполняются с
+  exact Linux test overlay `pyarrow==22.0.0`, не изменяющим исторический `uv.lock`.
 - Denis pre-QA: current exposure v2 SHA-256 `d140918a60d437f41d209b57803058179bb1d8cfd7ae8e7db217788d0b9841cb`;
   selection/materialization receipts SHA-256 `5e9dd93290eece14f738cab06e665d61a47d0e79cb5e1730198574471b2fc37c` /
   `c36fc8bcc60c16d5d2493c4bf8b77719f32ca3d9da9ba15d51054b9ee16d5386`; exact asset
@@ -354,6 +364,8 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 
 ## Главные receipts
 
+- [KazDeepScan v1.0 Research release contract](docs/kazdeepscan_v1_0_research_release.md)
+- [KazDeepScan v1.0 Research machine receipt](data/releases/kazdeepscan_v1_0_research_release_receipt.json)
 - [RuASD v2](docs/research_ruasd_full_v2.md)
 - [XLS-R Stage A v2](docs/research_xlsr_sls_stage_a_v2.md)
 - [XLS-R Stage B v2](docs/research_xlsr_sls_stage_b_v2.md)

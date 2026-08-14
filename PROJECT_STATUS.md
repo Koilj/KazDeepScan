@@ -24,7 +24,8 @@ materialization извлёк `21 600` RuASD/KSC2 assets; exact raw-audio gate д
 TTS-family. Все `7 200` frozen KSC2 text inputs (`4 × 1 800`) уже извлечены и exact-проверены;
 synthesis contract и resumable local runner заморожены; final-contract preflight всех четырёх
 маршрутов успешно прошёл на local CUDA. MMS и KazEmoTTS routes завершили по `1 800/1 800`
-(`1 500` target + `300` reserve) без runtime reject; Piper и SparkTTS ещё pending. Общий audio QA/leakage gate,
+(`1 500` target + `300` reserve) без runtime reject; Piper и SparkTTS запущены через append-only
+local journals. Общий audio QA/leakage gate,
 speaker-independence, training, checkpoint и новый final не
 заявлены. Детали:
 [capacity](docs/artifacts/v4/gate_a_2026-08-14.md) и

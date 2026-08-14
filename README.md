@@ -26,7 +26,8 @@ synthesis на `5 000` ещё pending, его `7 200` frozen KSC2 text inputs у
 Для четырёх-route synthesis создан hash-pinned offline contract и resume-safe runner. Final-contract
 preflight всех четырёх маршрутов успешно прошёл на local CUDA. MMS и KazEmoTTS routes завершили
 по `1 800/1 800` WAV (`1 500` target + `300` reserve) без runtime reject; Piper и SparkTTS
-ещё pending. Общий decode/QA/VAD/leakage gate, speaker independence и training не заявлены. Подробности:
+запущены через append-only local journals. Общий decode/QA/VAD/leakage gate, speaker independence
+и training не заявлены. Подробности:
 [Gate A capacity](docs/artifacts/v4/gate_a_2026-08-14.md),
 [frozen train candidates](docs/artifacts/v4/train_candidate_selection_2026-08-14.md) и
 [source raw materialization](docs/artifacts/v4/source_raw_materialization_2026-08-14.md) и

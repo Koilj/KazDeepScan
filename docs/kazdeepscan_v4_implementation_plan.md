@@ -7,7 +7,8 @@ gate завершены. Source train заморожен на `15 000` стро�
 
 Four-route hash-pinned offline synthesis contract и resumable runner уже готовы. Final-contract
 preflight всех четырёх маршрутов успешно прошёл на local CUDA; MMS и KazEmoTTS routes завершили
-по `1 800/1 800` WAV без runtime reject. Piper, SparkTTS и общий audio QA/leakage gate pending.
+по `1 800/1 800` WAV без runtime reject. Piper и SparkTTS запущены через append-only local journals;
+общий audio QA/leakage gate pending.
 
 **Дата локального аудита:** 14 августа 2026 года.
 

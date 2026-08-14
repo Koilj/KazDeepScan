@@ -4,8 +4,9 @@
 gate завершены. Source train заморожен на `15 000` строк (`3 × 5 000`); принято
 `proceed_20k_balanced`. Все `7 200` KK spoof texts exact-проверены, синтезированы и прошли
 общий QA/VAD/audio-leakage screen: `6 200` eligible и ровно `5 000` frozen (`4 × 1 250`).
-Следующий gate — построить combined balanced `20 000` train manifest и отдельный no-training
-contract; actual training пока не авторизован.
+Combined balanced `20 000` train manifest уже write-once заморожен (`4 × 5 000`). Следующий
+gate — отдельный full training contract после isolated dev inputs; actual training пока не
+авторизован.
 
 Four-route hash-pinned offline synthesis contract и resumable runner завершили все four routes:
 `7 200/7 200` raw WAV (`4 × 1 800`) без runtime reject. Общий hash-pinned audio QA/leakage gate
@@ -233,6 +234,8 @@ audio intersections are zero: [KK spoof audio gate](artifacts/v4/kk_spoof_audio_
 The output receipt's overly broad training claim is corrected without changing its bytes by the
 [governance reconciliation](artifacts/v4/xlsr_sls_model_v4_kk_spoof_audio_gate_governance_v1.json):
 only the combined-manifest and separate training-contract preflight are now authorized.
+The combined manifest is now frozen with exactly four `5,000`-row cells and `4,604` allowed
+within-train KK text overlaps: [combined train manifest](artifacts/v4/combined_train_manifest_2026-08-15.md).
 
 ## 5. Подготовка v4 data
 
@@ -369,13 +372,12 @@ data в tuning, несоответствии hash или попытке повт
 - materialized raw audio находится только в новом Git-ignored v4 namespace; historical audio
   assets не изменялись;
 - raw synthesis и common QA/VAD/audio-leakage завершены: `6 200` KK spoof rows eligible and
-  `5 000` (`4 × 1 250`) frozen; training, checkpoint selection, calibration и inference не
-  запускались;
+  `5 000` (`4 × 1 250`) frozen; combined train manifest содержит `20 000` rows (`4 × 5 000`);
+  training contract, training, checkpoint selection, calibration и inference не запускались;
 - не изменены v1/v2/v3 и существующие immutable receipts;
 - не искались и не скачивались новые datasets/models;
 - `24 000 ready` не заявлены: подтверждена только достаточная pre-QA candidate capacity.
 
-Следующий безопасный шаг — построить combined `20 000` train manifest только из frozen source
-`15 000` и frozen KK spoof `5 000`, проверить четыре balanced cells и exact bindings, затем
-создать отдельный no-training training contract. До его успешного receipt actual training
-запрещён.
+Следующий безопасный шаг — подготовить isolated v4 dev inputs и создать отдельный full training
+contract, hash-pinning runtime, hyperparameters, dev inputs и write-once outputs. До его
+no-training preflight actual training запрещён.

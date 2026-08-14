@@ -1,0 +1,96 @@
+{
+  "accounting": {
+    "combined_cell_counts": {
+      "kk/bonafide": 5000,
+      "kk/spoof": 5000,
+      "ru/bonafide": 5000,
+      "ru/spoof": 5000
+    },
+    "combined_rows": 20000,
+    "shared_text_hashes": 4604,
+    "source_cell_counts": {
+      "kk/bonafide": 5000,
+      "ru/bonafide": 5000,
+      "ru/spoof": 5000
+    },
+    "source_rows": 15000,
+    "spoof_cell_counts": {
+      "kk/spoof": 5000
+    },
+    "spoof_rows": 5000
+  },
+  "bindings": {
+    "kk_spoof_audio_gate_governance": {
+      "path": "docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_audio_gate_governance_v1.json",
+      "rows": null,
+      "sha256": "28505237ac55756763896ac9fcee006845221a0bc7ae8e51a54b9bcf10eb83d4"
+    },
+    "kk_spoof_audio_gate_receipt": {
+      "path": "docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_audio_gate_v1.json",
+      "rows": null,
+      "sha256": "0e2ddb4b40264237def45c10bebdc09e5aef49e15461df7e0bcd78632dfecf50"
+    },
+    "kk_spoof_frozen_manifest": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_train_frozen_v1.csv",
+      "rows": 5000,
+      "sha256": "52d662b08b5b67e34d2f9795fd0b67abf83b24f80b9ddab4712720915e02b990"
+    },
+    "license_ledger": {
+      "path": "data/licenses/license_ledger.csv",
+      "rows": null,
+      "sha256": "e0428ea721472b8cd57601a4f0aa59dd943854b66d7229ca9a5e05349ee6b809"
+    },
+    "manifest_module": {
+      "path": "src/kds/data/v4_train_manifest.py",
+      "rows": null,
+      "sha256": "3d96ba7b22a26459a9d2fcc71cde2b2267ebc32f9f24bde5c361e7a5301dfc75"
+    },
+    "plan": {
+      "path": "configs/research/v4/xlsr_sls_model_v4_train_manifest_v1.json",
+      "sha256": "2acf617a17f9904d3bbb2ce93f6fefaad505ca19d430becf60584eaced8f0230"
+    },
+    "runner_script": {
+      "path": "scripts/freeze_v4_combined_train_manifest.py",
+      "rows": null,
+      "sha256": "e017a35987c9aba7278d6974c7a1c8c44c320a9ca0e062cefec9b04667e7b1c3"
+    },
+    "source_decode_receipt": {
+      "path": "docs/artifacts/v4/xlsr_sls_model_v4_source_decode_qa_v1.json",
+      "rows": null,
+      "sha256": "634416a0bd7b450ece58a0bad6b55f202ff78d9acd269648d5bfddb83864fe0d"
+    },
+    "source_frozen_manifest": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_source_train_frozen_v1.csv",
+      "rows": 15000,
+      "sha256": "f174e60e4cc13e58779ad3c1556a3aa20d737538dc696636f11ec440a8d11025"
+    }
+  },
+  "claims": {
+    "actual_training_execution": false,
+    "calibration": false,
+    "checkpoint_selection": false,
+    "combined_train_manifest_frozen": true,
+    "final_inference": false,
+    "same_train_role_text_overlap_pinned": true,
+    "speaker_independence": "not_verified_speaker_independent",
+    "training_contract_created": false
+  },
+  "created_at": "2026-08-14T22:26:13Z",
+  "next_gate": "create a separate full v4 training contract only after its isolated dev inputs, runtime, hyperparameters and output paths are hash-pinned; actual training remains forbidden until that contract passes a no-training preflight",
+  "outputs": {
+    "combined_train_manifest": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_train_frozen_v1.csv",
+      "rows": 20000,
+      "sha256": "6c0fdbf38e9509749e2c8c458077095c21c3f6a65ddca17e0325dc6c8d00b7ed"
+    }
+  },
+  "prohibitions": [
+    "do not change or rerun either frozen input",
+    "do not use detector or logit feedback",
+    "do not generate or modify audio",
+    "do not train, tune, select a checkpoint, calibrate or run final inference"
+  ],
+  "protocol_id": "xlsr-sls-model-v4-combined-train-manifest-v1",
+  "schema_version": 1,
+  "state": "combined_train_manifest_frozen_training_contract_pending"
+}

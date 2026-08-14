@@ -28,9 +28,10 @@ target + `300` reserve на family), без runtime reject. Общий decode/QA
 обработал все `7 200` WAV, оставил `6 200` eligible и заморозил ровно `5 000` KK spoof строк
 (`4 × 1 250`); exact/near-audio intersections равны нулю. Его write-once receipt содержит
 слишком широкое `training_authorized=true`; отдельная reconciliation фиксирует корректную
-границу: разрешено только построить combined `20 000` manifest и отдельный training contract.
-Actual training, checkpoint, calibration и final inference не запускались и не авторизованы;
-speaker independence не заявлена.
+границу. Разрешённый assembler собрал combined `20 000` manifest с четырьмя balanced cells по
+`5 000`; `4 604` shared KK text hashes закреплены только как within-train property. Отдельный
+full training contract ещё не создан. Actual training, checkpoint, calibration и final inference
+не запускались и не авторизованы; speaker independence не заявлена.
 Подробности:
 [Gate A capacity](docs/artifacts/v4/gate_a_2026-08-14.md),
 [frozen train candidates](docs/artifacts/v4/train_candidate_selection_2026-08-14.md) и
@@ -43,7 +44,8 @@ speaker independence не заявлена.
 [Piper synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_piper_issai_high_v1_synthesis_v1.json) и
 [SparkTTS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_sparktts_v1_synthesis_v1.json),
 [common audio gate](docs/artifacts/v4/kk_spoof_audio_gate_2026-08-15.md) и
-[его reconciliation](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_audio_gate_governance_v1.json).
+[его reconciliation](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_audio_gate_governance_v1.json),
+[combined train manifest](docs/artifacts/v4/combined_train_manifest_2026-08-15.md).
 
 Быстрый старт из clone:
 

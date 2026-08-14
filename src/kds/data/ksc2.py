@@ -91,6 +91,16 @@ class Ksc2TextCandidate:
     canonical_text_sha256: str
 
 
+@dataclass(frozen=True, slots=True)
+class Ksc2ExtractedAudio:
+    """One selected KSC2 source asset extracted during an exact full-archive pass."""
+
+    archive_member: str
+    relative_path: str
+    sha256: str
+    size_bytes: int
+
+
 class _MultipartReader:
     """Expose ordered archive parts as one read-only binary stream and hash every byte once."""
 
@@ -637,3 +647,86 @@ def extract_ksc2_mixed_annotation_candidates(
             )
         )
     return tuple(candidates)
+
+
+def extract_ksc2_selected_audio(
+    parts_directory: Path,
+    output_directory: Path,
+    *,
+    selected_members: frozenset[str],
+    expected_compressed_sha256: str,
+    expected_sizes: tuple[int, ...] = KSC2_PART_EXPECTED_SIZES,
+    progress_callback: Ksc2AuditProgressCallback | None = None,
+) -> tuple[Ksc2ExtractedAudio, ...]:
+    """Extract an exact member allow-list while revalidating the full multipart archive."""
+
+    expected_hash = expected_compressed_sha256.lower()
+    if len(expected_hash) != 64 or any(
+        character not in "0123456789abcdef" for character in expected_hash
+    ):
+        raise Ksc2AuditError("KSC2 extraction expected SHA-256 is invalid.")
+    if not selected_members or output_directory.exists() or not output_directory.parent.is_dir():
+        raise Ksc2AuditError("Unsafe KSC2 selected-audio extraction destination.")
+    safe_members: dict[str, PurePosixPath] = {}
+    for member_name in selected_members:
+        path = PurePosixPath(member_name)
+        if (
+            path.is_absolute()
+            or ".." in path.parts
+            or "\\" in member_name
+            or not path.parts
+            or path.parts[0] != KSC2_ARCHIVE_ROOT
+            or not _component_name(path).startswith("Train/")
+            or path.suffix.lower() not in KSC2_AUDIO_SUFFIXES
+        ):
+            raise Ksc2AuditError(f"Unsafe selected KSC2 audio member: {member_name!r}.")
+        safe_members[member_name] = path
+    paths = ksc2_part_paths(parts_directory, expected_sizes=expected_sizes)
+    reader = _MultipartReader(paths, progress_callback=progress_callback)
+    extracted: dict[str, Ksc2ExtractedAudio] = {}
+    output_directory.mkdir()
+    try:
+        with gzip.GzipFile(fileobj=cast(BinaryIO, reader), mode="rb") as gzip_stream:
+            with tarfile.open(fileobj=gzip_stream, mode="r|") as archive:
+                for member in archive:
+                    path = _safe_member_path(member)
+                    if member.isdir():
+                        continue
+                    if not member.isfile():
+                        raise Ksc2AuditError(
+                            f"KSC2 archive contains an unsupported member type: {member.name!r}."
+                        )
+                    if member.name not in safe_members:
+                        continue
+                    if member.name in extracted:
+                        raise Ksc2AuditError(
+                            f"Duplicate selected KSC2 audio member: {member.name!r}."
+                        )
+                    relative_path = path.relative_to(KSC2_ARCHIVE_ROOT)
+                    output_path = output_directory / Path(*relative_path.parts)
+                    digest = _copy_member_and_hash(archive, member, output_path)
+                    extracted[member.name] = Ksc2ExtractedAudio(
+                        archive_member=member.name,
+                        relative_path=relative_path.as_posix(),
+                        sha256=digest,
+                        size_bytes=member.size,
+                    )
+        # Reaching EOF verifies gzip CRC as well as every TAR member path/type.
+    except Ksc2AuditError:
+        shutil.rmtree(output_directory, ignore_errors=True)
+        raise
+    except (OSError, EOFError, gzip.BadGzipFile, tarfile.TarError) as error:
+        shutil.rmtree(output_directory, ignore_errors=True)
+        raise Ksc2AuditError(f"KSC2 selected-audio extraction failed: {error}") from error
+    finally:
+        reader.close()
+    if (
+        len(reader.part_receipts) != len(paths)
+        or reader.compressed_sha256 != expected_hash
+        or set(extracted) != set(selected_members)
+    ):
+        shutil.rmtree(output_directory, ignore_errors=True)
+        raise Ksc2AuditError(
+            "KSC2 extraction did not verify the full archive or materialize every selected asset."
+        )
+    return tuple(extracted[name] for name in sorted(extracted))

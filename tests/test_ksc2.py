@@ -14,6 +14,7 @@ from kds.data.ksc2 import (
     Ksc2AuditError,
     audit_ksc2_archive,
     extract_ksc2_mixed_annotation_candidates,
+    extract_ksc2_selected_audio,
     scan_ksc2_text_candidates,
     write_ksc2_audit_report,
 )
@@ -144,6 +145,34 @@ def test_ksc2_text_scan_keeps_only_allowed_paired_train_components(tmp_path: Pat
     assert candidates[0].canonical_text_sha256 == hashlib.sha256(
         "Қазақ мәтіні".encode()
     ).hexdigest()
+
+
+def test_ksc2_selected_audio_extraction_is_allow_listed_and_hash_bound(
+    tmp_path: Path,
+) -> None:
+    expected_sizes = _write_parts(
+        tmp_path,
+        [
+            ("ISSAI_KSC2/Train/radio/a.flac", b"selected-flac"),
+            ("ISSAI_KSC2/Train/radio/a.txt", b"selected text"),
+            ("ISSAI_KSC2/Train/radio/b.flac", b"not-selected"),
+        ],
+    )
+    archive_hash = audit_ksc2_archive(tmp_path, expected_sizes=expected_sizes).compressed_sha256
+    output = tmp_path / "selected"
+
+    extracted = extract_ksc2_selected_audio(
+        tmp_path,
+        output,
+        selected_members=frozenset({"ISSAI_KSC2/Train/radio/a.flac"}),
+        expected_compressed_sha256=archive_hash,
+        expected_sizes=expected_sizes,
+    )
+
+    assert len(extracted) == 1
+    assert extracted[0].sha256 == hashlib.sha256(b"selected-flac").hexdigest()
+    assert (output / "Train/radio/a.flac").read_bytes() == b"selected-flac"
+    assert not (output / "Train/radio/b.flac").exists()
 
 
 def test_ksc2_audit_rejects_symlink_members(tmp_path: Path) -> None:

@@ -214,6 +214,8 @@ def extract_ruasd_research_slice(
     catalog: Mapping[str, RuAsdArchiveSpec],
     records: tuple[RuAsdResearchRecord, ...],
     destination: Path,
+    *,
+    progress_callback: RuAsdResearchProgressCallback | None = None,
 ) -> dict[str, Path]:
     """Atomically extract only selected direct-file WAVs from the validated release."""
 
@@ -233,7 +235,7 @@ def extract_ruasd_research_slice(
         ) as stage_dir:
             stage = Path(stage_dir)
             extracted: set[str] = set()
-            for archive_name in sorted(requested):
+            for completed, archive_name in enumerate(sorted(requested), start=1):
                 archive_path = archive_paths[archive_name]
                 _validate_archive_size(archive_path, catalog[archive_name])
                 with tarfile.open(archive_path, mode="r:") as archive:
@@ -250,6 +252,8 @@ def extract_ruasd_research_slice(
                         with source, output_path.open("wb") as output:
                             shutil.copyfileobj(source, output, length=1024 * 1024)
                         extracted.add(f"{Path(archive_name).stem}:{sample_id}")
+                if progress_callback is not None:
+                    progress_callback(completed, len(requested), archive_name)
             expected = {record.record_key for record in records}
             if extracted != expected:
                 raise RuAsdResearchError("RuASD extraction did not produce every selected WAV.")

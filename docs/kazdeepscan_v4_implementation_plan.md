@@ -1,17 +1,18 @@
 # KazDeepScan XLS-R+SLS v4 — план реализации расширенного train
 
-**Статус:** capacity/integrity Gate A завершён (`proceed_24k`); frozen metadata selection v2
-завершён; source-audio materialization, audio leakage и QA/VAD не завершены.
+**Статус:** capacity/integrity Gate A и frozen metadata selection v2 завершены; source-audio
+materialization извлёк `21 600` RuASD/KSC2 assets и допустил `21 598` после exact raw-audio
+gate. Canonical decode, near-audio leakage и QA/VAD не завершены.
 
 **Дата локального аудита:** 14 августа 2026 года.
 
 **Scope:** только personal research; не product model, не fraud detector и не калиброванная
 вероятность.
 
-Этот документ является единственным подробным планом v4. Завершённые capacity audit и
-metadata-only selection разрешают только materialization канонических v2 source candidates.
-До raw/decoded audio hashes, fingerprints и QA/VAD synthesis, training и final inference не
-разрешены. V1/v2/v3, их
+Этот документ является единственным подробным планом v4. Завершённые capacity audit,
+metadata-only selection и exact raw-audio materialization разрешают только canonical decode,
+fingerprint/leakage audit и QA/VAD source candidates. До их завершения synthesis, training и
+final inference не разрешены. V1/v2/v3, их
 manifests, checkpoints, execution locks, reports и write-once результаты не меняются. Перед
 началом каждого следующего этапа создаются новые versioned contracts и новые output paths.
 
@@ -66,11 +67,13 @@ leakage policy.
 Итог capacity/integrity части Gate A: решение `proceed_24k` подтверждает достаточную локальную
 pre-QA candidate capacity. Проверены 429 versioned project-history files, 99 manifest files /
 40 942 rows с versioned дубликатами и пять exact локальных KK TTS-family. Точное число
-**безопасно eligible** ready-строк ещё не сертифицировано: frozen v2 selection доказал только
-sample/text exclusion и role-root isolation; audio часть leakage graph требует materialization.
-После неё остаются decode/QA/VAD. Нельзя писать, что v4 уже
+**безопасно eligible** ready-строк ещё не сертифицировано: frozen v2 selection доказал
+sample/text exclusion и role-root isolation, а raw materialization — provenance exact bytes и
+отсутствие raw SHA-256 collisions у `21 598` допущенных source rows. Decoded/near-audio leakage
+и QA/VAD ещё не выполнены. Нельзя писать, что v4 уже
 располагает `24 000 ready` или что speaker-disjointness доказана. Канонический подробный
-результат: [v4 Gate A capacity](artifacts/v4/gate_a_2026-08-14.md).
+результат: [v4 Gate A capacity](artifacts/v4/gate_a_2026-08-14.md) и
+[source raw materialization](artifacts/v4/source_raw_materialization_2026-08-14.md).
 
 Требование использовать локальные synthetic выполняется без подмены ролей: unexposed RuASD и
 ToneSpeak assets могут стать train candidates, а hash-pinned KK TTS bundles — создать fresh
@@ -189,6 +192,12 @@ Metadata portion завершена каноническим v2 packet: `28 800`
 historical sample/text intersections и disjoint role roots. V1 отклонён до materialization из-за
 FLEURS corpus-family и eSpeak family crossing. Точные hashes и reconciliation:
 [frozen train candidates](artifacts/v4/train_candidate_selection_2026-08-14.md).
+
+Source materialization завершила exact raw-audio часть для `21 600` RuASD/KSC2 candidates.
+`21 598` unique raw assets допущены к decode/QA; две TeraTTS записи отклонены из-за exact
+collision со старым RuASD OOD-100 manifest, без replacement/backfill. Decoded hashes,
+near-audio fingerprints и QA/VAD остаются обязательным следующим gate:
+[source raw materialization](artifacts/v4/source_raw_materialization_2026-08-14.md).
 
 ## 5. Подготовка v4 data
 
@@ -319,15 +328,17 @@ data в tuning, несоответствии hash или попытке повт
 
 ## 11. Текущий незавершённый scope
 
-- capacity gate и canonical metadata selection v2 завершены: `28 800` rows, но ready
-  train/dev/calibration/final manifests и checkpoint ещё не созданы;
-- не извлечён и не изменён ни один audio asset;
+- capacity gate, canonical metadata selection v2 и source raw materialization завершены:
+  извлечено `21 600`, exact raw gate допустил `21 598`, но ready train/dev/calibration/final
+  manifests и checkpoint ещё не созданы;
+- materialized raw audio находится только в новом Git-ignored v4 namespace; historical audio
+  assets не изменялись;
 - не запускались synthesis, QA, training, calibration или inference;
 - не изменены v1/v2/v3 и существующие immutable receipts;
 - не искались и не скачивались новые datasets/models;
 - `24 000 ready` не заявлены: подтверждена только достаточная pre-QA candidate capacity.
 
-Следующий безопасный шаг — materialize только source rows из canonical v2: извлечь RuASD/KSC2
-audio в новые Git-ignored paths, посчитать raw/decoded hashes и near-audio fingerprints,
-выполнить QA/VAD и закрыть historical/cross-role audio leakage. До успешного receipt нельзя
-создавать synthetic WAV или начинать training.
+Следующий безопасный шаг — canonical decode `21 598` eligible source rows в новый Git-ignored
+processed namespace, decoded hashes и near-audio fingerprints, QA/VAD и closure historical/
+cross-role audio leakage. До успешного receipt нельзя создавать synthetic WAV или начинать
+training.

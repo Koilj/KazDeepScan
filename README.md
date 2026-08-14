@@ -19,9 +19,12 @@ Python distribution metadata намеренно остаётся `0.1.0`: её �
 завершена с решением `proceed_24k`. Канонический v2 role contract и metadata-only train pool
 также заморожены: `28 800` кандидатов, по `7 200` на каждую `RU/KK × bona-fide/spoof` cell,
 с нулевым historical sample/text overlap и раздельными source/TTS-family roots между v4-ролями.
-Raw/decoded audio leakage, QA/VAD и speaker provenance ещё не закрыты; `24 000 ready`,
-synthesis и training не заявлены. Подробности: [Gate A capacity](docs/artifacts/v4/gate_a_2026-08-14.md)
-и [frozen train candidates](docs/artifacts/v4/train_candidate_selection_2026-08-14.md).
+Source materialization извлёк `21 600` RuASD/KSC2 assets; exact raw-audio gate допустил `21 598`
+и учёл две historical TeraTTS collisions. Decoded/near-audio leakage, QA/VAD и speaker
+provenance ещё не закрыты; `24 000 ready`, synthesis и training не заявлены. Подробности:
+[Gate A capacity](docs/artifacts/v4/gate_a_2026-08-14.md),
+[frozen train candidates](docs/artifacts/v4/train_candidate_selection_2026-08-14.md) и
+[source raw materialization](docs/artifacts/v4/source_raw_materialization_2026-08-14.md).
 
 Быстрый старт из clone:
 

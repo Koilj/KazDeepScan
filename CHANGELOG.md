@@ -3,6 +3,17 @@
 Все значимые изменения KazDeepScan фиксируются здесь. Immutable research receipts и более
 подробная история находятся в `PROJECT_STATUS.md` и `docs/`.
 
+## Post-v1.0 — local storage cleanup — 2026-08-14
+
+- удалены только local caches, exact duplicate первого RuASD TAR, unused `ffplay`
+  и Italian ML-DF OOD media bytes, непригодные для RU/KK v4 train;
+- protected `/home/ruslan/Downloads/269-lockdown/`, основные RU/KK sources, TTS-family
+  weights и old write-once evidence сохранены;
+- optional `pyarrow` import переведён на `importlib`, чтобы fresh-cache mypy не
+  зависел от наличия test overlay; runtime fail-closed behavior не изменилось;
+- exact temporary `pyarrow==22.0.0` overlay подтвердил `318 passed`; временный
+  overlay и его package cache после проверки удалены.
+
 ## Post-v1.0 — local user-audio research inference v1 — 2026-08-14
 
 - добавлен strict `research_user_audio_only` contract с file/state SHA-256 checkpoint gate;

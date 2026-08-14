@@ -58,3 +58,13 @@ kds validate-assets data/manifests/ml_df_it_v1_ood_200_repro.csv --audio-root da
 ```
 
 Архив и extracted audio не попадают в Git.
+
+## Локальный retention status
+
+14 августа 2026 локальные `dataset_IT.7z`, `metadata.zip`, extracted slice и все
+`192` processed ready WAV удалены как непригодные для будущего RU/KK v4 train. Это не
+меняет historical results: versioned manifests, license rows, configs и reports сохранены
+без изменений. Завершённый ML-DF OOD run не перезапускается; команды выше
+потребуют сознательного восстановления exact pinned artifacts и только новых output paths.
+Подробный список удаления записан в
+[`local_storage_cleanup_2026-08-14.md`](local_storage_cleanup_2026-08-14.md).

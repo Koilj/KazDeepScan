@@ -8,6 +8,7 @@ creates a model manifest nor upgrades the source to product/final provenance.
 from __future__ import annotations
 
 import hashlib
+import importlib
 import json
 import tempfile
 from collections import Counter
@@ -153,7 +154,7 @@ class ToneSpeakAudit:
 
 def _load_parquet() -> Any:
     try:
-        import pyarrow.parquet as parquet  # type: ignore[import-untyped]
+        parquet = importlib.import_module("pyarrow.parquet")
     except ImportError as error:
         raise ToneSpeakAuditError(
             "ToneSpeak Parquet audit needs pyarrow>=18,<23 in the active environment."

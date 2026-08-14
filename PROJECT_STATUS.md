@@ -35,6 +35,12 @@ acknowledgment. Output называется `uncalibrated_spoof_score`, не с�
 фиксирует `calibrated=false`, `probability_claim=false`, `fraud_claim=false`,
 `product_grade=false`. Existing `services.api.main:app` остаётся `model_unavailable`.
 
+Локальная очистка 14 августа 2026 удалила только воспроизводимые caches, exact duplicate первого
+RuASD TAR, неиспользуемый `ffplay` и Italian ML-DF OOD media bytes. ML-DF не является RU/KK v4
+данными; его completed historical manifests/reports сохранены, evaluation не перезапускался.
+Основные RU/KK archives, synthetic-family weights, frozen checkpoints и protected
+`/home/ruslan/Downloads/269-lockdown/` не затронуты.
+
 Этот файл намеренно краткий. Архитектура описана в
 [KazDeepScan_implementation_blueprint.md](KazDeepScan_implementation_blueprint.md), следующие
 действия — в [План реализации.md](План%20реализации.md), детальные receipts — в `docs/`.

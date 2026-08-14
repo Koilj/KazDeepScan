@@ -108,7 +108,9 @@ checkpoint и строго ограниченный evaluation-контур:
 - Common Voice Russian v24 intake с pinned размером и SHA-256 archive, tar whitelist,
   атомарным MP3 slice extraction и leakage-safe split по связанным client/text группам;
 - ML-DF v1 Italian intake с archive/CRC/metadata whitelist и изолированным cross-lingual
-  OOD manifest; он не используется как Russian/Kazakh training или calibration data;
+  OOD manifest; он не используется как Russian/Kazakh training или calibration data. Локальные
+  ML-DF archive/raw/processed bytes удалены 14 августа 2026 как непригодные для будущего RU/KK
+  v4 train; historical manifests/reports сохранены, а завершённый OOD run не перезапускается;
 - RuASD: fake-only shard для OOD и full-release intake для personal-research binary slices;
   оба проверяют SHA-256/TAR/JSON-WAV pairing, а full release берёт только raw recordings;
 - read-only audit полного локального RuASD release: pinned catalog всех 250 TAR artifacts,
@@ -339,13 +341,9 @@ uv run python scripts/ingest_ruasd_research.py \
   --slice-name research-2000-v2 --limit-per-label 1000 --min-per-stratum 1 \
   --selected-at-utc 2026-08-12T00:00:00Z
 
-# Проверить B0 checkpoint на отдельном manifest без калибровки.
-uv run python scripts/evaluate_b0.py \
-  --checkpoint models/b0-pyara-research-500.pt \
-  --manifest data/manifests/ml_df_it_v1_ood_200_ready.csv \
-  --audio-root data \
-  --license-ledger data/licenses/license_ledger.csv \
-  --split ood --device cuda
+# ML-DF OOD evaluation исторически завершён и не перезапускается. Локальные media bytes
+# удалены; versioned manifest и reports сохранены только как immutable research evidence.
+# Подробный cleanup receipt: docs/local_storage_cleanup_2026-08-14.md.
 
 # Для финального OOD-набора потребовать целое семейство генератора вне train/dev/test.
 kds validate-manifest data/manifests/ood.csv --require-ood-generator

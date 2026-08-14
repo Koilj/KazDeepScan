@@ -24,8 +24,13 @@ Source materialization извлёк `21 600` RuASD/KSC2 assets; exact raw-audio 
 `5 000` RU bona-fide, RU spoof и KK bona-fide строк и принял `proceed_20k_balanced`; KK spoof
 synthesis создал `7 200/7 200` raw WAV из exact-проверенных frozen KSC2 texts. Four-route
 hash-pinned runner завершил по `1 800/1 800` WAV на Piper, MMS, KazEmoTTS и SparkTTS (`1 500`
-target + `300` reserve на family), без runtime reject. Общий decode/QA/VAD/leakage gate,
-speaker independence и training не заявлены; его hash-pinned contract frozen before processing.
+target + `300` reserve на family), без runtime reject. Общий decode/QA/VAD/leakage gate
+обработал все `7 200` WAV, оставил `6 200` eligible и заморозил ровно `5 000` KK spoof строк
+(`4 × 1 250`); exact/near-audio intersections равны нулю. Его write-once receipt содержит
+слишком широкое `training_authorized=true`; отдельная reconciliation фиксирует корректную
+границу: разрешено только построить combined `20 000` manifest и отдельный training contract.
+Actual training, checkpoint, calibration и final inference не запускались и не авторизованы;
+speaker independence не заявлена.
 Подробности:
 [Gate A capacity](docs/artifacts/v4/gate_a_2026-08-14.md),
 [frozen train candidates](docs/artifacts/v4/train_candidate_selection_2026-08-14.md) и
@@ -37,7 +42,8 @@ speaker independence и training не заявлены; его hash-pinned contr
 [KazEmoTTS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_kazemotts_v1_synthesis_v1.json),
 [Piper synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_piper_issai_high_v1_synthesis_v1.json) и
 [SparkTTS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_sparktts_v1_synthesis_v1.json),
-[common audio gate](docs/artifacts/v4/kk_spoof_audio_gate_2026-08-15.md).
+[common audio gate](docs/artifacts/v4/kk_spoof_audio_gate_2026-08-15.md) и
+[его reconciliation](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_audio_gate_governance_v1.json).
 
 Быстрый старт из clone:
 

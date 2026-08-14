@@ -1,0 +1,138 @@
+{
+  "accounting": {
+    "attempted": 7200,
+    "decision_counts": {
+      "kk-kazemotts-v1|eligible|": 1456,
+      "kk-kazemotts-v1|rejected|insufficient_speech": 344,
+      "kk-mms-kaz-v1|eligible|": 1602,
+      "kk-mms-kaz-v1|rejected|insufficient_speech": 198,
+      "kk-piper-issai-high-v1|eligible|": 1510,
+      "kk-piper-issai-high-v1|rejected|insufficient_speech": 290,
+      "kk-sparktts-v1|eligible|": 1632,
+      "kk-sparktts-v1|rejected|insufficient_speech": 168
+    },
+    "frozen_route_counts": {
+      "kk-kazemotts-v1": 1250,
+      "kk-mms-kaz-v1": 1250,
+      "kk-piper-issai-high-v1": 1250,
+      "kk-sparktts-v1": 1250
+    },
+    "historical_exact_decoded_collisions": 0,
+    "historical_near_review_candidates_excluded": 0,
+    "ready_eligible_rows": 6200,
+    "within_pool_exact_decoded_duplicates": 0,
+    "within_pool_near_review_candidates_excluded": 0
+  },
+  "audio_contract": {
+    "decode": "ffmpeg mono pcm_s16le 16000 Hz",
+    "fingerprint_version": "kds-speech-spectral-phash-v1",
+    "minimum_speech_seconds": 2.5,
+    "near_audio_hamming_threshold": 12,
+    "near_audio_speech_duration_ratio": 0.15,
+    "qa": "QualityPolicy defaults plus WebRTC VAD defaults"
+  },
+  "bindings": {
+    "audio_gate_module": {
+      "path": "src/kds/data/v4_audio_gate.py",
+      "rows": null,
+      "sha256": "6878f3fe47ce889c56fb78379eab21d101f64085677d981d4b108d5e0adda654"
+    },
+    "decode_journal": {
+      "path": "artifacts/v4/xlsr_sls_model_v4_kk_spoof_decode_qa_v1/kk_spoof_decode_qa.jsonl",
+      "rows": 7200,
+      "sha256": "d8791a7346c7352aa402035f777939702cb751e2a65b2be41c6182e20a674803"
+    },
+    "historical_fingerprint_inventory": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_historical_audio_fingerprints_v1.csv",
+      "rows": 28400,
+      "sha256": "ff48f80b0729a8b2c40d02cf0b5f830c11d27d87380fedae6ba57264a0708e08"
+    },
+    "license_ledger": {
+      "path": "data/licenses/license_ledger.csv",
+      "rows": null,
+      "sha256": "e0428ea721472b8cd57601a4f0aa59dd943854b66d7229ca9a5e05349ee6b809"
+    },
+    "plan": {
+      "path": "configs/research/v4/xlsr_sls_model_v4_kk_spoof_audio_gate_v1.json",
+      "sha256": "c0ff8ef9ca9c51fab11fb06e22df938498cda7c5ca5d165b2f9efa43cc1eee0c"
+    },
+    "route_receipts": {
+      "kk-kazemotts-v1": {
+        "path": "docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_kazemotts_v1_synthesis_v1.json",
+        "rows": null,
+        "sha256": "4668a027befa45a09ba46a817fef66c61bc0e1e552b1c4ea5ad3024ffe9f1417"
+      },
+      "kk-mms-kaz-v1": {
+        "path": "docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_mms_kaz_v1_synthesis_v1.json",
+        "rows": null,
+        "sha256": "d918828275d4915cfb5adceb059925d431dbf612bfc01912da3da15ae75e23a3"
+      },
+      "kk-piper-issai-high-v1": {
+        "path": "docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_piper_issai_high_v1_synthesis_v1.json",
+        "rows": null,
+        "sha256": "ea5fcebf8a87a289ffd7411874e7cd99d9ab33e49f33cc1ba15a568fc4a33f8b"
+      },
+      "kk-sparktts-v1": {
+        "path": "docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_sparktts_v1_synthesis_v1.json",
+        "rows": null,
+        "sha256": "1ca268f65d85c045dc2769aeb7c9c3eaebed32da913bcb10f576539817837f26"
+      }
+    },
+    "runner_script": {
+      "path": "scripts/run_v4_kk_spoof_audio_gate.py",
+      "rows": null,
+      "sha256": "03c8f65c34e897ca1648de3c3df8b3e3b6a9999f44895e7d52bad952f8801708"
+    },
+    "source_decode_inventory": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_source_decode_qa_inventory_v1.csv",
+      "rows": 21598,
+      "sha256": "8815000a16d778a83c3d22474c24bcbba41a74f8964177d26b992b83a1af262d"
+    },
+    "source_decode_receipt": {
+      "path": "docs/artifacts/v4/xlsr_sls_model_v4_source_decode_qa_v1.json",
+      "rows": null,
+      "sha256": "634416a0bd7b450ece58a0bad6b55f202ff78d9acd269648d5bfddb83864fe0d"
+    },
+    "synthesis_plan": {
+      "path": "configs/research/v4/xlsr_sls_model_v4_kk_spoof_synthesis_v1.json",
+      "rows": null,
+      "sha256": "4735fa343ee3a97809fab8b4c5d4854963be8680e778c40b3e35e97041e971f9"
+    }
+  },
+  "claims": {
+    "decoded_exact_audio_screen_performed": true,
+    "near_audio_screen_performed": true,
+    "new_dataset_search_performed": false,
+    "speaker_independence": "not_verified_speaker_independent",
+    "technical_decode_qa_vad_performed": true,
+    "training_authorized": true
+  },
+  "created_at": "2026-08-14T22:09:35Z",
+  "next_gate": "freeze the combined 20,000-row train manifest and create a separate training contract",
+  "outputs": {
+    "decode_inventory": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_decode_qa_inventory_v1.csv",
+      "rows": 7200,
+      "sha256": "4eed7c7e3707404a182de66f90354362b3eaadd5d272194bd87bc9824387c1e7"
+    },
+    "frozen_kk_spoof_train_manifest": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_train_frozen_v1.csv",
+      "rows": 5000,
+      "sha256": "52d662b08b5b67e34d2f9795fd0b67abf83b24f80b9ddab4712720915e02b990"
+    },
+    "ready_manifest": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_ready_v1.csv",
+      "rows": 6200,
+      "sha256": "1a157cadb669ac6172032b05d78463dce71f3de37dafac293dbda7666567d2bf"
+    }
+  },
+  "protocol_id": "xlsr-sls-model-v4-kk-spoof-audio-gate-v1",
+  "schema_version": 1,
+  "selection": {
+    "backfill_outside_frozen_reserve": false,
+    "detector_feedback": false,
+    "frozen_ready_per_route": 1250,
+    "order": "target_then_reserve_then_selection_rank"
+  },
+  "state": "kk_spoof_train_frozen_5000_training_authorized"
+}

@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "protocol_id": "xlsr-sls-model-v4-kk-spoof-audio-gate-governance-v1",
+  "created_at": "2026-08-15T03:13:54+05:00",
+  "status": "completed_audio_gate_reconciled_actual_training_not_authorized",
+  "affected_write_once_receipt": {
+    "path": "docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_audio_gate_v1.json",
+    "sha256": "0e2ddb4b40264237def45c10bebdc09e5aef49e15461df7e0bcd78632dfecf50",
+    "immutable": true,
+    "recorded_state": "kk_spoof_train_frozen_5000_training_authorized",
+    "recorded_claim": {
+      "path": "claims.training_authorized",
+      "value": true
+    },
+    "recorded_next_gate": "freeze the combined 20,000-row train manifest and create a separate training contract"
+  },
+  "verified_output_packet": {
+    "decode_inventory": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_decode_qa_inventory_v1.csv",
+      "sha256": "4eed7c7e3707404a182de66f90354362b3eaadd5d272194bd87bc9824387c1e7",
+      "rows": 7200
+    },
+    "ready_manifest": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_ready_v1.csv",
+      "sha256": "1a157cadb669ac6172032b05d78463dce71f3de37dafac293dbda7666567d2bf",
+      "rows": 6200
+    },
+    "frozen_kk_spoof_train_manifest": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_train_frozen_v1.csv",
+      "sha256": "52d662b08b5b67e34d2f9795fd0b67abf83b24f80b9ddab4712720915e02b990",
+      "rows": 5000,
+      "route_counts": {
+        "kk-kazemotts-v1": 1250,
+        "kk-mms-kaz-v1": 1250,
+        "kk-piper-issai-high-v1": 1250,
+        "kk-sparktts-v1": 1250
+      }
+    },
+    "accounting": {
+      "eligible": 6200,
+      "rejected_insufficient_speech": 1000,
+      "historical_exact_decoded_collisions": 0,
+      "historical_near_review_candidates_excluded": 0,
+      "within_pool_exact_decoded_duplicates": 0,
+      "within_pool_near_review_candidates_excluded": 0
+    }
+  },
+  "receipt_reconciliation": {
+    "affected_fields": [
+      "state",
+      "claims.training_authorized"
+    ],
+    "recorded_value": "the receipt state and claim read as actual training authorization",
+    "correct_interpretation": "the completed audio gate authorizes construction of a new hash-pinned combined 20,000-row train manifest and a separate training-contract preflight only",
+    "effective_actual_training_authorized": false,
+    "actual_training_execution": "not_run",
+    "speaker_independence": "not_verified_speaker_independent",
+    "resolution": "preserve the original write-once receipt byte-for-byte; require this reconciliation for every downstream v4 training preflight; reject any actual training execution until a separate combined-manifest and training contract both pass their own immutable gates"
+  },
+  "authorizations": {
+    "combined_train_manifest_construction": true,
+    "separate_training_contract_preflight": true,
+    "actual_training_execution": false,
+    "checkpoint_selection": false,
+    "calibration": false,
+    "final_inference": false
+  },
+  "prohibitions": [
+    "do not modify or rerun the completed audio gate",
+    "do not alter frozen source or KK spoof manifests",
+    "do not use detector or logit feedback for any combined-manifest construction",
+    "do not train, tune, select a checkpoint, calibrate or run final inference before a separate immutable training contract"
+  ],
+  "next_gate": "construct the combined 20,000-row train manifest from the two frozen inputs, verify its exact hashes and four balanced cells, then create and validate a separate no-training training contract"
+}

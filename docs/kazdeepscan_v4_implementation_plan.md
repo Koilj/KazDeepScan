@@ -2,8 +2,10 @@
 
 **Статус:** capacity/integrity, frozen metadata selection v2 и source decode/QA/audio-leakage
 gate завершены. Source train заморожен на `15 000` строк (`3 × 5 000`); принято
-`proceed_20k_balanced`. Все `7 200` KK spoof texts exact-проверены и превращены в raw WAV;
-следующий gate — выбрать `5 000` ready rows через общий QA/VAD/audio-leakage screen.
+`proceed_20k_balanced`. Все `7 200` KK spoof texts exact-проверены, синтезированы и прошли
+общий QA/VAD/audio-leakage screen: `6 200` eligible и ровно `5 000` frozen (`4 × 1 250`).
+Следующий gate — построить combined balanced `20 000` train manifest и отдельный no-training
+contract; actual training пока не авторизован.
 
 Four-route hash-pinned offline synthesis contract и resumable runner завершили все four routes:
 `7 200/7 200` raw WAV (`4 × 1 800`) без runtime reject. Общий hash-pinned audio QA/leakage gate
@@ -15,9 +17,9 @@ frozen before processing.
 вероятность.
 
 Этот документ является единственным подробным планом v4. Завершённые capacity audit,
-metadata-only selection и source decode/QA разрешают только frozen KK spoof synthesis и его
-QA/leakage gate. До frozen balanced `20 000` train synthesis других ролей, training и final
-inference не разрешены. V1/v2/v3, их
+metadata-only selection, source decode/QA и KK spoof audio gate разрешают только construction
+of a combined balanced `20 000` train manifest и отдельный no-training contract. До этого
+контракта actual training и final inference не разрешены. V1/v2/v3, их
 manifests, checkpoints, execution locks, reports и write-once результаты не меняются. Перед
 началом каждого следующего этапа создаются новые versioned contracts и новые output paths.
 
@@ -225,7 +227,12 @@ rejection; это ещё не готовые train rows до common gate:
 [Piper synthesis](artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_piper_issai_high_v1_synthesis_v1.json) и
 [SparkTTS synthesis](artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_sparktts_v1_synthesis_v1.json).
 Общий gate reuse'ит canonical v4 decode/QA/VAD и screens all current/historical audio before
-fixed `4 × 1,250` freeze: [KK spoof audio gate](artifacts/v4/kk_spoof_audio_gate_2026-08-15.md).
+fixed `4 × 1,250` freeze. Он завершён: `6 200/7 200` rows eligible, `1 000` rejected only for
+`insufficient_speech`, frozen rows exactly `5 000`, and historical/within-pool exact and near
+audio intersections are zero: [KK spoof audio gate](artifacts/v4/kk_spoof_audio_gate_2026-08-15.md).
+The output receipt's overly broad training claim is corrected without changing its bytes by the
+[governance reconciliation](artifacts/v4/xlsr_sls_model_v4_kk_spoof_audio_gate_governance_v1.json):
+only the combined-manifest and separate training-contract preflight are now authorized.
 
 ## 5. Подготовка v4 data
 
@@ -361,11 +368,14 @@ data в tuning, несоответствии hash или попытке повт
   dev/calibration/final manifests и checkpoint ещё не созданы;
 - materialized raw audio находится только в новом Git-ignored v4 namespace; historical audio
   assets не изменялись;
-- raw synthesis завершён без runtime reject; common QA/VAD/audio-leakage, training, calibration и
-  inference не запускались;
+- raw synthesis и common QA/VAD/audio-leakage завершены: `6 200` KK spoof rows eligible and
+  `5 000` (`4 × 1 250`) frozen; training, checkpoint selection, calibration и inference не
+  запускались;
 - не изменены v1/v2/v3 и существующие immutable receipts;
 - не искались и не скачивались новые datasets/models;
 - `24 000 ready` не заявлены: подтверждена только достаточная pre-QA candidate capacity.
 
-Следующий безопасный шаг — провести общий QA/VAD и audio-leakage gate для четырёх completed
-routes и заморозить ровно `5 000` (`4 × 1 250`) строк. До успешного receipt training запрещён.
+Следующий безопасный шаг — построить combined `20 000` train manifest только из frozen source
+`15 000` и frozen KK spoof `5 000`, проверить четыре balanced cells и exact bindings, затем
+создать отдельный no-training training contract. До его успешного receipt actual training
+запрещён.

@@ -14,6 +14,11 @@ Python distribution metadata намеренно остаётся `0.1.0`: её �
 `uv.lock` уже закреплены SHA-256 в завершённых write-once run plans. Release identity доступен
 через `kds --version`, OpenAPI и Git tag без нарушения этих historical contracts.
 
+Подготовлен только design-документ будущей расширенной research-модели v4:
+[план XLS-R+SLS v4](docs/kazdeepscan_v4_implementation_plan.md). V4 data, configs, checkpoint и
+inference ещё не создавались; первым разрешённым этапом остаётся новый local capacity/exposure
+audit.
+
 Быстрый старт из clone:
 
 ```bash

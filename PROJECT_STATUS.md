@@ -12,6 +12,10 @@ user-audio route возвращает только явно некалибров
 
 **Состояние:** текущий v1.0 Research plan завершён. XLS-R+SLS v2 и отдельная v3 ветка завершены
 на write-once research protocols.
+Будущая XLS-R+SLS model v4 пока существует только как
+[design-план](docs/kazdeepscan_v4_implementation_plan.md): её manifests, configs, checkpoint и
+final test не созданы, а exact eligible train count ещё должен быть подтверждён новым
+capacity/exposure audit.
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2

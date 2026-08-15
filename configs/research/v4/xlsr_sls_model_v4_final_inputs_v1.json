@@ -15,7 +15,7 @@
     "fleurs_artifact_lock": {"path": "data/licenses/fleurs_kk_kz_v1_artifact_lock.json", "sha256": "64245c5310f4eb2db0924661963c935037da593280cba2fa58dec611159d0fa2", "rows": null},
     "qwen_model_lock": {"path": "configs/research/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1_models.json", "sha256": "6ec1a828ad72738341a3226e73cde65ca9a87b3ee11fac43f2ca40173dd98d8d", "rows": null},
     "kazakhtts_model_lock": {"path": "configs/research/kazakhtts_tacotron2_pwg_v1_models.json", "sha256": "1ee5150c1c9c5f69b33cc4a4a67148904079651830b0a144f8647af10c8cf68e", "rows": null},
-    "final_inputs_module": {"path": "src/kds/data/v4_final_inputs.py", "sha256": "c00c5ea1cf0d670b89570793c471ddab97e606bd53481f76cbaab479ac874ad1", "rows": null},
+    "final_inputs_module": {"path": "src/kds/data/v4_final_inputs.py", "sha256": "c009afbc21b531041884cfe755b213bf6e4e4dff317f8e9db12f8b0633ab73c6", "rows": null},
     "common_voice_module": {"path": "src/kds/data/common_voice.py", "sha256": "1b29d068f4238596327b1eaec0ad83b6c4fabad4033542278bce91d2deff4306", "rows": null},
     "common_voice_screen_module": {"path": "src/kds/eval/common_voice_metadata_screen.py", "sha256": "0d0015c33ee56b43171f64bfb103d465fd84b1b184c5e7b78aa099df84fbaad3", "rows": null},
     "fleurs_module": {"path": "src/kds/data/fleurs.py", "sha256": "f0a3db80aca761befba7f7facac7f3abe03ab68fbab6bcb522c5f83855f2ff11", "rows": null},

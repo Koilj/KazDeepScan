@@ -600,7 +600,7 @@ def _require_completed_calibration(path: Path) -> None:
 
 def _require_final_ledger(path: Path) -> dict[str, LicenseLedgerEntry]:
     ledger = load_license_ledger(path)
-    if tuple(sorted(ledger)) != _FINAL_SOURCE_IDS:
+    if set(ledger) != set(_FINAL_SOURCE_IDS):
         raise V4FinalInputError(
             "Final metadata ledger must contain exactly four final route entries."
         )

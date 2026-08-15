@@ -13,7 +13,7 @@ pair lock. Detector checkpoint, calibration, detector и final inference не з
 
 Контракт
 [`xlsr_sls_model_v4_final_materialization_v1`](../../../configs/research/v4/xlsr_sls_model_v4_final_materialization_v1.json)
-имеет SHA-256 `fabd4c28b1f70815d57747007cfb3504424407ee7ce2e23cdb157dac3dd71b1d`.
+имеет SHA-256 `9d471f8e961a530a209fa2652344a0c12d4dfc28c03b4c28f5e14bd4bac2088a`.
 Новый narrow ledger:
 [`xlsr_sls_model_v4_final_materialization_v1.csv`](../../../data/licenses/frozen/xlsr_sls_model_v4_final_materialization_v1.csv),
 SHA-256 `87aedfd77beb51891abe81477289d8061db50f7488db5b1d802d01e20481a09a`.
@@ -22,7 +22,8 @@ SHA-256 `87aedfd77beb51891abe81477289d8061db50f7488db5b1d802d01e20481a09a`.
 
 1. Read-only preflight повторно проверяет metadata selection, Common Voice archive, полный
    FLEURS release, frozen ledger, full project-history fingerprint evidence и оба hash-pinned
-   local TTS route. Он не создаёт WAV или final receipt.
+   local TTS route. В history входят также exact raw/canonical journals завершённой v4
+   calibration materialization. Он не создаёт WAV или final receipt.
 2. Только после preflight один write-once run извлекает exact `500` RU и `500` KK source assets,
    затем делает ровно по одной text-only synthesis attempt для тех же `500` RU через fixed
    Qwen CustomVoice `aiden` и `500` KK через fixed KazakhTTS Tacotron2/PWG. Reference audio,

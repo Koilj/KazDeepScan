@@ -366,6 +366,8 @@ def load_plan(path: Path, project_root: Path) -> Plan:
         "kk_spoof_decode_inventory",
         "dev_source_decode_journal",
         "dev_spoof_decode_journal",
+        "calibration_source_decode_journal",
+        "calibration_spoof_decode_journal",
         "final_inputs_module",
         "materialization_module",
         "audio_gate_module",
@@ -1092,7 +1094,12 @@ def _history(
                         item["audio_fingerprint_v1"],
                         float(item["speech_seconds"]),
                     )
-    for name in ("dev_source_decode_journal", "dev_spoof_decode_journal"):
+    for name in (
+        "dev_source_decode_journal",
+        "dev_spoof_decode_journal",
+        "calibration_source_decode_journal",
+        "calibration_spoof_decode_journal",
+    ):
         path = _verify(plan.inputs[name], root, name)
         for number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
             try:

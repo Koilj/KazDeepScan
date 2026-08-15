@@ -45,7 +45,9 @@ full training contract ещё не создан. Actual training, checkpoint, ca
 [SparkTTS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_sparktts_v1_synthesis_v1.json),
 [common audio gate](docs/artifacts/v4/kk_spoof_audio_gate_2026-08-15.md) и
 [его reconciliation](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_audio_gate_governance_v1.json),
-[combined train manifest](docs/artifacts/v4/combined_train_manifest_2026-08-15.md).
+[combined train manifest](docs/artifacts/v4/combined_train_manifest_2026-08-15.md) и
+[prepared isolated dev-input contract](docs/artifacts/v4/isolated_dev_inputs_2026-08-15.md).
+Последний пока не исполнялся: dev manifest ещё не создан.
 
 Быстрый старт из clone:
 

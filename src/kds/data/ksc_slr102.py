@@ -12,7 +12,7 @@ import hashlib
 import io
 import tarfile
 import tempfile
-from collections.abc import Iterable, Mapping
+from collections.abc import Callable, Iterable, Mapping
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path, PurePosixPath
@@ -253,12 +253,14 @@ def select_ksc_records_from_archive_excluding_texts(
     *,
     excluded_utterance_ids: Iterable[str] = (),
     excluded_text_hashes: Iterable[str] = (),
+    transcript_filter: Callable[[str], bool] | None = None,
 ) -> tuple[list[KscMetadataIndexRecord], KscArchiveReport]:
     """Select fresh KSC records by text before audio extraction can publish a slice.
 
     The archive is streamed once to inspect every member and rank only transcripts whose hashes
-    are absent from frozen manifests.  This avoids the unsafe pattern of extracting audio first
-    and discovering a text collision only after a destination has become visible.
+    are absent from frozen manifests and that pass an optional caller-supplied text predicate.
+    This avoids the unsafe pattern of extracting audio first and discovering a text collision or
+    unsupported synthesis text only after a destination has become visible.
     """
 
     if limit <= 0:
@@ -280,7 +282,7 @@ def select_ksc_records_from_archive_excluding_texts(
     rank_by_id = {record.utterance_id: index for index, record in enumerate(ranked)}
     record_by_id = {record.utterance_id: record for record in ranked}
     excluded_hashes = set(excluded_text_hashes)
-    eligible_ids: set[str] = set()
+    eligible_by_text_hash: dict[str, str] = {}
     audio_ids: set[str] = set()
     transcript_ids: set[str] = set()
     metadata_files: set[str] = set()
@@ -319,8 +321,13 @@ def select_ksc_records_from_archive_excluding_texts(
                     if not transcript:
                         raise KscIngestionError(f"KSC transcript is empty: {member.name}")
                     text_hash = hashlib.sha256(transcript.encode("utf-8")).hexdigest()
-                    if text_hash not in excluded_hashes:
-                        eligible_ids.add(transcript_id)
+                    if text_hash in excluded_hashes:
+                        continue
+                    if transcript_filter is not None and not transcript_filter(transcript):
+                        continue
+                    prior_id = eligible_by_text_hash.get(text_hash)
+                    if prior_id is None or rank_by_id[transcript_id] < rank_by_id[prior_id]:
+                        eligible_by_text_hash[text_hash] = transcript_id
                     continue
                 if member.name.startswith(f"{KSC_METADATA_DIRECTORY}/") and member.isfile():
                     metadata_files.add(member.name)
@@ -334,12 +341,13 @@ def select_ksc_records_from_archive_excluding_texts(
             "KSC archive does not contain exactly train/dev/test metadata files."
         )
     selected = sorted(
-        (record_by_id[value] for value in eligible_ids),
+        (record_by_id[value] for value in eligible_by_text_hash.values()),
         key=lambda item: rank_by_id[item.utterance_id],
     )[:limit]
     if len(selected) < limit:
         raise KscIngestionError(
-            f"KSC source has only {len(selected)} text-disjoint records after exclusions; "
+            f"KSC source has only {len(selected)} unique-text, text-disjoint records after "
+            "exclusions; "
             f"need {limit}."
         )
     return selected, KscArchiveReport(

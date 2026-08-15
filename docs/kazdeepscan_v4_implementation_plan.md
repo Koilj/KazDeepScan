@@ -374,10 +374,13 @@ data в tuning, несоответствии hash или попытке повт
 - raw synthesis и common QA/VAD/audio-leakage завершены: `6 200` KK spoof rows eligible and
   `5 000` (`4 × 1 250`) frozen; combined train manifest содержит `20 000` rows (`4 × 5 000`);
   training contract, training, checkpoint selection, calibration и inference не запускались;
+- isolated dev-input contract подготовлен, но не исполнялся: он reuse'ит `969` PyAra dev rows и
+  резервирует `600 -> 474` KSC SLR102/Silero V4 KK pairs после нового QA/audio-leakage gate;
+  никакие dev assets/manifests ещё не опубликованы;
 - не изменены v1/v2/v3 и существующие immutable receipts;
 - не искались и не скачивались новые datasets/models;
 - `24 000 ready` не заявлены: подтверждена только достаточная pre-QA candidate capacity.
 
-Следующий безопасный шаг — подготовить isolated v4 dev inputs и создать отдельный full training
-contract, hash-pinning runtime, hyperparameters, dev inputs и write-once outputs. До его
-no-training preflight actual training запрещён.
+Следующий безопасный шаг — выполнить уже hash-pinned isolated v4 dev-input contract на CUDA,
+затем создать отдельный full training contract, hash-pinning runtime, hyperparameters, dev inputs
+и write-once outputs. До его no-training preflight actual training запрещён.

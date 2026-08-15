@@ -21,7 +21,10 @@ def _write_metadata_root(root: Path) -> None:
         (root / "Transcriptions" / f"{utterance_id}.txt").write_text(transcript, encoding="utf-8")
 
 
-def _write_small_ksc_archive(archive: Path) -> None:
+def _write_small_ksc_archive(
+    archive: Path,
+    records: tuple[tuple[str, str], ...] = (("u1", "сөйлем"),),
+) -> None:
     with tarfile.open(archive, mode="w:gz") as tar:
         for name in (
             ksc.KSC_ARCHIVE_ROOT,
@@ -32,16 +35,25 @@ def _write_small_ksc_archive(archive: Path) -> None:
             directory = tarfile.TarInfo(name)
             directory.type = tarfile.DIRTYPE
             tar.addfile(directory)
-        payload = b"minimal-flac-bytes"
-        audio = tarfile.TarInfo(f"{ksc.KSC_AUDIO_DIRECTORY}/u1.flac")
-        audio.size = len(payload)
-        tar.addfile(audio, io.BytesIO(payload))
-        transcript = "сөйлем\n".encode()
-        transcript_info = tarfile.TarInfo(f"{ksc.KSC_TRANSCRIPT_DIRECTORY}/u1.txt")
-        transcript_info.size = len(transcript)
-        tar.addfile(transcript_info, io.BytesIO(transcript))
+        for utterance_id, transcript_text in records:
+            payload = f"minimal-flac-bytes-{utterance_id}".encode()
+            audio = tarfile.TarInfo(f"{ksc.KSC_AUDIO_DIRECTORY}/{utterance_id}.flac")
+            audio.size = len(payload)
+            tar.addfile(audio, io.BytesIO(payload))
+            transcript = f"{transcript_text}\n".encode()
+            transcript_info = tarfile.TarInfo(
+                f"{ksc.KSC_TRANSCRIPT_DIRECTORY}/{utterance_id}.txt"
+            )
+            transcript_info.size = len(transcript)
+            tar.addfile(transcript_info, io.BytesIO(transcript))
         for name in ksc.KSC_METADATA_SPLITS.values():
-            metadata = b"uttID deviceID\nu1 device-1\n"
+            metadata = (
+                "uttID deviceID\n"
+                + "".join(
+                    f"{utterance_id} device-{index}\n"
+                    for index, (utterance_id, _text) in enumerate(records, start=1)
+                )
+            ).encode()
             metadata_info = tarfile.TarInfo(f"{ksc.KSC_METADATA_DIRECTORY}/{name}")
             metadata_info.size = len(metadata)
             tar.addfile(metadata_info, io.BytesIO(metadata))
@@ -144,7 +156,7 @@ def test_ksc_archive_is_extracted_atomically_after_layout_validation(
     assert report.transcript_files == 1
     assert report.metadata_files == 3
     assert metadata[0].utterance_id == "u1"
-    assert extracted["u1"].read_bytes() == b"minimal-flac-bytes"
+    assert extracted["u1"].read_bytes() == b"minimal-flac-bytes-u1"
     assert (output_parent / "slice" / "Transcriptions" / "u1.txt").read_text() == "сөйлем\n"
 
 
@@ -167,6 +179,28 @@ def test_ksc_extraction_rejects_frozen_text_before_publishing(
         )
 
     assert not (output_parent / "slice").exists()
+
+
+def test_ksc_archive_selection_keeps_only_one_unseen_transcript_per_text(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    archive = tmp_path / ksc.KSC_ARCHIVE_NAME
+    _write_small_ksc_archive(
+        archive,
+        (("u1", "бірдей"), ("u2", "бірдей"), ("u3", "бірегей")),
+    )
+    monkeypatch.setattr(ksc, "KSC_ARCHIVE_EXPECTED_SIZE_BYTES", archive.stat().st_size)
+    records = ksc.load_ksc_metadata_from_archive(archive, ["train"])
+
+    selected, _report = ksc.select_ksc_records_from_archive_excluding_texts(
+        archive,
+        records,
+        limit=2,
+        seed="seed",
+    )
+
+    assert len(selected) == 2
+    assert "u3" in {item.utterance_id for item in selected}
 
 
 def test_ksc_metadata_rejects_path_traversal_in_utterance_id(tmp_path: Path) -> None:

@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "protocol_id": "xlsr-sls-model-v4-isolated-dev-inputs-v1",
+  "created_at": "2026-08-15T00:00:00Z",
+  "inputs": {
+    "roles_and_selection": {
+      "path": "configs/research/v4/xlsr_sls_model_v4_roles_and_selection_v2.json",
+      "sha256": "f04324f995d67fb7e21266eb1dfe019a0bd0744563e82c0553f2371cda0cb11b",
+      "rows": null
+    },
+    "pyara_dev_manifest": {
+      "path": "data/manifests/pyara_ru_v7_fresh_dev_1000_ready_v3.csv",
+      "sha256": "39261826df9f51bbb23dcc8efa489c4f2c0bfe894361791fa99d63407bb3c4ea",
+      "rows": 969
+    },
+    "combined_train_manifest": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_train_frozen_v1.csv",
+      "sha256": "6c0fdbf38e9509749e2c8c458077095c21c3f6a65ddca17e0325dc6c8d00b7ed",
+      "rows": 20000
+    },
+    "license_ledger": {
+      "path": "data/licenses/frozen/xlsr_sls_model_v4_dev_inputs_v1.csv",
+      "sha256": "9d5b9afda00f39ce1954c276dc1101635e61109d0d4a2dc3a1021dea353fdb67",
+      "rows": 3
+    },
+    "silero_model_lock": {
+      "path": "configs/research/silero_v4_cyrillic_v1_models.json",
+      "sha256": "b1cd921e743c24fb5be6129973c10b35cc0b728e6e37bf061d10328bdcdfc629",
+      "rows": null
+    },
+    "historical_fingerprint_inventory": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_historical_audio_fingerprints_v1.csv",
+      "sha256": "ff48f80b0729a8b2c40d02cf0b5f830c11d27d87380fedae6ba57264a0708e08",
+      "rows": 28400
+    },
+    "ksc_module": {
+      "path": "src/kds/data/ksc_slr102.py",
+      "sha256": "929f27cd46288a5565967b77ecd732f0e0a0c9edf4cf44cf068bf935f9d683da",
+      "rows": null
+    },
+    "silero_module": {
+      "path": "src/kds/data/silero_v4.py",
+      "sha256": "c07e5e0f3a1405d5e56f22145037480d4dcc2f2e5c1abde86866a4c2c94c24ca",
+      "rows": null
+    },
+    "audio_gate_module": {
+      "path": "src/kds/data/v4_audio_gate.py",
+      "sha256": "6878f3fe47ce889c56fb78379eab21d101f64085677d981d4b108d5e0adda654",
+      "rows": null
+    },
+    "dev_input_module": {
+      "path": "src/kds/data/v4_dev_inputs.py",
+      "sha256": "e0e33c7728eedc2ae33eec896403ae9c60c125352f02f72a525b2b9afca948ff",
+      "rows": null
+    },
+    "runner_script": {
+      "path": "scripts/build_v4_isolated_dev_inputs.py",
+      "sha256": "aa18b5f17e6d238b16a4401bfdfe97836808fb541b5f10e22bb88f0dc3b291c0",
+      "rows": null
+    }
+  },
+  "selection": {
+    "seed": "xlsr-sls-model-v4-dev-kk-20260815-v1",
+    "source_split": "dev",
+    "candidate_pairs": 600,
+    "frozen_pairs": 474,
+    "archive": {
+      "filename": "ISSAI_KSC_335RS_v1.1_flac.tar.gz",
+      "size_bytes": 19092377812,
+      "sha256": "a200aa3ab6b0284a7241ac357951fa5422f6fea855a30c1ab2fa1559c3f0d149"
+    },
+    "slice_name": "v4-dev-kk-600-v1",
+    "detector_feedback": false,
+    "backfill_outside_reserve": false
+  },
+  "outputs": {
+    "source_raw_manifest": "data/manifests/v4/xlsr_sls_model_v4_kk_dev_source_raw_v1.csv",
+    "source_ready_manifest": "data/manifests/v4/xlsr_sls_model_v4_kk_dev_source_ready_v1.csv",
+    "spoof_raw_manifest": "data/manifests/v4/xlsr_sls_model_v4_kk_dev_silero_raw_v1.csv",
+    "spoof_ready_manifest": "data/manifests/v4/xlsr_sls_model_v4_kk_dev_silero_ready_v1.csv",
+    "audio_gate_inventory": "data/manifests/v4/xlsr_sls_model_v4_kk_dev_audio_gate_inventory_v1.csv",
+    "kk_frozen_pairs_manifest": "data/manifests/v4/xlsr_sls_model_v4_kk_dev_frozen_v1.csv",
+    "combined_dev_manifest": "data/manifests/v4/xlsr_sls_model_v4_dev_frozen_v1.csv",
+    "receipt": "docs/artifacts/v4/xlsr_sls_model_v4_dev_inputs_v1.json"
+  },
+  "prohibitions": {
+    "network": true,
+    "detector_or_logit_feedback": true,
+    "actual_training_execution": true,
+    "checkpoint_selection": true,
+    "calibration": true,
+    "final_inference": true,
+    "output_overwrite": true
+  }
+}

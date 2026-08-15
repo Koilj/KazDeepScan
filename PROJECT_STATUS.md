@@ -45,7 +45,9 @@ role. Full training contract, actual training, checkpoint, calibration и нов
 [SparkTTS synthesis](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_kk_sparktts_v1_synthesis_v1.json),
 [common audio gate](docs/artifacts/v4/kk_spoof_audio_gate_2026-08-15.md) и
 [его reconciliation](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_audio_gate_governance_v1.json),
-[combined train manifest](docs/artifacts/v4/combined_train_manifest_2026-08-15.md).
+[combined train manifest](docs/artifacts/v4/combined_train_manifest_2026-08-15.md) и
+[prepared isolated dev-input contract](docs/artifacts/v4/isolated_dev_inputs_2026-08-15.md).
+Dev inputs пока не materialized; training по-прежнему не авторизован.
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2

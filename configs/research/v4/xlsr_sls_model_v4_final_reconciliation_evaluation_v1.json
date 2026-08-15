@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "protocol_id": "xlsr-sls-model-v4-final-reconciliation-evaluation-v1",
+  "run_id": "xlsr-sls-model-v4-final-reconciliation-evaluation-v1",
+  "purpose": "research",
+  "authorization": {
+    "path": "../../../docs/artifacts/v4/v4_final_reconciliation_evaluation_authorization_2026-08-16.json",
+    "sha256": "ad6c3982c6e1f2d3f1dd74f8b2564cd552f173d6a8cc7a830a6a22004ca549b5"
+  },
+  "protocol": {
+    "kind": "one_time_final_reconciliation_evaluation",
+    "purpose": "personal_research_only",
+    "final_inference": "authorized_exactly_once_after_no_logit_preflight",
+    "calibration": "reuse_fixed_ru_temperature_only",
+    "kk_probability_claim": "prohibited",
+    "threshold_selection": "prohibited",
+    "pair_mutation_or_backfill": "prohibited",
+    "training_or_checkpoint_mutation": "prohibited",
+    "output_overwrite": "prohibited",
+    "detector_feedback": "prohibited",
+    "network_downloads": "prohibited",
+    "pooled_ru_kk_headline": "prohibited",
+    "re_evaluation": "prohibited"
+  },
+  "license_ledger": {
+    "path": "../../../data/licenses/frozen/xlsr_sls_model_v4_final_reconciliation_evaluation_v1.csv",
+    "sha256": "04c7623c71ae319bb72b52dba74f510a864e476021d857b4f0faef51abd5a70a"
+  },
+  "evidence": {
+    "pair_lock_receipt": {
+      "path": "../../../docs/artifacts/v4/xlsr_sls_model_v4_final_reconciliation_pair_lock_v1.json",
+      "sha256": "e7a2804f64a76c1207c7fc276308625e7ab3d0a4e15d1984e3217017c0f8fd2c"
+    },
+    "pair_lock_authorization": {
+      "path": "xlsr_sls_model_v4_final_reconciliation_pair_lock_v1.json",
+      "sha256": "3b7c28c50c48369b11888474fc742ffe79f564fe7f83eed65c998efdb1653a66"
+    },
+    "reconciliation_receipt": {
+      "path": "../../../docs/artifacts/v4/xlsr_sls_model_v4_final_reconciliation_v1.json",
+      "sha256": "61319e016e6e2c644330d18a03f1687db39de8b7e24bedb0329a1a5fd279cf35"
+    },
+    "training_plan": {
+      "path": "xlsr_sls_model_v4_training_v1.json",
+      "sha256": "9e64c37a8007ce1c022d6e2e72e1831a9b14dc8a04c0de9fd1ffe4369b8cb908"
+    },
+    "training_receipt": {
+      "path": "../../../docs/artifacts/v4/xlsr_sls_model_v4_training_v1.json",
+      "sha256": "e4ded7e9ebdac93249991a00511b8b788a3e8ca2fe8aaf9637c71be4773a22f9"
+    },
+    "train_manifest": {
+      "path": "../../../data/manifests/v4/xlsr_sls_model_v4_train_frozen_v1.csv",
+      "sha256": "6c0fdbf38e9509749e2c8c458077095c21c3f6a65ddca17e0325dc6c8d00b7ed"
+    },
+    "dev_manifest": {
+      "path": "../../../data/manifests/v4/xlsr_sls_model_v4_dev_frozen_v1.csv",
+      "sha256": "30cd8808502770b9d996e7f54e28da78f25c9d107822b217ffa8b3a8e29ab554"
+    },
+    "calibration_plan": {
+      "path": "xlsr_sls_model_v4_ru_calibration_v1.json",
+      "sha256": "b5565befcc0619d40cc465962c14787aff1a333b4b0389acce98c24729e554f5"
+    },
+    "calibration_receipt": {
+      "path": "../../../docs/artifacts/v4/xlsr_sls_model_v4_ru_calibration_v1.json",
+      "sha256": "3a8bffe16f7aafad2713ace468f0cea23188bcdeb905864179a22505647d73c1"
+    },
+    "calibration_manifest": {
+      "path": "../../../data/manifests/v4/xlsr_sls_model_v4_calibration_pairs_frozen_v1.csv",
+      "sha256": "a8a367549f566222690ea199955e19b51315182fe329a30dc765e24edc5b5d71"
+    }
+  },
+  "checkpoint": {
+    "path": "../../../checkpoints/xlsr-sls-model-v4/xlsr-sls-model-v4-train-v1/model.pt",
+    "sha256": "8be73165a4e6f65e966fa6d6a162fbb319d7089d1e8c1597c131e9ccb226852f",
+    "selected_model_state_sha256": "3cfca24a3731d3f9e3c259dcea905be07aefc4fbf2fbefa98189696df01fbe4a"
+  },
+  "encoder": {
+    "checkpoint_dir": "../../../models/xlsr-300m",
+    "revision": "1a640f32ac3e39899438a2931f9924c02f080a54",
+    "config": {
+      "path": "../../../models/xlsr-300m/config.json",
+      "sha256": "0bffa0d0e98153e883b828d86491f3c6062cb563dc9d7a9cfd1790da30c286ac"
+    },
+    "weights": {
+      "path": "../../../models/xlsr-300m/pytorch_model.bin",
+      "sha256": "d5e490574712ad0a6736923b9ed11d4cd51c78609c36205f704fc4e87b11d2e0"
+    }
+  },
+  "head": {
+    "attention_size": 128,
+    "classifier_size": 256,
+    "dropout": 0.2
+  },
+  "final": {
+    "manifest": {
+      "path": "../../../data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_pairs_frozen_v1.csv",
+      "sha256": "a6f57d65f866f8c14eeaa897ebaa2caa00dde9aa62f670738abdc733c759658b"
+    },
+    "selected_split": "test",
+    "expected_rows": 1584,
+    "expected_pairs": 792,
+    "pairs_by_language": {
+      "ru": 332,
+      "kk": 460
+    },
+    "sources_by_language": {
+      "ru": {
+        "bonafide": "common_voice_ru_v24_v4_final_salvage",
+        "spoof": "qwen3_tts_customvoice_aiden_v4_final_salvage"
+      },
+      "kk": {
+        "bonafide": "google_fleurs_kk_v1_v4_final_salvage",
+        "spoof": "issai_kazakhtts2_male2_tacotron2_pwg_v4_final_salvage"
+      }
+    }
+  },
+  "implementation": [
+    {
+      "path": "../../../scripts/evaluate_v4_final_reconciliation.py",
+      "sha256": "c3a9ce3934ff5441494a52dad34cad469ff7564d402cab0d68565cc6806e2aae"
+    },
+    {
+      "path": "../../../src/kds/eval/v4_final_evaluation.py",
+      "sha256": "b12d8f4970e8cfa8ae7349704a981e5c8d76a442acb26bcb12161968bbaa4ce2"
+    },
+    {
+      "path": "../../../src/kds/models/xlsr_sls.py",
+      "sha256": "470c213fee423a7aa895f882fe3618c8d1597e30e7f95b0cef697ed614d430b8"
+    },
+    {
+      "path": "../../../src/kds/data/dataset.py",
+      "sha256": "1fb4b89c2b018d939206b31d509e4105a626c37045f718deb8d8565814afc243"
+    },
+    {
+      "path": "../../../src/kds/data/assets.py",
+      "sha256": "b3a27d67596dd2e6aa70ac0aa54cf61fc0c967c1386e67888c5f89e123e4dba9"
+    },
+    {
+      "path": "../../../src/kds/data/licenses.py",
+      "sha256": "35ba1184671e4896cc1af3a8612874caf716c4706444b496e8997f09b71aace7"
+    },
+    {
+      "path": "../../../src/kds/data/manifest.py",
+      "sha256": "f1b709fc06cd9b465217afd62b80e5519bb9f24513da195326d4670a27fc61f8"
+    },
+    {
+      "path": "../../../src/kds/eval/calibration.py",
+      "sha256": "bf34382fc5ecff15a7b7f1cba414b79ba13c29d3ffdcc6173369689d912c5b55"
+    },
+    {
+      "path": "../../../src/kds/eval/metrics.py",
+      "sha256": "2e5ce453bcf3c59fecdafb7732d2ed84ae2a56354702fb7521d9390d2cc9bace"
+    },
+    {
+      "path": "../../../src/kds/training/__init__.py",
+      "sha256": "37f4e20e86f2488ba3f34a7a70d4aabcf406f63e6fc321e8906ab9bb7a398faf"
+    },
+    {
+      "path": "../../../src/kds/training/frozen_b0.py",
+      "sha256": "e9cc8cf0a7f3046596ad7f921c3b305dc7a096b0dfb233039558671615f49861"
+    }
+  ],
+  "runtime": {
+    "python_version": "3.13.15",
+    "torch_version": "2.11.0+cu128",
+    "cuda_runtime": "12.8",
+    "transformers_version": "5.14.1"
+  },
+  "inference": {
+    "sample_rate": 16000,
+    "window_samples": 64600,
+    "batch_size": 8,
+    "num_workers": 0,
+    "device": "cuda",
+    "precision": "bf16"
+  },
+  "outputs": {
+    "preflight": "../../../artifacts/v4/xlsr-sls-model-v4-final-reconciliation-evaluation-v1.preflight.json",
+    "execution_lock": "../../../artifacts/v4/xlsr-sls-model-v4-final-reconciliation-evaluation-v1.execution.json",
+    "report": "../../../docs/artifacts/v4/xlsr_sls_model_v4_final_reconciliation_evaluation_v1.json"
+  }
+}

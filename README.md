@@ -189,6 +189,10 @@ frozen project asset. Он сохраняет upload только во врем�
 ограничения и QA описаны в
 [local user-audio research inference v1](docs/research_user_audio_inference_v1.md).
 
+После завершения v4 дальнейшая локальная работа без новых источников описана в
+[post-v4 local development plan](docs/post_v4_local_development_plan.md). Пользовательское
+аудио проверяется только этим отдельным B0 research route, а не locked v4/XLS-R checkpoint.
+
 Текущее реализованное состояние включает проверяемый фундамент данных, обученный research
 checkpoint и строго ограниченный evaluation-контур:
 

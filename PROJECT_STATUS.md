@@ -446,6 +446,10 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 7. Local user inference применять только к внешним пользовательским файлам с явным
    acknowledgment. Не передавать ему frozen project assets, не трактовать score как вероятность
    или fraud verdict и не использовать пользовательские результаты для tuning.
+8. Для дальнейшей работы без новых источников использовать
+   [post-v4 local development plan](docs/post_v4_local_development_plan.md): он разрешает
+   существующий B0 user-audio research route и read-only proposals, но не расширяет или не
+   перезапускает v4.
 
 Полный порядок и критерии остановки: [План реализации.md](План%20реализации.md).
 

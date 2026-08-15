@@ -11,6 +11,8 @@
   не изменялись и по-прежнему описывают состояние только на момент своего write-once этапа;
 - v4 final явно закрыт от повторного inference, threshold/calibration work, retraining, backfill
   и resynthesis. Код, данные, manifests, hashes, model weights и versioned receipts не менялись.
+- добавлен post-v4 local-only roadmap без новых источников: он отделяет locked v4 от уже
+  реализованной B0 проверки внешнего пользовательского аудио и не авторизует новые ML-runs.
 
 ## Post-v1.0 — local storage cleanup — 2026-08-14
 

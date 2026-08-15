@@ -46,4 +46,8 @@ Metadata selection CSV:
 Нужен отдельный immutable materialization-and-audio-isolation contract: новый frozen ledger для
 VoxForge/eSpeak derivative, archive rebinding, exact raw hashes, one-shot text-only eSpeak
 synthesis, decode/QA/VAD and exact/near-audio leakage gate, затем complete pair lock. До этого
-temperature fitting, calibration, final inference и detector feedback остаются запрещены.
+temperature fitting, calibration, final inference и detector feedback остаются запрещены в рамках
+этого metadata-only gate. Его required materialization/audio-isolation gate завершён позднее, а
+отдельный [RU calibration contract](v4_ru_calibration_contract_2026-08-15.md) теперь допускает
+только один temperature-only run после собственного no-logit preflight; final inference и feedback
+по-прежнему запрещены.

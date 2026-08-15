@@ -54,10 +54,11 @@ SHA-256 `e69388ccbcc85901bda0da60d3e65fcab7b8a721b2bc9f57c275442469cd681f`.
 Raw and canonical WAV bytes remain only in Git-ignored `data/raw/v4/` and `data/processed/v4/`
 namespaces; they are bound by the manifests and are not added to Git or release.
 
-## Следующий разрешённый шаг
+## Последующий разрешённый шаг
 
-Сначала нужен новый explicit rights/ledger decision: текущий frozen ledger намеренно запрещает
-temperature fitting. Только если этот decision законно разрешит fitting, возможен отдельный
-immutable checkpoint-scoring-and-calibration contract, который hash-bind-ит 73-pair lock,
-selected v4 checkpoint, RU-only method и write-once outputs. До этого запрещены checkpoint
-loading, temperature fitting, detector/final inference и любая повторная materialization/synthesis.
+Требуемый rights/ledger decision позднее оформлен отдельно в
+[RU calibration contract](v4_ru_calibration_contract_2026-08-15.md): он не изменяет этот
+materialization ledger, а narrowly разрешает один research-only RU checkpoint-scoring и
+temperature-fitting run. Сейчас всё ещё запрещены final inference, detector feedback и любая
+повторная materialization/synthesis; calibration execution возможен только после его write-once
+no-logit preflight.

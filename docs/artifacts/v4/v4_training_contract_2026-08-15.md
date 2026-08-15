@@ -63,5 +63,8 @@ no final evaluation and no final inference. The selected dev balanced accuracies
 `KK=0.9831`) are diagnostics on a checkpoint-selected development role only and must not be
 reported as independent performance.
 
-Следующий безопасный шаг — отдельный calibration-input/contract gate with new isolation audit.
-Не запускать calibration, final inference или повтор training без нового versioned contract.
+Metadata-only calibration-input и materialization/audio-isolation gates завершены позднее отдельными
+receipts. Следующий безопасный шаг теперь — write-once no-logit preflight нового
+[RU calibration contract](v4_ru_calibration_contract_2026-08-15.md). Не запускать final inference
+или повтор training; calibration execution допустим только после успешного preflight этого нового
+versioned contract.

@@ -38,10 +38,12 @@ versioned report. Отдельный metadata-only calibration-input gate зат
 VoxForge exact source identities с `81` новыми contributor groups и pinned eSpeak RU route.
 Следующий write-once materialization/audio-isolation contract materialized `81` source WAV,
 retained `79` source-ready, created exactly `79` text-only eSpeak WAV and froze `73` exact RU
-pairs after QA/VAD and full current-history exact/near-audio screen. Checkpoint loading,
-calibration, temperature fitting и final inference не запускались. Historical VoxForge text
-overlap раскрыт, но v4 train/dev sample/text/group intersections равны нулю; speaker
-independence не заявлена.
+pairs after QA/VAD and full current-history exact/near-audio screen. Новый
+[RU calibration contract](docs/artifacts/v4/v4_ru_calibration_contract_2026-08-15.md) уже
+hash-bind-ит selected checkpoint и эти pairs для одного temperature-only run, но его preflight,
+checkpoint loading, calibration, temperature fitting и final inference ещё не запускались.
+Historical VoxForge text overlap раскрыт, но v4 train/dev sample/text/group intersections равны
+нулю; speaker independence не заявлена.
 Isolated dev-input contract уже выполнен: historical PyAra dev (`969` rows) и `474` frozen
 KSC SLR102/Silero V4 KK pairs образуют `1 917` dev rows. Среди `600` KSC candidates source QA
 оставил `571`, Silero QA — `535`; freeze использует только заранее объявленный reserve и не
@@ -63,7 +65,8 @@ KSC SLR102/Silero V4 KK pairs образуют `1 917` dev rows. Среди `600
 [isolated dev-input receipt](docs/artifacts/v4/isolated_dev_inputs_2026-08-15.md) и
 [full training contract](docs/artifacts/v4/v4_training_contract_2026-08-15.md) и
 [calibration-input gate](docs/artifacts/v4/calibration_inputs_2026-08-15.md) и
-[calibration materialization/isolation](docs/artifacts/v4/calibration_materialization_2026-08-15.md).
+[calibration materialization/isolation](docs/artifacts/v4/calibration_materialization_2026-08-15.md) и
+[RU calibration contract](docs/artifacts/v4/v4_ru_calibration_contract_2026-08-15.md).
 
 Быстрый старт из clone:
 

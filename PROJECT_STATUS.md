@@ -40,7 +40,9 @@ calibration-input gate затем заморозил `81` новых VoxForge so
 contributor groups и повторно проверил pinned eSpeak RU route. Последующий write-once
 materialization/audio-isolation contract извлёк `81` source WAV, retained `79` после QA/VAD,
 синтезировал ровно `79` new text-only eSpeak WAV и заморозил `73` exact RU pairs; все шесть
-synthetic rejects — `insufficient_speech`, без replacement/backfill. Current-history screen
+synthetic rejects — `insufficient_speech`, без replacement/backfill. Новый RU calibration
+contract отдельно hash-bind-ит эти `146` assets, selected checkpoint и narrow research-only
+ledger для one-time temperature fitting; его preflight/run ещё не выполнялись. Current-history screen
 охватил `84,605` unique hashes (`84,213` fingerprinted, `392` ML-DF exact-only). Checkpoint,
 calibration и новый final не запускались; speaker independence не заявлена. Детали:
 Isolated dev-input contract выполнен на CUDA: PyAra `969` rows и `474` frozen KSC
@@ -64,9 +66,10 @@ training run уже завершён; его checkpoint нельзя повто�
 [isolated dev-input receipt](docs/artifacts/v4/isolated_dev_inputs_2026-08-15.md) и
 [full training contract](docs/artifacts/v4/v4_training_contract_2026-08-15.md) и
 [calibration-input gate](docs/artifacts/v4/calibration_inputs_2026-08-15.md) и
-[calibration materialization/isolation](docs/artifacts/v4/calibration_materialization_2026-08-15.md).
-Текущий frozen calibration ledger намеренно запрещает temperature fitting; нужен новый explicit
-rights decision до любого checkpoint-scoring/calibration contract.
+[calibration materialization/isolation](docs/artifacts/v4/calibration_materialization_2026-08-15.md) и
+[RU calibration contract](docs/artifacts/v4/v4_ru_calibration_contract_2026-08-15.md).
+Новый frozen calibration ledger разрешает только один research-only RU temperature-fitting run;
+сначала обязателен его write-once no-logit preflight, final по-прежнему требует отдельный contract.
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2

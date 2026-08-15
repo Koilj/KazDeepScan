@@ -64,7 +64,7 @@ no final evaluation and no final inference. The selected dev balanced accuracies
 reported as independent performance.
 
 Metadata-only calibration-input и materialization/audio-isolation gates завершены позднее отдельными
-receipts. Следующий безопасный шаг теперь — write-once no-logit preflight нового
-[RU calibration contract](v4_ru_calibration_contract_2026-08-15.md). Не запускать final inference
-или повтор training; calibration execution допустим только после успешного preflight этого нового
-versioned contract.
+receipts. Write-once no-logit preflight нового
+[RU calibration contract](v4_ru_calibration_contract_2026-08-15.md) уже прошёл. Не запускать
+final inference или повтор training; следующим разрешён только один calibration execution этого
+new versioned contract.

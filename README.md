@@ -40,8 +40,9 @@ VoxForge exact source identities с `81` новыми contributor groups и pinn
 retained `79` source-ready, created exactly `79` text-only eSpeak WAV and froze `73` exact RU
 pairs after QA/VAD and full current-history exact/near-audio screen. Новый
 [RU calibration contract](docs/artifacts/v4/v4_ru_calibration_contract_2026-08-15.md) уже
-hash-bind-ит selected checkpoint и эти pairs для одного temperature-only run, но его preflight,
-checkpoint loading, calibration, temperature fitting и final inference ещё не запускались.
+hash-bind-ит selected checkpoint и эти pairs для одного temperature-only run. Его write-once
+no-logit preflight прошёл для всех `146` assets и checkpoint SHA; checkpoint loading, calibration,
+temperature fitting и final inference ещё не запускались.
 Historical VoxForge text overlap раскрыт, но v4 train/dev sample/text/group intersections равны
 нулю; speaker independence не заявлена.
 Isolated dev-input contract уже выполнен: historical PyAra dev (`969` rows) и `474` frozen

@@ -389,13 +389,14 @@ data в tuning, несоответствии hash или попытке повт
   retained `79` source-ready, generated exactly `79` one-shot eSpeak WAV and froze `73` exact RU
   pairs after QA/VAD/full-current-history exact/near screen. A separate RU calibration contract
   now binds this pair lock, a narrow research-only fitting ledger and the selected checkpoint;
-  its preflight, checkpoint loading, calibration and final inference still did not occur;
+  its write-once no-logit preflight passed, while checkpoint loading, calibration and final
+  inference still did not occur;
 - не изменены v1/v2/v3 и существующие immutable receipts;
 - не искались и не скачивались новые datasets/models;
 - `24 000 ready` не заявлены: подтверждена только достаточная pre-QA candidate capacity.
 
 Explicit rights/ledger decision теперь versioned отдельно от materialization ledger и разрешает
-только research-only RU temperature fitting. Следующий безопасный шаг — ровно один no-logit
-preflight нового checkpoint-scoring-and-calibration contract на `73` frozen pairs. Только он
-может открыть один calibration execution; final по-прежнему запрещён до отдельного future
-versioned contract.
+только research-only RU temperature fitting. Required no-logit preflight нового
+checkpoint-scoring-and-calibration contract прошёл на `73` frozen pairs. Следующий безопасный шаг
+— ровно один calibration execution; final по-прежнему запрещён до отдельного future versioned
+contract.

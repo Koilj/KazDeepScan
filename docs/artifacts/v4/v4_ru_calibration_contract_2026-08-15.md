@@ -39,9 +39,23 @@ selection, checkpoint mutation, pair replacement/backfill, detector feedback and
 are explicitly prohibited. The result, when produced, will be RU-only: no calibrated KK
 probability and no verified speaker-independence claim are possible.
 
+## Write-once no-logit preflight
+
+`PYTHONPATH=src .venv/bin/python scripts/run_v4_calibration.py --plan
+configs/research/v4/xlsr_sls_model_v4_ru_calibration_v1.json --audio-root data --validate-only`
+успешно записал ignored receipt
+`artifacts/v4/xlsr-sls-model-v4-ru-calibration-v1.preflight.json`, SHA-256
+`b2e6b7dc81266618ec45e38cb4b009f07bf0d2021a18d9025b4032f617c30c5f`.
+
+Он проверил все `146` hash-bound local WAV, complete pair structure (`73/73` bona-fide/spoof),
+zero sample/audio/text/group overlap c v4 train/dev, оба research-only ledger entries, selected
+checkpoint file SHA-256 и pinned CUDA/BF16 runtime (RTX 5060 Ti, `16,616,521,728` bytes). В этом
+режиме checkpoint не загружался, calibration logits не вычислялись, temperature не fit-ился и
+final inference не выполнялся.
+
 ## Текущее состояние
 
-Contract code and ledger are prepared and validated by targeted tests. No calibration preflight,
-checkpoint load, calibration logit, temperature fit or final inference has occurred under this
-contract yet. The next safe action is exactly one `--validate-only` preflight with the frozen
-local audio root; only its successful write-once receipt may unlock the single calibration run.
+Preflight теперь навсегда открывает единственный calibration execution. Он загрузит только
+hash-verified selected checkpoint, score-ит ровно 146 frozen RU assets и fit-ит единственный
+temperature scalar; execution lock будет создан до первого logit. Нельзя повторять preflight,
+менять assets/contract или запускать final inference.

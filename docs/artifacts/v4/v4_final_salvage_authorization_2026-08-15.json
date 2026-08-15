@@ -1,0 +1,50 @@
+{
+  "claims": {
+    "detector_inference_authorized": false,
+    "final_inference_authorized": false,
+    "partial_outputs_reused_without_resynthesis": true,
+    "permanent_kk_rejects": 2,
+    "remaining_kk_one_shot_rows": 227,
+    "replacement_or_backfill_authorized": false
+  },
+  "created_at": "2026-08-15T23:55:00+06:00",
+  "partial_artifacts": {
+    "kk_source": {
+      "aggregate_sha256": "dd8f674259034646cd03974834e19c7c81fc122ab398b994c6dfc096bb7d2f50",
+      "bytes": 421864520,
+      "file_count": 500,
+      "relative_path": "raw/v4/xlsr_sls_model_v4_final_recovery_materialization_v1/kk_source"
+    },
+    "kk_spoof": {
+      "aggregate_sha256": "05b244fc8066ddfde8ec56efe8ab596aebba4dccfa1bc44a53d3fca423f9ad66",
+      "bytes": 98378900,
+      "file_count": 271,
+      "relative_path": "raw/v4/xlsr_sls_model_v4_final_recovery_materialization_v1/kk_kazakhtts"
+    },
+    "ru_source": {
+      "aggregate_sha256": "b0c40ec91fc75407f8027b94f5766a060e6fa1769f53b2d277ddf98e4d906224",
+      "bytes": 17846376,
+      "file_count": 499,
+      "relative_path": "raw/v4/xlsr_sls_model_v4_final_recovery_materialization_v1/ru_source"
+    },
+    "ru_spoof": {
+      "aggregate_sha256": "3133139107c9d7d6435660481d520295d6b2b056d5ccfe63e2673013068e655a",
+      "bytes": 101298490,
+      "file_count": 499,
+      "relative_path": "raw/v4/xlsr_sls_model_v4_final_recovery_materialization_v1/ru_qwen"
+    }
+  },
+  "protocol_id": "xlsr-sls-model-v4-final-salvage-authorization-v1",
+  "recovery_attempt": {
+    "failure_receipt_path": "docs/artifacts/v4/final_recovery_materialization_attempt_failure_2026-08-15.md",
+    "failure_receipt_sha256": "a5e1923dd44f9593a35d383ec55409f9f8d21896ba18f3962e75cbedf0f11dbe",
+    "kk_journal_path": "artifacts/v4/xlsr_sls_model_v4_final_recovery_materialization_v1/kk_kazakhtts_one_shot.jsonl",
+    "kk_journal_sha256": "b7a56951618a202d4e3a6419fa4e976417d2e6b3c47592a3452929c0c060e2ff",
+    "plan_path": "configs/research/v4/xlsr_sls_model_v4_final_recovery_materialization_v1_revalidated.json",
+    "plan_sha256": "fd7c5cc2849d486d6f739aaab963c64693896795991b468d7bb5860955e5b3a7",
+    "qwen_journal_path": "artifacts/v4/xlsr_sls_model_v4_final_recovery_materialization_v1/ru_qwen_one_shot.jsonl",
+    "qwen_journal_sha256": "7a1a07e68de87b3fceece714a18d2de9b271d9ce4ccc88994bbe15358aa40561"
+  },
+  "schema_version": 1,
+  "status": "partial_recovery_salvage_authorized"
+}

@@ -1,0 +1,28 @@
+{
+  "protocol_id": "xlsr-sls-model-v4-final-salvage-materialization-v1",
+  "rejections": [
+    {
+      "language": "kk",
+      "reason": "unsupported_character_in_locked_kazakhtts_token_list",
+      "replacement_or_backfill_forbidden": true,
+      "resynthesis_forbidden": true,
+      "sample_id": "google_fleurs_kk_v1:16990681329536390054",
+      "selection_rank": 272,
+      "synthesis_text_sha256": "5059d04c36561e6e91b0e2159706763fc55bf637cc8c7a385c63e954e0982cf3",
+      "text_hash": "cdcac2194223a910aece774ea64c8c7dd3452a2f77d54e74d25a79ed09683493",
+      "text_id": "google_fleurs_kk_v1:prompt:253"
+    },
+    {
+      "language": "kk",
+      "reason": "unsupported_character_in_locked_kazakhtts_token_list",
+      "replacement_or_backfill_forbidden": true,
+      "resynthesis_forbidden": true,
+      "sample_id": "google_fleurs_kk_v1:15895861050511584755",
+      "selection_rank": 310,
+      "synthesis_text_sha256": "4e5a9767112217301cf180ec47d096eb726dc8b285ad1bc4305e7227d4ddb27d",
+      "text_hash": "d9b1786e4937d4c920fd4e2665c2f66e8e052df6dbb0f15e0035bdca8a0f677c",
+      "text_id": "google_fleurs_kk_v1:prompt:650"
+    }
+  ],
+  "schema_version": 1
+}

@@ -91,8 +91,12 @@ synthetic WAV/QA/review/pair lock отсутствуют; [failure receipt](docs
 [recovery preflight](docs/artifacts/v4/final_recovery_materialization_preflight_2026-08-15.md)
 завершён без outputs. Последующий one-shot attempt остановился после `499` RU и `271` KK
 synthesis на неподдерживаемом KK symbol; [failure receipt](docs/artifacts/v4/final_recovery_materialization_attempt_failure_2026-08-15.md)
-запрещает retry и требует нового salvage/remainder contract. Final inference остаётся
-запрещённым.
+запрещает retry. Новый [salvage contract](docs/artifacts/v4/final_salvage_materialization_contract_2026-08-15.md)
+заморозил `997` потенциальных пар (`499` RU, `498` KK), permanent reject для KK ranks
+`272`/`310` и ровно один remaining 227-row KK pass; его read-only
+[preflight](docs/artifacts/v4/final_salvage_materialization_preflight_2026-08-16.md) прошёл без
+outputs. Следующий разрешённый шаг — этот one-shot materialization, затем QA/isolation и два
+независимых reviews; final inference остаётся запрещённым.
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2

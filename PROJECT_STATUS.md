@@ -95,8 +95,10 @@ synthesis на неподдерживаемом KK symbol; [failure receipt](doc
 заморозил `997` потенциальных пар (`499` RU, `498` KK), permanent reject для KK ranks
 `272`/`310` и ровно один remaining 227-row KK pass; его read-only
 [preflight](docs/artifacts/v4/final_salvage_materialization_preflight_2026-08-16.md) прошёл без
-outputs. Следующий разрешённый шаг — этот one-shot materialization, затем QA/isolation и два
-независимых reviews; final inference остаётся запрещённым.
+outputs. Единственная salvage one-shot генерация затем создала `227/227` KK WAV и complete
+decode QA для `1 994` assets, но fail-closed publication остановилась на непарных ready assets;
+[failure receipt](docs/artifacts/v4/final_salvage_materialization_attempt_failure_2026-08-16.md)
+требует отдельного read-only reconciliation contract. Final inference остаётся запрещённым.
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2

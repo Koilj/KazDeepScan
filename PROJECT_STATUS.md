@@ -73,7 +73,9 @@ training run уже завершён; его checkpoint нельзя повто�
 [RU calibration contract](docs/artifacts/v4/v4_ru_calibration_contract_2026-08-15.md) и
 [RU calibration report](docs/artifacts/v4/xlsr_sls_model_v4_ru_calibration_v1.json).
 Новый frozen calibration ledger разрешает только один research-only RU temperature-fitting run;
-он уже завершён, final по-прежнему требует отдельный immutable input/evaluation contract.
+он уже завершён. Read-only [final readiness audit](docs/artifacts/v4/v4_final_readiness_2026-08-15.md)
+исключил все ранее inferred Qwen/VoxForge и FLEURS/KazakhTTS exact assets; final по-прежнему
+требует отдельный immutable input/evaluation contract.
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2

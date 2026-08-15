@@ -43,7 +43,9 @@ pairs after QA/VAD and full current-history exact/near-audio screen. Новый
 hash-bind-ит selected checkpoint и эти pairs для одного temperature-only run. Write-once preflight
 проверил все `146` assets и checkpoint SHA, после чего единственный run fit-нул RU temperature
 `0.72535688`: NLL/ECE улучшились, Brier вырос, поэтому это смешанный calibration diagnostic, а не
-claim об улучшении модели. Final inference не запускался.
+claim об улучшении модели. Read-only [аудит готовности final](docs/artifacts/v4/v4_final_readiness_2026-08-15.md)
+исключил все ранее inferred exact assets; final inference не запускался и потребует нового
+immutable input/materialization contract.
 Historical VoxForge text overlap раскрыт, но v4 train/dev sample/text/group intersections равны
 нулю; speaker independence не заявлена.
 Isolated dev-input contract уже выполнен: historical PyAra dev (`969` rows) и `474` frozen

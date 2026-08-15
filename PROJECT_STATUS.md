@@ -100,8 +100,10 @@ decode QA для `1 994` assets, но fail-closed publication остановил
 [failure receipt](docs/artifacts/v4/final_salvage_materialization_attempt_failure_2026-08-16.md)
 потребовал отдельный read-only [reconciliation contract](docs/artifacts/v4/final_reconciliation_contract_2026-08-16.md).
 Его [preflight](docs/artifacts/v4/final_reconciliation_preflight_2026-08-16.md) прошёл без
-outputs; следующий этап — publication only, затем reviews/pair lock. Final inference остаётся
-запрещённым.
+outputs. Publication-only run затем заморозил `792` complete QA/isolation pairs (`332` RU,
+`460` KK); [receipt](docs/artifacts/v4/final_reconciliation_materialization_2026-08-16.md)
+и два review forms готовы. Следующий шаг — реальные независимые reviews, затем pair lock. Final
+inference остаётся запрещённым.
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2

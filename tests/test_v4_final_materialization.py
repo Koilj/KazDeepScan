@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import cast
+
+import pytest
 
 from kds.data.manifest import ManifestRow
 from kds.data.research_tts import ResearchTtsModel
@@ -9,6 +10,7 @@ from kds.data.v4_final_materialization import (
     KK_SPOOF_ID,
     PROTOCOL_ID,
     RU_SOURCE_ID,
+    V4FinalMaterializationError,
     _history,
     _load_selection,
     _spoof_row,
@@ -77,8 +79,12 @@ def test_final_materialization_plan_loads_all_pinned_inputs() -> None:
     assert len(selected) == 1000
     assert all(row.synthesis_seed.isdecimal() for row in selected if row.language == "ru")
     assert all(not row.synthesis_seed for row in selected if row.language == "kk")
-    _historical_exact, _historical_signatures, history = _history(plan, root)
-    assert cast(int, history["unique_audio_hashes"]) >= 84_605
+    # The original final contract is exhausted. New reconciliation manifests are
+    # deliberately not part of its frozen historical fingerprint inventory, so
+    # reloading its old history gate must now fail closed rather than silently
+    # permit a rerun against later evidence.
+    with pytest.raises(V4FinalMaterializationError, match="without frozen exact/fingerprint"):
+        _history(plan, root)
 
 
 def test_final_spoof_row_binds_explicit_audio_hash_and_one_shot_route() -> None:

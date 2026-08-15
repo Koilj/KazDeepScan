@@ -32,6 +32,10 @@ target + `300` reserve на family), без runtime reject. Общий decode/QA
 `5 000`; `4 604` shared KK text hashes закреплены только как within-train property. Отдельный
 full training contract ещё не создан. Actual training, checkpoint, calibration и final inference
 не запускались и не авторизованы; speaker independence не заявлена.
+Isolated dev-input contract уже выполнен: historical PyAra dev (`969` rows) и `474` frozen
+KSC SLR102/Silero V4 KK pairs образуют `1 917` dev rows. Среди `600` KSC candidates source QA
+оставил `571`, Silero QA — `535`; freeze использует только заранее объявленный reserve и не
+использует detector feedback. Exact/near-audio intersections с history и внутри pool равны нулю.
 Подробности:
 [Gate A capacity](docs/artifacts/v4/gate_a_2026-08-14.md),
 [frozen train candidates](docs/artifacts/v4/train_candidate_selection_2026-08-14.md) и
@@ -46,8 +50,7 @@ full training contract ещё не создан. Actual training, checkpoint, ca
 [common audio gate](docs/artifacts/v4/kk_spoof_audio_gate_2026-08-15.md) и
 [его reconciliation](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_audio_gate_governance_v1.json),
 [combined train manifest](docs/artifacts/v4/combined_train_manifest_2026-08-15.md) и
-[prepared isolated dev-input contract](docs/artifacts/v4/isolated_dev_inputs_2026-08-15.md).
-Последний пока не исполнялся: dev manifest ещё не создан.
+[isolated dev-input receipt](docs/artifacts/v4/isolated_dev_inputs_2026-08-15.md).
 
 Быстрый старт из clone:
 

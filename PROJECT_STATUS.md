@@ -102,8 +102,9 @@ decode QA для `1 994` assets, но fail-closed publication остановил
 Его [preflight](docs/artifacts/v4/final_reconciliation_preflight_2026-08-16.md) прошёл без
 outputs. Publication-only run затем заморозил `792` complete QA/isolation pairs (`332` RU,
 `460` KK); [receipt](docs/artifacts/v4/final_reconciliation_materialization_2026-08-16.md)
-и два review forms готовы. Следующий шаг — реальные независимые reviews, затем pair lock. Final
-inference остаётся запрещённым.
+и два review forms готовы. Два независимых review завершены и их
+[pair-lock contract](docs/artifacts/v4/final_reconciliation_pair_lock_contract_2026-08-16.md)
+hash-bind-ит exact forms; следующий шаг — только pair lock. Final inference остаётся запрещённым.
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2

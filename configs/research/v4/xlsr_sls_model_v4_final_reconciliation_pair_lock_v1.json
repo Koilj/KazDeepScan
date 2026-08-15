@@ -1,0 +1,54 @@
+{
+  "created_at": "2026-08-16T01:25:00+06:00",
+  "inputs": {
+    "lock_module": {
+      "path": "src/kds/data/v4_final_pair_lock_reconciliation.py",
+      "rows": null,
+      "sha256": "6391e294ca40e063baaff0094866cdc5c3fa60e761fba0aae1f1246b54a6556c"
+    },
+    "materialization_receipt": {
+      "path": "docs/artifacts/v4/xlsr_sls_model_v4_final_reconciliation_v1.json",
+      "rows": null,
+      "sha256": "61319e016e6e2c644330d18a03f1687db39de8b7e24bedb0329a1a5fd279cf35"
+    },
+    "reconciliation_plan": {
+      "path": "configs/research/v4/xlsr_sls_model_v4_final_reconciliation_v1.json",
+      "rows": null,
+      "sha256": "b23f83120a00a051b5e2b5df71c40fd137419cef4bd1e33bd69bcc46e1bdf6ba"
+    },
+    "review_packet": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_acoustic_language_packet_v1.csv",
+      "rows": 1584,
+      "sha256": "3f1f68f3a2c2445282bd807d87519e39fcb83e81b2b8019c10c4f42b9a7d6c7b"
+    },
+    "reviewer_a": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_acoustic_language_reviewer_a_v1.csv",
+      "rows": 1584,
+      "sha256": "cdd58b3e2e303c4060b2bc68568a301f69ffae436d259e7db9e85e5823be538c"
+    },
+    "reviewer_b": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_acoustic_language_reviewer_b_v1.csv",
+      "rows": 1584,
+      "sha256": "5af6a1724ef5cdbb0e984e09afd8585a6a039e820856c96432882b0879eb006e"
+    },
+    "runner_script": {
+      "path": "scripts/finalize_v4_final_reconciliation_pair_lock.py",
+      "rows": null,
+      "sha256": "1b9d6822a340e48cceb19fd38d1814af3e3c7cd1210bc9725964aa2462ea525b"
+    }
+  },
+  "prohibitions": {
+    "calibration": true,
+    "decoder_execution": true,
+    "detector_checkpoint_loading": true,
+    "detector_inference": true,
+    "final_inference": true,
+    "output_overwrite": true,
+    "replacement_or_backfill": true,
+    "resynthesis": true,
+    "source_extraction": true,
+    "synthetic_audio_generation": true
+  },
+  "protocol_id": "xlsr-sls-model-v4-final-reconciliation-pair-lock-v1",
+  "schema_version": 1
+}

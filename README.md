@@ -69,8 +69,9 @@ decode QA для `1 994` assets, но fail-closed publication остановил
 Его [preflight](docs/artifacts/v4/final_reconciliation_preflight_2026-08-16.md) прошёл без
 outputs. Publication-only run затем заморозил `792` complete QA/isolation pairs (`332` RU,
 `460` KK); [receipt](docs/artifacts/v4/final_reconciliation_materialization_2026-08-16.md)
-и два review forms готовы. Следующий шаг — реальные независимые reviews, затем pair lock. Final
-inference по-прежнему запрещён.
+и два review forms готовы. Два независимых review завершены и их
+[pair-lock contract](docs/artifacts/v4/final_reconciliation_pair_lock_contract_2026-08-16.md)
+hash-bind-ит exact forms; следующий шаг — только pair lock. Final inference по-прежнему запрещён.
 Historical VoxForge text overlap раскрыт, но v4 train/dev sample/text/group intersections равны
 нулю; speaker independence не заявлена.
 Isolated dev-input contract уже выполнен: historical PyAra dev (`969` rows) и `474` frozen

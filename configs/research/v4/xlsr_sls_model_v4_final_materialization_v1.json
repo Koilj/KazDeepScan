@@ -18,7 +18,7 @@
     "dev_source_decode_journal": {"path": "artifacts/v4/xlsr_sls_model_v4_dev_inputs_v1/source_decode_qa.jsonl", "sha256": "e7fb5c32df11bef09c48f443df2c01aa301219ccc9864d1fb6dcea6bcb22db29", "rows": null},
     "dev_spoof_decode_journal": {"path": "artifacts/v4/xlsr_sls_model_v4_dev_inputs_v1/spoof_decode_qa.jsonl", "sha256": "182627486853b4a739fb9c02c0ed2f2f9f5e7c209aeb076b753c7dabc3ea8c25", "rows": null},
     "final_inputs_module": {"path": "src/kds/data/v4_final_inputs.py", "sha256": "c009afbc21b531041884cfe755b213bf6e4e4dff317f8e9db12f8b0633ab73c6", "rows": null},
-    "materialization_module": {"path": "src/kds/data/v4_final_materialization.py", "sha256": "efe469f21983cc79998b6de099e3b8ea8af8d84d88ae89bac1814b0f817e08c5", "rows": null},
+    "materialization_module": {"path": "src/kds/data/v4_final_materialization.py", "sha256": "640ba7424c689416c3ee369f45823d443d0539e27207472eb5fa7a3b54d1e48c", "rows": null},
     "audio_gate_module": {"path": "src/kds/data/v4_audio_gate.py", "sha256": "6878f3fe47ce889c56fb78379eab21d101f64085677d981d4b108d5e0adda654", "rows": null},
     "common_voice_module": {"path": "src/kds/data/common_voice.py", "sha256": "1b29d068f4238596327b1eaec0ad83b6c4fabad4033542278bce91d2deff4306", "rows": null},
     "fleurs_module": {"path": "src/kds/data/fleurs.py", "sha256": "f0a3db80aca761befba7f7facac7f3abe03ab68fbab6bcb522c5f83855f2ff11", "rows": null},

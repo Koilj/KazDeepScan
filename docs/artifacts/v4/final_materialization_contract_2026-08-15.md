@@ -13,7 +13,7 @@ pair lock. Detector checkpoint, calibration, detector и final inference не з
 
 Контракт
 [`xlsr_sls_model_v4_final_materialization_v1`](../../../configs/research/v4/xlsr_sls_model_v4_final_materialization_v1.json)
-имеет SHA-256 `a1cde710c4e07937c5f1be97b368a4a6aaa833e579a7de173a97ab198ecda507`.
+имеет SHA-256 `fabd4c28b1f70815d57747007cfb3504424407ee7ce2e23cdb157dac3dd71b1d`.
 Новый narrow ledger:
 [`xlsr_sls_model_v4_final_materialization_v1.csv`](../../../data/licenses/frozen/xlsr_sls_model_v4_final_materialization_v1.csv),
 SHA-256 `87aedfd77beb51891abe81477289d8061db50f7488db5b1d802d01e20481a09a`.

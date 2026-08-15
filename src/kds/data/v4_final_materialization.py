@@ -198,7 +198,7 @@ class SelectedRow:
     text_id: str
     text_hash: str
     synthesis_text_sha256: str
-    synthesis_seed: int
+    synthesis_seed: str
     normalization_operations: str
 
     @property
@@ -518,7 +518,7 @@ def _load_selection(plan: Plan, root: Path) -> tuple[SelectedRow, ...]:
                 synthesis_text_sha256=_sha(
                     item.get("synthesis_text_sha256"), "selection synthesis text hash"
                 ),
-                synthesis_seed=int(item.get("synthesis_seed") or ""),
+                synthesis_seed=(item.get("synthesis_seed") or "").strip(),
                 normalization_operations=(item.get("normalization_operations") or "").strip(),
             )
         except ValueError as error:
@@ -528,6 +528,8 @@ def _load_selection(plan: Plan, root: Path) -> tuple[SelectedRow, ...]:
             row.language not in {"ru", "kk"}
             or row.selection_rank not in range(1, 501)
             or row.source_split != expected_split
+            or (row.language == "ru" and not row.synthesis_seed.isdecimal())
+            or (row.language == "kk" and row.synthesis_seed)
         ):
             raise V4FinalMaterializationError("Selection language/rank/split changed.")
         for field in ("sample_id", "parent_group_id", "text_id", "text_hash", "pair_key"):
@@ -806,7 +808,7 @@ def _synthesize_ru(
         selection = selection_by_id[base.sample_id]
         prepared = runtime.prepare_text(text_by_id[base.sample_id])
         if (
-            prepared.seed != selection.synthesis_seed
+            str(prepared.seed) != selection.synthesis_seed
             or hashlib.sha256(prepared.source_text.encode()).hexdigest()
             != selection.synthesis_text_sha256
         ):
@@ -927,7 +929,7 @@ def _synthesize_kk(
                 float(info.duration),
                 int(info.samplerate),
                 created_at,
-                str(selection.synthesis_seed),
+                selection.synthesis_seed,
                 selection.synthesis_text_sha256,
                 str(device),
             )

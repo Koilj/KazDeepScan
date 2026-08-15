@@ -8,6 +8,7 @@ from kds.data.v4_final_materialization import (
     KK_SPOOF_ID,
     PROTOCOL_ID,
     RU_SOURCE_ID,
+    _load_selection,
     _spoof_row,
     load_plan,
 )
@@ -70,6 +71,10 @@ def test_final_materialization_plan_loads_all_pinned_inputs() -> None:
     assert plan.path == "configs/research/v4/xlsr_sls_model_v4_final_materialization_v1.json"
     assert plan.inputs["metadata_selection"].rows == 1000
     assert plan.outputs["pair_lock_manifest"].endswith("final_pairs_frozen_v1.csv")
+    selected = _load_selection(plan, root)
+    assert len(selected) == 1000
+    assert all(row.synthesis_seed.isdecimal() for row in selected if row.language == "ru")
+    assert all(not row.synthesis_seed for row in selected if row.language == "kk")
 
 
 def test_final_spoof_row_binds_explicit_audio_hash_and_one_shot_route() -> None:

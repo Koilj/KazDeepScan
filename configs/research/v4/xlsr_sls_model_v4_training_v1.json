@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "protocol_id": "xlsr-sls-model-v4-training-v1",
+  "run_id": "xlsr-sls-model-v4-train-v1",
+  "purpose": "research",
+  "license_ledger": {
+    "path": "../../../data/licenses/frozen/xlsr_sls_model_v4_training_v1.csv",
+    "sha256": "0942652da54f5572e8b457b3da62ef513a6073cad90dadaac716ef324a14b323"
+  },
+  "train": {
+    "manifest": {
+      "path": "../../../data/manifests/v4/xlsr_sls_model_v4_train_frozen_v1.csv",
+      "sha256": "6c0fdbf38e9509749e2c8c458077095c21c3f6a65ddca17e0325dc6c8d00b7ed"
+    },
+    "source_split": "train",
+    "expected_source_ids": [
+      "ksc2_v1",
+      "ksc_derived_kk_v1",
+      "ksc_derived_kk_v2_kazemotts",
+      "ksc_derived_kk_v3_sparktts",
+      "ruasd_ru_v1_full"
+    ],
+    "expected_cell_counts": {
+      "kk/bonafide": 5000,
+      "kk/spoof": 5000,
+      "ru/bonafide": 5000,
+      "ru/spoof": 5000
+    }
+  },
+  "dev": {
+    "manifest": {
+      "path": "../../../data/manifests/v4/xlsr_sls_model_v4_dev_frozen_v1.csv",
+      "sha256": "30cd8808502770b9d996e7f54e28da78f25c9d107822b217ffa8b3a8e29ab554"
+    },
+    "source_split": "dev",
+    "expected_source_ids": [
+      "ksc_slr102",
+      "ksc_slr102_silero_v4",
+      "pyara_ru_v7"
+    ],
+    "expected_cell_counts": {
+      "kk/bonafide": 474,
+      "kk/spoof": 474,
+      "ru/bonafide": 474,
+      "ru/spoof": 495
+    }
+  },
+  "encoder": {
+    "checkpoint_dir": "../../../models/xlsr-300m",
+    "revision": "1a640f32ac3e39899438a2931f9924c02f080a54",
+    "config": {
+      "filename": "config.json",
+      "sha256": "0bffa0d0e98153e883b828d86491f3c6062cb563dc9d7a9cfd1790da30c286ac"
+    },
+    "weights": {
+      "filename": "pytorch_model.bin",
+      "sha256": "d5e490574712ad0a6736923b9ed11d4cd51c78609c36205f704fc4e87b11d2e0"
+    }
+  },
+  "head": {
+    "attention_size": 128,
+    "classifier_size": 256,
+    "dropout": 0.2
+  },
+  "training": {
+    "seed": 20260815,
+    "warmup_epochs": 1,
+    "unfreeze_epochs": 3,
+    "batch_size": 4,
+    "gradient_accumulation_steps": 8,
+    "window_samples": 64600,
+    "sample_rate": 16000,
+    "head_learning_rate": 0.0001,
+    "encoder_learning_rate": 0.00001,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 1.0,
+    "last_encoder_blocks": 8,
+    "num_workers": 0,
+    "pin_memory": true,
+    "device": "cuda",
+    "precision": "bf16",
+    "selection_metric": "macro_language_dev_loss_ru_kk",
+    "sampler": "balanced_language_label_without_padding",
+    "augmentation": {
+      "policy_id": "symmetric-channel-codec-replay-simulation-v1",
+      "applies_to": "train_only_both_labels",
+      "seed_namespace": "xlsr-sls-model-v4-augmentation-20260815",
+      "channel_gain_db": [-6.0, 6.0],
+      "codec_simulation": {
+        "resample_rates_hz": [8000, 12000],
+        "quantization_bits": 8
+      },
+      "replay_simulation": {
+        "delay_ms": [20.0, 80.0],
+        "attenuation": [0.08, 0.25]
+      }
+    }
+  },
+  "runtime": {
+    "python_version": "3.13.15",
+    "torch_version": "2.11.0+cu128",
+    "cuda_runtime": "12.8",
+    "transformers_version": "5.14.1"
+  },
+  "implementation": [
+    {"path": "../../../scripts/train_v4_xlsr_sls.py", "sha256": "8ef66f1093f244961b5e5b35600660b173c1a08275200fe0f82ca57050f4ba6d"},
+    {"path": "../../../src/kds/training/v4_training_plan.py", "sha256": "cd668a04088468acafd0021e61afbca33aa49316a6d91920a3343ce2adda6d6f"},
+    {"path": "../../../src/kds/training/xlsr_sls.py", "sha256": "bf65aa03638224efd563ffc1352d31d590eca04e836a9f08a52be942798c5d63"},
+    {"path": "../../../src/kds/training/frozen_b0.py", "sha256": "e9cc8cf0a7f3046596ad7f921c3b305dc7a096b0dfb233039558671615f49861"},
+    {"path": "../../../src/kds/models/xlsr_sls.py", "sha256": "470c213fee423a7aa895f882fe3618c8d1597e30e7f95b0cef697ed614d430b8"},
+    {"path": "../../../src/kds/data/dataset.py", "sha256": "1fb4b89c2b018d939206b31d509e4105a626c37045f718deb8d8565814afc243"},
+    {"path": "../../../src/kds/data/augmentation.py", "sha256": "5a5b9053f3642ab2b8d0c0695aeadc9b0628c0a8de5d8c28224791a208679268"},
+    {"path": "../../../src/kds/data/assets.py", "sha256": "b3a27d67596dd2e6aa70ac0aa54cf61fc0c967c1386e67888c5f89e123e4dba9"},
+    {"path": "../../../src/kds/data/licenses.py", "sha256": "35ba1184671e4896cc1af3a8612874caf716c4706444b496e8997f09b71aace7"},
+    {"path": "../../../src/kds/data/manifest.py", "sha256": "f1b709fc06cd9b465217afd62b80e5519bb9f24513da195326d4670a27fc61f8"}
+  ],
+  "outputs": {
+    "checkpoint": "../../../checkpoints/xlsr-sls-model-v4/xlsr-sls-model-v4-train-v1/model.pt",
+    "report": "../../../docs/artifacts/v4/xlsr_sls_model_v4_training_v1.json",
+    "execution_lock": "../../../artifacts/v4/xlsr-sls-model-v4-train-v1/execution.lock.json"
+  },
+  "prohibitions": {
+    "calibration": true,
+    "final_evaluation": true,
+    "final_paths": true,
+    "detector_feedback": true,
+    "checkpoint_overwrite": true,
+    "execution_repeat": true,
+    "network_downloads": true
+  }
+}

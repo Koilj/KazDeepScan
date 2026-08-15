@@ -31,12 +31,14 @@ Historical/within-pool exact и near-audio intersections равны `0`. Complet
 bytes и устанавливает effective boundary: разрешены только combined `20 000` manifest и отдельный
 training-contract preflight. Write-once assembler уже заморозил combined `20 000` manifest с
 четырьмя cells по `5 000`; `4 604` shared KK text hashes разрешены только внутри одной train
-role. Full training contract, actual training, checkpoint, calibration и новый final не запускались
-и не авторизованы; speaker independence не заявлена. Детали:
+role. Full training contract и no-training preflight завершены: hashes всех `21 917` selected
+assets, runtime lock и CUDA/BF16 проверены без forward pass. Actual training, checkpoint,
+calibration и новый final не запускались; speaker independence не заявлена. Детали:
 Isolated dev-input contract выполнен на CUDA: PyAra `969` rows и `474` frozen KSC
 SLR102/Silero V4 pairs образуют combined dev `1 917` rows. Из `600` KSC candidates QA оставил
 `571` source и `535` spoof rows; target достигнут только по predeclared reserve. Historical и
-within-pool exact/near-audio intersections равны нулю. Training всё ещё не авторизован.
+within-pool exact/near-audio intersections равны нулю. Training contract разрешает только один
+следующий write-once run; он ещё не запускался.
 [capacity](docs/artifacts/v4/gate_a_2026-08-14.md) и
 [selection](docs/artifacts/v4/train_candidate_selection_2026-08-14.md),
 [source raw materialization](docs/artifacts/v4/source_raw_materialization_2026-08-14.md) и
@@ -50,7 +52,8 @@ within-pool exact/near-audio intersections равны нулю. Training всё 
 [common audio gate](docs/artifacts/v4/kk_spoof_audio_gate_2026-08-15.md) и
 [его reconciliation](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_audio_gate_governance_v1.json),
 [combined train manifest](docs/artifacts/v4/combined_train_manifest_2026-08-15.md) и
-[isolated dev-input receipt](docs/artifacts/v4/isolated_dev_inputs_2026-08-15.md).
+[isolated dev-input receipt](docs/artifacts/v4/isolated_dev_inputs_2026-08-15.md) и
+[full training contract](docs/artifacts/v4/v4_training_contract_2026-08-15.md).
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2

@@ -4,9 +4,9 @@
 gate завершены. Source train заморожен на `15 000` строк (`3 × 5 000`); принято
 `proceed_20k_balanced`. Все `7 200` KK spoof texts exact-проверены, синтезированы и прошли
 общий QA/VAD/audio-leakage screen: `6 200` eligible и ровно `5 000` frozen (`4 × 1 250`).
-Combined balanced `20 000` train manifest уже write-once заморожен (`4 × 5 000`). Следующий
-gate — отдельный full training contract после isolated dev inputs; actual training пока не
-авторизован.
+Combined balanced `20 000` train manifest уже write-once заморожен (`4 × 5 000`). Full training
+contract и его no-training preflight завершены; actual training, checkpoint selection,
+calibration и final inference пока не запускались.
 
 Four-route hash-pinned offline synthesis contract и resumable runner завершили все four routes:
 `7 200/7 200` raw WAV (`4 × 1 800`) без runtime reject. Общий hash-pinned audio QA/leakage gate
@@ -18,9 +18,9 @@ frozen before processing.
 вероятность.
 
 Этот документ является единственным подробным планом v4. Завершённые capacity audit,
-metadata-only selection, source decode/QA и KK spoof audio gate разрешают только construction
-of a combined balanced `20 000` train manifest и отдельный no-training contract. До этого
-контракта actual training и final inference не разрешены. V1/v2/v3, их
+metadata-only selection, source decode/QA и KK spoof audio gate привели к combined balanced
+`20 000` train manifest, isolated bilingual dev и отдельному full training contract. Его
+no-training preflight прошёл до actual training и final inference. V1/v2/v3, их
 manifests, checkpoints, execution locks, reports и write-once результаты не меняются. Перед
 началом каждого следующего этапа создаются новые versioned contracts и новые output paths.
 
@@ -367,13 +367,14 @@ data в tuning, несоответствии hash или попытке повт
 ## 11. Текущий незавершённый scope
 
 - capacity gate, canonical metadata selection v2 и source raw/decode/QA завершены: `18 930`
-  source rows eligible, `15 000` frozen в train source manifest; полный balanced train,
-  dev/calibration/final manifests и checkpoint ещё не созданы;
+  source rows eligible, `15 000` frozen в train source manifest; combined balanced train и
+  isolated dev созданы, а calibration/final manifests и checkpoint ещё не созданы;
 - materialized raw audio находится только в новом Git-ignored v4 namespace; historical audio
   assets не изменялись;
 - raw synthesis и common QA/VAD/audio-leakage завершены: `6 200` KK spoof rows eligible and
   `5 000` (`4 × 1 250`) frozen; combined train manifest содержит `20 000` rows (`4 × 5 000`);
-  training contract, training, checkpoint selection, calibration и inference не запускались;
+  full training contract и no-training preflight завершены, а training, checkpoint selection,
+  calibration и inference не запускались;
 - isolated dev-input contract выполнен на CUDA: он reuse'ит `969` PyAra dev rows, source QA
   оставил `571/600` KSC rows, Silero QA — `535/571`, и `474` KSC SLR102/Silero V4 KK pairs
   заморожены без detector feedback или backfill; combined dev содержит `1 917` rows;
@@ -381,6 +382,6 @@ data в tuning, несоответствии hash или попытке повт
 - не искались и не скачивались новые datasets/models;
 - `24 000 ready` не заявлены: подтверждена только достаточная pre-QA candidate capacity.
 
-Следующий безопасный шаг — создать отдельный full training contract, hash-pinning runtime,
-hyperparameters, combined train/dev inputs и write-once outputs. До его no-training preflight
-actual training запрещён.
+Следующий безопасный шаг — один `--profile-only` tail-unfreeze batch без publication artifacts,
+затем единственный write-once training run по неизменяемому full contract. Calibration и final
+по-прежнему запрещены отдельными будущими contracts.

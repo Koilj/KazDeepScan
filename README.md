@@ -35,9 +35,12 @@ runtime и CUDA/BF16 проверены без forward pass. One-batch tail-unfr
 без OOM и без artifacts. Единственный write-once training run завершён: выбран tail-unfreeze
 epoch 2 по macro RU/KK dev loss `0.08414228`; checkpoint находится вне Git и hash-bound в
 versioned report. Отдельный metadata-only calibration-input gate затем заморозил `81` новых
-VoxForge exact source identities с `81` новыми contributor groups и pinned eSpeak RU route;
-WAV extraction, synthesis, calibration и final inference не запускались. Historical VoxForge
-text overlap раскрыт, но v4 train/dev sample/text/group intersections равны нулю; speaker
+VoxForge exact source identities с `81` новыми contributor groups и pinned eSpeak RU route.
+Следующий write-once materialization/audio-isolation contract materialized `81` source WAV,
+retained `79` source-ready, created exactly `79` text-only eSpeak WAV and froze `73` exact RU
+pairs after QA/VAD and full current-history exact/near-audio screen. Checkpoint loading,
+calibration, temperature fitting и final inference не запускались. Historical VoxForge text
+overlap раскрыт, но v4 train/dev sample/text/group intersections равны нулю; speaker
 independence не заявлена.
 Isolated dev-input contract уже выполнен: historical PyAra dev (`969` rows) и `474` frozen
 KSC SLR102/Silero V4 KK pairs образуют `1 917` dev rows. Среди `600` KSC candidates source QA
@@ -59,7 +62,8 @@ KSC SLR102/Silero V4 KK pairs образуют `1 917` dev rows. Среди `600
 [combined train manifest](docs/artifacts/v4/combined_train_manifest_2026-08-15.md) и
 [isolated dev-input receipt](docs/artifacts/v4/isolated_dev_inputs_2026-08-15.md) и
 [full training contract](docs/artifacts/v4/v4_training_contract_2026-08-15.md) и
-[calibration-input gate](docs/artifacts/v4/calibration_inputs_2026-08-15.md).
+[calibration-input gate](docs/artifacts/v4/calibration_inputs_2026-08-15.md) и
+[calibration materialization/isolation](docs/artifacts/v4/calibration_materialization_2026-08-15.md).
 
 Быстрый старт из clone:
 

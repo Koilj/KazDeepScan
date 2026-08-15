@@ -357,7 +357,8 @@ cleanup выполняется отдельным docs-only этапом до v4
 | C. Materialization/synthesis/QA | raw/ready/rejection receipts | `20k–30k` balanced unique train; no outcome-driven backfill |
 | D. Documentation cleanup | короткие main docs, ссылки на canonical receipts | Нет broken links/duplicated current facts |
 | E. Train/dev selection | new checkpoint, report, hashes | Checkpoint выбран только по dev |
-| F0. Calibration metadata inputs | fresh source identities, isolation receipt | Ни WAV, ни calibration не выполнены; future materialization contract обязателен |
+| F0. Calibration metadata inputs | fresh source identities, isolation receipt | 81 fresh VoxForge identities/groups frozen; prior historical text overlap disclosed |
+| F0.5. Calibration materialization/isolation | raw/ready manifests, audio gate, 73-pair lock | Exact source/eSpeak bindings, QA/VAD and full-history exact/near gate passed; checkpoint scoring still forbidden |
 | F. Calibration | calibration receipt | Final не читался; claims соответствуют RU/KK coverage |
 | G. Final preflight/reviews | immutable plan и no-logit lock | Все exact assets/reviews/leakage gates прошли |
 | H. One-shot final | execution lock, report, model card | Один run; никаких post-final изменений |
@@ -370,8 +371,8 @@ data в tuning, несоответствии hash или попытке повт
 
 - capacity gate, canonical metadata selection v2 и source raw/decode/QA завершены: `18 930`
   source rows eligible, `15 000` frozen в train source manifest; combined balanced train и
-  isolated dev созданы, selected ignored checkpoint создан, а calibration/final audio manifests
-  ещё не созданы;
+  isolated dev созданы, selected ignored checkpoint создан, а RU calibration pair manifest
+  создан отдельно, final audio manifest по-прежнему не создан;
 - materialized raw audio находится только в новом Git-ignored v4 namespace; historical audio
   assets не изменялись;
 - raw synthesis и common QA/VAD/audio-leakage завершены: `6 200` KK spoof rows eligible and
@@ -383,12 +384,16 @@ data в tuning, несоответствии hash или попытке повт
   заморожены без detector feedback или backfill; combined dev содержит `1 917` rows;
 - calibration-input gate завершён metadata-only: `81` fresh VoxForge exact source identities и
   `81` distinct new contributor groups frozen after current-history isolation audit; historical
-  VoxForge texts disclosed, while v4 train/dev sample/text/group intersections are zero. Pinned
-  eSpeak RU bundle verified, но не запускался; WAV extraction, synthesis, calibration и final
-  inference не выполнялись;
+  VoxForge texts disclosed, while v4 train/dev sample/text/group intersections are zero.
+  Follow-on materialization/audio-isolation gate повторно bound archive, materialized `81` WAV,
+  retained `79` source-ready, generated exactly `79` one-shot eSpeak WAV and froze `73` exact RU
+  pairs after QA/VAD/full-current-history exact/near screen. Checkpoint loading, calibration and
+  final inference still did not occur;
 - не изменены v1/v2/v3 и существующие immutable receipts;
 - не искались и не скачивались новые datasets/models;
 - `24 000 ready` не заявлены: подтверждена только достаточная pre-QA candidate capacity.
 
-Следующий безопасный шаг — отдельный calibration materialization-and-audio-isolation contract.
+Следующий безопасный шаг — explicit rights/ledger decision для fitting: текущий frozen ledger
+намеренно его запрещает. Только после законного explicit authorization допустим отдельный
+checkpoint-scoring-and-calibration contract, hash-bound к 73-pair lock и selected checkpoint.
 Calibration и final по-прежнему запрещены без future versioned contracts.

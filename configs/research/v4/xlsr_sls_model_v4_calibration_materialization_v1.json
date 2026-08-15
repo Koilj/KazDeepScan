@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "protocol_id": "xlsr-sls-model-v4-calibration-materialization-v1",
+  "created_at": "2026-08-15T14:00:00+06:00",
+  "inputs": {
+    "calibration_input_plan": {"path": "configs/research/v4/xlsr_sls_model_v4_calibration_inputs_v1.json", "sha256": "a5074a95b78b5b53591a7c7c248eaeab76daf6ec0d549bb85063278c318d37db", "rows": null},
+    "calibration_input_receipt": {"path": "docs/artifacts/v4/xlsr_sls_model_v4_calibration_inputs_v1.json", "sha256": "07a1b3026d0d68d0c22145128d4acae9f7517b21f7e754c301f81a4d94218daf", "rows": null},
+    "metadata_selection": {"path": "data/manifests/v4/xlsr_sls_model_v4_calibration_voxforge_metadata_v1.csv", "sha256": "15d9cb11a23495e3bc42be7fcb2f266d272813a8668095df117f91c3285162e8", "rows": 81},
+    "frozen_license_ledger": {"path": "data/licenses/frozen/xlsr_sls_model_v4_calibration_materialization_v1.csv", "sha256": "25f5c571eef4bb8c4fd15cd6ae0a1c589cbbd112571eac31d2f078d70c1755e0", "rows": 2},
+    "voxforge_source_audit": {"path": "data/licenses/voxforge_ru_mdc_2026_05_artifact_audit_receipt.json", "sha256": "0e8bd5c7d1e02bedc235adcb3bdb7ed3bc7efdd0ff7637339460e3f43c38272f", "rows": null},
+    "espeak_model_lock": {"path": "configs/research/espeakng_ru_v1_models.json", "sha256": "6e84fc467f65bda1a581a0bff3779f5b04337289325e63bda40667e1ff629825", "rows": null},
+    "v4_train_manifest": {"path": "data/manifests/v4/xlsr_sls_model_v4_train_frozen_v1.csv", "sha256": "6c0fdbf38e9509749e2c8c458077095c21c3f6a65ddca17e0325dc6c8d00b7ed", "rows": 20000},
+    "v4_dev_manifest": {"path": "data/manifests/v4/xlsr_sls_model_v4_dev_frozen_v1.csv", "sha256": "30cd8808502770b9d996e7f54e28da78f25c9d107822b217ffa8b3a8e29ab554", "rows": 1917},
+    "historical_fingerprint_inventory": {"path": "data/manifests/v4/xlsr_sls_model_v4_historical_audio_fingerprints_v1.csv", "sha256": "ff48f80b0729a8b2c40d02cf0b5f830c11d27d87380fedae6ba57264a0708e08", "rows": 28400},
+    "source_decode_inventory": {"path": "data/manifests/v4/xlsr_sls_model_v4_source_decode_qa_inventory_v1.csv", "sha256": "8815000a16d778a83c3d22474c24bcbba41a74f8964177d26b992b83a1af262d", "rows": 21598},
+    "kk_spoof_decode_inventory": {"path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_decode_qa_inventory_v1.csv", "sha256": "4eed7c7e3707404a182de66f90354362b3eaadd5d272194bd87bc9824387c1e7", "rows": 7200},
+    "dev_source_decode_journal": {"path": "artifacts/v4/xlsr_sls_model_v4_dev_inputs_v1/source_decode_qa.jsonl", "sha256": "e7fb5c32df11bef09c48f443df2c01aa301219ccc9864d1fb6dcea6bcb22db29", "rows": 600},
+    "dev_spoof_decode_journal": {"path": "artifacts/v4/xlsr_sls_model_v4_dev_inputs_v1/spoof_decode_qa.jsonl", "sha256": "182627486853b4a739fb9c02c0ed2f2f9f5e7c209aeb076b753c7dabc3ea8c25", "rows": 571},
+    "calibration_module": {"path": "src/kds/data/v4_calibration.py", "sha256": "101e7ea55a0ce55c3962cf40d95b86a22bb677fdafbc6b1eea1f228729c7ef14", "rows": null},
+    "voxforge_module": {"path": "src/kds/data/voxforge.py", "sha256": "eac685a7d4966bf43e8174b22941829508279dc7e5d692f54795bd6e1eb5a7ab", "rows": null},
+    "espeak_module": {"path": "src/kds/data/espeakng.py", "sha256": "bd1308dc741dcdc4c61e032f1bb0d013e1f95fb39bd82026f826c9c632366689", "rows": null},
+    "audio_gate_module": {"path": "src/kds/data/v4_audio_gate.py", "sha256": "6878f3fe47ce889c56fb78379eab21d101f64085677d981d4b108d5e0adda654", "rows": null},
+    "materialization_module": {"path": "src/kds/data/v4_calibration_materialization.py", "sha256": "67df7a905ea8eb86527b40eac03b74412dfaca2a9e9f9d718ea40df7d94cab96", "rows": null},
+    "runner_script": {"path": "scripts/materialize_v4_calibration_inputs.py", "sha256": "ae9969fc5f709ee369254ac642d0499336acc3e1a7d59c73b08e07df7b25631b", "rows": null}
+  },
+  "source": {
+    "archive_name": "1778250273870-voxforge-ru.tar.gz",
+    "archive_size_bytes": 3795197539,
+    "archive_sha256": "7372c6f8d067b8d1651995ad8306b673acaf2cde705ee51295152b96c93de557",
+    "espeak_model_id": "espeakng_russian_formant",
+    "target_rows": 81
+  },
+  "working": {
+    "raw_source_root": "data/raw/v4/xlsr_sls_model_v4_calibration_materialization_v1/voxforge_source",
+    "raw_spoof_root": "data/raw/v4/xlsr_sls_model_v4_calibration_materialization_v1/espeak_spoof",
+    "processed_source_root": "data/processed/v4/xlsr_sls_model_v4_calibration_materialization_v1/source",
+    "processed_spoof_root": "data/processed/v4/xlsr_sls_model_v4_calibration_materialization_v1/spoof",
+    "runtime_root": "artifacts/v4/xlsr_sls_model_v4_calibration_materialization_v1",
+    "model_root": "models/research/espeakng_kk_v1"
+  },
+  "outputs": {
+    "source_raw_manifest": "data/manifests/v4/xlsr_sls_model_v4_calibration_source_raw_v1.csv",
+    "source_ready_manifest": "data/manifests/v4/xlsr_sls_model_v4_calibration_source_ready_v1.csv",
+    "spoof_raw_manifest": "data/manifests/v4/xlsr_sls_model_v4_calibration_espeak_raw_v1.csv",
+    "spoof_ready_manifest": "data/manifests/v4/xlsr_sls_model_v4_calibration_espeak_ready_v1.csv",
+    "audio_gate_inventory": "data/manifests/v4/xlsr_sls_model_v4_calibration_audio_gate_inventory_v1.csv",
+    "pair_lock_manifest": "data/manifests/v4/xlsr_sls_model_v4_calibration_pairs_frozen_v1.csv",
+    "receipt": "docs/artifacts/v4/xlsr_sls_model_v4_calibration_materialization_v1.json"
+  },
+  "prohibitions": {
+    "network_downloads": true,
+    "checkpoint_loading": true,
+    "calibration": true,
+    "temperature_fitting": true,
+    "final_inference": true,
+    "detector_inference": true,
+    "detector_feedback": true,
+    "acoustic_review": true,
+    "output_overwrite": true,
+    "resynthesis": true,
+    "replacement_or_backfill": true
+  }
+}

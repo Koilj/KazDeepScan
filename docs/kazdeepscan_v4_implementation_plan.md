@@ -404,6 +404,8 @@ inferred Qwen/VoxForge и FLEURS/KazakhTTS assets. Первый
 [metadata-only final-input contract](artifacts/v4/v4_final_inputs_contract_2026-08-15.md)
 завершил selection `500` RU + `500` KK source text groups без audio/model operations. Следующий
 [final materialization/review contract](artifacts/v4/final_materialization_contract_2026-08-15.md)
-подготовлен, но не выполнен: он разрешает только one-shot extraction/synthesis этих exact rows,
-QA/VAD, current-history isolation, две независимые review forms и pair lock. Final по-прежнему
-запрещён до отдельного future no-logit/evaluation contract.
+подготовлен, а его read-only
+[preflight](artifacts/v4/final_materialization_preflight_2026-08-15.md) прошёл без outputs. Он
+разрешает только one-shot extraction/synthesis этих exact rows, QA/VAD, current-history
+isolation, две независимые review forms и pair lock. Final по-прежнему запрещён до отдельного
+future no-logit/evaluation contract.

@@ -80,8 +80,10 @@ training run уже завершён; его checkpoint нельзя повто�
 `500+500` source text groups без extraction, synthesis, checkpoint или detector. Отдельный
 [final materialization/review contract](docs/artifacts/v4/final_materialization_contract_2026-08-15.md)
 готов и разрешает только one-shot extraction/synthesis, QA/VAD, current-history isolation,
-две независимые review-form и последующий pair lock; run ещё не начинался. Final inference
-остаётся запрещённым.
+две независимые review-form и последующий pair lock. Его read-only
+[preflight](docs/artifacts/v4/final_materialization_preflight_2026-08-15.md) прошёл с полным
+archive/release/history/TTS audit без outputs; one-shot materialization ещё не начиналась. Final
+inference остаётся запрещённым.
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2

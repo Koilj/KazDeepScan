@@ -74,7 +74,8 @@ outputs. Publication-only run затем заморозил `792` complete QA/is
 hash-bind-ит exact forms. [Pair lock](docs/artifacts/v4/final_reconciliation_pair_lock_2026-08-16.md)
 завершён: `792` pairs (`332` RU, `460` KK). Владелец проекта отдельно авторизовал ровно один
 [final-evaluation contract](docs/artifacts/v4/final_reconciliation_evaluation_contract_2026-08-16.md);
-no-logit preflight и inference ещё не выполнялись.
+[no-logit preflight](docs/artifacts/v4/final_reconciliation_evaluation_preflight_2026-08-16.md)
+прошёл, но единственный final inference ещё не выполнялся.
 Historical VoxForge text overlap раскрыт, но v4 train/dev sample/text/group intersections равны
 нулю; speaker independence не заявлена.
 Isolated dev-input contract уже выполнен: historical PyAra dev (`969` rows) и `474` frozen

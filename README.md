@@ -44,8 +44,8 @@ hash-bind-ит selected checkpoint и эти pairs для одного temperatu
 проверил все `146` assets и checkpoint SHA, после чего единственный run fit-нул RU temperature
 `0.72535688`: NLL/ECE улучшились, Brier вырос, поэтому это смешанный calibration diagnostic, а не
 claim об улучшении модели. Read-only [аудит готовности final](docs/artifacts/v4/v4_final_readiness_2026-08-15.md)
-исключил все ранее inferred exact assets; final inference не запускался и потребует нового
-immutable input/materialization contract. Такой [metadata-only contract](docs/artifacts/v4/v4_final_inputs_contract_2026-08-15.md)
+исключил все ранее inferred exact assets; последующие immutable input/materialization contracts
+создали новый final. Такой [metadata-only contract](docs/artifacts/v4/v4_final_inputs_contract_2026-08-15.md)
 завершил current-history selection `500+500` fresh source text groups без audio/model operations.
 Отдельный [materialization/review contract](docs/artifacts/v4/final_materialization_contract_2026-08-15.md)
 теперь разрешает только one-shot extraction/synthesis, QA/VAD, isolation, два независимых review
@@ -72,10 +72,10 @@ outputs. Publication-only run затем заморозил `792` complete QA/is
 и два review forms готовы. Два независимых review завершены и их
 [pair-lock contract](docs/artifacts/v4/final_reconciliation_pair_lock_contract_2026-08-16.md)
 hash-bind-ит exact forms. [Pair lock](docs/artifacts/v4/final_reconciliation_pair_lock_2026-08-16.md)
-завершён: `792` pairs (`332` RU, `460` KK). Владелец проекта отдельно авторизовал ровно один
-[final-evaluation contract](docs/artifacts/v4/final_reconciliation_evaluation_contract_2026-08-16.md);
-[no-logit preflight](docs/artifacts/v4/final_reconciliation_evaluation_preflight_2026-08-16.md)
-прошёл, но единственный final inference ещё не выполнялся.
+завершён: `792` pairs (`332` RU, `460` KK). Единственный
+[final evaluation](docs/artifacts/v4/final_reconciliation_evaluation_2026-08-16.md) также
+завершён; повтор, threshold selection, retraining и backfill запрещены. Границы и назначение
+модели — в [v4 model card](docs/artifacts/v4/xlsr_sls_model_v4_model_card_2026-08-16.md).
 Historical VoxForge text overlap раскрыт, но v4 train/dev sample/text/group intersections равны
 нулю; speaker independence не заявлена.
 Isolated dev-input contract уже выполнен: historical PyAra dev (`969` rows) и `474` frozen

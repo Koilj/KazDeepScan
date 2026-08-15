@@ -74,8 +74,8 @@ training run уже завершён; его checkpoint нельзя повто�
 [RU calibration report](docs/artifacts/v4/xlsr_sls_model_v4_ru_calibration_v1.json).
 Новый frozen calibration ledger разрешает только один research-only RU temperature-fitting run;
 он уже завершён. Read-only [final readiness audit](docs/artifacts/v4/v4_final_readiness_2026-08-15.md)
-исключил все ранее inferred Qwen/VoxForge и FLEURS/KazakhTTS exact assets; final по-прежнему
-требует отдельные immutable materialization/evaluation contracts. Первый metadata-only
+исключил все ранее inferred Qwen/VoxForge и FLEURS/KazakhTTS exact assets; последующие
+immutable materialization/evaluation contracts создали и оценили новый final. Первый metadata-only
 [final-input contract](docs/artifacts/v4/v4_final_inputs_contract_2026-08-15.md) уже заморозил
 `500+500` source text groups без extraction, synthesis, checkpoint или detector. Отдельный
 [final materialization/review contract](docs/artifacts/v4/final_materialization_contract_2026-08-15.md)
@@ -105,10 +105,10 @@ outputs. Publication-only run затем заморозил `792` complete QA/is
 и два review forms готовы. Два независимых review завершены и их
 [pair-lock contract](docs/artifacts/v4/final_reconciliation_pair_lock_contract_2026-08-16.md)
 hash-bind-ит exact forms. [Pair lock](docs/artifacts/v4/final_reconciliation_pair_lock_2026-08-16.md)
-завершён: `792` pairs (`332` RU, `460` KK). Владелец проекта отдельно авторизовал ровно один
-[final-evaluation contract](docs/artifacts/v4/final_reconciliation_evaluation_contract_2026-08-16.md);
-[no-logit preflight](docs/artifacts/v4/final_reconciliation_evaluation_preflight_2026-08-16.md)
-прошёл, но единственный final inference ещё не выполнялся.
+завершён: `792` pairs (`332` RU, `460` KK). Единственный
+[final evaluation](docs/artifacts/v4/final_reconciliation_evaluation_2026-08-16.md) также
+завершён; повтор, threshold selection, retraining и backfill запрещены. Границы и назначение
+модели — в [v4 model card](docs/artifacts/v4/xlsr_sls_model_v4_model_card_2026-08-16.md).
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2

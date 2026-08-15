@@ -6,8 +6,8 @@ gate завершены. Source train заморожен на `15 000` стро�
 общий QA/VAD/audio-leakage screen: `6 200` eligible и ровно `5 000` frozen (`4 × 1 250`).
 Combined balanced `20 000` train manifest уже write-once заморожен (`4 × 5 000`). Full training
 contract, его no-training preflight и one-batch tail-unfreeze capacity profile завершены; actual
-training завершён с hash-bound checkpoint selection; calibration и final inference пока не
-запускались.
+training завершён с hash-bound checkpoint selection; RU calibration и один final inference
+после two-review pair lock завершены.
 
 Four-route hash-pinned offline synthesis contract и resumable runner завершили все four routes:
 `7 200/7 200` raw WAV (`4 × 1 800`) без runtime reject. Общий hash-pinned audio QA/leakage gate
@@ -367,19 +367,19 @@ cleanup выполняется отдельным docs-only этапом до v4
 разделить source lineage, неполном rejection accounting, неизвестном overwrite, попадании final
 data в tuning, несоответствии hash или попытке повторить write-once run.
 
-## 11. Текущий незавершённый scope
+## 11. Итоговый scope v4
 
 - capacity gate, canonical metadata selection v2 и source raw/decode/QA завершены: `18 930`
   source rows eligible, `15 000` frozen в train source manifest; combined balanced train и
   isolated dev созданы, selected ignored checkpoint создан, а RU calibration pair manifest
-  создан отдельно, final audio manifest по-прежнему не создан;
+  создан отдельно; final audio manifest, two-review pair lock и final report завершены;
 - materialized raw audio находится только в новом Git-ignored v4 namespace; historical audio
   assets не изменялись;
 - raw synthesis и common QA/VAD/audio-leakage завершены: `6 200` KK spoof rows eligible and
   `5 000` (`4 × 1 250`) frozen; combined train manifest содержит `20 000` rows (`4 × 5 000`);
   full training contract, no-training preflight и write-once training завершены; checkpoint
-  выбран только по macro RU/KK dev loss, RU-only calibration также завершена, а final inference
-  не запускался;
+  выбран только по macro RU/KK dev loss, RU-only calibration и one-time final inference также
+  завершены;
 - isolated dev-input contract выполнен на CUDA: он reuse'ит `969` PyAra dev rows, source QA
   оставил `571/600` KSC rows, Silero QA — `535/571`, и `474` KSC SLR102/Silero V4 KK pairs
   заморожены без detector feedback или backfill; combined dev содержит `1 917` rows;
@@ -409,5 +409,6 @@ inferred Qwen/VoxForge и FLEURS/KazakhTTS assets. Первый
 разрешал только one-shot extraction/synthesis этих exact rows, QA/VAD, current-history
 isolation, две независимые review forms и pair lock. Первая Qwen output write failure остановила
 attempt после source extraction; [failure receipt](artifacts/v4/final_materialization_attempt_failure_2026-08-15.md)
-запрещает retry/resynthesis и требует нового recovery contract. Final по-прежнему запрещён до
-отдельного future no-logit/evaluation contract.
+запрещает retry/resynthesis и требует нового recovery contract. Reconciliation pair lock затем
+прошёл отдельный [one-time final evaluation](artifacts/v4/final_reconciliation_evaluation_2026-08-16.md);
+repeat inference, threshold selection и any backfill запрещены.

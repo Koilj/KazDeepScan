@@ -470,11 +470,22 @@ def _load_selection(plan: Plan, root: Path) -> tuple[SelectedRow, ...]:
         _verify(plan.inputs["metadata_receipt"], root, "metadata receipt"), "metadata receipt"
     )
     claims = _mapping(receipt.get("claims"), "metadata receipt claims")
+    receipt_plan = _mapping(receipt.get("plan"), "metadata receipt plan")
+    selection_claims = _mapping(receipt.get("selection"), "metadata receipt selection")
+    ru_claims = _mapping(selection_claims.get("ru"), "metadata receipt RU selection")
+    kk_claims = _mapping(selection_claims.get("kk"), "metadata receipt KK selection")
     if (
         receipt.get("protocol_id") != SELECTION_PROTOCOL_ID
-        or receipt.get("status") != "metadata_inputs_frozen_materialization_contract_required"
+        or receipt.get("status") != "ok"
+        or receipt_plan.get("path") != plan.inputs["metadata_plan"].path
+        or receipt_plan.get("sha256") != plan.inputs["metadata_plan"].sha256
+        or ru_claims.get("selected_pairs") != 500
+        or kk_claims.get("selected_pairs") != 500
         or claims.get("raw_audio_extraction_performed") is not False
         or claims.get("synthetic_audio_generated") is not False
+        or claims.get("audio_qa_performed") is not False
+        or claims.get("acoustic_review_performed") is not False
+        or claims.get("pairing_performed") is not False
         or claims.get("final_inference_performed") is not False
         or claims.get("future_materialization_requires_separate_contract") is not True
     ):

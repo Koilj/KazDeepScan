@@ -87,8 +87,10 @@ archive/release/history/TTS audit без outputs. Последующая one-sho
 synthetic WAV/QA/review/pair lock отсутствуют; [failure receipt](docs/artifacts/v4/final_materialization_attempt_failure_2026-08-15.md)
 запрещает retry/resynthesis. Новый [recovery contract](docs/artifacts/v4/final_recovery_materialization_contract_2026-08-15.md)
 заморозил `999` previously unattempted rows (`499` RU, `500` KK), необратимо исключив RU rank
-`1`; initial unused plan прошёл code revalidation, а recovery preflight ещё не запускался.
-Final inference остаётся запрещённым.
+`1`; initial unused plan прошёл code revalidation, а revalidated
+[recovery preflight](docs/artifacts/v4/final_recovery_materialization_preflight_2026-08-15.md)
+завершён без outputs. Следующий шаг — one-shot materialization только `499+500` rows. Final
+inference остаётся запрещённым.
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2

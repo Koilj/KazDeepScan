@@ -30,5 +30,6 @@ Checkpoint loading, calibration, detector inference и final inference запр�
 
 ## Следующий безопасный шаг
 
-Выполнить только read-only preflight revalidated plan. Он должен повторно проверить current history,
-archive/release, all bindings и оба local TTS routes, не создавая аудио или output manifests.
+Read-only [preflight](final_recovery_materialization_preflight_2026-08-15.md) revalidated plan
+завершён без outputs. Следующий шаг — один write-once materialization только для `499+500`
+не затронутых rows.

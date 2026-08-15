@@ -54,8 +54,10 @@ immutable input/materialization contract. Такой [metadata-only contract](do
 write failure; [failure receipt](docs/artifacts/v4/final_materialization_attempt_failure_2026-08-15.md)
 запрещает повтор/resynthesis. Новый [recovery contract](docs/artifacts/v4/final_recovery_materialization_contract_2026-08-15.md)
 заморозил только `999` ранее не затронутых rows (`499` RU, `500` KK), необратимо исключив RU
-rank `1`; первоначальный unused plan прошёл code revalidation, и его revalidated plan ещё не
-выполнял preflight. Final inference по-прежнему запрещён.
+rank `1`; первоначальный unused plan прошёл code revalidation, а его revalidated
+[preflight](docs/artifacts/v4/final_recovery_materialization_preflight_2026-08-15.md) завершён
+без outputs. Следующий шаг — one-shot materialization `499+500` rows. Final inference
+по-прежнему запрещён.
 Historical VoxForge text overlap раскрыт, но v4 train/dev sample/text/group intersections равны
 нулю; speaker independence не заявлена.
 Isolated dev-input contract уже выполнен: historical PyAra dev (`969` rows) и `474` frozen
@@ -86,7 +88,8 @@ KSC SLR102/Silero V4 KK pairs образуют `1 917` dev rows. Среди `600
 [final materialization preflight](docs/artifacts/v4/final_materialization_preflight_2026-08-15.md) и
 [final materialization attempt failure](docs/artifacts/v4/final_materialization_attempt_failure_2026-08-15.md) и
 [final recovery contract](docs/artifacts/v4/final_recovery_materialization_contract_2026-08-15.md) и
-[его code revalidation](docs/artifacts/v4/final_recovery_contract_revalidation_2026-08-15.md).
+[его code revalidation](docs/artifacts/v4/final_recovery_contract_revalidation_2026-08-15.md) и
+[recovery preflight](docs/artifacts/v4/final_recovery_materialization_preflight_2026-08-15.md).
 
 Быстрый старт из clone:
 

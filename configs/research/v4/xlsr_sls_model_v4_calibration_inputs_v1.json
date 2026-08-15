@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "protocol_id": "xlsr-sls-model-v4-calibration-inputs-v1",
+  "created_at": "2026-08-15T13:00:00+06:00",
+  "inputs": {
+    "roles_and_selection": {"path": "configs/research/v4/xlsr_sls_model_v4_roles_and_selection_v2.json", "sha256": "f04324f995d67fb7e21266eb1dfe019a0bd0744563e82c0553f2371cda0cb11b", "rows": null},
+    "training_plan": {"path": "configs/research/v4/xlsr_sls_model_v4_training_v1.json", "sha256": "9e64c37a8007ce1c022d6e2e72e1831a9b14dc8a04c0de9fd1ffe4369b8cb908", "rows": null},
+    "training_receipt": {"path": "docs/artifacts/v4/xlsr_sls_model_v4_training_v1.json", "sha256": "e4ded7e9ebdac93249991a00511b8b788a3e8ca2fe8aaf9637c71be4773a22f9", "rows": null},
+    "training_contract": {"path": "docs/artifacts/v4/v4_training_contract_2026-08-15.md", "sha256": "55dc1d8be49f6b68a56265042338459203372e86f7cb1fd60939e49a592b2514", "rows": null},
+    "train_manifest": {"path": "data/manifests/v4/xlsr_sls_model_v4_train_frozen_v1.csv", "sha256": "6c0fdbf38e9509749e2c8c458077095c21c3f6a65ddca17e0325dc6c8d00b7ed", "rows": 20000},
+    "dev_manifest": {"path": "data/manifests/v4/xlsr_sls_model_v4_dev_frozen_v1.csv", "sha256": "30cd8808502770b9d996e7f54e28da78f25c9d107822b217ffa8b3a8e29ab554", "rows": 1917},
+    "license_ledger": {"path": "data/licenses/license_ledger.csv", "sha256": "e0428ea721472b8cd57601a4f0aa59dd943854b66d7229ca9a5e05349ee6b809", "rows": 24},
+    "voxforge_source_audit": {"path": "data/licenses/voxforge_ru_mdc_2026_05_artifact_audit_receipt.json", "sha256": "0e8bd5c7d1e02bedc235adcb3bdb7ed3bc7efdd0ff7637339460e3f43c38272f", "rows": null},
+    "espeak_model_lock": {"path": "configs/research/espeakng_ru_v1_models.json", "sha256": "6e84fc467f65bda1a581a0bff3779f5b04337289325e63bda40667e1ff629825", "rows": null},
+    "calibration_module": {"path": "src/kds/data/v4_calibration.py", "sha256": "101e7ea55a0ce55c3962cf40d95b86a22bb677fdafbc6b1eea1f228729c7ef14", "rows": null},
+    "voxforge_module": {"path": "src/kds/data/voxforge.py", "sha256": "eac685a7d4966bf43e8174b22941829508279dc7e5d692f54795bd6e1eb5a7ab", "rows": null},
+    "voxforge_identity_module": {"path": "src/kds/eval/voxforge_metadata_screen.py", "sha256": "f65caeef76032f3e7803717ed2f971de69f4da9577950d07156564f13df8bad2", "rows": null},
+    "research_tts_module": {"path": "src/kds/data/research_tts.py", "sha256": "25d4199f7b618a26e827054a55dd34f076856ddf4cb4fcb282c92092d64f4c62", "rows": null},
+    "espeak_module": {"path": "src/kds/data/espeakng.py", "sha256": "bd1308dc741dcdc4c61e032f1bb0d013e1f95fb39bd82026f826c9c632366689", "rows": null},
+    "runner_script": {"path": "scripts/audit_v4_calibration_inputs.py", "sha256": "ed6f019c5286d878a824b1215c588ac82ce03d62ec6c4bebb72bafabcfb98568", "rows": null}
+  },
+  "checkpoint": {
+    "path": "checkpoints/xlsr-sls-model-v4/xlsr-sls-model-v4-train-v1/model.pt",
+    "file_sha256": "8be73165a4e6f65e966fa6d6a162fbb319d7089d1e8c1597c131e9ccb226852f",
+    "selected_state_sha256": "3cfca24a3731d3f9e3c259dcea905be07aefc4fbf2fbefa98189696df01fbe4a"
+  },
+  "sources": {
+    "voxforge": {
+      "archive_name": "1778250273870-voxforge-ru.tar.gz",
+      "size_bytes": 3795197539,
+      "sha256": "7372c6f8d067b8d1651995ad8306b673acaf2cde705ee51295152b96c93de557"
+    },
+    "espeak": {
+      "model_id": "espeakng_russian_formant",
+      "model_root": "models/research/espeakng_kk_v1"
+    }
+  },
+  "selection": {
+    "seed": "xlsr-sls-model-v4-calibration-voxforge-metadata-20260815-v1",
+    "target_text_groups": 81,
+    "historical_text_overlap": "disclose_only_non_v4_roles",
+    "new_exact_source_assets_required": true,
+    "new_contributor_groups_required": true,
+    "historical_espeak_text_exclusion_required": true
+  },
+  "scope": {
+    "config_root": "configs/research",
+    "manifest_root": "data/manifests"
+  },
+  "outputs": {
+    "metadata_selection": "data/manifests/v4/xlsr_sls_model_v4_calibration_voxforge_metadata_v1.csv",
+    "receipt": "docs/artifacts/v4/xlsr_sls_model_v4_calibration_inputs_v1.json"
+  },
+  "prohibitions": {
+    "raw_audio_extraction": true,
+    "synthetic_audio_generation": true,
+    "audio_qa": true,
+    "acoustic_review": true,
+    "pairing": true,
+    "checkpoint_loading": true,
+    "calibration": true,
+    "temperature_fitting": true,
+    "final_inference": true,
+    "detector_inference": true,
+    "output_overwrite": true,
+    "network_downloads": true
+  }
+}

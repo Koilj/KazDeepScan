@@ -35,13 +35,17 @@ role. Full training contract и no-training preflight завершены: hashes
 assets, runtime lock и CUDA/BF16 проверены без forward pass. One-batch tail-unfreeze profile
 прошёл без OOM (`2.91` GB peak allocated) и без artifacts. Единственный write-once training
 run завершён за `1 869.94` s: tail-unfreeze epoch 2 выбран по macro RU/KK dev loss
-`0.08414228`, selected state и ignored checkpoint hash зафиксированы. Calibration и новый final
-не запускались; speaker independence не заявлена. Детали:
+`0.08414228`, selected state и ignored checkpoint hash зафиксированы. Metadata-only
+calibration-input gate затем заморозил `81` новых VoxForge source identities / `81` new
+contributor groups и повторно проверил pinned eSpeak RU route without loading the checkpoint or
+creating audio. Historical VoxForge text overlap disclosed; v4 train/dev sample/text/group
+intersections are zero. Calibration и новый final не запускались; speaker independence не
+заявлена. Детали:
 Isolated dev-input contract выполнен на CUDA: PyAra `969` rows и `474` frozen KSC
 SLR102/Silero V4 pairs образуют combined dev `1 917` rows. Из `600` KSC candidates QA оставил
 `571` source и `535` spoof rows; target достигнут только по predeclared reserve. Historical и
-within-pool exact/near-audio intersections равны нулю. Training contract разрешает только один
-следующий write-once run; он ещё не запускался.
+within-pool exact/near-audio intersections равны нулю. Единственный разрешённый write-once
+training run уже завершён; его checkpoint нельзя повторно обучать или перезаписывать.
 [capacity](docs/artifacts/v4/gate_a_2026-08-14.md) и
 [selection](docs/artifacts/v4/train_candidate_selection_2026-08-14.md),
 [source raw materialization](docs/artifacts/v4/source_raw_materialization_2026-08-14.md) и
@@ -56,7 +60,8 @@ within-pool exact/near-audio intersections равны нулю. Training contrac
 [его reconciliation](docs/artifacts/v4/xlsr_sls_model_v4_kk_spoof_audio_gate_governance_v1.json),
 [combined train manifest](docs/artifacts/v4/combined_train_manifest_2026-08-15.md) и
 [isolated dev-input receipt](docs/artifacts/v4/isolated_dev_inputs_2026-08-15.md) и
-[full training contract](docs/artifacts/v4/v4_training_contract_2026-08-15.md).
+[full training contract](docs/artifacts/v4/v4_training_contract_2026-08-15.md) и
+[calibration-input gate](docs/artifacts/v4/calibration_inputs_2026-08-15.md).
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2
@@ -388,7 +393,7 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 
 - Ruff: успешно.
 - mypy: успешно.
-- pytest: `318 passed`, `0 failed`, `0 skipped`; optional ToneSpeak Parquet tests выполняются с
+- pytest: `350 passed`, `0 failed`, `1 skipped`; optional ToneSpeak Parquet tests выполняются с
   exact Linux test overlay `pyarrow==22.0.0`, не изменяющим исторический `uv.lock`.
 - Denis pre-QA: current exposure v2 SHA-256 `d140918a60d437f41d209b57803058179bb1d8cfd7ae8e7db217788d0b9841cb`;
   selection/materialization receipts SHA-256 `5e9dd93290eece14f738cab06e665d61a47d0e79cb5e1730198574471b2fc37c` /

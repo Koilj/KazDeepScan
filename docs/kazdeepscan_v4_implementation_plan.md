@@ -403,5 +403,5 @@ Explicit rights/ledger decision теперь versioned отдельно от mat
 [final-readiness audit](artifacts/v4/v4_final_readiness_2026-08-15.md) уже исключил прежние
 inferred Qwen/VoxForge и FLEURS/KazakhTTS assets. Первый
 [metadata-only final-input contract](artifacts/v4/v4_final_inputs_contract_2026-08-15.md)
-frozen для `500` RU и `500` KK source text groups, но ещё не исполнялся; final по-прежнему
-запрещён до нового selection, materialization, isolation, rights and lock-before-logits gates.
+завершил selection `500` RU + `500` KK source text groups без audio/model operations; final
+по-прежнему запрещён до materialization, isolation, rights and lock-before-logits gates.

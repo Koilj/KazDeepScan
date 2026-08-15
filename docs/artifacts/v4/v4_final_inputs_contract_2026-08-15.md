@@ -4,10 +4,10 @@
 
 ## Статус
 
-Контракт заморожен, но metadata-selection ещё не выполнен. Он разрешает ровно один
-pre-materialization audit и deterministic selection `500` RU + `500` KK source text groups.
-До receipt этого шага нет final manifest, WAV, synthetic output, QA, pair lock, checkpoint
-loading, calibration или detector inference.
+Контракт завершён одним metadata-selection run: заморожены `500` RU + `500` KK source text
+groups. [Selection receipt](v4_final_inputs_selection_2026-08-15.md) фиксирует exact rows и
+current-history screen. До следующего отдельного contract нет final audio manifest, WAV,
+synthetic output, QA, pair lock, checkpoint loading, calibration или detector inference.
 
 ## Изоляция и маршруты
 

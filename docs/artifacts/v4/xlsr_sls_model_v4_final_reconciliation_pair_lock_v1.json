@@ -1,0 +1,56 @@
+{
+  "claims": {
+    "calibration_performed": false,
+    "detector_checkpoint_loaded": false,
+    "detector_inference_authorized": false,
+    "detector_inference_performed": false,
+    "final_inference_performed": false,
+    "final_inference_requires_separate_contract": true,
+    "independent_acoustic_language_review_performed": true,
+    "pair_lock_performed": true,
+    "replacement_or_backfill": false
+  },
+  "counts": {
+    "locked_assets": 1584,
+    "locked_pairs": 792,
+    "locked_pairs_by_language": {
+      "kk": 460,
+      "ru": 332
+    },
+    "review_packet_assets": 1584,
+    "two_reviewer_passed_assets": 1584
+  },
+  "created_at": "2026-08-16T01:30:00+06:00",
+  "inputs": {
+    "materialization_receipt": {
+      "path": "docs/artifacts/v4/xlsr_sls_model_v4_final_reconciliation_v1.json",
+      "sha256": "61319e016e6e2c644330d18a03f1687db39de8b7e24bedb0329a1a5fd279cf35"
+    },
+    "review_packet": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_acoustic_language_packet_v1.csv",
+      "sha256": "3f1f68f3a2c2445282bd807d87519e39fcb83e81b2b8019c10c4f42b9a7d6c7b"
+    },
+    "reviewer_a": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_acoustic_language_reviewer_a_v1.csv",
+      "reviewer_pseudo_id": "reviewer_1",
+      "sha256": "cdd58b3e2e303c4060b2bc68568a301f69ffae436d259e7db9e85e5823be538c"
+    },
+    "reviewer_b": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_acoustic_language_reviewer_b_v1.csv",
+      "reviewer_pseudo_id": "reviewer_2",
+      "sha256": "5af6a1724ef5cdbb0e984e09afd8585a6a039e820856c96432882b0879eb006e"
+    }
+  },
+  "output": {
+    "path": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_pairs_frozen_v1.csv",
+    "rows": 1584,
+    "sha256": "a6f57d65f866f8c14eeaa897ebaa2caa00dde9aa62f670738abdc733c759658b"
+  },
+  "plan": {
+    "path": "configs/research/v4/xlsr_sls_model_v4_final_reconciliation_v1.json",
+    "sha256": "b23f83120a00a051b5e2b5df71c40fd137419cef4bd1e33bd69bcc46e1bdf6ba"
+  },
+  "protocol_id": "xlsr-sls-model-v4-final-reconciliation-v1",
+  "schema_version": 1,
+  "status": "pair_lock_complete_final_inference_still_forbidden"
+}

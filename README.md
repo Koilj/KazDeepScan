@@ -31,8 +31,9 @@ target + `300` reserve на family), без runtime reject. Общий decode/QA
 границу. Разрешённый assembler собрал combined `20 000` manifest с четырьмя balanced cells по
 `5 000`; `4 604` shared KK text hashes закреплены только как within-train property. Отдельный
 full training contract и его no-training preflight завершены: все `21 917` selected assets,
-runtime и CUDA/BF16 проверены без forward pass. Actual training, checkpoint, calibration и final
-inference ещё не запускались; speaker independence не заявлена.
+runtime и CUDA/BF16 проверены без forward pass. One-batch tail-unfreeze capacity profile прошёл
+без OOM и без artifacts. Actual training, checkpoint, calibration и final inference ещё не
+запускались; speaker independence не заявлена.
 Isolated dev-input contract уже выполнен: historical PyAra dev (`969` rows) и `474` frozen
 KSC SLR102/Silero V4 KK pairs образуют `1 917` dev rows. Среди `600` KSC candidates source QA
 оставил `571`, Silero QA — `535`; freeze использует только заранее объявленный reserve и не

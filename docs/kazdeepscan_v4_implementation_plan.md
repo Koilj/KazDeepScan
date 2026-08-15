@@ -5,8 +5,8 @@ gate завершены. Source train заморожен на `15 000` стро�
 `proceed_20k_balanced`. Все `7 200` KK spoof texts exact-проверены, синтезированы и прошли
 общий QA/VAD/audio-leakage screen: `6 200` eligible и ровно `5 000` frozen (`4 × 1 250`).
 Combined balanced `20 000` train manifest уже write-once заморожен (`4 × 5 000`). Full training
-contract и его no-training preflight завершены; actual training, checkpoint selection,
-calibration и final inference пока не запускались.
+contract, его no-training preflight и one-batch tail-unfreeze capacity profile завершены; actual
+training, checkpoint selection, calibration и final inference пока не запускались.
 
 Four-route hash-pinned offline synthesis contract и resumable runner завершили все four routes:
 `7 200/7 200` raw WAV (`4 × 1 800`) без runtime reject. Общий hash-pinned audio QA/leakage gate
@@ -382,6 +382,5 @@ data в tuning, несоответствии hash или попытке повт
 - не искались и не скачивались новые datasets/models;
 - `24 000 ready` не заявлены: подтверждена только достаточная pre-QA candidate capacity.
 
-Следующий безопасный шаг — один `--profile-only` tail-unfreeze batch без publication artifacts,
-затем единственный write-once training run по неизменяемому full contract. Calibration и final
-по-прежнему запрещены отдельными будущими contracts.
+Следующий безопасный шаг — единственный write-once training run по неизменяемому full contract.
+Calibration и final по-прежнему запрещены отдельными будущими contracts.

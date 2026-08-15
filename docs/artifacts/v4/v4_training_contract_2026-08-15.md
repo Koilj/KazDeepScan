@@ -33,5 +33,13 @@ XLS-R config/weights, implementation hashes, CUDA/BF16 и runtime lock на RTX 
 (`16 616 521 728` bytes). Ни forward pass, ни checkpoint, ни calibration, ни final inference не
 выполнялись; execution lock и report не созданы.
 
-Следующий безопасный шаг — один `--profile-only` tail-unfreeze batch без публикации artifacts,
-а затем единственный write-once training run только по этому неизменяемому контракту.
+## Capacity profile
+
+Один `--profile-only` tail-unfreeze train batch и по одному non-selecting RU/KK dev batch
+успешно прошли на восьми из 24 XLS-R blocks. Elapsed time `0.9352` s; peak GPU memory —
+`2 910 625 792` allocated и `3 288 334 336` reserved bytes. Profile не публиковал artifacts,
+не выбирал checkpoint и не менял заранее зафиксированные hyperparameters; его four-example
+diagnostics не являются evaluation result.
+
+Следующий безопасный шаг — единственный write-once training run только по этому неизменяемому
+контракту. Calibration и final остаются запрещены.

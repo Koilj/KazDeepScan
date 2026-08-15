@@ -401,5 +401,7 @@ Explicit rights/ledger decision теперь versioned отдельно от mat
 нового checkpoint-scoring-and-calibration contract завершены на `73` frozen pairs. Следующий
 безопасный шаг — отдельный immutable final-input/evaluation contract. Read-only
 [final-readiness audit](artifacts/v4/v4_final_readiness_2026-08-15.md) уже исключил прежние
-inferred Qwen/VoxForge и FLEURS/KazakhTTS assets; final по-прежнему запрещён до нового
-selection, isolation, rights and lock-before-logits gates.
+inferred Qwen/VoxForge и FLEURS/KazakhTTS assets. Первый
+[metadata-only final-input contract](artifacts/v4/v4_final_inputs_contract_2026-08-15.md)
+frozen для `500` RU и `500` KK source text groups, но ещё не исполнялся; final по-прежнему
+запрещён до нового selection, materialization, isolation, rights and lock-before-logits gates.

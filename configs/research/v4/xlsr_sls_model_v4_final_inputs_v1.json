@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "protocol_id": "xlsr-sls-model-v4-final-inputs-v1",
+  "created_at": "2026-08-15T20:00:00+06:00",
+  "inputs": {
+    "roles_and_selection": {"path": "configs/research/v4/xlsr_sls_model_v4_roles_and_selection_v2.json", "sha256": "f04324f995d67fb7e21266eb1dfe019a0bd0744563e82c0553f2371cda0cb11b", "rows": null},
+    "training_receipt": {"path": "docs/artifacts/v4/xlsr_sls_model_v4_training_v1.json", "sha256": "e4ded7e9ebdac93249991a00511b8b788a3e8ca2fe8aaf9637c71be4773a22f9", "rows": null},
+    "train_manifest": {"path": "data/manifests/v4/xlsr_sls_model_v4_train_frozen_v1.csv", "sha256": "6c0fdbf38e9509749e2c8c458077095c21c3f6a65ddca17e0325dc6c8d00b7ed", "rows": 20000},
+    "dev_manifest": {"path": "data/manifests/v4/xlsr_sls_model_v4_dev_frozen_v1.csv", "sha256": "30cd8808502770b9d996e7f54e28da78f25c9d107822b217ffa8b3a8e29ab554", "rows": 1917},
+    "calibration_report": {"path": "docs/artifacts/v4/xlsr_sls_model_v4_ru_calibration_v1.json", "sha256": "3a8bffe16f7aafad2713ace468f0cea23188bcdeb905864179a22505647d73c1", "rows": null},
+    "calibration_pair_lock": {"path": "data/manifests/v4/xlsr_sls_model_v4_calibration_pairs_frozen_v1.csv", "sha256": "a8a367549f566222690ea199955e19b51315182fe329a30dc765e24edc5b5d71", "rows": 146},
+    "license_ledger": {"path": "data/licenses/license_ledger.csv", "sha256": "e0428ea721472b8cd57601a4f0aa59dd943854b66d7229ca9a5e05349ee6b809", "rows": 24},
+    "final_license_ledger": {"path": "data/licenses/frozen/xlsr_sls_model_v4_final_inputs_v1.csv", "sha256": "9269ca534c1665612264a2b35b46457f79722eec778774eba2c50c0f5237b67a", "rows": 4},
+    "final_readiness_audit": {"path": "docs/artifacts/v4/v4_final_readiness_2026-08-15.md", "sha256": "fc4d37468876fdb52c018abfce4165cf3431cf98b39d84f54ec152513add0a2f", "rows": null},
+    "fleurs_artifact_lock": {"path": "data/licenses/fleurs_kk_kz_v1_artifact_lock.json", "sha256": "64245c5310f4eb2db0924661963c935037da593280cba2fa58dec611159d0fa2", "rows": null},
+    "qwen_model_lock": {"path": "configs/research/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1_models.json", "sha256": "6ec1a828ad72738341a3226e73cde65ca9a87b3ee11fac43f2ca40173dd98d8d", "rows": null},
+    "kazakhtts_model_lock": {"path": "configs/research/kazakhtts_tacotron2_pwg_v1_models.json", "sha256": "1ee5150c1c9c5f69b33cc4a4a67148904079651830b0a144f8647af10c8cf68e", "rows": null},
+    "final_inputs_module": {"path": "src/kds/data/v4_final_inputs.py", "sha256": "c00c5ea1cf0d670b89570793c471ddab97e606bd53481f76cbaab479ac874ad1", "rows": null},
+    "common_voice_module": {"path": "src/kds/data/common_voice.py", "sha256": "1b29d068f4238596327b1eaec0ad83b6c4fabad4033542278bce91d2deff4306", "rows": null},
+    "common_voice_screen_module": {"path": "src/kds/eval/common_voice_metadata_screen.py", "sha256": "0d0015c33ee56b43171f64bfb103d465fd84b1b184c5e7b78aa099df84fbaad3", "rows": null},
+    "fleurs_module": {"path": "src/kds/data/fleurs.py", "sha256": "f0a3db80aca761befba7f7facac7f3abe03ab68fbab6bcb522c5f83855f2ff11", "rows": null},
+    "kazakhtts_text_module": {"path": "src/kds/data/kazakhtts_text.py", "sha256": "6e154323abbf83bc242cdc89fc9b3096672def8ea2af0cc0bfb3fa7951c6f2ea", "rows": null},
+    "research_tts_module": {"path": "src/kds/data/research_tts.py", "sha256": "25d4199f7b618a26e827054a55dd34f076856ddf4cb4fcb282c92092d64f4c62", "rows": null},
+    "runner_script": {"path": "scripts/freeze_v4_final_inputs.py", "sha256": "578b20a34a9f9bd0cae90366e593cb828b9226a243e13b1a6b4702745835b524", "rows": null}
+  },
+  "sources": {
+    "common_voice_ru_v24": {"archive_name": "cv-corpus-24.0-2025-12-05-ru.tar.gz", "size_bytes": 7008716262, "sha256": "9a2ed32a0574f74f505cd7740a599f0b9edc9f52ba1e7d6624b66f258db4c0ea", "source_split": "test"},
+    "google_fleurs_kk_v1": {"locale": "kk_kz", "revision": "4683b04af03d2d9549064c7d72060a9a94bb6046", "source_split": "train"},
+    "qwen": {"model_id": "qwen3_tts_0_6b_customvoice_aiden_q8_0", "text_input_only": true, "reference_audio": "forbidden", "voice_cloning": false},
+    "kazakhtts": {"model_id": "issai_kazakhtts2_male2_tacotron2_pwg", "text_input_only": true, "reference_audio": "forbidden", "voice_cloning": false}
+  },
+  "selection": {
+    "ru": {"seed": "xlsr-sls-model-v4-final-ru-metadata-20260815-v1", "target_pairs": 500},
+    "kk": {"seed": "xlsr-sls-model-v4-final-kk-metadata-20260815-v1", "target_pairs": 500},
+    "one_record_per_text_group": true,
+    "post_selection_backfill": false
+  },
+  "scope": {"config_root": "configs/research", "manifest_root": "data/manifests"},
+  "outputs": {
+    "metadata_selection": "data/manifests/v4/xlsr_sls_model_v4_final_metadata_v1.csv",
+    "receipt": "docs/artifacts/v4/xlsr_sls_model_v4_final_inputs_v1.json"
+  },
+  "prohibitions": {
+    "raw_audio_extraction": true,
+    "synthetic_audio_generation": true,
+    "audio_qa": true,
+    "acoustic_review": true,
+    "pairing": true,
+    "checkpoint_loading": true,
+    "calibration": true,
+    "temperature_fitting": true,
+    "final_inference": true,
+    "detector_inference": true,
+    "output_overwrite": true,
+    "network_downloads": true
+  }
+}

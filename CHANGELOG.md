@@ -3,6 +3,15 @@
 Все значимые изменения KazDeepScan фиксируются здесь. Immutable research receipts и более
 подробная история находятся в `PROJECT_STATUS.md` и `docs/`.
 
+## Unreleased — documentation reconciliation
+
+- актуальные сводки обновлены по первичному v4 final-evaluation receipt от 16 августа 2026 года:
+  final GPU run завершён на `792` reviewed pairs (`332` RU, `460` KK);
+- устранены устаревшие сводные утверждения, что v4 final ещё не запускался; historical receipts
+  не изменялись и по-прежнему описывают состояние только на момент своего write-once этапа;
+- v4 final явно закрыт от повторного inference, threshold/calibration work, retraining, backfill
+  и resynthesis. Код, данные, manifests, hashes, model weights и versioned receipts не менялись.
+
 ## Post-v1.0 — local storage cleanup — 2026-08-14
 
 - удалены только local caches, exact duplicate первого RuASD TAR, unused `ffplay`

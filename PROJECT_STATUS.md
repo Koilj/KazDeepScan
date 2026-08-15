@@ -1,6 +1,6 @@
 # KazDeepScan — текущий статус
 
-**Обновлено:** 15 августа 2026
+**Обновлено:** 16 августа 2026
 
 **Source release:** KazDeepScan v1.0 Research (`1.0.0-research`, tag
 `v1.0.0-research`). Python distribution metadata сохранено как `0.1.0`, потому что
@@ -10,9 +10,9 @@
 product/API risk score. Raw audio и model weights не входят в Git/release. Отдельный post-v1.0
 user-audio route возвращает только явно некалиброванный research signal.
 
-**Состояние:** текущий v1.0 Research plan завершён. XLS-R+SLS v2 и отдельная v3 ветка завершены
-на write-once research protocols. Реализация XLS-R+SLS model v4 начата по отдельному
-[плану](docs/kazdeepscan_v4_implementation_plan.md). Capacity/integrity часть Gate A завершена с
+**Состояние:** текущий v1.0 Research plan завершён. XLS-R+SLS v2, отдельная v3 ветка и
+расширенный XLS-R+SLS model v4 завершены на write-once research protocols по отдельному
+[плану](docs/kazdeepscan_v4_implementation_plan.md). Capacity/integrity часть v4 Gate A завершена с
 `proceed_24k`: повторно проверены exact RuASD/Common Voice/KSC2 bytes, current project history,
 лицензии и локальные KK TTS-family. Канонический v2 role contract заморозил `28 800`
 metadata-only train candidates (`7 200` на cell, включая `1 200` QA reserve), исключил
@@ -45,9 +45,11 @@ contract отдельно hash-bind-ит эти `146` assets, selected checkpoin
 ledger для one-time temperature fitting. Его no-logit preflight проверил все `146` assets,
 checkpoint SHA и CUDA/BF16, после чего единственный run fit-нул RU temperature `0.72535688`.
 NLL/ECE уменьшились, Brier вырос — это смешанный calibration diagnostic, не final/product claim.
-Final inference не выполнялся. Current-history screen
-охватил `84,605` unique hashes (`84,213` fingerprinted, `392` ML-DF exact-only). Новый final не
-запускался; speaker independence не заявлена. Детали:
+Предшествовавший final current-history screen охватил `84,605` unique hashes (`84,213`
+fingerprinted, `392` ML-DF exact-only). После него единственный разрешённый final GPU run
+завершён на `792` independently reviewed pairs (`332` RU, `460` KK): fixed-zero-logit balanced
+accuracy `0.9744`/EER `0.0211` для RU и `0.8880`/EER `0.0891` для KK. Повтор final inference,
+threshold selection, retraining и backfill запрещены; speaker independence не заявлена. Детали:
 Isolated dev-input contract выполнен на CUDA: PyAra `969` rows и `474` frozen KSC
 SLR102/Silero V4 pairs образуют combined dev `1 917` rows. Из `600` KSC candidates QA оставил
 `571` source и `535` spoof rows; target достигнут только по predeclared reserve. Historical и
@@ -356,6 +358,8 @@ RuASD TAR, неиспользуемый `ffplay` и Italian ML-DF OOD media byte
 | v3 Stage-B dev loss | 0.18516 | epoch 4; only v3 checkpoint-selection role |
 | v3 Stage-D RU balanced accuracy | 0.9727 | 107/110; same 55 pairs previously evaluated by v2 |
 | VoxForge RU / Qwen Aiden balanced accuracy | 0.9241 | 146/158; 79 fixed pairs; exactly one run |
+| v4 final RU balanced accuracy | 0.9744 | 332 independently reviewed pairs; fixed raw-logit zero, EER 0.0211 |
+| v4 final KK balanced accuracy | 0.8880 | 460 independently reviewed pairs; fixed raw-logit zero, EER 0.0891 |
 
 Общая pooled RU+KK+mixed accuracy намеренно не рассчитывается. Это не product quality и не
 speaker-independent result: используемые источники не дают достаточного verified speaker
@@ -378,6 +382,12 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 - Не повторять VoxForge/Qwen preflight или inference; не менять его exact pairs, reviews,
   exposure receipt, contract, calibration/boundary или artifacts и не использовать 12 final
   errors для tuning/replacement.
+- Не повторять v4 final inference, не изменять его `792` locked pairs, checkpoint/calibration
+  binding, execution lock или report и не использовать его logits/errors для tuning, threshold,
+  calibration, retraining, backfill или resynthesis.
+- v4 final характеризует только exact Common Voice/Qwen RU и FLEURS/KazakhTTS KK routes; он не
+  устанавливает source-, generator-family- или speaker-independent performance и не даёт
+  product/probability claim для KK.
 - Final logits и ошибки не использовать для training, architecture, threshold или calibration.
 - Exact Stage-D pairs уже получили v2 predictions, поэтому v3 result нельзя называть blind или
   unseen. v2 logits/errors не использовались для v3 решений, но это не отменяет history набора.
@@ -404,19 +414,22 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 Для завершения v1.0 дополнительные ML runs, sources или detector tests не требуются. Следующие
 пункты относятся только к будущей v1.x/v2 development и не являются долгом текущего release.
 
-1. Не повторять Stage-C/Stage-D/v3 runs и не использовать их final errors для tuning, выбора
+1. Закрыть v4 как completed research cycle: сохранить model card, final receipt, `792` pair lock,
+   final manifest, RU calibration receipt и execution lock без изменений. Для v4 не запускать
+   inference, retraining, calibration refit, threshold work, backfill или resynthesis.
+2. Не повторять Stage-C/Stage-D/v3 runs и не использовать их final errors для tuning, выбора
    checkpoint, temperature, threshold или augmentation.
-2. Новый RU route прошёл завершённые selection/materialization/text binding/synthesis/technical
+3. Новый RU route прошёл завершённые selection/materialization/text binding/synthesis/technical
    QA/pair lock, 84-asset technical acoustic gate, zero-overlap project-exposure audit, immutable
    evaluation contract, no-logit preflight and its exactly one final GPU inference run. Не
    повторять его, не менять candidate/reviews/checkpoint/calibration/boundary and не использовать
    final errors для tuning. Старые 55 Stage-D/v3 пар, 73-row selection и их rejections нельзя
    переиспользовать как «новый blind» тест.
-3. Для VoxForge RU сохранить `79` exact pairs, completed forms, gate/exposure/completion receipts,
+4. Для VoxForge RU сохранить `79` exact pairs, completed forms, gate/exposure/completion receipts,
    immutable contract, preflight, execution lock и report без изменений. Не повторять inference,
    не использовать 12 final errors для tuning/replacement и не использовать UtrobinTTS как
    backfill. Новый research layer требует genuinely new source/route и отдельный contract.
-4. Denis source/current-exposure/selection/QA и official VoxCPM2 artifact/source/history/runtime/
+5. Denis source/current-exposure/selection/QA и official VoxCPM2 artifact/source/history/runtime/
    smoke gates завершены:
    сохранить exact hashes, pre-inference failure, one-shot smoke receipt, likely speaker-lineage
    и unverified TTS-training-overlap disclosures без изменений; smoke не повторять. Exact 79-row
@@ -428,9 +441,9 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
    не достигнут, поэтому status `stop_below_minimum_60` сохранять без pair lock, reviews или
    detector inference. Для нового evaluation layer нужен отдельный genuinely new source/route и
    новый pre-outcome contract; эти 11 rows нельзя пересинтезировать или заменять.
-5. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
+6. API/product track не начинать без отдельного commercial-rights, privacy, verified-speaker,
    deployment и product-calibration contract.
-6. Local user inference применять только к внешним пользовательским файлам с явным
+7. Local user inference применять только к внешним пользовательским файлам с явным
    acknowledgment. Не передавать ему frozen project assets, не трактовать score как вероятность
    или fraud verdict и не использовать пользовательские результаты для tuning.
 
@@ -439,8 +452,8 @@ ECE `0.08754 -> 0.07823`. Улучшение NLL/ECE не является ос�
 ## Проверка и воспроизводимость
 
 - Ruff: успешно.
-- mypy: успешно.
-- pytest: `352 passed`, `0 failed`, `1 skipped`; optional ToneSpeak Parquet tests выполняются с
+- mypy: успешно на канонических type-check targets `src`, `scripts`, `services`.
+- pytest: `367 passed`, `0 failed`, `1 skipped`; optional ToneSpeak Parquet tests выполняются с
   exact Linux test overlay `pyarrow==22.0.0`, не изменяющим исторический `uv.lock`.
 - Denis pre-QA: current exposure v2 SHA-256 `d140918a60d437f41d209b57803058179bb1d8cfd7ae8e7db217788d0b9841cb`;
   selection/materialization receipts SHA-256 `5e9dd93290eece14f738cab06e665d61a47d0e79cb5e1730198574471b2fc37c` /

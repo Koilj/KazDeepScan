@@ -13,7 +13,7 @@ Four-route hash-pinned offline synthesis contract и resumable runner завер
 `7 200/7 200` raw WAV (`4 × 1 800`) без runtime reject. Общий hash-pinned audio QA/leakage gate
 frozen before processing.
 
-**Дата локального аудита:** 15 августа 2026 года.
+**Дата локального аудита:** 16 августа 2026 года.
 
 **Scope:** только personal research; не product model, не fraud detector и не калиброванная
 вероятность.
@@ -391,7 +391,8 @@ data в tuning, несоответствии hash или попытке повт
   pairs after QA/VAD/full-current-history exact/near screen. A separate RU calibration contract
   now binds this pair lock, a narrow research-only fitting ledger and the selected checkpoint;
   its write-once no-logit preflight and one calibration run completed: temperature is
-  `0.72535688`, NLL/ECE decreased and Brier increased; final inference did not occur;
+  `0.72535688`, NLL/ECE decreased and Brier increased; that calibration run did not perform
+  final inference, which later completed only under its separate immutable contract;
 - не изменены v1/v2/v3 и существующие immutable receipts;
 - не искались и не скачивались новые datasets/models;
 - `24 000 ready` не заявлены: подтверждена только достаточная pre-QA candidate capacity.

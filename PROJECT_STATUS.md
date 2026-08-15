@@ -82,8 +82,11 @@ training run уже завершён; его checkpoint нельзя повто�
 готов и разрешает только one-shot extraction/synthesis, QA/VAD, current-history isolation,
 две независимые review-form и последующий pair lock. Его read-only
 [preflight](docs/artifacts/v4/final_materialization_preflight_2026-08-15.md) прошёл с полным
-archive/release/history/TTS audit без outputs; one-shot materialization ещё не начиналась. Final
-inference остаётся запрещённым.
+archive/release/history/TTS audit без outputs. Последующая one-shot attempt fail-closed
+остановилась на первом Qwen output write failure: extracted source bytes не стали manifests,
+synthetic WAV/QA/review/pair lock отсутствуют; [failure receipt](docs/artifacts/v4/final_materialization_attempt_failure_2026-08-15.md)
+запрещает retry/resynthesis и требует новый recovery contract. Final inference остаётся
+запрещённым.
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2

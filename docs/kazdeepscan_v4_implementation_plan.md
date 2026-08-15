@@ -406,6 +406,8 @@ inferred Qwen/VoxForge и FLEURS/KazakhTTS assets. Первый
 [final materialization/review contract](artifacts/v4/final_materialization_contract_2026-08-15.md)
 подготовлен, а его read-only
 [preflight](artifacts/v4/final_materialization_preflight_2026-08-15.md) прошёл без outputs. Он
-разрешает только one-shot extraction/synthesis этих exact rows, QA/VAD, current-history
-isolation, две независимые review forms и pair lock. Final по-прежнему запрещён до отдельного
-future no-logit/evaluation contract.
+разрешал только one-shot extraction/synthesis этих exact rows, QA/VAD, current-history
+isolation, две независимые review forms и pair lock. Первая Qwen output write failure остановила
+attempt после source extraction; [failure receipt](artifacts/v4/final_materialization_attempt_failure_2026-08-15.md)
+запрещает retry/resynthesis и требует нового recovery contract. Final по-прежнему запрещён до
+отдельного future no-logit/evaluation contract.

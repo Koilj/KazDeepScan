@@ -4,12 +4,13 @@
 
 ## Статус
 
-Контракт подготовлен и hash-pinned, но **не выполнен**. Он является единственным разрешением на
-следующий one-shot этап и не изменяет metadata-only selection: ровно `500` RU Common Voice
-`test` rows и `500` KK FLEURS `train` rows остаются единственными source identities. До успешного
-run нет новых final WAV, ready manifests, QA/VAD results, review packet, review decisions или
-pair lock. Detector checkpoint, calibration, detector и final inference не загружаются и не
-разрешены; hash-pinned local TTS models разрешены только для указанного synthesis route.
+Контракт получил неполную one-shot attempt и теперь **не допускает повторный запуск**. Exact
+preflight прошёл, `500+500` source files были local extracted, но первый RU Qwen attempt не смог
+записать WAV из-за relative output path; подробности в
+[failure receipt](final_materialization_attempt_failure_2026-08-15.md). Нет новых final
+manifests, QA/VAD results, review packet/forms или pair lock. Detector checkpoint, calibration,
+detector и final inference не загружались и не разрешены; hash-pinned local TTS models были
+разрешены только для указанного synthesis route.
 
 Контракт
 [`xlsr_sls_model_v4_final_materialization_v1`](../../../configs/research/v4/xlsr_sls_model_v4_final_materialization_v1.json)
@@ -43,9 +44,9 @@ SHA-256 `87aedfd77beb51891abe81477289d8061db50f7488db5b1d802d01e20481a09a`.
 Raw/processed audio и local model bundles остаются Git-ignored. Versioned будут только
 manifests, gate inventory, review packet/forms и machine receipts с SHA-256.
 
-## Безопасный следующий шаг
+## Следующий безопасный шаг
 
-Запустить только `preflight` этого контракта. Если он проходит, последующий one-shot
-`materialize` run не должен менять checkpoint, calibration или выполнять detector/final
-inference. После materialization необходима реальная независимая acoustic/language review;
-автоматически или задним числом одобрять формы нельзя.
+Не запускать `materialize` повторно. Нужен новый recovery decision/contract: он должен выбрать
+между irrecoverable reject rank `1` без resynthesis/backfill и полным отказом от этой selection
+до нового metadata-only selection. Ни один вариант не разрешает final inference без следующих
+отдельных gates.

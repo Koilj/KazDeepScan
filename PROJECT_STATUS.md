@@ -33,8 +33,10 @@ training-contract preflight. Write-once assembler уже заморозил comb
 четырьмя cells по `5 000`; `4 604` shared KK text hashes разрешены только внутри одной train
 role. Full training contract и no-training preflight завершены: hashes всех `21 917` selected
 assets, runtime lock и CUDA/BF16 проверены без forward pass. One-batch tail-unfreeze profile
-прошёл без OOM (`2.91` GB peak allocated) и без artifacts. Actual training, checkpoint,
-calibration и новый final не запускались; speaker independence не заявлена. Детали:
+прошёл без OOM (`2.91` GB peak allocated) и без artifacts. Единственный write-once training
+run завершён за `1 869.94` s: tail-unfreeze epoch 2 выбран по macro RU/KK dev loss
+`0.08414228`, selected state и ignored checkpoint hash зафиксированы. Calibration и новый final
+не запускались; speaker independence не заявлена. Детали:
 Isolated dev-input contract выполнен на CUDA: PyAra `969` rows и `474` frozen KSC
 SLR102/Silero V4 pairs образуют combined dev `1 917` rows. Из `600` KSC candidates QA оставил
 `571` source и `535` spoof rows; target достигнут только по predeclared reserve. Historical и

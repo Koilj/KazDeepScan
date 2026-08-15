@@ -41,5 +41,27 @@ XLS-R config/weights, implementation hashes, CUDA/BF16 и runtime lock на RTX 
 не выбирал checkpoint и не менял заранее зафиксированные hyperparameters; его four-example
 diagnostics не являются evaluation result.
 
-Следующий безопасный шаг — единственный write-once training run только по этому неизменяемому
-контракту. Calibration и final остаются запрещены.
+После profile был выполнен единственный write-once training run, описанный ниже. Calibration и
+final оставались запрещены.
+
+## Write-once training execution
+
+`xlsr-sls-model-v4-train-v1` завершился успешно за `1 869.94` s. Один warm-up epoch и три
+tail-unfreeze epochs выполнены exactly as pinned. Macro RU/KK dev-loss выбрал tail-unfreeze epoch
+2: `0.0841422787` (`RU=0.1241607735`, `KK=0.0441237839`); epochs 1 и 3 дали `0.1507765775` и
+`0.1325452515`. Это selection metric на tuning dev, а не final quality claim.
+
+Selected model state SHA-256: `3cfca24a3731d3f9e3c259dcea905be07aefc4fbf2fbefa98189696df01fbe4a`.
+Ignored local checkpoint file SHA-256: `8be73165a4e6f65e966fa6d6a162fbb319d7089d1e8c1597c131e9ccb226852f`.
+Versioned machine report:
+[xlsr_sls_model_v4_training_v1.json](xlsr_sls_model_v4_training_v1.json), SHA-256
+`e4ded7e9ebdac93249991a00511b8b788a3e8ca2fe8aaf9637c71be4773a22f9`.
+
+The report verifies the exact plan, all `21 917` assets, zero train/dev sample/audio/text/group
+overlap, CUDA/BF16 environment and matching checkpoint state hash. It records no calibration,
+no final evaluation and no final inference. The selected dev balanced accuracies (`RU=0.9620`,
+`KK=0.9831`) are diagnostics on a checkpoint-selected development role only and must not be
+reported as independent performance.
+
+Следующий безопасный шаг — отдельный calibration-input/contract gate with new isolation audit.
+Не запускать calibration, final inference или повтор training без нового versioned contract.

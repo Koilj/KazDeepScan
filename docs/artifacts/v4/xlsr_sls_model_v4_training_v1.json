@@ -1,0 +1,580 @@
+{
+  "status": "ok",
+  "mode": "train",
+  "run_plan": {
+    "schema_version": 1,
+    "protocol_id": "xlsr-sls-model-v4-training-v1",
+    "run_id": "xlsr-sls-model-v4-train-v1",
+    "purpose": "research",
+    "plan_path": "/home/ruslan/KazDeepScan/configs/research/v4/xlsr_sls_model_v4_training_v1.json",
+    "plan_sha256": "9e64c37a8007ce1c022d6e2e72e1831a9b14dc8a04c0de9fd1ffe4369b8cb908",
+    "license_ledger": {
+      "path": "/home/ruslan/KazDeepScan/data/licenses/frozen/xlsr_sls_model_v4_training_v1.csv",
+      "sha256": "0942652da54f5572e8b457b3da62ef513a6073cad90dadaac716ef324a14b323"
+    },
+    "train": {
+      "manifest": {
+        "path": "/home/ruslan/KazDeepScan/data/manifests/v4/xlsr_sls_model_v4_train_frozen_v1.csv",
+        "sha256": "6c0fdbf38e9509749e2c8c458077095c21c3f6a65ddca17e0325dc6c8d00b7ed"
+      },
+      "source_split": "train",
+      "expected_source_ids": [
+        "ksc2_v1",
+        "ksc_derived_kk_v1",
+        "ksc_derived_kk_v2_kazemotts",
+        "ksc_derived_kk_v3_sparktts",
+        "ruasd_ru_v1_full"
+      ],
+      "expected_cell_counts": {
+        "kk/bonafide": 5000,
+        "kk/spoof": 5000,
+        "ru/bonafide": 5000,
+        "ru/spoof": 5000
+      }
+    },
+    "dev": {
+      "manifest": {
+        "path": "/home/ruslan/KazDeepScan/data/manifests/v4/xlsr_sls_model_v4_dev_frozen_v1.csv",
+        "sha256": "30cd8808502770b9d996e7f54e28da78f25c9d107822b217ffa8b3a8e29ab554"
+      },
+      "source_split": "dev",
+      "expected_source_ids": [
+        "ksc_slr102",
+        "ksc_slr102_silero_v4",
+        "pyara_ru_v7"
+      ],
+      "expected_cell_counts": {
+        "kk/bonafide": 474,
+        "kk/spoof": 474,
+        "ru/bonafide": 474,
+        "ru/spoof": 495
+      }
+    },
+    "encoder": {
+      "checkpoint_dir": "/home/ruslan/KazDeepScan/models/xlsr-300m",
+      "revision": "1a640f32ac3e39899438a2931f9924c02f080a54",
+      "config": {
+        "path": "/home/ruslan/KazDeepScan/models/xlsr-300m/config.json",
+        "sha256": "0bffa0d0e98153e883b828d86491f3c6062cb563dc9d7a9cfd1790da30c286ac"
+      },
+      "weights": {
+        "path": "/home/ruslan/KazDeepScan/models/xlsr-300m/pytorch_model.bin",
+        "sha256": "d5e490574712ad0a6736923b9ed11d4cd51c78609c36205f704fc4e87b11d2e0"
+      }
+    },
+    "head": {
+      "attention_size": 128,
+      "classifier_size": 256,
+      "dropout": 0.2
+    },
+    "training": {
+      "seed": 20260815,
+      "warmup_epochs": 1,
+      "unfreeze_epochs": 3,
+      "batch_size": 4,
+      "gradient_accumulation_steps": 8,
+      "window_samples": 64600,
+      "sample_rate": 16000,
+      "head_learning_rate": 0.0001,
+      "encoder_learning_rate": 1e-05,
+      "weight_decay": 0.0001,
+      "gradient_clip_norm": 1.0,
+      "last_encoder_blocks": 8,
+      "num_workers": 0,
+      "pin_memory": true,
+      "device": "cuda",
+      "precision": "bf16",
+      "selection_metric": "macro_language_dev_loss_ru_kk",
+      "sampler": "balanced_language_label_without_padding",
+      "augmentation": {
+        "policy_id": "symmetric-channel-codec-replay-simulation-v1",
+        "seed_namespace": "xlsr-sls-model-v4-augmentation-20260815",
+        "channel_gain_db_min": -6.0,
+        "channel_gain_db_max": 6.0,
+        "codec_resample_rates_hz": [
+          8000,
+          12000
+        ],
+        "codec_quantization_bits": 8,
+        "replay_delay_ms_min": 20.0,
+        "replay_delay_ms_max": 80.0,
+        "replay_attenuation_min": 0.08,
+        "replay_attenuation_max": 0.25
+      }
+    },
+    "runtime": {
+      "python_version": "3.13.15",
+      "torch_version": "2.11.0+cu128",
+      "cuda_runtime": "12.8",
+      "transformers_version": "5.14.1"
+    },
+    "implementation": [
+      {
+        "path": "/home/ruslan/KazDeepScan/scripts/train_v4_xlsr_sls.py",
+        "sha256": "8ef66f1093f244961b5e5b35600660b173c1a08275200fe0f82ca57050f4ba6d"
+      },
+      {
+        "path": "/home/ruslan/KazDeepScan/src/kds/training/v4_training_plan.py",
+        "sha256": "cd668a04088468acafd0021e61afbca33aa49316a6d91920a3343ce2adda6d6f"
+      },
+      {
+        "path": "/home/ruslan/KazDeepScan/src/kds/training/xlsr_sls.py",
+        "sha256": "bf65aa03638224efd563ffc1352d31d590eca04e836a9f08a52be942798c5d63"
+      },
+      {
+        "path": "/home/ruslan/KazDeepScan/src/kds/training/frozen_b0.py",
+        "sha256": "e9cc8cf0a7f3046596ad7f921c3b305dc7a096b0dfb233039558671615f49861"
+      },
+      {
+        "path": "/home/ruslan/KazDeepScan/src/kds/models/xlsr_sls.py",
+        "sha256": "470c213fee423a7aa895f882fe3618c8d1597e30e7f95b0cef697ed614d430b8"
+      },
+      {
+        "path": "/home/ruslan/KazDeepScan/src/kds/data/dataset.py",
+        "sha256": "1fb4b89c2b018d939206b31d509e4105a626c37045f718deb8d8565814afc243"
+      },
+      {
+        "path": "/home/ruslan/KazDeepScan/src/kds/data/augmentation.py",
+        "sha256": "5a5b9053f3642ab2b8d0c0695aeadc9b0628c0a8de5d8c28224791a208679268"
+      },
+      {
+        "path": "/home/ruslan/KazDeepScan/src/kds/data/assets.py",
+        "sha256": "b3a27d67596dd2e6aa70ac0aa54cf61fc0c967c1386e67888c5f89e123e4dba9"
+      },
+      {
+        "path": "/home/ruslan/KazDeepScan/src/kds/data/licenses.py",
+        "sha256": "35ba1184671e4896cc1af3a8612874caf716c4706444b496e8997f09b71aace7"
+      },
+      {
+        "path": "/home/ruslan/KazDeepScan/src/kds/data/manifest.py",
+        "sha256": "f1b709fc06cd9b465217afd62b80e5519bb9f24513da195326d4670a27fc61f8"
+      }
+    ],
+    "outputs": {
+      "checkpoint": "/home/ruslan/KazDeepScan/checkpoints/xlsr-sls-model-v4/xlsr-sls-model-v4-train-v1/model.pt",
+      "report": "/home/ruslan/KazDeepScan/docs/artifacts/v4/xlsr_sls_model_v4_training_v1.json",
+      "execution_lock": "/home/ruslan/KazDeepScan/artifacts/v4/xlsr-sls-model-v4-train-v1/execution.lock.json"
+    }
+  },
+  "assets_validated": 21917,
+  "environment": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.14.1",
+    "cuda_runtime": "12.8",
+    "device_name": "NVIDIA GeForce RTX 5060 Ti",
+    "device_total_memory_bytes": 16616521728,
+    "bf16_supported": true,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false
+  },
+  "frozen_final_evaluation_performed": false,
+  "calibration_performed": false,
+  "final_inference_performed": false,
+  "protocol": {
+    "run_id": "xlsr-sls-model-v4-train-v1",
+    "purpose": "research",
+    "roles": [
+      {
+        "role": "train",
+        "manifest_path": "/home/ruslan/KazDeepScan/data/manifests/v4/xlsr_sls_model_v4_train_frozen_v1.csv",
+        "rows": 20000,
+        "cell_counts": {
+          "kk/bonafide": 5000,
+          "kk/spoof": 5000,
+          "ru/bonafide": 5000,
+          "ru/spoof": 5000
+        },
+        "source_ids": [
+          "ksc2_v1",
+          "ksc_derived_kk_v1",
+          "ksc_derived_kk_v2_kazemotts",
+          "ksc_derived_kk_v3_sparktts",
+          "ruasd_ru_v1_full"
+        ]
+      },
+      {
+        "role": "dev",
+        "manifest_path": "/home/ruslan/KazDeepScan/data/manifests/v4/xlsr_sls_model_v4_dev_frozen_v1.csv",
+        "rows": 1917,
+        "cell_counts": {
+          "kk/bonafide": 474,
+          "kk/spoof": 474,
+          "ru/bonafide": 474,
+          "ru/spoof": 495
+        },
+        "source_ids": [
+          "ksc_slr102",
+          "ksc_slr102_silero_v4",
+          "pyara_ru_v7"
+        ]
+      }
+    ],
+    "train_dev_overlap": {
+      "sample_id": 0,
+      "asset_sha256": 0,
+      "text_hash": 0,
+      "parent_group_id": 0
+    },
+    "no_calibration_or_final_inputs": true
+  },
+  "started_at": "2026-08-15T01:26:27Z",
+  "elapsed_seconds": 1869.9383786179824,
+  "stage_b_configuration": {
+    "encoder_blocks": 24,
+    "trainable_encoder_blocks": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "trainable_encoder_parameters": 100769792,
+    "trainable_head_parameters": 660251,
+    "gradient_checkpointing": true
+  },
+  "selection_metric": "macro_language_dev_loss_ru_kk",
+  "best_tail_unfreeze_epoch": 2,
+  "best_macro_language_dev_loss": 0.08414227871097675,
+  "selected_model_state_sha256": "3cfca24a3731d3f9e3c259dcea905be07aefc4fbf2fbefa98189696df01fbe4a",
+  "history": [
+    {
+      "phase": "warmup",
+      "epoch": 1,
+      "train": {
+        "loss": 0.2609780770535115,
+        "accuracy": 0.8938,
+        "correct": 17876,
+        "examples": 20000,
+        "bonafide_examples": 10000,
+        "spoof_examples": 10000,
+        "bonafide_accuracy": 0.8869,
+        "bonafide_correct": 8869,
+        "spoof_accuracy": 0.9007,
+        "spoof_correct": 9007,
+        "balanced_accuracy": 0.8937999999999999,
+        "confidence_intervals": {
+          "accuracy": {
+            "confidence": 0.95,
+            "lower": 0.889454237915212,
+            "upper": 0.897994514487
+          },
+          "bonafide_accuracy": {
+            "confidence": 0.95,
+            "lower": 0.8805433450883315,
+            "upper": 0.8929595169724389
+          },
+          "spoof_accuracy": {
+            "confidence": 0.95,
+            "lower": 0.8946836834291466,
+            "upper": 0.906408580276593
+          }
+        }
+      },
+      "checkpoint_selected": false
+    },
+    {
+      "phase": "tail_unfreeze",
+      "epoch": 1,
+      "train": {
+        "loss": 0.10186051141029238,
+        "accuracy": 0.96165,
+        "correct": 19233,
+        "examples": 20000,
+        "bonafide_examples": 10000,
+        "spoof_examples": 10000,
+        "bonafide_accuracy": 0.9607,
+        "bonafide_correct": 9607,
+        "spoof_accuracy": 0.9626,
+        "spoof_correct": 9626,
+        "balanced_accuracy": 0.96165,
+        "confidence_intervals": {
+          "accuracy": {
+            "confidence": 0.95,
+            "lower": 0.9588986392038152,
+            "upper": 0.9642240539055833
+          },
+          "bonafide_accuracy": {
+            "confidence": 0.95,
+            "lower": 0.9567113533995222,
+            "upper": 0.9643348305017363
+          },
+          "spoof_accuracy": {
+            "confidence": 0.95,
+            "lower": 0.9587000011896638,
+            "upper": 0.9661447235177862
+          }
+        }
+      },
+      "dev_by_language": {
+        "ru": {
+          "loss": 0.26234376142097565,
+          "accuracy": 0.913312693498452,
+          "correct": 885,
+          "examples": 969,
+          "bonafide_examples": 474,
+          "spoof_examples": 495,
+          "bonafide_accuracy": 0.9683544303797469,
+          "bonafide_correct": 459,
+          "spoof_accuracy": 0.8606060606060606,
+          "spoof_correct": 426,
+          "balanced_accuracy": 0.9144802454929037,
+          "confidence_intervals": {
+            "accuracy": {
+              "confidence": 0.95,
+              "lower": 0.8939241688139534,
+              "upper": 0.9294371227278306
+            },
+            "bonafide_accuracy": {
+              "confidence": 0.95,
+              "lower": 0.9484482774105987,
+              "upper": 0.9807302017774266
+            },
+            "spoof_accuracy": {
+              "confidence": 0.95,
+              "lower": 0.8273083092939157,
+              "upper": 0.8883499297866528
+            }
+          }
+        },
+        "kk": {
+          "loss": 0.039209393579333854,
+          "accuracy": 0.989451476793249,
+          "correct": 938,
+          "examples": 948,
+          "bonafide_examples": 474,
+          "spoof_examples": 474,
+          "bonafide_accuracy": 0.9789029535864979,
+          "bonafide_correct": 464,
+          "spoof_accuracy": 1.0,
+          "spoof_correct": 474,
+          "balanced_accuracy": 0.989451476793249,
+          "confidence_intervals": {
+            "accuracy": {
+              "confidence": 0.95,
+              "lower": 0.9806919813946235,
+              "upper": 0.9942602981055435
+            },
+            "bonafide_accuracy": {
+              "confidence": 0.95,
+              "lower": 0.9616050058402626,
+              "upper": 0.9885009165727182
+            },
+            "spoof_accuracy": {
+              "confidence": 0.95,
+              "lower": 0.9919608088628918,
+              "upper": 0.9999999999999999
+            }
+          }
+        }
+      },
+      "macro_language_dev_loss": 0.15077657750015475,
+      "checkpoint_selected": true
+    },
+    {
+      "phase": "tail_unfreeze",
+      "epoch": 2,
+      "train": {
+        "loss": 0.06087211298002404,
+        "accuracy": 0.979,
+        "correct": 19580,
+        "examples": 20000,
+        "bonafide_examples": 10000,
+        "spoof_examples": 10000,
+        "bonafide_accuracy": 0.9796,
+        "bonafide_correct": 9796,
+        "spoof_accuracy": 0.9784,
+        "spoof_correct": 9784,
+        "balanced_accuracy": 0.9790000000000001,
+        "confidence_intervals": {
+          "accuracy": {
+            "confidence": 0.95,
+            "lower": 0.9769189117736424,
+            "upper": 0.9808971176846092
+          },
+          "bonafide_accuracy": {
+            "confidence": 0.95,
+            "lower": 0.9766395636858811,
+            "upper": 0.982192105076966
+          },
+          "spoof_accuracy": {
+            "confidence": 0.95,
+            "lower": 0.9753616579016555,
+            "upper": 0.981070932457281
+          }
+        }
+      },
+      "dev_by_language": {
+        "ru": {
+          "loss": 0.12416077350358624,
+          "accuracy": 0.9618163054695562,
+          "correct": 932,
+          "examples": 969,
+          "bonafide_examples": 474,
+          "spoof_examples": 495,
+          "bonafide_accuracy": 0.9725738396624473,
+          "bonafide_correct": 461,
+          "spoof_accuracy": 0.9515151515151515,
+          "spoof_correct": 471,
+          "balanced_accuracy": 0.9620444955887995,
+          "confidence_intervals": {
+            "accuracy": {
+              "confidence": 0.95,
+              "lower": 0.9478130688158461,
+              "upper": 0.9721723942676703
+            },
+            "bonafide_accuracy": {
+              "confidence": 0.95,
+              "lower": 0.9536462663475025,
+              "upper": 0.9839031901305051
+            },
+            "spoof_accuracy": {
+              "confidence": 0.95,
+              "lower": 0.9288715811056532,
+              "upper": 0.9672047014406051
+            }
+          }
+        },
+        "kk": {
+          "loss": 0.04412378391836725,
+          "accuracy": 0.9831223628691983,
+          "correct": 932,
+          "examples": 948,
+          "bonafide_examples": 474,
+          "spoof_examples": 474,
+          "bonafide_accuracy": 0.9662447257383966,
+          "bonafide_correct": 458,
+          "spoof_accuracy": 1.0,
+          "spoof_correct": 474,
+          "balanced_accuracy": 0.9831223628691983,
+          "confidence_intervals": {
+            "accuracy": {
+              "confidence": 0.95,
+              "lower": 0.9727602479403071,
+              "upper": 0.989584890014599
+            },
+            "bonafide_accuracy": {
+              "confidence": 0.95,
+              "lower": 0.9458755948784779,
+              "upper": 0.9791173956645561
+            },
+            "spoof_accuracy": {
+              "confidence": 0.95,
+              "lower": 0.9919608088628918,
+              "upper": 0.9999999999999999
+            }
+          }
+        }
+      },
+      "macro_language_dev_loss": 0.08414227871097675,
+      "checkpoint_selected": true
+    },
+    {
+      "phase": "tail_unfreeze",
+      "epoch": 3,
+      "train": {
+        "loss": 0.03631424625066765,
+        "accuracy": 0.98825,
+        "correct": 19765,
+        "examples": 20000,
+        "bonafide_examples": 10000,
+        "spoof_examples": 10000,
+        "bonafide_accuracy": 0.9861,
+        "bonafide_correct": 9861,
+        "spoof_accuracy": 0.9904,
+        "spoof_correct": 9904,
+        "balanced_accuracy": 0.98825,
+        "confidence_intervals": {
+          "accuracy": {
+            "confidence": 0.95,
+            "lower": 0.9866600091619359,
+            "upper": 0.9896524676292778
+          },
+          "bonafide_accuracy": {
+            "confidence": 0.95,
+            "lower": 0.9836115504819097,
+            "upper": 0.9882151263021183
+          },
+          "spoof_accuracy": {
+            "confidence": 0.95,
+            "lower": 0.9882916724127055,
+            "upper": 0.9921317019853346
+          }
+        }
+      },
+      "dev_by_language": {
+        "ru": {
+          "loss": 0.24424757699545024,
+          "accuracy": 0.9308565531475749,
+          "correct": 902,
+          "examples": 969,
+          "bonafide_examples": 474,
+          "spoof_examples": 495,
+          "bonafide_accuracy": 0.9915611814345991,
+          "bonafide_correct": 470,
+          "spoof_accuracy": 0.8727272727272727,
+          "spoof_correct": 432,
+          "balanced_accuracy": 0.9321442270809359,
+          "confidence_intervals": {
+            "accuracy": {
+              "confidence": 0.95,
+              "lower": 0.9131226630174215,
+              "upper": 0.9451877969543511
+            },
+            "bonafide_accuracy": {
+              "confidence": 0.95,
+              "lower": 0.9785052996600713,
+              "upper": 0.9967135546228562
+            },
+            "spoof_accuracy": {
+              "confidence": 0.95,
+              "lower": 0.840469988983144,
+              "upper": 0.8992439892261832
+            }
+          }
+        },
+        "kk": {
+          "loss": 0.02084292608282682,
+          "accuracy": 0.9957805907172996,
+          "correct": 944,
+          "examples": 948,
+          "bonafide_examples": 474,
+          "spoof_examples": 474,
+          "bonafide_accuracy": 0.9915611814345991,
+          "bonafide_correct": 470,
+          "spoof_accuracy": 1.0,
+          "spoof_correct": 474,
+          "balanced_accuracy": 0.9957805907172996,
+          "confidence_intervals": {
+            "accuracy": {
+              "confidence": 0.95,
+              "lower": 0.9892014534497178,
+              "upper": 0.9983579675957102
+            },
+            "bonafide_accuracy": {
+              "confidence": 0.95,
+              "lower": 0.9785052996600713,
+              "upper": 0.9967135546228562
+            },
+            "spoof_accuracy": {
+              "confidence": 0.95,
+              "lower": 0.9919608088628918,
+              "upper": 0.9999999999999999
+            }
+          }
+        }
+      },
+      "macro_language_dev_loss": 0.13254525153913854,
+      "checkpoint_selected": false
+    }
+  ],
+  "cuda_memory": {
+    "peak_allocated_bytes": 2931218944,
+    "peak_reserved_bytes": 3210739712
+  },
+  "checkpoint_scope": "sls_head_and_final_xlsr_blocks",
+  "calibrated": false
+}

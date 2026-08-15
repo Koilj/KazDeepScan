@@ -6,7 +6,8 @@ gate завершены. Source train заморожен на `15 000` стро�
 общий QA/VAD/audio-leakage screen: `6 200` eligible и ровно `5 000` frozen (`4 × 1 250`).
 Combined balanced `20 000` train manifest уже write-once заморожен (`4 × 5 000`). Full training
 contract, его no-training preflight и one-batch tail-unfreeze capacity profile завершены; actual
-training, checkpoint selection, calibration и final inference пока не запускались.
+training завершён с hash-bound checkpoint selection; calibration и final inference пока не
+запускались.
 
 Four-route hash-pinned offline synthesis contract и resumable runner завершили все four routes:
 `7 200/7 200` raw WAV (`4 × 1 800`) без runtime reject. Общий hash-pinned audio QA/leakage gate
@@ -373,8 +374,8 @@ data в tuning, несоответствии hash или попытке повт
   assets не изменялись;
 - raw synthesis и common QA/VAD/audio-leakage завершены: `6 200` KK spoof rows eligible and
   `5 000` (`4 × 1 250`) frozen; combined train manifest содержит `20 000` rows (`4 × 5 000`);
-  full training contract и no-training preflight завершены, а training, checkpoint selection,
-  calibration и inference не запускались;
+  full training contract, no-training preflight и write-once training завершены; checkpoint
+  выбран только по macro RU/KK dev loss, а calibration и inference не запускались;
 - isolated dev-input contract выполнен на CUDA: он reuse'ит `969` PyAra dev rows, source QA
   оставил `571/600` KSC rows, Silero QA — `535/571`, и `474` KSC SLR102/Silero V4 KK pairs
   заморожены без detector feedback или backfill; combined dev содержит `1 917` rows;
@@ -382,5 +383,5 @@ data в tuning, несоответствии hash или попытке повт
 - не искались и не скачивались новые datasets/models;
 - `24 000 ready` не заявлены: подтверждена только достаточная pre-QA candidate capacity.
 
-Следующий безопасный шаг — единственный write-once training run по неизменяемому full contract.
-Calibration и final по-прежнему запрещены отдельными будущими contracts.
+Следующий безопасный шаг — отдельный calibration-input/contract gate с новой isolation audit.
+Calibration и final по-прежнему запрещены без future versioned contracts.

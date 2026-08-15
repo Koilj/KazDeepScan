@@ -1,0 +1,35 @@
+{
+  "claims": {
+    "detector_checkpoint_loading_authorized": false,
+    "detector_inference_authorized": false,
+    "final_inference_authorized": false,
+    "only_previously_unattempted_rows_authorized": true,
+    "original_contract_remains_immutable": true,
+    "recovery_selected_rows": {
+      "kk": 500,
+      "ru": 499
+    }
+  },
+  "created_at": "2026-08-15T23:00:00+06:00",
+  "failed_attempt": {
+    "failure_receipt_path": "docs/artifacts/v4/final_materialization_attempt_failure_2026-08-15.md",
+    "failure_receipt_sha256": "5e096da8af2579f754a827b8c95449dd5c9e38bf6dec69b31459c47e9fcd4767",
+    "plan_path": "configs/research/v4/xlsr_sls_model_v4_final_materialization_v1.json",
+    "plan_sha256": "9d471f8e961a530a209fa2652344a0c12d4dfc28c03b4c28f5e14bd4bac2088a",
+    "qwen_journal_path": "artifacts/v4/xlsr_sls_model_v4_final_materialization_v1/ru_qwen_one_shot.jsonl",
+    "qwen_journal_sha256": "7ad051fff0d79b084b26274521c34aa6636c21d64d021cd38482b41961e91315"
+  },
+  "irrecoverable_reject": {
+    "language": "ru",
+    "replacement_or_backfill_forbidden": true,
+    "resynthesis_forbidden": true,
+    "sample_id": "common_voice_ru_v24:common_voice_ru_33348952",
+    "selection_rank": 1,
+    "synthesis_text_sha256": "3c6fd2b8ea62d0109e47d1fec6cc1e9850e24af4ad905e2ca434f66b22be5f68",
+    "text_hash": "3c6fd2b8ea62d0109e47d1fec6cc1e9850e24af4ad905e2ca434f66b22be5f68",
+    "text_id": "781b078590159ed47279c8bea9efaa30534e90b93f2a4c15d175126bd97d0b10"
+  },
+  "protocol_id": "xlsr-sls-model-v4-final-recovery-authorization-v1",
+  "schema_version": 1,
+  "status": "rank_one_irrecoverable_reject_recovery_authorized"
+}

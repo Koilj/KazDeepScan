@@ -77,8 +77,11 @@ training run уже завершён; его checkpoint нельзя повто�
 исключил все ранее inferred Qwen/VoxForge и FLEURS/KazakhTTS exact assets; final по-прежнему
 требует отдельные immutable materialization/evaluation contracts. Первый metadata-only
 [final-input contract](docs/artifacts/v4/v4_final_inputs_contract_2026-08-15.md) уже заморозил
-`500+500` source text groups без extraction, synthesis, checkpoint или detector; следующий
-materialization/evaluation contract остаётся обязательным.
+`500+500` source text groups без extraction, synthesis, checkpoint или detector. Отдельный
+[final materialization/review contract](docs/artifacts/v4/final_materialization_contract_2026-08-15.md)
+готов и разрешает только one-shot extraction/synthesis, QA/VAD, current-history isolation,
+две независимые review-form и последующий pair lock; run ещё не начинался. Final inference
+остаётся запрещённым.
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2

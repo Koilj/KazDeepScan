@@ -46,9 +46,10 @@ hash-bind-ит selected checkpoint и эти pairs для одного temperatu
 claim об улучшении модели. Read-only [аудит готовности final](docs/artifacts/v4/v4_final_readiness_2026-08-15.md)
 исключил все ранее inferred exact assets; final inference не запускался и потребует нового
 immutable input/materialization contract. Такой [metadata-only contract](docs/artifacts/v4/v4_final_inputs_contract_2026-08-15.md)
-завершил current-history selection `500+500` fresh source text groups без audio/model operations;
-[materialization и final inference](docs/artifacts/v4/v4_final_inputs_selection_2026-08-15.md)
-ещё не выполнялись.
+завершил current-history selection `500+500` fresh source text groups без audio/model operations.
+Отдельный [materialization/review contract](docs/artifacts/v4/final_materialization_contract_2026-08-15.md)
+теперь разрешает только one-shot extraction/synthesis, QA/VAD, isolation, два независимых review
+и pair lock для этих rows; он ещё не запускался. Final inference по-прежнему запрещён.
 Historical VoxForge text overlap раскрыт, но v4 train/dev sample/text/group intersections равны
 нулю; speaker independence не заявлена.
 Isolated dev-input contract уже выполнен: historical PyAra dev (`969` rows) и `474` frozen
@@ -74,7 +75,8 @@ KSC SLR102/Silero V4 KK pairs образуют `1 917` dev rows. Среди `600
 [calibration-input gate](docs/artifacts/v4/calibration_inputs_2026-08-15.md) и
 [calibration materialization/isolation](docs/artifacts/v4/calibration_materialization_2026-08-15.md) и
 [RU calibration contract](docs/artifacts/v4/v4_ru_calibration_contract_2026-08-15.md) и
-[RU calibration report](docs/artifacts/v4/xlsr_sls_model_v4_ru_calibration_v1.json).
+[RU calibration report](docs/artifacts/v4/xlsr_sls_model_v4_ru_calibration_v1.json) и
+[final materialization/review contract](docs/artifacts/v4/final_materialization_contract_2026-08-15.md).
 
 Быстрый старт из clone:
 

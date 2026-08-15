@@ -398,10 +398,12 @@ data в tuning, несоответствии hash или попытке повт
 
 Explicit rights/ledger decision теперь versioned отдельно от materialization ledger и разрешает
 только research-only RU temperature fitting. Required no-logit preflight and exactly one execution
-нового checkpoint-scoring-and-calibration contract завершены на `73` frozen pairs. Следующий
-безопасный шаг — отдельный immutable final-input/evaluation contract. Read-only
+нового checkpoint-scoring-and-calibration contract завершены на `73` frozen pairs. Read-only
 [final-readiness audit](artifacts/v4/v4_final_readiness_2026-08-15.md) уже исключил прежние
 inferred Qwen/VoxForge и FLEURS/KazakhTTS assets. Первый
 [metadata-only final-input contract](artifacts/v4/v4_final_inputs_contract_2026-08-15.md)
-завершил selection `500` RU + `500` KK source text groups без audio/model operations; final
-по-прежнему запрещён до materialization, isolation, rights and lock-before-logits gates.
+завершил selection `500` RU + `500` KK source text groups без audio/model operations. Следующий
+[final materialization/review contract](artifacts/v4/final_materialization_contract_2026-08-15.md)
+подготовлен, но не выполнен: он разрешает только one-shot extraction/synthesis этих exact rows,
+QA/VAD, current-history isolation, две независимые review forms и pair lock. Final по-прежнему
+запрещён до отдельного future no-logit/evaluation contract.

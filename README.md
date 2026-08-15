@@ -65,7 +65,10 @@ ranks `272`/`310` и один remaining 227-row KK pass; его read-only
 outputs. Единственная salvage one-shot генерация затем создала `227/227` KK WAV и complete
 decode QA для `1 994` assets, но fail-closed publication остановилась на непарных ready assets;
 [failure receipt](docs/artifacts/v4/final_salvage_materialization_attempt_failure_2026-08-16.md)
-требует отдельного read-only reconciliation contract. Final inference по-прежнему запрещён.
+потребовал отдельный read-only [reconciliation contract](docs/artifacts/v4/final_reconciliation_contract_2026-08-16.md).
+Его [preflight](docs/artifacts/v4/final_reconciliation_preflight_2026-08-16.md) прошёл без
+outputs; следующий этап — publication only, затем reviews/pair lock. Final inference по-прежнему
+запрещён.
 Historical VoxForge text overlap раскрыт, но v4 train/dev sample/text/group intersections равны
 нулю; speaker independence не заявлена.
 Isolated dev-input contract уже выполнен: historical PyAra dev (`969` rows) и `474` frozen

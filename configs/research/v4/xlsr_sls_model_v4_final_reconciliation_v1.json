@@ -1,0 +1,148 @@
+{
+  "created_at": "2026-08-16T00:45:00+06:00",
+  "inputs": {
+    "calibration_source_decode_journal": {
+      "path": "artifacts/v4/xlsr_sls_model_v4_calibration_materialization_v1/source_decode_qa.jsonl",
+      "rows": null,
+      "sha256": "951f5d808462643435d185f3c2b9fc431e46f334ed348b26ed2ddaa0d18a6455"
+    },
+    "calibration_spoof_decode_journal": {
+      "path": "artifacts/v4/xlsr_sls_model_v4_calibration_materialization_v1/spoof_decode_qa.jsonl",
+      "rows": null,
+      "sha256": "7b709b6725faf788e53f267851e195ad58980eddb64525545743109549a11887"
+    },
+    "dev_source_decode_journal": {
+      "path": "artifacts/v4/xlsr_sls_model_v4_dev_inputs_v1/source_decode_qa.jsonl",
+      "rows": null,
+      "sha256": "e7fb5c32df11bef09c48f443df2c01aa301219ccc9864d1fb6dcea6bcb22db29"
+    },
+    "dev_spoof_decode_journal": {
+      "path": "artifacts/v4/xlsr_sls_model_v4_dev_inputs_v1/spoof_decode_qa.jsonl",
+      "rows": null,
+      "sha256": "182627486853b4a739fb9c02c0ed2f2f9f5e7c209aeb076b753c7dabc3ea8c25"
+    },
+    "historical_fingerprint_inventory": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_historical_audio_fingerprints_v1.csv",
+      "rows": 28400,
+      "sha256": "ff48f80b0729a8b2c40d02cf0b5f830c11d27d87380fedae6ba57264a0708e08"
+    },
+    "kazakhtts_model_lock": {
+      "path": "configs/research/kazakhtts_tacotron2_pwg_v1_models.json",
+      "rows": null,
+      "sha256": "1ee5150c1c9c5f69b33cc4a4a67148904079651830b0a144f8647af10c8cf68e"
+    },
+    "kk_source_decode_journal": {
+      "path": "artifacts/v4/xlsr_sls_model_v4_final_salvage_materialization_v1/kk_source_decode_qa.jsonl",
+      "rows": null,
+      "sha256": "aec13e8d91720317a300516e271c67667887a657141fa9ddd0e9d7564d747d83"
+    },
+    "kk_spoof_decode_inventory": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_kk_spoof_decode_qa_inventory_v1.csv",
+      "rows": 7200,
+      "sha256": "4eed7c7e3707404a182de66f90354362b3eaadd5d272194bd87bc9824387c1e7"
+    },
+    "kk_spoof_decode_journal": {
+      "path": "artifacts/v4/xlsr_sls_model_v4_final_salvage_materialization_v1/kk_spoof_decode_qa.jsonl",
+      "rows": null,
+      "sha256": "4170d72c8bb0517973e23154a875be93d5745445388800554316f3e7ad06f275"
+    },
+    "materialization_ledger": {
+      "path": "data/licenses/frozen/xlsr_sls_model_v4_final_salvage_materialization_v1.csv",
+      "rows": 4,
+      "sha256": "9570e33c2b74cbe530b18d5dc970a4783d25eca7ab899be8f8200cfbcfcb8d49"
+    },
+    "qwen_model_lock": {
+      "path": "configs/research/voxforge_ru_mdc_qwen3_tts_customvoice_aiden_v1_models.json",
+      "rows": null,
+      "sha256": "6ec1a828ad72738341a3226e73cde65ca9a87b3ee11fac43f2ca40173dd98d8d"
+    },
+    "reconciliation_module": {
+      "path": "src/kds/data/v4_final_reconciliation.py",
+      "rows": null,
+      "sha256": "e7242e4633829da90cb5498daff7c4e82d4cf2d9ed3bb4b433405c2a736a14a0"
+    },
+    "recovery_kk_journal": {
+      "path": "artifacts/v4/xlsr_sls_model_v4_final_recovery_materialization_v1/kk_kazakhtts_one_shot.jsonl",
+      "rows": null,
+      "sha256": "b7a56951618a202d4e3a6419fa4e976417d2e6b3c47592a3452929c0c060e2ff"
+    },
+    "recovery_qwen_journal": {
+      "path": "artifacts/v4/xlsr_sls_model_v4_final_recovery_materialization_v1/ru_qwen_one_shot.jsonl",
+      "rows": null,
+      "sha256": "7a1a07e68de87b3fceece714a18d2de9b271d9ce4ccc88994bbe15358aa40561"
+    },
+    "ru_source_decode_journal": {
+      "path": "artifacts/v4/xlsr_sls_model_v4_final_salvage_materialization_v1/ru_source_decode_qa.jsonl",
+      "rows": null,
+      "sha256": "72d271e96697b15dc2bcd3dddf117d569746fb11891717f9943e1f2ce93f8ad4"
+    },
+    "ru_spoof_decode_journal": {
+      "path": "artifacts/v4/xlsr_sls_model_v4_final_salvage_materialization_v1/ru_spoof_decode_qa.jsonl",
+      "rows": null,
+      "sha256": "ed1588bd6a3d4a6466ce32509db6fee6e8cbbbdd82eb82b262db8fe27abc5961"
+    },
+    "runner_script": {
+      "path": "scripts/reconcile_v4_final_inputs.py",
+      "rows": null,
+      "sha256": "3c39b2ef049300b5809c825c86f08c8bb7e9537a9dc1b357f2a4cac6cd55d88c"
+    },
+    "salvage_failure_receipt": {
+      "path": "docs/artifacts/v4/final_salvage_materialization_attempt_failure_2026-08-16.md",
+      "rows": null,
+      "sha256": "df99e6938c4327b03c97b74ab42d8941a896b25b9ccd1062aca44818bb8715c7"
+    },
+    "salvage_kk_journal": {
+      "path": "artifacts/v4/xlsr_sls_model_v4_final_salvage_materialization_v1/kk_kazakhtts_one_shot.jsonl",
+      "rows": null,
+      "sha256": "20559fc14fc3f42ff7b3b6b422a51b64a24d8dfca0305961b8505e227120eb41"
+    },
+    "salvage_plan": {
+      "path": "configs/research/v4/xlsr_sls_model_v4_final_salvage_materialization_v1.json",
+      "rows": null,
+      "sha256": "b886674e97dfe9261d6d79c88e5a9a5ba03b5f7421b2fe0bc08e47276d782f11"
+    },
+    "salvage_selection": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_final_salvage_metadata_v1.csv",
+      "rows": 997,
+      "sha256": "c5385d32f2eb138662c74741d0532292410abfccedb03d0352479a7dd590855f"
+    },
+    "source_decode_inventory": {
+      "path": "data/manifests/v4/xlsr_sls_model_v4_source_decode_qa_inventory_v1.csv",
+      "rows": 21598,
+      "sha256": "8815000a16d778a83c3d22474c24bcbba41a74f8964177d26b992b83a1af262d"
+    }
+  },
+  "outputs": {
+    "audio_inventory": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_audio_gate_inventory_v1.csv",
+    "kk_source_raw_manifest": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_kk_source_raw_v1.csv",
+    "kk_source_ready_manifest": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_kk_source_ready_v1.csv",
+    "kk_spoof_raw_manifest": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_kk_kazakhtts_raw_v1.csv",
+    "kk_spoof_ready_manifest": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_kk_kazakhtts_ready_v1.csv",
+    "materialization_receipt": "docs/artifacts/v4/xlsr_sls_model_v4_final_reconciliation_v1.json",
+    "pair_lock_manifest": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_pairs_frozen_v1.csv",
+    "pair_lock_receipt": "docs/artifacts/v4/xlsr_sls_model_v4_final_reconciliation_pair_lock_v1.json",
+    "review_packet": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_acoustic_language_packet_v1.csv",
+    "reviewer_a_template": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_acoustic_language_reviewer_a_v1.csv",
+    "reviewer_b_template": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_acoustic_language_reviewer_b_v1.csv",
+    "ru_source_raw_manifest": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_ru_source_raw_v1.csv",
+    "ru_source_ready_manifest": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_ru_source_ready_v1.csv",
+    "ru_spoof_raw_manifest": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_ru_qwen_raw_v1.csv",
+    "ru_spoof_ready_manifest": "data/manifests/v4/xlsr_sls_model_v4_final_reconciliation_ru_qwen_ready_v1.csv"
+  },
+  "prohibitions": {
+    "calibration": true,
+    "decoder_execution": true,
+    "detector_checkpoint_loading": true,
+    "detector_inference": true,
+    "final_inference": true,
+    "network_downloads": true,
+    "output_overwrite": true,
+    "pair_lock_before_two_reviews": true,
+    "replacement_or_backfill": true,
+    "resynthesis": true,
+    "source_extraction": true,
+    "synthetic_audio_generation": true
+  },
+  "protocol_id": "xlsr-sls-model-v4-final-reconciliation-v1",
+  "schema_version": 1
+}

@@ -1,0 +1,202 @@
+{
+  "assets_validated": 146,
+  "calibration": {
+    "brier_after": 0.00736946752294898,
+    "brier_before": 0.006756703369319439,
+    "ece_after": 0.012872626073658466,
+    "ece_before": 0.01674656942486763,
+    "manifest": "/home/ruslan/KazDeepScan/data/manifests/v4/xlsr_sls_model_v4_calibration_pairs_frozen_v1.csv",
+    "manifest_sha256": "a8a367549f566222690ea199955e19b51315182fe329a30dc765e24edc5b5d71",
+    "nll_after": 0.020738067105412483,
+    "nll_before": 0.02308078110218048,
+    "pairs": 73,
+    "records": 146,
+    "temperature": 0.7253568768501282,
+    "threshold_selection_performed": false
+  },
+  "calibration_scoring_performed": true,
+  "checkpoint_file_verified": true,
+  "checkpoint_loaded": true,
+  "cuda_memory": {
+    "peak_allocated_bytes": 2018130432,
+    "peak_reserved_bytes": 2178940928
+  },
+  "detector_feedback": false,
+  "environment": {
+    "bf16_supported": true,
+    "cuda_runtime": "12.8",
+    "device_name": "NVIDIA GeForce RTX 5060 Ti",
+    "device_total_memory_bytes": 16616521728,
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.14.1"
+  },
+  "execution_lock": {
+    "path": "/home/ruslan/KazDeepScan/artifacts/v4/xlsr-sls-model-v4-ru-calibration-v1.execution.json",
+    "sha256": "d626816463dae52abc282a917b4eacb5a4f338c975d2c82ef0bd2e1b855db08e"
+  },
+  "final_inference_performed": false,
+  "frozen_checkpoint": {
+    "path": "/home/ruslan/KazDeepScan/checkpoints/xlsr-sls-model-v4/xlsr-sls-model-v4-train-v1/model.pt",
+    "selected_model_state_sha256": "3cfca24a3731d3f9e3c259dcea905be07aefc4fbf2fbefa98189696df01fbe4a",
+    "sha256": "8be73165a4e6f65e966fa6d6a162fbb319d7089d1e8c1597c131e9ccb226852f"
+  },
+  "limitations": [
+    "This is personal research only, not product quality or a fraud-risk score.",
+    "Temperature was fitted only on the frozen 73 RU VoxForge/eSpeak pairs.",
+    "No threshold, epoch, model, architecture, augmentation or final asset was selected here.",
+    "The scalar is RU-only; no calibrated KK probability claim is made.",
+    "Speaker independence is not verified."
+  ],
+  "mode": "one_time_gpu_calibration",
+  "run_plan": {
+    "calibration": {
+      "expected_label_counts": {
+        "bonafide": 73,
+        "spoof": 73
+      },
+      "expected_pairs": 73,
+      "expected_rows": 146,
+      "expected_source_ids": [
+        "voxforge_ru_mdc_2026_05_v4_calibration",
+        "voxforge_ru_mdc_2026_05_v4_calibration_espeakng"
+      ],
+      "manifest": {
+        "path": "/home/ruslan/KazDeepScan/data/manifests/v4/xlsr_sls_model_v4_calibration_pairs_frozen_v1.csv",
+        "sha256": "a8a367549f566222690ea199955e19b51315182fe329a30dc765e24edc5b5d71"
+      },
+      "selected_split": "test"
+    },
+    "checkpoint": {
+      "path": "/home/ruslan/KazDeepScan/checkpoints/xlsr-sls-model-v4/xlsr-sls-model-v4-train-v1/model.pt",
+      "selected_model_state_sha256": "3cfca24a3731d3f9e3c259dcea905be07aefc4fbf2fbefa98189696df01fbe4a",
+      "sha256": "8be73165a4e6f65e966fa6d6a162fbb319d7089d1e8c1597c131e9ccb226852f"
+    },
+    "encoder": {
+      "checkpoint_dir": "/home/ruslan/KazDeepScan/models/xlsr-300m",
+      "config": {
+        "path": "/home/ruslan/KazDeepScan/models/xlsr-300m/config.json",
+        "sha256": "0bffa0d0e98153e883b828d86491f3c6062cb563dc9d7a9cfd1790da30c286ac"
+      },
+      "revision": "1a640f32ac3e39899438a2931f9924c02f080a54",
+      "weights": {
+        "path": "/home/ruslan/KazDeepScan/models/xlsr-300m/pytorch_model.bin",
+        "sha256": "d5e490574712ad0a6736923b9ed11d4cd51c78609c36205f704fc4e87b11d2e0"
+      }
+    },
+    "evidence": {
+      "dev_manifest": {
+        "path": "/home/ruslan/KazDeepScan/data/manifests/v4/xlsr_sls_model_v4_dev_frozen_v1.csv",
+        "sha256": "30cd8808502770b9d996e7f54e28da78f25c9d107822b217ffa8b3a8e29ab554"
+      },
+      "materialization_plan": {
+        "path": "/home/ruslan/KazDeepScan/configs/research/v4/xlsr_sls_model_v4_calibration_materialization_v1.json",
+        "sha256": "1b661b6011dfed77fb80b58aa8fe56add54bf7618775f71fc3ce7a1eff2e2f4a"
+      },
+      "materialization_receipt": {
+        "path": "/home/ruslan/KazDeepScan/docs/artifacts/v4/xlsr_sls_model_v4_calibration_materialization_v1.json",
+        "sha256": "e69388ccbcc85901bda0da60d3e65fcab7b8a721b2bc9f57c275442469cd681f"
+      },
+      "train_manifest": {
+        "path": "/home/ruslan/KazDeepScan/data/manifests/v4/xlsr_sls_model_v4_train_frozen_v1.csv",
+        "sha256": "6c0fdbf38e9509749e2c8c458077095c21c3f6a65ddca17e0325dc6c8d00b7ed"
+      },
+      "training_plan": {
+        "path": "/home/ruslan/KazDeepScan/configs/research/v4/xlsr_sls_model_v4_training_v1.json",
+        "sha256": "9e64c37a8007ce1c022d6e2e72e1831a9b14dc8a04c0de9fd1ffe4369b8cb908"
+      },
+      "training_receipt": {
+        "path": "/home/ruslan/KazDeepScan/docs/artifacts/v4/xlsr_sls_model_v4_training_v1.json",
+        "sha256": "e4ded7e9ebdac93249991a00511b8b788a3e8ca2fe8aaf9637c71be4773a22f9"
+      }
+    },
+    "head": {
+      "attention_size": 128,
+      "classifier_size": 256,
+      "dropout": 0.2
+    },
+    "implementation": [
+      {
+        "path": "/home/ruslan/KazDeepScan/scripts/run_v4_calibration.py",
+        "sha256": "68e879545d457c22944a92e4b462b1bfe49cc819d537327962a63ef9aeb383ed"
+      },
+      {
+        "path": "/home/ruslan/KazDeepScan/src/kds/eval/v4_calibration.py",
+        "sha256": "3ed1c6ba02601bab85b41d8f2d2547f807465172065afb49982ab46650c69def"
+      },
+      {
+        "path": "/home/ruslan/KazDeepScan/src/kds/eval/calibration.py",
+        "sha256": "bf34382fc5ecff15a7b7f1cba414b79ba13c29d3ffdcc6173369689d912c5b55"
+      },
+      {
+        "path": "/home/ruslan/KazDeepScan/src/kds/models/xlsr_sls.py",
+        "sha256": "470c213fee423a7aa895f882fe3618c8d1597e30e7f95b0cef697ed614d430b8"
+      },
+      {
+        "path": "/home/ruslan/KazDeepScan/src/kds/data/dataset.py",
+        "sha256": "1fb4b89c2b018d939206b31d509e4105a626c37045f718deb8d8565814afc243"
+      },
+      {
+        "path": "/home/ruslan/KazDeepScan/src/kds/data/assets.py",
+        "sha256": "b3a27d67596dd2e6aa70ac0aa54cf61fc0c967c1386e67888c5f89e123e4dba9"
+      },
+      {
+        "path": "/home/ruslan/KazDeepScan/src/kds/data/licenses.py",
+        "sha256": "35ba1184671e4896cc1af3a8612874caf716c4706444b496e8997f09b71aace7"
+      },
+      {
+        "path": "/home/ruslan/KazDeepScan/src/kds/data/manifest.py",
+        "sha256": "f1b709fc06cd9b465217afd62b80e5519bb9f24513da195326d4670a27fc61f8"
+      },
+      {
+        "path": "/home/ruslan/KazDeepScan/src/kds/training/frozen_b0.py",
+        "sha256": "e9cc8cf0a7f3046596ad7f921c3b305dc7a096b0dfb233039558671615f49861"
+      }
+    ],
+    "inference": {
+      "batch_size": 8,
+      "device": "cuda",
+      "num_workers": 0,
+      "precision": "bf16",
+      "sample_rate": 16000,
+      "temperature_max_iter": 50,
+      "window_samples": 64600
+    },
+    "license_ledger": {
+      "path": "/home/ruslan/KazDeepScan/data/licenses/frozen/xlsr_sls_model_v4_calibration_v1.csv",
+      "sha256": "853259916351b3ca8a4e2524c3aa1d0a7684dea461a5e48828e2cffa90f438d5"
+    },
+    "outputs": {
+      "execution_lock": "/home/ruslan/KazDeepScan/artifacts/v4/xlsr-sls-model-v4-ru-calibration-v1.execution.json",
+      "preflight": "/home/ruslan/KazDeepScan/artifacts/v4/xlsr-sls-model-v4-ru-calibration-v1.preflight.json",
+      "report": "/home/ruslan/KazDeepScan/docs/artifacts/v4/xlsr_sls_model_v4_ru_calibration_v1.json"
+    },
+    "plan_path": "/home/ruslan/KazDeepScan/configs/research/v4/xlsr_sls_model_v4_ru_calibration_v1.json",
+    "plan_sha256": "b5565befcc0619d40cc465962c14787aff1a333b4b0389acce98c24729e554f5",
+    "protocol": {
+      "calibration": "temperature_scaling_only_on_frozen_ru_pairs",
+      "calibration_language_scope": "ru_only",
+      "checkpoint_mutation": "prohibited",
+      "checkpoint_selection": "already_fixed_to_v4_macro_ru_kk_dev_loss",
+      "detector_feedback": "prohibited",
+      "final_inference": "prohibited",
+      "kind": "one_time_ru_temperature_calibration_after_pair_lock",
+      "pair_mutation_or_backfill": "prohibited",
+      "purpose": "personal_research_only",
+      "threshold_selection": "prohibited"
+    },
+    "protocol_id": "xlsr-sls-model-v4-ru-calibration-v1",
+    "purpose": "research",
+    "run_id": "xlsr-sls-model-v4-ru-calibration-v1",
+    "runtime": {
+      "cuda_runtime": "12.8",
+      "python_version": "3.13.15",
+      "torch_version": "2.11.0+cu128",
+      "transformers_version": "5.14.1"
+    },
+    "schema_version": 1
+  },
+  "status": "ok",
+  "temperature_fitted": true,
+  "threshold_selection_performed": false
+}

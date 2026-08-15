@@ -43,9 +43,11 @@ materialization/audio-isolation contract извлёк `81` source WAV, retained 
 synthetic rejects — `insufficient_speech`, без replacement/backfill. Новый RU calibration
 contract отдельно hash-bind-ит эти `146` assets, selected checkpoint и narrow research-only
 ledger для one-time temperature fitting. Его no-logit preflight проверил все `146` assets,
-checkpoint SHA и CUDA/BF16; calibration run ещё не выполнялся. Current-history screen
-охватил `84,605` unique hashes (`84,213` fingerprinted, `392` ML-DF exact-only). Checkpoint,
-calibration и новый final не запускались; speaker independence не заявлена. Детали:
+checkpoint SHA и CUDA/BF16, после чего единственный run fit-нул RU temperature `0.72535688`.
+NLL/ECE уменьшились, Brier вырос — это смешанный calibration diagnostic, не final/product claim.
+Final inference не выполнялся. Current-history screen
+охватил `84,605` unique hashes (`84,213` fingerprinted, `392` ML-DF exact-only). Новый final не
+запускался; speaker independence не заявлена. Детали:
 Isolated dev-input contract выполнен на CUDA: PyAra `969` rows и `474` frozen KSC
 SLR102/Silero V4 pairs образуют combined dev `1 917` rows. Из `600` KSC candidates QA оставил
 `571` source и `535` spoof rows; target достигнут только по predeclared reserve. Historical и
@@ -68,9 +70,10 @@ training run уже завершён; его checkpoint нельзя повто�
 [full training contract](docs/artifacts/v4/v4_training_contract_2026-08-15.md) и
 [calibration-input gate](docs/artifacts/v4/calibration_inputs_2026-08-15.md) и
 [calibration materialization/isolation](docs/artifacts/v4/calibration_materialization_2026-08-15.md) и
-[RU calibration contract](docs/artifacts/v4/v4_ru_calibration_contract_2026-08-15.md).
+[RU calibration contract](docs/artifacts/v4/v4_ru_calibration_contract_2026-08-15.md) и
+[RU calibration report](docs/artifacts/v4/xlsr_sls_model_v4_ru_calibration_v1.json).
 Новый frozen calibration ledger разрешает только один research-only RU temperature-fitting run;
-его write-once no-logit preflight уже пройден, final по-прежнему требует отдельный contract.
+он уже завершён, final по-прежнему требует отдельный immutable input/evaluation contract.
 v3 использовал изолированные train / Stage-A dev / Stage-B dev / calibration roles, симметричную
 train-only augmentation, выбрал Stage-A epoch 3 и Stage-B epoch 4 только по dev loss, затем
 провёл один final GPU run на неизменяемых 55 Common Voice/Dialog-RU парах. Stage-D v2

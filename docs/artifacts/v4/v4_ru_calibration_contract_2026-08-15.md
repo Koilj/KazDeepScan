@@ -59,3 +59,22 @@ Preflight теперь навсегда открывает единственн�
 hash-verified selected checkpoint, score-ит ровно 146 frozen RU assets и fit-ит единственный
 temperature scalar; execution lock будет создан до первого logit. Нельзя повторять preflight,
 менять assets/contract или запускать final inference.
+
+## One-time calibration execution
+
+Execution lock создан до загрузки checkpoint:
+`artifacts/v4/xlsr-sls-model-v4-ru-calibration-v1.execution.json`, SHA-256
+`d626816463dae52abc282a917b4eacb5a4f338c975d2c82ef0bd2e1b855db08e`.
+Versioned machine report:
+[`xlsr_sls_model_v4_ru_calibration_v1.json`](xlsr_sls_model_v4_ru_calibration_v1.json), SHA-256
+`3a8bffe16f7aafad2713ace468f0cea23188bcdeb905864179a22505647d73c1`.
+
+Он строго загрузил selected epoch-2 state, вычислил ровно один logit на каждом из `146` frozen
+assets и fit-нул scalar `temperature = 0.7253568769` только на этих `73` complete RU pairs.
+NLL уменьшился с `0.02308078` до `0.02073807`, ECE (15 bins) — с `0.01674657` до `0.01287263`,
+но Brier вырос с `0.00675670` до `0.00736947`. Поэтому результат — смешанный calibration
+diagnostic, не безусловное улучшение и не качество final/product модели.
+
+Execution не выбирал threshold, epoch, checkpoint, архитектуру, augmentation или assets. Final
+inference и detector feedback остаются `false`; scalar применим только если отдельный immutable
+final contract явно hash-bind-ит этот report и не изменяет final set.

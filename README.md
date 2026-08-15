@@ -40,9 +40,10 @@ VoxForge exact source identities с `81` новыми contributor groups и pinn
 retained `79` source-ready, created exactly `79` text-only eSpeak WAV and froze `73` exact RU
 pairs after QA/VAD and full current-history exact/near-audio screen. Новый
 [RU calibration contract](docs/artifacts/v4/v4_ru_calibration_contract_2026-08-15.md) уже
-hash-bind-ит selected checkpoint и эти pairs для одного temperature-only run. Его write-once
-no-logit preflight прошёл для всех `146` assets и checkpoint SHA; checkpoint loading, calibration,
-temperature fitting и final inference ещё не запускались.
+hash-bind-ит selected checkpoint и эти pairs для одного temperature-only run. Write-once preflight
+проверил все `146` assets и checkpoint SHA, после чего единственный run fit-нул RU temperature
+`0.72535688`: NLL/ECE улучшились, Brier вырос, поэтому это смешанный calibration diagnostic, а не
+claim об улучшении модели. Final inference не запускался.
 Historical VoxForge text overlap раскрыт, но v4 train/dev sample/text/group intersections равны
 нулю; speaker independence не заявлена.
 Isolated dev-input contract уже выполнен: historical PyAra dev (`969` rows) и `474` frozen
@@ -67,7 +68,8 @@ KSC SLR102/Silero V4 KK pairs образуют `1 917` dev rows. Среди `600
 [full training contract](docs/artifacts/v4/v4_training_contract_2026-08-15.md) и
 [calibration-input gate](docs/artifacts/v4/calibration_inputs_2026-08-15.md) и
 [calibration materialization/isolation](docs/artifacts/v4/calibration_materialization_2026-08-15.md) и
-[RU calibration contract](docs/artifacts/v4/v4_ru_calibration_contract_2026-08-15.md).
+[RU calibration contract](docs/artifacts/v4/v4_ru_calibration_contract_2026-08-15.md) и
+[RU calibration report](docs/artifacts/v4/xlsr_sls_model_v4_ru_calibration_v1.json).
 
 Быстрый старт из clone:
 

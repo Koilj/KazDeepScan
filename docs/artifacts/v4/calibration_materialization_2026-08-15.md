@@ -59,6 +59,7 @@ namespaces; they are bound by the manifests and are not added to Git or release.
 Требуемый rights/ledger decision позднее оформлен отдельно в
 [RU calibration contract](v4_ru_calibration_contract_2026-08-15.md): он не изменяет этот
 materialization ledger, а narrowly разрешает один research-only RU checkpoint-scoring и
-temperature-fitting run. Его write-once no-logit preflight уже прошёл. Сейчас всё ещё запрещены
-final inference, detector feedback и любая повторная materialization/synthesis; следующим может
-быть только один calibration execution.
+temperature-fitting run. Его write-once no-logit preflight и one-time execution завершены;
+temperature `0.72535688` записана отдельным receipt. Сейчас всё ещё запрещены final inference,
+detector feedback и любая повторная materialization/synthesis; следующий этап требует отдельный
+final-input/evaluation contract.

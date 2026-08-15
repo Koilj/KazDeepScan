@@ -359,7 +359,7 @@ cleanup выполняется отдельным docs-only этапом до v4
 | E. Train/dev selection | new checkpoint, report, hashes | Checkpoint выбран только по dev |
 | F0. Calibration metadata inputs | fresh source identities, isolation receipt | 81 fresh VoxForge identities/groups frozen; prior historical text overlap disclosed |
 | F0.5. Calibration materialization/isolation | raw/ready manifests, audio gate, 73-pair lock | Exact source/eSpeak bindings, QA/VAD and full-history exact/near gate passed; separate RU calibration contract now permits only one write-once scoring/temperature run |
-| F. Calibration | calibration receipt | Final не читался; claims соответствуют RU/KK coverage |
+| F. Calibration | RU temperature receipt | One write-once 73-pair RU-only fit completed; no final read, no KK probability claim |
 | G. Final preflight/reviews | immutable plan и no-logit lock | Все exact assets/reviews/leakage gates прошли |
 | H. One-shot final | execution lock, report, model card | Один run; никаких post-final изменений |
 
@@ -378,7 +378,8 @@ data в tuning, несоответствии hash или попытке повт
 - raw synthesis и common QA/VAD/audio-leakage завершены: `6 200` KK spoof rows eligible and
   `5 000` (`4 × 1 250`) frozen; combined train manifest содержит `20 000` rows (`4 × 5 000`);
   full training contract, no-training preflight и write-once training завершены; checkpoint
-  выбран только по macro RU/KK dev loss, а calibration и inference не запускались;
+  выбран только по macro RU/KK dev loss, RU-only calibration также завершена, а final inference
+  не запускался;
 - isolated dev-input contract выполнен на CUDA: он reuse'ит `969` PyAra dev rows, source QA
   оставил `571/600` KSC rows, Silero QA — `535/571`, и `474` KSC SLR102/Silero V4 KK pairs
   заморожены без detector feedback или backfill; combined dev содержит `1 917` rows;
@@ -389,14 +390,14 @@ data в tuning, несоответствии hash или попытке повт
   retained `79` source-ready, generated exactly `79` one-shot eSpeak WAV and froze `73` exact RU
   pairs after QA/VAD/full-current-history exact/near screen. A separate RU calibration contract
   now binds this pair lock, a narrow research-only fitting ledger and the selected checkpoint;
-  its write-once no-logit preflight passed, while checkpoint loading, calibration and final
-  inference still did not occur;
+  its write-once no-logit preflight and one calibration run completed: temperature is
+  `0.72535688`, NLL/ECE decreased and Brier increased; final inference did not occur;
 - не изменены v1/v2/v3 и существующие immutable receipts;
 - не искались и не скачивались новые datasets/models;
 - `24 000 ready` не заявлены: подтверждена только достаточная pre-QA candidate capacity.
 
 Explicit rights/ledger decision теперь versioned отдельно от materialization ledger и разрешает
-только research-only RU temperature fitting. Required no-logit preflight нового
-checkpoint-scoring-and-calibration contract прошёл на `73` frozen pairs. Следующий безопасный шаг
-— ровно один calibration execution; final по-прежнему запрещён до отдельного future versioned
-contract.
+только research-only RU temperature fitting. Required no-logit preflight and exactly one execution
+нового checkpoint-scoring-and-calibration contract завершены на `73` frozen pairs. Следующий
+безопасный шаг — отдельный immutable final-input/evaluation contract; final по-прежнему запрещён
+до его isolation, rights and lock-before-logits gates.

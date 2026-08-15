@@ -49,5 +49,5 @@ synthesis, decode/QA/VAD and exact/near-audio leakage gate, затем complete 
 temperature fitting, calibration, final inference и detector feedback остаются запрещены в рамках
 этого metadata-only gate. Его required materialization/audio-isolation gate завершён позднее, а
 отдельный [RU calibration contract](v4_ru_calibration_contract_2026-08-15.md) теперь допускает
-только один temperature-only run; его собственный no-logit preflight уже завершён. Final inference
-и feedback по-прежнему запрещены.
+только один temperature-only run; его собственные no-logit preflight и execution уже завершены.
+Final inference и feedback по-прежнему запрещены до отдельного future contract.
